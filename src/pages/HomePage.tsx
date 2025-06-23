@@ -62,7 +62,7 @@ const cursosPrivados = [
   }
 ];
 
-// Datos del equipo docente
+// Datos del equipo docente - AMPLIADO con todos los profesores
 const equipoDocente = [
   {
     id: 1,
@@ -87,6 +87,30 @@ const equipoDocente = [
     nombre: "Sara Jaquete",
     especialidad: "Veterinaria",
     imagen: "/images/profesores/sara.jpg"
+  },
+  {
+    id: 5,
+    nombre: "Lali Hernández",
+    especialidad: "Inglés",
+    imagen: "/images/profesores/cecilia.jpg"
+  },
+  {
+    id: 6,
+    nombre: "Goretti Valdés",
+    especialidad: "Farmacia",
+    imagen: "/images/profesores/goreti.jpg"
+  },
+  {
+    id: 7,
+    nombre: "Luis J. González",
+    especialidad: "Medicina Estética",
+    imagen: "/images/profesores/luis.jpg"
+  },
+  {
+    id: 8,
+    nombre: "Esther González",
+    especialidad: "Medicina Estética",
+    imagen: "/images/profesores/esther.jpg"
   }
 ];
 
@@ -165,22 +189,22 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="text-white" size={32} />
               </div>
-              <h3 className="text-xl font-bold text-purple-900 mb-2">PROFESORES CUALIFICADOS</h3>
+              <h3 className="text-xl font-bold text-cep-primary mb-2">PROFESORES CUALIFICADOS</h3>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="text-white" size={32} />
               </div>
-              <h3 className="text-xl font-bold text-purple-900 mb-2">CURSOS PROFESIONALES</h3>
+              <h3 className="text-xl font-bold text-cep-primary mb-2">CURSOS PROFESIONALES</h3>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <TrendingUp className="text-white" size={32} />
               </div>
-              <h3 className="text-xl font-bold text-purple-900 mb-2">RÁPIDA SALIDA LABORAL</h3>
+              <h3 className="text-xl font-bold text-cep-primary mb-2">RÁPIDA SALIDA LABORAL</h3>
             </div>
           </div>
         </div>
@@ -191,16 +215,16 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-purple-800 mb-4">AGENCIA DE COLOCACIÓN</h2>
+              <h2 className="text-3xl font-bold text-cep-primary mb-4">AGENCIA DE COLOCACIÓN</h2>
               <p className="text-gray-600 mb-6">Ofrecemos un servicio para demandantes de empleo.</p>
-              <button className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
                 Ir a la Agencia
               </button>
             </div>
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-purple-800 mb-4">PRÓXIMOS INICIOS</h2>
+              <h2 className="text-3xl font-bold text-cep-primary mb-4">PRÓXIMOS INICIOS</h2>
               <p className="text-gray-600 mb-6">Infórmate sobre los horarios e inicios de nuestros cursos privados.</p>
-              <button className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
                 PRÓXIMOS INICIOS
               </button>
             </div>
@@ -218,10 +242,10 @@ const HomePage: React.FC = () => {
               className="mx-auto mb-8 rounded-lg shadow-lg max-w-md w-full"
             />
             <div className="flex justify-center space-x-8">
-              <button className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
                 TRABAJADORES/AS DESEMPLEADOS/AS
               </button>
-              <button className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
                 TRABAJADORES/AS OCUPADOS/AS
               </button>
             </div>
@@ -234,7 +258,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="p-6">
-              <h3 className="text-2xl font-bold text-purple-900 mb-4">Próximos Cursos</h3>
+              <h3 className="text-2xl font-bold text-cep-primary mb-4">Próximos Cursos</h3>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
@@ -279,7 +303,7 @@ const HomePage: React.FC = () => {
       {/* Nuestros Cursos Privados */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-purple-900 text-center mb-12">NUESTROS CURSOS PRIVADOS</h2>
+          <h2 className="text-3xl font-bold text-cep-primary text-center mb-12">NUESTROS CURSOS PRIVADOS</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {cursosPrivados.map((curso) => (
               <div key={curso.id} className="relative group overflow-hidden rounded-lg shadow-lg">
@@ -295,7 +319,7 @@ const HomePage: React.FC = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <button className="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+            <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
               VER TODOS LOS CURSOS
             </button>
           </div>
@@ -307,20 +331,22 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-purple-900 mb-6">CONÓCENOS</h2>
+              <h2 className="text-3xl font-bold text-cep-primary mb-6">CONÓCENOS</h2>
               <p className="text-gray-600 mb-6">
                 CEP Santa Cruz es una empresa familiar rodeada de un magnifico equipo de profesionales. 
                 Llevamos en el ADN la enseñanza, somos la séptima generación dedicada a la docencia. 
                 También colaboramos con éxito con el servicio y asistimos regularmente a seminarios de formación.
               </p>
-              <button className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+              <button className="bg-cep-primary text-white px-6 py-2 rounded-lg hover:bg-cep-primary-dark transition-colors">
                 Saber más
               </button>
             </div>
             <div className="text-center">
-              <div className="bg-gray-300 h-64 rounded-lg flex items-center justify-center">
-                <span className="text-gray-500">Video Preview</span>
-              </div>
+              <img 
+                src="/images/video-preview.jpg" 
+                alt="Vista previa del video" 
+                className="w-full h-64 rounded-lg object-cover shadow-lg"
+              />
             </div>
           </div>
         </div>
@@ -337,8 +363,9 @@ const HomePage: React.FC = () => {
                   alt={profesor.nombre}
                   className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                 />
-                <h3 className="text-lg font-bold text-purple-900">{profesor.nombre}</h3>
+                <h3 className="text-lg font-bold text-cep-primary">{profesor.nombre}</h3>
                 <p className="text-gray-600">{profesor.especialidad}</p>
+                <p className="text-sm text-gray-500">Cursos Tenerife</p>
               </div>
             ))}
           </div>
@@ -348,7 +375,7 @@ const HomePage: React.FC = () => {
       {/* Colaboradores y ONGs - simplificado */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-purple-900 text-center mb-8">
+          <h2 className="text-2xl font-bold text-cep-primary text-center mb-8">
             Agradecemos la buena relación y profesionalidad de nuestros colaboradores
           </h2>
           <div className="text-center">
@@ -361,10 +388,10 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 bg-purple-600">
+      <section className="py-16 bg-cep-primary">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">¿NECESITAS MÁS INFORMACIÓN?</h2>
-          <button className="bg-white text-purple-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-bold">
+          <button className="bg-white text-cep-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-bold">
             CONTÁCTANOS
           </button>
         </div>

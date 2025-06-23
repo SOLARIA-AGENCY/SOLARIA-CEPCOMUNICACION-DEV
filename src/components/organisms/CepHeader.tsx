@@ -8,7 +8,7 @@ const CepHeader: React.FC = () => {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-purple-900 text-white py-2">
+      <div className="bg-cep-primary text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
             <div className="flex items-center space-x-4 mb-2 sm:mb-0">
@@ -22,13 +22,13 @@ const CepHeader: React.FC = () => {
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <a href="#" className="hover:text-purple-200 transition-colors">
+              <a href="https://www.facebook.com/cepsantacruz/" className="hover:text-pink-200 transition-colors">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="hover:text-purple-200 transition-colors">
+              <a href="https://www.instagram.com/cep_formacion/" className="hover:text-pink-200 transition-colors">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="hover:text-purple-200 transition-colors">
+              <a href="#" className="hover:text-pink-200 transition-colors">
                 <Youtube className="w-4 h-4" />
               </a>
             </div>
@@ -53,12 +53,12 @@ const CepHeader: React.FC = () => {
             <nav className="hidden md:flex items-center space-x-8">
               <Link 
                 to="/" 
-                className="text-gray-700 hover:text-purple-900 font-medium transition-colors"
+                className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
               >
                 INICIO
               </Link>
               <div className="relative group">
-                <button className="text-gray-700 hover:text-purple-900 font-medium transition-colors flex items-center">
+                <button className="text-gray-700 hover:text-cep-primary font-medium transition-colors flex items-center">
                   CURSOS
                   <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -66,13 +66,13 @@ const CepHeader: React.FC = () => {
                 </button>
                 <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="py-2">
-                    <Link to="/cursos/desempleados" className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900">
+                    <Link to="/cursos/desempleados" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-cep-primary">
                       PARA DESEMPLEADOS
                     </Link>
-                    <Link to="/cursos/trabajadores" className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900">
+                    <Link to="/cursos/trabajadores" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-cep-primary">
                       PARA TRABAJADORES
                     </Link>
-                    <Link to="/cursos/privados" className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900">
+                    <Link to="/cursos/privados" className="block px-4 py-2 text-sm text-gray-700 hover:bg-pink-50 hover:text-cep-primary">
                       PRIVADOS
                     </Link>
                   </div>
@@ -80,13 +80,13 @@ const CepHeader: React.FC = () => {
               </div>
               <Link 
                 to="/quienes-somos" 
-                className="text-gray-700 hover:text-purple-900 font-medium transition-colors"
+                className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
               >
                 QUIENES SOMOS
               </Link>
               <Link 
                 to="/contacto" 
-                className="text-gray-700 hover:text-purple-900 font-medium transition-colors"
+                className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
               >
                 CONTACTO
               </Link>
@@ -95,7 +95,7 @@ const CepHeader: React.FC = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-purple-900 hover:bg-gray-100 transition-colors"
+              className="md:hidden p-2 rounded-md text-gray-700 hover:text-cep-primary hover:bg-gray-100 transition-colors"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -107,7 +107,7 @@ const CepHeader: React.FC = () => {
               <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
                 <Link
                   to="/"
-                  className="block px-3 py-2 text-gray-700 hover:text-purple-900 hover:bg-gray-50 rounded-md transition-colors"
+                  className="block px-3 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   INICIO
@@ -117,21 +117,21 @@ const CepHeader: React.FC = () => {
                   <div className="ml-4 space-y-1">
                     <Link
                       to="/cursos/desempleados"
-                      className="block px-3 py-1 text-sm text-gray-600 hover:text-purple-900 hover:bg-gray-50 rounded-md transition-colors"
+                      className="block px-3 py-1 text-sm text-gray-600 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       PARA DESEMPLEADOS
                     </Link>
                     <Link
                       to="/cursos/trabajadores"
-                      className="block px-3 py-1 text-sm text-gray-600 hover:text-purple-900 hover:bg-gray-50 rounded-md transition-colors"
+                      className="block px-3 py-1 text-sm text-gray-600 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       PARA TRABAJADORES
                     </Link>
                     <Link
                       to="/cursos/privados"
-                      className="block px-3 py-1 text-sm text-gray-600 hover:text-purple-900 hover:bg-gray-50 rounded-md transition-colors"
+                      className="block px-3 py-1 text-sm text-gray-600 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       PRIVADOS
@@ -140,14 +140,14 @@ const CepHeader: React.FC = () => {
                 </div>
                 <Link
                   to="/quienes-somos"
-                  className="block px-3 py-2 text-gray-700 hover:text-purple-900 hover:bg-gray-50 rounded-md transition-colors"
+                  className="block px-3 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   QUIENES SOMOS
                 </Link>
                 <Link
                   to="/contacto"
-                  className="block px-3 py-2 text-gray-700 hover:text-purple-900 hover:bg-gray-50 rounded-md transition-colors"
+                  className="block px-3 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   CONTACTO

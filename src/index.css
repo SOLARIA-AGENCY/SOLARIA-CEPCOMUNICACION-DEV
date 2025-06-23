@@ -2,11 +2,55 @@
 
 @theme {
   --font-family-montserrat: "Montserrat", sans-serif;
+  
+  /* Colores personalizados CEP */
+  --color-cep-primary: #f2014b;
+  --color-cep-primary-dark: #d0013f;
+  --color-cep-primary-light: #ff4d80;
+  --color-cep-primary-50: #fef1f4;
+  --color-cep-primary-100: #fde2e8;
+  --color-cep-primary-200: #fbc5d2;
+  --color-cep-primary-300: #f8a8bc;
+  --color-cep-primary-400: #f58ba6;
+  --color-cep-primary-500: #f2014b;
+  --color-cep-primary-600: #d0013f;
+  --color-cep-primary-700: #ae0133;
+  --color-cep-primary-800: #8c0127;
+  --color-cep-primary-900: #6a011b;
 }
 
 @layer base {
   html {
     font-family: var(--font-family-montserrat);
+  }
+  
+  :root {
+    --cep-primary: #f2014b;
+    --cep-primary-dark: #d0013f;
+    --cep-primary-light: #ff4d80;
+  }
+}
+
+/* Clases utilitarias para el color CEP */
+@layer utilities {
+  .bg-cep-primary {
+    background-color: var(--cep-primary);
+  }
+  
+  .text-cep-primary {
+    color: var(--cep-primary);
+  }
+  
+  .border-cep-primary {
+    border-color: var(--cep-primary);
+  }
+  
+  .hover\:bg-cep-primary-dark:hover {
+    background-color: var(--cep-primary-dark);
+  }
+  
+  .hover\:text-cep-primary:hover {
+    color: var(--cep-primary);
   }
 }
 
