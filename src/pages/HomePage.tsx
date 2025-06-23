@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Users, Award, TrendingUp, ExternalLink } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
+import { Link } from 'react-router-dom';
 
 // Datos para los slides del hero - solo imágenes como en el original
 const heroSlides = [
@@ -19,6 +20,70 @@ const heroSlides = [
     id: 3,
     image: "/images/slideshow-2.jpg",
     alt: "Creemos en ti"
+  }
+];
+
+// Cursos de la Campaña Otoño 2025
+const cursosOtono2025 = [
+  {
+    id: 1,
+    titulo: "Adiestramiento Canino",
+    sede: "CEP Norte",
+    imagen: "/images/cursos/mundo-animal.jpg",
+    inicio: "Septiembre 2025",
+    duracion: "6 meses",
+    descripcion: "Técnicas de adiestramiento de base y educación canina nivel I",
+    link: "/adiestramiento-canino"
+  },
+  {
+    id: 2,
+    titulo: "Auxiliar Clínicas Estéticas",
+    sede: "Santa Cruz",
+    imagen: "/images/cursos/auxiliar-de.jpg",
+    inicio: "Septiembre 2025",
+    duracion: "8 meses",
+    descripcion: "Especialización en tratamientos estéticos y cuidados faciales",
+    link: "/auxiliar-clinicas-esteticas"
+  },
+  {
+    id: 3,
+    titulo: "Agente Funerario",
+    sede: "Santa Cruz",
+    imagen: "/images/cursos/especializacion-sanitaria.jpg",
+    inicio: "Septiembre 2025",
+    duracion: "4 meses",
+    descripción: "Formación integral en servicios funerarios y atención a familias",
+    link: "/agente-funerario"
+  },
+  {
+    id: 4,
+    titulo: "Auxiliar Veterinario",
+    sede: "Santa Cruz",
+    imagen: "/images/cursos/mundo-animal.jpg",
+    inicio: "Septiembre 2025",
+    duracion: "10 meses",
+    descripcion: "Asistencia en clínicas veterinarias y cuidado animal",
+    link: "/auxiliar-veterinario"
+  },
+  {
+    id: 5,
+    titulo: "Auxiliar Farmacia",
+    sede: "Santa Cruz",
+    imagen: "/images/cursos/especializacion-sanitaria.jpg",
+    inicio: "Septiembre 2025",
+    duracion: "8 meses",
+    descripcion: "Especialización en farmacología y atención farmacéutica",
+    link: "/auxiliar-farmacia"
+  },
+  {
+    id: 6,
+    titulo: "Auxiliar Odontología",
+    sede: "Santa Cruz",
+    imagen: "/images/cursos/especializacion-sanitaria.jpg",
+    inicio: "Septiembre 2025",
+    duracion: "8 meses",
+    descripcion: "Asistencia en consultas odontológicas y higiene dental",
+    link: "/auxiliar-odontologia"
   }
 ];
 
@@ -210,7 +275,7 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Agencia de Colocación / Próximos Inicios */}
+      {/* Agencia de Colocación / Formación Gratuita */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
@@ -222,10 +287,64 @@ const HomePage: React.FC = () => {
               </button>
             </div>
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-cep-primary mb-4">PRÓXIMOS INICIOS</h2>
-              <p className="text-gray-600 mb-6">Infórmate sobre los horarios e inicios de nuestros cursos privados.</p>
+              <h2 className="text-3xl font-bold text-cep-primary mb-4">FORMACIÓN GRATUITA</h2>
+              <p className="text-gray-600 mb-6">Cursos subvencionados para trabajadores y desempleados.</p>
               <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
-                PRÓXIMOS INICIOS
+                VER CURSOS GRATUITOS
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cursos Campaña Otoño 2025 */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-cep-primary mb-4">CURSOS INICIO SEPTIEMBRE 2025</h2>
+            <p className="text-xl text-gray-600 mb-2">¡ÚLTIMAS PLAZAS DISPONIBLES!</p>
+            <p className="text-lg text-cep-primary font-semibold">Reserva tu plaza ahora - Los cursos empiezan pronto</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {cursosOtono2025.map((curso) => (
+              <div key={curso.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <img
+                  src={curso.imagen}
+                  alt={curso.titulo}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
+                  <div className="space-y-2 text-sm text-gray-600 mb-4">
+                    <p><strong>Sede:</strong> {curso.sede}</p>
+                    <p><strong>Inicio:</strong> {curso.inicio}</p>
+                    <p><strong>Duración:</strong> {curso.duracion}</p>
+                  </div>
+                  <p className="text-gray-700 mb-4">{curso.descripcion}</p>
+                  {curso.link === "/adiestramiento-canino" ? (
+                    <Link 
+                      to={curso.link}
+                      className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block"
+                    >
+                      VER CURSO COMPLETO
+                    </Link>
+                  ) : (
+                    <button className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold">
+                      RESERVAR PLAZA
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <div className="bg-cep-primary text-white p-6 rounded-lg inline-block">
+              <h3 className="text-xl font-bold mb-2">⏰ ¡No te quedes sin plaza!</h3>
+              <p className="mb-4">Los cursos empiezan en septiembre. Reserva ahora y asegura tu futuro profesional.</p>
+              <button className="bg-white text-cep-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-bold">
+                CONTACTAR AHORA
               </button>
             </div>
           </div>
@@ -248,53 +367,6 @@ const HomePage: React.FC = () => {
               <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
                 TRABAJADORES/AS OCUPADOS/AS
               </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Tablas de cursos (simplificadas) */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-cep-primary mb-4">Próximos Cursos</h3>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-2">INICIO</th>
-                      <th className="text-left py-2">CURSO</th>
-                      <th className="text-left py-2">HORAS</th>
-                      <th className="text-left py-2">MODALIDAD</th>
-                      <th className="text-left py-2">SEDE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr className="border-b">
-                      <td className="py-2">14 de Enero de 2025</td>
-                      <td className="py-2">TÉCNICO EN SOFTWARE OFIMÁTICO</td>
-                      <td className="py-2">350</td>
-                      <td className="py-2">PRESENCIAL</td>
-                      <td className="py-2">NORTE</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-2">20 de Enero de 2025</td>
-                      <td className="py-2">MARKETING DIGITAL Y REDES SOCIALES</td>
-                      <td className="py-2">125</td>
-                      <td className="py-2">PRESENCIAL</td>
-                      <td className="py-2">NORTE</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-2">21 de Enero de 2025</td>
-                      <td className="py-2">INGLÉS B2</td>
-                      <td className="py-2">240</td>
-                      <td className="py-2">PRESENCIAL</td>
-                      <td className="py-2">NORTE</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
             </div>
           </div>
         </div>
@@ -384,16 +456,6 @@ const HomePage: React.FC = () => {
               por lo que colaboramos con varias ONGs.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Final */}
-      <section className="py-16 bg-cep-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">¿NECESITAS MÁS INFORMACIÓN?</h2>
-          <button className="bg-white text-cep-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-bold">
-            CONTÁCTANOS
-          </button>
         </div>
       </section>
 

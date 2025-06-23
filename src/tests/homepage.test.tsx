@@ -5,25 +5,25 @@ import { BrowserRouter } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 
 describe('HomePage', () => {
-  it('renders main SOLARIA heading', () => {
+  it('renders CEP Formación content', () => {
     render(
       <BrowserRouter>
         <HomePage />
       </BrowserRouter>
     )
-    const heading = screen.getByRole('heading', { level: 1 })
-    expect(heading).toBeInTheDocument()
-    expect(heading).toHaveTextContent('SOLARIA')
+    // Buscar contenido específico de CEP
+    const cepContent = screen.getByText(/PROFESORES CUALIFICADOS/i)
+    expect(cepContent).toBeInTheDocument()
   })
 
-  it('renders template description', () => {
+  it('renders cursos section', () => {
     render(
       <BrowserRouter>
         <HomePage />
       </BrowserRouter>
     )
-    const description = screen.getByText(/Optimizado para desarrollo empresarial ágil/i)
-    expect(description).toBeInTheDocument()
+    const cursosSection = screen.getByText(/CURSOS INICIO SEPTIEMBRE 2025/i)
+    expect(cursosSection).toBeInTheDocument()
   })
 
   it('renders without console errors', () => {
@@ -37,12 +37,13 @@ describe('HomePage', () => {
     consoleSpy.mockRestore()
   })
 
-  it('renders welcome message', () => {
+  it('renders contact information', () => {
     render(
       <BrowserRouter>
         <HomePage />
       </BrowserRouter>
     )
-    expect(document.body).toBeTruthy()
+    const telefono = screen.getByText(/922 219 257/i)
+    expect(telefono).toBeInTheDocument()
   })
 }) 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import ContactPage from './pages/ContactPage';
+import AdiestramientoCanino from './pages/ContactPage';
 import './index.css';
 
 function App() {
@@ -9,7 +9,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/adiestramiento-canino" element={<AdiestramientoCanino />} />
+        <Route path="/contacto" element={<AdiestramientoCanino />} />
         <Route path="/inicio" element={<HomePage />} />
       </Routes>
     </Router>

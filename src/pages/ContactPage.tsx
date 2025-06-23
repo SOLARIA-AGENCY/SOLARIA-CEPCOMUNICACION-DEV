@@ -1,466 +1,406 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, User, MessageCircle } from 'lucide-react';
+import { Clock, Users, Award, MapPin, Phone, Mail, Calendar, CheckCircle, Star } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 
-interface ContactForm {
-  nombre: string;
-  apellidos: string;
-  telefono: string;
-  email: string;
-  sede: string;
-  curso: string;
-  situacion: string;
-  mensaje: string;
-  acepto_privacidad: boolean;
-  acepto_promociones: boolean;
-}
-
-const ContactPage: React.FC = () => {
-  const [formData, setFormData] = useState<ContactForm>({
+const AdiestramientoCanino: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
     nombre: '',
-    apellidos: '',
     telefono: '',
     email: '',
     sede: '',
-    curso: '',
-    situacion: '',
-    mensaje: '',
-    acepto_privacidad: false,
-    acepto_promociones: false
+    comentarios: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const cursos = [
-    "TÉCNICO EN SOFTWARE OFIMÁTICO",
-    "PROCEDIMIENTOS BÁSICOS EN MARKETING DIGITAL Y REDES SOCIALES",
-    "INGLÉS B2",
-    "COMPETENCIAS DIGITALES BÁSICAS",
-    "COMPETENCIAS DIGITALES AVANZADAS",
-    "ALEMÁN A1",
-    "ASISTENCIA EN LA GESTIÓN DE PROCEDIMIENTOS TRIBUTARIOS",
-    "GESTIÓN INTEGRADA DE RECURSOS HUMANOS",
-    "HUELLA DE CARBONO DE PRODUCTO Y ORGANIZACIÓN",
-    "ADIESTRAMIENTO CANINO",
-    "AUXILIAR DE FARMACIA",
-    "AUXILIAR DE VETERINARIA",
-    "MEDICINA ESTÉTICA",
-    "OTROS - ESPECIFICAR EN MENSAJE"
-  ];
-
-  const situaciones = [
-    "DESEMPLEADO/A",
-    "OCUPADO/A",
-    "AUTÓNOMO/A",
-    "ESTUDIANTE",
-    "OTROS"
-  ];
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    if (type === 'checkbox') {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({
-        ...prev,
-        [name]: checked
-      }));
-    } else {
-      setFormData(prev => ({
-        ...prev,
-        [name]: value
-      }));
-    }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simular envío del formulario
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
+    // Aquí se implementará la lógica de envío del formulario
     console.log('Formulario enviado:', formData);
-    alert('¡Gracias por tu consulta! Te contactaremos pronto.');
-    
-    // Reset form
-    setFormData({
-      nombre: '',
-      apellidos: '',
-      telefono: '',
-      email: '',
-      sede: '',
-      curso: '',
-      situacion: '',
-      mensaje: '',
-      acepto_privacidad: false,
-      acepto_promociones: false
-    });
-    
-    setIsSubmitting(false);
+    setShowModal(false);
+    // Mostrar mensaje de confirmación
+    alert('¡Gracias! Hemos recibido tu solicitud. Te contactaremos en breve para confirmar tu plaza.');
   };
 
   return (
     <div className="min-h-screen bg-white">
       <CepHeader />
-
+      
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              CONTACTO
-            </h1>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Estamos aquí para ayudarte. Ponte en contacto con nosotros para cualquier consulta sobre nuestros cursos.
-            </p>
+      <section className="relative bg-gradient-to-r from-cep-primary to-pink-600 text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
+                CURSO PROFESIONAL DE<br />
+                <span className="text-yellow-300 drop-shadow-lg">ADIESTRAMIENTO CANINO</span>
+              </h1>
+              <p className="text-xl mb-8 text-white drop-shadow-md">
+                Técnicas de adiestramiento de base y educación canina nivel I
+              </p>
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center bg-white bg-opacity-30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white border-opacity-20">
+                  <Calendar className="w-5 h-5 mr-2 text-white" />
+                  <span className="text-white font-medium">Inicio: Septiembre 2025</span>
+                </div>
+                <div className="flex items-center bg-white bg-opacity-30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white border-opacity-20">
+                  <Clock className="w-5 h-5 mr-2 text-white" />
+                  <span className="text-white font-medium">6 meses - 25 sesiones</span>
+                </div>
+                <div className="flex items-center bg-white bg-opacity-30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white border-opacity-20">
+                  <MapPin className="w-5 h-5 mr-2 text-white" />
+                  <span className="text-white font-medium">CEP Norte - La Orotava</span>
+                </div>
+              </div>
+              <div className="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg border border-white border-opacity-20">
+                <p className="text-white font-semibold text-lg">
+                  💰 <strong>Precio:</strong> 6 cuotas de 85€ + 150€ matrícula
+                </p>
+                <p className="text-white text-sm mt-2 opacity-90">
+                  Requisitos: Acceso con 2º de la ESO o EGB
+                </p>
+              </div>
+            </div>
+            <div className="text-center">
+              <img 
+                src="/images/cursos/mundo-animal.jpg" 
+                alt="Adiestramiento Canino" 
+                className="rounded-lg shadow-2xl w-full max-w-md mx-auto border-4 border-white border-opacity-30"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form & Info */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* Urgencia */}
+      <section className="py-8 bg-yellow-100 border-t-4 border-yellow-400">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-lg font-semibold text-gray-800">
+            ⏰ <span className="text-cep-primary">¡ÚLTIMAS PLAZAS DISPONIBLES!</span> 
+            Los cursos empiezan en septiembre - No te quedes sin tu plaza
+          </p>
+        </div>
+      </section>
+
+      {/* ¿Qué aprendo? */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-cep-primary mb-8 text-center">¿Qué aprenderás?</h2>
+            <p className="text-lg text-gray-700 mb-8 text-center">
+              El curso de Adiestramiento de base I ofrece los conocimientos imprescindibles acerca de las técnicas de 
+              adiestramiento de base aplicadas a perros, modificación de conductas no deseadas así como los cuidados 
+              básicos y primeros auxilios, además de un módulo de orientación laboral.
+            </p>
             
-            {/* Formulario de Contacto */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="flex items-center mb-6">
-                <MessageCircle className="w-6 h-6 text-blue-600 mr-3" />
-                <h2 className="text-2xl font-bold text-gray-900">
-                  Solicita información
-                </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Habilidades que desarrollarás</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                    <span>Técnicas de adiestramiento profesional</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                    <span>Modificación de conductas no deseadas</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                    <span>Cuidados básicos y primeros auxilios</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                    <span>Orientación laboral especializada</span>
+                  </li>
+                </ul>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nombre *
-                    </label>
-                    <input
-                      type="text"
-                      id="nombre"
-                      name="nombre"
-                      required
-                      value={formData.nombre}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Tu nombre"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="apellidos" className="block text-sm font-medium text-gray-700 mb-2">
-                      Apellidos *
-                    </label>
-                    <input
-                      type="text"
-                      id="apellidos"
-                      name="apellidos"
-                      required
-                      value={formData.apellidos}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Tus apellidos"
-                    />
-                  </div>
-                </div>
+              <div className="bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Salidas profesionales</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <Star className="w-5 h-5 text-yellow-500 mr-3 mt-1" />
+                    <span>Adiestrador canino profesional</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Star className="w-5 h-5 text-yellow-500 mr-3 mt-1" />
+                    <span>Educador canino</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Star className="w-5 h-5 text-yellow-500 mr-3 mt-1" />
+                    <span>Consultor en comportamiento animal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <Star className="w-5 h-5 text-yellow-500 mr-3 mt-1" />
+                    <span>Emprendimiento en el sector</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-2">
-                      Teléfono *
-                    </label>
-                    <input
-                      type="tel"
-                      id="telefono"
-                      name="telefono"
-                      required
-                      value={formData.telefono}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Tu teléfono"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                </div>
+      {/* Contenido del curso */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-cep-primary mb-12 text-center">Contenido del Curso</h2>
+            
+            <div className="grid gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Módulo 1: Técnicas de adiestramiento de base</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Comportamiento social y bases morfológicas de conducta en el perro</li>
+                  <li>• Factores básicos modificadores de la conducta del perro</li>
+                  <li>• Biología de la conducta, genética y ecología</li>
+                  <li>• Programas básicos de obediencia y control</li>
+                  <li>• Seguridad y autoprotección en el adiestramiento</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Módulo 2: Modificación de conductas no deseadas</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Valoración de conductas no deseadas susceptibles de corrección</li>
+                  <li>• Interpretación del lenguaje corporal en el perro</li>
+                  <li>• Identificación de factores que producen conductas no deseadas</li>
+                  <li>• Métodos de eliminación y tratamiento de agresiones</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Módulo 3: Cuidados higiénicos aplicados a perros</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Metodología y control de la alimentación y nutrición</li>
+                  <li>• Alojamiento y transporte según normativa</li>
+                  <li>• Cuidados higiénicos y control sanitario</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Módulo 4: Primeros Auxilios aplicados a Perros</h3>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Morfología y fisiología del perro</li>
+                  <li>• Diagnóstico y valoración inicial</li>
+                  <li>• Técnicas de inmovilización y traslado</li>
+                  <li>• Administración de medicamentos y masaje cardíaco</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Profesora */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-cep-primary mb-8">Tu Profesora</h2>
+            <div className="bg-gray-50 p-8 rounded-lg">
+              <img 
+                src="/images/profesores/livia.jpg" 
+                alt="Livia Bernardi" 
+                className="w-32 h-32 rounded-full mx-auto mb-6 object-cover"
+              />
+              <h3 className="text-2xl font-bold text-cep-primary mb-2">Livia Bernardi</h3>
+              <p className="text-lg text-gray-600 mb-4">Fundadora de Aboras Obediencia</p>
+              <p className="text-gray-700">
+                Profesional en activo con amplia experiencia docente en el sector del adiestramiento canino. 
+                Especialista en técnicas de modificación de conducta y educación canina.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Detalles del curso */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-cep-primary mb-12 text-center">Detalles del Curso</h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Modalidad y horarios</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center">
+                    <Users className="w-5 h-5 text-cep-primary mr-3" />
+                    <span>Clases presenciales en grupos reducidos</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Clock className="w-5 h-5 text-cep-primary mr-3" />
+                    <span>1 día por semana - 3 horas por sesión</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Calendar className="w-5 h-5 text-cep-primary mr-3" />
+                    <span>25 sesiones - 6 meses de duración</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Award className="w-5 h-5 text-cep-primary mr-3" />
+                    <span>Agencia de colocación oficial</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-bold text-cep-primary mb-4">Precio e inscripción</h3>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-cep-primary mb-2">510€</div>
+                  <p className="text-gray-600 mb-4">6 cuotas de 85€ + 150€ matrícula</p>
+                  <div className="bg-yellow-100 p-4 rounded-lg mb-4">
+                    <p className="text-sm text-gray-700">
+                      <strong>Requisitos:</strong> Acceso con 2º de la ESO o EGB
+                    </p>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    Modalidad presencial / online (consultar disponibilidad)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-16 bg-cep-primary text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">¡No te quedes fuera!</h2>
+          <p className="text-xl mb-8">Reserva ahora mismo tu plaza y asegura tu futuro profesional</p>
+          <button 
+            onClick={() => setShowModal(true)}
+            className="bg-yellow-400 text-gray-900 px-12 py-4 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-colors shadow-lg"
+          >
+            INSCRÍBETE AHORA Y RESERVA TU PLAZA
+          </button>
+          <p className="text-sm mt-4 opacity-75">
+            ¡Los cursos empiezan en septiembre! Contacto en menos de 30 minutos
+          </p>
+        </div>
+      </section>
+
+      {/* Modal de inscripción */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <h3 className="text-2xl font-bold text-cep-primary mb-4">Reserva tu plaza</h3>
+              <p className="text-gray-600 mb-6">
+                Completa el formulario y nos pondremos en contacto contigo 
+                para informarte sobre el curso. Tus datos serán tratados conforme a nuestra política de privacidad.
+              </p>
+              
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="sede" className="block text-sm font-medium text-gray-700 mb-2">
-                    Sede de preferencia
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Nombre completo *
+                  </label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    required
+                    value={formData.nombre}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-cep-primary focus:border-cep-primary"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Teléfono *
+                  </label>
+                  <input
+                    type="tel"
+                    name="telefono"
+                    required
+                    value={formData.telefono}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-cep-primary focus:border-cep-primary"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-cep-primary focus:border-cep-primary"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Sede preferida
                   </label>
                   <select
-                    id="sede"
                     name="sede"
                     value={formData.sede}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-cep-primary focus:border-cep-primary"
                   >
-                    <option value="">Selecciona una sede</option>
-                    <option value="SANTA CRUZ">Santa Cruz de Tenerife</option>
-                    <option value="NORTE">Norte - La Orotava</option>
-                    <option value="SIN_PREFERENCIA">Sin preferencia</option>
+                    <option value="">Seleccionar sede</option>
+                    <option value="norte">CEP Norte - La Orotava</option>
+                    <option value="santa-cruz">CEP Santa Cruz</option>
                   </select>
                 </div>
-
+                
                 <div>
-                  <label htmlFor="curso" className="block text-sm font-medium text-gray-700 mb-2">
-                    Curso de interés
-                  </label>
-                  <select
-                    id="curso"
-                    name="curso"
-                    value={formData.curso}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Selecciona un curso</option>
-                    {cursos.map((curso, index) => (
-                      <option key={index} value={curso}>
-                        {curso}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="situacion" className="block text-sm font-medium text-gray-700 mb-2">
-                    Situación laboral
-                  </label>
-                  <select
-                    id="situacion"
-                    name="situacion"
-                    value={formData.situacion}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  >
-                    <option value="">Selecciona tu situación</option>
-                    {situaciones.map((situacion, index) => (
-                      <option key={index} value={situacion}>
-                        {situacion}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="mensaje" className="block text-sm font-medium text-gray-700 mb-2">
-                    Mensaje
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Comentarios adicionales
                   </label>
                   <textarea
-                    id="mensaje"
-                    name="mensaje"
-                    rows={4}
-                    value={formData.mensaje}
+                    name="comentarios"
+                    rows={3}
+                    value={formData.comentarios}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Cuéntanos en qué podemos ayudarte..."
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-cep-primary focus:border-cep-primary"
+                    placeholder="¿Tienes alguna pregunta específica?"
                   />
                 </div>
-
-                {/* Checkboxes RGPD */}
-                <div className="space-y-3">
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="acepto_privacidad"
-                      name="acepto_privacidad"
-                      required
-                      checked={formData.acepto_privacidad}
-                      onChange={handleInputChange}
-                      className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                    />
-                    <label htmlFor="acepto_privacidad" className="ml-3 text-sm text-gray-600">
-                      Acepto la <a href="#" className="text-blue-600 hover:underline">política de privacidad</a> y 
-                      el tratamiento de mis datos personales. *
-                    </label>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <input
-                      type="checkbox"
-                      id="acepto_promociones"
-                      name="acepto_promociones"
-                      checked={formData.acepto_promociones}
-                      onChange={handleInputChange}
-                      className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                    />
-                    <label htmlFor="acepto_promociones" className="ml-3 text-sm text-gray-600">
-                      Acepto recibir comunicaciones promocionales y ofertas especiales.
-                    </label>
-                  </div>
+                
+                <div className="text-xs text-gray-500 bg-gray-50 p-3 rounded">
+                  Al enviar este formulario aceptas que CEP Formación se ponga en contacto contigo 
+                  para informarte sobre el curso. Tus datos serán tratados conforme a nuestra política de privacidad.
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Enviar consulta
-                    </>
-                  )}
-                </button>
+                
+                <div className="flex space-x-3 pt-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowModal(false)}
+                    className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-4 py-2 bg-cep-primary text-white rounded-lg hover:bg-cep-primary-dark"
+                  >
+                    Enviar solicitud
+                  </button>
+                </div>
               </form>
             </div>
-
-            {/* Información de Contacto */}
-            <div className="space-y-8">
-              
-              {/* Sede Santa Cruz */}
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <MapPin className="w-5 h-5 text-blue-600 mr-2" />
-                  Sede Santa Cruz
-                </h3>
-                <div className="space-y-3 text-gray-600">
-                  <p className="flex items-start">
-                    <MapPin className="w-4 h-4 mt-1 mr-2 text-gray-400" />
-                    <span>Santa Cruz de Tenerife (38005)<br />
-                    Plaza José Antonio Barrios Olivero<br />
-                    Bajo Estadio Heliodoro</span>
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="w-4 h-4 mr-2 text-gray-400" />
-                    <span>922 21 92 57</span>
-                  </p>
-                  <p className="flex items-center">
-                    <Mail className="w-4 h-4 mr-2 text-gray-400" />
-                    <span>info@cursostenerife.es</span>
-                  </p>
-                  <p className="flex items-center">
-                    <Clock className="w-4 h-4 mr-2 text-gray-400" />
-                    <span>Lunes a viernes: 10:00 - 14:00 y 16:00 - 20:00</span>
-                  </p>
-                </div>
-                
-                {/* Mapa placeholder */}
-                <div className="mt-4 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500">Mapa de Google - Sede Santa Cruz</span>
-                </div>
-              </div>
-
-              {/* Sede Norte */}
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <MapPin className="w-5 h-5 text-green-600 mr-2" />
-                  Sede Norte
-                </h3>
-                <div className="space-y-3 text-gray-600">
-                  <p className="flex items-start">
-                    <MapPin className="w-4 h-4 mt-1 mr-2 text-gray-400" />
-                    <span>C.C El Tompo – Última planta<br />
-                    La Orotava, Santa Cruz de Tenerife</span>
-                  </p>
-                  <p className="flex items-center">
-                    <Phone className="w-4 h-4 mr-2 text-gray-400" />
-                    <span>922 21 92 57</span>
-                  </p>
-                  <p className="flex items-center">
-                    <Mail className="w-4 h-4 mr-2 text-gray-400" />
-                    <span>info@cursostenerife.es</span>
-                  </p>
-                  <p className="flex items-center">
-                    <Clock className="w-4 h-4 mr-2 text-gray-400" />
-                    <span>Lunes a viernes: 10:00 - 14:00 y 16:00 - 20:00</span>
-                  </p>
-                </div>
-                
-                {/* Mapa placeholder */}
-                <div className="mt-4 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500">Mapa de Google - Sede Norte</span>
-                </div>
-              </div>
-
-              {/* Contacto Rápido */}
-              <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-blue-900 mb-4">
-                  Contacto Rápido
-                </h3>
-                <p className="text-blue-700 mb-4">
-                  ¿Tienes una consulta urgente? Contáctanos directamente:
-                </p>
-                <div className="space-y-2">
-                  <a 
-                    href="tel:922219257" 
-                    className="flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    <Phone className="w-4 h-4 mr-2" />
-                    922 21 92 57
-                  </a>
-                  <a 
-                    href="mailto:info@cursostenerife.es" 
-                    className="flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    info@cursostenerife.es
-                  </a>
-                </div>
-                
-                <div className="mt-4 pt-4 border-t border-blue-200">
-                  <p className="text-sm text-blue-600">
-                    Respuesta garantizada en menos de 24 horas laborables
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-blue-900 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            ¿Listo para empezar tu formación?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            No esperes más. Ponte en contacto con nosotros y comienza a construir tu futuro profesional.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:922219257"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-medium transition-colors flex items-center justify-center"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Llamar ahora
-            </a>
-            <a 
-              href="#formulario"
-              className="border border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-medium transition-colors"
-            >
-              Solicitar información
-            </a>
-          </div>
-        </div>
-      </section>
+      )}
 
       <CepFooter />
     </div>
   );
-};
-
-export default ContactPage; 
+  };
+  
+  export default AdiestramientoCanino; 
