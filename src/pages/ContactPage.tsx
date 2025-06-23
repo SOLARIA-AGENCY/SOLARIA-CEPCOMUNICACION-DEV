@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Clock, Users, Award, MapPin, Phone, Mail, Calendar, CheckCircle, Star } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
@@ -29,6 +29,11 @@ const AdiestramientoCanino: React.FC = () => {
     alert('¡Gracias! Hemos recibido tu solicitud. Te contactaremos en breve para confirmar tu plaza.');
   };
 
+  // Scroll al top cuando se carga la página
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <CepHeader />
@@ -38,33 +43,30 @@ const AdiestramientoCanino: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-2xl">
                 CURSO PROFESIONAL DE<br />
-                <span className="text-yellow-300 drop-shadow-lg">ADIESTRAMIENTO CANINO</span>
+                <span className="text-yellow-300 drop-shadow-2xl">ADIESTRAMIENTO CANINO</span>
               </h1>
-              <p className="text-xl mb-8 text-white drop-shadow-md">
+              <p className="text-xl mb-8 text-white drop-shadow-xl font-semibold bg-black bg-opacity-30 p-3 rounded-lg">
                 Técnicas de adiestramiento de base y educación canina nivel I
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center bg-white bg-opacity-30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white border-opacity-20">
-                  <Calendar className="w-5 h-5 mr-2 text-white" />
-                  <span className="text-white font-medium">Inicio: Septiembre 2025</span>
+                <div className="flex items-center bg-white bg-opacity-90 px-4 py-2 rounded-lg shadow-lg">
+                  <Calendar className="w-5 h-5 mr-2 text-cep-primary" />
+                  <span className="text-gray-800 font-semibold">Inicio: Septiembre 2025</span>
                 </div>
-                <div className="flex items-center bg-white bg-opacity-30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white border-opacity-20">
-                  <Clock className="w-5 h-5 mr-2 text-white" />
-                  <span className="text-white font-medium">6 meses - 25 sesiones</span>
+                <div className="flex items-center bg-white bg-opacity-90 px-4 py-2 rounded-lg shadow-lg">
+                  <Clock className="w-5 h-5 mr-2 text-cep-primary" />
+                  <span className="text-gray-800 font-semibold">6 meses - 25 sesiones</span>
                 </div>
-                <div className="flex items-center bg-white bg-opacity-30 backdrop-blur-sm px-4 py-2 rounded-lg border border-white border-opacity-20">
-                  <MapPin className="w-5 h-5 mr-2 text-white" />
-                  <span className="text-white font-medium">CEP Norte - La Orotava</span>
+                <div className="flex items-center bg-white bg-opacity-90 px-4 py-2 rounded-lg shadow-lg">
+                  <MapPin className="w-5 h-5 mr-2 text-cep-primary" />
+                  <span className="text-gray-800 font-semibold">CEP Norte - La Orotava</span>
                 </div>
               </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg border border-white border-opacity-20">
-                <p className="text-white font-semibold text-lg">
-                  💰 <strong>Precio:</strong> 6 cuotas de 85€ + 150€ matrícula
-                </p>
-                <p className="text-white text-sm mt-2 opacity-90">
-                  Requisitos: Acceso con 2º de la ESO o EGB
+              <div className="bg-white bg-opacity-90 p-4 rounded-lg shadow-lg">
+                <p className="text-gray-800 text-sm font-medium">
+                  <strong>Requisitos:</strong> Acceso con 2º de la ESO o EGB
                 </p>
               </div>
             </div>
@@ -72,7 +74,7 @@ const AdiestramientoCanino: React.FC = () => {
               <img 
                 src="/images/cursos/mundo-animal.jpg" 
                 alt="Adiestramiento Canino" 
-                className="rounded-lg shadow-2xl w-full max-w-md mx-auto border-4 border-white border-opacity-30"
+                className="rounded-lg shadow-2xl w-full max-w-md mx-auto border-4 border-white border-opacity-50"
               />
             </div>
           </div>
