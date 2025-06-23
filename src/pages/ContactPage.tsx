@@ -274,17 +274,17 @@ const AdiestramientoCanino: React.FC = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 bg-cep-primary text-white">
+      <section className="py-16 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">¡No te quedes fuera!</h2>
-          <p className="text-xl mb-8">Reserva ahora mismo tu plaza y asegura tu futuro profesional</p>
+          <h2 className="text-3xl font-bold mb-4 text-cep-primary">¡No te quedes fuera!</h2>
+          <p className="text-xl mb-8 text-gray-700">Reserva ahora mismo tu plaza y asegura tu futuro profesional</p>
           <button 
             onClick={() => setShowModal(true)}
-            className="bg-yellow-400 text-gray-900 px-12 py-4 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-colors shadow-lg"
+            className="bg-cep-primary text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-cep-primary-dark transition-colors shadow-lg"
           >
             INSCRÍBETE AHORA Y RESERVA TU PLAZA
           </button>
-          <p className="text-sm mt-4 opacity-75">
+          <p className="text-sm mt-4 text-gray-600">
             ¡Los cursos empiezan en septiembre! Contacto en menos de 30 minutos
           </p>
         </div>
