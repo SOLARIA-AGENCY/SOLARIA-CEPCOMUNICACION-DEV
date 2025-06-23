@@ -1,0 +1,5 @@
+# API redirects
+/api/v1/* /.netlify/functions/:splat 200
+
+# SPA fallback - must be last
+/* /index.html 200 
