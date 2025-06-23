@@ -280,7 +280,7 @@ const AdiestramientoCanino: React.FC = () => {
           <p className="text-xl mb-8 text-gray-700">Reserva ahora mismo tu plaza y asegura tu futuro profesional</p>
           <button 
             onClick={() => setShowModal(true)}
-            className="bg-cep-primary text-white px-12 py-4 rounded-lg text-xl font-bold hover:bg-cep-primary-dark transition-colors shadow-lg"
+            className="bg-yellow-400 text-gray-900 px-12 py-4 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-colors shadow-lg"
           >
             INSCRÍBETE AHORA Y RESERVA TU PLAZA
           </button>
