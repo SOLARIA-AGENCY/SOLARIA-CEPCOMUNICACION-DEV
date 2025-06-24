@@ -23,69 +23,163 @@ const heroSlides = [
   }
 ];
 
-// Cursos de la Campaña Otoño 2025
+// Cursos de la Campaña Otoño 2025 - COMPLETOS (14 variaciones)
 const cursosOtono2025 = [
   {
     id: 1,
     titulo: "Adiestramiento Canino",
-    sede: "CEP Norte",
+    sede: "CEP NORTE",
     imagen: "/images/cursos/mundo-animal.jpg",
     inicio: "Septiembre 2025",
-    duracion: "6 meses",
+    duracion: "6 meses - 25 sesiones",
     descripcion: "Técnicas de adiestramiento de base y educación canina nivel I",
-    link: "/adiestramiento-canino"
+    link: "/adiestramiento-canino",
+    hasPage: true
   },
   {
     id: 2,
     titulo: "Auxiliar Clínicas Estéticas",
-    sede: "Santa Cruz",
+    sede: "CEP SANTA CRUZ",
     imagen: "/images/cursos/auxiliar-de.jpg",
     inicio: "Septiembre 2025",
     duracion: "8 meses",
-    descripcion: "Especialización en tratamientos estéticos y cuidados faciales",
-    link: "/auxiliar-clinicas-esteticas"
+    descripcion: "Formación integral en tratamientos de estética y procedimientos en clínicas de medicina estética",
+    link: "/auxiliar-clinicas-esteticas",
+    hasPage: false
   },
   {
     id: 3,
     titulo: "Agente Funerario",
-    sede: "Santa Cruz",
+    sede: "CEP SANTA CRUZ",
     imagen: "/images/cursos/especializacion-sanitaria.jpg",
     inicio: "Septiembre 2025",
-    duracion: "4 meses",
-    descripción: "Formación integral en servicios funerarios y atención a familias",
-    link: "/agente-funerario"
+    duracion: "6 meses",
+    descripcion: "Curso profesional para trabajar en servicios funerarios. Incluye protocolos, legislación y atención a familias",
+    link: "/agente-funerario",
+    hasPage: false
   },
   {
     id: 4,
     titulo: "Auxiliar Veterinario",
-    sede: "Santa Cruz",
+    sede: "CEP SANTA CRUZ",
     imagen: "/images/cursos/mundo-animal.jpg",
     inicio: "Septiembre 2025",
     duracion: "10 meses",
-    descripcion: "Asistencia en clínicas veterinarias y cuidado animal",
-    link: "/auxiliar-veterinario"
+    descripcion: "Asistencia en clínicas veterinarias, cuidado animal, instrumentación quirúrgica y atención al cliente",
+    link: "/auxiliar-veterinario",
+    hasPage: false
   },
   {
     id: 5,
-    titulo: "Auxiliar Farmacia",
-    sede: "Santa Cruz",
+    titulo: "Auxiliar de Farmacia",
+    sede: "CEP SANTA CRUZ",
     imagen: "/images/cursos/especializacion-sanitaria.jpg",
     inicio: "Septiembre 2025",
     duracion: "8 meses",
-    descripcion: "Especialización en farmacología y atención farmacéutica",
-    link: "/auxiliar-farmacia"
+    descripcion: "Formación completa para trabajar en farmacias. Dispensación de medicamentos y atención farmacéutica",
+    link: "/auxiliar-farmacia",
+    hasPage: false
   },
   {
     id: 6,
-    titulo: "Auxiliar Odontología",
-    sede: "Santa Cruz",
+    titulo: "Auxiliar de Odontología",
+    sede: "CEP SANTA CRUZ",
     imagen: "/images/cursos/especializacion-sanitaria.jpg",
     inicio: "Septiembre 2025",
-    duracion: "8 meses",
-    descripcion: "Asistencia en consultas odontológicas y higiene dental",
-    link: "/auxiliar-odontologia"
-  }
-];
+    duracion: "9 meses",
+    descripcion: "Asistencia en clínicas dentales, instrumental odontológico, radiología dental y atención al paciente",
+    link: "/auxiliar-odontologia",
+    hasPage: false
+  },
+  {
+    id: 7,
+    titulo: "Auxiliar de Enfermería",
+    sede: "CEP NORTE",
+    imagen: "/images/cursos/auxiliar-de.jpg",
+    inicio: "Septiembre 2025",
+    duracion: "10 meses",
+    descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
+    link: "/auxiliar-enfermeria-norte",
+    hasPage: false
+  },
+     {
+     id: 8,
+     titulo: "Auxiliar de Enfermería",
+     sede: "CEP SANTA CRUZ",
+     imagen: "/images/cursos/auxiliar-de.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "10 meses",
+     descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
+     link: "/auxiliar-enfermeria-santacruz",
+     hasPage: false
+   },
+   {
+     id: 9,
+     titulo: "Gestión Administrativa",
+     sede: "CEP NORTE",
+     imagen: "/images/cursos/ciclos-formativos.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "8 meses",
+     descripcion: "Administración de empresas, gestión documental, atención al cliente y procedimientos administrativos",
+     link: "/gestion-administrativa-norte",
+     hasPage: false
+   },
+   {
+     id: 10,
+     titulo: "Gestión Administrativa", 
+     sede: "CEP SANTA CRUZ",
+     imagen: "/images/cursos/ciclos-formativos.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "8 meses",
+     descripcion: "Administración de empresas, gestión documental, atención al cliente y procedimientos administrativos",
+     link: "/gestion-administrativa-santacruz",
+     hasPage: false
+   },
+   {
+     id: 11,
+     titulo: "Marketing Digital",
+     sede: "CEP NORTE",
+     imagen: "/images/cursos/diseno-de-medios.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "6 meses",
+     descripcion: "Estrategias de marketing online, redes sociales, SEO, SEM y comercio electrónico para empresas",
+     link: "/marketing-digital-norte",
+     hasPage: false
+   },
+   {
+     id: 12,
+     titulo: "Marketing Digital",
+     sede: "CEP SANTA CRUZ", 
+     imagen: "/images/cursos/diseno-de-medios.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "6 meses",
+     descripcion: "Estrategias de marketing online, redes sociales, SEO, SEM y comercio electrónico para empresas",
+     link: "/marketing-digital-santacruz",
+     hasPage: false
+   },
+   {
+     id: 13,
+     titulo: "Atención Sociosanitaria",
+     sede: "CEP NORTE",
+     imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "12 meses",
+     descripcion: "Cuidado de personas dependientes, técnicas de asistencia personal y apoyo en el domicilio",
+     link: "/atencion-sociosanitaria-norte",
+     hasPage: false
+   },
+   {
+     id: 14,
+     titulo: "Atención Sociosanitaria", 
+     sede: "CEP SANTA CRUZ",
+     imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "12 meses",
+     descripcion: "Cuidado de personas dependientes, técnicas de asistencia personal y apoyo en el domicilio",
+     link: "/atencion-sociosanitaria-santacruz",
+     hasPage: false
+   }
+ ];
 
 // Datos de cursos con imágenes reales
 const cursosPrivados = [
@@ -322,7 +416,7 @@ const HomePage: React.FC = () => {
                     <p><strong>Duración:</strong> {curso.duracion}</p>
                   </div>
                   <p className="text-gray-700 mb-4">{curso.descripcion}</p>
-                  {curso.link === "/adiestramiento-canino" ? (
+                  {curso.hasPage ? (
                     <Link 
                       to={curso.link}
                       className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block"
@@ -330,8 +424,8 @@ const HomePage: React.FC = () => {
                       VER CURSO COMPLETO
                     </Link>
                   ) : (
-                    <button className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold">
-                      RESERVAR PLAZA
+                    <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed">
+                      PRÓXIMAMENTE
                     </button>
                   )}
                 </div>

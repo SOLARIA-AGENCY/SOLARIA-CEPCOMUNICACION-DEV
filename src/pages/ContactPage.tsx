@@ -403,6 +403,6 @@ const AdiestramientoCanino: React.FC = () => {
       <CepFooter />
     </div>
   );
-  };
-  
-  export default AdiestramientoCanino; 
+};
+
+export default AdiestramientoCanino; 

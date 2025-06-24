@@ -63,18 +63,22 @@ const CepHeader: React.FC = () => {
               >
                 CURSOS
               </Link>
-              <Link 
-                to="/quienes-somos" 
+              <a 
+                href="https://cursostenerife.es/#quienes-somos" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
               >
                 QUIENES SOMOS
-              </Link>
-              <Link 
-                to="/contacto" 
+              </a>
+              <a 
+                href="https://cursostenerife.es/#contacto" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
               >
                 CONTACTO
-              </Link>
+              </a>
             </nav>
 
             {/* Mobile menu button */}
@@ -104,20 +108,24 @@ const CepHeader: React.FC = () => {
                 >
                   CURSOS
                 </Link>
-                <Link
-                  to="/quienes-somos"
+                <a
+                  href="https://cursostenerife.es/#quienes-somos"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block px-3 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   QUIENES SOMOS
-                </Link>
-                <Link
-                  to="/contacto"
+                </a>
+                <a
+                  href="https://cursostenerife.es/#contacto"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block px-3 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   CONTACTO
-                </Link>
+                </a>
               </div>
             </div>
           )}
