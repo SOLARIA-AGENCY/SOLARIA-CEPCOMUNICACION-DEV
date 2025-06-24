@@ -69,19 +69,19 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
 };
 
 // --- PÁGINAS INDIVIDUALES (GENERADAS) ---
-const AgenteFunerarioPage = () => <CursoPageComponent curso={cursoData[0]} />;
-const AuxiliarClinicoVeterinarioNortePage = () => <CursoPageComponent curso={cursoData[1]} />;
-const AuxiliarClinicoVeterinarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[2]} />;
-const AuxiliarClinicasEsteticasPage = () => <CursoPageComponent curso={cursoData[3]} />;
-const AuxiliarEnfermeriaNortePage = () => <CursoPageComponent curso={cursoData[4]} />;
-const AuxiliarEnfermeriaSantaCruzPage = () => <CursoPageComponent curso={cursoData[5]} />;
-const AuxiliarFarmaciaDermoPage = () => <CursoPageComponent curso={cursoData[6]} />;
-const AuxiliarOdontologiaNortePage = () => <CursoPageComponent curso={cursoData[7]} />;
-const AuxiliarOdontologiaSantaCruzPage = () => <CursoPageComponent curso={cursoData[8]} />;
-const DieteticaNutricionPage = () => <CursoPageComponent curso={cursoData[9]} />;
-const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[10]} />;
-const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[11]} />;
-const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[12]} />;
+const AgenteFunerarioPage = () => <CursoPageComponent curso={cursoData[1]} />;
+const AuxiliarClinicoVeterinarioNortePage = () => <CursoPageComponent curso={cursoData[2]} />;
+const AuxiliarClinicoVeterinarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[3]} />;
+const AuxiliarClinicasEsteticasPage = () => <CursoPageComponent curso={cursoData[4]} />;
+const AuxiliarEnfermeriaNortePage = () => <CursoPageComponent curso={cursoData[5]} />;
+const AuxiliarEnfermeriaSantaCruzPage = () => <CursoPageComponent curso={cursoData[6]} />;
+const AuxiliarFarmaciaDermoPage = () => <CursoPageComponent curso={cursoData[7]} />;
+const AuxiliarOdontologiaNortePage = () => <CursoPageComponent curso={cursoData[8]} />;
+const AuxiliarOdontologiaSantaCruzPage = () => <CursoPageComponent curso={cursoData[9]} />;
+const DieteticaNutricionPage = () => <CursoPageComponent curso={cursoData[10]} />;
+const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[11]} />;
+const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[12]} />;
+const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[13]} />;
 
 
 function App() {
@@ -90,7 +90,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cursos" element={<CursosPage />} />
-        <Route path="/adiestramiento-canino" element={<AdiestramientoCanino />} />
+        <Route path="/adiestramiento-canino" element={<AdiestramientoCaninoPage />} />
         <Route path="/contacto" element={<AdiestramientoCanino />} />
         <Route path="/inicio" element={<HomePage />} />
         <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
@@ -98,23 +98,21 @@ function App() {
         <Route path="/aviso-legal" element={<AvisoLegalPage />} />
         <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
         
-        {/* RUTA PROTOTIPO */}
-        <Route path="/curso/adiestramiento-canino-norte" element={<AdiestramientoCaninoPage />} />
-
-        {/* RUTAS INTEGRADAS */}
-        <Route path="/curso/agente-funerario-santacruz" element={<AgenteFunerarioPage />} />
-        <Route path="/curso/auxiliar-clinico-veterinario-norte" element={<AuxiliarClinicoVeterinarioNortePage />} />
-        <Route path="/curso/auxiliar-clinico-veterinario-santacruz" element={<AuxiliarClinicoVeterinarioSantaCruzPage />} />
-        <Route path="/curso/auxiliar-clinicas-esteticas-santacruz" element={<AuxiliarClinicasEsteticasPage />} />
-        <Route path="/curso/auxiliar-enfermeria-norte" element={<AuxiliarEnfermeriaNortePage />} />
-        <Route path="/curso/auxiliar-enfermeria-santacruz" element={<AuxiliarEnfermeriaSantaCruzPage />} />
-        <Route path="/curso/auxiliar-farmacia-dermo-norte" element={<AuxiliarFarmaciaDermoPage />} />
-        <Route path="/curso/auxiliar-odontologia-norte" element={<AuxiliarOdontologiaNortePage />} />
-        <Route path="/curso/auxiliar-odontologia-santacruz" element={<AuxiliarOdontologiaSantaCruzPage />} />
-        <Route path="/curso/dietetica-nutricion-norte" element={<DieteticaNutricionPage />} />
-        <Route path="/curso/peluqueria-canina-felina-norte" element={<PeluqueriaCaninaNortePage />} />
-        <Route path="/curso/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
-        <Route path="/curso/quiromasaje-nivel2-norte" element={<QuiromasajeNivel2Page />} />
+        {/* LANDINGS DIRECTAS - RUTAS CORREGIDAS SIN /curso/ PREFIJO */}
+        <Route path="/adiestramiento-canino-norte" element={<AdiestramientoCaninoPage />} />
+        <Route path="/agente-funerario-santacruz" element={<AgenteFunerarioPage />} />
+        <Route path="/auxiliar-clinico-veterinario-norte" element={<AuxiliarClinicoVeterinarioNortePage />} />
+        <Route path="/auxiliar-clinico-veterinario-santacruz" element={<AuxiliarClinicoVeterinarioSantaCruzPage />} />
+        <Route path="/auxiliar-clinicas-esteticas-santacruz" element={<AuxiliarClinicasEsteticasPage />} />
+        <Route path="/auxiliar-enfermeria-norte" element={<AuxiliarEnfermeriaNortePage />} />
+        <Route path="/auxiliar-enfermeria-santacruz" element={<AuxiliarEnfermeriaSantaCruzPage />} />
+        <Route path="/auxiliar-farmacia-dermo-norte" element={<AuxiliarFarmaciaDermoPage />} />
+        <Route path="/auxiliar-odontologia-norte" element={<AuxiliarOdontologiaNortePage />} />
+        <Route path="/auxiliar-odontologia-santacruz" element={<AuxiliarOdontologiaSantaCruzPage />} />
+        <Route path="/dietetica-nutricion-norte" element={<DieteticaNutricionPage />} />
+        <Route path="/peluqueria-canina-felina-norte" element={<PeluqueriaCaninaNortePage />} />
+        <Route path="/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
+        <Route path="/quiromasaje-nivel2-norte" element={<QuiromasajeNivel2Page />} />
 
       </Routes>
     </Router>

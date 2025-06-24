@@ -26,7 +26,7 @@ const CursosPage: React.FC = () => {
             {curso.copy.slogan}
         </p>
         <a
-            href={`/curso/${curso.slug}`}
+            href={`/${curso.slug}`}
             className="block w-full mt-auto bg-cep-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-cep-primary/90 transition-colors text-center"
         >
             Más Información
