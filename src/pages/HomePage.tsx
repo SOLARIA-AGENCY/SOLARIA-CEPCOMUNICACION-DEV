@@ -273,6 +273,79 @@ const equipoDocente = [
   }
 ];
 
+// Datos de colaboradores
+const colaboradores = [
+  {
+    id: 1,
+    nombre: "Clínica Veterinaria Añaza",
+    imagen: "/images/colaboradores/clinica-anaza-logo.jpg"
+  },
+  {
+    id: 2,
+    nombre: "Clínica Veterinaria Duggi",
+    imagen: "/images/colaboradores/clinica-duggi-logo.jpg"
+  },
+  {
+    id: 3,
+    nombre: "Centro Veterinario Alper",
+    imagen: "/images/colaboradores/clinica-alper-logo.jpg"
+  },
+  {
+    id: 4,
+    nombre: "Aboras Obediencia",
+    imagen: "/images/colaboradores/aboras-logo.jpg"
+  },
+  {
+    id: 5,
+    nombre: "CIDME",
+    imagen: "/images/colaboradores/cidme-logo.jpg"
+  },
+  {
+    id: 6,
+    nombre: "Mi Óptica Central",
+    imagen: "/images/colaboradores/mi-optica-central-logo.jpg"
+  }
+];
+
+// Datos de ONGs
+const ongs = [
+  {
+    id: 1,
+    nombre: "Addanca",
+    imagen: "/images/ongs/addanca-logo.jpg"
+  },
+  {
+    id: 2,
+    nombre: "Adepac",
+    imagen: "/images/ongs/adepac-logo.jpg"
+  },
+  {
+    id: 3,
+    nombre: "Animal Club",
+    imagen: "/images/ongs/animal-club-logo.jpg"
+  },
+  {
+    id: 4,
+    nombre: "Apanot",
+    imagen: "/images/ongs/apanot-logo.jpg"
+  },
+  {
+    id: 5,
+    nombre: "La Esperanza del Sur",
+    imagen: "/images/ongs/la-esperanza-del-sur-logo.jpg"
+  },
+  {
+    id: 6,
+    nombre: "SOS Felina",
+    imagen: "/images/ongs/sosfelina-logo.jpg"
+  },
+  {
+    id: 7,
+    nombre: "Valle Colino",
+    imagen: "/images/ongs/valle-colino-logo.jpg"
+  }
+];
+
 const HomePage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -538,12 +611,45 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Colaboradores y ONGs - simplificado */}
+      {/* Colaboradores */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-cep-primary text-center mb-8">
+          <h2 className="text-2xl font-bold text-cep-primary text-center mb-12">
             Agradecemos la buena relación y profesionalidad de nuestros colaboradores
           </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {colaboradores.map((colaborador) => (
+              <div key={colaborador.id} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <img
+                  src={colaborador.imagen}
+                  alt={colaborador.nombre}
+                  className="w-20 h-20 object-contain mx-auto"
+                  title={colaborador.nombre}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ONGs */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl font-bold text-cep-primary text-center mb-6">
+            Concienciados ante la necesidad de dar cuidado a nuestros animales abandonados, somos socios de:
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center justify-items-center mb-8">
+            {ongs.map((ong) => (
+              <div key={ong.id} className="bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <img
+                  src={ong.imagen}
+                  alt={ong.nombre}
+                  className="w-20 h-20 object-contain mx-auto"
+                  title={ong.nombre}
+                />
+              </div>
+            ))}
+          </div>
           <div className="text-center">
             <p className="text-gray-600">
               Somos una empresa socialmente responsable, sensible ante las injusticias y desigualdades 
