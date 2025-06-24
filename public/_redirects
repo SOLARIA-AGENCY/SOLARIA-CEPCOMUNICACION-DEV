@@ -1,5 +1,26 @@
-# API redirects
-/api/v1/* /.netlify/functions/:splat 200
+# React Router SPA redirects
+# All routes should redirect to index.html for client-side routing
 
-# SPA fallback - must be last
-/* /index.html 200 
+# Specific course routes (explicit for better SEO)
+/adiestramiento-canino /index.html 200
+/auxiliar-clinicas-esteticas /index.html 200
+/agente-funerario /index.html 200
+/auxiliar-veterinario /index.html 200
+/auxiliar-farmacia /index.html 200
+/auxiliar-odontologia /index.html 200
+/auxiliar-enfermeria-norte /index.html 200
+/auxiliar-enfermeria-santacruz /index.html 200
+/gestion-administrativa-norte /index.html 200
+/gestion-administrativa-santacruz /index.html 200
+/marketing-digital-norte /index.html 200
+/marketing-digital-santacruz /index.html 200
+/atencion-sociosanitaria-norte /index.html 200
+/atencion-sociosanitaria-santacruz /index.html 200
+
+# Fallback for all other routes
+/* /index.html 200
+
+# Force new deployment - 2025-01-23
+
+# API redirects
+/api/v1/* /.netlify/functions/:splat 200 
