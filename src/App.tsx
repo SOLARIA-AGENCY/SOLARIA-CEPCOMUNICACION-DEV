@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CursosPage from './pages/CursosPage';
-import AdiestramientoCanino from './pages/ContactPage';
+import ContactPage from './pages/ContactPage';
 import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
 import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
 import AvisoLegalPage from './pages/AvisoLegalPage';
@@ -30,13 +30,17 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
     <div className="bg-gray-50 min-h-screen">
       <CepHeader />
       <main>
-        {/* Hero Section */}
-        <div className="relative h-96 bg-black">
-          <img src={imagen} alt={`Imagen de ${nombre}`} className="w-full h-full object-cover opacity-50" />
+        {/* Hero Section - Mobile First Responsive */}
+        <div className="relative h-64 sm:h-80 md:h-96 bg-black">
+          <img 
+            src={imagen} 
+            alt={`Imagen de ${nombre}`} 
+            className="w-full h-full object-cover object-center opacity-50" 
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">{nombre}</h1>
-            <p className="mt-4 text-xl md:text-2xl font-light max-w-3xl">{copy.slogan}</p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold tracking-tight leading-tight">{nombre}</h1>
+            <p className="mt-2 sm:mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl font-light max-w-3xl">{copy.slogan}</p>
           </div>
         </div>
 
@@ -218,7 +222,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/cursos" element={<CursosPage />} />
         <Route path="/adiestramiento-canino" element={<AdiestramientoCaninoPage />} />
-        <Route path="/contacto" element={<AdiestramientoCanino />} />
+        <Route path="/contacto" element={<ContactPage />} />
         <Route path="/inicio" element={<HomePage />} />
         <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
         <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />

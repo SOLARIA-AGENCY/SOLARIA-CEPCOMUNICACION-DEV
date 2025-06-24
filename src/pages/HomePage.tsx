@@ -369,8 +369,8 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-white">
       <CepHeader />
       
-      {/* Hero Slideshow - Solo imágenes */}
-      <section className="relative h-[500px] md:h-[600px] overflow-hidden">
+      {/* Hero Slideshow - Mobile First Responsive */}
+      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
         <div className="relative w-full h-full">
           {heroSlides.map((slide, index) => (
             <div
@@ -382,32 +382,32 @@ const HomePage: React.FC = () => {
               <img
                 src={slide.image}
                 alt={slide.alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
           ))}
           
-          {/* Controles del slideshow */}
+          {/* Controles del slideshow - Mobile optimized */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+            className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1.5 sm:p-2 rounded-full hover:bg-opacity-75 transition-all"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-all"
+            className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-1.5 sm:p-2 rounded-full hover:bg-opacity-75 transition-all"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} className="sm:w-6 sm:h-6" />
           </button>
           
-          {/* Indicadores */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          {/* Indicadores - Mobile optimized */}
+          <div className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {heroSlides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all ${
                   index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
                 }`}
               />
@@ -416,27 +416,27 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Sección de iconos - PROFESORES CUALIFICADOS, CURSOS PROFESIONALES, RÁPIDA SALIDA LABORAL */}
-      <section className="py-16 bg-white">
+      {/* Sección de iconos - Mobile First */}
+      <section className="py-8 sm:py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="text-white" size={32} />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Users className="text-white" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-cep-primary mb-2">PROFESORES CUALIFICADOS</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">PROFESORES CUALIFICADOS</h3>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="text-white" size={32} />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <Award className="text-white" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-cep-primary mb-2">CURSOS PROFESIONALES</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">CURSOS PROFESIONALES</h3>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="text-white" size={32} />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                <TrendingUp className="text-white" size={24} />
               </div>
-              <h3 className="text-xl font-bold text-cep-primary mb-2">RÁPIDA SALIDA LABORAL</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">RÁPIDA SALIDA LABORAL</h3>
             </div>
           </div>
         </div>
@@ -473,31 +473,31 @@ const HomePage: React.FC = () => {
             <p className="text-lg text-cep-primary font-semibold">Reserva tu plaza ahora - Los cursos empiezan pronto</p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {cursosOtono2025.map((curso) => (
               <div key={curso.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <img
                   src={curso.imagen}
                   alt={curso.titulo}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-40 sm:h-48 object-cover"
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
-                  <div className="space-y-2 text-sm text-gray-600 mb-4">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
+                  <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
                     <p><strong>Sede:</strong> {curso.sede}</p>
                     <p><strong>Inicio:</strong> {curso.inicio}</p>
                     <p><strong>Duración:</strong> {curso.duracion}</p>
                   </div>
-                  <p className="text-gray-700 mb-4">{curso.descripcion}</p>
+                  <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 line-clamp-3">{curso.descripcion}</p>
                   {curso.hasPage ? (
                     <Link 
                       to={curso.link}
-                      className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block"
+                      className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base"
                     >
                       VER CURSO COMPLETO
                     </Link>
                   ) : (
-                    <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed">
+                    <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed text-sm sm:text-base">
                       PRÓXIMAMENTE
                     </button>
                   )}
