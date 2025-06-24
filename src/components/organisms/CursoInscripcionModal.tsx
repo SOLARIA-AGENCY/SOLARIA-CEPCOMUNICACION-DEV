@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, User, Mail, Phone, MapPin, MessageSquare, Shield, Clock } from 'lucide-react';
 
 interface Props {
   isOpen: boolean;
@@ -14,118 +14,334 @@ interface Props {
 const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
   const [formData, setFormData] = useState({
     nombre: '',
+    apellidos: '',
     email: '',
     telefono: '',
+    sedePreferida: curso.sede || '',
+    comentarios: '',
+    preferenciasContacto: 'cualquier_hora',
+    aceptaRgpd: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked;
+      setFormData({ ...formData, [name]: checked });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.nombre || !formData.email || !formData.telefono) {
-      setError('Todos los campos son obligatorios.');
+    
+    // Validaciones
+    if (!formData.nombre || !formData.apellidos || !formData.email || !formData.telefono) {
+      setError('Por favor, completa todos los campos obligatorios.');
       return;
     }
+    
+    if (!formData.aceptaRgpd) {
+      setError('Debes aceptar la política de privacidad para continuar.');
+      return;
+    }
+    
     setError('');
     setIsSubmitting(true);
 
     const submissionData = {
-      ...formData,
-      sede: curso.sede,
+      // Datos del lead
+      nombre: formData.nombre,
+      apellidos: formData.apellidos,
+      email: formData.email,
+      telefono: formData.telefono,
+      sedePreferida: formData.sedePreferida,
+      comentarios: formData.comentarios,
+      preferenciasContacto: formData.preferenciasContacto,
+      
+      // Datos del curso
       curso: curso.nombre,
+      sede: curso.sede,
       tag: curso.tag,
-      procedencia: 'landing_web',
+      
+      // Metadatos
+      procedencia: 'landing_web_modal',
+      tipo: 'reserva_plaza',
       timestamp: new Date().toISOString(),
+      url: window.location.href,
+      userAgent: navigator.userAgent,
     };
 
-    // Lógica de envío (p. ej. a un webhook de n8n)
-    console.log('Enviando datos:', submissionData);
-    // Aquí iría la llamada a fetch/axios para el webhook
-    // await fetch('URL_DEL_WEBHOOK', { ... });
-
-    setTimeout(() => { // Simulación de envío
+    try {
+      // TODO: Implementar webhook a n8n
+      // const response = await fetch('https://tu-instancia-n8n.com/webhook/cep-inscripciones', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(submissionData),
+      // });
+      
+      // Simulación temporal del envío
+      console.log('📤 Enviando datos al webhook n8n:', submissionData);
+      
+      // Simular delay de red
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
       setIsSubmitting(false);
-      alert('¡Gracias! Hemos recibido tu solicitud. Te contactaremos en breve.');
-      onClose();
-    }, 1000);
+      setIsSubmitted(true);
+      
+    } catch (error) {
+      console.error('❌ Error enviando formulario:', error);
+      setError('Hubo un problema al enviar tu solicitud. Por favor, inténtalo de nuevo.');
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-lg shadow-2xl w-full max-w-md relative animate-fade-in-up">
+      <div className="bg-white rounded-xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto relative">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors"
+          className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors z-10"
         >
           <X size={24} />
         </button>
 
-        <div className="p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Inscríbete en</h2>
-          <p className="text-cep-primary text-xl font-semibold mb-6">{curso.nombre} - Sede {curso.sede}</p>
-
-          <form onSubmit={handleSubmit} noValidate>
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="nombre" className="block text-sm font-medium text-gray-700">Nombre completo</label>
-                <input
-                  type="text"
-                  name="nombre"
-                  id="nombre"
-                  required
-                  onChange={handleInputChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-cep-primary focus:border-cep-primary"
-                />
+        {!isSubmitted ? (
+          <div className="p-6 sm:p-8">
+            {/* Header optimizado para conversión */}
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-gradient-to-r from-cep-primary to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🎯</span>
               </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-cep-primary mb-3">¡Reserva tu Plaza!</h2>
+              <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                <p className="text-lg font-semibold text-gray-800 mb-2">
+                  🏆 {curso.nombre} - {curso.sede}
+                </p>
+                <p className="text-sm text-gray-700">
+                  <strong>✅ Esta inscripción es para separar tu plaza</strong><br/>
+                  <strong>📞 Un operador de CEP Formación se pondrá en contacto contigo</strong> para formalizar la matrícula y resolver todas tus dudas
+                </p>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Datos personales */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                    <User className="w-4 h-4 mr-2 text-cep-primary" />
+                    Nombre *
+                  </label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    required
+                    value={formData.nombre}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+                
+                <div>
+                  <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                    <User className="w-4 h-4 mr-2 text-cep-primary" />
+                    Apellidos *
+                  </label>
+                  <input
+                    type="text"
+                    name="apellidos"
+                    required
+                    value={formData.apellidos}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                    placeholder="Tus apellidos"
+                  />
+                </div>
+              </div>
+              
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                  <Mail className="w-4 h-4 mr-2 text-cep-primary" />
+                  Email *
+                </label>
                 <input
                   type="email"
                   name="email"
-                  id="email"
                   required
+                  value={formData.email}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-cep-primary focus:border-cep-primary"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                  placeholder="tu@email.com"
                 />
               </div>
+              
               <div>
-                <label htmlFor="telefono" className="block text-sm font-medium text-gray-700">Teléfono</label>
+                <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                  <Phone className="w-4 h-4 mr-2 text-cep-primary" />
+                  Teléfono *
+                </label>
                 <input
                   type="tel"
                   name="telefono"
-                  id="telefono"
                   required
+                  value={formData.telefono}
                   onChange={handleInputChange}
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-cep-primary focus:border-cep-primary"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                  placeholder="922 000 000"
                 />
               </div>
-            </div>
+              
+              <div>
+                <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                  <MapPin className="w-4 h-4 mr-2 text-cep-primary" />
+                  Sede preferida *
+                </label>
+                <select
+                  name="sedePreferida"
+                  required
+                  value={formData.sedePreferida}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                >
+                  <option value="">Seleccionar sede</option>
+                  <option value="Norte">CEP NORTE - La Orotava</option>
+                  <option value="Santa Cruz">CEP SANTA CRUZ</option>
+                </select>
+              </div>
 
-            {error && <p className="text-red-500 text-sm mt-4">{error}</p>}
+              <div>
+                <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                  <Clock className="w-4 h-4 mr-2 text-cep-primary" />
+                  ¿Cuándo prefieres que te contactemos?
+                </label>
+                <select
+                  name="preferenciasContacto"
+                  value={formData.preferenciasContacto}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                >
+                  <option value="cualquier_hora">Cualquier hora (9:00 - 20:00)</option>
+                  <option value="mananas">Solo mañanas (9:00 - 14:00)</option>
+                  <option value="tardes">Solo tardes (14:00 - 20:00)</option>
+                  <option value="fines_semana">Fines de semana</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
+                  <MessageSquare className="w-4 h-4 mr-2 text-cep-primary" />
+                  Comentarios adicionales (opcional)
+                </label>
+                <textarea
+                  name="comentarios"
+                  rows={3}
+                  value={formData.comentarios}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                  placeholder="Cuéntanos si tienes alguna duda específica o preferencia..."
+                />
+              </div>
 
-            <div className="mt-6">
-              <p className="text-xs text-gray-500">
-                Al enviar, aceptas nuestra <a href="/politica-privacidad" target="_blank" className="underline">política de privacidad</a>. Usaremos tus datos para informarte sobre este curso.
-              </p>
-            </div>
+              {/* RGPD */}
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="flex items-start">
+                  <input
+                    type="checkbox"
+                    name="aceptaRgpd"
+                    id="aceptaRgpd"
+                    required
+                    checked={formData.aceptaRgpd}
+                    onChange={handleInputChange}
+                    className="mt-1 mr-3 w-4 h-4 text-cep-primary border-gray-300 rounded focus:ring-cep-primary"
+                  />
+                  <label htmlFor="aceptaRgpd" className="text-sm text-gray-700">
+                    <Shield className="w-4 h-4 inline mr-1 text-blue-600" />
+                    <strong>Acepto la política de privacidad</strong> y autorizo a CEP Formación a contactarme por email, teléfono o WhatsApp para fines informativos relacionados con este curso. 
+                    <a href="/politica-privacidad" target="_blank" className="text-cep-primary underline ml-1">Ver política completa</a>
+                  </label>
+                </div>
+              </div>
 
-            <div className="mt-6">
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <p className="text-red-600 text-sm font-medium">{error}</p>
+                </div>
+              )}
+
+              {/* CTA Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-cep-primary hover:bg-cep-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cep-primary disabled:bg-gray-400"
+                className="w-full bg-yellow-400 text-gray-900 font-bold py-4 px-6 rounded-lg text-lg hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:transform-none shadow-lg"
               >
-                {isSubmitting ? 'Enviando...' : 'Solicitar Información'}
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando solicitud...
+                  </span>
+                ) : (
+                  '🎯 RESERVAR MI PLAZA AHORA'
+                )}
               </button>
+              
+              <p className="text-xs text-center text-gray-500 mt-4">
+                ⚡ <strong>¡Respuesta inmediata!</strong> Te contactaremos en menos de 30 minutos para confirmar tu plaza
+              </p>
+            </form>
+          </div>
+        ) : (
+          // Pantalla de confirmación
+          <div className="p-6 sm:p-8 text-center">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span className="text-3xl">✅</span>
             </div>
-          </form>
-        </div>
+            
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-700 mb-4">¡Plaza Reservada!</h2>
+            
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6">
+              <p className="text-lg font-semibold text-green-800 mb-3">
+                🎉 ¡Gracias {formData.nombre}!
+              </p>
+              <p className="text-green-700 mb-4">
+                Tu plaza en <strong>{curso.nombre} - {curso.sede}</strong> ha sido reservada exitosamente.
+              </p>
+              
+              <div className="bg-white rounded-lg p-4 text-left">
+                <h4 className="font-bold text-green-800 mb-2">📋 Próximos pasos:</h4>
+                <ul className="text-sm text-green-700 space-y-1">
+                  <li>✅ Recibirás un email de confirmación</li>
+                  <li>✅ Te enviaremos un WhatsApp con información adicional</li>
+                  <li>📞 Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula</li>
+                  <li>📚 Te enviaremos el temario completo y toda la documentación</li>
+                </ul>
+              </div>
+            </div>
+            
+            <button
+              onClick={onClose}
+              className="bg-cep-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-cep-primary/90 transition-colors"
+            >
+              Cerrar
+            </button>
+            
+            <p className="text-xs text-gray-500 mt-4">
+              ⏰ Te contactaremos en las próximas 2 horas
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -71,96 +71,61 @@ const AdiestramientoCaninoPage: React.FC = () => {
             </div>
 
             {/* Content Section - Mobile First */}
-            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-              <div className="md:col-span-2 prose prose-lg max-w-none">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Sobre el curso</h2>
-                <p className="text-sm sm:text-base">{copy.textosPrincipales[0]}</p>
-                <p className="text-sm sm:text-base">{copy.textosPrincipales[1]}</p>
-                
-                <h3 className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10">¿Qué aprenderás?</h3>
-                <ul className="space-y-2">
-                  {copy.titulos.map((titulo, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckCircle className="w-5 sm:w-6 h-5 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
-                      <span className="text-sm sm:text-base">{titulo}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                {copy.textosPrincipales[2] && <p className="mt-4 sm:mt-6 text-sm sm:text-base">{copy.textosPrincipales[2]}</p>}
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Sobre el curso</h2>
+              <p className="text-sm sm:text-base">{copy.textosPrincipales[0]}</p>
+              <p className="text-sm sm:text-base">{copy.textosPrincipales[1]}</p>
+              
+              <h3 className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10">¿Qué aprenderás?</h3>
+              <ul className="space-y-2">
+                {copy.titulos.map((titulo, i) => (
+                  <li key={i} className="flex items-start">
+                    <CheckCircle className="w-5 sm:w-6 h-5 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">{titulo}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              {copy.textosPrincipales[2] && <p className="mt-4 sm:mt-6 text-sm sm:text-base">{copy.textosPrincipales[2]}</p>}
 
-                {/* Temario Detallado - Mobile First */}
-                {temario && temario.length > 0 && (
-                  <div className="mt-8 sm:mt-10">
-                    <div 
-                      className="flex items-center justify-between cursor-pointer bg-gray-100 p-3 sm:p-4 rounded-lg hover:bg-gray-200 transition-colors"
-                      onClick={() => setTemarioExpanded(!temarioExpanded)}
-                    >
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
-                        <BookOpen className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
-                        Temario Completo
-                      </h3>
-                      {temarioExpanded ? <ChevronUp className="w-5 sm:w-6 h-5 sm:h-6" /> : <ChevronDown className="w-5 sm:w-6 h-5 sm:h-6" />}
-                    </div>
-                    
-                    {temarioExpanded && (
-                      <div className="mt-4 bg-white p-4 sm:p-6 rounded-lg border border-gray-200">
-                        <ul className="space-y-3">
-                          {temario.map((modulo, i) => (
-                            <li key={i} className="flex items-start">
-                              <span className="bg-cep-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 flex-shrink-0">
-                                {i + 1}
-                              </span>
-                              <span className="text-gray-700 text-sm sm:text-base">{modulo}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+              {/* Temario Detallado - Mobile First */}
+              {temario && temario.length > 0 && (
+                <div className="mt-8 sm:mt-10">
+                  <div 
+                    className="flex items-center justify-between cursor-pointer bg-gray-100 p-3 sm:p-4 rounded-lg hover:bg-gray-200 transition-colors"
+                    onClick={() => setTemarioExpanded(!temarioExpanded)}
+                  >
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
+                      <BookOpen className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
+                      Temario Completo
+                    </h3>
+                    {temarioExpanded ? <ChevronUp className="w-5 sm:w-6 h-5 sm:h-6" /> : <ChevronDown className="w-5 sm:w-6 h-5 sm:h-6" />}
                   </div>
-                )}
-
-                {/* Información adicional - Mobile First */}
-                {practicas && (
-                  <div className="mt-6 sm:mt-8 bg-blue-50 p-4 sm:p-6 rounded-lg">
-                    <h4 className="text-base sm:text-lg font-bold text-blue-900 mb-2">Experiencia Práctica</h4>
-                    <p className="text-blue-800 text-sm sm:text-base">{practicas}</p>
-                  </div>
-                )}
-
-              </div>
-
-              {/* CTA Sidebar Enriquecido - Mobile First */}
-              <aside className="md:col-span-1">
-                <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 sticky top-24">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900">¿Listo para empezar?</h3>
-                  <p className="text-gray-600 mt-2 mb-4 sm:mb-6 text-sm sm:text-base">Solicita información sin compromiso y reserva tu plaza.</p>
-
-                  {/* Información de Precio - Mobile First */}
-                  {precio && (
-                    <div className="bg-cep-primary/10 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6">
-                      <div className="flex items-center mb-2">
-                        <Euro className="w-4 sm:w-5 h-4 sm:h-5 text-cep-primary mr-2" />
-                        <span className="font-bold text-gray-900 text-sm sm:text-base">Información Económica</span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-gray-700">
-                        <strong>{precio.cuotas} cuotas</strong> de <strong>{precio.importe}€</strong>
-                      </p>
-                      <p className="text-xs sm:text-sm text-gray-700">
-                        + Matrícula: <strong>{precio.matricula}€</strong>
-                      </p>
+                  
+                  {temarioExpanded && (
+                    <div className="mt-4 bg-white p-4 sm:p-6 rounded-lg border border-gray-200">
+                      <ul className="space-y-3">
+                        {temario.map((modulo, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="bg-cep-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 flex-shrink-0">
+                              {i + 1}
+                            </span>
+                            <span className="text-gray-700 text-sm sm:text-base">{modulo}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
-
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="w-full bg-yellow-400 text-gray-900 font-bold py-4 px-4 rounded-lg hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base shadow-lg"
-                  >
-                    ¡RESERVAR MI PLAZA AHORA!
-                  </button>
-                  <p className="text-xs text-gray-400 mt-4 text-center">Plazas limitadas. Grupos reducidos.</p>
                 </div>
-              </aside>
+              )}
+
+              {/* Información adicional - Mobile First */}
+              {practicas && (
+                <div className="mt-6 sm:mt-8 bg-blue-50 p-4 sm:p-6 rounded-lg">
+                  <h4 className="text-base sm:text-lg font-bold text-blue-900 mb-2">Experiencia Práctica</h4>
+                  <p className="text-blue-800 text-sm sm:text-base">{practicas}</p>
+                </div>
+              )}
             </div>
 
           </div>
