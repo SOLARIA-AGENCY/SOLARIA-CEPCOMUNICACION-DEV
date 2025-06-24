@@ -229,7 +229,7 @@ function App() {
         <Route path="/aviso-legal" element={<AvisoLegalPage />} />
         <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
         
-        {/* LANDINGS DIRECTAS - RUTAS CORREGIDAS SIN /curso/ PREFIJO */}
+        {/* LANDINGS DIRECTAS - TODAS LAS RUTAS DE LOS 14 CURSOS */}
         <Route path="/adiestramiento-canino-norte" element={<AdiestramientoCaninoPage />} />
         <Route path="/agente-funerario-santacruz" element={<AgenteFunerarioPage />} />
         <Route path="/auxiliar-clinico-veterinario-norte" element={<AuxiliarClinicoVeterinarioNortePage />} />
