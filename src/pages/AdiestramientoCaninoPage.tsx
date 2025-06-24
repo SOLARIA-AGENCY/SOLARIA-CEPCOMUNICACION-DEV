@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
-import { Calendar, MapPin, Award, CheckCircle, Clock, Euro, User, BookOpen, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calendar, MapPin, Award, CheckCircle, Clock, Euro, User, BookOpen, ChevronDown, ChevronUp, Users } from 'lucide-react';
 import { cursoData } from '../config/cursos-otono-2025';
 
 const AdiestramientoCaninoPage: React.FC = () => {
@@ -128,16 +128,6 @@ const AdiestramientoCaninoPage: React.FC = () => {
                   </div>
                 )}
 
-                {profesor && (
-                  <div className="mt-4 sm:mt-6 bg-green-50 p-4 sm:p-6 rounded-lg">
-                    <h4 className="text-base sm:text-lg font-bold text-green-900 mb-2 flex items-center">
-                      <User className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-                      Profesor/a Especialista
-                    </h4>
-                    <p className="text-green-800 text-sm sm:text-base">{profesor}</p>
-                  </div>
-                )}
-
               </div>
 
               {/* CTA Sidebar Enriquecido - Mobile First */}
@@ -164,9 +154,9 @@ const AdiestramientoCaninoPage: React.FC = () => {
 
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="w-full bg-cep-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-cep-primary/90 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
+                    className="w-full bg-yellow-400 text-gray-900 font-bold py-4 px-4 rounded-lg hover:bg-yellow-300 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base shadow-lg"
                   >
-                    ¡Inscríbete Ahora!
+                    ¡RESERVAR MI PLAZA AHORA!
                   </button>
                   <p className="text-xs text-gray-400 mt-4 text-center">Plazas limitadas. Grupos reducidos.</p>
                 </div>
@@ -175,6 +165,106 @@ const AdiestramientoCaninoPage: React.FC = () => {
 
           </div>
         </div>
+
+        {/* Profesora Especialista */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-cep-primary mb-8">Tu Profesora Especialista</h2>
+              <div className="bg-gray-50 p-8 rounded-lg">
+                <img 
+                  src="/images/profesores/livia.jpg" 
+                  alt="Livia Bernardi" 
+                  className="w-32 h-32 rounded-full mx-auto mb-6 object-cover shadow-lg"
+                />
+                <h3 className="text-2xl font-bold text-cep-primary mb-2">Livia Bernardi</h3>
+                <p className="text-lg text-gray-600 mb-4">Fundadora de Aboras Obediencia</p>
+                <p className="text-gray-700 max-w-2xl mx-auto">
+                  Profesional en activo con amplia experiencia docente en el sector del adiestramiento canino. 
+                  Especialista en técnicas de modificación de conducta y educación canina. Preparación específica para el examen oficial ANACP.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Detalles del curso */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-cep-primary mb-12 text-center">Detalles del Curso</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-bold text-cep-primary mb-4">Modalidad y horarios</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center">
+                      <Users className="w-5 h-5 text-cep-primary mr-3" />
+                      <span>Clases presenciales en grupos reducidos</span>
+                    </li>
+                    <li className="flex items-center">
+                      <Clock className="w-5 h-5 text-cep-primary mr-3" />
+                      <span>1 día por semana - 3 horas por sesión</span>
+                    </li>
+                    <li className="flex items-center">
+                      <Calendar className="w-5 h-5 text-cep-primary mr-3" />
+                      <span>25 sesiones - 6 meses de duración</span>
+                    </li>
+                    <li className="flex items-center">
+                      <Award className="w-5 h-5 text-cep-primary mr-3" />
+                      <span>Preparación para examen oficial ANACP</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <h3 className="text-xl font-bold text-cep-primary mb-4">Precio e inscripción</h3>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-cep-primary mb-2">510€</div>
+                    <p className="text-gray-600 mb-4">6 cuotas de 85€ + 150€ matrícula</p>
+                    <div className="bg-yellow-100 p-4 rounded-lg mb-4">
+                      <p className="text-sm text-gray-700">
+                        <strong>Requisitos:</strong> Acceso con 2º de la ESO o EGB
+                      </p>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Modalidad presencial con prácticas reales
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Final */}
+        <section className="py-16 bg-white border-t border-gray-200">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-bold mb-4 text-cep-primary">¡No te quedes fuera!</h2>
+            
+            {/* Mensaje de urgencia previo */}
+            <div className="bg-gradient-to-r from-yellow-100 to-orange-100 border-l-4 border-yellow-500 p-6 rounded-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-lg font-semibold text-gray-800 mb-2">
+                🎯 ¡Reserva ahora tu plaza y paga después!
+              </p>
+              <p className="text-gray-700">
+                No pierdas tu lugar: <strong className="text-cep-primary">quedan pocas plazas disponibles</strong>
+              </p>
+            </div>
+            
+            <p className="text-xl mb-8 text-gray-700">Reserva ahora mismo tu plaza y asegura tu futuro profesional</p>
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="bg-yellow-400 text-gray-900 px-12 py-4 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-colors shadow-lg transform hover:scale-105"
+            >
+              RESERVAR MI PLAZA AHORA
+            </button>
+            <p className="text-sm mt-4 text-gray-600">
+              ¡Los cursos empiezan en septiembre! Contacto en menos de 30 minutos
+            </p>
+          </div>
+        </section>
+
       </main>
       
       <CursoInscripcionModal
