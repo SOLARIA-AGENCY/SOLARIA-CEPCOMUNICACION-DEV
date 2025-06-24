@@ -45,7 +45,7 @@ const cursosOtono2025 = [
     duracion: "8 meses",
     descripcion: "Formación integral en tratamientos de estética y procedimientos en clínicas de medicina estética",
     link: "/auxiliar-clinicas-esteticas",
-    hasPage: false
+    hasPage: true
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ const cursosOtono2025 = [
     duracion: "6 meses",
     descripcion: "Curso profesional para trabajar en servicios funerarios. Incluye protocolos, legislación y atención a familias",
     link: "/agente-funerario",
-    hasPage: false
+    hasPage: true
   },
   {
     id: 4,
@@ -67,7 +67,7 @@ const cursosOtono2025 = [
     duracion: "10 meses",
     descripcion: "Asistencia en clínicas veterinarias, cuidado animal, instrumentación quirúrgica y atención al cliente",
     link: "/auxiliar-veterinario",
-    hasPage: false
+    hasPage: true
   },
   {
     id: 5,
@@ -78,7 +78,7 @@ const cursosOtono2025 = [
     duracion: "8 meses",
     descripcion: "Formación completa para trabajar en farmacias. Dispensación de medicamentos y atención farmacéutica",
     link: "/auxiliar-farmacia",
-    hasPage: false
+    hasPage: true
   },
   {
     id: 6,
@@ -89,7 +89,7 @@ const cursosOtono2025 = [
     duracion: "9 meses",
     descripcion: "Asistencia en clínicas dentales, instrumental odontológico, radiología dental y atención al paciente",
     link: "/auxiliar-odontologia",
-    hasPage: false
+    hasPage: true
   },
   {
     id: 7,
@@ -100,7 +100,7 @@ const cursosOtono2025 = [
     duracion: "10 meses",
     descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
     link: "/auxiliar-enfermeria-norte",
-    hasPage: false
+    hasPage: true
   },
      {
      id: 8,
@@ -111,7 +111,7 @@ const cursosOtono2025 = [
      duracion: "10 meses",
      descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
      link: "/auxiliar-enfermeria-santacruz",
-     hasPage: false
+     hasPage: true
    },
    {
      id: 9,
@@ -122,7 +122,7 @@ const cursosOtono2025 = [
      duracion: "8 meses",
      descripcion: "Administración de empresas, gestión documental, atención al cliente y procedimientos administrativos",
      link: "/gestion-administrativa-norte",
-     hasPage: false
+     hasPage: true
    },
    {
      id: 10,
@@ -133,7 +133,7 @@ const cursosOtono2025 = [
      duracion: "8 meses",
      descripcion: "Administración de empresas, gestión documental, atención al cliente y procedimientos administrativos",
      link: "/gestion-administrativa-santacruz",
-     hasPage: false
+     hasPage: true
    },
    {
      id: 11,
@@ -144,7 +144,7 @@ const cursosOtono2025 = [
      duracion: "6 meses",
      descripcion: "Estrategias de marketing online, redes sociales, SEO, SEM y comercio electrónico para empresas",
      link: "/marketing-digital-norte",
-     hasPage: false
+     hasPage: true
    },
    {
      id: 12,
@@ -155,7 +155,7 @@ const cursosOtono2025 = [
      duracion: "6 meses",
      descripcion: "Estrategias de marketing online, redes sociales, SEO, SEM y comercio electrónico para empresas",
      link: "/marketing-digital-santacruz",
-     hasPage: false
+     hasPage: true
    },
    {
      id: 13,
@@ -166,7 +166,7 @@ const cursosOtono2025 = [
      duracion: "12 meses",
      descripcion: "Cuidado de personas dependientes, técnicas de asistencia personal y apoyo en el domicilio",
      link: "/atencion-sociosanitaria-norte",
-     hasPage: false
+     hasPage: true
    },
    {
      id: 14,
@@ -177,7 +177,7 @@ const cursosOtono2025 = [
      duracion: "12 meses",
      descripcion: "Cuidado de personas dependientes, técnicas de asistencia personal y apoyo en el domicilio",
      link: "/atencion-sociosanitaria-santacruz",
-     hasPage: false
+     hasPage: true
    }
  ];
 
