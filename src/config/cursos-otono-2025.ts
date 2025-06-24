@@ -13,7 +13,7 @@ export interface CursoData {
   };
 }
 
-export const cursosOtono2025: CursoData[] = [
+export const cursoData = [
   // 1. Adiestramiento Canino
   {
     slug: 'adiestramiento-canino-norte',
@@ -23,21 +23,21 @@ export const cursosOtono2025: CursoData[] = [
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
     copy: {
-      slogan: 'Haz de tu pasión por los perros tu profesión.',
+      slogan: 'Conviértete en un profesional del comportamiento canino.',
       textosPrincipales: [
-        'Fórmate en Adiestramiento Canino con prácticas reales y título CEP. Plazas limitadas.',
-        'Aprende técnicas de educación y manejo canino con instructores expertos. Prácticas garantizadas y salida laboral real.',
-        'Conviértete en adiestrador profesional y trabaja con perros de forma ética y efectiva. Plazas abiertas.'
+        'Fórmate como Adiestrador Canino Profesional y ayuda a crear un vínculo perfecto entre perros y dueños. Curso con prácticas reales en el norte de Tenerife y certificado por la ANACP.',
+        'Aprende técnicas de obediencia, modificación de conducta y socialización. Nuestra formación te prepara para superar con éxito el examen de la ANACP y trabajar como profesional.',
+        'Da el paso a una carrera apasionante. Con nuestro curso presencial en el norte de Tenerife, obtendrás las herramientas y la confianza para destacar en el mundo del adiestramiento canino.'
       ],
       titulos: [
-        'Fórmate como adiestrador canino. Prácticas reales y empleo.',
-        'Curso de adiestramiento con prácticas y título CEP.',
-        'Da el salto profesional al mundo canino.'
+        'Curso Adiestrador Canino Profesional Norte. Prácticas reales.',
+        'Fórmate para el examen de la ANACP. Empleo garantizado.',
+        'Conviértete en adiestrador canino. Plazas limitadas.'
       ],
       descripciones: [
-        'Descubre cómo convertir tu pasión por los perros en profesión.',
-        'Haz clic y conoce nuestro curso de adiestrador canino.',
-        'Solicita plaza y accede a prácticas reales. Más info.'
+        'Haz clic y transforma tu pasión por los perros en tu profesión.',
+        'Descubre cómo ser adiestrador profesional en el norte de Tenerife.',
+        'Reserva tu plaza y accede a prácticas reales con perros.'
       ]
     }
   },
