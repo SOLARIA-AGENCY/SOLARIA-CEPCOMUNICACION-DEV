@@ -5,6 +5,16 @@ export interface CursoData {
   tag: string;
   inicio: string;
   imagen: string;
+  temario?: string[];
+  duracion?: string;
+  precio?: {
+    cuotas: number;
+    importe: number;
+    matricula: number;
+  };
+  practicas?: string;
+  profesor?: string;
+  certificacion?: string;
   copy: {
     slogan: string;
     textosPrincipales: string[];
@@ -22,6 +32,21 @@ export const cursoData = [
     tag: 'otono-2025-adiestramiento-canino-norte',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
+    temario: [
+      'Módulo 1: Técnicas de adiestramiento de base aplicadas a perros',
+      'Módulo 2: Modificación de conductas no deseadas en perros',
+      'Módulo 3: Cuidados higiénicos aplicados a perros',
+      'Módulo 4: Primeros Auxilios aplicados a Perros'
+    ],
+    duracion: '25 sesiones / 6 meses',
+    precio: {
+      cuotas: 6,
+      importe: 85,
+      matricula: 150
+    },
+    practicas: 'Prácticas reales con perros',
+    profesor: 'Livia Bernardi (Fundadora Aboras Obediencia)',
+    certificacion: 'Diploma CEP + Preparación examen ANACP',
     copy: {
       slogan: 'Conviértete en un profesional del comportamiento canino.',
       textosPrincipales: [
@@ -49,6 +74,9 @@ export const cursoData = [
     tag: 'otono-2025-agente-funerario-santacruz',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en empresas del sector',
+    certificacion: 'Diploma CEP + Título oficial',
     copy: {
       slogan: 'Fórmate en un sector estable con futuro.',
       textosPrincipales: [
@@ -76,6 +104,9 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-clinico-veterinario-norte',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
+    duracion: 'Consultar',
+    practicas: '350 horas de prácticas en clínicas veterinarias',
+    certificacion: 'Diploma CEP + Doble titulación',
     copy: {
       slogan: 'Convierte tu amor por los animales en tu futuro.',
       textosPrincipales: [
@@ -103,6 +134,9 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-clinico-veterinario-santacruz',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
+    duracion: 'Consultar',
+    practicas: '350 horas de prácticas en clínicas veterinarias',
+    certificacion: 'Diploma CEP + Doble titulación',
     copy: {
       slogan: 'Tu vocación animal, nuestra formación profesional.',
       textosPrincipales: [
@@ -130,6 +164,24 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-clinicas-esteticas-santacruz',
     inicio: 'Octubre 2025',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    temario: [
+      'Unidad 1: Introducción a la Medicina Estética',
+      'Unidad 2: Bases anatómicas en Medicina Estética',
+      'Unidad 3: Aparatología y sus usos en Medicina Estética',
+      'Unidad 4: Medicina Estética Facial Avanzada',
+      'Unidad 5: Medicina Estética Corporal',
+      'Unidad 6: Problemas Dermatológicos tratables',
+      'Unidad 7: Rejuvenecimiento Cutáneo',
+      'Unidad 8: Otras técnicas y tratamientos aplicados'
+    ],
+    duracion: '40 sesiones / 10 meses',
+    precio: {
+      cuotas: 10,
+      importe: 110,
+      matricula: 150
+    },
+    practicas: '150 horas prácticas en empresas',
+    certificacion: 'Diploma CEP + Doble titulación',
     copy: {
       slogan: 'Descubre el mundo de la estética profesional.',
       textosPrincipales: [
@@ -157,6 +209,9 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-enfermeria-norte',
     inicio: 'Noviembre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en hospitales y centros sanitarios',
+    certificacion: 'Diploma CEP + Doble titulación',
     copy: {
       slogan: 'Da el paso hacia una profesión estable y humana.',
       textosPrincipales: [
@@ -184,6 +239,9 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-enfermeria-santacruz',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en hospitales y centros sanitarios',
+    certificacion: 'Diploma CEP + Doble titulación',
     copy: {
       slogan: 'Fórmate para trabajar donde más importa.',
       textosPrincipales: [
@@ -211,6 +269,9 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-farmacia-dermo-norte',
     inicio: 'Octubre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en farmacias y parafarmacias',
+    certificacion: 'Diploma CEP + Doble titulación',
     copy: {
       slogan: 'Especialízate en farmacia y dermocosmética.',
       textosPrincipales: [
@@ -238,6 +299,9 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-odontologia-norte',
     inicio: 'Noviembre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en clínicas dentales',
+    certificacion: 'Diploma CEP + Especialidad en Periodoncia',
     copy: {
       slogan: 'Da el paso al sector dental.',
       textosPrincipales: [
@@ -265,6 +329,9 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-odontologia-santacruz',
     inicio: 'Noviembre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en clínicas dentales',
+    certificacion: 'Diploma CEP + Especialidad en Periodoncia',
     copy: {
       slogan: 'Prepárate para trabajar en clínicas dentales.',
       textosPrincipales: [
@@ -292,6 +359,21 @@ export const cursoData = [
     tag: 'otono-2025-dietetica-nutricion-norte',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    temario: [
+      'Módulo: Anatomía-Fisiología Humana',
+      'Módulo: Dietética y Nutrición',
+      'Módulo: Nutrición y Metabolismo',
+      'Módulo: Bromatología (composición de los alimentos)',
+      'Módulo: Dietética en diferentes etapas de la vida'
+    ],
+    duracion: '32 sesiones / 8 meses',
+    precio: {
+      cuotas: 8,
+      importe: 105,
+      matricula: 150
+    },
+    practicas: '150 horas prácticas en empresa',
+    certificacion: 'Diploma CEP',
     copy: {
       slogan: 'Ayuda a transformar vidas.',
       textosPrincipales: [
@@ -319,6 +401,9 @@ export const cursoData = [
     tag: 'otono-2025-peluqueria-canina-felina-norte',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en centros de estética animal',
+    certificacion: 'Título CEP',
     copy: {
       slogan: 'Aprende técnicas de estética y salud animal.',
       textosPrincipales: [
@@ -346,6 +431,9 @@ export const cursoData = [
     tag: 'otono-2025-peluqueria-canina-felina-santacruz',
     inicio: 'Julio 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en centros de estética animal',
+    certificacion: 'Título CEP',
     copy: {
       slogan: 'Convierte tu pasión por los animales en tu futuro profesional.',
       textosPrincipales: [
@@ -373,6 +461,9 @@ export const cursoData = [
     tag: 'otono-2025-quiromasaje-nivel2-norte',
     inicio: 'Julio 2025',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    duracion: 'Consultar',
+    practicas: 'Prácticas en spas y centros de bienestar',
+    certificacion: 'Título CEP + Bolsa de empleo',
     copy: {
       slogan: 'Especialízate en masaje deportivo y terapéutico.',
       textosPrincipales: [
