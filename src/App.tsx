@@ -47,82 +47,82 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto">
             
-            {/* Info Bar Enriquecida */}
-            <div className="bg-white rounded-lg shadow-lg p-6 mb-12 flex flex-wrap items-center justify-around gap-6 -mt-32 relative z-10">
-              <div className="flex items-center gap-3">
-                <Calendar className="w-8 h-8 text-cep-primary" />
+            {/* Info Bar Enriquecida - Mobile First */}
+            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-12 grid grid-cols-2 md:flex md:flex-wrap items-center justify-around gap-4 sm:gap-6 -mt-32 relative z-10">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Calendar className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
                 <div>
-                  <p className="text-sm text-gray-500">Inicio</p>
-                  <p className="font-bold text-gray-900">{inicio}</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Inicio</p>
+                  <p className="font-bold text-sm sm:text-base text-gray-900">{inicio}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-8 h-8 text-cep-primary" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <MapPin className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
                 <div>
-                  <p className="text-sm text-gray-500">Sede</p>
-                  <p className="font-bold text-gray-900">{sede}</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Sede</p>
+                  <p className="font-bold text-sm sm:text-base text-gray-900">{sede}</p>
                 </div>
               </div>
               {duracion && (
-                <div className="flex items-center gap-3">
-                  <Clock className="w-8 h-8 text-cep-primary" />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Clock className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
                   <div>
-                    <p className="text-sm text-gray-500">Duración</p>
-                    <p className="font-bold text-gray-900">{duracion}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Duración</p>
+                    <p className="font-bold text-sm sm:text-base text-gray-900">{duracion}</p>
                   </div>
                 </div>
               )}
-              <div className="flex items-center gap-3">
-                <Award className="w-8 h-8 text-cep-primary" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Award className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
                 <div>
-                  <p className="text-sm text-gray-500">Certificación</p>
-                  <p className="font-bold text-gray-900">{certificacion || 'Diploma CEP'}</p>
+                  <p className="text-xs sm:text-sm text-gray-500">Certificación</p>
+                  <p className="font-bold text-sm sm:text-base text-gray-900">{certificacion || 'Diploma CEP'}</p>
                 </div>
               </div>
             </div>
 
-            {/* Content Section */}
-            <div className="grid md:grid-cols-3 gap-12">
+            {/* Content Section - Mobile First */}
+            <div className="grid md:grid-cols-3 gap-8 md:gap-12">
               <div className="md:col-span-2 prose prose-lg max-w-none">
-                <h2 className="text-3xl font-bold text-gray-900">Sobre el curso</h2>
-                <p>{copy.textosPrincipales[0]}</p>
-                <p>{copy.textosPrincipales[1]}</p>
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Sobre el curso</h2>
+                <p className="text-sm sm:text-base">{copy.textosPrincipales[0]}</p>
+                <p className="text-sm sm:text-base">{copy.textosPrincipales[1]}</p>
                 
-                <h3 className="text-2xl font-bold mt-10">¿Qué aprenderás?</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10">¿Qué aprenderás?</h3>
                 <ul className="space-y-2">
                   {copy.titulos.map((titulo, i) => (
                     <li key={i} className="flex items-start">
-                      <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                      <span>{titulo}</span>
+                      <CheckCircle className="w-5 sm:w-6 h-5 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
+                      <span className="text-sm sm:text-base">{titulo}</span>
                     </li>
                   ))}
                 </ul>
                 
-                {copy.textosPrincipales[2] && <p className="mt-6">{copy.textosPrincipales[2]}</p>}
+                {copy.textosPrincipales[2] && <p className="mt-4 sm:mt-6 text-sm sm:text-base">{copy.textosPrincipales[2]}</p>}
 
-                {/* Temario Detallado */}
+                {/* Temario Detallado - Mobile First */}
                 {temario && temario.length > 0 && (
-                  <div className="mt-10">
+                  <div className="mt-8 sm:mt-10">
                     <div 
-                      className="flex items-center justify-between cursor-pointer bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition-colors"
+                      className="flex items-center justify-between cursor-pointer bg-gray-100 p-3 sm:p-4 rounded-lg hover:bg-gray-200 transition-colors"
                       onClick={() => setTemarioExpanded(!temarioExpanded)}
                     >
-                      <h3 className="text-2xl font-bold text-gray-900 flex items-center">
-                        <BookOpen className="w-6 h-6 mr-2" />
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
+                        <BookOpen className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
                         Temario Completo
                       </h3>
-                      {temarioExpanded ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
+                      {temarioExpanded ? <ChevronUp className="w-5 sm:w-6 h-5 sm:h-6" /> : <ChevronDown className="w-5 sm:w-6 h-5 sm:h-6" />}
                     </div>
                     
                     {temarioExpanded && (
-                      <div className="mt-4 bg-white p-6 rounded-lg border border-gray-200">
+                      <div className="mt-4 bg-white p-4 sm:p-6 rounded-lg border border-gray-200">
                         <ul className="space-y-3">
                           {temario.map((modulo, i) => (
                             <li key={i} className="flex items-start">
                               <span className="bg-cep-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 flex-shrink-0">
                                 {i + 1}
                               </span>
-                              <span className="text-gray-700">{modulo}</span>
+                              <span className="text-gray-700 text-sm sm:text-base">{modulo}</span>
                             </li>
                           ))}
                         </ul>
@@ -131,43 +131,43 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
                   </div>
                 )}
 
-                {/* Información adicional */}
+                {/* Información adicional - Mobile First */}
                 {practicas && (
-                  <div className="mt-8 bg-blue-50 p-6 rounded-lg">
-                    <h4 className="text-lg font-bold text-blue-900 mb-2">Experiencia Práctica</h4>
-                    <p className="text-blue-800">{practicas}</p>
+                  <div className="mt-6 sm:mt-8 bg-blue-50 p-4 sm:p-6 rounded-lg">
+                    <h4 className="text-base sm:text-lg font-bold text-blue-900 mb-2">Experiencia Práctica</h4>
+                    <p className="text-blue-800 text-sm sm:text-base">{practicas}</p>
                   </div>
                 )}
 
                 {profesor && (
-                  <div className="mt-6 bg-green-50 p-6 rounded-lg">
-                    <h4 className="text-lg font-bold text-green-900 mb-2 flex items-center">
-                      <User className="w-5 h-5 mr-2" />
+                  <div className="mt-4 sm:mt-6 bg-green-50 p-4 sm:p-6 rounded-lg">
+                    <h4 className="text-base sm:text-lg font-bold text-green-900 mb-2 flex items-center">
+                      <User className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
                       Profesor/a Especialista
                     </h4>
-                    <p className="text-green-800">{profesor}</p>
+                    <p className="text-green-800 text-sm sm:text-base">{profesor}</p>
                   </div>
                 )}
 
               </div>
 
-              {/* CTA Sidebar Enriquecido */}
+              {/* CTA Sidebar Enriquecido - Mobile First */}
               <aside className="md:col-span-1">
-                <div className="bg-white rounded-lg shadow-lg p-6 sticky top-24">
-                  <h3 className="text-xl font-bold text-gray-900">¿Listo para empezar?</h3>
-                  <p className="text-gray-600 mt-2 mb-6">Solicita información sin compromiso y reserva tu plaza.</p>
+                <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 sticky top-24">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900">¿Listo para empezar?</h3>
+                  <p className="text-gray-600 mt-2 mb-4 sm:mb-6 text-sm sm:text-base">Solicita información sin compromiso y reserva tu plaza.</p>
 
-                  {/* Información de Precio */}
+                  {/* Información de Precio - Mobile First */}
                   {precio && (
-                    <div className="bg-cep-primary/10 p-4 rounded-lg mb-6">
+                    <div className="bg-cep-primary/10 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6">
                       <div className="flex items-center mb-2">
-                        <Euro className="w-5 h-5 text-cep-primary mr-2" />
-                        <span className="font-bold text-gray-900">Información Económica</span>
+                        <Euro className="w-4 sm:w-5 h-4 sm:h-5 text-cep-primary mr-2" />
+                        <span className="font-bold text-gray-900 text-sm sm:text-base">Información Económica</span>
                       </div>
-                      <p className="text-sm text-gray-700">
+                      <p className="text-xs sm:text-sm text-gray-700">
                         <strong>{precio.cuotas} cuotas</strong> de <strong>{precio.importe}€</strong>
                       </p>
-                      <p className="text-sm text-gray-700">
+                      <p className="text-xs sm:text-sm text-gray-700">
                         + Matrícula: <strong>{precio.matricula}€</strong>
                       </p>
                     </div>
@@ -175,7 +175,7 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
 
                   <button
                     onClick={() => setIsModalOpen(true)}
-                    className="w-full bg-cep-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-cep-primary/90 transition-all duration-300 transform hover:scale-105"
+                    className="w-full bg-cep-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-cep-primary/90 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base"
                   >
                     ¡Inscríbete Ahora!
                   </button>
