@@ -1,22 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import CursosPage from './pages/CursosPage';
-import AdiestramientoCanino from './pages/ContactPage';
-import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
-import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
-import AvisoLegalPage from './pages/AvisoLegalPage';
-import ProteccionDatosPage from './pages/ProteccionDatosPage';
-import AdiestramientoCaninoPage from './pages/AdiestramientoCaninoPage';
-
-import CepHeader from './components/organisms/CepHeader';
-import CepFooter from './components/organisms/CepFooter';
-import CursoInscripcionModal from './components/organisms/CursoInscripcionModal';
+import CepHeader from '../components/organisms/CepHeader';
+import CepFooter from '../components/organisms/CepFooter';
+import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
 import { Calendar, MapPin, Award, CheckCircle } from 'lucide-react';
 
-import './index.css';
-
-// --- DATA STORE INTEGRADO ---
 const cursoData = [
     { slug: 'agente-funerario-santacruz', nombre: 'Agente Funerario', sede: 'Santa Cruz', tag: 'otono-2025-agente-funerario-santacruz', inicio: 'Septiembre 2025', imagen: '/images/cursos/especializacion-sanitaria.jpg', copy: { slogan: 'Fórmate en un sector estable con futuro.', textosPrincipales: ['Fórmate como Agente Funerario y trabaja en un sector estable con futuro. Curso oficial, prácticas reales y orientación laboral garantizada.', 'Descubre una profesión humana y necesaria. Curso de Agente Funerario con prácticas en empresas y doble titulación.', 'Da el paso a una carrera con estabilidad laboral. Fórmate como agente funerario con CEP y accede a empleo real.'], titulos: ['Curso Agente Funerario con prácticas y empleo garantizado.', 'Fórmate en servicios funerarios. Estabilidad laboral real.', 'Especialízate como agente funerario. Plazas abiertas.'], descripciones: ['Solicita información sobre el curso más completo del sector.', 'Descubre una profesión estable y humana. Haz clic.', 'Conoce fechas, requisitos y salidas laborales. Más info.'] } },
     { slug: 'auxiliar-clinico-veterinario-norte', nombre: 'Auxiliar Clínico Veterinario', sede: 'Norte', tag: 'otono-2025-auxiliar-clinico-veterinario-norte', inicio: 'Septiembre 2025', imagen: '/images/cursos/mundo-animal.jpg', copy: { slogan: 'Convierte tu amor por los animales en tu futuro.', textosPrincipales: ['Fórmate como Auxiliar Clínico Veterinario y trabaja en clínicas, refugios y centros de acogida. Incluye 350h de prácticas reales, doble diploma y grupos reducidos.', 'Convierte tu amor por los animales en tu futuro profesional. Curso presencial, prácticas en empresa y doble diploma en el Norte de Tenerife.', 'Empieza tu carrera como Auxiliar Veterinario con CEP Norte. Aprende de profesionales en activo, disfruta de prácticas reales y consigue orientación laboral.'], titulos: ['Auxiliar Veterinario Norte. Prácticas reales y doble diploma.', 'Fórmate como ACV en el Norte. 350h de prácticas garantizadas.', 'Da el salto al mundo animal. Curso ACV Norte de Tenerife.'], descripciones: ['Solicita información y comienza tu futuro en el mundo animal Norte.', 'Descubre cómo trabajar con animales en el Norte de Tenerife.', 'Reserva plaza en el curso líder de veterinaria del Norte.'] } },
@@ -33,10 +20,13 @@ const cursoData = [
     { slug: 'quiromasaje-nivel2-norte', nombre: 'Quiromasaje Nivel II', sede: 'Norte', tag: 'otono-2025-quiromasaje-nivel2-norte', inicio: 'Julio 2025', imagen: '/images/cursos/salud-bienestar-y-deporte.jpg', copy: { slogan: 'Especialízate en masaje deportivo y terapéutico.', textosPrincipales: ['Especialízate en Quiromasaje Nivel II Norte y trabaja en spas, gimnasios y centros de bienestar. Curso presencial, prácticas y bolsa de empleo.', 'Aprende técnicas avanzadas de masaje deportivo y terapéutico Norte. Prácticas en empresa y titulación CEP.', 'Fórmate en quiromasaje Norte con profesionales en activo. Grupos reducidos y prácticas garantizadas.'], titulos: ['Curso de quiromasaje nivel II Norte: prácticas y bolsa de empleo.', 'Especialízate en masaje deportivo Norte. Plazas limitadas.', 'Prácticas reales Norte, grupos reducidos y empleo.'], descripciones: ['Solicita información Norte y accede a la bolsa de empleo.', 'Descubre cómo especializarte en quiromasaje Norte.', 'Conoce el programa Norte, fechas y salidas laborales.'] } }
 ];
 
-// --- COMPONENTE DE PÁGINA DE CURSO REUTILIZABLE ---
 const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { nombre, sede, inicio, imagen, copy } = curso;
 
   return (
@@ -61,7 +51,8 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
             <div className="grid md:grid-cols-3 gap-12">
               <div className="md:col-span-2 prose prose-lg max-w-none">
                 <h2 className="text-3xl font-bold text-gray-900">Sobre el curso</h2>
-                <p>{copy.textosPrincipales[0]}</p><p>{copy.textosPrincipales[1]}</p>
+                <p>{copy.textosPrincipales[0]}</p>
+                <p>{copy.textosPrincipales[1]}</p>
                 <h3 className="text-2xl font-bold mt-10">¿Qué aprenderás?</h3>
                 <ul className="space-y-2">{copy.titulos.map((titulo, i) => (<li key={i} className="flex items-start"><CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" /><span>{titulo}</span></li>))}</ul>
                 <p className="mt-6">{copy.textosPrincipales[2]}</p>
@@ -84,57 +75,17 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
   );
 };
 
-// --- PÁGINAS INDIVIDUALES (GENERADAS) ---
-const AgenteFunerarioPage = () => <CursoPageComponent curso={cursoData[0]} />;
-const AuxiliarClinicoVeterinarioNortePage = () => <CursoPageComponent curso={cursoData[1]} />;
-const AuxiliarClinicoVeterinarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[2]} />;
-const AuxiliarClinicasEsteticasPage = () => <CursoPageComponent curso={cursoData[3]} />;
-const AuxiliarEnfermeriaNortePage = () => <CursoPageComponent curso={cursoData[4]} />;
-const AuxiliarEnfermeriaSantaCruzPage = () => <CursoPageComponent curso={cursoData[5]} />;
-const AuxiliarFarmaciaDermoPage = () => <CursoPageComponent curso={cursoData[6]} />;
-const AuxiliarOdontologiaNortePage = () => <CursoPageComponent curso={cursoData[7]} />;
-const AuxiliarOdontologiaSantaCruzPage = () => <CursoPageComponent curso={cursoData[8]} />;
-const DieteticaNutricionPage = () => <CursoPageComponent curso={cursoData[9]} />;
-const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[10]} />;
-const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[11]} />;
-const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[12]} />;
-
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/cursos" element={<CursosPage />} />
-        <Route path="/adiestramiento-canino" element={<AdiestramientoCanino />} />
-        <Route path="/contacto" element={<AdiestramientoCanino />} />
-        <Route path="/inicio" element={<HomePage />} />
-        <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
-        <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />
-        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
-        <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
-        
-        {/* RUTA PROTOTIPO */}
-        <Route path="/curso/adiestramiento-canino-norte" element={<AdiestramientoCaninoPage />} />
-
-        {/* RUTAS INTEGRADAS */}
-        <Route path="/curso/agente-funerario-santacruz" element={<AgenteFunerarioPage />} />
-        <Route path="/curso/auxiliar-clinico-veterinario-norte" element={<AuxiliarClinicoVeterinarioNortePage />} />
-        <Route path="/curso/auxiliar-clinico-veterinario-santacruz" element={<AuxiliarClinicoVeterinarioSantaCruzPage />} />
-        <Route path="/curso/auxiliar-clinicas-esteticas-santacruz" element={<AuxiliarClinicasEsteticasPage />} />
-        <Route path="/curso/auxiliar-enfermeria-norte" element={<AuxiliarEnfermeriaNortePage />} />
-        <Route path="/curso/auxiliar-enfermeria-santacruz" element={<AuxiliarEnfermeriaSantaCruzPage />} />
-        <Route path="/curso/auxiliar-farmacia-dermo-norte" element={<AuxiliarFarmaciaDermoPage />} />
-        <Route path="/curso/auxiliar-odontologia-norte" element={<AuxiliarOdontologiaNortePage />} />
-        <Route path="/curso/auxiliar-odontologia-santacruz" element={<AuxiliarOdontologiaSantaCruzPage />} />
-        <Route path="/curso/dietetica-nutricion-norte" element={<DieteticaNutricionPage />} />
-        <Route path="/curso/peluqueria-canina-felina-norte" element={<PeluqueriaCaninaNortePage />} />
-        <Route path="/curso/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
-        <Route path="/curso/quiromasaje-nivel2-norte" element={<QuiromasajeNivel2Page />} />
-
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
+// Generar todos los componentes de página
+export const AgenteFunerarioPage = () => <CursoPageComponent curso={cursoData[0]} />;
+export const AuxiliarClinicoVeterinarioNortePage = () => <CursoPageComponent curso={cursoData[1]} />;
+export const AuxiliarClinicoVeterinarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[2]} />;
+export const AuxiliarClinicasEsteticasPage = () => <CursoPageComponent curso={cursoData[3]} />;
+export const AuxiliarEnfermeriaNortePage = () => <CursoPageComponent curso={cursoData[4]} />;
+export const AuxiliarEnfermeriaSantaCruzPage = () => <CursoPageComponent curso={cursoData[5]} />;
+export const AuxiliarFarmaciaDermoPage = () => <CursoPageComponent curso={cursoData[6]} />;
+export const AuxiliarOdontologiaNortePage = () => <CursoPageComponent curso={cursoData[7]} />;
+export const AuxiliarOdontologiaSantaCruzPage = () => <CursoPageComponent curso={cursoData[8]} />;
+export const DieteticaNutricionPage = () => <CursoPageComponent curso={cursoData[9]} />;
+export const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[10]} />;
+export const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[11]} />;
+export const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[12]} />; 
