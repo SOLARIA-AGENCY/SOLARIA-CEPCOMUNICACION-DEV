@@ -101,13 +101,13 @@ const CepFooter: React.FC = () => {
               <a href="#" className="text-gray-500 hover:text-cep-primary transition-colors">
                 Calidad
               </a>
-              <a href="#" className="text-gray-500 hover:text-cep-primary transition-colors">
+              <a href="/aviso-legal" className="text-gray-500 hover:text-cep-primary transition-colors">
                 Aviso Legal
               </a>
-              <a href="#" className="text-gray-500 hover:text-cep-primary transition-colors">
+              <a href="/politica-privacidad" className="text-gray-500 hover:text-cep-primary transition-colors">
                 Privacidad
               </a>
-              <a href="#" className="text-gray-500 hover:text-cep-primary transition-colors">
+              <a href="/politica-cookies" className="text-gray-500 hover:text-cep-primary transition-colors">
                 Cookies
               </a>
             </div>

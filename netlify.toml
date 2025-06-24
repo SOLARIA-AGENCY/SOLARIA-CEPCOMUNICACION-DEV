@@ -44,11 +44,11 @@
   [headers.values]
     Content-Security-Policy = '''
       default-src 'self';
-      script-src 'self' 'unsafe-inline' 'unsafe-eval';
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://connect.facebook.net;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
       font-src 'self' https://fonts.gstatic.com;
       img-src 'self' data: https:;
-      connect-src 'self' https://api.solaria.agency *.netlify.app;
+      connect-src 'self' https://api.solaria.agency *.netlify.app https://connect.facebook.net;
       media-src 'self';
       object-src 'none';
       base-uri 'self';

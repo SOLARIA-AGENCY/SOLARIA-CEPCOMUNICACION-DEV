@@ -4,10 +4,83 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOLARIA VITE TEMPLATE - Framework Corporativo Moderno</title>
+    <title>CEP FORMACIÓN - Centro de Estudios Profesionales en Tenerife</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    
+    <!-- Meta Pixel Code -->
+    <script>
+      function activateFacebookPixel() {
+        !function(f,b,e,v,n,t,s){
+          if(f.fbq)return;n=f.fbq=function(){
+            n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;
+          n.push=n; n.loaded=!0; n.version='2.0';
+          n.queue=[]; t=b.createElement(e); t.async=!0;
+          t.src=v; s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)
+        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1189071876088388');
+        fbq('track', 'PageView');
+      }
+    </script>
+    <!-- End Meta Pixel Code -->
+    
+    <!-- Cookie Consent Banner -->
+    <script>
+      window.addEventListener("load", function(){
+        if (typeof window.cookieconsent !== 'undefined') {
+          window.cookieconsent.initialise({
+            palette: {
+              popup: { 
+                background: "#000000",
+                text: "#ffffff"
+              },
+              button: { 
+                background: "#f2014b",
+                text: "#ffffff"
+              }
+            },
+            theme: "classic",
+            position: "bottom",
+            type: "opt-in",
+            content: {
+              message: "Utilizamos cookies para mejorar tu experiencia y personalizar contenido. Puedes aceptar solo las esenciales o todas, incluyendo las de marketing para ofrecerte información relevante sobre nuestros cursos.",
+              dismiss: "Solo esenciales",
+              allow: "Aceptar todas",
+              link: "Política de cookies",
+              href: "/politica-cookies"
+            },
+            onInitialise: function (status) {
+              var type = this.options.type;
+              var didConsent = this.hasConsented();
+              if (type == 'opt-in' && didConsent) {
+                // Activar pixel solo si hay consentimiento
+                activateFacebookPixel();
+                localStorage.setItem('marketing_consent', 'true');
+              }
+            },
+            onStatusChange: function(status, chosenBefore) {
+              var type = this.options.type;
+              var didConsent = this.hasConsented();
+              if (type == 'opt-in' && didConsent) {
+                // Activar pixel cuando se acepta
+                activateFacebookPixel();
+                localStorage.setItem('marketing_consent', 'true');
+              } else {
+                // Eliminar consentimiento
+                localStorage.setItem('marketing_consent', 'false');
+              }
+            }
+          });
+        }
+      });
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
