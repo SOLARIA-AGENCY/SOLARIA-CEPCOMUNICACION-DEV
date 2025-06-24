@@ -1,15 +1,13 @@
-# CEPCOMUNICACION
+# SOLARIA CEP COMUNICACIÓN
 
-Centro especializado en comunicación corporativa, marketing digital y estrategias de branding
+Portal web para CEP Formación desarrollado por SOLARIA.AGENCY
 
 ## 🚀 Características
 
-- **React 19** con TypeScript
-- **Vite 6** para desarrollo ultra-rápido
-- **Tailwind CSS** para estilos modernos
-- **Vitest** para testing
-- **Deployment automático** en Netlify
-- **SEO optimizado** desde el inicio
+- Portal de cursos con información detallada
+- Diseño responsive y moderno
+- Integración con sistema de inscripciones
+- Optimizado para SEO
 
 ## 🛠️ Desarrollo
 
@@ -29,7 +27,9 @@ npm run test
 
 ## 📦 Deployment
 
-Este proyecto está configurado para deployment automático en Netlify.
+El sitio se despliega automáticamente en Netlify desde la rama main.
+
+URL: https://solaria-cepcomunicacion.netlify.app
 
 ## 🎨 Personalización
 
@@ -44,3 +44,5 @@ Desarrollado por **SOLARIA.AGENCY** - 2025
 ---
 
 *Proyecto generado el 6/23/2025 usando SOLARIA Template*
+
+<!-- Force deploy trigger -->
