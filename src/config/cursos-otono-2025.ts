@@ -35,8 +35,8 @@ export const cursoData = [
     temario: [
       'Módulo 1: Técnicas de adiestramiento de base aplicadas a perros',
       'Módulo 2: Modificación de conductas no deseadas en perros',
-      'Módulo 3: Cuidados higiénicos aplicados a perros',
-      'Módulo 4: Primeros Auxilios aplicados a Perros'
+      'Módulo 3: Adiestramiento básico y obediencia',
+      'Módulo 4: Análisis del comportamiento canino y etología'
     ],
     duracion: '25 sesiones / 6 meses',
     precio: {
@@ -44,59 +44,64 @@ export const cursoData = [
       importe: 85,
       matricula: 150
     },
-    practicas: 'Prácticas reales con perros',
     profesor: 'Livia Bernardi (Fundadora Aboras Obediencia)',
-    certificacion: 'Diploma CEP + Preparación examen ANACP',
+    certificacion: 'Preparación para examen ANACP',
     copy: {
-      slogan: 'Conviértete en un profesional del comportamiento canino.',
+      slogan: "Conviértete en experto en adiestramiento canino con técnicas profesionales",
       textosPrincipales: [
-        'Fórmate como Adiestrador Canino Profesional y ayuda a crear un vínculo perfecto entre perros y dueños. Curso con prácticas reales en el norte de Tenerife y certificado por la ANACP.',
-        'Aprende técnicas de obediencia, modificación de conducta y socialización. Nuestra formación te prepara para superar con éxito el examen de la ANACP y trabajar como profesional.',
-        'Da el paso a una carrera apasionante. Con nuestro curso presencial en el norte de Tenerife, obtendrás las herramientas y la confianza para destacar en el mundo del adiestramiento canino.'
+        "Aprende las técnicas más efectivas de adiestramiento canino",
+        "Domina la modificación de conductas no deseadas",
+        "Forma parte de una profesión en alta demanda"
       ],
-      titulos: [
-        'Curso Adiestrador Canino Profesional Norte. Prácticas reales.',
-        'Fórmate para el examen de la ANACP. Empleo garantizado.',
-        'Conviértete en adiestrador canino. Plazas limitadas.'
-      ],
+      titulos: ["Técnicas Profesionales", "Modificación Conductual", "Certificación ANACP"],
       descripciones: [
-        'Haz clic y transforma tu pasión por los perros en tu profesión.',
-        'Descubre cómo ser adiestrador profesional en el norte de Tenerife.',
-        'Reserva tu plaza y accede a prácticas reales con perros.'
+        "Técnicas de adiestramiento de base y obediencia aplicadas a perros de todas las razas y edades",
+        "Métodos profesionales para corregir conductas problemáticas y mejorar el vínculo perro-propietario",
+        "Preparación específica para el examen de la Asociación Nacional de Adiestradores Caninos Profesionales"
       ]
     }
   },
+
   // 2. Agente Funerario
   {
     slug: 'agente-funerario-santacruz',
     nombre: 'Agente Funerario',
     sede: 'Santa Cruz',
     tag: 'otono-2025-agente-funerario-santacruz',
-    inicio: 'Septiembre 2025',
+    inicio: 'Octubre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en empresas del sector',
-    certificacion: 'Diploma CEP + Título oficial',
+    temario: [
+      'Conservación transitoria y embalsamamiento del cadáver',
+      'Técnicas de restauración y reconstrucción en cadáveres',
+      'Presentación y exposición del cadáver',
+      'Extracción de tejidos, prótesis y dispositivos',
+      'Normativa funeraria y aspectos legales',
+      'Productos biocidas y técnicas de conservación'
+    ],
+    duracion: '8 meses / 32 sesiones',
+    precio: {
+      cuotas: 8,
+      importe: 95,
+      matricula: 150
+    },
+    practicas: '120 horas prácticas en empresas del sector',
     copy: {
-      slogan: 'Fórmate en un sector estable con futuro.',
+      slogan: "Especialízate en servicios funerarios con formación técnica avanzada",
       textosPrincipales: [
-        'Fórmate como Agente Funerario y trabaja en un sector estable con futuro. Curso oficial, prácticas reales y orientación laboral garantizada.',
-        'Descubre una profesión humana y necesaria. Curso de Agente Funerario con prácticas en empresas y doble titulación.',
-        'Da el paso a una carrera con estabilidad laboral. Fórmate como agente funerario con CEP y accede a empleo real.'
+        "Aprende técnicas de conservación y embalsamamiento",
+        "Domina los procedimientos de restauración",
+        "Accede a un sector profesional estable"
       ],
-      titulos: [
-        'Curso Agente Funerario con prácticas y empleo garantizado.',
-        'Fórmate en servicios funerarios. Estabilidad laboral real.',
-        'Especialízate como agente funerario. Plazas abiertas.'
-      ],
+      titulos: ["Conservación Profesional", "Técnicas Avanzadas", "Sector Estable"],
       descripciones: [
-        'Solicita información sobre el curso más completo del sector.',
-        'Descubre una profesión estable y humana. Haz clic.',
-        'Conoce fechas, requisitos y salidas laborales. Más info.'
+        "Conocimientos teóricos y prácticos de conservación transitoria con productos biocidas profesionales",
+        "Técnicas especializadas de restauración y reconstrucción para la presentación digna del difunto",
+        "Formación en un sector con alta demanda profesional y estabilidad laboral garantizada"
       ]
     }
   },
-  // 3. Auxiliar Clínico Veterinario - Norte
+
+  // 3. Auxiliar Clínico Veterinario Norte
   {
     slug: 'auxiliar-clinico-veterinario-norte',
     nombre: 'Auxiliar Clínico Veterinario',
@@ -104,58 +109,86 @@ export const cursoData = [
     tag: 'otono-2025-auxiliar-clinico-veterinario-norte',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
-    duracion: 'Consultar',
-    practicas: '350 horas de prácticas en clínicas veterinarias',
-    certificacion: 'Diploma CEP + Doble titulación',
+    temario: [
+      'Anatomía y fisiología animal (perros, gatos, animales exóticos)',
+      'Funciones del auxiliar veterinario y atención al cliente',
+      'Reproducción animal y cuidado de cachorros',
+      'Nutrición animal especializada por especies',
+      'Parasitología y enfermedades comunes',
+      'Imagenología: rayos X, ecografía y TAC',
+      'Análisis sanguíneos y procesamiento de muestras',
+      'Inmunología y planes de vacunación',
+      'Farmacología y toxicología veterinaria',
+      'Cirugía: instrumentación y cuidados pre/post',
+      'Etología y comportamiento animal'
+    ],
+    duracion: '9 meses / 36 sesiones',
+    precio: {
+      cuotas: 9,
+      importe: 105,
+      matricula: 150
+    },
+    practicas: '350 horas prácticas en clínicas veterinarias',
     copy: {
-      slogan: 'Convierte tu amor por los animales en tu futuro.',
+      slogan: "Conviértete en auxiliar veterinario con formación integral",
       textosPrincipales: [
-        'Fórmate como Auxiliar Clínico Veterinario y trabaja en clínicas, refugios y centros de acogida. Incluye 350h de prácticas reales, doble diploma y grupos reducidos.',
-        'Convierte tu amor por los animales en tu futuro profesional. Curso presencial, prácticas en empresa y doble diploma en el Norte de Tenerife.',
-        'Empieza tu carrera como Auxiliar Veterinario con CEP Norte. Aprende de profesionales en activo, disfruta de prácticas reales y consigue orientación laboral.'
+        "Formación completa en clínica veterinaria",
+        "Prácticas reales en empresas del sector",
+        "Conocimientos en animales domésticos y exóticos"
       ],
-      titulos: [
-        'Auxiliar Veterinario Norte. Prácticas reales y doble diploma.',
-        'Fórmate como ACV en el Norte. 350h de prácticas garantizadas.',
-        'Da el salto al mundo animal. Curso ACV Norte de Tenerife.'
-      ],
+      titulos: ["Clínica Integral", "Prácticas Reales", "Animales Diversos"],
       descripciones: [
-        'Solicita información y comienza tu futuro en el mundo animal Norte.',
-        'Descubre cómo trabajar con animales en el Norte de Tenerife.',
-        'Reserva plaza en el curso líder de veterinaria del Norte.'
+        "Capacitación completa para trabajar en clínicas, hospitales veterinarios y centros de acogida animal",
+        "350 horas de experiencia práctica supervisada en entornos profesionales reales",
+        "Conocimientos especializados en perros, gatos, animales exóticos y especies marinas"
       ]
     }
   },
-  // 4. Auxiliar Clínico Veterinario - Santa Cruz
+
+  // 4. Auxiliar Clínico Veterinario Santa Cruz
   {
     slug: 'auxiliar-clinico-veterinario-santacruz',
     nombre: 'Auxiliar Clínico Veterinario',
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-clinico-veterinario-santacruz',
-    inicio: 'Septiembre 2025',
+    inicio: 'Octubre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
-    duracion: 'Consultar',
-    practicas: '350 horas de prácticas en clínicas veterinarias',
-    certificacion: 'Diploma CEP + Doble titulación',
+    temario: [
+      'Anatomía y fisiología animal (perros, gatos, animales exóticos)',
+      'Funciones del auxiliar veterinario y atención al cliente',
+      'Reproducción animal y cuidado de cachorros',
+      'Nutrición animal especializada por especies',
+      'Parasitología y enfermedades comunes',
+      'Imagenología: rayos X, ecografía y TAC',
+      'Análisis sanguíneos y procesamiento de muestras',
+      'Inmunología y planes de vacunación',
+      'Farmacología y toxicología veterinaria',
+      'Cirugía: instrumentación y cuidados pre/post',
+      'Etología y comportamiento animal'
+    ],
+    duracion: '9 meses / 36 sesiones',
+    precio: {
+      cuotas: 9,
+      importe: 105,
+      matricula: 150
+    },
+    practicas: '350 horas prácticas en clínicas veterinarias',
     copy: {
-      slogan: 'Tu vocación animal, nuestra formación profesional.',
+      slogan: "Conviértete en auxiliar veterinario con formación integral",
       textosPrincipales: [
-        'Fórmate como Auxiliar Clínico Veterinario y trabaja en clínicas, refugios y centros de acogida. Incluye 350h de prácticas reales, doble diploma y grupos reducidos.',
-        'Convierte tu amor por los animales en tu futuro profesional. Curso presencial, prácticas en empresa y doble diploma. Fórmate con expertos.',
-        'Empieza tu carrera como Auxiliar Veterinario con CEP. Aprende de profesionales en activo, disfruta de prácticas reales y consigue orientación laboral.'
+        "Formación completa en clínica veterinaria",
+        "Prácticas reales en empresas del sector", 
+        "Conocimientos en animales domésticos y exóticos"
       ],
-      titulos: [
-        'Haz de tu pasión por los animales tu empleo. Curso con prácticas reales.',
-        'Fórmate como Auxiliar Veterinario en clínicas. Prácticas garantizadas.',
-        'Da el salto al mundo animal. Curso con 350h de prácticas.'
-      ],
+      titulos: ["Clínica Integral", "Prácticas Reales", "Animales Diversos"],
       descripciones: [
-        'Solicita información y comienza tu futuro en el mundo animal.',
-        'Descubre cómo trabajar con animales y obtener tu diploma oficial.',
-        'Reserva plaza en el curso líder de veterinaria. Fechas de inicio.'
+        "Capacitación completa para trabajar en clínicas, hospitales veterinarios y centros de acogida animal",
+        "350 horas de experiencia práctica supervisada en entornos profesionales reales",
+        "Conocimientos especializados en perros, gatos, animales exóticos y especies marinas"
       ]
     }
   },
+
   // 5. Auxiliar Clínicas Estéticas
   {
     slug: 'auxiliar-clinicas-esteticas-santacruz',
@@ -165,193 +198,256 @@ export const cursoData = [
     inicio: 'Octubre 2025',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
     temario: [
-      'Unidad 1: Introducción a la Medicina Estética',
-      'Unidad 2: Bases anatómicas en Medicina Estética',
-      'Unidad 3: Aparatología y sus usos en Medicina Estética',
-      'Unidad 4: Medicina Estética Facial Avanzada',
-      'Unidad 5: Medicina Estética Corporal',
-      'Unidad 6: Problemas Dermatológicos tratables',
-      'Unidad 7: Rejuvenecimiento Cutáneo',
-      'Unidad 8: Otras técnicas y tratamientos aplicados'
+      'Unidad 1: Anatomía y fisiología de la piel',
+      'Unidad 2: Cosmetología y productos estéticos',
+      'Unidad 3: Técnicas de limpieza e higiene facial',
+      'Unidad 4: Tratamientos faciales específicos',
+      'Unidad 5: Técnicas corporales y masaje estético',
+      'Unidad 6: Aparatología estética avanzada',
+      'Unidad 7: Depilación y técnicas específicas',
+      'Unidad 8: Atención al cliente y gestión de centro'
     ],
-    duracion: '40 sesiones / 10 meses',
+    duracion: '10 meses / 40 sesiones',
     precio: {
       cuotas: 10,
       importe: 110,
       matricula: 150
     },
-    practicas: '150 horas prácticas en empresas',
-    certificacion: 'Diploma CEP + Doble titulación',
+    practicas: '150 horas prácticas en empresas del sector',
     copy: {
-      slogan: 'Descubre el mundo de la estética profesional.',
+      slogan: "Especialízate en estética profesional con técnicas avanzadas",
       textosPrincipales: [
-        'Fórmate como Auxiliar de Clínicas Estéticas y trabaja en centros de belleza y medicina estética. Curso con prácticas reales y doble titulación.',
-        'Aprende técnicas avanzadas, disfruta de prácticas garantizadas y accede a empleo real.',
-        'Especialízate en medicina estética y tratamientos de belleza. Curso presencial con prácticas en clínicas y orientación laboral.'
+        "Domina las técnicas más avanzadas de estética",
+        "Aprende el uso de aparatología profesional",
+        "Accede a un sector en constante crecimiento"
       ],
-      titulos: [
-        'Auxiliar Clínicas Estéticas. Prácticas reales y empleo.',
-        'Curso de estética profesional. Doble titulación.',
-        'Especialízate en medicina estética. Plazas abiertas.'
-      ],
+      titulos: ["Técnicas Avanzadas", "Aparatología", "Sector Creciente"],
       descripciones: [
-        'Descubre cómo trabajar en el sector de la belleza y estética.',
-        'Solicita información sobre nuestro curso de estética profesional.',
-        'Conoce fechas, temario y salidas laborales en estética.'
+        "Formación integral en tratamientos faciales, corporales y técnicas estéticas de vanguardia",
+        "Manejo profesional de equipos especializados en centros de estética de alta gama",
+        "Sector con alta demanda laboral y excelentes oportunidades de desarrollo profesional"
       ]
     }
   },
-  // 6. Auxiliar de Enfermería - Norte
+
+  // 6. Auxiliar Enfermería Norte
   {
     slug: 'auxiliar-enfermeria-norte',
     nombre: 'Auxiliar de Enfermería',
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-enfermeria-norte',
-    inicio: 'Noviembre 2025',
-    imagen: '/images/cursos/especializacion-sanitaria.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en hospitales y centros sanitarios',
-    certificacion: 'Diploma CEP + Doble titulación',
+    inicio: 'Septiembre 2025',
+    imagen: '/images/cursos/auxiliar-de.jpg',
+    temario: [
+      'Técnicas básicas de enfermería y procedimientos',
+      'Anatomía y fisiología del cuerpo humano',
+      'Higiene y aseo del paciente',
+      'Movilización y traslado de pacientes',
+      'Constantes vitales y procedimientos relacionados',
+      'Alimentación y nutrición hospitalaria',
+      'Cuidados del paciente terminal',
+      'Primeros auxilios básicos y avanzados',
+      'Operaciones administrativas y documentación',
+      'Prevención de infecciones y esterilización',
+      'Gestión de residuos sanitarios'
+    ],
+    duracion: '10 meses / 40 sesiones',
+    precio: {
+      cuotas: 10,
+      importe: 100,
+      matricula: 150
+    },
+    practicas: '300 horas prácticas en centros sanitarios',
     copy: {
-      slogan: 'Da el paso hacia una profesión estable y humana.',
+      slogan: "Forma parte del equipo sanitario con preparación profesional",
       textosPrincipales: [
-        'Fórmate como Auxiliar de Enfermería y comienza una carrera con futuro en centros sanitarios y hospitales del Norte. Incluye prácticas reales, doble diploma y grupos reducidos.',
-        'Da el paso hacia una profesión estable y humana en el Norte de Tenerife. Curso con prácticas en hospitales, formación actualizada y doble titulación.',
-        'Curso de Auxiliar de Enfermería Norte: prácticas en empresas, orientación laboral y doble diploma. Prepárate para trabajar donde más importa.'
+        "Técnicas profesionales de cuidados sanitarios",
+        "Prácticas en hospitales y centros médicos",
+        "Profesión con alta demanda y estabilidad"
       ],
-      titulos: [
-        'Conviértete en Auxiliar de Enfermería Norte. Prácticas reales.',
-        'Da el salto al sector sanitario Norte. Empleo asegurado.',
-        'Fórmate en salud Norte. Curso presencial, doble titulación.'
-      ],
+      titulos: ["Cuidados Profesionales", "Prácticas Hospitalarias", "Alta Demanda"],
       descripciones: [
-        'Descubre cómo trabajar en hospitales del Norte de Tenerife.',
-        'Reserva tu plaza Norte y accede a prácticas reales.',
-        'Fórmate con los mejores del Norte y consigue empleo.'
+        "Capacitación integral en técnicas de enfermería y cuidados especializados al paciente",
+        "Experiencia práctica real en hospitales, centros de salud y consultas médicas",
+        "Sector sanitario con excelentes oportunidades laborales y proyección profesional"
       ]
     }
   },
-  // 7. Auxiliar de Enfermería - Santa Cruz
+
+  // 7. Auxiliar Enfermería Santa Cruz
   {
     slug: 'auxiliar-enfermeria-santacruz',
     nombre: 'Auxiliar de Enfermería',
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-enfermeria-santacruz',
-    inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/especializacion-sanitaria.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en hospitales y centros sanitarios',
-    certificacion: 'Diploma CEP + Doble titulación',
+    inicio: 'Octubre 2025',
+    imagen: '/images/cursos/auxiliar-de.jpg',
+    temario: [
+      'Técnicas básicas de enfermería y procedimientos',
+      'Anatomía y fisiología del cuerpo humano',
+      'Higiene y aseo del paciente',
+      'Movilización y traslado de pacientes',
+      'Constantes vitales y procedimientos relacionados',
+      'Alimentación y nutrición hospitalaria',
+      'Cuidados del paciente terminal',
+      'Primeros auxilios básicos y avanzados',
+      'Operaciones administrativas y documentación',
+      'Prevención de infecciones y esterilización',
+      'Gestión de residuos sanitarios'
+    ],
+    duracion: '10 meses / 40 sesiones',
+    precio: {
+      cuotas: 10,
+      importe: 100,
+      matricula: 150
+    },
+    practicas: '300 horas prácticas en centros sanitarios',
     copy: {
-      slogan: 'Fórmate para trabajar donde más importa.',
+      slogan: "Forma parte del equipo sanitario con preparación profesional",
       textosPrincipales: [
-        'Fórmate como Auxiliar de Enfermería y comienza una carrera con futuro en centros sanitarios y hospitales. Incluye prácticas reales, doble diploma y grupos reducidos.',
-        'Da el paso hacia una profesión estable y humana. Curso con prácticas en hospitales, formación actualizada y doble titulación.',
-        'Descubre la formación más completa en Auxiliar de Enfermería. Prácticas reales, grupos reducidos y empleabilidad asegurada.'
+        "Técnicas profesionales de cuidados sanitarios",
+        "Prácticas en hospitales y centros médicos",
+        "Profesión con alta demanda y estabilidad"
       ],
-      titulos: [
-        'Conviértete en Auxiliar de Enfermería. Prácticas reales y doble diploma.',
-        'Da el salto al sector sanitario. Curso con empleo asegurado.',
-        'Comienza tu carrera en sanidad. Prácticas en hospitales.'
-      ],
+      titulos: ["Cuidados Profesionales", "Prácticas Hospitalarias", "Alta Demanda"],
       descripciones: [
-        'Descubre cómo puedes trabajar en hospitales y centros médicos.',
-        'Reserva tu plaza y accede a prácticas reales.',
-        'Tu futuro en la sanidad comienza aquí.'
+        "Capacitación integral en técnicas de enfermería y cuidados especializados al paciente",
+        "Experiencia práctica real en hospitales, centros de salud y consultas médicas",
+        "Sector sanitario con excelentes oportunidades laborales y proyección profesional"
       ]
     }
   },
-  // 8. Auxiliar Farmacia + Dermo - Norte
+
+  // 8. Auxiliar Farmacia con Dermocosmética Norte
   {
     slug: 'auxiliar-farmacia-dermo-norte',
-    nombre: 'Auxiliar Farmacia + Dermo',
+    nombre: 'Auxiliar de Farmacia con Dermocosmética',
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-farmacia-dermo-norte',
-    inicio: 'Octubre 2025',
-    imagen: '/images/cursos/especializacion-sanitaria.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en farmacias y parafarmacias',
-    certificacion: 'Diploma CEP + Doble titulación',
+    inicio: 'Septiembre 2025',
+    imagen: '/images/cursos/auxiliar-de.jpg',
+    temario: [
+      'Anatomía y fisiología del cuerpo humano',
+      'Funcionamiento de la oficina de farmacia',
+      'El medicamento: administración, indicaciones y contraindicaciones',
+      'Operaciones farmacéuticas y dispensación',
+      'Farmacología básica y grupos terapéuticos',
+      'Parafarmacia: productos de cuidado personal',
+      'Dermocosmética especializada',
+      'Productos de higiene y belleza',
+      'Atención al cliente especializada',
+      'Gestión de stocks y almacén farmacéutico'
+    ],
+    duracion: '8 meses / 32 sesiones',
+    precio: {
+      cuotas: 8,
+      importe: 110,
+      matricula: 150
+    },
+    practicas: '200 horas prácticas en farmacias',
     copy: {
-      slogan: 'Especialízate en farmacia y dermocosmética.',
+      slogan: "Especialízate en farmacia y dermocosmética profesional",
       textosPrincipales: [
-        'Especialízate como Auxiliar de Farmacia y Parafarmacia con Dermocosmética en el Norte. Curso presencial, prácticas reales y título oficial.',
-        'Da el salto profesional en farmacia, perfumería o parafarmacia del Norte. Prácticas en empresas, formación en dermocosmética y orientación laboral.',
-        'Fórmate en farmacia y dermocosmética con CEP Norte. Grupos reducidos, prácticas garantizadas y doble diploma.'
+        "Conocimientos avanzados en farmacología",
+        "Especialización en dermocosmética",
+        "Sector con alta demanda profesional"
       ],
-      titulos: [
-        'Fórmate como Auxiliar de Farmacia Norte. Prácticas y título oficial.',
-        'Curso farmacia y dermocosmética Norte: prácticas reales y empleo.',
-        'Tu futuro en farmacia Norte empieza aquí. Doble diploma.'
-      ],
+      titulos: ["Farmacología Avanzada", "Dermocosmética", "Alta Demanda"],
       descripciones: [
-        'Haz clic y descubre tu empleo en farmacia del Norte.',
-        'Solicita tu plaza Norte y accede a prácticas en empresas.',
-        'Conoce el temario y salidas profesionales Norte.'
+        "Formación integral en dispensación farmacéutica y asesoramiento especializado al cliente",
+        "Conocimientos avanzados en productos dermocosméticos y tratamientos especializados",
+        "Sector farmacéutico con excelentes oportunidades laborales y crecimiento profesional"
       ]
     }
   },
-  // 9. Auxiliar en Odontología - Norte
+
+  // 9. Auxiliar Odontología Norte
   {
     slug: 'auxiliar-odontologia-norte',
-    nombre: 'Auxiliar en Odontología',
+    nombre: 'Auxiliar de Odontología + Periodoncia',
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-odontologia-norte',
-    inicio: 'Noviembre 2025',
-    imagen: '/images/cursos/especializacion-sanitaria.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en clínicas dentales',
-    certificacion: 'Diploma CEP + Especialidad en Periodoncia',
+    inicio: 'Septiembre 2025',
+    imagen: '/images/cursos/auxiliar-de.jpg',
+    temario: [
+      'Anatomía dental y estructuras bucales',
+      'Planificación de tratamiento odontológico',
+      'Procedimientos dentales asistenciales',
+      'Esterilización y desinfección del equipo',
+      'Preparación del área de tratamiento',
+      'Radiología dental y procesamiento',
+      'Materiales dentales y su aplicación',
+      'Periodoncia: enfermedades de las encías',
+      'Técnicas de limpieza especializada',
+      'Educación para la salud bucodental'
+    ],
+    duracion: '8 meses / 32 sesiones',
+    precio: {
+      cuotas: 8,
+      importe: 115,
+      matricula: 150
+    },
+    practicas: '240 horas prácticas en clínicas dentales',
     copy: {
-      slogan: 'Da el paso al sector dental.',
+      slogan: "Especialízate en asistencia dental con técnicas avanzadas",
       textosPrincipales: [
-        'Fórmate como Auxiliar de Odontología con especialidad en Periodoncia en el Norte. Curso presencial, prácticas reales y orientación laboral.',
-        'Descubre el curso más completo en odontología del Norte. Prácticas en clínicas, grupos reducidos y doble diploma.',
-        'Prepárate para trabajar en clínicas dentales del Norte con nuestro curso especializado. Prácticas garantizadas y empleabilidad real.'
+        "Técnicas profesionales de asistencia dental",
+        "Especialización en periodoncia",
+        "Prácticas en clínicas especializadas"
       ],
-      titulos: [
-        'Fórmate como auxiliar dental Norte y especialízate en periodoncia.',
-        'Curso de odontología Norte con prácticas en clínicas.',
-        'Da el salto al sector dental Norte. Plazas limitadas.'
-      ],
+      titulos: ["Asistencia Profesional", "Especialización", "Clínicas Reales"],
       descripciones: [
-        'Descubre cómo conseguir tu empleo en odontología Norte.',
-        'Solicita información Norte y accede a prácticas reales.',
-        'Empieza tu carrera en el sector dental Norte.'
+        "Formación completa en asistencia odontológica y manejo de instrumentación especializada",
+        "Conocimientos avanzados en periodoncia y tratamiento de enfermedades periodontales",
+        "Experiencia práctica en clínicas dentales con equipamiento profesional actualizado"
       ]
     }
   },
-  // 10. Auxiliar en Odontología - Santa Cruz
+
+  // 10. Auxiliar Odontología Santa Cruz
   {
     slug: 'auxiliar-odontologia-santacruz',
-    nombre: 'Auxiliar en Odontología',
+    nombre: 'Auxiliar de Odontología + Periodoncia',
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-odontologia-santacruz',
-    inicio: 'Noviembre 2025',
-    imagen: '/images/cursos/especializacion-sanitaria.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en clínicas dentales',
-    certificacion: 'Diploma CEP + Especialidad en Periodoncia',
+    inicio: 'Octubre 2025',
+    imagen: '/images/cursos/auxiliar-de.jpg',
+    temario: [
+      'Anatomía dental y estructuras bucales',
+      'Planificación de tratamiento odontológico',
+      'Procedimientos dentales asistenciales',
+      'Esterilización y desinfección del equipo',
+      'Preparación del área de tratamiento',
+      'Radiología dental y procesamiento',
+      'Materiales dentales y su aplicación',
+      'Periodoncia: enfermedades de las encías',
+      'Técnicas de limpieza especializada',
+      'Educación para la salud bucodental'
+    ],
+    duracion: '8 meses / 32 sesiones',
+    precio: {
+      cuotas: 8,
+      importe: 115,
+      matricula: 150
+    },
+    practicas: '240 horas prácticas en clínicas dentales',
     copy: {
-      slogan: 'Prepárate para trabajar en clínicas dentales.',
+      slogan: "Especialízate en asistencia dental con técnicas avanzadas",
       textosPrincipales: [
-        'Fórmate como Auxiliar de Odontología con especialidad en Periodoncia. Curso presencial, prácticas reales y orientación laboral.',
-        'Descubre el curso más completo en odontología. Prácticas en clínicas, grupos reducidos y doble diploma.',
-        'Consigue tu título de auxiliar de odontología y especialízate en periodoncia. Prácticas en empresas y orientación laboral.'
+        "Técnicas profesionales de asistencia dental",
+        "Especialización en periodoncia",
+        "Prácticas en clínicas especializadas"
       ],
-      titulos: [
-        'Fórmate como auxiliar dental y especialízate en periodoncia.',
-        'Curso de odontología con prácticas en clínicas y doble diploma.',
-        'Prepárate para trabajar en clínicas dentales.'
-      ],
+      titulos: ["Asistencia Profesional", "Especialización", "Clínicas Reales"],
       descripciones: [
-        'Descubre cómo conseguir tu empleo en odontología.',
-        'Solicita información y accede a prácticas reales.',
-        'Conoce el temario, fechas y opciones de inscripción.'
+        "Formación completa en asistencia odontológica y manejo de instrumentación especializada",
+        "Conocimientos avanzados en periodoncia y tratamiento de enfermedades periodontales",
+        "Experiencia práctica en clínicas dentales con equipamiento profesional actualizado"
       ]
     }
   },
-  // 11. Dietética y Nutrición - Norte
+
+  // 11. Dietética y Nutrición Norte
   {
     slug: 'dietetica-nutricion-norte',
     nombre: 'Dietética y Nutrición',
@@ -360,40 +456,36 @@ export const cursoData = [
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
     temario: [
-      'Módulo: Anatomía-Fisiología Humana',
-      'Módulo: Dietética y Nutrición',
-      'Módulo: Nutrición y Metabolismo',
-      'Módulo: Bromatología (composición de los alimentos)',
-      'Módulo: Dietética en diferentes etapas de la vida'
+      'Módulo 1: Anatomía y fisiología del aparato digestivo',
+      'Módulo 2: Bromatología y ciencia de los alimentos',
+      'Módulo 3: Nutrición en las diferentes etapas de la vida',
+      'Módulo 4: Dietoterapia y nutrición clínica',
+      'Módulo 5: Planificación de menús y dietas específicas'
     ],
-    duracion: '32 sesiones / 8 meses',
+    duracion: '8 meses / 32 sesiones',
     precio: {
       cuotas: 8,
       importe: 105,
       matricula: 150
     },
-    practicas: '150 horas prácticas en empresa',
-    certificacion: 'Diploma CEP',
+    practicas: '150 horas prácticas en centros especializados',
     copy: {
-      slogan: 'Ayuda a transformar vidas.',
+      slogan: "Conviértete en especialista en nutrición y alimentación saludable",
       textosPrincipales: [
-        'Fórmate como dietista-nutricionista en el Norte y ayuda a transformar vidas. Curso presencial, prácticas en empresas y título oficial.',
-        'Descubre el curso líder en dietética y nutrición del Norte. Prácticas reales, grupos reducidos y salidas laborales.',
-        'Cambia tu vida y la de los demás con nuestro curso de dietética Norte. Prácticas en empresas y empleo asegurado.'
+        "Formación integral en dietética y nutrición",
+        "Planificación de dietas personalizadas",
+        "Sector en auge con alta demanda"
       ],
-      titulos: [
-        'Fórmate como dietista Norte y mejora la salud de los demás.',
-        'Curso de dietética Norte: prácticas en empresas y empleo.',
-        'Aprende nutrición Norte y cambia vidas. Plazas limitadas.'
-      ],
+      titulos: ["Nutrición Integral", "Dietas Personalizadas", "Sector en Auge"],
       descripciones: [
-        'Haz clic y transforma tu futuro en la nutrición Norte.',
-        'Descubre cómo ser dietista Norte con prácticas y empleo.',
-        'Haz de la alimentación tu profesión Norte.'
+        "Conocimientos científicos avanzados en alimentación, nutrición y planificación dietética",
+        "Capacidad para diseñar planes nutricionales adaptados a diferentes necesidades y patologías",
+        "Sector con crecimiento exponencial y múltiples oportunidades en centros de salud y wellness"
       ]
     }
   },
-  // 12. Peluquería Canina y Felina - Norte
+
+  // 12. Peluquería Canina y Felina Norte
   {
     slug: 'peluqueria-canina-felina-norte',
     nombre: 'Peluquería Canina y Felina',
@@ -401,85 +493,121 @@ export const cursoData = [
     tag: 'otono-2025-peluqueria-canina-felina-norte',
     inicio: 'Septiembre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en centros de estética animal',
-    certificacion: 'Título CEP',
+    temario: [
+      'Anatomía y morfología canina y felina',
+      'Técnicas de corte según raza y estándar',
+      'Herramientas profesionales y su mantenimiento',
+      'Productos de higiene y cosmética animal',
+      'Técnicas de secado y acabados profesionales',
+      'Cortes comerciales y de competición',
+      'Atención y manejo de animales nerviosos',
+      'Primeros auxilios básicos en animales',
+      'Gestión de negocio y atención al cliente'
+    ],
+    duracion: '6 meses / 24 sesiones',
+    precio: {
+      cuotas: 6,
+      importe: 95,
+      matricula: 150
+    },
+    practicas: '100 horas prácticas con animales reales',
     copy: {
-      slogan: 'Aprende técnicas de estética y salud animal.',
+      slogan: "Domina el arte de la peluquería profesional para mascotas",
       textosPrincipales: [
-        'Fórmate como peluquero/a canino y felino en el Norte. Curso presencial, prácticas en centros reales y título CEP.',
-        'Aprende técnicas de estética y salud animal Norte. Prácticas en empresa, grupos reducidos y empleabilidad real.',
-        'Curso de peluquería canina y felina Norte: prácticas garantizadas y salida laboral directa.'
+        "Técnicas profesionales de corte y estilismo",
+        "Trabajo con animales reales",
+        "Negocio rentable y en crecimiento"
       ],
-      titulos: [
-        'Curso de peluquería animal Norte con prácticas y empleo.',
-        'Aprende técnicas de corte y baño en animales Norte.',
-        'Prácticas reales Norte en centros de estética animal.'
-      ],
+      titulos: ["Técnicas Profesionales", "Animales Reales", "Negocio Rentable"],
       descripciones: [
-        'Haz clic y solicita información sobre peluquería animal Norte.',
-        'Conoce fechas Norte, temario y salidas profesionales.',
-        'Tu carrera en el mundo animal Norte empieza aquí.'
+        "Formación especializada en técnicas de corte, styling y cuidado estético de perros y gatos",
+        "Experiencia práctica directa con animales bajo supervisión profesional especializada",
+        "Sector con alta demanda y excelentes oportunidades para emprendimiento propio"
       ]
     }
   },
-  // 13. Peluquería Canina y Felina - Santa Cruz
+
+  // 13. Peluquería Canina y Felina Santa Cruz
   {
     slug: 'peluqueria-canina-felina-santacruz',
     nombre: 'Peluquería Canina y Felina',
     sede: 'Santa Cruz',
     tag: 'otono-2025-peluqueria-canina-felina-santacruz',
-    inicio: 'Julio 2025',
+    inicio: 'Octubre 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en centros de estética animal',
-    certificacion: 'Título CEP',
+    temario: [
+      'Anatomía y morfología canina y felina',
+      'Técnicas de corte según raza y estándar',
+      'Herramientas profesionales y su mantenimiento',
+      'Productos de higiene y cosmética animal',
+      'Técnicas de secado y acabados profesionales',
+      'Cortes comerciales y de competición',
+      'Atención y manejo de animales nerviosos',
+      'Primeros auxilios básicos en animales',
+      'Gestión de negocio y atención al cliente'
+    ],
+    duracion: '6 meses / 24 sesiones',
+    precio: {
+      cuotas: 6,
+      importe: 95,
+      matricula: 150
+    },
+    practicas: '100 horas prácticas con animales reales',
     copy: {
-      slogan: 'Convierte tu pasión por los animales en tu futuro profesional.',
+      slogan: "Domina el arte de la peluquería profesional para mascotas",
       textosPrincipales: [
-        'Fórmate como peluquero/a canino y felino. Curso presencial, prácticas en centros reales y título CEP.',
-        'Aprende técnicas de estética y salud animal. Prácticas en empresa, grupos reducidos y empleabilidad real.',
-        'Descubre cómo trabajar en centros de estética animal con nuestro curso práctico y certificado.'
+        "Técnicas profesionales de corte y estilismo",
+        "Trabajo con animales reales",
+        "Negocio rentable y en crecimiento"
       ],
-      titulos: [
-        'Curso de peluquería animal con prácticas y empleo.',
-        'Aprende técnicas de corte y baño en animales.',
-        'Prácticas reales en centros de estética animal.'
-      ],
+      titulos: ["Técnicas Profesionales", "Animales Reales", "Negocio Rentable"],
       descripciones: [
-        'Haz clic y solicita información sobre peluquería animal.',
-        'Conoce fechas, temario y salidas profesionales.',
-        'Fórmate con expertos y accede a empleo.'
+        "Formación especializada en técnicas de corte, styling y cuidado estético de perros y gatos",
+        "Experiencia práctica directa con animales bajo supervisión profesional especializada",
+        "Sector con alta demanda y excelentes oportunidades para emprendimiento propio"
       ]
     }
   },
-  // 14. Quiromasaje Nivel II - Norte
+
+  // 14. Quiromasaje Nivel 2 Norte
   {
     slug: 'quiromasaje-nivel2-norte',
-    nombre: 'Quiromasaje Nivel II',
+    nombre: 'Quiromasaje Nivel 2',
     sede: 'Norte',
     tag: 'otono-2025-quiromasaje-nivel2-norte',
-    inicio: 'Julio 2025',
+    inicio: 'Septiembre 2025',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
-    duracion: 'Consultar',
-    practicas: 'Prácticas en spas y centros de bienestar',
-    certificacion: 'Título CEP + Bolsa de empleo',
+    temario: [
+      'Anatomía y fisiología del aparato locomotor avanzada',
+      'Patologías del sistema muscoesquelético',
+      'Técnicas de estiramientos terapéuticos',
+      'Masaje reflejo del tejido conjuntivo',
+      'Vendaje neuromuscular (Kinesiotaping)',
+      'Técnicas de Jones para puntos gatillo',
+      'Trabajo analítico por grupos musculares',
+      'Protocolos de exploración y valoración',
+      'Orientación del trabajo muscular personalizado'
+    ],
+    duracion: '10 meses / 40 sesiones',
+    precio: {
+      cuotas: 10,
+      importe: 120,
+      matricula: 150
+    },
+    practicas: '160 horas prácticas supervisadas + 100h externas',
+    certificacion: 'Doble titulación: Técnico Especialista + Masaje Reflejo',
     copy: {
-      slogan: 'Especialízate en masaje deportivo y terapéutico.',
+      slogan: "Especialízate en técnicas avanzadas de quiromasaje terapéutico",
       textosPrincipales: [
-        'Especialízate en Quiromasaje Nivel II Norte y trabaja en spas, gimnasios y centros de bienestar. Curso presencial, prácticas y bolsa de empleo.',
-        'Aprende técnicas avanzadas de masaje deportivo y terapéutico Norte. Prácticas en empresa y titulación CEP.',
-        'Fórmate en quiromasaje Norte con profesionales en activo. Grupos reducidos y prácticas garantizadas.'
+        "Técnicas avanzadas de masaje terapéutico",
+        "Especialización en vendaje neuromuscular",
+        "Doble certificación profesional"
       ],
-      titulos: [
-        'Curso de quiromasaje nivel II Norte: prácticas y bolsa de empleo.',
-        'Especialízate en masaje deportivo Norte. Plazas limitadas.',
-        'Prácticas reales Norte, grupos reducidos y empleo.'
-      ],
+      titulos: ["Técnicas Avanzadas", "Kinesiotaping", "Doble Certificación"],
       descripciones: [
-        'Solicita información Norte y accede a la bolsa de empleo.',
-        'Descubre cómo especializarte en quiromasaje Norte.',
-        'Conoce el programa Norte, fechas y salidas laborales.'
+        "Formación especializada en técnicas complejas de quiromasaje y terapias manuales avanzadas",
+        "Dominio del vendaje neuromuscular y técnicas especializadas para deportistas y rehabilitación",
+        "Doble titulación que amplía significativamente las oportunidades profesionales en el sector"
       ]
     }
   }
