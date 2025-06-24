@@ -144,35 +144,39 @@ const CursosPage: React.FC = () => {
   const cursosSantaCruz = cursosCampana.filter(curso => curso.sede === "CEP SANTA CRUZ");
 
   const CursoCard = ({ curso }: { curso: any }) => (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-3">
-          <h3 className="text-xl font-bold text-gray-800">{curso.nombre}</h3>
-          <span className="bg-cep-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
-            {curso.sede}
-          </span>
-        </div>
-        <p className="text-gray-600 mb-4 text-sm leading-relaxed">{curso.descripcion}</p>
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center text-sm text-gray-700">
-            <span className="font-semibold mr-2">📅 Inicio:</span>
-            <span>{curso.inicio}</span>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow min-h-[400px] flex flex-col">
+      <div className="p-6 flex flex-col h-full">
+        <div className="flex-grow">
+          <h3 className="text-xl font-bold text-gray-800 mb-3">{curso.nombre}</h3>
+          <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3 overflow-hidden" style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical' as any,
+            overflow: 'hidden'
+          }}>
+            {curso.descripcion}
+          </p>
+          <div className="space-y-2 mb-4">
+            <div className="flex items-center text-sm text-gray-700">
+              <span className="font-semibold mr-2">📅 Inicio:</span>
+              <span>{curso.inicio}</span>
+            </div>
+            <div className="flex items-center text-sm text-gray-700">
+              <span className="font-semibold mr-2">⏱️ Duración:</span>
+              <span>{curso.duracion}</span>
+            </div>
           </div>
-          <div className="flex items-center text-sm text-gray-700">
-            <span className="font-semibold mr-2">⏱️ Duración:</span>
-            <span>{curso.duracion}</span>
-          </div>
         </div>
-        <div className="pt-4 border-t border-gray-200">
+        <div className="pt-4 border-t border-gray-200 mt-auto">
           {curso.hasPage ? (
             <a
               href={curso.link}
-              className="inline-block bg-cep-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-cep-primary-dark transition-colors"
+              className="block w-full bg-cep-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-cep-primary-dark transition-colors text-center"
             >
               Ver curso completo
             </a>
           ) : (
-            <span className="inline-block bg-gray-100 text-gray-600 px-6 py-2 rounded-lg font-semibold">
+            <span className="block w-full bg-gray-100 text-gray-600 px-6 py-3 rounded-lg font-semibold text-center">
               PRÓXIMAMENTE
             </span>
           )}
@@ -196,9 +200,9 @@ const CursosPage: React.FC = () => {
               Descubre nuestra oferta formativa para septiembre 2025. 
               Cursos profesionales en nuestras dos sedes: CEP Norte (La Orotava) y CEP Santa Cruz.
             </p>
-            <div className="bg-white bg-opacity-20 rounded-lg p-6 max-w-2xl mx-auto">
-              <p className="text-lg font-semibold mb-2">🚀 ¡ÚLTIMAS PLAZAS DISPONIBLES!</p>
-              <p className="text-sm">Los cursos empiezan en septiembre • Plazas limitadas • Reserva ya tu plaza</p>
+            <div className="bg-black bg-opacity-80 rounded-xl p-8 max-w-3xl mx-auto shadow-2xl border border-white border-opacity-20">
+              <p className="text-2xl font-bold mb-3 text-yellow-400">🚀 ¡ÚLTIMAS PLAZAS DISPONIBLES!</p>
+              <p className="text-lg leading-relaxed text-white">Los cursos empiezan en septiembre • Plazas limitadas • Reserva ya tu plaza</p>
             </div>
           </div>
         </div>
