@@ -29,11 +29,11 @@ const cursosOtono2025 = [
     id: 1,
     titulo: "Adiestramiento Canino",
     sede: "CEP NORTE",
-    imagen: "/images/cursos/mundo-animal.jpg",
+    imagen: "/images/cursos/adiestramiento-canino.jpg",
     inicio: "Septiembre 2025",
     duracion: "6 meses - 25 sesiones",
     descripcion: "Técnicas de adiestramiento de base y educación canina nivel I",
-    link: "/adiestramiento-canino",
+    link: "/adiestramiento-canino-norte",
     hasPage: true
   },
   {
@@ -62,7 +62,7 @@ const cursosOtono2025 = [
     id: 4,
     titulo: "Auxiliar Veterinario",
     sede: "CEP NORTE",
-    imagen: "/images/cursos/mundo-animal.jpg",
+    imagen: "/images/cursos/auxiliar-veterinaria.jpg",
     inicio: "Septiembre 2025",
     duracion: "10 meses",
     descripcion: "Asistencia en clínicas veterinarias, cuidado animal, instrumentación quirúrgica y atención al cliente",
@@ -73,7 +73,7 @@ const cursosOtono2025 = [
     id: 5,
     titulo: "Auxiliar Veterinario",
     sede: "CEP SANTA CRUZ",
-    imagen: "/images/cursos/mundo-animal.jpg",
+    imagen: "/images/cursos/auxiliar-veterinaria.jpg",
     inicio: "Octubre 2025",
     duracion: "10 meses",
     descripcion: "Asistencia en clínicas veterinarias, cuidado animal, instrumentación quirúrgica y atención al cliente",
@@ -84,7 +84,7 @@ const cursosOtono2025 = [
     id: 6,
     titulo: "Auxiliar de Farmacia",
     sede: "CEP NORTE",
-    imagen: "/images/cursos/especializacion-sanitaria.jpg",
+    imagen: "/images/cursos/farmacia-parafarmacia.jpg",
     inicio: "Septiembre 2025",
     duracion: "8 meses",
     descripcion: "Formación completa para trabajar en farmacias. Dispensación de medicamentos y atención farmacéutica",
@@ -95,7 +95,7 @@ const cursosOtono2025 = [
     id: 7,
     titulo: "Auxiliar de Odontología",
     sede: "CEP NORTE",
-    imagen: "/images/cursos/especializacion-sanitaria.jpg",
+    imagen: "/images/cursos/auxiliar-odontologia.jpg",
     inicio: "Septiembre 2025",
     duracion: "9 meses",
     descripcion: "Asistencia en clínicas dentales, instrumental odontológico, radiología dental y atención al paciente",
@@ -106,7 +106,7 @@ const cursosOtono2025 = [
     id: 8,
     titulo: "Auxiliar de Odontología",
     sede: "CEP SANTA CRUZ",
-    imagen: "/images/cursos/especializacion-sanitaria.jpg",
+    imagen: "/images/cursos/auxiliar-odontologia.jpg",
     inicio: "Octubre 2025",
     duracion: "9 meses",
     descripcion: "Asistencia en clínicas dentales, instrumental odontológico, radiología dental y atención al paciente",
@@ -117,7 +117,7 @@ const cursosOtono2025 = [
      id: 9,
      titulo: "Auxiliar de Enfermería",
      sede: "CEP NORTE",
-     imagen: "/images/cursos/auxiliar-de.jpg",
+     imagen: "/images/cursos/auxiliar-enfermeria.jpg",
      inicio: "Septiembre 2025",
      duracion: "10 meses",
      descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
@@ -128,7 +128,7 @@ const cursosOtono2025 = [
      id: 10,
      titulo: "Auxiliar de Enfermería",
      sede: "CEP SANTA CRUZ",
-     imagen: "/images/cursos/auxiliar-de.jpg",
+     imagen: "/images/cursos/auxiliar-enfermeria.jpg",
      inicio: "Octubre 2025",
      duracion: "10 meses",
      descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
@@ -139,7 +139,7 @@ const cursosOtono2025 = [
      id: 11,
      titulo: "Dietética y Nutrición",
      sede: "CEP NORTE",
-     imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
+     imagen: "/images/cursos/dietetica-nutricion.jpg",
      inicio: "Septiembre 2025",
      duracion: "8 meses",
      descripcion: "Especialización en nutrición clínica, dietoterapia y educación alimentaria para promoción de la salud",
@@ -150,7 +150,7 @@ const cursosOtono2025 = [
      id: 12,
      titulo: "Peluquería Canina y Felina",
      sede: "CEP NORTE",
-     imagen: "/images/cursos/mundo-animal.jpg",
+     imagen: "/images/cursos/peluqueria-canina.jpg",
      inicio: "Septiembre 2025",
      duracion: "6 meses",
      descripcion: "Técnicas profesionales de peluquería y estética animal para perros y gatos de todas las razas",
@@ -161,7 +161,7 @@ const cursosOtono2025 = [
      id: 13,
      titulo: "Peluquería Canina y Felina",
      sede: "CEP SANTA CRUZ",
-     imagen: "/images/cursos/mundo-animal.jpg",
+     imagen: "/images/cursos/peluqueria-canina.jpg",
      inicio: "Octubre 2025",
      duracion: "6 meses",
      descripcion: "Técnicas profesionales de peluquería y estética animal para perros y gatos de todas las razas",
@@ -371,7 +371,7 @@ const HomePage: React.FC = () => {
       
       {/* Hero Slideshow - Mobile First Responsive */}
       <section className="relative w-full overflow-hidden bg-gray-100">
-        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[2.5/1] lg:aspect-[3/1]">
+        <div className="relative w-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px] max-h-[80vh]">
           {heroSlides.map((slide, index) => (
             <div
               key={slide.id}
