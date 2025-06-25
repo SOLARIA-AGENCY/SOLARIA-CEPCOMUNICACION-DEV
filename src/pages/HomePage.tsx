@@ -370,8 +370,8 @@ const HomePage: React.FC = () => {
       <CepHeader />
       
       {/* Hero Slideshow - Mobile First Responsive */}
-      <section className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden bg-gray-100">
-        <div className="relative w-full h-full">
+      <section className="relative w-full overflow-hidden bg-gray-100">
+        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[2.5/1] lg:aspect-[3/1]">
           {heroSlides.map((slide, index) => (
             <div
               key={slide.id}
@@ -382,7 +382,7 @@ const HomePage: React.FC = () => {
               <img
                 src={slide.image}
                 alt={slide.alt}
-                className="w-full h-full object-contain object-center"
+                className="w-full h-full object-cover object-center"
               />
             </div>
           ))}
