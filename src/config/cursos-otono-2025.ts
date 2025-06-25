@@ -31,7 +31,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-adiestramiento-canino-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/mundo-animal.jpg',
+    imagen: '/images/cursos/adiestramiento-canino.jpg',
     temario: [
       'Módulo 1: Técnicas de adiestramiento de base aplicadas a perros',
       'Módulo 2: Modificación de conductas no deseadas en perros',
@@ -108,7 +108,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-clinico-veterinario-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/mundo-animal.jpg',
+    imagen: '/images/cursos/auxiliar-veterinaria.jpg',
     temario: [
       'Anatomía y fisiología animal (perros, gatos, animales exóticos)',
       'Funciones del auxiliar veterinario y atención al cliente',
@@ -152,7 +152,7 @@ export const cursoData = [
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-clinico-veterinario-santacruz',
     inicio: 'Octubre 2025',
-    imagen: '/images/cursos/mundo-animal.jpg',
+    imagen: '/images/cursos/auxiliar-veterinaria.jpg',
     temario: [
       'Anatomía y fisiología animal (perros, gatos, animales exóticos)',
       'Funciones del auxiliar veterinario y atención al cliente',
@@ -237,7 +237,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-enfermeria-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/auxiliar-de.jpg',
+    imagen: '/images/cursos/auxiliar-enfermeria.jpg',
     temario: [
       'Técnicas básicas de enfermería y procedimientos',
       'Anatomía y fisiología del cuerpo humano',
@@ -281,7 +281,7 @@ export const cursoData = [
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-enfermeria-santacruz',
     inicio: 'Octubre 2025',
-    imagen: '/images/cursos/auxiliar-de.jpg',
+    imagen: '/images/cursos/auxiliar-enfermeria.jpg',
     temario: [
       'Técnicas básicas de enfermería y procedimientos',
       'Anatomía y fisiología del cuerpo humano',
@@ -325,7 +325,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-farmacia-dermo-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/auxiliar-de.jpg',
+    imagen: '/images/cursos/farmacia-parafarmacia.jpg',
     temario: [
       'Anatomía y fisiología del cuerpo humano',
       'Funcionamiento de la oficina de farmacia',
@@ -368,7 +368,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-odontologia-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/auxiliar-de.jpg',
+    imagen: '/images/cursos/auxiliar-odontologia.jpg',
     temario: [
       'Anatomía dental y estructuras bucales',
       'Planificación de tratamiento odontológico',
@@ -411,7 +411,7 @@ export const cursoData = [
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-odontologia-santacruz',
     inicio: 'Octubre 2025',
-    imagen: '/images/cursos/auxiliar-de.jpg',
+    imagen: '/images/cursos/auxiliar-odontologia.jpg',
     temario: [
       'Anatomía dental y estructuras bucales',
       'Planificación de tratamiento odontológico',
@@ -454,7 +454,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-dietetica-nutricion-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    imagen: '/images/cursos/dietetica-nutricion.jpg',
     temario: [
       'Módulo 1: Anatomía y fisiología del aparato digestivo',
       'Módulo 2: Bromatología y ciencia de los alimentos',
@@ -492,7 +492,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-peluqueria-canina-felina-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/mundo-animal.jpg',
+    imagen: '/images/cursos/peluqueria-canina.jpg',
     temario: [
       'Anatomía y morfología canina y felina',
       'Técnicas de corte según raza y estándar',
