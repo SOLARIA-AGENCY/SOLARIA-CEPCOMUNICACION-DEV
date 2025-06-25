@@ -12,8 +12,6 @@ on:
 env:
   DOMAIN: cepcomunicacion.com
   PRODUCTION_URL: https://www.cepcomunicacion.com
-  FTP_HOST: 46.202.172.98
-  FTP_USER: u882790918.cepcomunicacion.com
 
 jobs:
   validate:
@@ -28,7 +26,7 @@ jobs:
       - name: 📦 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
           
       - name: 🔧 Install Dependencies
@@ -84,7 +82,7 @@ jobs:
       - name: 📦 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
           
       - name: 🔧 Install Dependencies
@@ -105,8 +103,8 @@ jobs:
       - name: 🚀 Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ env.FTP_HOST }}
-          username: ${{ env.FTP_USER }}
+          server: ${{ secrets.HOSTINGER_FTP_HOST }}
+          username: ${{ secrets.HOSTINGER_FTP_USER }}
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: /public_html/
@@ -133,10 +131,10 @@ jobs:
           a_record=$(dig +short A ${{ env.DOMAIN }})
           echo "A Record: $a_record"
           
-          if [ "$a_record" = "${{ env.FTP_HOST }}" ]; then
+          if [ "$a_record" = "${{ secrets.HOSTINGER_FTP_HOST }}" ]; then
             echo "✅ DNS A record correct"
           else
-            echo "⚠️  DNS A record mismatch: expected ${{ env.FTP_HOST }}, got $a_record"
+            echo "⚠️  DNS A record mismatch: expected ${{ secrets.HOSTINGER_FTP_HOST }}, got $a_record"
           fi
           
           # Check CNAME for www
