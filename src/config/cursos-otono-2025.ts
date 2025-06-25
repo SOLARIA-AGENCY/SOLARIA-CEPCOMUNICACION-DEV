@@ -882,7 +882,7 @@ export const cursoData = [
     duracion: '3 cursos escolares - Modalidad semipresencial',
     precio: {
       cuotas: 30, // 10 cuotas por año académico durante 3 años
-      importe: 200, // 1º año: 200€/mes, 2º año: 200€/mes, 3º año: 180€/mes
+      importe: 160, // Precio contado: 30 × 160€ = 4.800€ + 200€ matrícula = 5.000€
       matricula: 200
     },
     practicas: 'Prácticas con pacientes reales desde 1º año + 350h en empresa',
@@ -943,7 +943,7 @@ export const cursoData = [
     duracion: '3 cursos escolares - Modalidad semipresencial',
     precio: {
       cuotas: 30, // 10 cuotas por año académico durante 3 años
-      importe: 200, // 1º año: 200€/mes, 2º año: 200€/mes, 3º año: 180€/mes
+      importe: 160, // Precio contado: 30 × 160€ = 4.800€ + 200€ matrícula = 5.000€
       matricula: 200
     },
     practicas: 'Aula práctica con material real + 350 horas en farmacias',
