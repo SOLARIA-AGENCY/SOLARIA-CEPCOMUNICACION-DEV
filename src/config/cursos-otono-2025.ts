@@ -50,14 +50,15 @@ export const cursoData = [
       'Módulo 3: Adiestramiento básico y obediencia',
       'Módulo 4: Análisis del comportamiento canino y etología'
     ],
-    duracion: '25 sesiones / 6 meses',
+    duracion: '24 sesiones / 6 meses',
     precio: {
       cuotas: 6,
       importe: 85,
       matricula: 150
     },
+    practicas: 'Opción doble diploma + Agencia colocación oficial',
     profesor: 'Livia Bernardi (Fundadora Aboras Obediencia)',
-    certificacion: 'Preparación para examen ANACP',
+    certificacion: 'Preparación para examen ANACP + Opción doble diploma',
     profesorDetalle: {
       nombre: 'Livia Bernardi',
       foto: '/images/profesores/livia.jpg',
@@ -67,8 +68,8 @@ export const cursoData = [
     modalidadInfo: {
       tipo: 'Clases presenciales en grupos reducidos',
       horario: '1 día por semana - 3 horas por sesión',
-      sesiones: '25 sesiones - 6 meses de duración',
-      certificacion: 'Preparación para examen oficial ANACP'
+      sesiones: '24 sesiones - 6 meses de duración',
+      certificacion: 'Preparación para examen oficial ANACP + Opción doble diploma'
     },
     copy: {
       slogan: "Conviértete en experto en adiestramiento canino con técnicas profesionales",
@@ -102,14 +103,14 @@ export const cursoData = [
       'Normativa funeraria y aspectos legales',
       'Productos biocidas y técnicas de conservación'
     ],
-    duracion: '8 meses / 32 sesiones',
+    duracion: '40 sesiones / 120 horas formación',
     precio: {
-      cuotas: 8,
-      importe: 95,
-      matricula: 150
+      cuotas: 10,
+      importe: 200,
+      matricula: 250
     },
-    practicas: '120 horas prácticas en empresas del sector',
-    certificacion: 'Diploma CEP Formación especializado',
+    practicas: '160 horas prácticas en empresas del sector',
+    certificacion: 'Diploma CEP Formación + Opción doble diploma',
     profesorDetalle: {
       nombre: 'Esther González',
       foto: '/images/profesores/esther.jpg',
@@ -117,10 +118,10 @@ export const cursoData = [
       descripcion: 'Profesional certificada en técnicas de conservación y embalsamamiento. Amplia experiencia en el sector funerario con conocimientos en normativa legal y procedimientos especializados.'
     },
     modalidadInfo: {
-      tipo: 'Formación teórico-práctica especializada',
-      horario: '2 días por semana - 4 horas por sesión',
-      sesiones: '32 sesiones - 8 meses de duración',
-      certificacion: 'Diploma especializado en servicios funerarios'
+      tipo: 'Formación teórico-práctica especializada en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '40 sesiones - 120 horas de formación',
+      certificacion: 'Diploma especializado en servicios funerarios + Opción doble diploma'
     },
     copy: {
       slogan: "Especialízate en servicios funerarios con formación técnica avanzada",
@@ -159,14 +160,14 @@ export const cursoData = [
       'Cirugía: instrumentación y cuidados pre/post',
       'Etología y comportamiento animal'
     ],
-    duracion: '9 meses / 36 sesiones',
+    duracion: '36 sesiones / 72 horas formación',
     precio: {
       cuotas: 9,
-      importe: 105,
+      importe: 90,
       matricula: 150
     },
     practicas: '350 horas prácticas en clínicas veterinarias',
-    certificacion: 'Diploma CEP en Auxiliar Clínico Veterinario',
+    certificacion: 'Diploma CEP en Auxiliar Clínico Veterinario + Opción doble diploma',
     profesorDetalle: {
       nombre: 'Sara Jaquete',
       foto: '/images/profesores/sara.jpg',
@@ -174,10 +175,10 @@ export const cursoData = [
       descripcion: 'Veterinaria titulada con amplia experiencia en clínica de pequeños animales y animales exóticos. Especialista en técnicas diagnósticas avanzadas y cirugía veterinaria. Formadora certificada en auxiliar clínico.'
     },
     modalidadInfo: {
-      tipo: 'Formación práctica intensiva',
-      horario: '2 días por semana - 4 horas por sesión',
-      sesiones: '36 sesiones - 9 meses de duración',
-      certificacion: 'Diploma profesional con prácticas garantizadas'
+      tipo: 'Formación práctica intensiva en grupos reducidos',
+      horario: '1 día por semana - 2 horas por sesión',
+      sesiones: '36 sesiones - 72 horas de formación',
+      certificacion: 'Diploma profesional + Opción doble diploma + Agencia colocación oficial'
     },
     copy: {
       slogan: "Conviértete en auxiliar veterinario con formación integral",
@@ -201,7 +202,7 @@ export const cursoData = [
     nombre: 'Auxiliar Clínico Veterinario',
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-clinico-veterinario-santacruz',
-    inicio: 'Octubre 2025',
+    inicio: 'Septiembre 2025',
     imagen: '/images/cursos/auxiliar-veterinaria.jpg',
     temario: [
       'Anatomía y fisiología animal (perros, gatos, animales exóticos)',
@@ -216,18 +217,31 @@ export const cursoData = [
       'Cirugía: instrumentación y cuidados pre/post',
       'Etología y comportamiento animal'
     ],
-    duracion: '9 meses / 36 sesiones',
+    duracion: '36 sesiones / 72 horas formación',
     precio: {
       cuotas: 9,
-      importe: 105,
+      importe: 90,
       matricula: 150
     },
     practicas: '350 horas prácticas en clínicas veterinarias',
+    certificacion: 'Diploma CEP en Auxiliar Clínico Veterinario + Opción doble diploma',
+    profesorDetalle: {
+      nombre: 'Sara Jaquete',
+      foto: '/images/profesores/sara.jpg',
+      especialidad: 'Especialista en Medicina Veterinaria',
+      descripcion: 'Veterinaria titulada con amplia experiencia en clínica de pequeños animales y animales exóticos. Especialista en técnicas diagnósticas avanzadas y cirugía veterinaria. Formadora certificada en auxiliar clínico.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación práctica intensiva en grupos reducidos',
+      horario: '1 día por semana - 2 horas por sesión',
+      sesiones: '36 sesiones - 72 horas de formación',
+      certificacion: 'Diploma profesional + Opción doble diploma + Agencia colocación oficial'
+    },
     copy: {
       slogan: "Conviértete en auxiliar veterinario con formación integral",
       textosPrincipales: [
         "Formación completa en clínica veterinaria",
-        "Prácticas reales en empresas del sector", 
+        "Prácticas reales en empresas del sector",
         "Conocimientos en animales domésticos y exóticos"
       ],
       titulos: ["Clínica Integral", "Prácticas Reales", "Animales Diversos"],
@@ -242,28 +256,42 @@ export const cursoData = [
   // 5. Auxiliar Clínicas Estéticas
   {
     slug: 'auxiliar-clinicas-esteticas-santacruz',
-    nombre: 'Auxiliar de Clínicas Estéticas',
+    nombre: 'Auxiliar Clínicas Estéticas',
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-clinicas-esteticas-santacruz',
     inicio: 'Octubre 2025',
-    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    imagen: '/images/cursos/auxiliar-de.jpg',
     temario: [
-      'Unidad 1: Anatomía y fisiología de la piel',
-      'Unidad 2: Cosmetología y productos estéticos',
-      'Unidad 3: Técnicas de limpieza e higiene facial',
-      'Unidad 4: Tratamientos faciales específicos',
-      'Unidad 5: Técnicas corporales y masaje estético',
-      'Unidad 6: Aparatología estética avanzada',
-      'Unidad 7: Depilación y técnicas específicas',
-      'Unidad 8: Atención al cliente y gestión de centro'
+      'Anatomía y fisiología de la piel',
+      'Técnicas de diagnóstico estético',
+      'Protocolos de limpieza facial',
+      'Aparatología estética básica',
+      'Tratamientos corporales',
+      'Depilación láser y técnicas avanzadas',
+      'Atención al cliente y consulta estética',
+      'Normativa sanitaria y seguridad',
+      'Cosmética profesional aplicada'
     ],
-    duracion: '10 meses / 40 sesiones',
+    duracion: '40 sesiones / 120 horas formación',
     precio: {
       cuotas: 10,
-      importe: 110,
+      importe: 115,
       matricula: 150
     },
-    practicas: '150 horas prácticas en empresas del sector',
+    practicas: '150 horas prácticas en empresas',
+    certificacion: 'Diploma CEP + Opción doble diploma',
+    profesorDetalle: {
+      nombre: 'Luis J. González',
+      foto: '/images/profesores/luis.jpg',
+      especialidad: 'Especialista en Medicina Estética',
+      descripcion: 'Profesional certificado en medicina y tratamientos estéticos. Amplia experiencia en clínicas de belleza y centros de medicina estética. Formador especializado en técnicas avanzadas de estética profesional.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación teórico-práctica en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '40 sesiones - 120 horas de formación',
+      certificacion: 'Diploma CEP + Opción doble diploma + Agencia colocación oficial'
+    },
     copy: {
       slogan: "Especialízate en estética profesional con técnicas avanzadas",
       textosPrincipales: [
@@ -280,34 +308,46 @@ export const cursoData = [
     }
   },
 
-  // 6. Auxiliar Enfermería Norte
+  // 6. Auxiliar de Enfermería Norte
   {
     slug: 'auxiliar-enfermeria-norte',
     nombre: 'Auxiliar de Enfermería',
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-enfermeria-norte',
-    inicio: 'Septiembre 2025',
+    inicio: 'Noviembre 2025',
     imagen: '/images/cursos/auxiliar-enfermeria.jpg',
     temario: [
-      'Técnicas básicas de enfermería y procedimientos',
-      'Anatomía y fisiología del cuerpo humano',
-      'Higiene y aseo del paciente',
-      'Movilización y traslado de pacientes',
-      'Constantes vitales y procedimientos relacionados',
-      'Alimentación y nutrición hospitalaria',
-      'Cuidados del paciente terminal',
-      'Primeros auxilios básicos y avanzados',
-      'Operaciones administrativas y documentación',
-      'Prevención de infecciones y esterilización',
-      'Gestión de residuos sanitarios'
+      'Anatomía y fisiología humana',
+      'Técnicas básicas de enfermería',
+      'Higiene y confort del paciente',
+      'Administración de medicamentos',
+      'Primeros auxilios y emergencias',
+      'Cuidados de heridas y vendajes',
+      'Atención a pacientes geriátricos',
+      'Esterilización y control de infecciones',
+      'Cuidados paliativos básicos',
+      'Comunicación y atención al paciente'
     ],
-    duracion: '10 meses / 40 sesiones',
+    duracion: '40 sesiones / 120 horas formación',
     precio: {
       cuotas: 10,
-      importe: 100,
+      importe: 105,
       matricula: 150
     },
-    practicas: '300 horas prácticas en centros sanitarios',
+    practicas: '300 horas prácticas en empresas',
+    certificacion: 'Diploma CEP + Opción doble diploma',
+    profesorDetalle: {
+      nombre: 'Esther González',
+      foto: '/images/profesores/esther.jpg',
+      especialidad: 'Especialista en Enfermería y Cuidados Sanitarios',
+      descripcion: 'Enfermera titulada con amplia experiencia en centros hospitalarios y atención primaria. Especialista en cuidados geriátricos y formación sanitaria. Docente certificada en auxiliar de enfermería.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación teórico-práctica en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '40 sesiones - 120 horas de formación',
+      certificacion: 'Diploma CEP + Opción doble diploma + Agencia colocación oficial'
+    },
     copy: {
       slogan: "Forma parte del equipo sanitario con preparación profesional",
       textosPrincipales: [
@@ -324,34 +364,46 @@ export const cursoData = [
     }
   },
 
-  // 7. Auxiliar Enfermería Santa Cruz
+  // 7. Auxiliar de Enfermería Santa Cruz
   {
     slug: 'auxiliar-enfermeria-santacruz',
     nombre: 'Auxiliar de Enfermería',
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-enfermeria-santacruz',
-    inicio: 'Octubre 2025',
+    inicio: 'Septiembre 2025',
     imagen: '/images/cursos/auxiliar-enfermeria.jpg',
     temario: [
-      'Técnicas básicas de enfermería y procedimientos',
-      'Anatomía y fisiología del cuerpo humano',
-      'Higiene y aseo del paciente',
-      'Movilización y traslado de pacientes',
-      'Constantes vitales y procedimientos relacionados',
-      'Alimentación y nutrición hospitalaria',
-      'Cuidados del paciente terminal',
-      'Primeros auxilios básicos y avanzados',
-      'Operaciones administrativas y documentación',
-      'Prevención de infecciones y esterilización',
-      'Gestión de residuos sanitarios'
+      'Anatomía y fisiología humana',
+      'Técnicas básicas de enfermería',
+      'Higiene y confort del paciente',
+      'Administración de medicamentos',
+      'Primeros auxilios y emergencias',
+      'Cuidados de heridas y vendajes',
+      'Atención a pacientes geriátricos',
+      'Esterilización y control de infecciones',
+      'Cuidados paliativos básicos',
+      'Comunicación y atención al paciente'
     ],
-    duracion: '10 meses / 40 sesiones',
+    duracion: '40 sesiones / 120 horas formación',
     precio: {
       cuotas: 10,
-      importe: 100,
+      importe: 105,
       matricula: 150
     },
-    practicas: '300 horas prácticas en centros sanitarios',
+    practicas: '300 horas prácticas en empresas',
+    certificacion: 'Diploma CEP + Opción doble diploma',
+    profesorDetalle: {
+      nombre: 'Esther González',
+      foto: '/images/profesores/esther.jpg',
+      especialidad: 'Especialista en Enfermería y Cuidados Sanitarios',
+      descripcion: 'Enfermera titulada con amplia experiencia en centros hospitalarios y atención primaria. Especialista en cuidados geriátricos y formación sanitaria. Docente certificada en auxiliar de enfermería.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación teórico-práctica en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '40 sesiones - 120 horas de formación',
+      certificacion: 'Diploma CEP + Opción doble diploma + Agencia colocación oficial'
+    },
     copy: {
       slogan: "Forma parte del equipo sanitario con preparación profesional",
       textosPrincipales: [
@@ -368,33 +420,46 @@ export const cursoData = [
     }
   },
 
-  // 8. Auxiliar Farmacia con Dermocosmética Norte
+  // 8. Auxiliar Farmacia + Dermo Norte
   {
     slug: 'auxiliar-farmacia-dermo-norte',
-    nombre: 'Auxiliar de Farmacia con Dermocosmética',
+    nombre: 'Auxiliar Farmacia + Dermo',
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-farmacia-dermo-norte',
-    inicio: 'Septiembre 2025',
+    inicio: 'Octubre 2025',
     imagen: '/images/cursos/farmacia-parafarmacia.jpg',
     temario: [
-      'Anatomía y fisiología del cuerpo humano',
-      'Funcionamiento de la oficina de farmacia',
-      'El medicamento: administración, indicaciones y contraindicaciones',
-      'Operaciones farmacéuticas y dispensación',
-      'Farmacología básica y grupos terapéuticos',
-      'Parafarmacia: productos de cuidado personal',
-      'Dermocosmética especializada',
-      'Productos de higiene y belleza',
-      'Atención al cliente especializada',
-      'Gestión de stocks y almacén farmacéutico'
+      'Anatomía y fisiología aplicada',
+      'Farmacología y grupos terapéuticos',
+      'Dispensación de medicamentos',
+      'Parafarmacia y productos sanitarios',
+      'Dermocosmética profesional',
+      'Formulación magistral',
+      'Atención farmacéutica al paciente',
+      'Normativa farmacéutica y sanitaria',
+      'Gestión de stocks y almacén',
+      'Productos de higiene y cosmética'
     ],
-    duracion: '8 meses / 32 sesiones',
+    duracion: '48 sesiones',
     precio: {
-      cuotas: 8,
-      importe: 110,
+      cuotas: 12,
+      importe: 100,
       matricula: 150
     },
-    practicas: '200 horas prácticas en farmacias',
+    practicas: '350 horas prácticas en empresas',
+    certificacion: 'Título oficial + Grupos reducidos + Agencia colocación oficial',
+    profesorDetalle: {
+      nombre: 'Alexis Galán',
+      foto: '/images/profesores/alexis.jpg',
+      especialidad: 'Especialista en Farmacia y Dermocosmética',
+      descripcion: 'Farmacéutico titulado con experiencia en oficinas de farmacia y especialización en dermocosmética profesional. Experto en dispensación farmacéutica y productos parafarmacéuticos.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación teórico-práctica en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '48 sesiones de formación',
+      certificacion: 'Título oficial + Agencia colocación oficial + Grupos reducidos'
+    },
     copy: {
       slogan: "Especialízate en farmacia y dermocosmética profesional",
       textosPrincipales: [
@@ -411,13 +476,13 @@ export const cursoData = [
     }
   },
 
-  // 9. Auxiliar Odontología Norte
+  // 9. Auxiliar en Odontología Norte
   {
     slug: 'auxiliar-odontologia-norte',
-    nombre: 'Auxiliar de Odontología + Periodoncia',
+    nombre: 'Auxiliar en Odontología',
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-odontologia-norte',
-    inicio: 'Septiembre 2025',
+    inicio: 'Noviembre 2025',
     imagen: '/images/cursos/auxiliar-odontologia.jpg',
     temario: [
       'Anatomía dental y estructuras bucales',
@@ -431,15 +496,28 @@ export const cursoData = [
       'Técnicas de limpieza especializada',
       'Educación para la salud bucodental'
     ],
-    duracion: '8 meses / 32 sesiones',
+    duracion: '44 sesiones / 11 meses',
     precio: {
-      cuotas: 8,
-      importe: 115,
+      cuotas: 11,
+      importe: 110,
       matricula: 150
     },
-    practicas: '240 horas prácticas en clínicas dentales',
+    practicas: 'Prácticas en empresas + Bolsa de empleo',
+    certificacion: 'Diploma CEP + Grupos reducidos + Agencia colocación oficial',
+    profesorDetalle: {
+      nombre: 'Nuria E. Ángel',
+      foto: '/images/profesores/nuria.jpg',
+      especialidad: 'Especialista en Odontología y Periodoncia',
+      descripcion: 'Profesional dental con amplia experiencia en clínicas odontológicas. Especialista en periodoncia y formación de auxiliares dentales. Experta en técnicas de asistencia dental moderna.'
+    },
+    modalidadInfo: {
+      tipo: 'Curso teórico-práctico en grupos reducidos',
+      horario: '1 día por semana - 2.5 horas por sesión',
+      sesiones: '44 sesiones - 11 meses de duración',
+      certificacion: 'Diploma CEP + Prácticas en empresas + Bolsa de empleo + Agencia colocación oficial'
+    },
     copy: {
-      slogan: "Especialízate en asistencia dental con técnicas avanzadas",
+      slogan: "Especialízate en técnicas avanzadas de asistencia dental",
       textosPrincipales: [
         "Técnicas profesionales de asistencia dental",
         "Especialización en periodoncia",
@@ -454,13 +532,13 @@ export const cursoData = [
     }
   },
 
-  // 10. Auxiliar Odontología Santa Cruz
+  // 10. Auxiliar en Odontología Santa Cruz
   {
     slug: 'auxiliar-odontologia-santacruz',
-    nombre: 'Auxiliar de Odontología + Periodoncia',
+    nombre: 'Auxiliar en Odontología',
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-odontologia-santacruz',
-    inicio: 'Octubre 2025',
+    inicio: 'Noviembre 2025',
     imagen: '/images/cursos/auxiliar-odontologia.jpg',
     temario: [
       'Anatomía dental y estructuras bucales',
@@ -474,15 +552,28 @@ export const cursoData = [
       'Técnicas de limpieza especializada',
       'Educación para la salud bucodental'
     ],
-    duracion: '8 meses / 32 sesiones',
+    duracion: '44 sesiones / 11 meses',
     precio: {
-      cuotas: 8,
-      importe: 115,
+      cuotas: 11,
+      importe: 110,
       matricula: 150
     },
-    practicas: '240 horas prácticas en clínicas dentales',
+    practicas: 'Prácticas en empresas + Bolsa de empleo',
+    certificacion: 'Diploma CEP + Grupos reducidos + Agencia colocación oficial',
+    profesorDetalle: {
+      nombre: 'Nuria E. Ángel',
+      foto: '/images/profesores/nuria.jpg',
+      especialidad: 'Especialista en Odontología y Periodoncia',
+      descripcion: 'Profesional dental con amplia experiencia en clínicas odontológicas. Especialista en periodoncia y formación de auxiliares dentales. Experta en técnicas de asistencia dental moderna.'
+    },
+    modalidadInfo: {
+      tipo: 'Curso teórico-práctico en grupos reducidos',
+      horario: '1 día por semana - 2.5 horas por sesión',
+      sesiones: '44 sesiones - 11 meses de duración',
+      certificacion: 'Diploma CEP + Prácticas en empresas + Bolsa de empleo + Agencia colocación oficial'
+    },
     copy: {
-      slogan: "Especialízate en asistencia dental con técnicas avanzadas",
+      slogan: "Especialízate en técnicas avanzadas de asistencia dental",
       textosPrincipales: [
         "Técnicas profesionales de asistencia dental",
         "Especialización en periodoncia",
@@ -512,13 +603,26 @@ export const cursoData = [
       'Módulo 4: Dietoterapia y nutrición clínica',
       'Módulo 5: Planificación de menús y dietas específicas'
     ],
-    duracion: '8 meses / 32 sesiones',
+    duracion: '32 sesiones',
     precio: {
       cuotas: 8,
       importe: 105,
       matricula: 150
     },
-    practicas: '150 horas prácticas en centros especializados',
+    practicas: '150 horas prácticas en empresas',
+    certificacion: 'Título oficial + Grupos reducidos + Agencia colocación oficial',
+    profesorDetalle: {
+      nombre: 'Cecilia',
+      foto: '/images/profesores/cecilia.jpg',
+      especialidad: 'Especialista en Dietética y Nutrición',
+      descripcion: 'Profesional titulada en Nutrición y Dietética con experiencia en consulta nutricional y planificación dietética. Especialista en nutrición clínica y educación alimentaria.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación teórico-práctica en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '32 sesiones de formación',
+      certificacion: 'Título oficial + Agencia colocación oficial + Grupos reducidos'
+    },
     copy: {
       slogan: "Conviértete en especialista en nutrición y alimentación saludable",
       textosPrincipales: [
@@ -584,42 +688,117 @@ export const cursoData = [
     sede: 'Santa Cruz',
     tag: 'otono-2025-peluqueria-canina-santacruz',
     inicio: 'Julio 2025',
-    imagen: '/images/cursos/mundo-animal.jpg',
+    imagen: '/images/cursos/peluqueria-canina.jpg',
     temario: [
       'Anatomía y morfología canina y felina',
-      'Técnicas de corte según raza y estándar',
-      'Herramientas profesionales y su mantenimiento',
-      'Productos de higiene y cosmética animal',
-      'Técnicas de secado y acabados profesionales',
-      'Cortes comerciales y de competición',
-      'Atención y manejo de animales nerviosos',
-      'Primeros auxilios básicos en animales',
-      'Gestión de negocio y atención al cliente'
+      'Higiene e identificación de problemas cutáneos',
+      'Técnicas de corte según razas',
+      'Estética canina y felina avanzada',
+      'Manejo y sujeción de animales',
+      'Cuidados específicos por tipo de pelo',
+      'Herramientas y productos profesionales',
+      'Normativa y seguridad en centros',
+      'Atención al cliente especializada'
     ],
-    duracion: '6 meses / 24 sesiones',
+    duracion: '8 meses / 32 sesiones',
     precio: {
-      cuotas: 6,
+      cuotas: 8,
       importe: 95,
       matricula: 150
     },
-    practicas: '100 horas prácticas con animales reales',
+    practicas: '120 horas prácticas en centros especializados',
+    profesorDetalle: {
+      nombre: 'Sara Jaquete',
+      foto: '/images/profesores/sara.jpg',
+      especialidad: 'Especialista en Peluquería Canina y Felina',
+      descripcion: 'Veterinaria especializada en cuidado estético de animales de compañía. Experta en técnicas de peluquería canina y felina profesional. Formadora certificada en manejo y estética animal.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación práctica especializada',
+      horario: '2 días por semana - 3 horas por sesión',
+      sesiones: '32 sesiones - 8 meses de duración',
+      certificacion: 'Diploma especializado en peluquería canina y felina'
+    },
     copy: {
-      slogan: "Domina el arte de la peluquería profesional para mascotas",
+      slogan: "Especialízate en estética y cuidado profesional de mascotas",
       textosPrincipales: [
-        "Técnicas profesionales de corte y estilismo",
-        "Trabajo con animales reales",
-        "Negocio rentable y en crecimiento"
+        "Técnicas profesionales de peluquería canina y felina",
+        "Manejo especializado de diferentes razas",
+        "Cuidados estéticos avanzados para mascotas"
       ],
-      titulos: ["Técnicas Profesionales", "Animales Reales", "Negocio Rentable"],
+      titulos: [
+        "Formación especializada",
+        "Técnicas profesionales",
+        "Salidas laborales"
+      ],
       descripciones: [
-        "Formación especializada en técnicas de corte, styling y cuidado estético de perros y gatos",
-        "Experiencia práctica directa con animales bajo supervisión profesional especializada",
-        "Sector con alta demanda y excelentes oportunidades para emprendimiento propio"
+        "Aprende las técnicas más avanzadas de peluquería canina y felina con profesionales del sector",
+        "Domina el manejo de diferentes razas y técnicas de corte específicas para cada tipo de animal",
+        "Accede a un sector en crecimiento con múltiples oportunidades laborales en centros especializados"
       ]
     }
   },
 
-  // 14. Quiromasaje Nivel II Santa Cruz
+  // 14. Quiromasaje Nivel I Norte (NUEVO CURSO SEGÚN BROCHURE)
+  {
+    slug: 'quiromasaje-nivel1-norte',
+    nombre: 'Quiromasaje Nivel I',
+    sede: 'Norte',
+    tag: 'otono-2025-quiromasaje-nivel1-norte',
+    inicio: 'Septiembre 2025',
+    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    temario: [
+      'Anatomía y fisiología del aparato locomotor',
+      'Técnicas básicas de quiromasaje',
+      'Masaje de relajación y descontracturante',
+      'Técnicas de palpación y exploración',
+      'Maniobras básicas del masaje terapéutico',
+      'Indicaciones y contraindicaciones',
+      'Posturas y ergonomía del terapeuta',
+      'Protocolos de actuación básicos',
+      'Ética profesional y relación terapéutica'
+    ],
+    duracion: '24 sesiones / 6 meses',
+    precio: {
+      cuotas: 6,
+      importe: 85,
+      matricula: 150
+    },
+    practicas: '50 horas prácticas en empresas',
+    certificacion: 'Bolsa empleo + Agencia colocación oficial',
+    profesorDetalle: {
+      nombre: 'Luis J. González',
+      foto: '/images/profesores/luis.jpg',
+      especialidad: 'Especialista en Quiromasaje y Terapias Manuales',
+      descripcion: 'Profesional certificado en quiromasaje y técnicas de terapia manual. Especialista en tratamientos de relajación y bienestar. Amplia experiencia en centros de fisioterapia y wellness.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación presencial en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '24 sesiones - 6 meses de duración',
+      certificacion: 'Certificado profesional + Bolsa empleo + Agencia colocación oficial'
+    },
+    copy: {
+      slogan: "Iníciate en el quiromasaje terapéutico profesional",
+      textosPrincipales: [
+        "Formación completa en quiromasaje básico",
+        "Técnicas terapéuticas fundamentales",
+        "Preparación para el ejercicio profesional"
+      ],
+      titulos: [
+        "Técnicas fundamentales",
+        "Formación práctica",
+        "Oportunidades profesionales"
+      ],
+      descripciones: [
+        "Domina las técnicas básicas del quiromasaje terapéutico con metodología práctica y profesional",
+        "Aprende mediante práctica supervisada las maniobras esenciales del masaje rehabilitador",
+        "Accede a un sector de alta demanda con posibilidades de autoempleo y trabajo en centros"
+      ]
+    }
+  },
+
+  // 15. Quiromasaje Nivel II Santa Cruz
   {
     slug: 'quiromasaje-nivel2-santacruz',
     nombre: 'Quiromasaje Nivel II',
@@ -638,14 +817,26 @@ export const cursoData = [
       'Protocolos de exploración y valoración',
       'Orientación del trabajo muscular personalizado'
     ],
-    duracion: '10 meses / 40 sesiones',
+    duracion: '20 sesiones / 5 meses',
     precio: {
-      cuotas: 10,
-      importe: 120,
+      cuotas: 5,
+      importe: 85,
       matricula: 150
     },
-    practicas: '160 horas prácticas supervisadas + 100h externas',
-    certificacion: 'Doble titulación: Técnico Especialista + Masaje Reflejo',
+    practicas: '50 horas prácticas en empresas',
+    certificacion: 'Bolsa empleo + Agencia colocación oficial',
+    profesorDetalle: {
+      nombre: 'Luis J. González',
+      foto: '/images/profesores/luis.jpg',
+      especialidad: 'Especialista en Quiromasaje y Terapias Manuales',
+      descripcion: 'Profesional certificado en quiromasaje y técnicas de terapia manual avanzada. Especialista en tratamientos de rehabilitación y bienestar. Amplia experiencia en centros de fisioterapia y wellness.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación presencial en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '20 sesiones - 5 meses de duración',
+      certificacion: 'Certificado profesional + Bolsa empleo + Agencia colocación oficial'
+    },
     copy: {
       slogan: "Especialízate en técnicas avanzadas de quiromasaje terapéutico",
       textosPrincipales: [
