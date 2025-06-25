@@ -15,6 +15,18 @@ export interface CursoData {
   practicas?: string;
   profesor?: string;
   certificacion?: string;
+  profesorDetalle?: {
+    nombre: string;
+    foto: string;
+    especialidad: string;
+    descripcion: string;
+  };
+  modalidadInfo?: {
+    tipo: string;
+    horario: string;
+    sesiones: string;
+    certificacion: string;
+  };
   copy: {
     slogan: string;
     textosPrincipales: string[];
@@ -46,6 +58,18 @@ export const cursoData = [
     },
     profesor: 'Livia Bernardi (Fundadora Aboras Obediencia)',
     certificacion: 'Preparación para examen ANACP',
+    profesorDetalle: {
+      nombre: 'Livia Bernardi',
+      foto: '/images/profesores/livia.jpg',
+      especialidad: 'Fundadora de Aboras Obediencia',
+      descripcion: 'Profesional en activo con amplia experiencia docente en el sector del adiestramiento canino. Especialista en técnicas de modificación de conducta y educación canina. Preparación específica para el examen oficial ANACP.'
+    },
+    modalidadInfo: {
+      tipo: 'Clases presenciales en grupos reducidos',
+      horario: '1 día por semana - 3 horas por sesión',
+      sesiones: '25 sesiones - 6 meses de duración',
+      certificacion: 'Preparación para examen oficial ANACP'
+    },
     copy: {
       slogan: "Conviértete en experto en adiestramiento canino con técnicas profesionales",
       textosPrincipales: [
@@ -85,6 +109,19 @@ export const cursoData = [
       matricula: 150
     },
     practicas: '120 horas prácticas en empresas del sector',
+    certificacion: 'Diploma CEP Formación especializado',
+    profesorDetalle: {
+      nombre: 'Esther González',
+      foto: '/images/profesores/esther.jpg',
+      especialidad: 'Especialista en Servicios Funerarios',
+      descripcion: 'Profesional certificada en técnicas de conservación y embalsamamiento. Amplia experiencia en el sector funerario con conocimientos en normativa legal y procedimientos especializados.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación teórico-práctica especializada',
+      horario: '2 días por semana - 4 horas por sesión',
+      sesiones: '32 sesiones - 8 meses de duración',
+      certificacion: 'Diploma especializado en servicios funerarios'
+    },
     copy: {
       slogan: "Especialízate en servicios funerarios con formación técnica avanzada",
       textosPrincipales: [
@@ -129,6 +166,19 @@ export const cursoData = [
       matricula: 150
     },
     practicas: '350 horas prácticas en clínicas veterinarias',
+    certificacion: 'Diploma CEP en Auxiliar Clínico Veterinario',
+    profesorDetalle: {
+      nombre: 'Sara Jaquete',
+      foto: '/images/profesores/sara.jpg',
+      especialidad: 'Especialista en Medicina Veterinaria',
+      descripcion: 'Veterinaria titulada con amplia experiencia en clínica de pequeños animales y animales exóticos. Especialista en técnicas diagnósticas avanzadas y cirugía veterinaria. Formadora certificada en auxiliar clínico.'
+    },
+    modalidadInfo: {
+      tipo: 'Formación práctica intensiva',
+      horario: '2 días por semana - 4 horas por sesión',
+      sesiones: '36 sesiones - 9 meses de duración',
+      certificacion: 'Diploma profesional con prácticas garantizadas'
+    },
     copy: {
       slogan: "Conviértete en auxiliar veterinario con formación integral",
       textosPrincipales: [
