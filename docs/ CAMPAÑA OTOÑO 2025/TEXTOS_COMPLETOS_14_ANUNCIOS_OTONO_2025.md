@@ -1,5 +1,5 @@
 # TEXTOS COMPLETOS PARA ANUNCIOS META ADS - CAMPAÑA OTOÑO 2025
-## CEP FORMACIÓN - 14 ANUNCIOS POR CURSO Y SEDE
+## CEP FORMACIÓN - 16 ANUNCIOS POR CURSO Y SEDE (INCLUYE CICLOS FORMATIVOS)
 
 ---
 
@@ -353,6 +353,56 @@
 
 ---
 
+## 15. CICLO FORMATIVO DE GRADO SUPERIOR HIGIENE BUCODENTAL – SANTA CRUZ (SEPTIEMBRE 2025)
+
+### TEXTO PRINCIPAL (5 variaciones)
+1. Título oficial del Ministerio de Educación y Formación Profesional. Ciclo Formativo de Grado Superior en Higiene Bucodental con prácticas reales desde 1º año. Centro autorizado, becas MEC disponibles.
+2. Conviértete en Higienista Bucodental con título oficial homologado. 3 cursos escolares, prácticas con pacientes reales y acceso becas del Ministerio de Educación.
+3. Formación oficial reconocida nacionalmente. CFGS Higiene Bucodental semipresencial, centro autorizado Nº 38017275. Trabajarás en centros privados y concertados.
+4. Da el salto profesional con título del MEC. Higiene Bucodental oficial, prácticas reales desde primer año, incluye material y uniforme.
+5. Estudia el único Ciclo Formativo Oficial de Higiene Bucodental en Tenerife. Título homologado, becas MEC y empleabilidad garantizada.
+
+### TÍTULO (5 variaciones)
+1. Título Oficial MEC - Higienista Bucodental. Becas disponibles.
+2. CFGS Higiene Bucodental homologado. Prácticas desde 1º año.
+3. Formación Profesional Oficial - Centro autorizado MEC.
+4. Higienista titulado/a - Trabajo en centros privados y concertados.
+5. Único CFGS oficial Tenerife. Solicita becas Ministerio Educación.
+
+### DESCRIPCIÓN (5 variaciones)
+1. Solicita información sobre el único título oficial MEC en Tenerife.
+2. Descubre cómo obtener tu título homologado de Higienista Bucodental.
+3. Accede a becas del Ministerio y trabaja con título oficial.
+4. Conoce el programa oficial, fechas y requisitos de acceso.
+5. Reserva tu plaza en el CFGS oficial más demandado.
+
+---
+
+## 16. CICLO FORMATIVO DE GRADO MEDIO FARMACIA Y PARAFARMACIA – SANTA CRUZ (SEPTIEMBRE 2025)
+
+### TEXTO PRINCIPAL (5 variaciones)
+1. Título oficial del Ministerio de Educación y Formación Profesional. Ciclo Formativo de Grado Medio en Farmacia y Parafarmacia con prácticas en farmacias reales. Centro autorizado, becas MEC.
+2. Técnico oficial en Farmacia y Parafarmacia con título homologado del MEC. 3 cursos escolares, prácticas reales y acceso becas del Ministerio de Educación.
+3. Formación Profesional oficial reconocida nacionalmente. CFGM Farmacia semipresencial, centro autorizado Nº 38017275. Trabajarás en farmacias y parafarmacias.
+4. Consigue tu título oficial del Ministerio. Farmacia y Parafarmacia homologado, prácticas en centros reales, incluye material y libros oficiales.
+5. Estudia el Ciclo Formativo Oficial de Farmacia en Tenerife. Título del MEC, becas disponibles y empleabilidad en el sector farmacéutico.
+
+### TÍTULO (5 variaciones)
+1. Título Oficial MEC - Técnico Farmacia y Parafarmacia. Becas MEC.
+2. CFGM Farmacia homologado. Prácticas en farmacias reales.
+3. Formación Profesional Oficial - Centro autorizado Ministerio.
+4. Técnico titulado/a - Trabajo en farmacias y parafarmacias.
+5. CFGM oficial Tenerife. Solicita becas Ministerio Educación.
+
+### DESCRIPCIÓN (5 variaciones)
+1. Solicita información sobre el título oficial MEC en Farmacia.
+2. Descubre cómo obtener tu título homologado de Técnico en Farmacia.
+3. Accede a becas del Ministerio y trabaja con título oficial.
+4. Conoce el programa oficial, fechas y requisitos de acceso.
+5. Reserva tu plaza en el CFGM oficial más solicitado.
+
+---
+
 ## CAMPOS COMUNES PARA TODOS LOS ANUNCIOS
 
 ### ENLACE VISIBLE
@@ -378,4 +428,5 @@ https://cursostenerife.es
 ---
 
 *Documento generado para la Campaña Meta Ads Otoño 2025 - CEP Formación*
-*Todos los textos están optimizados para conversión y cumplimiento de límites de caracteres* 
+*Todos los textos están optimizados para conversión y cumplimiento de límites de caracteres*
+*INCLUYE CICLOS FORMATIVOS OFICIALES CON TÍTULOS HOMOLOGADOS MEC* 

@@ -81,6 +81,34 @@ const CursoPage: React.FC = () => {
               </div>
             </div>
 
+            {/* Sección especial para Ciclos Formativos Oficiales */}
+            {(curso.slug.includes('cfgs-') || curso.slug.includes('cfgm-')) && (
+              <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-xl shadow-lg p-8 mb-12 text-white">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div className="flex items-center gap-6">
+                    <img 
+                      src="/images/logos/logo ministerio educacion.png" 
+                      alt="Ministerio de Educación y Formación Profesional" 
+                      className="w-20 h-20 md:w-24 md:h-24 bg-white p-2 rounded-lg shadow-md"
+                    />
+                    <div>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-2">Título Oficial Homologado</h3>
+                      <p className="text-blue-100 text-lg">Ministerio de Educación y Formación Profesional</p>
+                      <p className="text-blue-200 text-sm mt-1">Centro autorizado Nº 38017275</p>
+                    </div>
+                  </div>
+                  <div className="text-center md:text-right">
+                    <div className="bg-white/20 rounded-lg p-4 mb-3">
+                      <p className="text-sm font-medium">✅ Validez Nacional</p>
+                      <p className="text-sm font-medium">✅ Becas MEC Disponibles</p>
+                      <p className="text-sm font-medium">✅ Centros Privados y Concertados</p>
+                    </div>
+                    <p className="text-xs text-blue-200">Formación Profesional Reglada</p>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Content Section */}
             <div className="grid md:grid-cols-3 gap-12">
               <div className="md:col-span-2 space-y-8">

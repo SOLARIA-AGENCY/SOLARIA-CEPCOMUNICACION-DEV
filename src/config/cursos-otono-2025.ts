@@ -857,10 +857,10 @@ export const cursoData = [
     }
   },
 
-  // 16. CFGS Higiene Bucodental (CICLO FORMATIVO OFICIAL)
+  // 16. CICLO FORMATIVO DE GRADO SUPERIOR HIGIENE BUCODENTAL (OFICIAL)
   {
     slug: 'cfgs-higiene-bucodental-santacruz',
-    nombre: 'CFGS Higiene Bucodental',
+    nombre: 'Ciclo Formativo de Grado Superior Higiene Bucodental',
     sede: 'Santa Cruz',
     tag: 'otono-2025-cfgs-higiene-bucodental-santacruz',
     inicio: 'Septiembre 2025',
@@ -894,15 +894,15 @@ export const cursoData = [
       descripcion: 'Higienista bucodental titulada con amplia experiencia en clínicas especializadas. Experta en educación sanitaria y técnicas preventivas avanzadas. Formadora oficial de ciclos formativos sanitarios.'
     },
     modalidadInfo: {
-      tipo: 'Ciclo Formativo Oficial - Centro autorizado por Consejería de Educación',
+      tipo: 'Ciclo Formativo Oficial homologado por el Ministerio de Educación y Formación Profesional - Centro autorizado por Consejería de Educación',
       horario: 'Semipresencial - Miércoles 17:00-21:00h',
       sesiones: '3 cursos escolares (septiembre a junio cada año)',
-      certificacion: 'Título oficial expedido por el Ministerio de Educación y Ciencia - Acceso becas MEC'
+      certificacion: 'Título oficial expedido por el Ministerio de Educación y Formación Profesional - Acceso becas MEC'
     },
     copy: {
-      slogan: "Conviértete en Higienista Bucodental con Título Oficial del MEC",
+      slogan: "Conviértete en Higienista Bucodental con Título Oficial homologado por el Ministerio de Educación",
       textosPrincipales: [
-        "Título oficial del Ministerio de Educación y Ciencia",
+        "Título oficial homologado por el Ministerio de Educación y Formación Profesional",
         "3 cursos escolares con prácticas reales desde 1º año",
         "Centro autorizado por Consejería de Educación - Becas MEC disponibles"
       ],
@@ -912,17 +912,17 @@ export const cursoData = [
         "Becas MEC Disponibles"
       ],
       descripciones: [
-        "Formación oficial reconocida por el MEC con validez nacional. Incluye libros, uniforme, material prácticas, plataforma online y clases grabadas",
+        "Formación oficial reconocida por el Ministerio de Educación con validez nacional. Incluye libros, uniforme, material prácticas, plataforma online y clases grabadas",
         "Prácticas con pacientes reales desde el primer año en higiene bucodental bajo supervisión profesional durante los 3 cursos escolares",
-        "Puedes solicitar becas del Ministerio de Educación. Trabajarás en centros privados y concertados con título oficial del MEC"
+        "Puedes solicitar becas del Ministerio de Educación. Trabajarás en centros privados y concertados con título oficial homologado por el MEC"
       ]
     }
   },
 
-  // 17. CFGM Farmacia y Parafarmacia (CICLO FORMATIVO OFICIAL)
+  // 17. CICLO FORMATIVO DE GRADO MEDIO FARMACIA Y PARAFARMACIA (OFICIAL)
   {
     slug: 'cfgm-farmacia-parafarmacia-santacruz',
-    nombre: 'CFGM Farmacia y Parafarmacia',
+    nombre: 'Ciclo Formativo de Grado Medio Farmacia y Parafarmacia',
     sede: 'Santa Cruz',
     tag: 'otono-2025-cfgm-farmacia-parafarmacia-santacruz',
     inicio: 'Septiembre 2025',
@@ -955,15 +955,15 @@ export const cursoData = [
       descripcion: 'Farmacéutico titulado con amplia experiencia en farmacia comunitaria y hospitalaria. Especialista en formulación magistral y atención farmacéutica. Formador oficial de ciclos formativos sanitarios.'
     },
     modalidadInfo: {
-      tipo: 'Ciclo Formativo Oficial - Centro autorizado por Consejería de Educación',
+      tipo: 'Ciclo Formativo Oficial homologado por el Ministerio de Educación y Formación Profesional - Centro autorizado por Consejería de Educación',
       horario: 'Semipresencial - Jueves 17:00-21:00h',
       sesiones: '3 cursos escolares (septiembre a junio cada año)',
-      certificacion: 'Título oficial expedido por el Ministerio de Educación y Ciencia - Acceso becas MEC'
+      certificacion: 'Título oficial expedido por el Ministerio de Educación y Formación Profesional - Acceso becas MEC'
     },
     copy: {
-      slogan: "Técnico oficial en Farmacia y Parafarmacia - Título MEC",
+      slogan: "Técnico oficial en Farmacia y Parafarmacia - Título homologado por el Ministerio de Educación",
       textosPrincipales: [
-        "Título oficial del Ministerio de Educación y Ciencia",
+        "Título oficial homologado por el Ministerio de Educación y Formación Profesional",
         "3 cursos escolares con prácticas en farmacias reales",
         "Centro autorizado por Consejería de Educación - Becas MEC disponibles"
       ],
@@ -973,9 +973,9 @@ export const cursoData = [
         "Becas MEC Disponibles"
       ],
       descripciones: [
-        "Formación oficial reconocida por el MEC con validez nacional. Incluye libros, uniforme, material prácticas, plataforma online y clases grabadas",
+        "Formación oficial reconocida por el Ministerio de Educación con validez nacional. Incluye libros, uniforme, material prácticas, plataforma online y clases grabadas",
         "Prácticas en farmacias y parafarmacias reales durante los 3 cursos escolares con experiencia profesional supervisada",
-        "Puedes solicitar becas del Ministerio de Educación. Trabajarás en centros privados y concertados con título oficial del MEC"
+        "Puedes solicitar becas del Ministerio de Educación. Trabajarás en centros privados y concertados con título oficial homologado por el MEC"
       ]
     }
   }
