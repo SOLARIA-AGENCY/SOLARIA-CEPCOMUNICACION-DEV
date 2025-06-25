@@ -276,7 +276,8 @@ const AuxiliarOdontologiaSantaCruzPage = () => <CursoPageComponent curso={cursoD
 const DieteticaNutricionPage = () => <CursoPageComponent curso={cursoData[10]} />;
 const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[11]} />;
 const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[12]} />;
-const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[13]} />;
+const QuiromasajeNivel1Page = () => <CursoPageComponent curso={cursoData[13]} />;
+const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[14]} />;
 
 
 function App() {
@@ -307,6 +308,7 @@ function App() {
         <Route path="/dietetica-nutricion-norte" element={<DieteticaNutricionPage />} />
         <Route path="/peluqueria-canina-felina-norte" element={<PeluqueriaCaninaNortePage />} />
         <Route path="/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
+        <Route path="/quiromasaje-nivel1-norte" element={<QuiromasajeNivel1Page />} />
         <Route path="/quiromasaje-nivel2-santacruz" element={<QuiromasajeNivel2Page />} />
 
       </Routes>
