@@ -92,7 +92,7 @@ export const cursoData = [
     nombre: 'Agente Funerario',
     sede: 'Santa Cruz',
     tag: 'otono-2025-agente-funerario-santacruz',
-    inicio: 'Octubre 2025',
+    inicio: 'Septiembre 2025',
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
     temario: [
       'Conservación transitoria y embalsamamiento del cadáver',
@@ -582,8 +582,8 @@ export const cursoData = [
     slug: 'peluqueria-canina-felina-santacruz',
     nombre: 'Peluquería Canina y Felina',
     sede: 'Santa Cruz',
-    tag: 'otono-2025-peluqueria-canina-felina-santacruz',
-    inicio: 'Octubre 2025',
+    tag: 'otono-2025-peluqueria-canina-santacruz',
+    inicio: 'Julio 2025',
     imagen: '/images/cursos/mundo-animal.jpg',
     temario: [
       'Anatomía y morfología canina y felina',
@@ -619,13 +619,13 @@ export const cursoData = [
     }
   },
 
-  // 14. Quiromasaje Nivel 2 Norte
+  // 14. Quiromasaje Nivel II Santa Cruz
   {
-    slug: 'quiromasaje-nivel2-norte',
-    nombre: 'Quiromasaje Nivel 2',
-    sede: 'Norte',
-    tag: 'otono-2025-quiromasaje-nivel2-norte',
-    inicio: 'Septiembre 2025',
+    slug: 'quiromasaje-nivel2-santacruz',
+    nombre: 'Quiromasaje Nivel II',
+    sede: 'Santa Cruz', 
+    tag: 'otono-2025-quiromasaje-nivel2-santacruz',
+    inicio: 'Julio 2025',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
     temario: [
       'Anatomía y fisiología del aparato locomotor avanzada',

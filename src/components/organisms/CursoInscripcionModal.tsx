@@ -68,12 +68,28 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
       sede: curso.sede,
       tag: curso.tag,
       
-      // Metadatos
+      // CAMPOS OCULTOS PARA TRAZABILIDAD CAMPAÑA OTOÑO 2025
+      campana: 'otono-2025',
+      tag_mailchimp: curso.tag, // Formato: otono-2025-[curso]-[sede]
+      fuente: 'landing_web_modal',
+      canal: 'organico_web',
+      utm_campaign: 'cep-formacion-otono-2025',
+      utm_source: 'cepcomunicacion.com',
+      utm_medium: 'landing-page',
+      utm_content: `${curso.nombre.toLowerCase().replace(/\s+/g, '-')}-${curso.sede.toLowerCase()}`,
+      
+      // Metadatos técnicos
       procedencia: 'landing_web_modal',
       tipo: 'reserva_plaza',
       timestamp: new Date().toISOString(),
       url: window.location.href,
       userAgent: navigator.userAgent,
+      
+      // IDENTIFICADORES META ADS (se rellenarán automáticamente cuando vengan de FB)
+      fb_lead_id: null, // Se completará si viene de Meta Ads
+      ad_id: null, // Se completará si viene de Meta Ads  
+      adset_id: null, // Se completará si viene de Meta Ads
+      campaign_id: null, // Se completará si viene de Meta Ads
     };
 
     try {

@@ -1,0 +1,54 @@
+
+{
+  "estilo_general": {
+    "colores": {
+      "principal": "#DE0046",
+      "fondo_gradiente": ["#354564", "#6F7E9D"],
+      "texto": "#FFFFFF",
+      "destacado": "#DE0046",
+      "fondo_texto": "#FFFFFF"
+    },
+    "tipografia": {
+      "fuente_principal": "Montserrat",
+      "peso_fuente_titulos": "700",
+      "peso_fuente_texto": "500"
+    },
+    "elementos_comunes": {
+      "forma_circulos": "uso de círculos y curvas en fondos y detalles",
+      "uso_checklist": "presencia destacada de listas con checks",
+      "enfoque_visual": "imagen grande y clara del profesional relacionado con el curso",
+      "CTA": "Inicio del curso destacado en caja rectangular con esquinas redondeadas"
+    }
+  },
+  "anuncios": [
+    {
+      "curso": "Quiromasaje Nivel I",
+      "elementos": {
+        "frase_destacada": "Tu futuro en el bienestar comienza aquí!",
+        "checklist": [
+          "50 horas de prácticas",
+          "Bolsa de empleo oficial",
+          "Certificación profesional"
+        ],
+        "fecha_inicio": "16 MAYO 2025",
+        "url": "www.cursostenerife.es"
+      }
+    },
+    {
+      "curso": "Auxiliar de Enfermería",
+      "elementos": {
+        "frase_destacada": "Las pequeñas cosas son las responsables de los grandes cambios",
+        "checklist": [
+          "300 h prácticas en empresas",
+          "Grupos reducidos",
+          "Certificación profesional",
+          "Agencia de colocación oficial",
+          "Clases teóricas y prácticas",
+          "Incluye libros"
+        ],
+        "fecha_inicio": "MAYO 2025",
+        "url": "www.cursostenerife.es"
+      }
+    }
+  ]
+}

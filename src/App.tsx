@@ -307,7 +307,7 @@ function App() {
         <Route path="/dietetica-nutricion-norte" element={<DieteticaNutricionPage />} />
         <Route path="/peluqueria-canina-felina-norte" element={<PeluqueriaCaninaNortePage />} />
         <Route path="/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
-        <Route path="/quiromasaje-nivel2-norte" element={<QuiromasajeNivel2Page />} />
+        <Route path="/quiromasaje-nivel2-santacruz" element={<QuiromasajeNivel2Page />} />
 
       </Routes>
     </Router>
