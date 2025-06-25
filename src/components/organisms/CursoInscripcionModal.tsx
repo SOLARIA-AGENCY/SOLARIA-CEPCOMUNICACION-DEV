@@ -93,7 +93,87 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     };
 
     try {
-      // TODO: Implementar webhook a n8n
+      // 📧 ENVÍO TEMPORAL A SOLARIA AGENCY usando FormSubmit.co
+      const notificationEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
+      const formSubmitEndpoint = import.meta.env.VITE_FORMSUBMIT_ENDPOINT || `https://formsubmit.co/ajax/${notificationEmail}`;
+      
+      const formData_email = new FormData();
+      formData_email.append('_to', notificationEmail);
+      formData_email.append('_subject', `🎯 NUEVO LEAD - ${curso.nombre} - ${curso.sede} - Campaña Otoño 2025`);
+      formData_email.append('_cc', notificationEmail);
+      formData_email.append('_template', 'table');
+      formData_email.append('_captcha', 'false');
+      
+      // Datos del lead
+      formData_email.append('Nombre', formData.nombre);
+      formData_email.append('Apellidos', formData.apellidos);
+      formData_email.append('Email', formData.email);
+      formData_email.append('Telefono', formData.telefono);
+      formData_email.append('Sede_Preferida', formData.sedePreferida);
+      formData_email.append('Horario_Contacto', formData.preferenciasContacto);
+      formData_email.append('Comentarios', formData.comentarios || 'Sin comentarios adicionales');
+      
+      // Datos del curso
+      formData_email.append('Curso', curso.nombre);
+      formData_email.append('Sede_Curso', curso.sede);
+      formData_email.append('Tag_Campana', curso.tag);
+      formData_email.append('Campana', 'otono-2025');
+      
+      // Metadatos
+      formData_email.append('Timestamp', new Date().toLocaleString('es-ES', { 
+        timeZone: 'Atlantic/Canary',
+        day: '2-digit',
+        month: '2-digit', 
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }));
+      formData_email.append('URL_Origen', window.location.href);
+      
+      // Mensaje completo formateado
+      formData_email.append('MENSAJE_COMPLETO', `
+📋 NUEVA INSCRIPCIÓN CEP FORMACIÓN
+
+👤 DATOS DEL LEAD:
+- Nombre: ${formData.nombre} ${formData.apellidos}
+- Email: ${formData.email}
+- Teléfono: ${formData.telefono}
+- Sede preferida: ${formData.sedePreferida}
+- Horario contacto: ${formData.preferenciasContacto}
+- Comentarios: ${formData.comentarios || 'Sin comentarios'}
+
+🎓 CURSO SOLICITADO:
+- Curso: ${curso.nombre}
+- Sede: ${curso.sede}
+- Tag campaña: ${curso.tag}
+
+📊 INFORMACIÓN DE CAMPAÑA:
+- Campaña: Otoño 2025
+- Origen: ${window.location.href}
+- Fecha/Hora: ${new Date().toLocaleString('es-ES', { timeZone: 'Atlantic/Canary' })}
+
+🚀 ACCIÓN REQUERIDA:
+1. Contactar al lead en menos de 30 minutos
+2. Verificar disponibilidad en la sede preferida  
+3. Enviar información detallada del curso
+4. Programar visita/entrevista si es necesario
+
+⚡ URGENCIA: ALTA - Lead esperando respuesta inmediata
+      `);
+
+      // Enviar email usando FormSubmit.co
+      const emailResponse = await fetch(formSubmitEndpoint, {
+        method: 'POST',
+        body: formData_email
+      });
+
+      if (!emailResponse.ok) {
+        throw new Error('Error enviando email');
+      }
+
+      console.log('📤 Email enviado a agency.solaria@gmail.com:', submissionData);
+      
+      // TODO: Implementar webhook a n8n (mantener para implementación futura)
       // const response = await fetch('https://tu-instancia-n8n.com/webhook/cep-inscripciones', {
       //   method: 'POST',
       //   headers: {
@@ -101,12 +181,6 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
       //   },
       //   body: JSON.stringify(submissionData),
       // });
-      
-      // Simulación temporal del envío
-      console.log('📤 Enviando datos al webhook n8n:', submissionData);
-      
-      // Simular delay de red
-      await new Promise(resolve => setTimeout(resolve, 1500));
       
       setIsSubmitting(false);
       setIsSubmitted(true);
