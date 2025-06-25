@@ -1,244 +1,391 @@
-import React, { useState, useEffect } from 'react';
-import CepHeader from '../components/organisms/CepHeader';
-import CepFooter from '../components/organisms/CepFooter';
+import React, { useState } from 'react';
+import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp } from 'lucide-react';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
-import { Calendar, MapPin, Award, CheckCircle, Clock, Euro, User, BookOpen, ChevronDown, ChevronUp, Users } from 'lucide-react';
-import { cursoData } from '../config/cursos-otono-2025';
 
 const AdiestramientoCaninoPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [temarioExpanded, setTemarioExpanded] = useState(false);
-  
-  useEffect(() => { window.scrollTo(0, 0); }, []);
-  
-  // Usar datos enriquecidos del curso 0 (Adiestramiento Canino)
-  const curso = cursoData[0];
-  const { nombre, sede, inicio, imagen, copy, temario, duracion, precio, practicas, profesor, certificacion } = curso;
+  const [expandedModule, setExpandedModule] = useState<number | null>(null);
+
+  const curso = {
+    nombre: 'Adiestramiento Canino',
+    sede: 'Norte',
+    tag: 'otono-2025-adiestramiento-canino-norte'
+  };
+
+  const toggleModule = (moduleIndex: number) => {
+    setExpandedModule(expandedModule === moduleIndex ? null : moduleIndex);
+  };
+
+  const modulos = [
+    {
+      titulo: "Módulo 1: Técnicas de adiestramiento de base aplicadas a perros",
+      contenido: [
+        "Comportamiento social y bases morfológicas de conducta en el perro. Origen, etapas del desarrollo, el vínculo humano-perro, comunicación",
+        "Morfología",
+        "Factores básicos modificadores de la conducta del perro y principios para su modificación a través del aprendizaje",
+        "Biología de la conducta, genética de la conducta, ecología de la conducta, los sentidos del perro y su influencia en la conducta",
+        "Aprendizaje no asociativo: habituación y sensibilización",
+        "Aprendizaje asociativo: condicionamiento clásico y condicionamiento instrumental",
+        "Programas básicos de obediencia, control, y desarrollo de habilidades y superación de obstáculos en el perro",
+        "Cuaderno o informes de seguimiento del proceso",
+        "Seguridad y autoprotección en el adiestramiento básico y manejo de perros",
+        "El material de trabajo y condiciones del entorno e infraestructuras",
+        "Técnicas de manipulación y manejo del perro. Interacción del perro con extraños y otros animales",
+        "El bienestar en el perro: Leyes y normativas sobre protección animal de aplicación",
+        "Técnicas básicas para el control y adiestramiento en obediencia del perro: tipos y utilización del material, el lenguaje corporal y verbal para adiestramiento básico",
+        "Programación del desarrollo de los ejercicios de obediencia básica, y sus correcciones",
+        "Técnicas básicas para el control y adiestramiento del perro en el desarrollo de agilidad, mediante el sorteo de obstáculos",
+        "Normas de seguridad para el manejo del perro en los ejercicios con obstáculos"
+      ]
+    },
+    {
+      titulo: "Módulo 2: Modificación de conductas no deseadas en perros",
+      contenido: [
+        "Valoración de conductas no deseadas susceptibles de corrección",
+        "Interpretación del lenguaje corporal en el perro. Reconocimiento y evaluación. Factores de influencia",
+        "Reconocimiento de conductas no deseadas generadas por una patología",
+        "Comportamientos repetitivos",
+        "Identificación de factores abióticos/bióticos que producen conductas no deseadas",
+        "Identificación de la conducta no deseada. Métodos de eliminación",
+        "Identificación del tipo de agresión y su tratamiento",
+        "Medidas de autoprotección y bienestar animal",
+        "Informes de progresión, cuaderno de seguimiento"
+      ]
+    },
+    {
+      titulo: "Módulo 3: Cuidados higiénicos aplicados a perros",
+      contenido: [
+        "Metodología y control de la alimentación y nutrición en el perro",
+        "Preparación del tipo de alimentación según: el valor alimenticio, necesidades energéticas, estado de salud",
+        "La presentación, el almacenamiento. tipos de utensilios",
+        "Alojamiento y transporte, normativa, condiciones especiales",
+        "Cuidados higiénicos, control sanitario y estimulación del perro"
+      ]
+    },
+    {
+      titulo: "Módulo 4: Primeros Auxilios aplicados a Perros",
+      contenido: [
+        "Morfología y fisiología del perro",
+        "Diagnóstico, Valoración inicial, secundaria, fracturas",
+        "Material de primeros auxilios. Tipos y manejo",
+        "Administración de medicamentos",
+        "Técnicas de inmovilización. Traslado. Normativa",
+        "Masaje cardíaco"
+      ]
+    }
+  ];
+
+  const cursosComplementarios = [
+    "Auxiliar de Veterinaria",
+    "ATV Felino",
+    "ATV Animales Exóticos",
+    "Especialista en animales Marinos y Cetáceos",
+    "Adiestramiento Canino II",
+    "Peluquería Canina y Felina"
+  ];
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <CepHeader />
-      <main>
-        {/* Hero Section - Mobile First Responsive */}
-        <div className="relative h-64 sm:h-80 md:h-96 bg-black">
-          <img 
-            src={imagen} 
-            alt={`Imagen de ${nombre}`} 
-            className="w-full h-full object-cover object-center opacity-50" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold tracking-tight leading-tight">{nombre}</h1>
-            <p className="mt-2 sm:mt-4 text-sm sm:text-lg md:text-xl lg:text-2xl font-light max-w-3xl">{copy.slogan}</p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-blue-900 to-green-800 text-white">
+        <div className="container mx-auto px-4 py-12 sm:py-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <Heart className="w-12 h-12 text-yellow-400" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Curso Profesional de Adiestramiento de Base y Educación Canina Nivel I
+            </h1>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
+              <p className="text-lg sm:text-xl italic mb-2">
+                "Podemos juzgar el corazón de una persona por la forma en que trata a los animales"
+              </p>
+              <p className="text-yellow-400 font-semibold">- Immanuel Kant</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Clock className="w-5 h-5 mr-2" />
+                25 sesiones / 6 meses
+              </div>
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Users className="w-5 h-5 mr-2" />
+                Grupos reducidos
+              </div>
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Award className="w-5 h-5 mr-2" />
+                Preparación ANACP
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          <div className="max-w-4xl mx-auto">
-            
-            {/* Info Bar Enriquecida - Mobile First */}
-            <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 mb-12 grid grid-cols-2 md:flex md:flex-wrap items-center justify-around gap-4 sm:gap-6 -mt-32 relative z-10">
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Calendar className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
-                <div>
-                  <p className="text-xs sm:text-sm text-gray-500">Inicio</p>
-                  <p className="font-bold text-sm sm:text-base text-gray-900">{inicio}</p>
-                </div>
+      <div className="container mx-auto px-4 py-8 sm:py-12">
+        <div className="max-w-6xl mx-auto">
+          {/* ¿Qué Aprendo? */}
+          <section className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
+              ¿Qué Aprendo?
+            </h2>
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <p className="text-lg leading-relaxed text-gray-700 mb-6">
+                El curso de Adiestramiento de base I ofrece los conocimientos imprescindibles acerca de las 
+                <strong> técnicas de adiestramiento de base aplicadas a perros</strong>, modificación de conductas no deseadas 
+                así como los cuidados básicos y primeros auxilios, además de un módulo de orientación laboral, 
+                dinámico y actualizado.
+              </p>
+              <p className="text-lg leading-relaxed text-gray-700">
+                Adquirirás la <strong>confianza, habilidades y conocimientos</strong> para trabajar como adiestrador canino 
+                o aplicarlo con nuestras queridos animales.
+              </p>
+            </div>
+          </section>
+
+          {/* ¿A Quién Va Dirigido? */}
+          <section className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
+              <Users className="inline-block w-8 h-8 mr-3 text-green-600" />
+              ¿A Quién Va Dirigido?
+            </h2>
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 sm:p-8">
+              <p className="text-lg leading-relaxed text-gray-700 mb-4">
+                Si te gusta el mundo animal, si piensas que ayudar a las personas a que entiendan a sus mascotas, 
+                no solo es contribuir a su bienestar, sino al bienestar y crecimiento de la sociedad en general, 
+                <strong> ¡no lo dudes!</strong>
+              </p>
+              <div className="bg-white rounded-lg p-4 inline-block">
+                <p className="text-sm font-semibold text-blue-600">
+                  <Award className="inline-block w-4 h-4 mr-2" />
+                  Requisitos: Podrás acceder con 2º de la ESO o EGB
+                </p>
               </div>
-              <div className="flex items-center gap-2 sm:gap-3">
-                <MapPin className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
-                <div>
-                  <p className="text-xs sm:text-sm text-gray-500">Sede</p>
-                  <p className="font-bold text-sm sm:text-base text-gray-900">{sede}</p>
-                </div>
-              </div>
-              {duracion && (
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <Clock className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
-                  <div>
-                    <p className="text-xs sm:text-sm text-gray-500">Duración</p>
-                    <p className="font-bold text-sm sm:text-base text-gray-900">{duracion}</p>
+            </div>
+          </section>
+
+          {/* Tu Profesora Especialista */}
+          <section className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
+              <Star className="inline-block w-8 h-8 mr-3 text-yellow-500" />
+              Tu Profesora Especialista
+            </h2>
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="md:flex">
+                <div className="md:w-1/3 p-6 sm:p-8 flex justify-center">
+                  <div className="relative">
+                    <img 
+                      src="/images/profesores/livia.jpg" 
+                      alt="Livia Bernardi - Especialista en Adiestramiento Canino" 
+                      className="w-48 h-48 rounded-full object-cover shadow-lg"
+                    />
+                    <div className="absolute -bottom-2 -right-2 bg-yellow-400 rounded-full p-2">
+                      <Award className="w-6 h-6 text-yellow-800" />
+                    </div>
                   </div>
                 </div>
-              )}
-              <div className="flex items-center gap-2 sm:gap-3">
-                <Award className="w-6 sm:w-8 h-6 sm:h-8 text-cep-primary" />
-                <div>
-                  <p className="text-xs sm:text-sm text-gray-500">Certificación</p>
-                  <p className="font-bold text-sm sm:text-base text-gray-900">{certificacion || 'Diploma CEP'}</p>
+                <div className="md:w-2/3 p-6 sm:p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Livia Bernardi</h3>
+                  <p className="text-lg text-blue-600 font-semibold mb-4">Fundadora de Aboras Obediencia</p>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Profesional en activo con amplia experiencia docente en el sector del adiestramiento canino. 
+                    Especialista en técnicas de modificación de conducta y preparación para el examen oficial ANACP.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Experiencia Docente
+                    </span>
+                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Profesional en Activo
+                    </span>
+                    <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Certificación ANACP
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
+          </section>
 
-            {/* Content Section - Mobile First */}
-            <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Sobre el curso</h2>
-              <p className="text-sm sm:text-base">{copy.textosPrincipales[0]}</p>
-              <p className="text-sm sm:text-base">{copy.textosPrincipales[1]}</p>
-              
-              <h3 className="text-xl sm:text-2xl font-bold mt-8 sm:mt-10">¿Qué aprenderás?</h3>
-              <ul className="space-y-2">
-                {copy.titulos.map((titulo, i) => (
-                  <li key={i} className="flex items-start">
-                    <CheckCircle className="w-5 sm:w-6 h-5 sm:h-6 text-green-500 mr-2 sm:mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-sm sm:text-base">{titulo}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              {copy.textosPrincipales[2] && <p className="mt-4 sm:mt-6 text-sm sm:text-base">{copy.textosPrincipales[2]}</p>}
-
-              {/* Temario Detallado - Mobile First */}
-              {temario && temario.length > 0 && (
-                <div className="mt-8 sm:mt-10">
-                  <div 
-                    className="flex items-center justify-between cursor-pointer bg-gray-100 p-3 sm:p-4 rounded-lg hover:bg-gray-200 transition-colors"
-                    onClick={() => setTemarioExpanded(!temarioExpanded)}
+          {/* Contenido del Curso */}
+          <section className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-purple-600" />
+              Contenido Detallado del Curso
+            </h2>
+            <div className="space-y-4">
+              {modulos.map((modulo, index) => (
+                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <button
+                    onClick={() => toggleModule(index)}
+                    className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
                   >
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
-                      <BookOpen className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
-                      Temario Completo
-                    </h3>
-                    {temarioExpanded ? <ChevronUp className="w-5 sm:w-6 h-5 sm:h-6" /> : <ChevronDown className="w-5 sm:w-6 h-5 sm:h-6" />}
-                  </div>
-                  
-                  {temarioExpanded && (
-                    <div className="mt-4 bg-white p-4 sm:p-6 rounded-lg border border-gray-200">
-                      <ul className="space-y-3">
-                        {temario.map((modulo, i) => (
-                          <li key={i} className="flex items-start">
-                            <span className="bg-cep-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1 flex-shrink-0">
-                              {i + 1}
-                            </span>
-                            <span className="text-gray-700 text-sm sm:text-base">{modulo}</span>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                        {modulo.titulo}
+                      </h3>
+                      {expandedModule === index ? (
+                        <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
+                      )}
+                    </div>
+                  </button>
+                  {expandedModule === index && (
+                    <div className="px-6 pb-6">
+                      <ul className="space-y-2">
+                        {modulo.contenido.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-start">
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700 text-sm">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   )}
                 </div>
-              )}
-
-              {/* Información adicional - Mobile First */}
-              {practicas && (
-                <div className="mt-6 sm:mt-8 bg-blue-50 p-4 sm:p-6 rounded-lg">
-                  <h4 className="text-base sm:text-lg font-bold text-blue-900 mb-2">Experiencia Práctica</h4>
-                  <p className="text-blue-800 text-sm sm:text-base">{practicas}</p>
-                </div>
-              )}
+              ))}
             </div>
+          </section>
 
-          </div>
-        </div>
-
-        {/* Profesora Especialista */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-cep-primary mb-8">Tu Profesora Especialista</h2>
-              <div className="bg-gray-50 p-8 rounded-lg">
-                <img 
-                  src="/images/profesores/livia.jpg" 
-                  alt="Livia Bernardi" 
-                  className="w-32 h-32 rounded-full mx-auto mb-6 object-cover shadow-lg"
-                />
-                <h3 className="text-2xl font-bold text-cep-primary mb-2">Livia Bernardi</h3>
-                <p className="text-lg text-gray-600 mb-4">Fundadora de Aboras Obediencia</p>
-                <p className="text-gray-700 max-w-2xl mx-auto">
-                  Profesional en activo con amplia experiencia docente en el sector del adiestramiento canino. 
-                  Especialista en técnicas de modificación de conducta y educación canina. Preparación específica para el examen oficial ANACP.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Detalles del curso */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-cep-primary mb-12 text-center">Detalles del Curso</h2>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-bold text-cep-primary mb-4">Modalidad y horarios</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-center">
-                      <Users className="w-5 h-5 text-cep-primary mr-3" />
-                      <span>Clases presenciales en grupos reducidos</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Clock className="w-5 h-5 text-cep-primary mr-3" />
-                      <span>1 día por semana - 3 horas por sesión</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Calendar className="w-5 h-5 text-cep-primary mr-3" />
-                      <span>25 sesiones - 6 meses de duración</span>
-                    </li>
-                    <li className="flex items-center">
-                      <Award className="w-5 h-5 text-cep-primary mr-3" />
-                      <span>Preparación para examen oficial ANACP</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-bold text-cep-primary mb-4">Precio e inscripción</h3>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-cep-primary mb-2">510€</div>
-                    <p className="text-gray-600 mb-4">6 cuotas de 85€ + 150€ matrícula</p>
-                    <div className="bg-yellow-100 p-4 rounded-lg mb-4">
-                      <p className="text-sm text-gray-700">
-                        <strong>Requisitos:</strong> Acceso con 2º de la ESO o EGB
-                      </p>
+          {/* Detalles del Curso */}
+          <section className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
+              <Clock className="inline-block w-8 h-8 mr-3 text-orange-600" />
+              Detalles del Curso
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Organización</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <Clock className="w-5 h-5 text-blue-600 mr-3" />
+                    <div>
+                      <p className="font-semibold">Duración</p>
+                      <p className="text-gray-600">25 sesiones - 6 meses</p>
                     </div>
-                    <p className="text-sm text-gray-600">
-                      Modalidad presencial con prácticas reales
+                  </div>
+                  <div className="flex items-center">
+                    <Users className="w-5 h-5 text-green-600 mr-3" />
+                    <div>
+                      <p className="font-semibold">Modalidad</p>
+                      <p className="text-gray-600">1 día/semana - 3 horas/sesión</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <BookOpen className="w-5 h-5 text-purple-600 mr-3" />
+                    <div>
+                      <p className="font-semibold">Tipo</p>
+                      <p className="text-gray-600">Clases prácticas en aula</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <Award className="w-5 h-5 text-yellow-600 mr-3" />
+                    <div>
+                      <p className="font-semibold">Grupos</p>
+                      <p className="text-gray-600">Reducidos presenciales</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl shadow-lg p-6 sm:p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-6">Información Económica</h3>
+                <div className="space-y-4">
+                  <div className="bg-white rounded-lg p-4">
+                    <p className="text-2xl font-bold text-blue-600">510€ Total</p>
+                    <p className="text-gray-600">Precio completo del curso</p>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between">
+                      <span className="font-semibold">6 cuotas mensuales:</span>
+                      <span className="text-green-600 font-bold">85€</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="font-semibold">Matrícula:</span>
+                      <span className="text-blue-600 font-bold">150€</span>
+                    </div>
+                  </div>
+                  <div className="bg-yellow-100 rounded-lg p-3 mt-4">
+                    <p className="text-sm text-yellow-800">
+                      <Award className="inline-block w-4 h-4 mr-1" />
+                      Incluye agencia de colocación oficial
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* CTA Final */}
-        <section className="py-16 bg-white border-t border-gray-200">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-cep-primary">¡No te quedes fuera!</h2>
-            
-            {/* Mensaje de urgencia previo */}
-            <div className="bg-gradient-to-r from-yellow-100 to-orange-100 border-l-4 border-yellow-500 p-6 rounded-lg mb-8 max-w-2xl mx-auto">
-              <p className="text-lg font-semibold text-gray-800 mb-2">
-                🎯 ¡Reserva ahora tu plaza y paga después!
+          {/* Amplía tus conocimientos */}
+          <section className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
+              <Star className="inline-block w-8 h-8 mr-3 text-indigo-600" />
+              Amplía tus conocimientos con
+            </h2>
+            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {cursosComplementarios.map((curso, index) => (
+                  <div key={index} className="flex items-center bg-gray-50 rounded-lg p-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
+                    <span className="text-gray-700 font-medium">{curso}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section */}
+          <section className="text-center mb-12">
+            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl shadow-xl p-8 sm:p-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                ¡Reserva tu Plaza Ahora!
+              </h2>
+              <p className="text-lg text-gray-800 mb-6">
+                Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
-              <p className="text-gray-700">
-                No pierdas tu lugar: <strong className="text-cep-primary">quedan pocas plazas disponibles</strong>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-gray-900 text-white px-8 sm:px-12 py-4 text-lg font-bold rounded-full hover:bg-gray-800 transition-colors duration-300 shadow-lg transform hover:scale-105"
+              >
+                ¡RESERVAR MI PLAZA AHORA!
+              </button>
+              <p className="text-sm text-gray-700 mt-4">
+                <Clock className="inline-block w-4 h-4 mr-1" />
+                Te contactaremos en menos de 30 minutos
               </p>
             </div>
-            
-            <p className="text-xl mb-8 text-gray-700">Reserva ahora mismo tu plaza y asegura tu futuro profesional</p>
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="bg-yellow-400 text-gray-900 px-12 py-4 rounded-lg text-xl font-bold hover:bg-yellow-300 transition-colors shadow-lg transform hover:scale-105"
-            >
-              RESERVAR MI PLAZA AHORA
-            </button>
-            <p className="text-sm mt-4 text-gray-600">
-              ¡Los cursos empiezan en septiembre! Contacto en menos de 30 minutos
-            </p>
-          </div>
-        </section>
+          </section>
 
-      </main>
-      
-      <CursoInscripcionModal
+          {/* Información de Contacto */}
+          <section className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">¿Necesitas más información?</h2>
+            <div className="grid sm:grid-cols-3 gap-6 text-center">
+              <div className="flex flex-col items-center">
+                <Phone className="w-8 h-8 text-blue-600 mb-2" />
+                <p className="font-semibold">Teléfono</p>
+                <p className="text-gray-600">922 21 92 57</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <Mail className="w-8 h-8 text-green-600 mb-2" />
+                <p className="font-semibold">Email</p>
+                <p className="text-gray-600">info@cursostenerife.es</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <MapPin className="w-8 h-8 text-red-600 mb-2" />
+                <p className="font-semibold">Sede Norte</p>
+                <p className="text-gray-600">C.C El Tompo - La Orotava</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      {/* Modal de Inscripción */}
+      <CursoInscripcionModal 
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        curso={{ nombre: curso.nombre, sede: curso.sede, tag: curso.tag }}
+        curso={curso}
       />
-      
-      <CepFooter />
     </div>
   );
 };
