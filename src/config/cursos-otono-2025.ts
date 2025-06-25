@@ -841,14 +841,141 @@ export const cursoData = [
       slogan: "Especialízate en técnicas avanzadas de quiromasaje terapéutico",
       textosPrincipales: [
         "Técnicas avanzadas de masaje terapéutico",
-        "Especialización en vendaje neuromuscular",
-        "Doble certificación profesional"
+        "Especialización en patologías musculares",
+        "Preparación para autoempleo profesional"
       ],
-      titulos: ["Técnicas Avanzadas", "Kinesiotaping", "Doble Certificación"],
+      titulos: [
+        "Técnicas Avanzadas",
+        "Especialización",
+        "Autoempleo"
+      ],
       descripciones: [
-        "Formación especializada en técnicas complejas de quiromasaje y terapias manuales avanzadas",
-        "Dominio del vendaje neuromuscular y técnicas especializadas para deportistas y rehabilitación",
-        "Doble titulación que amplía significativamente las oportunidades profesionales en el sector"
+        "Domina las técnicas más avanzadas del quiromasaje con enfoque terapéutico especializado",
+        "Especialízate en el tratamiento de patologías específicas del sistema locomotor",
+        "Preparación completa para ejercer como profesional independiente o en centros especializados"
+      ]
+    }
+  },
+
+  // 16. CFGS Higiene Bucodental (CICLO FORMATIVO OFICIAL)
+  {
+    slug: 'cfgs-higiene-bucodental-santacruz',
+    nombre: 'CFGS Higiene Bucodental',
+    sede: 'Santa Cruz',
+    tag: 'otono-2025-cfgs-higiene-bucodental-santacruz',
+    inicio: 'Septiembre 2025',
+    imagen: '/images/cursos/auxiliar-odontologia.jpg',
+    temario: [
+      'Módulo 1: Recepción y logística en la clínica dental',
+      'Módulo 2: Estudio de la cavidad oral',
+      'Módulo 3: Exploración de la cavidad oral',
+      'Módulo 4: Intervención bucodental',
+      'Módulo 5: Epidemiología en salud oral',
+      'Módulo 6: Educación para la salud oral',
+      'Módulo 7: Conservadora, periodoncia, cirugía e implantes',
+      'Módulo 8: Prótesis y ortodoncia',
+      'Módulo 9: Primeros auxilios',
+      'Módulo 10: Formación y orientación laboral',
+      'Módulo 11: Empresa e iniciativa emprendedora',
+      'Módulo 12: Formación en centros de trabajo'
+    ],
+    duracion: '3 cursos escolares - Modalidad semipresencial (1 día/semana)',
+    precio: {
+      cuotas: 30, // 30 mensualidades total (10+10+10)
+      importe: 193, // Promedio: (200+200+180)/3 = 193€
+      matricula: 200
+    },
+    practicas: 'Prácticas desde 1º año con pacientes reales + 350h en empresa',
+    certificacion: 'Título oficial de Técnico Superior - MEC Nº 38017275',
+    profesorDetalle: {
+      nombre: 'Nuria E. Ángel',
+      foto: '/images/profesores/nuria.jpg',
+      especialidad: 'Especialista en Higiene Bucodental y Periodoncia',
+      descripcion: 'Higienista bucodental titulada con amplia experiencia en clínicas especializadas. Experta en educación sanitaria y técnicas preventivas avanzadas. Formadora oficial de ciclos formativos sanitarios.'
+    },
+    modalidadInfo: {
+      tipo: 'Ciclo Formativo Oficial - Centro autorizado MEC',
+      horario: 'Semipresencial - 1 día por semana + plataforma online',
+      sesiones: '3 cursos escolares - Turno mixto según disponibilidad',
+      certificacion: 'Título oficial de Técnico Superior + Acceso estudios universitarios'
+    },
+    copy: {
+      slogan: "Conviértete en Higienista Bucodental con Título Oficial",
+      textosPrincipales: [
+        "Título oficial de Técnico Superior",
+        "Prácticas con pacientes reales desde 1º año",
+        "Modalidad semipresencial compatible con trabajo"
+      ],
+      titulos: [
+        "Titulación Oficial",
+        "Prácticas Reales",
+        "Modalidad Flexible"
+      ],
+      descripciones: [
+        "Formación oficial reconocida por el Ministerio de Educación con validez en toda Europa",
+        "Experiencia práctica directa con pacientes desde el primer año bajo supervisión profesional",
+        "Modalidad semipresencial que te permite compaginar estudios con trabajo y responsabilidades"
+      ]
+    }
+  },
+
+  // 17. CFGM Farmacia y Parafarmacia (CICLO FORMATIVO OFICIAL)
+  {
+    slug: 'cfgm-farmacia-parafarmacia-santacruz',
+    nombre: 'CFGM Farmacia y Parafarmacia',
+    sede: 'Santa Cruz',
+    tag: 'otono-2025-cfgm-farmacia-parafarmacia-santacruz',
+    inicio: 'Septiembre 2025',
+    imagen: '/images/cursos/farmacia-parafarmacia.jpg',
+    temario: [
+      'Módulo 1: Oficina de farmacia',
+      'Módulo 2: Dispensación de productos farmacéuticos',
+      'Módulo 3: Dispensación de productos parafarmacéuticos',
+      'Módulo 4: Operaciones básicas de laboratorio',
+      'Módulo 5: Formulación magistral',
+      'Módulo 6: Promoción de la salud',
+      'Módulo 7: Primeros auxilios',
+      'Módulo 8: Anatomofisiología y patología básicas',
+      'Módulo 9: Formación y orientación laboral',
+      'Módulo 10: Empresa e iniciativa emprendedora',
+      'Módulo 11: Formación en centros de trabajo'
+    ],
+    duracion: '2 cursos escolares - Modalidad semipresencial (1 día/semana)',
+    precio: {
+      cuotas: 20, // 20 mensualidades total (10+10)
+      importe: 100, // 100€ por mensualidad
+      matricula: 150
+    },
+    practicas: 'Aula práctica + 350 horas en farmacias y parafarmacias',
+    certificacion: 'Título oficial de Técnico en Farmacia y Parafarmacia - MEC',
+    profesorDetalle: {
+      nombre: 'Alexis Galán',
+      foto: '/images/profesores/alexis.jpg',
+      especialidad: 'Farmacéutico especialista en Farmacia Comunitaria',
+      descripcion: 'Farmacéutico titulado con amplia experiencia en farmacia comunitaria y hospitalaria. Especialista en formulación magistral y atención farmacéutica. Formador oficial de ciclos formativos sanitarios.'
+    },
+    modalidadInfo: {
+      tipo: 'Ciclo Formativo Oficial - Centro autorizado MEC',
+      horario: 'Semipresencial - 1 día por semana + plataforma virtual',
+      sesiones: '2 cursos escolares - Turno mixto',
+      certificacion: 'Título oficial de Técnico + Acceso a CFGS + Becas MEC'
+    },
+    copy: {
+      slogan: "Técnico oficial en Farmacia con futuro garantizado",
+      textosPrincipales: [
+        "Título oficial de Técnico reconocido",
+        "Acceso directo al mundo laboral farmacéutico",
+        "Modalidad semipresencial con flexibilidad horaria"
+      ],
+      titulos: [
+        "Titulación Oficial",
+        "Salida Laboral",
+        "Flexibilidad"
+      ],
+      descripciones: [
+        "Formación oficial del Ministerio de Educación con reconocimiento nacional e internacional",
+        "Acceso inmediato al sector farmacéutico con alta demanda laboral y estabilidad profesional",
+        "Estudia 1 día por semana compatibilizando con trabajo y otras responsabilidades"
       ]
     }
   }

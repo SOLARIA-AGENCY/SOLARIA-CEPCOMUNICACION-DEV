@@ -170,13 +170,46 @@ const cursosOtono2025 = [
    },
    {
      id: 14,
-     titulo: "Quiromasaje Nivel 2",
+     titulo: "Quiromasaje Nivel I",
      sede: "CEP NORTE",
      imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
      inicio: "Septiembre 2025",
-     duracion: "8 meses",
+     duracion: "6 meses",
+     descripcion: "Técnicas básicas de masaje terapéutico y relajación para iniciación profesional en quiromasaje",
+     link: "/quiromasaje-nivel1-norte",
+     hasPage: true
+   },
+   {
+     id: 15,
+     titulo: "Quiromasaje Nivel II",
+     sede: "CEP SANTA CRUZ",
+     imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
+     inicio: "Julio 2025",
+     duracion: "5 meses",
      descripcion: "Técnicas avanzadas de masaje terapéutico, rehabilitación y tratamiento de lesiones musculoesqueléticas",
-     link: "/quiromasaje-nivel2-norte",
+     link: "/quiromasaje-nivel2-santacruz",
+     hasPage: true
+   },
+   {
+     id: 16,
+     titulo: "CFGS Higiene Bucodental",
+     sede: "CEP SANTA CRUZ",
+     imagen: "/images/cursos/auxiliar-odontologia.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "3 cursos escolares",
+     descripcion: "Título oficial de Técnico Superior. Modalidad semipresencial. Prácticas con pacientes reales desde 1º año",
+     link: "/cfgs-higiene-bucodental-santacruz",
+     hasPage: true
+   },
+   {
+     id: 17,
+     titulo: "CFGM Farmacia y Parafarmacia",
+     sede: "CEP SANTA CRUZ",
+     imagen: "/images/cursos/farmacia-parafarmacia.jpg",
+     inicio: "Septiembre 2025",
+     duracion: "2 cursos escolares",
+     descripcion: "Título oficial de Técnico. Modalidad semipresencial. Acceso directo al mundo laboral farmacéutico",
+     link: "/cfgm-farmacia-parafarmacia-santacruz",
      hasPage: true
    }
  ];

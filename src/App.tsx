@@ -278,6 +278,8 @@ const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[11]
 const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[12]} />;
 const QuiromasajeNivel1Page = () => <CursoPageComponent curso={cursoData[13]} />;
 const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[14]} />;
+const CFGSHigieneBucodentalPage = () => <CursoPageComponent curso={cursoData[15]} />;
+const CFGMFarmaciaParafarmaciaPage = () => <CursoPageComponent curso={cursoData[16]} />;
 
 
 function App() {
@@ -310,6 +312,8 @@ function App() {
         <Route path="/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
         <Route path="/quiromasaje-nivel1-norte" element={<QuiromasajeNivel1Page />} />
         <Route path="/quiromasaje-nivel2-santacruz" element={<QuiromasajeNivel2Page />} />
+        <Route path="/cfgs-higiene-bucodental-santacruz" element={<CFGSHigieneBucodentalPage />} />
+        <Route path="/cfgm-farmacia-parafarmacia-santacruz" element={<CFGMFarmaciaParafarmaciaPage />} />
 
       </Routes>
     </Router>
