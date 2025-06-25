@@ -71,32 +71,6 @@ const CepFooter: React.FC = () => {
         </div>
       </div>
 
-      {/* Certificaciones */}
-      <div className="bg-gray-900 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h3 className="text-lg font-semibold text-white mb-6">Certificaciones Oficiales</h3>
-            <div className="flex justify-center items-center space-x-8">
-              <img
-                src="/images/certificaciones/ministerio-educacion.png"
-                alt="Ministerio de Educación"
-                className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="/images/certificaciones/gobierno-canarias.png"
-                alt="Gobierno de Canarias"
-                className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="/images/certificaciones/sepe.png"
-                alt="SEPE"
-                className="h-12 object-contain opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="bg-black py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
