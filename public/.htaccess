@@ -33,8 +33,11 @@ RewriteRule ^politica-privacidad/?$ /index.html [L]
 RewriteRule ^politica-cookies/?$ /index.html [L]
 RewriteRule ^proteccion-datos/?$ /index.html [L]
 
-# Fallback: redirect all other requests to index.html
-RewriteRule . /index.html [L]
+# Fallback: Only redirect requests that don't have file extensions (SPA routes)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !\.
+RewriteRule ^(.*)$ /index.html [L]
 
 # Security headers
 <IfModule mod_headers.c>
