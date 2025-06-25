@@ -879,14 +879,14 @@ export const cursoData = [
       'Módulo 11: Empresa e iniciativa emprendedora',
       'Módulo 12: Formación en centros de trabajo'
     ],
-    duracion: '3 cursos escolares - Modalidad semipresencial (1 día/semana)',
+    duracion: '3 cursos escolares - Modalidad semipresencial',
     precio: {
-      cuotas: 30, // 30 mensualidades total (10+10+10)
-      importe: 193, // Promedio: (200+200+180)/3 = 193€
+      cuotas: 30, // 10 cuotas por año académico durante 3 años
+      importe: 200, // 1º año: 200€/mes, 2º año: 200€/mes, 3º año: 180€/mes
       matricula: 200
     },
-    practicas: 'Prácticas desde 1º año con pacientes reales + 350h en empresa',
-    certificacion: 'Título oficial de Técnico Superior - MEC Nº 38017275',
+    practicas: 'Prácticas con pacientes reales desde 1º año + 350h en empresa',
+    certificacion: 'Título oficial MEC - Centro autorizado Nº 38017275',
     profesorDetalle: {
       nombre: 'Nuria E. Ángel',
       foto: '/images/profesores/nuria.jpg',
@@ -894,27 +894,27 @@ export const cursoData = [
       descripcion: 'Higienista bucodental titulada con amplia experiencia en clínicas especializadas. Experta en educación sanitaria y técnicas preventivas avanzadas. Formadora oficial de ciclos formativos sanitarios.'
     },
     modalidadInfo: {
-      tipo: 'Ciclo Formativo Oficial - Centro autorizado MEC',
-      horario: 'Semipresencial - 1 día por semana + plataforma online',
-      sesiones: '3 cursos escolares - Turno mixto según disponibilidad',
-      certificacion: 'Título oficial de Técnico Superior + Acceso estudios universitarios'
+      tipo: 'Ciclo Formativo Oficial - Centro autorizado por Consejería de Educación',
+      horario: 'Semipresencial - Miércoles 17:00-21:00h',
+      sesiones: '3 cursos escolares (septiembre a junio cada año)',
+      certificacion: 'Título oficial expedido por el Ministerio de Educación y Ciencia - Acceso becas MEC'
     },
     copy: {
-      slogan: "Conviértete en Higienista Bucodental con Título Oficial",
+      slogan: "Conviértete en Higienista Bucodental con Título Oficial del MEC",
       textosPrincipales: [
-        "Título oficial de Técnico Superior",
-        "Prácticas con pacientes reales desde 1º año",
-        "Modalidad semipresencial compatible con trabajo"
+        "Título oficial del Ministerio de Educación y Ciencia",
+        "3 cursos escolares con prácticas reales desde 1º año",
+        "Centro autorizado por Consejería de Educación - Becas MEC disponibles"
       ],
       titulos: [
-        "Titulación Oficial",
-        "Prácticas Reales",
-        "Modalidad Flexible"
+        "Titulación Oficial MEC",
+        "Prácticas Reales 3 Años",
+        "Becas MEC Disponibles"
       ],
       descripciones: [
-        "Formación oficial reconocida por el Ministerio de Educación con validez en toda Europa",
-        "Experiencia práctica directa con pacientes desde el primer año bajo supervisión profesional",
-        "Modalidad semipresencial que te permite compaginar estudios con trabajo y responsabilidades"
+        "Formación oficial reconocida por el MEC con validez nacional. Incluye libros, uniforme, material prácticas, plataforma online y clases grabadas",
+        "Prácticas con pacientes reales desde el primer año en higiene bucodental bajo supervisión profesional durante los 3 cursos escolares",
+        "Puedes solicitar becas del Ministerio de Educación. Trabajarás en centros privados y concertados con título oficial del MEC"
       ]
     }
   },
@@ -940,14 +940,14 @@ export const cursoData = [
       'Módulo 10: Empresa e iniciativa emprendedora',
       'Módulo 11: Formación en centros de trabajo'
     ],
-    duracion: '2 cursos escolares - Modalidad semipresencial (1 día/semana)',
+    duracion: '3 cursos escolares - Modalidad semipresencial',
     precio: {
-      cuotas: 20, // 20 mensualidades total (10+10)
-      importe: 100, // 100€ por mensualidad
-      matricula: 150
+      cuotas: 30, // 10 cuotas por año académico durante 3 años
+      importe: 200, // 1º año: 200€/mes, 2º año: 200€/mes, 3º año: 180€/mes
+      matricula: 200
     },
-    practicas: 'Aula práctica + 350 horas en farmacias y parafarmacias',
-    certificacion: 'Título oficial de Técnico en Farmacia y Parafarmacia - MEC',
+    practicas: 'Aula práctica con material real + 350 horas en farmacias',
+    certificacion: 'Título oficial MEC - Centro autorizado Nº 38017275',
     profesorDetalle: {
       nombre: 'Alexis Galán',
       foto: '/images/profesores/alexis.jpg',
@@ -955,27 +955,27 @@ export const cursoData = [
       descripcion: 'Farmacéutico titulado con amplia experiencia en farmacia comunitaria y hospitalaria. Especialista en formulación magistral y atención farmacéutica. Formador oficial de ciclos formativos sanitarios.'
     },
     modalidadInfo: {
-      tipo: 'Ciclo Formativo Oficial - Centro autorizado MEC',
-      horario: 'Semipresencial - 1 día por semana + plataforma virtual',
-      sesiones: '2 cursos escolares - Turno mixto',
-      certificacion: 'Título oficial de Técnico + Acceso a CFGS + Becas MEC'
+      tipo: 'Ciclo Formativo Oficial - Centro autorizado por Consejería de Educación',
+      horario: 'Semipresencial - Jueves 17:00-21:00h',
+      sesiones: '3 cursos escolares (septiembre a junio cada año)',
+      certificacion: 'Título oficial expedido por el Ministerio de Educación y Ciencia - Acceso becas MEC'
     },
     copy: {
-      slogan: "Técnico oficial en Farmacia con futuro garantizado",
+      slogan: "Técnico oficial en Farmacia y Parafarmacia - Título MEC",
       textosPrincipales: [
-        "Título oficial de Técnico reconocido",
-        "Acceso directo al mundo laboral farmacéutico",
-        "Modalidad semipresencial con flexibilidad horaria"
+        "Título oficial del Ministerio de Educación y Ciencia",
+        "3 cursos escolares con prácticas en farmacias reales",
+        "Centro autorizado por Consejería de Educación - Becas MEC disponibles"
       ],
       titulos: [
-        "Titulación Oficial",
-        "Salida Laboral",
-        "Flexibilidad"
+        "Titulación Oficial MEC",
+        "Prácticas Farmacia Real",
+        "Becas MEC Disponibles"
       ],
       descripciones: [
-        "Formación oficial del Ministerio de Educación con reconocimiento nacional e internacional",
-        "Acceso inmediato al sector farmacéutico con alta demanda laboral y estabilidad profesional",
-        "Estudia 1 día por semana compatibilizando con trabajo y otras responsabilidades"
+        "Formación oficial reconocida por el MEC con validez nacional. Incluye libros, uniforme, material prácticas, plataforma online y clases grabadas",
+        "Prácticas en farmacias y parafarmacias reales durante los 3 cursos escolares con experiencia profesional supervisada",
+        "Puedes solicitar becas del Ministerio de Educación. Trabajarás en centros privados y concertados con título oficial del MEC"
       ]
     }
   }
