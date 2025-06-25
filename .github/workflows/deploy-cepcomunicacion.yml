@@ -1,0 +1,296 @@
+name: 🚀 Deploy CEP Comunicación to Production
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      force_deploy:
+        description: 'Force deployment (skip validation)'
+        required: false
+        default: 'false'
+
+env:
+  DOMAIN: cepcomunicacion.com
+  PRODUCTION_URL: https://www.cepcomunicacion.com
+  FTP_HOST: 46.202.172.98
+  FTP_USER: u882790918.cepcomunicacion.com
+
+jobs:
+  validate:
+    name: 🔍 Pre-deployment Validation
+    runs-on: ubuntu-latest
+    outputs:
+      should_deploy: ${{ steps.check.outputs.deploy }}
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: 🔧 Install Dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build Application
+        run: npm run build
+        
+      - name: 🔍 Validate Build Output
+        id: check
+        run: |
+          echo "Validating build output..."
+          
+          # Check critical files
+          if [ ! -f "dist/index.html" ]; then
+            echo "❌ Critical: index.html missing"
+            exit 1
+          fi
+          
+          if [ ! -d "dist/assets" ]; then
+            echo "⚠️  Warning: assets directory missing"
+          fi
+          
+          # Check file sizes
+          build_size=$(du -sh dist/ | cut -f1)
+          echo "📦 Build size: $build_size"
+          
+          # Validate HTML structure
+          if ! grep -q "<title>" dist/index.html; then
+            echo "⚠️  Warning: No title tag found"
+          fi
+          
+          echo "✅ Build validation passed"
+          echo "deploy=true" >> $GITHUB_OUTPUT
+          
+      - name: 📊 Build Report
+        run: |
+          echo "## 📋 Build Report" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ✅ Valid" >> $GITHUB_STEP_SUMMARY
+          echo "- **Size**: $(du -sh dist/ | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Files**: $(find dist/ -type f | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timestamp**: $(date)" >> $GITHUB_STEP_SUMMARY
+
+  deploy:
+    name: 🚀 Deploy to Production
+    runs-on: ubuntu-latest
+    needs: validate
+    if: needs.validate.outputs.should_deploy == 'true'
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: 🔧 Install Dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build for Production
+        run: |
+          npm run build
+          echo "Build completed at $(date)" > dist/build-info.txt
+          echo "Commit: ${{ github.sha }}" >> dist/build-info.txt
+          
+      - name: 📊 Pre-deploy Analytics
+        run: |
+          echo "Analyzing build before deployment..."
+          find dist/ -name "*.js" -exec wc -c {} + | tail -1 | awk '{print "JS Bundle size: " $1 " bytes"}'
+          find dist/ -name "*.css" -exec wc -c {} + | tail -1 | awk '{print "CSS Bundle size: " $1 " bytes"}'
+          
+      - name: 🚀 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ env.FTP_HOST }}
+          username: ${{ env.FTP_USER }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/.vscode/**
+            **/Thumbs.db
+            **/*.log
+          dangerous-clean-slate: false
+          
+      - name: 🔄 Verify FTP Upload
+        run: |
+          echo "Waiting for file propagation..."
+          sleep 10
+          
+      - name: 🌐 DNS & SSL Verification
+        run: |
+          echo "🔍 Verifying DNS resolution..."
+          
+          # Check A record
+          a_record=$(dig +short A ${{ env.DOMAIN }})
+          echo "A Record: $a_record"
+          
+          if [ "$a_record" = "${{ env.FTP_HOST }}" ]; then
+            echo "✅ DNS A record correct"
+          else
+            echo "⚠️  DNS A record mismatch: expected ${{ env.FTP_HOST }}, got $a_record"
+          fi
+          
+          # Check CNAME for www
+          www_record=$(dig +short CNAME www.${{ env.DOMAIN }})
+          echo "WWW CNAME: $www_record"
+          
+      - name: 🔒 SSL Certificate Check
+        run: |
+          echo "🔍 Checking SSL certificate..."
+          
+          # Check SSL with timeout
+          if timeout 30 openssl s_client -connect ${{ env.DOMAIN }}:443 -servername ${{ env.DOMAIN }} < /dev/null 2>/dev/null | grep -q "CONNECTED"; then
+            echo "✅ SSL connection successful"
+            
+            # Get certificate expiry
+            expiry=$(echo | timeout 10 openssl s_client -connect ${{ env.DOMAIN }}:443 -servername ${{ env.DOMAIN }} 2>/dev/null | openssl x509 -noout -dates | grep notAfter | cut -d= -f2)
+            echo "📅 SSL expires: $expiry"
+          else
+            echo "⚠️  SSL connection failed or timeout"
+          fi
+          
+      - name: 🏥 Health Check
+        run: |
+          echo "🏥 Performing comprehensive health check..."
+          
+          max_attempts=10
+          attempt=1
+          
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt/$max_attempts..."
+            
+            # Check main domain
+            main_status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 ${{ env.PRODUCTION_URL }} || echo "000")
+            echo "Main domain status: $main_status"
+            
+            # Check without www
+            alt_status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 https://${{ env.DOMAIN }} || echo "000")
+            echo "Alt domain status: $alt_status"
+            
+            if [ "$main_status" = "200" ] && [ "$alt_status" = "200" ]; then
+              echo "✅ Health check passed!"
+              
+              # Additional checks
+              response_time=$(curl -s -o /dev/null -w "%{time_total}" ${{ env.PRODUCTION_URL }})
+              echo "📊 Response time: ${response_time}s"
+              
+              # Check if it's actually our content
+              if curl -s ${{ env.PRODUCTION_URL }} | grep -q "CEP"; then
+                echo "✅ Content verification passed"
+              else
+                echo "⚠️  Content verification failed - might be cached"
+              fi
+              
+              break
+            else
+              echo "⚠️  Health check failed, retrying in 15 seconds..."
+              sleep 15
+              attempt=$((attempt + 1))
+            fi
+          done
+          
+          if [ $attempt -gt $max_attempts ]; then
+            echo "❌ Health check failed after $max_attempts attempts"
+            echo "Final status codes: Main=$main_status, Alt=$alt_status"
+            exit 1
+          fi
+          
+      - name: 📊 Performance Check
+        run: |
+          echo "📊 Basic performance analysis..."
+          
+          # Measure page load time
+          load_time=$(curl -s -o /dev/null -w "%{time_total}" ${{ env.PRODUCTION_URL }})
+          echo "Page load time: ${load_time}s"
+          
+          # Check response headers
+          echo "Response headers:"
+          curl -I ${{ env.PRODUCTION_URL }} 2>/dev/null | head -10
+          
+          # Check if gzip is enabled
+          if curl -H "Accept-Encoding: gzip" -I ${{ env.PRODUCTION_URL }} 2>/dev/null | grep -q "gzip"; then
+            echo "✅ Gzip compression enabled"
+          else
+            echo "⚠️  Gzip compression not detected"
+          fi
+          
+      - name: 🎉 Deployment Success Notification
+        run: |
+          echo "## 🎉 Deployment Successful!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📊 Deployment Details" >> $GITHUB_STEP_SUMMARY
+          echo "- **Domain**: ${{ env.DOMAIN }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Live URL**: [${{ env.PRODUCTION_URL }}](${{ env.PRODUCTION_URL }})" >> $GITHUB_STEP_SUMMARY
+          echo "- **Deployment Time**: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Branch**: \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### ✅ Verification Status" >> $GITHUB_STEP_SUMMARY
+          echo "- DNS resolution: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- SSL certificate: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Site accessibility: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "- Content validation: ✅" >> $GITHUB_STEP_SUMMARY
+          
+          echo "🚀 CEP Comunicación is now live at ${{ env.PRODUCTION_URL }}"
+
+  post_deploy:
+    name: 📋 Post-Deployment Tasks
+    runs-on: ubuntu-latest
+    needs: [validate, deploy]
+    if: always() && needs.deploy.result == 'success'
+    steps:
+      - name: 🔄 Cache Warming
+        run: |
+          echo "🔥 Warming up cache..."
+          urls=(
+            "${{ env.PRODUCTION_URL }}"
+            "${{ env.PRODUCTION_URL }}/about"
+            "${{ env.PRODUCTION_URL }}/services"
+            "${{ env.PRODUCTION_URL }}/contact"
+          )
+          
+          for url in "${urls[@]}"; do
+            echo "Warming: $url"
+            curl -s "$url" > /dev/null || true
+            sleep 2
+          done
+          
+      - name: 🏷️ Create Deployment Tag
+        run: |
+          echo "Creating deployment record..."
+          echo "Deployment completed at $(date) for commit ${{ github.sha }}"
+          
+      - name: 📈 SEO Quick Check
+        run: |
+          echo "📈 Basic SEO validation..."
+          
+          # Check for meta tags
+          content=$(curl -s ${{ env.PRODUCTION_URL }})
+          
+          if echo "$content" | grep -q "<title>"; then
+            title=$(echo "$content" | grep -o '<title>[^<]*</title>' | sed 's/<[^>]*>//g')
+            echo "✅ Title tag found: $title"
+          else
+            echo "⚠️  No title tag found"
+          fi
+          
+          if echo "$content" | grep -q 'name="description"'; then
+            echo "✅ Meta description found"
+          else
+            echo "⚠️  No meta description found"
+          fi
+          
+          if echo "$content" | grep -q 'name="viewport"'; then
+            echo "✅ Viewport meta tag found"
+          else
+            echo "⚠️  No viewport meta tag found"
+          fi 

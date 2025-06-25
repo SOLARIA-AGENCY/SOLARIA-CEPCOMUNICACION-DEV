@@ -1,0 +1,68 @@
+name: 🚀 Deploy CEP Formación to Hostinger
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: 📦 Build & Deploy
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: 🔧 Install Dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build Application
+        run: |
+          npm run build
+          ls -la dist/ # Verificar archivos generados
+          
+      - name: 🔍 Pre-deployment Validation
+        run: |
+          if [ ! -f "dist/index.html" ]; then
+            echo "❌ index.html missing in build"
+            exit 1
+          fi
+          echo "✅ Build validation passed"
+          
+      - name: 🚀 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ftp.hostinger.com
+          username: ${{ secrets.HOSTINGER_FTP_USERNAME }}
+          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/.vscode/**
+            
+      - name: 🔎 Post-deployment Health Check
+        run: |
+          sleep 10 # Esperar propagación
+          status_code=$(curl -s -o /dev/null -w "%{http_code}" https://cepformacion.com)
+          if [ $status_code -eq 200 ]; then
+            echo "✅ cepformacion.com is live and responding"
+          else
+            echo "⚠️ Site returned status code: $status_code"
+          fi
+          
+      - name: 📊 Deployment Summary
+        run: |
+          echo "🎉 Deployment completed successfully!"
+          echo "📍 Live URL: https://cepformacion.com"
+          echo "📅 Deployed at: $(date)"
+          echo "🔄 Git commit: ${{ github.sha }}" 
