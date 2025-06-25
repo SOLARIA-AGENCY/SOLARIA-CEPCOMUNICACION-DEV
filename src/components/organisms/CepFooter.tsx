@@ -14,10 +14,20 @@ const CepFooter: React.FC = () => {
             </button>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Logo CEP Formación a la izquierda */}
+            <div className="flex flex-col items-center lg:items-start">
+              <img 
+                src="/images/logos/logotipo-300x95.jpg" 
+                alt="CEP Formación" 
+                className="h-16 w-auto mb-4"
+              />
+              <p className="text-gray-600 font-medium text-center lg:text-left">© 2025 CEP FORMACIÓN S.L.</p>
+            </div>
+
             {/* Sedes */}
             <div>
-              <h3 className="text-xl font-bold mb-6 text-gray-900">SEDES</h3>
+              <h3 className="text-xl font-bold mb-6 text-gray-900 text-center lg:text-left">SEDES</h3>
               <div className="space-y-4">
                 <div>
                   <h4 className="font-semibold mb-2 text-gray-900">Santa Cruz:</h4>
@@ -42,7 +52,7 @@ const CepFooter: React.FC = () => {
 
             {/* Información de Contacto */}
             <div>
-              <h3 className="text-xl font-bold mb-6 text-gray-900">INFORMACIÓN DE CONTACTO</h3>
+              <h3 className="text-xl font-bold mb-6 text-gray-900 text-center lg:text-left">INFORMACIÓN DE CONTACTO</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-cep-primary" />
@@ -71,22 +81,10 @@ const CepFooter: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Footer */}
-      <div className="bg-white py-8">
+      {/* Bottom Footer */}
+      <div className="bg-white py-6 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            {/* Logo CEP Formación en el lado izquierdo */}
-            <div className="flex items-center mb-4 md:mb-0">
-              <img 
-                src="/images/logos/logotipo-300x95.jpg" 
-                alt="CEP Formación" 
-                className="h-12 w-auto mr-4"
-              />
-              <div className="text-left">
-                <p className="text-gray-600 font-medium">© 2025 CEP FORMACIÓN S.L.</p>
-              </div>
-            </div>
-
             {/* Social Links */}
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <a href="https://www.facebook.com/cepsantacruz/" className="text-gray-500 hover:text-cep-primary transition-colors">

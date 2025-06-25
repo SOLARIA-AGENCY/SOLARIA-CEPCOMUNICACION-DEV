@@ -371,7 +371,7 @@ const HomePage: React.FC = () => {
       
       {/* Hero Slideshow - Mobile First Responsive */}
       <section className="relative w-full overflow-hidden bg-gray-100">
-        <div className="relative w-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px] max-h-[80vh]">
+        <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
           {heroSlides.map((slide, index) => (
             <div
               key={slide.id}
@@ -382,7 +382,7 @@ const HomePage: React.FC = () => {
               <img
                 src={slide.image}
                 alt={slide.alt}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-contain object-center"
               />
             </div>
           ))}
@@ -551,8 +551,8 @@ const HomePage: React.FC = () => {
                   alt={curso.titulo}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <h3 className="text-white text-lg font-bold text-center px-4">{curso.titulo}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-6">
+                  <h3 className="text-white text-lg font-bold text-center px-4 drop-shadow-lg">{curso.titulo}</h3>
                 </div>
               </div>
             ))}
