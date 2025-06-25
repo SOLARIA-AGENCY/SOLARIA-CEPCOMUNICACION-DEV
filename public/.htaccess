@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Don't redirect files with common extensions
+RewriteCond %{REQUEST_URI} \.(css|js|png|jpg|jpeg|gif|svg|ico|pdf|txt|xml|json|woff|woff2|ttf|eot)$ [NC]
+RewriteRule .* - [L]
+
 # Handle Angular and React Router
 # If the request is for a directory or file that exists, serve it directly
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -33,10 +37,9 @@ RewriteRule ^politica-privacidad/?$ /index.html [L]
 RewriteRule ^politica-cookies/?$ /index.html [L]
 RewriteRule ^proteccion-datos/?$ /index.html [L]
 
-# Fallback: Only redirect requests that don't have file extensions (SPA routes)
+# Fallback: Only redirect non-file requests (SPA routes)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !\.
 RewriteRule ^(.*)$ /index.html [L]
 
 # Security headers
