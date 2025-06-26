@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, PawPrint } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Calendar, MapPin, Award, CheckCircle, Clock, User, Book, ChevronDown, ChevronUp, PawPrint, Users, BookOpen, Star, Phone, Mail } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';

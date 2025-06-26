@@ -3,6 +3,19 @@ import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import { cursoData } from '../config/cursos-otono-2025';
 
+interface Category {
+  name: string;
+  courses: Array<{
+    name: string;
+    location: string;
+    duration: string;
+    schedule: string;
+    price: string;
+    image: string;
+    link: string;
+  }>;
+}
+
 const CursosPage: React.FC = () => {
   // Scroll al top cuando se carga la página
   useEffect(() => {

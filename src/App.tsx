@@ -3,23 +3,23 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CursosPage from './pages/CursosPage';
 import ContactPage from './pages/ContactPage';
-import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
-import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
 import AvisoLegalPage from './pages/AvisoLegalPage';
+import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
 import ProteccionDatosPage from './pages/ProteccionDatosPage';
+import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
 import AdiestramientoCaninoPage from './pages/AdiestramientoCaninoPage';
+import AgenteFunerarioPage from './pages/AgenteFunerarioPage';
 import AuxiliarEnfermeriaPage from './pages/AuxiliarEnfermeriaPage';
+import AuxiliarEsteticasPage from './pages/AuxiliarEsteticasPage';
 import AuxiliarFarmaciaPage from './pages/AuxiliarFarmaciaPage';
 import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
-import AuxiliarEsteticasPage from './pages/AuxiliarEsteticasPage';
-import CFGSHigieneBucodentalPage from './pages/CFGSHigieneBucodentalPage';
 import CFGMFarmaciaParafarmaciaPage from './pages/CFGMFarmaciaParafarmaciaPage';
-import AgenteFunerarioPage from './pages/AgenteFunerarioPage';
+import CFGSHigieneBucodentalPage from './pages/CFGSHigieneBucodentalPage';
 
 import CepHeader from './components/organisms/CepHeader';
 import CepFooter from './components/organisms/CepFooter';
 import CursoInscripcionModal from './components/organisms/CursoInscripcionModal';
-import { Calendar, MapPin, Award, CheckCircle, Clock, Euro, User, BookOpen, ChevronDown, ChevronUp, Users } from 'lucide-react';
+import { Calendar, MapPin, Award, CheckCircle, Clock, User, Book, ChevronDown, ChevronUp } from 'lucide-react';
 import { cursoData } from './config/cursos-otono-2025';
 
 import './index.css';
@@ -114,7 +114,7 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
                     onClick={() => setTemarioExpanded(!temarioExpanded)}
                   >
                     <h3 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center">
-                      <BookOpen className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
+                      <Book className="w-5 sm:w-6 h-5 sm:h-6 mr-2" />
                       Temario Completo
                     </h3>
                     {temarioExpanded ? <ChevronUp className="w-5 sm:w-6 h-5 sm:h-6" /> : <ChevronDown className="w-5 sm:w-6 h-5 sm:h-6" />}

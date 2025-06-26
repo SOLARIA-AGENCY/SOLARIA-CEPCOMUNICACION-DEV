@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Shield, Heart, BookOpen, Users, Clock, GraduationCap, ChevronDown, ChevronUp, FileText, Scale, CheckCircle, Award, Star, Phone, Mail, MapPin } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { CheckCircle, Clock, User, Award, Book, ChevronDown, ChevronUp, Star, Phone, Mail, MapPin, Calendar, Shield, Heart, Users } from 'lucide-react';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
@@ -159,7 +159,7 @@ const AgenteFunerarioPage: React.FC = () => {
           {/* ¿Qué Aprendo? */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
+              <Book className="inline-block w-8 h-8 mr-3 text-blue-600" />
               ¿Qué Aprendo?
             </h2>
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
@@ -224,7 +224,7 @@ const AgenteFunerarioPage: React.FC = () => {
           {/* Temario Expandible */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
+              <Book className="inline-block w-8 h-8 mr-3 text-blue-600" />
               Temario Completo
             </h2>
             <div className="space-y-4">
@@ -305,7 +305,7 @@ const AgenteFunerarioPage: React.FC = () => {
           {/* Cursos Complementarios */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-gray-600" />
+              <Book className="inline-block w-8 h-8 mr-3 text-gray-600" />
               Cursos Complementarios
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">

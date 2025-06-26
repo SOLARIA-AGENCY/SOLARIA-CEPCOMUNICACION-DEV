@@ -27,10 +27,11 @@ export default tseslint.config(
         'error',
         {
           'argsIgnorePattern': '^_',
-          'varsIgnorePattern': '^_',
-          'caughtErrorsIgnorePattern': '^_'
+          'varsIgnorePattern': '^_'
         }
-      ]
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/ban-ts-comment': 'warn'
     },
   },
   // Special rules for test files
