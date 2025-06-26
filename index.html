@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) con Modo de Consentimiento -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-347NGFNZ90"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      
+      // Configurar modo de consentimiento por defecto (denegado)
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+      
       gtag('js', new Date());
-
       gtag('config', 'G-347NGFNZ90');
     </script>
     
@@ -45,6 +53,18 @@
         fbq('init', '1189071876088388');
         fbq('track', 'PageView');
       }
+      
+      // Función para actualizar el consentimiento de Google
+      function updateGoogleConsent(granted) {
+        if (typeof gtag !== 'undefined') {
+          gtag('consent', 'update', {
+            'ad_storage': granted ? 'granted' : 'denied',
+            'ad_user_data': granted ? 'granted' : 'denied', 
+            'ad_personalization': granted ? 'granted' : 'denied',
+            'analytics_storage': granted ? 'granted' : 'denied'
+          });
+        }
+      }
     </script>
     <!-- End Meta Pixel Code -->
     
@@ -77,20 +97,27 @@
               var type = this.options.type;
               var didConsent = this.hasConsented();
               if (type == 'opt-in' && didConsent) {
-                // Activar pixel solo si hay consentimiento
+                // Activar servicios con consentimiento
                 activateFacebookPixel();
+                updateGoogleConsent(true);
                 localStorage.setItem('marketing_consent', 'true');
+              } else {
+                // Solo cookies esenciales
+                updateGoogleConsent(false);
+                localStorage.setItem('marketing_consent', 'false');
               }
             },
             onStatusChange: function(status, chosenBefore) {
               var type = this.options.type;
               var didConsent = this.hasConsented();
               if (type == 'opt-in' && didConsent) {
-                // Activar pixel cuando se acepta
+                // Usuario acepta todas las cookies
                 activateFacebookPixel();
+                updateGoogleConsent(true);
                 localStorage.setItem('marketing_consent', 'true');
               } else {
-                // Eliminar consentimiento
+                // Usuario rechaza cookies de marketing
+                updateGoogleConsent(false);
                 localStorage.setItem('marketing_consent', 'false');
               }
             }
