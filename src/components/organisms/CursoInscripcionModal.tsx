@@ -93,14 +93,15 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     };
 
     try {
-      // 📧 ENVÍO TEMPORAL A SOLARIA AGENCY usando FormSubmit.co
+      // 📧 ENVÍO A SOLARIA AGENCY Y CEP FORMACIÓN usando FormSubmit.co
       const notificationEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
+      const cepEmail = 'cepformacion.admi@hotmail.com';
       const formSubmitEndpoint = import.meta.env.VITE_FORMSUBMIT_ENDPOINT || `https://formsubmit.co/ajax/${notificationEmail}`;
       
       const formData_email = new FormData();
       formData_email.append('_to', notificationEmail);
       formData_email.append('_subject', `🎯 NUEVO LEAD - ${curso.nombre} - ${curso.sede} - Campaña Otoño 2025`);
-      formData_email.append('_cc', notificationEmail);
+      formData_email.append('_cc', cepEmail); // Agregar CEP Formación como CC
       formData_email.append('_template', 'table');
       formData_email.append('_captcha', 'false');
       
@@ -159,6 +160,10 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
 4. Programar visita/entrevista si es necesario
 
 ⚡ URGENCIA: ALTA - Lead esperando respuesta inmediata
+
+📧 COPIA ENVIADA A: 
+- Solaria Agency: agency.solaria@gmail.com
+- CEP Formación: cepformacion.admi@hotmail.com
       `);
 
       // Enviar email usando FormSubmit.co
@@ -171,7 +176,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
         throw new Error('Error enviando email');
       }
 
-      console.log('📤 Email enviado a agency.solaria@gmail.com:', submissionData);
+      console.log('📤 Email enviado a agency.solaria@gmail.com y cepformacion.admi@hotmail.com:', submissionData);
       
       // TODO: Implementar webhook a n8n (mantener para implementación futura)
       // const response = await fetch('https://tu-instancia-n8n.com/webhook/cep-inscripciones', {
