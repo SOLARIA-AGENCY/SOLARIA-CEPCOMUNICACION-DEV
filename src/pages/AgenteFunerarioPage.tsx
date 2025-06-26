@@ -6,23 +6,25 @@ import CepFooter from '../components/organisms/CepFooter';
 
 const AgenteFunerarioPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [expandedModules, setExpandedModules] = useState<{ [key: number]: boolean }>({});
+  const [expandedModules, setExpandedModules] = useState<boolean[]>([]);
 
-  const toggleModule = (moduleIndex: number) => {
-    setExpandedModules(prev => ({
-      ...prev,
-      [moduleIndex]: !prev[moduleIndex]
-    }));
-  };
-
+  // Datos del curso
   const courseData = {
     title: "Agente Funerario",
-    subtitle: "Formación Profesional Especializada",
-    description: "Fórmate en un sector estable con futuro y alta demanda laboral",
+    subtitle: "Especialización Profesional en Servicios Funerarios",
+    description: "Fórmate como profesional del sector funerario, un área de alta demanda laboral y estabilidad económica con gran proyección de futuro.",
     duration: "30 sesiones / 6 meses",
-    practices: "150h prácticas en empresas",
+    practices: "Prácticas garantizadas",
     price: "850€ total",
-    installments: "6 cuotas de 125€ + 100€ matrícula"
+    installments: "Financiación disponible"
+  };
+
+  const toggleModule = (moduleIndex: number) => {
+    setExpandedModules(prev => {
+      const newExpanded = [...prev];
+      newExpanded[moduleIndex] = !newExpanded[moduleIndex];
+      return newExpanded;
+    });
   };
 
   const modules = [
@@ -281,6 +283,11 @@ const AgenteFunerarioPage: React.FC = () => {
       <CursoInscripcionModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
+        curso={{
+          nombre: "Agente Funerario",
+          sede: "Santa Cruz / Norte",
+          tag: "agente-funerario"
+        }}
       />
     </div>
   );

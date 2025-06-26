@@ -8,6 +8,13 @@ const AuxiliarVeterinarioPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedModule, setExpandedModule] = useState<number | null>(null);
 
+  // Datos del curso
+  const courseData = {
+    title: "Auxiliar Técnico Veterinario (ATV)",
+    subtitle: "Especialización en Asistencia Veterinaria Profesional",
+    description: "Conviértete en un profesional especializado en el cuidado y asistencia técnica veterinaria, con amplias salidas laborales en clínicas y hospitales veterinarios."
+  };
+
   const curso = {
     nombre: 'Auxiliar Técnico Veterinario (ATV)',
     sede: 'Norte',
@@ -15,7 +22,7 @@ const AuxiliarVeterinarioPage: React.FC = () => {
   };
 
   const toggleModule = (moduleIndex: number) => {
-    setExpandedModule(expandedModule === moduleIndex ? null : moduleIndex);
+    setExpandedModule(prev => prev === moduleIndex ? null : moduleIndex);
   };
 
   const modulos = [
@@ -487,6 +494,7 @@ const AuxiliarVeterinarioPage: React.FC = () => {
       <CursoInscripcionModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
+        curso={curso}
       />
     </div>
   );
