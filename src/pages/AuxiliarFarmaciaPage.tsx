@@ -98,51 +98,41 @@ const AuxiliarFarmaciaPage: React.FC = () => {
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        <div className="relative">
-          <div className="container mx-auto px-4 py-12 sm:py-16">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center mb-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
-                  <Pill className="h-12 w-12 text-green-300" />
-                </div>
-              </div>
-              
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                {curso.nombre}
-              </h1>
-              
-              <p className="text-lg sm:text-xl mb-6 text-green-100">
-                Formación Profesional Especializada
+        <div className="relative container mx-auto px-4 py-12 sm:py-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <Pill className="w-12 h-12 text-yellow-400" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Auxiliar de Farmacia y Parafarmacia
+            </h1>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
+              <p className="text-lg sm:text-xl italic mb-2">
+                "La farmacia es el primer contacto del paciente con la sanidad"
               </p>
-              
-              <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto text-gray-200">
-                Conviértete en un profesional especializado en el sector farmacéutico y parafarmacéutico
-              </p>
-
-              {/* Información del curso */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Clock className="h-6 w-6 text-green-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">40 sesiones / 10 meses</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Users className="h-6 w-6 text-green-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">Grupos reducidos</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Award className="h-6 w-6 text-green-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">250h prácticas</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <BookOpen className="h-6 w-6 text-green-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">1.150€ total</p>
-                </div>
+              <p className="text-yellow-400 font-semibold">- Consejo General de Farmacéuticos</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Clock className="w-5 h-5 mr-2" />
+                10 meses
               </div>
-
-              <div className="bg-yellow-400 rounded-full p-1 inline-block">
-                <button 
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Users className="w-5 h-5 mr-2" />
+                Presencial
+              </div>
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Award className="w-5 h-5 mr-2" />
+                250h Prácticas
+              </div>
+            </div>
+            
+            {/* Botón de inscripción */}
+            <div className="mt-8">
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   ¡RESERVAR MI PLAZA AHORA!
                 </button>
@@ -173,82 +163,79 @@ const AuxiliarFarmaciaPage: React.FC = () => {
             </div>
           </section>
 
-          {/* ¿A Quién Va Dirigido? */}
+          {/* Información del Ciclo */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
-              <Users className="inline-block w-8 h-8 mr-3 text-blue-600" />
-              ¿A Quién Va Dirigido?
-            </h2>
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 sm:p-8">
-              <p className="text-lg leading-relaxed text-gray-700 mb-4">
-                Si te gusta el <strong>área sanitaria</strong>, el trato al público, aconsejar, escuchar, ayudar, 
-                fomentar la promoción de la salud, <strong>¡no lo dudes!</strong>
-              </p>
-              <div className="bg-white rounded-lg p-4 inline-block">
-                <p className="text-sm font-semibold text-green-600">
-                  <Award className="inline-block w-4 h-4 mr-2" />
-                  Requisitos: Podrás acceder con 2º de la ESO o EGB
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Salidas Profesionales */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Activity className="inline-block w-8 h-8 mr-3 text-purple-600" />
-              Salidas Profesionales
-            </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Pill className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Farmacias</h3>
-                <p className="text-gray-600">Oficinas de farmacia como auxiliar especializado</p>
+              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 text-center">
+                <Clock className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Duración</h3>
+                <p className="text-gray-700">10 meses - 40 sesiones presenciales</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Heart className="w-12 h-12 text-red-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Parafarmacias</h3>
-                <p className="text-gray-600">Establecimientos de productos sanitarios y cosméticos</p>
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 text-center">
+                <Award className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Prácticas</h3>
+                <p className="text-gray-700">250 horas en farmacias y parafarmacias</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Microscope className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Almacenes</h3>
-                <p className="text-gray-600">Almacenes de medicamentos y distribución farmacéutica</p>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center">
+                <Users className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Grupos</h3>
+                <p className="text-gray-700">Reducidos para atención personalizada</p>
               </div>
             </div>
           </section>
 
-          {/* Contenido del Curso */}
+          {/* Información Comercial */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 sm:p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Información del Curso</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">💰 Inversión</h4>
+                  <p className="text-gray-700 mb-2"><strong>Total:</strong> 1.150€ (10 cuotas de 100€ + 150€ matrícula)</p>
+                  <p className="text-gray-700 mb-4"><strong>Modalidad:</strong> Presencial - 1 día por semana</p>
+                  <p className="text-sm text-blue-600 font-medium">✓ Incluye agencia de colocación oficial</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">🎯 Salidas Profesionales</h4>
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• Oficinas de farmacia</li>
+                    <li>• Parafarmacias</li>
+                    <li>• Almacenes farmacéuticos</li>
+                    <li>• Droguerías especializadas</li>
+                    <li>• Laboratorios farmacéuticos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Temario Expandible */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-indigo-600" />
-              Contenido Detallado del Curso
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-green-600" />
+              Temario Completo
             </h2>
             <div className="space-y-4">
               {modulos.map((modulo, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <button
                     onClick={() => toggleModule(index)}
-                    className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                        {modulo.titulo}
-                      </h3>
-                      {expandedModule === index ? (
-                        <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                      )}
-                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900">{modulo.titulo}</h3>
+                    {expandedModule === index ? (
+                      <ChevronUp className="w-5 h-5 text-gray-500" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-500" />
+                    )}
                   </button>
                   {expandedModule === index && (
-                    <div className="px-6 pb-6">
+                    <div className="px-6 pb-4">
                       <ul className="space-y-2">
                         {modulo.contenido.map((item, itemIndex) => (
                           <li key={itemIndex} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-green-500 mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm">{item}</span>
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -259,128 +246,82 @@ const AuxiliarFarmaciaPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Detalles del Curso */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Clock className="inline-block w-8 h-8 mr-3 text-orange-600" />
-              Detalles del Curso
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Organización</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-green-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Duración</p>
-                      <p className="text-gray-600">10 meses (40 sesiones)</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="w-5 h-5 text-blue-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Modalidad</p>
-                      <p className="text-gray-600">Clases presenciales 1 día/semana</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <BookOpen className="w-5 h-5 text-purple-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Tipo</p>
-                      <p className="text-gray-600">Clases teórico/prácticas</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Award className="w-5 h-5 text-yellow-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Prácticas</p>
-                      <p className="text-gray-600">250 horas en empresas</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl shadow-lg p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Información Económica</h3>
-                <div className="space-y-4">
-                  <div className="bg-white rounded-lg p-4">
-                    <p className="text-2xl font-bold text-green-600">1.150€ Total</p>
-                    <p className="text-gray-600">Precio completo del curso</p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="font-semibold">10 cuotas mensuales:</span>
-                      <span className="text-green-600 font-bold">100€</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="font-semibold">Matrícula:</span>
-                      <span className="text-blue-600 font-bold">150€</span>
-                    </div>
-                  </div>
-                  <div className="bg-yellow-100 rounded-lg p-3 mt-4">
-                    <p className="text-sm text-yellow-800">
-                      <Award className="inline-block w-4 h-4 mr-1" />
-                      Incluye agencia de colocación oficial
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Profesorado */}
+          {/* Tu Profesor Especialista */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
               <Star className="inline-block w-8 h-8 mr-3 text-yellow-500" />
-              Profesorado Especializado
+              Tu Profesor Especialista
             </h2>
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-              <div className="text-center">
-                <Pill className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Equipo Multidisciplinar</h3>
-                <p className="text-lg text-green-600 font-semibold mb-4">Profesionales del sector en activo</p>
-                <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                  Nuestro equipo docente está formado por un equipo multidisciplinar en el que todos son 
-                  <strong> profesionales del sector en activo</strong>, garantizando formación actualizada 
-                  y práctica real del día a día farmacéutico.
-                </p>
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="md:flex">
+                <div className="md:w-1/3 p-6 sm:p-8 flex justify-center">
+                  <div className="relative">
+                    <img 
+                      src="/images/profesores/alexis.jpg" 
+                      alt="Alexis Galán - Farmacéutico especialista" 
+                      className="w-48 h-48 rounded-full object-cover shadow-lg"
+                    />
+                    <div className="absolute -bottom-2 -right-2 bg-yellow-400 rounded-full p-2">
+                      <Award className="w-6 h-6 text-yellow-800" />
+                    </div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 p-6 sm:p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Alexis Galán</h3>
+                  <p className="text-lg text-green-600 font-semibold mb-4">Farmacéutico especialista en Farmacia Comunitaria</p>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Farmacéutico titulado con amplia experiencia en farmacia comunitaria y hospitalaria. 
+                    Especialista en formulación magistral y atención farmacéutica. Formador oficial 
+                    de ciclos formativos sanitarios.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Farmacia Comunitaria
+                    </span>
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Formulación Magistral
+                    </span>
+                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Formador Oficial
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* Amplía tus conocimientos */}
+          {/* Cursos Complementarios */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Star className="inline-block w-8 h-8 mr-3 text-indigo-600" />
-              Amplía tus conocimientos con
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
+              Cursos Complementarios
             </h2>
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {cursosComplementarios.map((curso, index) => (
-                  <div key={index} className="flex items-center bg-gray-50 rounded-lg p-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium">{curso}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {cursosComplementarios.map((curso, index) => (
+                <div key={index} className="bg-white rounded-lg p-4 shadow-md text-center hover:shadow-lg transition-shadow">
+                  <p className="text-gray-700 font-medium">{curso}</p>
+                </div>
+              ))}
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className="text-center mb-12">
-            <div className="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl shadow-xl p-8 sm:p-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                ¡Inicia tu Carrera Farmacéutica!
+          {/* Información de Contacto */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl p-6 sm:p-8 text-white text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                ¡Inicia tu Carrera en el Sector Farmacéutico!
               </h2>
               <p className="text-lg text-green-100 mb-6">
                 Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-white text-green-600 px-8 sm:px-12 py-4 text-lg font-bold rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg transform hover:scale-105"
-              >
-                ¡RESERVAR MI PLAZA AHORA!
-              </button>
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
+              </div>
               <p className="text-sm text-green-100 mt-4">
                 <Clock className="inline-block w-4 h-4 mr-1" />
                 Te contactaremos en menos de 30 minutos
@@ -393,12 +334,12 @@ const AuxiliarFarmaciaPage: React.FC = () => {
             <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">¿Necesitas más información?</h2>
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div className="flex flex-col items-center">
-                <Phone className="w-8 h-8 text-green-600 mb-2" />
+                <Phone className="w-8 h-8 text-blue-600 mb-2" />
                 <p className="font-semibold">Teléfono</p>
                 <p className="text-gray-600">922 21 92 57</p>
               </div>
               <div className="flex flex-col items-center">
-                <Mail className="w-8 h-8 text-blue-600 mb-2" />
+                <Mail className="w-8 h-8 text-green-600 mb-2" />
                 <p className="font-semibold">Email</p>
                 <p className="text-gray-600">info@cursostenerife.es</p>
               </div>
@@ -412,14 +353,14 @@ const AuxiliarFarmaciaPage: React.FC = () => {
         </div>
       </div>
 
+      <CepFooter />
+
       {/* Modal de Inscripción */}
       <CursoInscripcionModal 
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         curso={curso}
       />
-
-      <CepFooter />
     </div>
   );
 };

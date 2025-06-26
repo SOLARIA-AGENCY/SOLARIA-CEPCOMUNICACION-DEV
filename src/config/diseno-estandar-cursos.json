@@ -1,0 +1,99 @@
+{
+  "hero_section": {
+    "structure": "relative bg-gray-900 text-white overflow-hidden",
+    "image_overlay": "bg-black/40",
+    "content_layout": "relative container mx-auto px-4 py-12 sm:py-16",
+    "max_width": "max-w-4xl mx-auto text-center",
+    "icon": {
+      "size": "w-12 h-12",
+      "color": "text-yellow-400",
+      "margin": "mb-6"
+    },
+    "title": {
+      "classes": "text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
+    },
+    "quote_section": {
+      "container": "bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8",
+      "quote_text": "text-lg sm:text-xl italic mb-2",
+      "author": "text-yellow-400 font-semibold"
+    },
+    "badges": {
+      "container": "flex flex-wrap justify-center gap-4 text-sm sm:text-base",
+      "badge_style": "flex items-center bg-white/20 rounded-full px-4 py-2",
+      "icon_style": "w-5 h-5 mr-2"
+    },
+    "cta_button": {
+      "container": "mt-8",
+      "wrapper": "bg-yellow-400 rounded-lg p-1 inline-block",
+      "button": "bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg",
+      "text": "¡RESERVAR MI PLAZA AHORA!"
+    }
+  },
+  "content_structure": {
+    "container": "container mx-auto px-4 py-8 sm:py-12",
+    "max_width": "max-w-6xl mx-auto",
+    "sections": [
+      {
+        "name": "que_aprendo",
+        "title": "¿Qué Aprendo?",
+        "icon": "BookOpen",
+        "icon_color": "text-blue-600",
+        "content_bg": "bg-white rounded-xl shadow-lg p-6 sm:p-8"
+      },
+      {
+        "name": "info_ciclo",
+        "title": "Información del Ciclo",
+        "grid": "grid md:grid-cols-3 gap-6",
+        "card_style": "bg-gradient-to-br rounded-xl p-6 text-center"
+      },
+      {
+        "name": "info_comercial",
+        "title": "Información del Curso",
+        "container": "bg-gradient-to-r rounded-xl p-6 sm:p-8",
+        "grid": "grid md:grid-cols-2 gap-6"
+      },
+      {
+        "name": "temario",
+        "title": "Temario Completo",
+        "icon": "BookOpen",
+        "expandible": true,
+        "card_style": "bg-white rounded-lg shadow-md overflow-hidden"
+      },
+      {
+        "name": "profesor",
+        "title": "Tu Profesor/a Especialista",
+        "icon": "Star",
+        "icon_color": "text-yellow-500",
+        "layout": "md:flex",
+        "image_section": "md:w-1/3 p-6 sm:p-8 flex justify-center",
+        "content_section": "md:w-2/3 p-6 sm:p-8"
+      },
+      {
+        "name": "cursos_complementarios",
+        "title": "Cursos Complementarios",
+        "icon": "BookOpen",
+        "grid": "grid grid-cols-2 md:grid-cols-3 gap-4"
+      },
+      {
+        "name": "contacto",
+        "background": "bg-gradient-to-r rounded-xl p-6 sm:p-8 text-white text-center"
+      }
+    ]
+  },
+  "common_elements": {
+    "section_margin": "mb-12",
+    "section_title": "text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center",
+    "card_hover": "hover:shadow-lg transition-shadow",
+    "text_colors": {
+      "primary": "text-gray-900",
+      "secondary": "text-gray-700",
+      "accent": "text-blue-600"
+    }
+  },
+  "responsive_design": {
+    "mobile_first": true,
+    "breakpoints": ["sm:", "md:", "lg:"],
+    "container_padding": "px-4",
+    "section_spacing": "py-8 sm:py-12"
+  }
+} 

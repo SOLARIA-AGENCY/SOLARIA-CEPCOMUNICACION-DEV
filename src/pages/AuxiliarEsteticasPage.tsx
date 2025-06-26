@@ -6,29 +6,22 @@ import CepFooter from '../components/organisms/CepFooter';
 
 const AuxiliarEsteticasPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [expandedModules, setExpandedModules] = useState<{ [key: number]: boolean }>({});
+  const [expandedModule, setExpandedModule] = useState<number | null>(null);
+
+  const curso = {
+    nombre: 'Auxiliar de Clínicas Estéticas',
+    sede: 'Norte',
+    tag: 'otono-2025-auxiliar-clinicas-esteticas-norte'
+  };
 
   const toggleModule = (moduleIndex: number) => {
-    setExpandedModules(prev => ({
-      ...prev,
-      [moduleIndex]: !prev[moduleIndex]
-    }));
+    setExpandedModule(expandedModule === moduleIndex ? null : moduleIndex);
   };
 
-  const courseData = {
-    title: "Auxiliar de Clínicas Estéticas",
-    subtitle: "Formación Profesional Especializada",
-    description: "Conviértete en un profesional especializado en tratamientos estéticos y cuidado de la belleza",
-    duration: "30 sesiones / 8 meses",
-    practices: "200h prácticas en centros",
-    price: "950€ total",
-    installments: "8 cuotas de 100€ + 150€ matrícula"
-  };
-
-  const modules = [
+  const modulos = [
     {
-      title: "Unidad 1: Introducción a la Estética",
-      topics: [
+      titulo: "MÓDULO 1: INTRODUCCIÓN A LA ESTÉTICA",
+      contenido: [
         "Historia y evolución de la estética",
         "Conceptos básicos de belleza y estética",
         "Ética profesional en estética",
@@ -38,8 +31,8 @@ const AuxiliarEsteticasPage: React.FC = () => {
       ]
     },
     {
-      title: "Unidad 2: Anatomía y Fisiología de la Piel",
-      topics: [
+      titulo: "MÓDULO 2: ANATOMÍA Y FISIOLOGÍA DE LA PIEL",
+      contenido: [
         "Estructura de la piel: epidermis, dermis e hipodermis",
         "Funciones de la piel",
         "Tipos de piel y sus características",
@@ -49,8 +42,8 @@ const AuxiliarEsteticasPage: React.FC = () => {
       ]
     },
     {
-      title: "Unidad 3: Cosmetología",
-      topics: [
+      titulo: "MÓDULO 3: COSMETOLOGÍA",
+      contenido: [
         "Principios activos en cosmética",
         "Formas cosméticas: emulsiones, geles, sérums",
         "Cosméticos para diferentes tipos de piel",
@@ -60,8 +53,8 @@ const AuxiliarEsteticasPage: React.FC = () => {
       ]
     },
     {
-      title: "Unidad 4: Técnicas de Diagnóstico Estético",
-      topics: [
+      titulo: "MÓDULO 4: TÉCNICAS DE DIAGNÓSTICO ESTÉTICO",
+      contenido: [
         "Análisis facial con lupa y luz de Wood",
         "Técnicas de exploración cutánea",
         "Ficha técnica del cliente",
@@ -71,8 +64,8 @@ const AuxiliarEsteticasPage: React.FC = () => {
       ]
     },
     {
-      title: "Unidad 5: Tratamientos Faciales",
-      topics: [
+      titulo: "MÓDULO 5: TRATAMIENTOS FACIALES",
+      contenido: [
         "Limpieza facial profunda",
         "Exfoliación mecánica y química",
         "Extracción de comedones",
@@ -82,8 +75,8 @@ const AuxiliarEsteticasPage: React.FC = () => {
       ]
     },
     {
-      title: "Unidad 6: Tratamientos Corporales",
-      topics: [
+      titulo: "MÓDULO 6: TRATAMIENTOS CORPORALES",
+      contenido: [
         "Tratamientos reductores y reafirmantes",
         "Técnicas anti-celulíticas",
         "Drenaje linfático manual",
@@ -93,8 +86,8 @@ const AuxiliarEsteticasPage: React.FC = () => {
       ]
     },
     {
-      title: "Unidad 7: Aparatología Estética",
-      topics: [
+      titulo: "MÓDULO 7: APARATOLOGÍA ESTÉTICA",
+      contenido: [
         "Equipos de alta frecuencia",
         "Ultrasonidos en estética",
         "Radiofrecuencia estética",
@@ -104,8 +97,8 @@ const AuxiliarEsteticasPage: React.FC = () => {
       ]
     },
     {
-      title: "Unidad 8: Depilación",
-      topics: [
+      titulo: "MÓDULO 8: DEPILACIÓN",
+      contenido: [
         "Métodos de depilación temporal",
         "Depilación con cera: técnicas y tipos",
         "Depilación eléctrica",
@@ -139,59 +132,44 @@ const AuxiliarEsteticasPage: React.FC = () => {
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        <div className="relative">
-          <div className="container mx-auto px-4 py-12 sm:py-16">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center mb-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
-                  <Sparkles className="h-12 w-12 text-pink-300" />
-                </div>
+        <div className="relative container mx-auto px-4 py-12 sm:py-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <Sparkles className="w-12 h-12 text-yellow-400" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Auxiliar de Clínicas Estéticas
+            </h1>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
+              <p className="text-lg sm:text-xl italic mb-2">
+                "La belleza es la armonía entre el cuerpo y el alma"
+              </p>
+              <p className="text-yellow-400 font-semibold">- Platón</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Clock className="w-5 h-5 mr-2" />
+                8 meses
               </div>
-              
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                {courseData.title}
-              </h1>
-              
-              <p className="text-lg sm:text-xl mb-6 text-pink-100">
-                {courseData.subtitle}
-              </p>
-              
-              <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto text-gray-200">
-                {courseData.description}
-              </p>
-
-              {/* Información del curso */}
-              <div className="bg-white rounded-xl p-6 sm:p-8">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
-                  Información del Curso
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                  <div className="bg-gray-50 rounded-xl p-6 text-center">
-                    <Clock className="h-8 w-8 text-pink-600 mx-auto mb-4" />
-                    <div className="text-2xl font-bold text-gray-900">30</div>
-                    <div className="text-gray-600">Sesiones</div>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-6 text-center">
-                    <Calendar className="h-8 w-8 text-pink-600 mx-auto mb-4" />
-                    <div className="text-2xl font-bold text-gray-900">8</div>
-                    <div className="text-gray-600">Meses</div>
-                  </div>
-                  <div className="bg-gray-50 rounded-xl p-6 text-center">
-                    <Euro className="h-8 w-8 text-pink-600 mx-auto mb-4" />
-                    <div className="text-2xl font-bold text-gray-900">950€</div>
-                    <div className="text-gray-600">Total</div>
-                  </div>
-                </div>
-
-                <div className="bg-yellow-400 rounded-full p-1 inline-block">
-                  <button 
-                    onClick={() => setIsModalOpen(true)}
-                    className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    ¡RESERVAR MI PLAZA AHORA!
-                  </button>
-                </div>
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Users className="w-5 h-5 mr-2" />
+                Presencial
+              </div>
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Award className="w-5 h-5 mr-2" />
+                200h Prácticas
+              </div>
+            </div>
+            
+            {/* Botón de inscripción */}
+            <div className="mt-8">
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
               </div>
             </div>
           </div>
@@ -208,96 +186,90 @@ const AuxiliarEsteticasPage: React.FC = () => {
             </h2>
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
               <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                Como <strong>Auxiliar de Clínicas Estéticas</strong> adquirirás los conocimientos teóricos y 
-                prácticos necesarios para asistir en tratamientos estéticos faciales y corporales, 
-                manejando equipos especializados y aplicando técnicas avanzadas de belleza y bienestar.
+                El curso de <strong>Auxiliar de Clínicas Estéticas</strong> te prepara para trabajar como 
+                <strong> especialista en tratamientos de belleza y cuidado estético</strong>, dominando las 
+                técnicas más modernas del sector.
               </p>
               <p className="text-lg leading-relaxed text-gray-700">
-                <strong>Objetivo:</strong> Formar profesionales capacitados para trabajar como 
-                <strong> Auxiliar en centros de estética, spas, clínicas de medicina estética y centros de belleza</strong>, 
-                con competencias en aparatología, tratamientos faciales, corporales y técnicas de depilación.
+                Adquirirás las <strong>competencias profesionales</strong> para realizar tratamientos faciales, 
+                corporales, depilación y manejo de aparatología estética avanzada.
               </p>
             </div>
           </section>
 
-          {/* ¿A Quién Va Dirigido? */}
+          {/* Información del Ciclo */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
-              <Users className="inline-block w-8 h-8 mr-3 text-purple-600" />
-              ¿A Quién Va Dirigido?
-            </h2>
-            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-6 sm:p-8">
-              <p className="text-lg leading-relaxed text-gray-700 mb-4">
-                Si te apasiona el <strong>mundo de la belleza y el bienestar</strong>, tienes interés por 
-                las nuevas tecnologías estéticas, te gusta el trato personalizado con clientes y 
-                quieres formar parte del sector de la estética profesional, 
-                <strong> ¡este es tu curso!</strong>
-              </p>
-              <div className="bg-white rounded-lg p-4 inline-block">
-                <p className="text-sm font-semibold text-pink-600">
-                  <Award className="inline-block w-4 h-4 mr-2" />
-                  Requisitos: Podrás acceder con 2º de la ESO o EGB
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Salidas Profesionales */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Activity className="inline-block w-8 h-8 mr-3 text-indigo-600" />
-              Salidas Profesionales
-            </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Sparkles className="w-12 h-12 text-pink-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Centros de Estética</h3>
-                <p className="text-gray-600">Auxiliar en tratamientos faciales y corporales</p>
+              <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6 text-center">
+                <Clock className="w-12 h-12 text-pink-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Duración</h3>
+                <p className="text-gray-700">8 meses - 30 sesiones presenciales</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Heart className="w-12 h-12 text-red-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Spas y Wellness</h3>
-                <p className="text-gray-600">Especialista en relajación y bienestar</p>
+              <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6 text-center">
+                <Award className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Prácticas</h3>
+                <p className="text-gray-700">200 horas en centros estéticos</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Zap className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Clínicas Medicina Estética</h3>
-                <p className="text-gray-600">Asistente en tratamientos avanzados</p>
+              <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 text-center">
+                <Sparkles className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Especialización</h3>
+                <p className="text-gray-700">Tratamientos estéticos completos</p>
               </div>
             </div>
           </section>
 
-          {/* Contenido del Curso */}
+          {/* Información Comercial */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-6 sm:p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Información del Curso</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">💰 Inversión</h4>
+                  <p className="text-gray-700 mb-2"><strong>Total:</strong> 950€ (8 cuotas de 100€ + 150€ matrícula)</p>
+                  <p className="text-gray-700 mb-4"><strong>Modalidad:</strong> Presencial - 1 día por semana</p>
+                  <p className="text-sm text-pink-600 font-medium">✓ Incluye agencia de colocación oficial</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">🎯 Salidas Profesionales</h4>
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• Centros de estética</li>
+                    <li>• Spas y centros wellness</li>
+                    <li>• Clínicas de medicina estética</li>
+                    <li>• Centros de depilación</li>
+                    <li>• Gabinetes de estética propios</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Temario Expandible */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-indigo-600" />
-              Contenido Detallado del Curso - 8 Unidades Especializadas
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-pink-600" />
+              Temario Completo
             </h2>
             <div className="space-y-4">
-              {modules.map((module, moduleIndex) => (
-                <div key={moduleIndex} className="bg-white rounded-xl shadow-lg overflow-hidden">
+              {modulos.map((modulo, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <button
-                    onClick={() => toggleModule(moduleIndex)}
-                    className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                    onClick={() => toggleModule(index)}
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                        {module.title}
-                      </h3>
-                      {expandedModules[moduleIndex] ? (
-                        <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                      )}
-                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900">{modulo.titulo}</h3>
+                    {expandedModule === index ? (
+                      <ChevronUp className="w-5 h-5 text-gray-500" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-500" />
+                    )}
                   </button>
-                  {expandedModules[moduleIndex] && (
-                    <div className="px-6 pb-6">
+                  {expandedModule === index && (
+                    <div className="px-6 pb-4">
                       <ul className="space-y-2">
-                        {module.topics.map((topic, topicIndex) => (
-                          <li key={topicIndex} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-pink-500 mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm">{topic}</span>
+                        {modulo.contenido.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-start">
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -308,121 +280,72 @@ const AuxiliarEsteticasPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Detalles del Curso */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Clock className="inline-block w-8 h-8 mr-3 text-orange-600" />
-              Detalles del Curso
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Organización</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-pink-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Duración</p>
-                      <p className="text-gray-600">8 meses (30 sesiones)</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="w-5 h-5 text-purple-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Modalidad</p>
-                      <p className="text-gray-600">Clases presenciales 1 día/semana</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <BookOpen className="w-5 h-5 text-indigo-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Tipo</p>
-                      <p className="text-gray-600">Clases teórico/prácticas con aparatología</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Award className="w-5 h-5 text-yellow-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Prácticas</p>
-                      <p className="text-gray-600">200 horas en centros especializados</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl shadow-lg p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Información Económica</h3>
-                <div className="space-y-4">
-                  <div className="bg-white rounded-lg p-4">
-                    <p className="text-2xl font-bold text-pink-600">950€ Total</p>
-                    <p className="text-gray-600">Precio completo del curso</p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="font-semibold">8 cuotas mensuales:</span>
-                      <span className="text-pink-600 font-bold">100€</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="font-semibold">Matrícula:</span>
-                      <span className="text-purple-600 font-bold">150€</span>
-                    </div>
-                  </div>
-                  <div className="bg-yellow-100 rounded-lg p-3 mt-4">
-                    <p className="text-sm text-yellow-800">
-                      <Award className="inline-block w-4 h-4 mr-1" />
-                      Incluye uso de aparatología y agencia de colocación
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Profesorado */}
+          {/* Tu Profesor Especialista */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
               <Star className="inline-block w-8 h-8 mr-3 text-yellow-500" />
-              Profesorado Estético Especializado
+              Tu Profesor Especialista
             </h2>
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-              <div className="text-center">
-                <Sparkles className="w-16 h-16 text-pink-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Esteticistas Colegiadas</h3>
-                <p className="text-lg text-pink-600 font-semibold mb-4">Profesionales con experiencia en centros de prestigio</p>
-                <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                  Nuestro equipo docente está formado por <strong>esteticistas colegiadas</strong> y 
-                  <strong> profesionales especializados</strong> que trabajan en centros de estética y 
-                  clínicas de medicina estética, garantizando formación actualizada con las últimas 
-                  técnicas y tendencias del sector.
-                </p>
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="md:flex">
+                <div className="md:w-1/3 p-6 sm:p-8 flex justify-center">
+                  <div className="relative">
+                    <img 
+                      src="/images/profesores/maria-jose.jpg" 
+                      alt="María José García - Especialista en Estética" 
+                      className="w-48 h-48 rounded-full object-cover shadow-lg"
+                    />
+                    <div className="absolute -bottom-2 -right-2 bg-yellow-400 rounded-full p-2">
+                      <Award className="w-6 h-6 text-yellow-800" />
+                    </div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 p-6 sm:p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">María José García</h3>
+                  <p className="text-lg text-pink-600 font-semibold mb-4">Especialista en Estética y Cosmética</p>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Técnico Superior en Estética Integral y Bienestar con amplia experiencia en centros 
+                    estéticos de prestigio. Especialista en tratamientos faciales, corporales y aparatología 
+                    estética avanzada. Formadora oficial de técnicos en estética.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Estética Facial
+                    </span>
+                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Aparatología
+                    </span>
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Formadora Oficial
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* Amplía tus conocimientos */}
+          {/* Cursos Complementarios */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Star className="inline-block w-8 h-8 mr-3 text-indigo-600" />
-              Amplía tus conocimientos con
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-purple-600" />
+              Cursos Complementarios
             </h2>
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {cursosComplementarios.map((curso, index) => (
-                  <div key={index} className="flex items-center bg-gray-50 rounded-lg p-3">
-                    <CheckCircle className="w-5 h-5 text-pink-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium">{curso}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {cursosComplementarios.map((curso, index) => (
+                <div key={index} className="bg-white rounded-lg p-4 shadow-md text-center hover:shadow-lg transition-shadow">
+                  <p className="text-gray-700 font-medium">{curso}</p>
+                </div>
+              ))}
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className="text-center mb-12">
-            <div className="bg-white rounded-xl shadow-xl p-8 sm:p-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+          {/* Información de Contacto */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl p-6 sm:p-8 text-white text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 ¡Inicia tu Carrera en Estética!
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-pink-100 mb-6">
                 Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
               <div className="bg-yellow-400 rounded-lg p-1 inline-block">
@@ -433,6 +356,10 @@ const AuxiliarEsteticasPage: React.FC = () => {
                   ¡RESERVAR MI PLAZA AHORA!
                 </button>
               </div>
+              <p className="text-sm text-pink-100 mt-4">
+                <Clock className="inline-block w-4 h-4 mr-1" />
+                Te contactaremos en menos de 30 minutos
+              </p>
             </div>
           </section>
 
@@ -441,12 +368,12 @@ const AuxiliarEsteticasPage: React.FC = () => {
             <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">¿Necesitas más información?</h2>
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div className="flex flex-col items-center">
-                <Phone className="w-8 h-8 text-pink-600 mb-2" />
+                <Phone className="w-8 h-8 text-blue-600 mb-2" />
                 <p className="font-semibold">Teléfono</p>
                 <p className="text-gray-600">922 21 92 57</p>
               </div>
               <div className="flex flex-col items-center">
-                <Mail className="w-8 h-8 text-purple-600 mb-2" />
+                <Mail className="w-8 h-8 text-green-600 mb-2" />
                 <p className="font-semibold">Email</p>
                 <p className="text-gray-600">info@cursostenerife.es</p>
               </div>
@@ -461,16 +388,12 @@ const AuxiliarEsteticasPage: React.FC = () => {
       </div>
 
       <CepFooter />
-      
-      {/* Modal de inscripción */}
-      <CursoInscripcionModal
+
+      {/* Modal de Inscripción */}
+      <CursoInscripcionModal 
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        curso={{
-          nombre: "Auxiliar de Clínicas Estéticas",
-          sede: "Santa Cruz / Norte",
-          tag: "auxiliar-esteticas"
-        }}
+        curso={curso}
       />
     </div>
   );

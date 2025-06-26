@@ -177,47 +177,41 @@ const AuxiliarVeterinarioPage: React.FC = () => {
           />
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
-        <div className="relative">
-          <div className="container mx-auto px-4 py-12 sm:py-16">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center mb-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
-                  <PawPrint className="h-12 w-12 text-blue-300" />
-                </div>
-              </div>
-              
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-                {courseData.title}
-              </h1>
-              
-              <p className="text-lg sm:text-xl mb-6 text-blue-100">
-                {courseData.subtitle}
+        <div className="relative container mx-auto px-4 py-12 sm:py-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <PawPrint className="w-12 h-12 text-yellow-400" />
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+              Auxiliar Técnico Veterinario (ATV)
+            </h1>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
+              <p className="text-lg sm:text-xl italic mb-2">
+                "Los animales son mis amigos... y yo no me como a mis amigos"
               </p>
-              
-              <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto text-gray-200">
-                {courseData.description}
-              </p>
-
-              {/* Información del curso */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Clock className="h-6 w-6 text-blue-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">40 sesiones / 10 meses</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Users className="h-6 w-6 text-blue-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">Grupos reducidos</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Award className="h-6 w-6 text-blue-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">300h prácticas</p>
-                </div>
+              <p className="text-yellow-400 font-semibold">- George Bernard Shaw</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Clock className="w-5 h-5 mr-2" />
+                10 meses
               </div>
-
-              <div className="bg-yellow-400 rounded-full p-1 inline-block">
-                <button 
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Users className="w-5 h-5 mr-2" />
+                Presencial
+              </div>
+              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
+                <Award className="w-5 h-5 mr-2" />
+                300h Prácticas
+              </div>
+            </div>
+            
+            {/* Botón de inscripción */}
+            <div className="mt-8">
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
                 >
                   ¡RESERVAR MI PLAZA AHORA!
                 </button>
@@ -237,95 +231,90 @@ const AuxiliarVeterinarioPage: React.FC = () => {
             </h2>
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
               <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                Como <strong>Auxiliar Técnico Veterinario</strong> adquirirás los conocimientos y habilidades 
-                necesarias para asistir al veterinario en el diagnóstico, tratamiento y cuidado de animales 
-                de compañía, realizando técnicas especializadas bajo supervisión profesional.
+                El curso de <strong>Auxiliar Técnico Veterinario (ATV)</strong> te prepara para trabajar como 
+                <strong> asistente especializado en clínicas y hospitales veterinarios</strong>, proporcionando 
+                cuidados técnicos profesionales a todo tipo de animales.
               </p>
               <p className="text-lg leading-relaxed text-gray-700">
-                <strong>Objetivo:</strong> Formar profesionales capacitados para trabajar como 
-                <strong> Auxiliar Técnico en clínicas veterinarias, hospitales veterinarios y centros de salud animal</strong>, 
-                con competencias en técnicas de laboratorio, imagen, cirugía y cuidados intensivos.
+                Adquirirás las <strong>competencias profesionales</strong> para asistir en consultas, cirugías, 
+                laboratorio, hospitalización y todas las áreas de una clínica veterinaria moderna.
               </p>
             </div>
           </section>
 
-          {/* ¿A Quién Va Dirigido? */}
+          {/* Información del Ciclo */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
-              <Users className="inline-block w-8 h-8 mr-3 text-green-600" />
-              ¿A Quién Va Dirigido?
-            </h2>
-            <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 sm:p-8">
-              <p className="text-lg leading-relaxed text-gray-700 mb-4">
-                Si eres <strong>amante de los animales</strong>, te interesa la medicina veterinaria, 
-                tienes vocación de servicio y quieres formar parte del equipo sanitario veterinario, 
-                <strong> ¡este es tu curso!</strong>
-              </p>
-              <div className="bg-white rounded-lg p-4 inline-block">
-                <p className="text-sm font-semibold text-blue-600">
-                  <Award className="inline-block w-4 h-4 mr-2" />
-                  Requisitos: Podrás acceder con 2º de la ESO o EGB
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Salidas Profesionales */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Activity className="inline-block w-8 h-8 mr-3 text-purple-600" />
-              Salidas Profesionales
-            </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <PawPrint className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Clínicas Veterinarias</h3>
-                <p className="text-gray-600">Auxiliar técnico en consultas y tratamientos</p>
+              <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 text-center">
+                <Clock className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Duración</h3>
+                <p className="text-gray-700">10 meses - 40 sesiones presenciales</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Heart className="w-12 h-12 text-red-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Hospitales Veterinarios</h3>
-                <p className="text-gray-600">Especialista en cuidados intensivos y hospitalización</p>
+              <div className="bg-gradient-to-br from-green-50 to-purple-50 rounded-xl p-6 text-center">
+                <Award className="w-12 h-12 text-green-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Prácticas</h3>
+                <p className="text-gray-700">300 horas en clínicas veterinarias</p>
               </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 text-center">
-                <Shield className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Centros Especializados</h3>
-                <p className="text-gray-600">Laboratorios, centros de imagen y cirugía</p>
+              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center">
+                <PawPrint className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Especialización</h3>
+                <p className="text-gray-700">Asistencia técnica veterinaria completa</p>
               </div>
             </div>
           </section>
 
-          {/* Contenido del Curso */}
+          {/* Información Comercial */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 sm:p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Información del Curso</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">💰 Inversión</h4>
+                  <p className="text-gray-700 mb-2"><strong>Total:</strong> 1.150€ (10 cuotas de 100€ + 150€ matrícula)</p>
+                  <p className="text-gray-700 mb-4"><strong>Modalidad:</strong> Presencial - 1 día por semana</p>
+                  <p className="text-sm text-blue-600 font-medium">✓ Incluye agencia de colocación oficial</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-3">🎯 Salidas Profesionales</h4>
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• Clínicas veterinarias</li>
+                    <li>• Hospitales veterinarios</li>
+                    <li>• Centros de investigación</li>
+                    <li>• Zoológicos y parques naturales</li>
+                    <li>• Centros de cría y adiestramiento</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Temario Expandible */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-indigo-600" />
-              Contenido Detallado del Curso - 10 Módulos Especializados
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
+              Temario Completo
             </h2>
             <div className="space-y-4">
               {modulos.map((modulo, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <button
                     onClick={() => toggleModule(index)}
-                    className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                        {modulo.titulo}
-                      </h3>
-                      {expandedModule === index ? (
-                        <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
-                      )}
-                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900">{modulo.titulo}</h3>
+                    {expandedModule === index ? (
+                      <ChevronUp className="w-5 h-5 text-gray-500" />
+                    ) : (
+                      <ChevronDown className="w-5 h-5 text-gray-500" />
+                    )}
                   </button>
                   {expandedModule === index && (
-                    <div className="px-6 pb-6">
+                    <div className="px-6 pb-4">
                       <ul className="space-y-2">
                         {modulo.contenido.map((item, itemIndex) => (
                           <li key={itemIndex} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-blue-500 mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm">{item}</span>
+                            <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">{item}</span>
                           </li>
                         ))}
                       </ul>
@@ -336,128 +325,82 @@ const AuxiliarVeterinarioPage: React.FC = () => {
             </div>
           </section>
 
-          {/* Detalles del Curso */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Clock className="inline-block w-8 h-8 mr-3 text-orange-600" />
-              Detalles del Curso
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Organización</h3>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-blue-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Duración</p>
-                      <p className="text-gray-600">10 meses (40 sesiones)</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="w-5 h-5 text-green-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Modalidad</p>
-                      <p className="text-gray-600">Clases presenciales 1 día/semana</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <BookOpen className="w-5 h-5 text-purple-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Tipo</p>
-                      <p className="text-gray-600">Clases teórico/prácticas intensivas</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <Award className="w-5 h-5 text-yellow-600 mr-3" />
-                    <div>
-                      <p className="font-semibold">Prácticas</p>
-                      <p className="text-gray-600">300 horas en clínicas veterinarias</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl shadow-lg p-6 sm:p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Información Económica</h3>
-                <div className="space-y-4">
-                  <div className="bg-white rounded-lg p-4">
-                    <p className="text-2xl font-bold text-blue-600">1.350€ Total</p>
-                    <p className="text-gray-600">Precio completo del curso</p>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="font-semibold">10 cuotas mensuales:</span>
-                      <span className="text-blue-600 font-bold">120€</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="font-semibold">Matrícula:</span>
-                      <span className="text-green-600 font-bold">150€</span>
-                    </div>
-                  </div>
-                  <div className="bg-yellow-100 rounded-lg p-3 mt-4">
-                    <p className="text-sm text-yellow-800">
-                      <Award className="inline-block w-4 h-4 mr-1" />
-                      Incluye material especializado y agencia de colocación
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Profesorado */}
+          {/* Tu Profesor Especialista */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
               <Star className="inline-block w-8 h-8 mr-3 text-yellow-500" />
-              Profesorado Veterinario Especializado
+              Tu Profesor Especialista
             </h2>
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-              <div className="text-center">
-                <PawPrint className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Veterinarios Colegiados</h3>
-                <p className="text-lg text-blue-600 font-semibold mb-4">Profesionales en activo con experiencia clínica</p>
-                <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                  Nuestro equipo docente está formado por <strong>veterinarios colegiados</strong> y 
-                  <strong> ATV's con experiencia</strong> que trabajan en clínicas y hospitales veterinarios, 
-                  garantizando formación actualizada con las últimas técnicas y protocolos del sector.
-                </p>
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="md:flex">
+                <div className="md:w-1/3 p-6 sm:p-8 flex justify-center">
+                  <div className="relative">
+                    <img 
+                      src="/images/profesores/cecilia.jpg" 
+                      alt="Cecilia Rodríguez - Veterinaria especialista" 
+                      className="w-48 h-48 rounded-full object-cover shadow-lg"
+                    />
+                    <div className="absolute -bottom-2 -right-2 bg-yellow-400 rounded-full p-2">
+                      <Award className="w-6 h-6 text-yellow-800" />
+                    </div>
+                  </div>
+                </div>
+                <div className="md:w-2/3 p-6 sm:p-8">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Cecilia Rodríguez</h3>
+                  <p className="text-lg text-blue-600 font-semibold mb-4">Veterinaria especialista en Medicina Interna</p>
+                  <p className="text-gray-700 mb-4 leading-relaxed">
+                    Veterinaria titulada con amplia experiencia en clínica de pequeños animales. 
+                    Especialista en medicina interna, cirugía y diagnóstico por imagen. Formadora oficial 
+                    de auxiliares técnicos veterinarios.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Medicina Interna
+                    </span>
+                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Cirugía Veterinaria
+                    </span>
+                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
+                      Formadora Oficial
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* Amplía tus conocimientos */}
+          {/* Cursos Complementarios */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Star className="inline-block w-8 h-8 mr-3 text-indigo-600" />
-              Amplía tus conocimientos con
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-green-600" />
+              Cursos Complementarios
             </h2>
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {cursosComplementarios.map((curso, index) => (
-                  <div key={index} className="flex items-center bg-gray-50 rounded-lg p-3">
-                    <CheckCircle className="w-5 h-5 text-blue-500 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium">{curso}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {cursosComplementarios.map((curso, index) => (
+                <div key={index} className="bg-white rounded-lg p-4 shadow-md text-center hover:shadow-lg transition-shadow">
+                  <p className="text-gray-700 font-medium">{curso}</p>
+                </div>
+              ))}
             </div>
           </section>
 
-          {/* CTA Section */}
-          <section className="text-center mb-12">
-            <div className="bg-gradient-to-r from-blue-500 to-green-600 rounded-xl shadow-xl p-8 sm:p-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                ¡Conviértete en Auxiliar Técnico Veterinario!
+          {/* Información de Contacto */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl p-6 sm:p-8 text-white text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                ¡Inicia tu Carrera Veterinaria!
               </h2>
               <p className="text-lg text-blue-100 mb-6">
-                Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y resolver todas tus dudas
+                Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-white text-blue-600 px-8 sm:px-12 py-4 text-lg font-bold rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg transform hover:scale-105"
-              >
-                ¡RESERVAR MI PLAZA AHORA!
-              </button>
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
+              </div>
               <p className="text-sm text-blue-100 mt-4">
                 <Clock className="inline-block w-4 h-4 mr-1" />
                 Te contactaremos en menos de 30 minutos
@@ -490,10 +433,11 @@ const AuxiliarVeterinarioPage: React.FC = () => {
       </div>
 
       <CepFooter />
-      
+
+      {/* Modal de Inscripción */}
       <CursoInscripcionModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         curso={curso}
       />
     </div>
