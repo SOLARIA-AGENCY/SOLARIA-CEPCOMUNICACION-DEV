@@ -12,6 +12,8 @@ import AuxiliarEnfermeriaPage from './pages/AuxiliarEnfermeriaPage';
 import AuxiliarFarmaciaPage from './pages/AuxiliarFarmaciaPage';
 import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
 import AuxiliarEsteticasPage from './pages/AuxiliarEsteticasPage';
+import CFGSHigieneBucodentalPage from './pages/CFGSHigieneBucodentalPage';
+import CFGMFarmaciaParafarmaciaPage from './pages/CFGMFarmaciaParafarmaciaPage';
 
 import CepHeader from './components/organisms/CepHeader';
 import CepFooter from './components/organisms/CepFooter';
@@ -282,8 +284,7 @@ const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[11]
 const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[12]} />;
 const QuiromasajeNivel1Page = () => <CursoPageComponent curso={cursoData[13]} />;
 const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[14]} />;
-const CFGSHigieneBucodentalPage = () => <CursoPageComponent curso={cursoData[15]} />;
-const CFGMFarmaciaParafarmaciaPage = () => <CursoPageComponent curso={cursoData[16]} />;
+// Ahora importamos las páginas específicas desde archivos separados
 
 
 function App() {

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Pill, Activity, Shield, Microscope } from 'lucide-react';
+import CepHeader from '../components/organisms/CepHeader';
+import CepFooter from '../components/organisms/CepFooter';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
 
 const AuxiliarFarmaciaPage: React.FC = () => {

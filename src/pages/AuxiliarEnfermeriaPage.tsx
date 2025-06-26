@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Stethoscope, Activity, Shield } from 'lucide-react';
+import CepHeader from '../components/organisms/CepHeader';
+import CepFooter from '../components/organisms/CepFooter';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
 
 const AuxiliarEnfermeriaPage: React.FC = () => {
@@ -91,9 +93,19 @@ const AuxiliarEnfermeriaPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-900 to-teal-800 text-white">
-        <div className="container mx-auto px-4 py-12 sm:py-16">
+      <CepHeader />
+      
+      {/* Hero Section con imagen */}
+      <div className="relative bg-gradient-to-br from-blue-900 to-teal-800 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/images/cursos/auxiliar-enfermeria.jpg" 
+            alt="Auxiliar de Enfermería" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-teal-800/80"></div>
+        </div>
+        <div className="relative container mx-auto px-4 py-12 sm:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-6">
               <Stethoscope className="w-12 h-12 text-blue-300" />
@@ -120,6 +132,16 @@ const AuxiliarEnfermeriaPage: React.FC = () => {
                 <Award className="w-5 h-5 mr-2" />
                 300h prácticas
               </div>
+            </div>
+            
+            {/* Botón de inscripción magenta */}
+            <div className="mt-8">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+              >
+                ¡RESERVAR MI PLAZA AHORA!
+              </button>
             </div>
           </div>
         </div>
@@ -350,7 +372,7 @@ const AuxiliarEnfermeriaPage: React.FC = () => {
               </p>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-white text-blue-600 px-8 sm:px-12 py-4 text-lg font-bold rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg transform hover:scale-105"
+                className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
               >
                 ¡RESERVAR MI PLAZA AHORA!
               </button>
@@ -384,6 +406,8 @@ const AuxiliarEnfermeriaPage: React.FC = () => {
           </section>
         </div>
       </div>
+
+      <CepFooter />
 
       {/* Modal de Inscripción */}
       <CursoInscripcionModal 
