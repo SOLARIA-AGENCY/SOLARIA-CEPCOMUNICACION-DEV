@@ -35,9 +35,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
-    <!-- Cookie Consent CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    
     <!-- Meta Pixel Code -->
     <script>
       function activateFacebookPixel() {
@@ -68,70 +65,164 @@
     </script>
     <!-- End Meta Pixel Code -->
     
-    <!-- Cookie Consent Banner -->
-    <script>
-      window.addEventListener("load", function(){
-        if (typeof window.cookieconsent !== 'undefined') {
-          window.cookieconsent.initialise({
-            palette: {
-              popup: { 
-                background: "#000000",
-                text: "#ffffff"
-              },
-              button: { 
-                background: "#f2014b",
-                text: "#ffffff"
-              }
-            },
-            theme: "classic",
-            position: "bottom",
-            type: "opt-in",
-            content: {
-              message: "Utilizamos cookies para mejorar tu experiencia y personalizar contenido. Puedes aceptar solo las esenciales o todas, incluyendo las de marketing para ofrecerte información relevante sobre nuestros cursos.",
-              dismiss: "Solo esenciales",
-              allow: "Aceptar todas",
-              link: "Política de cookies",
-              href: "/politica-cookies"
-            },
-            onInitialise: function (status) {
-              var type = this.options.type;
-              var didConsent = this.hasConsented();
-              if (type == 'opt-in' && didConsent) {
-                // Activar servicios con consentimiento
-                activateFacebookPixel();
-                updateGoogleConsent(true);
-                localStorage.setItem('marketing_consent', 'true');
-              } else {
-                // Solo cookies esenciales
-                updateGoogleConsent(false);
-                localStorage.setItem('marketing_consent', 'false');
-              }
-            },
-            onStatusChange: function(status, chosenBefore) {
-              var type = this.options.type;
-              var didConsent = this.hasConsented();
-              if (type == 'opt-in' && didConsent) {
-                // Usuario acepta todas las cookies
-                activateFacebookPixel();
-                updateGoogleConsent(true);
-                localStorage.setItem('marketing_consent', 'true');
-              } else {
-                // Usuario rechaza cookies de marketing
-                updateGoogleConsent(false);
-                localStorage.setItem('marketing_consent', 'false');
-              }
-            }
-          });
+    <!-- Banner de Cookies CSS Personalizado -->
+    <style>
+      #cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        color: white;
+        padding: 20px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+        z-index: 10000;
+        transform: translateY(100%);
+        transition: transform 0.3s ease-in-out;
+        border-top: 3px solid #f2014b;
+      }
+      
+      #cookie-banner.show {
+        transform: translateY(0);
+      }
+      
+      #cookie-banner .cookie-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+      }
+      
+      #cookie-banner .cookie-text {
+        flex: 1;
+        min-width: 300px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      
+      #cookie-banner .cookie-buttons {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      
+      #cookie-banner button {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      }
+      
+      #cookie-banner .btn-accept {
+        background: #f2014b;
+        color: white;
+      }
+      
+      #cookie-banner .btn-accept:hover {
+        background: #d4013f;
+        transform: translateY(-2px);
+      }
+      
+      #cookie-banner .btn-essential {
+        background: transparent;
+        color: white;
+        border: 2px solid #666;
+      }
+      
+      #cookie-banner .btn-essential:hover {
+        background: #666;
+        border-color: #888;
+      }
+      
+      @media (max-width: 768px) {
+        #cookie-banner .cookie-content {
+          flex-direction: column;
+          text-align: center;
         }
-      });
-    </script>
-    <script async src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+        
+        #cookie-banner .cookie-buttons {
+          width: 100%;
+          justify-content: center;
+        }
+        
+        #cookie-banner button {
+          flex: 1;
+          min-width: 140px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D4839F3"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Banner de Cookies Personalizado -->
+    <div id="cookie-banner">
+      <div class="cookie-content">
+        <div class="cookie-text">
+          <strong>🍪 Utilizamos cookies para mejorar tu experiencia</strong><br>
+          Usamos cookies esenciales para el funcionamiento del sitio y cookies de marketing para personalizar contenido y ofrecerte información relevante sobre nuestros cursos. Puedes elegir qué cookies aceptar.
+        </div>
+        <div class="cookie-buttons">
+          <button class="btn-essential" onclick="acceptEssentialCookies()">Solo esenciales</button>
+          <button class="btn-accept" onclick="acceptAllCookies()">Aceptar todas</button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      // Gestión del banner de cookies
+      function showCookieBanner() {
+        const banner = document.getElementById('cookie-banner');
+        const consent = localStorage.getItem('cookie_consent');
+        
+        if (!consent) {
+          setTimeout(() => {
+            banner.classList.add('show');
+          }, 1000);
+        }
+      }
+      
+      function hideCookieBanner() {
+        const banner = document.getElementById('cookie-banner');
+        banner.classList.remove('show');
+      }
+      
+      function acceptAllCookies() {
+        localStorage.setItem('cookie_consent', 'all');
+        localStorage.setItem('marketing_consent', 'true');
+        
+        // Activar servicios con consentimiento
+        if (typeof activateFacebookPixel === 'function') {
+          activateFacebookPixel();
+        }
+        updateGoogleConsent(true);
+        
+        hideCookieBanner();
+        console.log('✅ Todas las cookies aceptadas');
+      }
+      
+      function acceptEssentialCookies() {
+        localStorage.setItem('cookie_consent', 'essential');
+        localStorage.setItem('marketing_consent', 'false');
+        
+        // Solo cookies esenciales
+        updateGoogleConsent(false);
+        
+        hideCookieBanner();
+        console.log('✅ Solo cookies esenciales aceptadas');
+      }
+      
+      // Mostrar banner cuando la página cargue
+      document.addEventListener('DOMContentLoaded', showCookieBanner);
+    </script>
     
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
