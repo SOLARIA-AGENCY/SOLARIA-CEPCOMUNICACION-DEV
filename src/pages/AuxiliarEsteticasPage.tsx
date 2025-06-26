@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Activity, Shield, Sparkles, Zap, GraduationCap } from 'lucide-react';
+import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Activity, Shield, Sparkles, Zap, GraduationCap, Calendar, Euro } from 'lucide-react';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
@@ -161,32 +161,37 @@ const AuxiliarEsteticasPage: React.FC = () => {
               </p>
 
               {/* Información del curso */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Clock className="h-6 w-6 text-pink-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">{courseData.duration}</p>
+              <div className="bg-white rounded-xl p-6 sm:p-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                  Información del Curso
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <div className="bg-gray-50 rounded-xl p-6 text-center">
+                    <Clock className="h-8 w-8 text-pink-600 mx-auto mb-4" />
+                    <div className="text-2xl font-bold text-gray-900">30</div>
+                    <div className="text-gray-600">Sesiones</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-xl p-6 text-center">
+                    <Calendar className="h-8 w-8 text-pink-600 mx-auto mb-4" />
+                    <div className="text-2xl font-bold text-gray-900">8</div>
+                    <div className="text-gray-600">Meses</div>
+                  </div>
+                  <div className="bg-gray-50 rounded-xl p-6 text-center">
+                    <Euro className="h-8 w-8 text-pink-600 mx-auto mb-4" />
+                    <div className="text-2xl font-bold text-gray-900">950€</div>
+                    <div className="text-gray-600">Total</div>
+                  </div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <Users className="h-6 w-6 text-pink-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">{courseData.practices}</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <GraduationCap className="h-6 w-6 text-pink-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">{courseData.price}</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <BookOpen className="h-6 w-6 text-pink-300 mx-auto mb-2" />
-                  <p className="text-sm font-medium">{courseData.installments}</p>
-                </div>
-              </div>
 
-              <div className="bg-yellow-400 rounded-full p-1 inline-block">
-                <button 
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  ¡RESERVAR MI PLAZA AHORA!
-                </button>
+                <div className="bg-yellow-400 rounded-full p-1 inline-block">
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
+                    className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    ¡RESERVAR MI PLAZA AHORA!
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -413,23 +418,21 @@ const AuxiliarEsteticasPage: React.FC = () => {
 
           {/* CTA Section */}
           <section className="text-center mb-12">
-            <div className="bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl shadow-xl p-8 sm:p-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                ¡Conviértete en Auxiliar de Estética!
+            <div className="bg-white rounded-xl shadow-xl p-8 sm:p-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                ¡Inicia tu Carrera en Estética!
               </h2>
-              <p className="text-lg text-pink-100 mb-6">
-                Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y resolver todas tus dudas
+              <p className="text-lg text-gray-600 mb-6">
+                Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-white text-pink-600 px-8 sm:px-12 py-4 text-lg font-bold rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg transform hover:scale-105"
-              >
-                ¡RESERVAR MI PLAZA AHORA!
-              </button>
-              <p className="text-sm text-pink-100 mt-4">
-                <Clock className="inline-block w-4 h-4 mr-1" />
-                Te contactaremos en menos de 30 minutos
-              </p>
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
+              </div>
             </div>
           </section>
 
@@ -459,9 +462,15 @@ const AuxiliarEsteticasPage: React.FC = () => {
 
       <CepFooter />
       
-      <CursoInscripcionModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      {/* Modal de inscripción */}
+      <CursoInscripcionModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        curso={{
+          nombre: "Auxiliar de Clínicas Estéticas",
+          sede: "Santa Cruz / Norte",
+          tag: "auxiliar-esteticas"
+        }}
       />
     </div>
   );
