@@ -425,12 +425,14 @@ const CFGSHigieneBucodentalPage: React.FC = () => {
                   <span>Santa Cruz de Tenerife</span>
                 </div>
               </div>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-lg transform hover:scale-105 transition-all duration-300"
-              >
-                ¡RESERVAR MI PLAZA AHORA!
-              </button>
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-3 px-8 rounded-lg transform hover:scale-105 transition-all duration-300"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
+              </div>
             </div>
           </section>
         </div>

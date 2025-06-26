@@ -372,12 +372,14 @@ const AuxiliarEnfermeriaPage: React.FC = () => {
               <p className="text-lg text-blue-100 mb-6">
                 Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
-              >
-                ¡RESERVAR MI PLAZA AHORA!
-              </button>
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
+              </div>
               <p className="text-sm text-blue-100 mt-4">
                 <Clock className="inline-block w-4 h-4 mr-1" />
                 Te contactaremos en menos de 30 minutos
