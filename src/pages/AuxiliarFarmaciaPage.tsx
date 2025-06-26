@@ -86,35 +86,65 @@ const AuxiliarFarmaciaPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-green-900 to-blue-800 text-white">
-        <div className="container mx-auto px-4 py-12 sm:py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <Pill className="w-12 h-12 text-green-300" />
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Curso de Técnicas Auxiliares en Farmacia y Parafarmacia
-            </h1>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
-              <p className="text-lg sm:text-xl italic mb-2">
-                "La farmacia es el farmacéutico y su conocimiento, no un frasco en un estante. Sólo así seremos útiles a la sociedad"
+      <CepHeader />
+      
+      {/* Hero Section con imagen */}
+      <div className="relative bg-gradient-to-br from-green-900 to-blue-800 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/images/cursos/auxiliar-de.jpg" 
+            alt="Auxiliar de Farmacia" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-green-900/80 to-blue-800/80"></div>
+        </div>
+        <div className="relative">
+          <div className="container mx-auto px-4 py-12 sm:py-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
+                  <Pill className="h-12 w-12 text-green-300" />
+                </div>
+              </div>
+              
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {curso.nombre}
+              </h1>
+              
+              <p className="text-lg sm:text-xl mb-6 text-green-100">
+                Formación Profesional Especializada
               </p>
-              <p className="text-green-300 font-semibold">- Fabio A. González</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Clock className="w-5 h-5 mr-2" />
-                40 sesiones / 10 meses
+              
+              <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto text-gray-200">
+                Conviértete en un profesional especializado en el sector farmacéutico y parafarmacéutico
+              </p>
+
+              {/* Información del curso */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Clock className="h-6 w-6 text-green-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">40 sesiones / 10 meses</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Users className="h-6 w-6 text-green-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">Grupos reducidos</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Award className="h-6 w-6 text-green-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">250h prácticas</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <BookOpen className="h-6 w-6 text-green-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">1.150€ total</p>
+                </div>
               </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Users className="w-5 h-5 mr-2" />
-                Grupos reducidos
-              </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Award className="w-5 h-5 mr-2" />
-                250h prácticas
-              </div>
+
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                ¡RESERVAR MI PLAZA AHORA!
+              </button>
             </div>
           </div>
         </div>
@@ -386,6 +416,8 @@ const AuxiliarFarmaciaPage: React.FC = () => {
         onClose={() => setIsModalOpen(false)}
         curso={curso}
       />
+
+      <CepFooter />
     </div>
   );
 };

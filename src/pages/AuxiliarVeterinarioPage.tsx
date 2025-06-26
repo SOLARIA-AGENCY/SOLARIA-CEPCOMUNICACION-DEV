@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Activity, Shield, Microscope, PawPrint } from 'lucide-react';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
+import CepHeader from '../components/organisms/CepHeader';
+import CepFooter from '../components/organisms/CepFooter';
 
 const AuxiliarVeterinarioPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -156,35 +158,61 @@ const AuxiliarVeterinarioPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-blue-900 to-green-800 text-white">
-        <div className="container mx-auto px-4 py-12 sm:py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <PawPrint className="w-12 h-12 text-blue-300" />
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Curso de Auxiliar Técnico Veterinario (ATV)
-            </h1>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
-              <p className="text-lg sm:text-xl italic mb-2">
-                "Hasta que uno no ha amado a un animal, una parte del alma permanece dormida"
+      <CepHeader />
+      
+      {/* Hero Section con imagen */}
+      <div className="relative bg-gradient-to-br from-blue-900 to-green-800 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/images/cursos/auxiliar-enfermeria.jpg" 
+            alt="Auxiliar Técnico Veterinario" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 to-green-800/80"></div>
+        </div>
+        <div className="relative">
+          <div className="container mx-auto px-4 py-12 sm:py-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
+                  <PawPrint className="h-12 w-12 text-blue-300" />
+                </div>
+              </div>
+              
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {courseData.title}
+              </h1>
+              
+              <p className="text-lg sm:text-xl mb-6 text-blue-100">
+                {courseData.subtitle}
               </p>
-              <p className="text-blue-300 font-semibold">- Anatole France</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Clock className="w-5 h-5 mr-2" />
-                40 sesiones / 10 meses
+              
+              <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto text-gray-200">
+                {courseData.description}
+              </p>
+
+              {/* Información del curso */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Clock className="h-6 w-6 text-blue-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">40 sesiones / 10 meses</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Users className="h-6 w-6 text-blue-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">Grupos reducidos</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Award className="h-6 w-6 text-blue-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">300h prácticas</p>
+                </div>
               </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Users className="w-5 h-5 mr-2" />
-                Grupos reducidos
-              </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Award className="w-5 h-5 mr-2" />
-                300h prácticas
-              </div>
+
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                ¡RESERVAR MI PLAZA AHORA!
+              </button>
             </div>
           </div>
         </div>
@@ -452,11 +480,11 @@ const AuxiliarVeterinarioPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal de Inscripción */}
+      <CepFooter />
+      
       <CursoInscripcionModal 
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        curso={curso}
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
       />
     </div>
   );

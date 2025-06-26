@@ -1,124 +1,117 @@
 import React, { useState } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Activity, Shield, Sparkles, Zap } from 'lucide-react';
+import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Activity, Shield, Sparkles, Zap, GraduationCap } from 'lucide-react';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
+import CepHeader from '../components/organisms/CepHeader';
+import CepFooter from '../components/organisms/CepFooter';
 
 const AuxiliarEsteticasPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [expandedModule, setExpandedModule] = useState<number | null>(null);
-
-  const curso = {
-    nombre: 'Auxiliar de Clínicas Estéticas',
-    sede: 'Norte',
-    tag: 'otono-2025-auxiliar-clinicas-esteticas-norte'
-  };
+  const [expandedModules, setExpandedModules] = useState<{ [key: number]: boolean }>({});
 
   const toggleModule = (moduleIndex: number) => {
-    setExpandedModule(expandedModule === moduleIndex ? null : moduleIndex);
+    setExpandedModules(prev => ({
+      ...prev,
+      [moduleIndex]: !prev[moduleIndex]
+    }));
   };
 
-  const modulos = [
+  const courseData = {
+    title: "Auxiliar de Clínicas Estéticas",
+    subtitle: "Formación Profesional Especializada",
+    description: "Conviértete en un profesional especializado en tratamientos estéticos y cuidado de la belleza",
+    duration: "30 sesiones / 8 meses",
+    practices: "200h prácticas en centros",
+    price: "950€ total",
+    installments: "8 cuotas de 100€ + 150€ matrícula"
+  };
+
+  const modules = [
     {
-      titulo: "UNIDAD DIDÁCTICA 1: INTRODUCCIÓN A LA ESTÉTICA",
-      contenido: [
-        "Historia de la estética",
-        "Evolución de los tratamientos estéticos",
-        "Legislación en estética",
-        "Ética profesional en el sector estético",
-        "Tipos de centros estéticos",
-        "Organización del gabinete estético",
-        "El profesional de la estética",
-        "Higiene y desinfección en estética"
+      title: "Unidad 1: Introducción a la Estética",
+      topics: [
+        "Historia y evolución de la estética",
+        "Conceptos básicos de belleza y estética",
+        "Ética profesional en estética",
+        "Legislación y normativas del sector",
+        "Higiene y seguridad en el centro estético",
+        "Organización del gabinete estético"
       ]
     },
     {
-      titulo: "UNIDAD DIDÁCTICA 2: ANATOMÍA Y FISIOLOGÍA DE LA PIEL",
-      contenido: [
-        "Estructura de la piel",
+      title: "Unidad 2: Anatomía y Fisiología de la Piel",
+      topics: [
+        "Estructura de la piel: epidermis, dermis e hipodermis",
         "Funciones de la piel",
-        "Tipos de piel",
-        "Alteraciones cutáneas más comunes",
-        "El envejecimiento cutáneo",
-        "Factores que influyen en el estado de la piel",
-        "Anexos cutáneos: pelo y uñas",
-        "Cicatrización y regeneración cutánea"
+        "Tipos de piel y sus características",
+        "Proceso de envejecimiento cutáneo",
+        "Alteraciones más comunes de la piel",
+        "pH cutáneo y manto hidrolipídico"
       ]
     },
     {
-      titulo: "UNIDAD DIDÁCTICA 3: COSMETOLOGÍA",
-      contenido: [
+      title: "Unidad 3: Cosmetología",
+      topics: [
         "Principios activos en cosmética",
-        "Formas cosméticas",
-        "Clasificación de productos cosméticos",
-        "Cosmética facial",
-        "Cosmética corporal",
-        "Productos para tratamientos específicos",
-        "Conservación y almacenamiento de cosméticos",
-        "Reacciones adversas a cosméticos"
+        "Formas cosméticas: emulsiones, geles, sérums",
+        "Cosméticos para diferentes tipos de piel",
+        "Cosmética masculina",
+        "Cosmética solar y fotoenvejecimiento",
+        "Cosmecéuticos y nutricosméticos"
       ]
     },
     {
-      titulo: "UNIDAD DIDÁCTICA 4: TÉCNICAS DE DIAGNÓSTICO ESTÉTICO",
-      contenido: [
-        "Anamnesis estética",
-        "Exploración visual de la piel",
-        "Técnicas de análisis cutáneo",
-        "Uso de equipos de diagnóstico",
-        "Fotografía en estética",
-        "Fichas técnicas y protocolos",
-        "Valoración de resultados",
-        "Seguimiento de tratamientos"
+      title: "Unidad 4: Técnicas de Diagnóstico Estético",
+      topics: [
+        "Análisis facial con lupa y luz de Wood",
+        "Técnicas de exploración cutánea",
+        "Ficha técnica del cliente",
+        "Fotografía estética",
+        "Medición de parámetros cutáneos",
+        "Protocolos de diagnóstico"
       ]
     },
     {
-      titulo: "UNIDAD DIDÁCTICA 5: TRATAMIENTOS FACIALES",
-      contenido: [
+      title: "Unidad 5: Tratamientos Faciales",
+      topics: [
         "Limpieza facial profunda",
-        "Exfoliación y peeling",
-        "Mascarillas faciales",
-        "Masajes faciales",
-        "Tratamientos anti-edad",
-        "Tratamientos para acné",
-        "Hidratación y nutrición facial",
-        "Protocolos de tratamiento facial"
+        "Exfoliación mecánica y química",
+        "Extracción de comedones",
+        "Masajes faciales terapéuticos",
+        "Mascarillas faciales específicas",
+        "Tratamientos anti-edad"
       ]
     },
     {
-      titulo: "UNIDAD DIDÁCTICA 6: TRATAMIENTOS CORPORALES",
-      contenido: [
-        "Exfoliación corporal",
-        "Envoltorios corporales",
-        "Masajes estéticos corporales",
-        "Tratamientos reductores",
-        "Tratamientos anticelulíticos",
-        "Tratamientos reafirmantes",
+      title: "Unidad 6: Tratamientos Corporales",
+      topics: [
+        "Tratamientos reductores y reafirmantes",
+        "Técnicas anti-celulíticas",
         "Drenaje linfático manual",
-        "Protocolos de tratamiento corporal"
+        "Exfoliación corporal",
+        "Envolturas corporales",
+        "Tratamientos de hidratación"
       ]
     },
     {
-      titulo: "UNIDAD DIDÁCTICA 7: APARATOLOGÍA ESTÉTICA",
-      contenido: [
-        "Radiofrecuencia",
-        "Cavitación",
+      title: "Unidad 7: Aparatología Estética",
+      topics: [
+        "Equipos de alta frecuencia",
+        "Ultrasonidos en estética",
+        "Radiofrecuencia estética",
+        "Cavitación ultrasónica",
         "Presoterapia",
-        "Electroestimulación",
-        "Láser estético",
-        "Luz pulsada intensa (IPL)",
-        "Ultrasonidos",
         "Mantenimiento de equipos"
       ]
     },
     {
-      titulo: "UNIDAD DIDÁCTICA 8: DEPILACIÓN",
-      contenido: [
-        "Anatomía del sistema piloso",
-        "Métodos de depilación",
-        "Depilación con cera",
-        "Depilación láser",
-        "Fotodepilación",
+      title: "Unidad 8: Depilación",
+      topics: [
+        "Métodos de depilación temporal",
+        "Depilación con cera: técnicas y tipos",
+        "Depilación eléctrica",
+        "Fotodepilación IPL",
         "Cuidados pre y post depilación",
-        "Complicaciones en depilación",
-        "Protocolos de depilación"
+        "Complicaciones y contraindicaciones"
       ]
     }
   ];
@@ -134,35 +127,65 @@ const AuxiliarEsteticasPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-pink-900 to-purple-800 text-white">
-        <div className="container mx-auto px-4 py-12 sm:py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <Sparkles className="w-12 h-12 text-pink-300" />
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Curso de Auxiliar de Clínicas Estéticas
-            </h1>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
-              <p className="text-lg sm:text-xl italic mb-2">
-                "La belleza comienza en el momento en que decides ser tú mismo"
+      <CepHeader />
+      
+      {/* Hero Section con imagen */}
+      <div className="relative bg-gradient-to-br from-pink-900 to-purple-800 text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src="/images/cursos/auxiliar-enfermeria.jpg" 
+            alt="Auxiliar de Clínicas Estéticas" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-pink-900/80 to-purple-800/80"></div>
+        </div>
+        <div className="relative">
+          <div className="container mx-auto px-4 py-12 sm:py-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-full p-4">
+                  <Sparkles className="h-12 w-12 text-pink-300" />
+                </div>
+              </div>
+              
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+                {courseData.title}
+              </h1>
+              
+              <p className="text-lg sm:text-xl mb-6 text-pink-100">
+                {courseData.subtitle}
               </p>
-              <p className="text-pink-300 font-semibold">- Coco Chanel</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Clock className="w-5 h-5 mr-2" />
-                30 sesiones / 8 meses
+              
+              <p className="text-base sm:text-lg mb-8 max-w-2xl mx-auto text-gray-200">
+                {courseData.description}
+              </p>
+
+              {/* Información del curso */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Clock className="h-6 w-6 text-pink-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">{courseData.duration}</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <Users className="h-6 w-6 text-pink-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">{courseData.practices}</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <GraduationCap className="h-6 w-6 text-pink-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">{courseData.price}</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <BookOpen className="h-6 w-6 text-pink-300 mx-auto mb-2" />
+                  <p className="text-sm font-medium">{courseData.installments}</p>
+                </div>
               </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Users className="w-5 h-5 mr-2" />
-                Grupos reducidos
-              </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Award className="w-5 h-5 mr-2" />
-                200h prácticas
-              </div>
+
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                ¡RESERVAR MI PLAZA AHORA!
+              </button>
             </div>
           </div>
         </div>
@@ -244,30 +267,30 @@ const AuxiliarEsteticasPage: React.FC = () => {
               Contenido Detallado del Curso - 8 Unidades Especializadas
             </h2>
             <div className="space-y-4">
-              {modulos.map((modulo, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
+              {modules.map((module, moduleIndex) => (
+                <div key={moduleIndex} className="bg-white rounded-xl shadow-lg overflow-hidden">
                   <button
-                    onClick={() => toggleModule(index)}
+                    onClick={() => toggleModule(moduleIndex)}
                     className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
                   >
                     <div className="flex items-center justify-between">
                       <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                        {modulo.titulo}
+                        {module.title}
                       </h3>
-                      {expandedModule === index ? (
+                      {expandedModules[moduleIndex] ? (
                         <ChevronUp className="w-5 h-5 text-gray-500 flex-shrink-0" />
                       ) : (
                         <ChevronDown className="w-5 h-5 text-gray-500 flex-shrink-0" />
                       )}
                     </div>
                   </button>
-                  {expandedModule === index && (
+                  {expandedModules[moduleIndex] && (
                     <div className="px-6 pb-6">
                       <ul className="space-y-2">
-                        {modulo.contenido.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start">
+                        {module.topics.map((topic, topicIndex) => (
+                          <li key={topicIndex} className="flex items-start">
                             <CheckCircle className="w-4 h-4 text-pink-500 mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm">{item}</span>
+                            <span className="text-gray-700 text-sm">{topic}</span>
                           </li>
                         ))}
                       </ul>
@@ -432,11 +455,11 @@ const AuxiliarEsteticasPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Modal de Inscripción */}
+      <CepFooter />
+      
       <CursoInscripcionModal 
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        curso={curso}
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
       />
     </div>
   );
