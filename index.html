@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) con Modo de Consentimiento -->
+    <!-- Google tag (gtag.js) con Modo de Consentimiento v2 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-347NGFNZ90"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       
-      // Configurar modo de consentimiento por defecto (denegado)
+      // Configurar modo de consentimiento v2 por defecto (denegado)
       gtag('consent', 'default', {
         'ad_storage': 'denied',
         'ad_user_data': 'denied',
         'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
+        'analytics_storage': 'denied',
+        'functionality_storage': 'granted',
+        'personalization_storage': 'denied',
+        'security_storage': 'granted',
+        'wait_for_update': 500
       });
       
       gtag('js', new Date());
-      gtag('config', 'G-347NGFNZ90');
+      gtag('config', 'G-347NGFNZ90', {
+        'anonymize_ip': true,
+        'allow_google_signals': false,
+        'allow_ad_personalization_signals': false
+      });
     </script>
     
     <!-- Google Tag Manager -->
@@ -51,14 +59,29 @@
         fbq('track', 'PageView');
       }
       
-      // Función para actualizar el consentimiento de Google
+      // Función para actualizar el consentimiento de Google (v2)
       function updateGoogleConsent(granted) {
         if (typeof gtag !== 'undefined') {
           gtag('consent', 'update', {
             'ad_storage': granted ? 'granted' : 'denied',
             'ad_user_data': granted ? 'granted' : 'denied', 
             'ad_personalization': granted ? 'granted' : 'denied',
-            'analytics_storage': granted ? 'granted' : 'denied'
+            'analytics_storage': granted ? 'granted' : 'denied',
+            'personalization_storage': granted ? 'granted' : 'denied'
+          });
+          
+          // Actualizar configuración de Google Analytics
+          gtag('config', 'G-347NGFNZ90', {
+            'anonymize_ip': !granted,
+            'allow_google_signals': granted,
+            'allow_ad_personalization_signals': granted
+          });
+          
+          // Enviar evento de consentimiento
+          gtag('event', 'consent_update', {
+            'consent_type': granted ? 'granted' : 'denied',
+            'event_category': 'consent',
+            'event_label': granted ? 'all_cookies' : 'essential_only'
           });
         }
       }
@@ -187,6 +210,14 @@
           setTimeout(() => {
             banner.classList.add('show');
           }, 1000);
+        } else {
+          // Aplicar consentimiento guardado
+          const marketingConsent = localStorage.getItem('marketing_consent') === 'true';
+          updateGoogleConsent(marketingConsent);
+          
+          if (marketingConsent && typeof activateFacebookPixel === 'function') {
+            activateFacebookPixel();
+          }
         }
       }
       
@@ -198,6 +229,7 @@
       function acceptAllCookies() {
         localStorage.setItem('cookie_consent', 'all');
         localStorage.setItem('marketing_consent', 'true');
+        localStorage.setItem('consent_timestamp', new Date().toISOString());
         
         // Activar servicios con consentimiento
         if (typeof activateFacebookPixel === 'function') {
@@ -206,22 +238,33 @@
         updateGoogleConsent(true);
         
         hideCookieBanner();
-        console.log('✅ Todas las cookies aceptadas');
+        console.log('✅ Todas las cookies aceptadas - Modo de consentimiento v2 actualizado');
       }
       
       function acceptEssentialCookies() {
         localStorage.setItem('cookie_consent', 'essential');
         localStorage.setItem('marketing_consent', 'false');
+        localStorage.setItem('consent_timestamp', new Date().toISOString());
         
         // Solo cookies esenciales
         updateGoogleConsent(false);
         
         hideCookieBanner();
-        console.log('✅ Solo cookies esenciales aceptadas');
+        console.log('✅ Solo cookies esenciales aceptadas - Modo de consentimiento v2 actualizado');
       }
       
       // Mostrar banner cuando la página cargue
       document.addEventListener('DOMContentLoaded', showCookieBanner);
+      
+      // Debug: Mostrar estado del consentimiento en consola
+      window.addEventListener('load', function() {
+        console.log('🔍 Estado del consentimiento:', {
+          cookie_consent: localStorage.getItem('cookie_consent'),
+          marketing_consent: localStorage.getItem('marketing_consent'),
+          consent_timestamp: localStorage.getItem('consent_timestamp'),
+          dataLayer: window.dataLayer
+        });
+      });
     </script>
     
     <div id="root"></div>
