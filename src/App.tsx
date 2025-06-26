@@ -14,6 +14,7 @@ import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
 import AuxiliarEsteticasPage from './pages/AuxiliarEsteticasPage';
 import CFGSHigieneBucodentalPage from './pages/CFGSHigieneBucodentalPage';
 import CFGMFarmaciaParafarmaciaPage from './pages/CFGMFarmaciaParafarmaciaPage';
+import AgenteFunerarioPage from './pages/AgenteFunerarioPage';
 
 import CepHeader from './components/organisms/CepHeader';
 import CepFooter from './components/organisms/CepFooter';
@@ -270,7 +271,7 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
 };
 
 // --- PÁGINAS INDIVIDUALES (GENERADAS) ---
-const AgenteFunerarioPage = () => <CursoPageComponent curso={cursoData[1]} />;
+// AgenteFunerarioPage ahora se importa como componente específico
 const AuxiliarClinicoVeterinarioNortePage = () => <AuxiliarVeterinarioPage />;
 const AuxiliarClinicoVeterinarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[3]} />;
 const AuxiliarClinicasEsteticasPage = () => <AuxiliarEsteticasPage />;
