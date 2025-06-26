@@ -99,14 +99,14 @@ const AgenteFunerarioPage: React.FC = () => {
       <CepHeader />
       
       {/* Hero Section con imagen */}
-      <div className="relative bg-gradient-to-br from-gray-900 to-blue-900 text-white overflow-hidden">
+      <div className="relative bg-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="/images/cursos/especializacion-sanitaria.jpg" 
             alt="Agente Funerario" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 to-blue-900/80"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="relative">
           <div className="container mx-auto px-4 py-12 sm:py-16">
@@ -149,12 +149,14 @@ const AgenteFunerarioPage: React.FC = () => {
                 </div>
               </div>
 
-              <button 
-                onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                ¡RESERVAR MI PLAZA AHORA!
-              </button>
+              <div className="bg-yellow-400 rounded-full p-1 inline-block">
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -262,12 +264,14 @@ const AgenteFunerarioPage: React.FC = () => {
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Únete a nuestro programa de Agente Funerario y accede a un sector con futuro, estabilidad laboral y alta demanda de profesionales.
             </p>
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              ¡RESERVAR MI PLAZA AHORA!
-            </button>
+            <div className="bg-yellow-400 rounded-full p-1 inline-block">
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                ¡RESERVAR MI PLAZA AHORA!
+              </button>
+            </div>
           </div>
         </div>
       </div>

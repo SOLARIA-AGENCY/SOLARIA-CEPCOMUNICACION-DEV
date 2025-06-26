@@ -178,14 +178,14 @@ const CFGMFarmaciaParafarmaciaPage: React.FC = () => {
       <CepHeader />
       
       {/* Hero Section con imagen */}
-      <div className="relative bg-gradient-to-br from-green-600 to-blue-700 text-white overflow-hidden">
+      <div className="relative bg-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img 
             src="/images/cursos/farmacia-parafarmacia.jpg" 
             alt="Farmacia y Parafarmacia" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-green-600/80 to-blue-700/80"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
         <div className="relative container mx-auto px-4 py-12 sm:py-16">
           <div className="max-w-4xl mx-auto text-center">
@@ -216,14 +216,16 @@ const CFGMFarmaciaParafarmaciaPage: React.FC = () => {
               </div>
             </div>
             
-            {/* Botón de inscripción magenta */}
+            {/* Botón de inscripción */}
             <div className="mt-8">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
-              >
-                ¡RESERVAR MI PLAZA AHORA!
-              </button>
+              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+                >
+                  ¡RESERVAR MI PLAZA AHORA!
+                </button>
+              </div>
             </div>
           </div>
         </div>
