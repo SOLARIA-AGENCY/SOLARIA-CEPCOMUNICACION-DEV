@@ -10,6 +10,8 @@ import ProteccionDatosPage from './pages/ProteccionDatosPage';
 import AdiestramientoCaninoPage from './pages/AdiestramientoCaninoPage';
 import AuxiliarEnfermeriaPage from './pages/AuxiliarEnfermeriaPage';
 import AuxiliarFarmaciaPage from './pages/AuxiliarFarmaciaPage';
+import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
+import AuxiliarEsteticasPage from './pages/AuxiliarEsteticasPage';
 
 import CepHeader from './components/organisms/CepHeader';
 import CepFooter from './components/organisms/CepFooter';
@@ -267,9 +269,9 @@ const CursoPageComponent: React.FC<{ curso: typeof cursoData[0] }> = ({ curso })
 
 // --- PÁGINAS INDIVIDUALES (GENERADAS) ---
 const AgenteFunerarioPage = () => <CursoPageComponent curso={cursoData[1]} />;
-const AuxiliarClinicoVeterinarioNortePage = () => <CursoPageComponent curso={cursoData[2]} />;
+const AuxiliarClinicoVeterinarioNortePage = () => <AuxiliarVeterinarioPage />;
 const AuxiliarClinicoVeterinarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[3]} />;
-const AuxiliarClinicasEsteticasPage = () => <CursoPageComponent curso={cursoData[4]} />;
+const AuxiliarClinicasEsteticasPage = () => <AuxiliarEsteticasPage />;
 const AuxiliarEnfermeriaNortePage = () => <AuxiliarEnfermeriaPage />;
 const AuxiliarEnfermeriaSantaCruzPage = () => <CursoPageComponent curso={cursoData[6]} />;
 const AuxiliarFarmaciaDermoPage = () => <AuxiliarFarmaciaPage />;
