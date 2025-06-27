@@ -25,25 +25,26 @@
 - **Total cursos**: 11 cursos
 - **Sedes**: CEP NORTE + CEP SANTA CRUZ
 - **Cursos nuevos**: 3 (Agente Funerario, ACV Norte, Clínicas Estéticas)
-- **Distribución**: 7 cursos CEP NORTE | 8 cursos CEP SANTA CRUZ
+- **Distribución**: 6 cursos CEP NORTE | 7 cursos CEP SANTA CRUZ
+- **⚠️ CAMBIOS RECIENTES**: Peluquería Canina APLAZADO por demanda | Auxiliar Farmacia PRIORIZADO para Julio
 
 ---
 
-## 🏔️ CEP NORTE (7 CURSOS)
+## 🏔️ CEP NORTE (6 CURSOS)
 
 | # | Curso | Fecha Inicio | Estado Campaña | Estado Técnico | Observaciones |
 |---|-------|--------------|----------------|----------------|---------------|
 | 1 | **Adiestramiento Canino** | Septiembre 2025 | 🟢 ACTIVA | ✅ Completo | Videos producidos, formulario listo |
 | 2 | **Auxiliar Clínico Veterinario** | Septiembre 2025 | 🟡 PENDIENTE | 🔄 En desarrollo | **NUEVO** - Requiere video |
 | 3 | **Auxiliar de Enfermería** | Noviembre 2025 | 🟢 ACTIVA | ✅ Completo | Formulario y lista Mailchimp listos |
-| 4 | **Auxiliar Farmacia + Dermo** | Octubre 2025 | 🟢 ACTIVA | ✅ Completo | Lista Mailchimp configurada |
+| 4 | **Auxiliar Farmacia + Dermo** | **Julio 2025** | 🔴 **PRIORIDAD** | ✅ Completo | **ADELANTADO** - Prioridad máxima |
 | 5 | **Auxiliar en Odontología** | Noviembre 2025 | 🟢 ACTIVA | ✅ Completo | Formulario operativo |
 | 6 | **Dietética y Nutrición** | Septiembre 2025 | 🟢 ACTIVA | ✅ Completo | Lista Mailchimp configurada |
-| 7 | **Peluquería Canina y Felina** | Septiembre 2025 | 🟢 ACTIVA | ✅ Completo | Formulario operativo |
+| ~~7~~ | ~~**Peluquería Canina y Felina**~~ | ~~Septiembre 2025~~ | ⏸️ **APLAZADO** | ⏸️ Pausado | **CANCELADO** - Baja demanda |
 
 ---
 
-## 🏖️ CEP SANTA CRUZ (8 CURSOS)
+## 🏖️ CEP SANTA CRUZ (7 CURSOS)
 
 | # | Curso | Fecha Inicio | Estado Campaña | Estado Técnico | Observaciones |
 |---|-------|--------------|----------------|----------------|---------------|
@@ -52,20 +53,20 @@
 | 3 | **Auxiliar Clínicas Estéticas** | Octubre 2025 | 🟡 PENDIENTE | 🔄 En desarrollo | **NUEVO** - Requiere video |
 | 4 | **Auxiliar de Enfermería** | Septiembre 2025 | 🟢 ACTIVA | ✅ Completo | Lista Mailchimp configurada |
 | 5 | **Auxiliar en Odontología** | Noviembre 2025 | 🟢 ACTIVA | ✅ Completo | Formulario operativo |
-| 6 | **Peluquería Canina y Felina** | Julio 2025 | 🟢 ACTIVA | ✅ Completo | **Inicio temprano** |
+| ~~6~~ | ~~**Peluquería Canina y Felina**~~ | ~~Julio 2025~~ | ⏸️ **APLAZADO** | ⏸️ Pausado | **CANCELADO** - Baja demanda |
 | 7 | **Quiromasaje Nivel II** | Julio 2025 | 🟢 ACTIVA | ✅ Completo | **Solo Santa Cruz** |
 
 ---
 
 ## 📊 ANÁLISIS POR FECHAS DE INICIO
 
-### **JULIO 2025** (2 cursos)
+### **JULIO 2025** (2 cursos) - **⚠️ PRIORIDAD MÁXIMA**
 | Curso | Sede | Estado |
 |-------|------|--------|
-| Peluquería Canina y Felina | CEP SANTA CRUZ | ✅ Activa |
+| **Auxiliar Farmacia + Dermo** | **CEP NORTE** | 🔴 **PRIORIDAD** |
 | Quiromasaje Nivel II | CEP SANTA CRUZ | ✅ Activa |
 
-### **SEPTIEMBRE 2025** (8 cursos)
+### **SEPTIEMBRE 2025** (6 cursos)
 | Curso | Sede | Estado |
 |-------|------|--------|
 | Adiestramiento Canino | CEP NORTE | ✅ Activa |
@@ -74,12 +75,10 @@
 | Auxiliar Clínico Veterinario | CEP SANTA CRUZ | ✅ Activa |
 | Auxiliar de Enfermería | CEP SANTA CRUZ | ✅ Activa |
 | Dietética y Nutrición | CEP NORTE | ✅ Activa |
-| Peluquería Canina y Felina | CEP NORTE | ✅ Activa |
 
-### **OCTUBRE 2025** (2 cursos)
+### **OCTUBRE 2025** (1 curso)
 | Curso | Sede | Estado |
 |-------|------|--------|
-| Auxiliar Farmacia + Dermo | CEP NORTE | ✅ Activa |
 | Auxiliar Clínicas Estéticas | CEP SANTA CRUZ | 🔄 Desarrollo |
 
 ### **NOVIEMBRE 2025** (3 cursos)
@@ -89,11 +88,17 @@
 | Auxiliar en Odontología | CEP NORTE | ✅ Activa |
 | Auxiliar en Odontología | CEP SANTA CRUZ | ✅ Activa |
 
+### **⏸️ APLAZADOS** (2 cursos)
+| Curso | Sede | Motivo |
+|-------|------|--------|
+| ~~Peluquería Canina y Felina~~ | ~~CEP NORTE~~ | Baja demanda |
+| ~~Peluquería Canina y Felina~~ | ~~CEP SANTA CRUZ~~ | Baja demanda |
+
 ---
 
 ## 🛠️ ESTADO TÉCNICO DETALLADO
 
-### **✅ COMPLETAMENTE IMPLEMENTADOS (8 cursos)**
+### **✅ COMPLETAMENTE IMPLEMENTADOS (6 cursos)**
 - Formularios Meta Ads configurados
 - Listas Mailchimp creadas y vinculadas
 - Videos creativos producidos
@@ -107,6 +112,12 @@
 | **Auxiliar Clínico Veterinario** | CEP NORTE | Video creativo |
 | **Auxiliar Clínicas Estéticas** | CEP SANTA CRUZ | Video creativo |
 
+### **⏸️ PAUSADOS (2 cursos)**
+| Curso | Sede | Estado |
+|-------|------|--------|
+| ~~Peluquería Canina y Felina~~ | ~~CEP NORTE~~ | Aplazado indefinidamente |
+| ~~Peluquería Canina y Felina~~ | ~~CEP SANTA CRUZ~~ | Aplazado indefinidamente |
+
 ---
 
 ## 📱 ETIQUETAS MAILCHIMP CONFIGURADAS
@@ -114,7 +125,7 @@
 ### **NOMENCLATURA ESTANDARIZADA**
 Formato: `otono-2025-[curso]-[sede]`
 
-### **LISTA COMPLETA (14 etiquetas)**
+### **LISTA COMPLETA (12 etiquetas activas)**
 1. `otono-2025-adiestramiento-canino-norte`
 2. `otono-2025-agente-funerario-santacruz` 🆕
 3. `otono-2025-auxiliar-clinico-veterinario-norte` 🆕
@@ -122,13 +133,15 @@ Formato: `otono-2025-[curso]-[sede]`
 5. `otono-2025-auxiliar-clinicas-esteticas-santacruz` 🆕
 6. `otono-2025-auxiliar-enfermeria-norte`
 7. `otono-2025-auxiliar-enfermeria-santacruz`
-8. `otono-2025-auxiliar-farmacia-dermo-norte`
+8. `otono-2025-auxiliar-farmacia-dermo-norte` 🔴 **PRIORIDAD JULIO**
 9. `otono-2025-auxiliar-odontologia-norte`
 10. `otono-2025-auxiliar-odontologia-santacruz`
 11. `otono-2025-dietetica-nutricion-norte`
-12. `otono-2025-peluqueria-canina-norte`
-13. `otono-2025-peluqueria-canina-santacruz`
-14. `otono-2025-quiromasaje-nivel2-santacruz`
+12. `otono-2025-quiromasaje-nivel2-santacruz`
+
+### **⏸️ ETIQUETAS PAUSADAS**
+- ~~`otono-2025-peluqueria-canina-norte`~~ (APLAZADO)
+- ~~`otono-2025-peluqueria-canina-santacruz`~~ (APLAZADO)
 
 ---
 

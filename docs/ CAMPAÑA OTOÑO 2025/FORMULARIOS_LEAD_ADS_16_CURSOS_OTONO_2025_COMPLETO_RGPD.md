@@ -224,33 +224,36 @@ Tus datos serán tratados de forma confidencial por CEP Formación y solo se uti
 
 ---
 
-## 8. AUXILIAR FARMACIA + DERMOCOSMÉTICA – NORTE
+## 8. AUXILIAR FARMACIA + DERMOCOSMÉTICA – NORTE (🔴 PRIORIDAD JULIO 2025)
 
-### Nombre del formulario
+### **CONFIGURACIÓN DEL FORMULARIO**
+**Nombre del formulario:**  
 CEP NORTE – Auxiliar Farmacia + Dermocosmética – CAMPAÑA OTOÑO 2025 – SOLARIA AGENCY
 
-### Tag de seguimiento
+**Tag de seguimiento:**  
 `otono-2025-auxiliar-farmacia-dermo-norte`
 
-### Presentación (Pantalla de bienvenida)
-**Título:** ¡Solicita información ahora!
+### **CONFIGURACIÓN LEAD ADS**
+**Título del anuncio:** 🔴 PRIORIDAD JULIO - Auxiliar Farmacia + Dermocosmética Norte  
+**CTA:** Más información  
+**Texto introductorio:** En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Auxiliar de Farmacia + Dermocosmética en CEP Norte. **Adelantado a Julio 2025** por alta demanda. Especialización en dermofarmacia, inicio prioritario julio.
 
-**Descripción breve:** ¿Te interesa trabajar en farmacias y perfumerías? Déjanos tus datos y te enviaremos toda la información sobre el curso de Auxiliar de Farmacia + Dermocosmética en CEP Norte. Especialización en dermofarmacia, comienza en octubre.
+### **CAMPOS DEL FORMULARIO**
+1. **Nombre completo** (obligatorio)
+2. **Teléfono** (obligatorio)  
+3. **Email** (obligatorio)
+4. **¿En qué zona de Tenerife vives?** (opcional)
+   - Norte (La Orotava, Puerto de la Cruz, Los Realejos...)
+   - Santa Cruz y alrededores
+   - Sur (Los Cristianos, Arona, Adeje...)
+   - Otra zona
 
-### Preguntas
-- Nombre completo (autocompletar si es posible)
-- Teléfono (autocompletar)
-- Email (autocompletar)
+### **TEXTO RGPD**
+Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Auxiliar Farmacia + Dermocosmética en CEP Norte (**Julio 2025 - Prioridad**). Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes ejercer tus derechos en cualquier momento visitando nuestra política de privacidad: www.cepcomunicacion.com/privacidad
 
-### Aviso RGPD (Descripción bajo Preguntas)
-Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Auxiliar Farmacia + Dermocosmética en CEP Norte. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad
-
-### Pantalla de política de privacidad
-Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad
-
-### Pantalla final (Gracias)
-**Título:** ¡Gracias por tu interés!
-**Descripción:** En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Auxiliar Farmacia + Dermocosmética en CEP Norte. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza.
+### **MENSAJE DE CONFIRMACIÓN**
+**Título:** ¡Gracias por tu interés en Auxiliar Farmacia + Dermocosmética Norte!  
+**Descripción:** En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Auxiliar Farmacia + Dermocosmética en CEP Norte (**Julio 2025 - Prioridad Máxima**). Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza en esta convocatoria prioritaria.
 
 ---
 
@@ -344,91 +347,29 @@ Tus datos serán tratados de forma confidencial por CEP Formación y solo se uti
 
 ---
 
-## 12. PELUQUERÍA CANINA Y FELINA – NORTE
+## 12. PELUQUERÍA CANINA Y FELINA – NORTE (⏸️ CANCELADO POR BAJA DEMANDA)
 
-### Nombre del formulario
-CEP NORTE – Peluquería Canina y Felina – CAMPAÑA OTOÑO 2025 – SOLARIA AGENCY
+### **13. PELUQUERÍA CANINA Y FELINA – SANTA CRUZ (⏸️ CANCELADO POR BAJA DEMANDA)**
 
-### Tag de seguimiento
-`otono-2025-peluqueria-canina-felina-norte`
-
-### Presentación (Pantalla de bienvenida)
-**Título:** ¡Solicita información ahora!
-
-**Descripción breve:** ¿Te gustan los animales y la estética? Déjanos tus datos y te enviaremos toda la información sobre el curso de Peluquería Canina y Felina en CEP Norte. Técnicas profesionales, comienza en septiembre.
-
-### Preguntas
-- Nombre completo (autocompletar si es posible)
-- Teléfono (autocompletar)
-- Email (autocompletar)
-
-### Aviso RGPD (Descripción bajo Preguntas)
-Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Peluquería Canina y Felina en CEP Norte. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad
-
-### Pantalla de política de privacidad
-Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad
-
-### Pantalla final (Gracias)
-**Título:** ¡Gracias por tu interés!
-**Descripción:** En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Peluquería Canina y Felina en CEP Norte. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza.
-
----
-
-## 13. PELUQUERÍA CANINA Y FELINA – SANTA CRUZ
-
-### Nombre del formulario
-CEP SANTA CRUZ – Peluquería Canina y Felina – CAMPAÑA OTOÑO 2025 – SOLARIA AGENCY
-
-### Tag de seguimiento
-`otono-2025-peluqueria-canina-santacruz`
-
-### Presentación (Pantalla de bienvenida)
-**Título:** ¡Solicita información ahora!
-
-**Descripción breve:** ¿Te gustan los animales y la estética? Déjanos tus datos y te enviaremos toda la información sobre el curso de Peluquería Canina y Felina en CEP Santa Cruz. Técnicas profesionales, comienza en julio.
-
-### Preguntas
-- Nombre completo (autocompletar si es posible)
-- Teléfono (autocompletar)
-- Email (autocompletar)
-
-### Aviso RGPD (Descripción bajo Preguntas)
-Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Peluquería Canina y Felina en CEP Santa Cruz. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad
-
-### Pantalla de política de privacidad
-Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad
-
-### Pantalla final (Gracias)
-**Título:** ¡Gracias por tu interés!
-**Descripción:** En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Peluquería Canina y Felina en CEP Santa Cruz. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza.
-
----
-
-## 14. QUIROMASAJE NIVEL I – NORTE
-
-### Nombre del formulario
+### **14. QUIROMASAJE NIVEL I – NORTE**
+**Nombre del formulario:**  
 CEP NORTE – Quiromasaje Nivel I – CAMPAÑA OTOÑO 2025 – SOLARIA AGENCY
 
-### Tag de seguimiento
+**Tag de seguimiento:**  
 `otono-2025-quiromasaje-nivel1-norte`
 
-### Presentación (Pantalla de bienvenida)
-**Título:** ¡Solicita información ahora!
-
-**Descripción breve:** ¿Te interesa el mundo del bienestar y las terapias? Déjanos tus datos y te enviaremos toda la información sobre el curso de Quiromasaje Nivel I en CEP Norte. Técnicas fundamentales, comienza en septiembre.
-
-### Preguntas
+### **Preguntas:**
 - Nombre completo (autocompletar si es posible)
 - Teléfono (autocompletar)
 - Email (autocompletar)
 
-### Aviso RGPD (Descripción bajo Preguntas)
+### **Aviso RGPD:**
 Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Quiromasaje Nivel I en CEP Norte. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad
 
-### Pantalla de política de privacidad
+### **Pantalla de política de privacidad:**
 Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad
 
-### Pantalla final (Gracias)
+### **Pantalla final (Gracias):**
 **Título:** ¡Gracias por tu interés!
 **Descripción:** En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Quiromasaje Nivel I en CEP Norte. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza.
 

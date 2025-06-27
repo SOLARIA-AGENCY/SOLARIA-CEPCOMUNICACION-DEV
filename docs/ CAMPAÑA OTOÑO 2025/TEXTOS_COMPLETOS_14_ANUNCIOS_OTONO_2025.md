@@ -178,28 +178,28 @@
 
 ---
 
-## 8. AUXILIAR FARMACIA + DERMO – NORTE (OCTUBRE 2025)
+## 8. AUXILIAR FARMACIA + DERMOCOSMÉTICA – NORTE (**JULIO 2025** - **🔴 PRIORIDAD MÁXIMA**)
 
-### TEXTO PRINCIPAL (5 variaciones)
-1. Especialízate como Auxiliar de Farmacia y Parafarmacia con Dermocosmética en el Norte. Curso presencial, prácticas reales y título oficial.
-2. Da el salto profesional en farmacia, perfumería o parafarmacia del Norte. Prácticas en empresas, formación en dermocosmética y orientación laboral.
-3. Fórmate en farmacia y dermocosmética con CEP Norte. Grupos reducidos, prácticas garantizadas y doble diploma.
-4. Descubre la formación más completa en farmacia y parafarmacia del Norte. Curso con prácticas reales y título CEP.
-5. Empieza tu carrera como auxiliar de farmacia Norte con especialidad en dermocosmética. Prácticas y empleo asegurado.
+### **TEXTOS PRINCIPALES**
+1. **🔴 PRIORIDAD JULIO** - Especialízate como Auxiliar de Farmacia y Parafarmacia con Dermocosmética en el Norte. Curso presencial, 250h prácticas reales y agencia de colocación oficial.
+2. Conviértete en auxiliar de farmacia con especialización en dermocosmética. Formación integral Norte, prácticas garantizadas y empleo asegurado. **Inicio adelantado Julio 2025**.
+3. Auxiliar de Farmacia + Dermocosmética Norte - **PRIORIDAD JULIO**. 40 sesiones, 10 meses, prácticas reales. Agencia colocación oficial con alta inserción laboral.
+4. Especialízate en farmacia y dermocosmética Norte. Formación teórico-práctica, 250h en empresas del sector. **Adelantado a Julio por alta demanda**.
+5. Empieza tu carrera como auxiliar de farmacia Norte con especialidad en dermocosmética. **Julio 2025** - Prácticas y empleo asegurado.
 
-### TÍTULO (5 variaciones)
-1. Fórmate como Auxiliar de Farmacia Norte. Prácticas y título oficial.
-2. Curso farmacia y dermocosmética Norte: prácticas reales y empleo.
-3. Tu futuro en farmacia Norte empieza aquí. Doble diploma.
-4. Curso presencial Norte con prácticas en farmacias.
-5. Especialízate en farmacia y dermocosmética Norte. Plazas limitadas.
+### **TÍTULOS**
+1. **🔴 PRIORIDAD JULIO** - Fórmate como Auxiliar de Farmacia Norte. Prácticas y agencia colocación oficial.
+2. Auxiliar Farmacia + Dermocosmética Norte **JULIO 2025**. Especialización y empleo garantizado.
+3. **ADELANTADO JULIO** - Auxiliar de Farmacia Norte. 250h prácticas reales y inserción laboral.
+4. Farmacia + Dermocosmética Norte - **PRIORIDAD MÁXIMA JULIO**. Formación integral y empleo.
+5. **JULIO 2025** - Auxiliar Farmacia Norte. Especialización dermocosmética y colocación oficial.
 
-### DESCRIPCIÓN (5 variaciones)
-1. Haz clic y descubre tu empleo en farmacia del Norte.
-2. Solicita tu plaza Norte y accede a prácticas en empresas.
-3. Descubre nuestro curso Norte y comienza en dermocosmética.
-4. Conoce el temario y salidas profesionales Norte.
-5. Fórmate con los mejores del Norte y accede al mercado laboral.
+### **DESCRIPCIONES**
+1. Especialízate como auxiliar de farmacia con dermocosmética en CEP Norte. **Adelantado a Julio 2025** por alta demanda. 40 sesiones, 250h prácticas reales.
+2. Formación integral en farmacia y parafarmacia Norte. **Prioridad Julio** - Especialización dermocosmética, agencia colocación oficial.
+3. **JULIO 2025** - Auxiliar de Farmacia Norte con dermocosmética. 10 meses formación, prácticas garantizadas, empleo asegurado.
+4. **PRIORIDAD MÁXIMA** - Auxiliar Farmacia + Dermocosmética Norte. Inicio Julio, formación completa, inserción laboral garantizada.
+5. Conviértete en profesional farmacéutico Norte. **Adelantado Julio 2025** - Especialización dermocosmética y colocación oficial.
 
 ---
 
@@ -278,53 +278,17 @@
 
 ---
 
-## 12. PELUQUERÍA CANINA Y FELINA – NORTE (SEPTIEMBRE 2025)
+## ⏸️ **CURSOS APLAZADOS**
 
-### TEXTO PRINCIPAL (5 variaciones)
-1. Fórmate como peluquero/a canino y felino en el Norte. Curso presencial, prácticas en centros reales y título CEP.
-2. Aprende técnicas de estética y salud animal Norte. Prácticas en empresa, grupos reducidos y empleabilidad real.
-3. Curso de peluquería canina y felina Norte: prácticas garantizadas y salida laboral directa.
-4. Descubre cómo trabajar en centros de estética animal Norte con nuestro curso práctico y certificado.
-5. Convierte tu pasión por los animales en tu futuro profesional Norte. Plazas limitadas.
+### **12. PELUQUERÍA CANINA Y FELINA – NORTE (APLAZADO)**
+**Estado**: ⏸️ **CANCELADO POR BAJA DEMANDA**  
+**Motivo**: Convocatoria aplazada indefinidamente por falta de inscripciones suficientes  
+**Alternativas**: Recomendamos Adiestramiento Canino Norte (Septiembre 2025) o Auxiliar Clínico Veterinario Norte (Septiembre 2025)
 
-### TÍTULO (5 variaciones)
-1. Curso de peluquería animal Norte con prácticas y empleo.
-2. Aprende técnicas de corte y baño en animales Norte.
-3. Prácticas reales Norte en centros de estética animal.
-4. Da el salto profesional al mundo animal Norte. Inscríbete.
-5. Curso certificado y práctico Norte. Plazas abiertas.
-
-### DESCRIPCIÓN (5 variaciones)
-1. Haz clic y solicita información sobre peluquería animal Norte.
-2. Conoce fechas Norte, temario y salidas profesionales.
-3. Reserva plaza Norte y accede a prácticas reales.
-4. Fórmate con expertos Norte y accede a empleo.
-5. Tu carrera en el mundo animal Norte empieza aquí.
-
----
-
-## 13. PELUQUERÍA CANINA Y FELINA – SANTA CRUZ (JULIO 2025)
-
-### TEXTO PRINCIPAL (5 variaciones)
-1. Fórmate como peluquero/a canino y felino. Curso presencial, prácticas en centros reales y título CEP.
-2. Aprende técnicas de estética y salud animal. Prácticas en empresa, grupos reducidos y empleabilidad real.
-3. Curso de peluquería canina y felina: prácticas garantizadas y salida laboral directa.
-4. Descubre cómo trabajar en centros de estética animal con nuestro curso práctico y certificado.
-5. Convierte tu pasión por los animales en tu futuro profesional. Plazas limitadas.
-
-### TÍTULO (5 variaciones)
-1. Curso de peluquería animal con prácticas y empleo.
-2. Aprende técnicas de corte y baño en animales.
-3. Prácticas reales en centros de estética animal.
-4. Da el salto profesional al mundo animal. Inscríbete.
-5. Curso certificado y práctico. Plazas abiertas.
-
-### DESCRIPCIÓN (5 variaciones)
-1. Haz clic y solicita información sobre peluquería animal.
-2. Conoce fechas, temario y salidas profesionales.
-3. Reserva plaza y accede a prácticas reales.
-4. Fórmate con expertos y accede a empleo.
-5. Tu carrera en el mundo animal empieza aquí.
+### **13. PELUQUERÍA CANINA Y FELINA – SANTA CRUZ (APLAZADO)**
+**Estado**: ⏸️ **CANCELADO POR BAJA DEMANDA**  
+**Motivo**: Convocatoria aplazada indefinidamente por falta de inscripciones suficientes  
+**Alternativas**: Recomendamos Auxiliar Clínico Veterinario Santa Cruz (Septiembre 2025) o Quiromasaje Nivel II Santa Cruz (Julio 2025)
 
 ---
 

@@ -423,55 +423,57 @@ export const cursoData = [
   // 8. Auxiliar Farmacia + Dermo Norte
   {
     slug: 'auxiliar-farmacia-dermo-norte',
-    nombre: 'Auxiliar Farmacia + Dermo',
+    nombre: 'Auxiliar Farmacia + Dermocosmética',
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-farmacia-dermo-norte',
-    inicio: 'Octubre 2025',
+    inicio: 'Julio 2025',
     imagen: '/images/cursos/farmacia-parafarmacia.jpg',
     temario: [
-      'Anatomía y fisiología aplicada',
-      'Farmacología y grupos terapéuticos',
-      'Dispensación de medicamentos',
-      'Parafarmacia y productos sanitarios',
-      'Dermocosmética profesional',
-      'Formulación magistral',
-      'Atención farmacéutica al paciente',
-      'Normativa farmacéutica y sanitaria',
-      'Gestión de stocks y almacén',
-      'Productos de higiene y cosmética'
+      'ANATOMOPATOLOGÍA: Piel, sistemas corporales, primeros auxilios',
+      'FARMACOLOGÍA: Medicamentos, dispensación, farmacovigilancia, interacciones',
+      'PARAFARMACIA: Productos cosméticos, nutrición, productos sanitarios',
+      'DERMOCOSMÉTICA: Productos y tratamientos específicos para la piel',
+      'Biofarmacia y farmacocinética: procesos ADME y efectos farmacológicos',
+      'Farmacología por sistemas y atención farmacéutica especializada',
+      'Homeopatía y productos fitoterapéuticos: prescripción y dispensación',
+      'Productos para situaciones especiales: embarazo, lactancia, pediatría',
+      'Orientación laboral y técnicas de atención al cliente farmacéutico'
     ],
-    duracion: '48 sesiones',
+    duracion: '40 sesiones / 10 meses formación',
     precio: {
-      cuotas: 12,
+      cuotas: 10,
       importe: 100,
       matricula: 150
     },
-    practicas: '350 horas prácticas en empresas',
-    certificacion: 'Título oficial + Grupos reducidos + Agencia colocación oficial',
+    practicas: '250 horas prácticas en farmacias y parafarmacias + Agencia colocación oficial',
+    profesor: 'Alexis Galán (Farmacéutico titulado)',
+    certificacion: 'Diploma CEP en Auxiliar de Farmacia y Parafarmacia + Especialización Dermocosmética',
     profesorDetalle: {
       nombre: 'Alexis Galán',
       foto: '/images/profesores/alexis.jpg',
-      especialidad: 'Especialista en Farmacia y Dermocosmética',
-      descripcion: 'Farmacéutico titulado con experiencia en oficinas de farmacia y especialización en dermocosmética profesional. Experto en dispensación farmacéutica y productos parafarmacéuticos.'
+      especialidad: 'Farmacéutico Colegiado - Especialista en Dermocosmética',
+      descripcion: 'Farmacéutico titulado con amplia experiencia en oficina de farmacia y especialización en dermocosmética. Experto en dispensación farmacéutica, productos parafarmacéuticos y asesoramiento dermofarmacológico. Formador certificado con experiencia docente en el sector.'
     },
     modalidadInfo: {
-      tipo: 'Formación teórico-práctica en grupos reducidos',
+      tipo: 'Formación teórico-práctica especializada en grupos reducidos',
       horario: '1 día por semana - 3 horas por sesión',
-      sesiones: '48 sesiones de formación',
-      certificacion: 'Título oficial + Agencia colocación oficial + Grupos reducidos'
+      sesiones: '40 sesiones - 10 meses de duración',
+      certificacion: 'Diploma profesional + Especialización Dermocosmética + Agencia colocación oficial'
     },
     copy: {
-      slogan: "Especialízate en farmacia y dermocosmética profesional",
+      slogan: "Especialízate como auxiliar de farmacia con dermocosmética - Prioridad Julio 2025",
       textosPrincipales: [
-        "Conocimientos avanzados en farmacología",
-        "Especialización en dermocosmética",
-        "Sector con alta demanda profesional"
+        "Formación integral en farmacia y parafarmacia",
+        "Especialización en dermocosmética y productos de belleza",
+        "250 horas de prácticas reales en empresas del sector",
+        "Agencia de colocación oficial para inserción laboral"
       ],
-      titulos: ["Farmacología Avanzada", "Dermocosmética", "Alta Demanda"],
+      titulos: ["Farmacia Integral", "Dermocosmética", "Prácticas Reales", "Empleo Garantizado"],
       descripciones: [
-        "Formación integral en dispensación farmacéutica y asesoramiento especializado al cliente",
-        "Conocimientos avanzados en productos dermocosméticos y tratamientos especializados",
-        "Sector farmacéutico con excelentes oportunidades laborales y crecimiento profesional"
+        "Conocimientos completos en dispensación farmacéutica, medicamentos y productos sanitarios",
+        "Especialización avanzada en productos cosméticos, dermocosmética y asesoramiento de belleza",
+        "Experiencia práctica supervisada en farmacias y parafarmacias de prestigio",
+        "Servicio de agencia de colocación oficial con alta tasa de inserción laboral en el sector"
       ]
     }
   },

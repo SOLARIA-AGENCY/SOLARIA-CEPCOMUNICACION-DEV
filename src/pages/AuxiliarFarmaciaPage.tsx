@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Heart, Phone, Mail, MapPin, Star, ChevronDown, ChevronUp, Pill, Activity, Shield, Microscope } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { CheckCircle, Clock, User, Award, Book, ChevronDown, ChevronUp, Star, Phone, Mail, MapPin, Calendar, Users, Heart, Shield, Microscope } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
@@ -8,10 +8,20 @@ const AuxiliarFarmaciaPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedModule, setExpandedModule] = useState<number | null>(null);
 
-  const curso = {
-    nombre: 'Auxiliar de Farmacia y Parafarmacia',
+  const cursoData = {
+    nombre: 'Auxiliar de Farmacia y Parafarmacia + Dermocosmética',
     sede: 'Norte',
-    tag: 'otono-2025-auxiliar-farmacia-dermo-norte'
+    tag: 'otono-2025-auxiliar-farmacia-dermo-norte',
+    inicio: '🔴 PRIORIDAD JULIO 2025',
+    duracion: '40 sesiones / 10 meses',
+    precio: {
+      cuotas: 10,
+      importe: 100,
+      matricula: 150
+    },
+    practicas: '250 horas prácticas en farmacias y parafarmacias',
+    profesor: 'Alexis Galán (Farmacéutico Colegiado)',
+    certificacion: 'Diploma CEP + Especialización Dermocosmética + Agencia Colocación Oficial'
   };
 
   const toggleModule = (moduleIndex: number) => {
@@ -85,281 +95,331 @@ const AuxiliarFarmaciaPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <CepHeader />
-      
-      {/* Hero Section con imagen */}
-      <div className="relative bg-gray-900 text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="/images/cursos/auxiliar-de.jpg" 
-            alt="Auxiliar de Farmacia" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
-        <div className="relative container mx-auto px-4 py-12 sm:py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <Pill className="w-12 h-12 text-yellow-400" />
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Auxiliar de Farmacia y Parafarmacia
-            </h1>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
-              <p className="text-lg sm:text-xl italic mb-2">
-                "La farmacia es el primer contacto del paciente con la sanidad"
-              </p>
-              <p className="text-yellow-400 font-semibold">- Consejo General de Farmacéuticos</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Clock className="w-5 h-5 mr-2" />
-                10 meses
-              </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Users className="w-5 h-5 mr-2" />
-                Presencial
-              </div>
-              <div className="flex items-center bg-white/20 rounded-full px-4 py-2">
-                <Award className="w-5 h-5 mr-2" />
-                250h Prácticas
-              </div>
-            </div>
-            
-            {/* Botón de inscripción */}
-            <div className="mt-8">
-              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
-                >
-                  ¡RESERVAR MI PLAZA AHORA!
-                </button>
-              </div>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      {/* Header con prioridad */}
+      <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-4">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-3">
+            <span className="bg-white text-red-600 px-3 py-1 rounded-full font-bold text-sm">🔴 PRIORIDAD MÁXIMA</span>
+            <span className="font-semibold">ADELANTADO A JULIO 2025 POR ALTA DEMANDA</span>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8 sm:py-12">
-        <div className="max-w-6xl mx-auto">
-          {/* ¿Qué Aprendo? */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-green-600" />
-              ¿Qué Aprendo?
-            </h2>
-            <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-              <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                El curso de <strong>Auxiliar de Farmacia</strong> ofrece los conocimientos imprescindibles del 
-                funcionamiento de una oficina de farmacia, las funciones del auxiliar de farmacia y un módulo 
-                de orientación laboral, dinámico y actualizado.
-              </p>
-              <p className="text-lg leading-relaxed text-gray-700">
-                <strong>Objetivo:</strong> Adquirir la confianza, habilidades y conocimientos para trabajar como 
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-blue-600 to-green-600 text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="bg-red-500 text-white px-4 py-2 rounded-full font-bold text-sm">
+                  🔴 JULIO 2025 - PRIORIDAD
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Auxiliar de Farmacia y Parafarmacia
+                <span className="block text-green-300 mt-2">+ Dermocosmética</span>
+              </h1>
+              <p className="text-xl mb-8 leading-relaxed">
+                El curso de <strong>Auxiliar de Farmacia</strong> ofrece los conocimientos imprescindibles del
+                funcionamiento de una oficina de farmacia, las funciones del auxiliar de farmacia y un módulo
+                de orientación laboral, dinámico y actualizado, adquiriendo la confianza, habilidades y conocimientos para trabajar como
                 <strong> Auxiliar en Farmacias o parafarmacias, almacén de medicamentos</strong>.
               </p>
-            </div>
-          </section>
-
-          {/* Información del Ciclo */}
-          <section className="mb-12">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 text-center">
-                <Clock className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Duración</h3>
-                <p className="text-gray-700">10 meses - 40 sesiones presenciales</p>
-              </div>
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 text-center">
-                <Award className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Prácticas</h3>
-                <p className="text-gray-700">250 horas en farmacias y parafarmacias</p>
-              </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center">
-                <Users className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Grupos</h3>
-                <p className="text-gray-700">Reducidos para atención personalizada</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Información Comercial */}
-          <section className="mb-12">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 sm:p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Información del Curso</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">💰 Inversión</h4>
-                  <p className="text-gray-700 mb-2"><strong>Total:</strong> 1.150€ (10 cuotas de 100€ + 150€ matrícula)</p>
-                  <p className="text-gray-700 mb-4"><strong>Modalidad:</strong> Presencial - 1 día por semana</p>
-                  <p className="text-sm text-blue-600 font-medium">✓ Incluye agencia de colocación oficial</p>
+              
+              {/* Características destacadas */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <Calendar className="text-green-300" size={24} />
+                  <span className="font-semibold">🔴 Julio 2025</span>
                 </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-3">🎯 Salidas Profesionales</h4>
-                  <ul className="text-gray-700 space-y-1">
-                    <li>• Oficinas de farmacia</li>
-                    <li>• Parafarmacias</li>
-                    <li>• Almacenes farmacéuticos</li>
-                    <li>• Droguerías especializadas</li>
-                    <li>• Laboratorios farmacéuticos</li>
-                  </ul>
+                <div className="flex items-center gap-3">
+                  <Clock className="text-green-300" size={24} />
+                  <span>10 meses</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Users className="text-green-300" size={24} />
+                  <span>Grupos reducidos</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Award className="text-green-300" size={24} />
+                  <span>250h prácticas</span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                🔴 RESERVAR PLAZA PRIORITARIA - JULIO 2025
+              </button>
+            </div>
+            
+            <div className="relative">
+              <img
+                src="/images/cursos/farmacia-parafarmacia.jpg"
+                alt="Auxiliar de Farmacia"
+                className="rounded-lg shadow-2xl"
+              />
+              <div className="absolute -top-4 -right-4 bg-red-500 text-white p-4 rounded-lg shadow-lg">
+                <div className="text-center">
+                  <div className="font-bold text-xl">🔴 PRIORIDAD</div>
+                  <div className="text-sm">Julio 2025</div>
                 </div>
               </div>
             </div>
-          </section>
-
-          {/* Temario Expandible */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-green-600" />
-              Temario Completo
-            </h2>
-            <div className="space-y-4">
-              {modulos.map((modulo, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                  <button
-                    onClick={() => toggleModule(index)}
-                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-                  >
-                    <h3 className="text-lg font-semibold text-gray-900">{modulo.titulo}</h3>
-                    {expandedModule === index ? (
-                      <ChevronUp className="w-5 h-5 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-500" />
-                    )}
-                  </button>
-                  {expandedModule === index && (
-                    <div className="px-6 pb-4">
-                      <ul className="space-y-2">
-                        {modulo.contenido.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Tu Profesor Especialista */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Star className="inline-block w-8 h-8 mr-3 text-yellow-500" />
-              Tu Profesor Especialista
-            </h2>
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="md:flex">
-                <div className="md:w-1/3 p-6 sm:p-8 flex justify-center">
-                  <div className="relative">
-                    <img 
-                      src="/images/profesores/alexis.jpg" 
-                      alt="Alexis Galán - Farmacéutico especialista" 
-                      className="w-48 h-48 rounded-full object-cover shadow-lg"
-                    />
-                    <div className="absolute -bottom-2 -right-2 bg-yellow-400 rounded-full p-2">
-                      <Award className="w-6 h-6 text-yellow-800" />
-                    </div>
-                  </div>
-                </div>
-                <div className="md:w-2/3 p-6 sm:p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Alexis Galán</h3>
-                  <p className="text-lg text-green-600 font-semibold mb-4">Farmacéutico especialista en Farmacia Comunitaria</p>
-                  <p className="text-gray-700 mb-4 leading-relaxed">
-                    Farmacéutico titulado con amplia experiencia en farmacia comunitaria y hospitalaria. 
-                    Especialista en formulación magistral y atención farmacéutica. Formador oficial 
-                    de ciclos formativos sanitarios.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                      Farmacia Comunitaria
-                    </span>
-                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                      Formulación Magistral
-                    </span>
-                    <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
-                      Formador Oficial
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Cursos Complementarios */}
-          <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
-              Cursos Complementarios
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {cursosComplementarios.map((curso, index) => (
-                <div key={index} className="bg-white rounded-lg p-4 shadow-md text-center hover:shadow-lg transition-shadow">
-                  <p className="text-gray-700 font-medium">{curso}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Información de Contacto */}
-          <section className="mb-12">
-            <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl p-6 sm:p-8 text-white text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-                ¡Inicia tu Carrera en el Sector Farmacéutico!
-              </h2>
-              <p className="text-lg text-green-100 mb-6">
-                Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
-              </p>
-              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
-                >
-                  ¡RESERVAR MI PLAZA AHORA!
-                </button>
-              </div>
-              <p className="text-sm text-green-100 mt-4">
-                <Clock className="inline-block w-4 h-4 mr-1" />
-                Te contactaremos en menos de 30 minutos
-              </p>
-            </div>
-          </section>
-
-          {/* Información de Contacto */}
-          <section className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">¿Necesitas más información?</h2>
-            <div className="grid sm:grid-cols-3 gap-6 text-center">
-              <div className="flex flex-col items-center">
-                <Phone className="w-8 h-8 text-blue-600 mb-2" />
-                <p className="font-semibold">Teléfono</p>
-                <p className="text-gray-600">922 21 92 57</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <Mail className="w-8 h-8 text-green-600 mb-2" />
-                <p className="font-semibold">Email</p>
-                <p className="text-gray-600">info@cursostenerife.es</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <MapPin className="w-8 h-8 text-red-600 mb-2" />
-                <p className="font-semibold">Sede Norte</p>
-                <p className="text-gray-600">C.C El Tompo - La Orotava</p>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* Información del curso */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              Auxiliar de Farmacia y Parafarmacia + Dermocosmética
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Especialízate en el sector farmacéutico con formación integral que incluye farmacología, 
+              parafarmacia y dermocosmética profesional. <strong>Adelantado a Julio 2025 por alta demanda</strong>.
+            </p>
+          </div>
+
+          {/* Módulos del curso */}
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <Microscope className="text-blue-600 mb-4" size={40} />
+              <h3 className="text-xl font-bold text-gray-800 mb-3">ANATOMOPATOLOGÍA</h3>
+              <ul className="text-gray-600 space-y-2">
+                <li>• Piel: higiene y aseo del paciente</li>
+                <li>• Sistema esquelético-muscular</li>
+                <li>• Sistema cardiocirculatorio e inmunológico</li>
+                <li>• Constantes vitales y primeros auxilios</li>
+              </ul>
+            </div>
+
+            <div className="bg-green-50 p-6 rounded-lg">
+              <Shield className="text-green-600 mb-4" size={40} />
+              <h3 className="text-xl font-bold text-gray-800 mb-3">FARMACOLOGÍA</h3>
+              <ul className="text-gray-600 space-y-2">
+                <li>• Conceptos básicos sobre medicamentos</li>
+                <li>• Dispensación y prescripción médica</li>
+                <li>• Biofarmacia y farmacocinética</li>
+                <li>• Farmacología por sistemas</li>
+                <li>• Homeopatía y fitoterapia</li>
+              </ul>
+            </div>
+
+            <div className="bg-purple-50 p-6 rounded-lg">
+              <Heart className="text-purple-600 mb-4" size={40} />
+              <h3 className="text-xl font-bold text-gray-800 mb-3">PARAFARMACIA + DERMO</h3>
+              <ul className="text-gray-600 space-y-2">
+                <li>• Productos parafarmacéuticos</li>
+                <li>• Dermocosmética profesional</li>
+                <li>• Alimentación y nutrición</li>
+                <li>• Productos sanitarios</li>
+                <li>• Cosmética especializada</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Información práctica */}
+          <div className="bg-gradient-to-r from-blue-600 to-green-600 text-white p-8 rounded-lg">
+            <div className="grid md:grid-cols-4 gap-6 text-center">
+              <div>
+                <Calendar className="mx-auto mb-3" size={32} />
+                <h4 className="font-bold text-lg">🔴 INICIO PRIORITARIO</h4>
+                <p>Julio 2025</p>
+                <p className="text-sm opacity-90">Adelantado por demanda</p>
+              </div>
+              <div>
+                <Clock className="mx-auto mb-3" size={32} />
+                <h4 className="font-bold text-lg">DURACIÓN</h4>
+                <p>40 sesiones</p>
+                <p className="text-sm opacity-90">10 meses formación</p>
+              </div>
+              <div>
+                <Award className="mx-auto mb-3" size={32} />
+                <h4 className="font-bold text-lg">PRÁCTICAS</h4>
+                <p>250 horas</p>
+                <p className="text-sm opacity-90">Empresas reales</p>
+              </div>
+              <div>
+                <Users className="mx-auto mb-3" size={32} />
+                <h4 className="font-bold text-lg">MODALIDAD</h4>
+                <p>Presencial</p>
+                <p className="text-sm opacity-90">Grupos reducidos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Precio y financiación */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">Inversión y Financiación</h2>
+              <p className="text-xl text-gray-600">
+                Formación profesional accesible con múltiples opciones de pago
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-blue-200">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-blue-600 mb-4">Pago Fraccionado</h3>
+                  <div className="text-4xl font-bold text-gray-800 mb-2">1.150€</div>
+                  <div className="text-gray-600 mb-6">Total del curso</div>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex justify-between items-center">
+                      <span>Matrícula:</span>
+                      <span className="font-bold">150€</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span>10 cuotas de:</span>
+                      <span className="font-bold">100€/mes</span>
+                    </div>
+                    <div className="border-t pt-3">
+                      <div className="flex justify-between items-center font-bold text-lg">
+                        <span>Total:</span>
+                        <span>1.150€</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <h3 className="text-2xl font-bold text-green-600 mb-6 text-center">Incluido en el Curso</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-green-600" size={24} />
+                    <span>40 sesiones de formación teórico-práctica</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-green-600" size={24} />
+                    <span>250 horas de prácticas en empresas</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-green-600" size={24} />
+                    <span>Especialización en Dermocosmética</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-green-600" size={24} />
+                    <span>Agencia de colocación oficial</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-green-600" size={24} />
+                    <span>Material didáctico incluido</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-green-600" size={24} />
+                    <span>Diploma CEP Formación</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Profesor */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-800 mb-4">Nuestro Profesor Especialista</h2>
+            </div>
+
+            <div className="bg-gradient-to-r from-blue-50 to-green-50 p-8 rounded-lg">
+              <div className="grid md:grid-cols-3 gap-8 items-center">
+                <div className="text-center">
+                  <img
+                    src="/images/profesores/alexis.jpg"
+                    alt="Alexis Galán"
+                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow-lg"
+                  />
+                  <h3 className="text-xl font-bold text-gray-800">Alexis Galán</h3>
+                  <p className="text-blue-600 font-semibold">Farmacéutico Colegiado</p>
+                </div>
+                
+                <div className="md:col-span-2">
+                  <h4 className="text-lg font-bold text-gray-800 mb-3">Especialista en Dermocosmética</h4>
+                  <p className="text-gray-600 mb-4">
+                    Farmacéutico titulado con amplia experiencia en oficina de farmacia y especialización en dermocosmética. 
+                    Experto en dispensación farmacéutica, productos parafarmacéuticos y asesoramiento dermofarmacológico. 
+                    Formador certificado con experiencia docente en el sector.
+                  </p>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="text-green-600" size={20} />
+                      <span className="text-sm">Farmacéutico Colegiado</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="text-green-600" size={20} />
+                      <span className="text-sm">Especialista Dermocosmética</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="text-green-600" size={20} />
+                      <span className="text-sm">Experiencia Docente</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="text-green-600" size={20} />
+                      <span className="text-sm">Profesional en Activo</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-16 bg-gradient-to-r from-red-600 to-red-700 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">🔴 PRIORIDAD MÁXIMA - JULIO 2025</h2>
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
+            Convocatoria adelantada por alta demanda. Especialízate como Auxiliar de Farmacia con Dermocosmética 
+            y accede a un sector con excelentes oportunidades laborales.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <div className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold">
+              🔴 Inicio: Julio 2025
+            </div>
+            <div className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold">
+              250h Prácticas Reales
+            </div>
+            <div className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold">
+              Agencia Colocación
+            </div>
+          </div>
+
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-white text-red-600 px-12 py-4 rounded-lg font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            RESERVAR PLAZA PRIORITARIA JULIO 2025
+          </button>
+          
+          <p className="text-sm mt-4 opacity-90">
+            Plazas limitadas • Convocatoria prioritaria • Contacto inmediato
+          </p>
+        </div>
+      </section>
 
       <CepFooter />
 
-      {/* Modal de Inscripción */}
+      {/* Modal de inscripción */}
       <CursoInscripcionModal 
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        curso={curso}
+        curso={cursoData}
       />
     </div>
   );
