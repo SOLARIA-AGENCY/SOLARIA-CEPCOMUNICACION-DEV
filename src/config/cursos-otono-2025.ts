@@ -439,13 +439,13 @@ export const cursoData = [
       'Productos para situaciones especiales: embarazo, lactancia, pediatría',
       'Orientación laboral y técnicas de atención al cliente farmacéutico'
     ],
-    duracion: '40 sesiones / 10 meses formación',
+    duracion: '48 sesiones / 12 meses formación',
     precio: {
-      cuotas: 10,
+      cuotas: 12,
       importe: 100,
       matricula: 150
     },
-    practicas: '250 horas prácticas en farmacias y parafarmacias + Agencia colocación oficial',
+    practicas: '350 horas prácticas en farmacias y parafarmacias + Agencia colocación oficial',
     profesor: 'Alexis Galán (Farmacéutico titulado)',
     certificacion: 'Diploma CEP en Auxiliar de Farmacia y Parafarmacia + Especialización Dermocosmética',
     profesorDetalle: {
@@ -457,7 +457,7 @@ export const cursoData = [
     modalidadInfo: {
       tipo: 'Formación teórico-práctica especializada en grupos reducidos',
       horario: '1 día por semana - 3 horas por sesión',
-      sesiones: '40 sesiones - 10 meses de duración',
+      sesiones: '48 sesiones - 12 meses de duración',
       certificacion: 'Diploma profesional + Especialización Dermocosmética + Agencia colocación oficial'
     },
     copy: {
@@ -465,7 +465,7 @@ export const cursoData = [
       textosPrincipales: [
         "Formación integral en farmacia y parafarmacia",
         "Especialización en dermocosmética y productos de belleza",
-        "250 horas de prácticas reales en empresas del sector",
+        "350 horas de prácticas reales en empresas del sector",
         "Agencia de colocación oficial para inserción laboral"
       ],
       titulos: ["Farmacia Integral", "Dermocosmética", "Prácticas Reales", "Empleo Garantizado"],

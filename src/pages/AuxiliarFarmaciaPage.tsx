@@ -13,13 +13,13 @@ const AuxiliarFarmaciaPage: React.FC = () => {
     sede: 'Norte',
     tag: 'otono-2025-auxiliar-farmacia-dermo-norte',
     inicio: '🔴 PRIORIDAD JULIO 2025',
-    duracion: '40 sesiones / 10 meses',
+    duracion: '48 sesiones / 12 meses',
     precio: {
-      cuotas: 10,
+      cuotas: 12,
       importe: 100,
       matricula: 150
     },
-    practicas: '250 horas prácticas en farmacias y parafarmacias',
+    practicas: '350 horas prácticas en farmacias y parafarmacias',
     profesor: 'Alexis Galán (Farmacéutico Colegiado)',
     certificacion: 'Diploma CEP + Especialización Dermocosmética + Agencia Colocación Oficial'
   };
@@ -96,6 +96,8 @@ const AuxiliarFarmaciaPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      <CepHeader />
+      
       {/* Header con prioridad */}
       <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-4">
         <div className="container mx-auto px-4 text-center">
@@ -135,7 +137,7 @@ const AuxiliarFarmaciaPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="text-green-300" size={24} />
-                  <span>10 meses</span>
+                  <span>12 meses</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Users className="text-green-300" size={24} />
@@ -143,13 +145,13 @@ const AuxiliarFarmaciaPage: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Award className="text-green-300" size={24} />
-                  <span>250h prácticas</span>
+                  <span>350h prácticas</span>
                 </div>
               </div>
 
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="bg-yellow-400 text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 border-2 border-red-600"
               >
                 🔴 RESERVAR PLAZA PRIORITARIA - JULIO 2025
               </button>
@@ -235,13 +237,13 @@ const AuxiliarFarmaciaPage: React.FC = () => {
               <div>
                 <Clock className="mx-auto mb-3" size={32} />
                 <h4 className="font-bold text-lg">DURACIÓN</h4>
-                <p>40 sesiones</p>
-                <p className="text-sm opacity-90">10 meses formación</p>
+                <p>48 sesiones</p>
+                <p className="text-sm opacity-90">12 meses formación</p>
               </div>
               <div>
                 <Award className="mx-auto mb-3" size={32} />
                 <h4 className="font-bold text-lg">PRÁCTICAS</h4>
-                <p>250 horas</p>
+                <p>350 horas</p>
                 <p className="text-sm opacity-90">Empresas reales</p>
               </div>
               <div>
@@ -270,7 +272,7 @@ const AuxiliarFarmaciaPage: React.FC = () => {
               <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-blue-200">
                 <div className="text-center">
                   <h3 className="text-2xl font-bold text-blue-600 mb-4">Pago Fraccionado</h3>
-                  <div className="text-4xl font-bold text-gray-800 mb-2">1.150€</div>
+                  <div className="text-4xl font-bold text-gray-800 mb-2">1.350€</div>
                   <div className="text-gray-600 mb-6">Total del curso</div>
                   
                   <div className="space-y-3 mb-6">
@@ -279,13 +281,13 @@ const AuxiliarFarmaciaPage: React.FC = () => {
                       <span className="font-bold">150€</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span>10 cuotas de:</span>
+                      <span>12 cuotas de:</span>
                       <span className="font-bold">100€/mes</span>
                     </div>
                     <div className="border-t pt-3">
                       <div className="flex justify-between items-center font-bold text-lg">
                         <span>Total:</span>
-                        <span>1.150€</span>
+                        <span>1.350€</span>
                       </div>
                     </div>
                   </div>
@@ -297,11 +299,11 @@ const AuxiliarFarmaciaPage: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="text-green-600" size={24} />
-                    <span>40 sesiones de formación teórico-práctica</span>
+                    <span>48 sesiones de formación teórico-práctica</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="text-green-600" size={24} />
-                    <span>250 horas de prácticas en empresas</span>
+                    <span>350 horas de prácticas en empresas</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="text-green-600" size={24} />
@@ -393,7 +395,7 @@ const AuxiliarFarmaciaPage: React.FC = () => {
               🔴 Inicio: Julio 2025
             </div>
             <div className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold">
-              250h Prácticas Reales
+              350h Prácticas Reales
             </div>
             <div className="bg-white text-red-600 px-6 py-3 rounded-lg font-bold">
               Agencia Colocación
@@ -402,7 +404,7 @@ const AuxiliarFarmaciaPage: React.FC = () => {
 
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-white text-red-600 px-12 py-4 rounded-lg font-bold text-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-yellow-400 text-red-600 px-12 py-4 rounded-lg font-bold text-xl hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 border-2 border-red-600"
           >
             RESERVAR PLAZA PRIORITARIA JULIO 2025
           </button>

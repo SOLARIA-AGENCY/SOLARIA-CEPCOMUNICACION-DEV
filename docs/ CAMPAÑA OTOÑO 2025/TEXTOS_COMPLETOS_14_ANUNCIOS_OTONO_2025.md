@@ -181,23 +181,23 @@
 ## 8. AUXILIAR FARMACIA + DERMOCOSMÉTICA – NORTE (**JULIO 2025** - **🔴 PRIORIDAD MÁXIMA**)
 
 ### **TEXTOS PRINCIPALES**
-1. **🔴 PRIORIDAD JULIO** - Especialízate como Auxiliar de Farmacia y Parafarmacia con Dermocosmética en el Norte. Curso presencial, 250h prácticas reales y agencia de colocación oficial.
+1. **🔴 PRIORIDAD JULIO** - Especialízate como Auxiliar de Farmacia y Parafarmacia con Dermocosmética en el Norte. Curso presencial, 350h prácticas reales y agencia de colocación oficial.
 2. Conviértete en auxiliar de farmacia con especialización en dermocosmética. Formación integral Norte, prácticas garantizadas y empleo asegurado. **Inicio adelantado Julio 2025**.
-3. Auxiliar de Farmacia + Dermocosmética Norte - **PRIORIDAD JULIO**. 40 sesiones, 10 meses, prácticas reales. Agencia colocación oficial con alta inserción laboral.
-4. Especialízate en farmacia y dermocosmética Norte. Formación teórico-práctica, 250h en empresas del sector. **Adelantado a Julio por alta demanda**.
+3. Auxiliar de Farmacia + Dermocosmética Norte - **PRIORIDAD JULIO**. 48 sesiones, 12 meses, prácticas reales. Agencia colocación oficial con alta inserción laboral.
+4. Especialízate en farmacia y dermocosmética Norte. Formación teórico-práctica, 350h en empresas del sector. **Adelantado a Julio por alta demanda**.
 5. Empieza tu carrera como auxiliar de farmacia Norte con especialidad en dermocosmética. **Julio 2025** - Prácticas y empleo asegurado.
 
 ### **TÍTULOS**
 1. **🔴 PRIORIDAD JULIO** - Fórmate como Auxiliar de Farmacia Norte. Prácticas y agencia colocación oficial.
 2. Auxiliar Farmacia + Dermocosmética Norte **JULIO 2025**. Especialización y empleo garantizado.
-3. **ADELANTADO JULIO** - Auxiliar de Farmacia Norte. 250h prácticas reales y inserción laboral.
+3. **ADELANTADO JULIO** - Auxiliar de Farmacia Norte. 350h prácticas reales y inserción laboral.
 4. Farmacia + Dermocosmética Norte - **PRIORIDAD MÁXIMA JULIO**. Formación integral y empleo.
 5. **JULIO 2025** - Auxiliar Farmacia Norte. Especialización dermocosmética y colocación oficial.
 
 ### **DESCRIPCIONES**
-1. Especialízate como auxiliar de farmacia con dermocosmética en CEP Norte. **Adelantado a Julio 2025** por alta demanda. 40 sesiones, 250h prácticas reales.
+1. Especialízate como auxiliar de farmacia con dermocosmética en CEP Norte. **Adelantado a Julio 2025** por alta demanda. 48 sesiones, 350h prácticas reales.
 2. Formación integral en farmacia y parafarmacia Norte. **Prioridad Julio** - Especialización dermocosmética, agencia colocación oficial.
-3. **JULIO 2025** - Auxiliar de Farmacia Norte con dermocosmética. 10 meses formación, prácticas garantizadas, empleo asegurado.
+3. **JULIO 2025** - Auxiliar de Farmacia Norte con dermocosmética. 12 meses formación, prácticas garantizadas, empleo asegurado.
 4. **PRIORIDAD MÁXIMA** - Auxiliar Farmacia + Dermocosmética Norte. Inicio Julio, formación completa, inserción laboral garantizada.
 5. Conviértete en profesional farmacéutico Norte. **Adelantado Julio 2025** - Especialización dermocosmética y colocación oficial.
 
