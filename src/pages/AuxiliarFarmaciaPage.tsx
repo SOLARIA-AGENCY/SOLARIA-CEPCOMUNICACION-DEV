@@ -24,75 +24,78 @@ const AuxiliarFarmaciaPage: React.FC = () => {
     certificacion: 'Diploma CEP + Especialización Dermocosmética + Agencia Colocación Oficial'
   };
 
-  const toggleModule = (moduleIndex: number) => {
-    setExpandedModule(expandedModule === moduleIndex ? null : moduleIndex);
-  };
-
   const modulos = [
     {
-      titulo: "BLOQUE 1: ANATOMOPATOLOGÍA",
+      titulo: "1. Anatomía Humana",
       contenido: [
-        "LA PIEL: HIGIENE Y ASEO DEL PACIENTE",
-        "SISTEMA ESQUELÉTICO-MUSCULAR",
-        "SISTEMA CARDIOCIRCULATORIO E INMUNOLÓGICO",
-        "CONSTANTES VITALES",
-        "APARATO RESPIRATORIO",
-        "APARATO DIGESTIVO",
-        "ALIMENTACIÓN Y NUTRICIÓN",
-        "APARATO URINARIO",
-        "APARATO GENITAL. REPRODUCCIÓN HUMANA",
-        "PRIMEROS AUXILIOS"
+        "Introducción a la Anatomía y al concepto de Enfermedad",
+        "Aparato Locomotor",
+        "Sistema Nervioso",
+        "Sistema Endocrino",
+        "La sangre",
+        "Aparato Respiratorio",
+        "Aparato Digestivo",
+        "Aparato Urinario",
+        "Aparato reproductor"
       ]
     },
     {
-      titulo: "BLOQUE 2: FARMACOLOGÍA",
+      titulo: "2. El Auxiliar en la Oficina de Farmacia",
       contenido: [
-        "Herramientas de la farmacia registro de datos de post dispensación; programas de gestión",
-        "Conceptos básicos sobre medicamentos: definiciones; medicamentos legalmente reconocidos; prescripción y dispensación de medicamentos",
-        "El embalaje exterior; el acondicionamiento primario; símbolos, siglas y leyendas; el prospecto; el cupón-precinto",
-        "Funciones del Técnico en la atención farmacéutica",
-        "Dispensación de medicamentos sujetos a prescripción médica",
-        "Biofarmacia y farmacocinética: introducción; Los procesos ADME; concepto general de acción y efecto farmacológico; interacciones",
-        "Dosificación. Farmacovigilancia: índice terapéutico; sistema español clasificación ATC de medicamentos",
-        "Farmacología por sistemas. Cuadro resumen de atención farmacéutica en algunas patologías menores",
-        "Terapia anti infecciosa. Inmunidad y vacunas: introducción; antibióticos; antivirales; inmunidad y vacunas",
-        "Homeopatía: Prescripción y dispensación",
-        "Productos fitoterapéuticos: las plantas medicinales; partes utilizadas clasificación; composición química; preparación y presentación de plantas medicinales; algas y hongos",
-        "Medicamentos de uso animal: introducción; autorización y registro de medicamentos veterinarios; comercialización, prescripción y dispensación de medicamentos veterinarios",
-        "Farmacia hospitalaria: introducción; objetivos de un servicio de farmacia hospitalaria; áreas de trabajo; sistema de dispensación de medicamentos; sistemas automatizados de almacenamiento y dispensación de medicamentos; dispensación de medicamentos de especial control"
+        "Marco legislativo",
+        "Personal de la Oficina de Farmacia",
+        "Servicios básicos",
+        "Compra/venta de Productos",
+        "Acondicionamiento de productos",
+        "Clasificación de productos",
+        "Medicamentos de uso humano y uso animal"
       ]
     },
     {
-      titulo: "BLOQUE 3: PARAFARMACIA",
+      titulo: "3. Los Productos de Parafarmacia",
       contenido: [
-        "Los productos parafarmacéuticos",
-        "Alimentación y nutrición",
-        "Alimentación infantil y productos de puericultura",
-        "Situaciones especiales: alimentación enteral, domiciliaria y dietoterápica",
+        "Productos de parafarmacia",
         "Productos sanitarios",
-        "Productos para la incontinencia urinaria, ginecológicos y anticonceptivos",
-        "Aparataje y equipos: sistemas de medición",
-        "Insuficiencia venosa: varices y productos de contención elástica",
-        "Biocidas",
-        "Productos odontológicos",
-        "Productos cosméticos",
-        "Dermocosmética: productos y tratamiento",
-        "Anomalías, patologías e higiene capilares. Cosmética masculina",
-        "Cosmética infantil. La higiene del bebé",
-        "La radiación y los productos solares",
-        "Ortopedia y prótesis",
-        "Óptica y audioprótesis"
+        "Antisépticos",
+        "La nutrición en la oficina de farmacia",
+        "Cosmética corporal, dermocosmética y cosmética solar",
+        "Infantil",
+        "Ortopedia, óptica y audioprótesis"
+      ]
+    },
+    {
+      titulo: "4. Dermocosmética",
+      contenido: [
+        "Introducción a la dermocosmética",
+        "Tipos de piel",
+        "Alteraciones cutáneas",
+        "Productos dermocosméticos"
+      ]
+    },
+    {
+      titulo: "5. Primeros Auxilios Básicos",
+      contenido: [
+        "Técnicas básicas de primeros auxilios",
+        "Actuación en emergencias",
+        "Protocolos de seguridad",
+        "Manejo de situaciones críticas"
+      ]
+    },
+    {
+      titulo: "6. Orientación Laboral",
+      contenido: [
+        "Técnicas de búsqueda de empleo",
+        "Elaboración de CV y carta de presentación",
+        "Preparación para entrevistas",
+        "Competencias profesionales",
+        "Mercado laboral farmacéutico"
       ]
     }
   ];
 
-  const cursosComplementarios = [
-    "Curso masaje",
-    "Dermocosmética",
-    "Dietética y nutrición",
-    "Ciclo medio de Farmacia y Parafarmacia",
-    "Inglés"
-  ];
+  const toggleModule = (index: number) => {
+    setExpandedModule(expandedModule === index ? null : index);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
@@ -257,8 +260,47 @@ const AuxiliarFarmaciaPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Precio y financiación */}
+      {/* Temario Expandible */}
       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            <Book className="inline-block w-8 h-8 mr-3 text-green-600" />
+            Temario Completo
+          </h2>
+          <div className="max-w-4xl mx-auto space-y-4">
+            {modulos.map((modulo, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <button
+                  onClick={() => toggleModule(index)}
+                  className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900">{modulo.titulo}</h3>
+                  {expandedModule === index ? (
+                    <ChevronUp className="w-5 h-5 text-gray-500" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                  )}
+                </button>
+                {expandedModule === index && (
+                  <div className="px-6 pb-4">
+                    <ul className="space-y-2">
+                      {modulo.contenido.map((item, itemIndex) => (
+                        <li key={itemIndex} className="flex items-start">
+                          <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                          <span className="text-gray-700">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Precio y financiación */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -321,6 +363,10 @@ const AuxiliarFarmaciaPage: React.FC = () => {
                     <CheckCircle className="text-green-600" size={24} />
                     <span>Diploma CEP Formación</span>
                   </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="text-green-600" size={24} />
+                    <span>Realidad virtual para anatomía</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -329,7 +375,7 @@ const AuxiliarFarmaciaPage: React.FC = () => {
       </section>
 
       {/* Profesor */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
