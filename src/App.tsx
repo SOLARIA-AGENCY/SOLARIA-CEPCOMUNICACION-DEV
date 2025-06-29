@@ -52,8 +52,9 @@ function App() {
         <Route path="/auxiliar-clinicas-esteticas" element={<AuxiliarEsteticasPage />} />
         <Route path="/auxiliar-farmacia-dermo" element={<AuxiliarFarmaciaPage />} />
         <Route path="/auxiliar-clinico-veterinario" element={<AuxiliarVeterinarioPage />} />
-        <Route path="/cfgm-farmacia-parafarmacia" element={<CFGMFarmaciaParafarmaciaPage />} />
-        <Route path="/cfgs-higiene-bucodental" element={<CFGSHigieneBucodentalPage />} />
+        {/* Rutas ahora dinámicas para evitar errores de tipo */}
+        <Route path="/cfgm-farmacia-parafarmacia" element={<DynamicCoursePageWrapper slug="cfgm-farmacia-parafarmacia-santacruz" />} />
+        <Route path="/cfgs-higiene-bucodental" element={<DynamicCoursePageWrapper slug="cfgs-higiene-bucodental-santacruz" />} />
 
         {/* --- NUEVAS RUTAS EN /new/ --- */}
         <Route path="/new/cursos" element={<NuevosCursosIndexPage />} />
