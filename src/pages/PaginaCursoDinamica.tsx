@@ -69,6 +69,13 @@ const PaginaCursoDinamica: React.FC = () => {
                 </li>
             ))}
             </ul>
+
+            <div className="mt-12 text-center">
+              <button className="bg-pink-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-pink-700 transition-transform transform hover:scale-105 shadow-lg">
+                RESERVA TU PLAZA AHORA
+              </button>
+            </div>
+
         </div>
       </main>
       <CepFooter />
