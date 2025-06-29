@@ -16,6 +16,11 @@ import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
 import CFGMFarmaciaParafarmaciaPage from './pages/CFGMFarmaciaParafarmaciaPage';
 import CFGSHigieneBucodentalPage from './pages/CFGSHigieneBucodentalPage';
 
+// --- NUEVA ESTRUCTURA DINÁMICA (EN PARALELO) ---
+import NuevosCursosIndexPage from './pages/NuevosCursosIndexPage';
+import PaginaCursoDinamica from './pages/PaginaCursoDinamica';
+// --- FIN NUEVA ESTRUCTURA ---
+
 import CepHeader from './components/organisms/CepHeader';
 import CepFooter from './components/organisms/CepFooter';
 import CursoInscripcionModal from './components/organisms/CursoInscripcionModal';
@@ -295,11 +300,24 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/cursos" element={<CursosPage />} />
         <Route path="/adiestramiento-canino" element={<AdiestramientoCaninoPage />} />
+        <Route path="/agente-funerario" element={<AgenteFunerarioPage />} />
+        <Route path="/auxiliar-enfermeria" element={<AuxiliarEnfermeriaPage />} />
+        <Route path="/auxiliar-clinicas-esteticas" element={<AuxiliarEsteticasPage />} />
+        <Route path="/auxiliar-farmacia-dermo" element={<AuxiliarFarmaciaPage />} />
+        <Route path="/auxiliar-clinico-veterinario" element={<AuxiliarVeterinarioPage />} />
+        <Route path="/cfgm-farmacia-parafarmacia" element={<CFGMFarmaciaParafarmaciaPage />} />
+        <Route path="/cfgs-higiene-bucodental" element={<CFGSHigieneBucodentalPage />} />
+
+        {/* --- NUEVAS RUTAS EN /new/ --- */}
+        <Route path="/new/cursos" element={<NuevosCursosIndexPage />} />
+        <Route path="/new/cursos/:slug" element={<PaginaCursoDinamica />} />
+        {/* --- FIN NUEVAS RUTAS --- */}
+        
         <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
         <Route path="/inicio" element={<HomePage />} />
         <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
         <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />
-        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
         <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
         
         {/* LANDINGS DIRECTAS - TODAS LAS RUTAS DE LOS 14 CURSOS */}
@@ -318,9 +336,6 @@ function App() {
         <Route path="/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
         <Route path="/quiromasaje-nivel1-norte" element={<QuiromasajeNivel1Page />} />
         <Route path="/quiromasaje-nivel2-santacruz" element={<QuiromasajeNivel2Page />} />
-        <Route path="/cfgs-higiene-bucodental-santacruz" element={<CFGSHigieneBucodentalPage />} />
-        <Route path="/cfgm-farmacia-parafarmacia-santacruz" element={<CFGMFarmaciaParafarmaciaPage />} />
-
       </Routes>
     </Router>
   );
