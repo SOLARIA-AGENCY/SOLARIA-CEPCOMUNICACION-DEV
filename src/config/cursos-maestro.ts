@@ -3,14 +3,13 @@ export type CursoMaestro = {
   slug: string;
   nombre: string;
   sede: 'Norte' | 'Santa Cruz';
-  estado: 'activo' | 'proximamente';
+  estado: 'activo' | 'proximamente' | 'cancelado';
   imagen: string;
   copy: {
     slogan: string;
     textosPrincipales: string[];
     titulos: string[];
   };
-  // Campos opcionales que solo existen si estado es 'activo'
   inicio?: string;
   duracion?: string;
   precio?: string;
@@ -65,7 +64,7 @@ const baseCursos = [
   { 
     nombre: 'Auxiliar Clínicas Estéticas', 
     slugBase: 'auxiliar-clinicas-esteticas',
-    imagen: '/images/cursos/diseno-de-medios.jpg', // Placeholder image
+    imagen: '/images/cursos/diseno-de-medios.jpg',
     copy: {
       slogan: 'Especialízate en el sector de la belleza y el bienestar.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -125,7 +124,7 @@ const baseCursos = [
   { 
     nombre: 'Quiromasaje Nivel I', 
     slugBase: 'quiromasaje-nivel1',
-    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg', // Placeholder
+    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
     copy: {
       slogan: 'Iníciate en el arte del masaje terapéutico y de relajación.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -135,7 +134,7 @@ const baseCursos = [
   { 
     nombre: 'Quiromasaje Nivel II', 
     slugBase: 'quiromasaje-nivel2',
-    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg', // Placeholder
+    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
     copy: {
       slogan: 'Avanza en tus técnicas y especialízate en masaje deportivo.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -145,7 +144,7 @@ const baseCursos = [
   { 
     nombre: 'CFGS Higiene Bucodental', 
     slugBase: 'cfgs-higiene-bucodental',
-    imagen: '/images/cursos/ciclos-formativos.jpg', // Placeholder
+    imagen: '/images/cursos/ciclos-formativos.jpg',
     copy: {
       slogan: 'Tu título oficial para una carrera en salud dental.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -155,7 +154,7 @@ const baseCursos = [
   { 
     nombre: 'CFGM Farmacia y Parafarmacia', 
     slugBase: 'cfgm-farmacia-parafarmacia',
-    imagen: '/images/cursos/ciclos-formativos.jpg', // Placeholder
+    imagen: '/images/cursos/ciclos-formativos.jpg',
     copy: {
       slogan: 'Obtén tu título oficial y trabaja en farmacias y hospitales.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -164,18 +163,41 @@ const baseCursos = [
   }
 ];
 
+// Fuente de verdad para las fechas de inicio, extraído de la matriz.
+const fechasInicio: { [key: string]: string } = {
+  'adiestramiento-canino-norte': 'Septiembre 2025',
+  'auxiliar-clinico-veterinario-norte': 'Septiembre 2025',
+  'auxiliar-enfermeria-norte': 'Noviembre 2025',
+  'auxiliar-farmacia-dermo-norte': 'Julio 2025',
+  'auxiliar-odontologia-norte': 'Noviembre 2025',
+  'dietetica-nutricion-norte': 'Septiembre 2025',
+  'agente-funerario-santacruz': 'Septiembre 2025',
+  'auxiliar-clinico-veterinario-santacruz': 'Septiembre 2025',
+  'auxiliar-clinicas-esteticas-santacruz': 'Octubre 2025',
+  'auxiliar-enfermeria-santacruz': 'Septiembre 2025',
+  'auxiliar-odontologia-santacruz': 'Noviembre 2025',
+  'quiromasaje-nivel2-santacruz': 'Julio 2025',
+};
+
 export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
   const sedes: ('Norte' | 'Santa Cruz')[] = ['Norte', 'Santa Cruz'];
+  
+  if (cursoBase.slugBase === 'peluqueria-canina-felina') {
+    return []; // Excluir cursos cancelados
+  }
+
   return sedes.map(sede => {
     const slugSede = sede === 'Norte' ? 'norte' : 'santacruz';
+    const id = `${cursoBase.slugBase}-${slugSede}`;
+    const inicio = fechasInicio[id];
+
     return {
       ...cursoBase,
-      id: `${cursoBase.slugBase}-${slugSede}`,
-      slug: `${cursoBase.slugBase}-${slugSede}`,
+      id,
+      slug: id,
       sede: sede,
-      // Lógica de ejemplo para el estado: Santa Cruz activo, Norte próximamente
-      estado: sede === 'Santa Cruz' ? 'activo' : 'proximamente',
-      inicio: sede === 'Santa Cruz' ? 'Octubre 2025' : undefined,
+      estado: inicio ? 'activo' : 'proximamente',
+      inicio: inicio,
     };
   });
 }); 
