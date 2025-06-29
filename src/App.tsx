@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CursosPage from './pages/CursosPage';
 import ContactPage from './pages/ContactPage';
@@ -7,6 +7,8 @@ import AvisoLegalPage from './pages/AvisoLegalPage';
 import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
 import ProteccionDatosPage from './pages/ProteccionDatosPage';
 import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
+
+// Componentes de página estáticos (se mantienen para rutas genéricas/legacy)
 import AdiestramientoCaninoPage from './pages/AdiestramientoCaninoPage';
 import AgenteFunerarioPage from './pages/AgenteFunerarioPage';
 import AuxiliarEnfermeriaPage from './pages/AuxiliarEnfermeriaPage';
@@ -16,39 +18,25 @@ import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
 import CFGMFarmaciaParafarmaciaPage from './pages/CFGMFarmaciaParafarmaciaPage';
 import CFGSHigieneBucodentalPage from './pages/CFGSHigieneBucodentalPage';
 
-// --- NUEVA ESTRUCTURA DINÁMICA (EN PARALELO) ---
+// --- NUEVA ESTRUCTURA DINÁMICA ---
 import NuevosCursosIndexPage from './pages/NuevosCursosIndexPage';
 import PaginaCursoDinamica from './pages/PaginaCursoDinamica';
-// --- FIN NUEVA ESTRUCTURA ---
-
-import CepHeader from './components/organisms/CepHeader';
-import CepFooter from './components/organisms/CepFooter';
-import CursoInscripcionModal from './components/organisms/CursoInscripcionModal';
-import { Calendar, MapPin, Award, CheckCircle, Clock, User, Book, ChevronDown, ChevronUp } from 'lucide-react';
-import { cursoData } from './config/cursos-otono-2025';
 import CursoPageComponent from './components/templates/CursoPageComponent';
+import { cursosMaestro } from './config/cursos-maestro';
+// --- FIN NUEVA ESTRUCTURA ---
 
 import './index.css';
 
-// --- COMPONENTES DE PÁGINA DE CURSO REUTILIZABLES ---
-const AdiestramientoCaninoNortePage = () => <CursoPageComponent curso={cursoData[0]} />;
-const AgenteFunerarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[1]} />;
-const AuxiliarClinicoVeterinarioNortePage = () => <AuxiliarVeterinarioPage />;
-const AuxiliarClinicoVeterinarioSantaCruzPage = () => <CursoPageComponent curso={cursoData[3]} />;
-const AuxiliarClinicasEsteticasPage = () => <AuxiliarEsteticasPage />;
-const AuxiliarEnfermeriaNortePage = () => <AuxiliarEnfermeriaPage />;
-const AuxiliarEnfermeriaSantaCruzPage = () => <CursoPageComponent curso={cursoData[6]} />;
-const AuxiliarFarmaciaDermoPage = () => <AuxiliarFarmaciaPage />;
-const AuxiliarOdontologiaNortePage = () => <CursoPageComponent curso={cursoData[8]} />;
-const AuxiliarOdontologiaSantaCruzPage = () => <CursoPageComponent curso={cursoData[9]} />;
-const DieteticaNutricionPage = () => <CursoPageComponent curso={cursoData[10]} />;
-const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[11]} />;
-const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[12]} />;
-const QuiromasajeNivel1Page = () => <CursoPageComponent curso={cursoData[13]} />;
-const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[14]} />;
-const QuiromasajeNivel2NortePage = () => <CursoPageComponent curso={cursoData[15]} />;
-const CFGSHigieneBucodentalOficialPage = () => <CursoPageComponent curso={cursoData[16]} />;
-const CFGMFarmaciaParafarmaciaOficialPage = () => <CursoPageComponent curso={cursoData[17]} />;
+// Componente "Wrapper" que busca el curso por slug y renderiza la página
+// o redirige si no lo encuentra.
+const DynamicCoursePageWrapper = ({ slug }: { slug: string }) => {
+  const curso = cursosMaestro.find(c => c.slug === slug);
+  if (!curso) {
+    // Si no se encuentra el curso, redirigir a la página principal de nuevos cursos.
+    return <Navigate to="/new/cursos" replace />;
+  }
+  return <CursoPageComponent curso={curso} />;
+};
 
 function App() {
   return (
@@ -56,6 +44,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cursos" element={<CursosPage />} />
+        
+        {/* Rutas genéricas que apuntan a páginas estáticas legacy */}
         <Route path="/adiestramiento-canino" element={<AdiestramientoCaninoPage />} />
         <Route path="/agente-funerario" element={<AgenteFunerarioPage />} />
         <Route path="/auxiliar-enfermeria" element={<AuxiliarEnfermeriaPage />} />
@@ -68,7 +58,6 @@ function App() {
         {/* --- NUEVAS RUTAS EN /new/ --- */}
         <Route path="/new/cursos" element={<NuevosCursosIndexPage />} />
         <Route path="/new/cursos/:slug" element={<PaginaCursoDinamica />} />
-        {/* --- FIN NUEVAS RUTAS --- */}
         
         <Route path="/contacto" element={<ContactPage />} />
         <Route path="/aviso-legal" element={<AvisoLegalPage />} />
@@ -77,28 +66,31 @@ function App() {
         <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />
         <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
         
-        {/* LANDINGS DIRECTAS - TODAS LAS RUTAS DE LOS 14 CURSOS */}
-        <Route path="/adiestramiento-canino-norte" element={<AdiestramientoCaninoNortePage />} />
-        <Route path="/agente-funerario-santacruz" element={<AgenteFunerarioSantaCruzPage />} />
-        <Route path="/auxiliar-clinico-veterinario-norte" element={<AuxiliarClinicoVeterinarioNortePage />} />
-        <Route path="/auxiliar-clinico-veterinario-santacruz" element={<AuxiliarClinicoVeterinarioSantaCruzPage />} />
-        <Route path="/auxiliar-clinicas-esteticas-santacruz" element={<AuxiliarClinicasEsteticasPage />} />
-        <Route path="/auxiliar-enfermeria-norte" element={<AuxiliarEnfermeriaNortePage />} />
-        <Route path="/auxiliar-enfermeria-santacruz" element={<AuxiliarEnfermeriaSantaCruzPage />} />
-        <Route path="/auxiliar-farmacia-dermo-norte" element={<AuxiliarFarmaciaDermoPage />} />
-        <Route path="/auxiliar-odontologia-norte" element={<AuxiliarOdontologiaNortePage />} />
-        <Route path="/auxiliar-odontologia-santacruz" element={<AuxiliarOdontologiaSantaCruzPage />} />
-        <Route path="/dietetica-nutricion-norte" element={<DieteticaNutricionPage />} />
-        <Route path="/peluqueria-canina-felina-norte" element={<PeluqueriaCaninaNortePage />} />
-        <Route path="/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
-        <Route path="/quiromasaje-nivel1-norte" element={<QuiromasajeNivel1Page />} />
-        <Route path="/quiromasaje-nivel2-santacruz" element={<QuiromasajeNivel2Page />} />
-        <Route path="/quiromasaje-nivel2-norte" element={<QuiromasajeNivel2NortePage />} />
-        <Route path="/cfgs-higiene-bucodental-santacruz" element={<CFGSHigieneBucodentalOficialPage />} />
-        <Route path="/cfgm-farmacia-parafarmacia-santacruz" element={<CFGMFarmaciaParafarmaciaOficialPage />} />
+        {/* LANDINGS DIRECTAS - Ahora todas usan la estructura dinámica */}
+        <Route path="/adiestramiento-canino-norte" element={<DynamicCoursePageWrapper slug="adiestramiento-canino-norte" />} />
+        <Route path="/agente-funerario-santacruz" element={<DynamicCoursePageWrapper slug="agente-funerario-santacruz" />} />
+        <Route path="/auxiliar-clinico-veterinario-norte" element={<DynamicCoursePageWrapper slug="auxiliar-clinico-veterinario-norte" />} />
+        <Route path="/auxiliar-clinico-veterinario-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-clinico-veterinario-santacruz" />} />
+        <Route path="/auxiliar-clinicas-esteticas-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-clinicas-esteticas-santacruz" />} />
+        <Route path="/auxiliar-enfermeria-norte" element={<DynamicCoursePageWrapper slug="auxiliar-enfermeria-norte" />} />
+        <Route path="/auxiliar-enfermeria-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-enfermeria-santacruz" />} />
+        <Route path="/auxiliar-farmacia-dermo-norte" element={<DynamicCoursePageWrapper slug="auxiliar-farmacia-dermo-norte" />} />
+        <Route path="/auxiliar-odontologia-norte" element={<DynamicCoursePageWrapper slug="auxiliar-odontologia-norte" />} />
+        <Route path="/auxiliar-odontologia-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-odontologia-santacruz" />} />
+        <Route path="/dietetica-nutricion-norte" element={<DynamicCoursePageWrapper slug="dietetica-nutricion-norte" />} />
+        
+        {/* Rutas deprecadas de peluquería se pueden omitir o redirigir si se desea */}
+        {/* <Route path="/peluqueria-canina-felina-norte" element={<Navigate to="/new/cursos" />} /> */}
+        {/* <Route path="/peluqueria-canina-felina-santacruz" element={<Navigate to="/new/cursos" />} /> */}
+        
+        <Route path="/quiromasaje-nivel1-norte" element={<DynamicCoursePageWrapper slug="quiromasaje-nivel1-norte" />} />
+        <Route path="/quiromasaje-nivel2-santacruz" element={<DynamicCoursePageWrapper slug="quiromasaje-nivel2-santacruz" />} />
+        <Route path="/quiromasaje-nivel2-norte" element={<DynamicCoursePageWrapper slug="quiromasaje-nivel2-norte" />} />
+        <Route path="/cfgs-higiene-bucodental-santacruz" element={<DynamicCoursePageWrapper slug="cfgs-higiene-bucodental-santacruz" />} />
+        <Route path="/cfgm-farmacia-parafarmacia-santacruz" element={<DynamicCoursePageWrapper slug="cfgm-farmacia-parafarmacia-santacruz" />} />
+        <Route path="/cfgm-farmacia-parafarmacia-norte" element={<DynamicCoursePageWrapper slug="cfgm-farmacia-parafarmacia-norte" />} />
+        <Route path="/cfgs-higiene-bucodental-norte" element={<DynamicCoursePageWrapper slug="cfgs-higiene-bucodental-norte" />} />
 
-        {/* --- NUEVA ESTRUCTURA DINÁMICA (EN PARALELO) --- */}
-        <Route path="/cursos-v2" element={<NuevosCursosIndexPage />} />
       </Routes>
     </Router>
   );
