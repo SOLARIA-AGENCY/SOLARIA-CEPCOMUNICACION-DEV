@@ -67,7 +67,30 @@ const baseCursos = [
       slogan: 'Conviértete en un experto en el comportamiento y educación canina.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
       titulos: ['Psicología Canina', 'Modificación de Conducta']
-    }
+    },
+    descripcionDetallada: {
+      introduccion: "El curso de Adiestramiento de base I ofrece los conocimientos imprescindibles acerca de las técnicas de adiestramiento de base aplicadas a perros, modificación de conductas no deseadas así como los cuidados básicos y primeros auxilios.",
+      queAprendes: "Adquirirás la confianza, habilidades y conocimientos para trabajar como adiestrador canino o aplicarlo con nuestros queridos animales. Se incluye un módulo de orientación laboral, dinámico y actualizado.",
+      puntosClave: [
+        { icono: 'Clock', texto: '6 meses / 25 sesiones' },
+        { icono: 'Users', texto: 'Prácticas con animales' },
+        { icono: 'Award', texto: 'Preparación examen ANACP' }
+      ]
+    },
+    modulos: [
+      { titulo: "Módulo 1: Técnicas de adiestramiento de base aplicadas a perros", contenido: ["Comportamiento social y bases morfológicas de conducta en el perro.", "Morfología", "Factores básicos modificadores de la conducta y principios para su modificación.", "Biología, genética y ecología de la conducta.", "Aprendizaje no asociativo: habituación y sensibilización.", "Aprendizaje asociativo: condicionamiento clásico e instrumental.", "Programas básicos de obediencia y desarrollo de habilidades.", "Seguridad y autoprotección en el adiestramiento.", "Técnicas de manipulación y manejo.", "Bienestar animal: Leyes y normativas."] },
+      { titulo: "Módulo 2: Modificación de conductas no deseadas en perros", contenido: ["Valoración de conductas no deseadas.", "Interpretación del lenguaje corporal canino.", "Reconocimiento de conductas generadas por patologías.", "Identificación de factores que producen conductas no deseadas.", "Identificación del tipo de agresión y su tratamiento.", "Medidas de autoprotección y bienestar animal."] },
+      { titulo: "Módulo 3: Cuidados higiénicos aplicados a perros", contenido: ["Metodología y control de la alimentación y nutrición.", "Alojamiento y transporte, normativa.", "Cuidados higiénicos, control sanitario y estimulación."] },
+      { titulo: "Módulo 4: Primeros Auxilios aplicados a Perros", contenido: ["Morfología y fisiología del perro.", "Diagnóstico y valoración inicial.", "Material de primeros auxilios y manejo.", "Administración de medicamentos.", "Técnicas de inmovilización y traslado.", "Masaje cardíaco."] }
+    ],
+    salidasProfesionales: [
+      "Adiestrador canino profesional",
+      "Educador canino en centros especializados",
+      "Técnico en modificación de conducta",
+      "Preparador para competiciones caninas",
+      "Asesor en protectoras y refugios",
+      "Colaborador en clínicas veterinarias"
+    ]
   },
   { 
     nombre: 'Agente Funerario', 
@@ -75,9 +98,34 @@ const baseCursos = [
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
     copy: {
       slogan: 'Fórmate en una profesión esencial y de gran demanda social.',
-      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      textosPrincipales: ['Tanatopraxia', 'Protocolo Funerario'],
       titulos: ['Tanatopraxia', 'Protocolo Funerario']
-    }
+    },
+    descripcionDetallada: {
+      introduccion: "El curso de Agente Funerario te prepara para trabajar en un sector de alta demanda y estabilidad laboral, brindando apoyo profesional a las familias en momentos difíciles.",
+      queAprendes: "Adquirirás las competencias profesionales para gestionar servicios funerarios, protocolo ceremonial, tanatopraxia y atención psicológica especializada.",
+      puntosClave: [
+        { icono: 'Clock', texto: '6 meses / 30 sesiones' },
+        { icono: 'Users', texto: 'Modalidad Presencial' },
+        { icono: 'Award', texto: 'Prácticas en empresas' }
+      ]
+    },
+    modulos: [
+      { titulo: "MÓDULO 1: LEGISLACIÓN FUNERARIA", contenido: ["Normativa estatal y autonómica", "Ley de Sanidad Mortuoria", "Reglamentos de cementerios", "Protección de datos", "Derechos del consumidor", "Documentación legal obligatoria"] },
+      { titulo: "MÓDULO 2: TANATOPRAXIA Y CONSERVACIÓN", contenido: ["Fundamentos de la tanatopraxia", "Técnicas de conservación temporal", "Preparación del difunto", "Productos químicos y aplicación", "Higiene y seguridad", "Equipos y materiales"] },
+      { titulo: "MÓDULO 3: PSICOLOGÍA DEL DUELO", contenido: ["Proceso de duelo y sus fases", "Atención psicológica a familias", "Comunicación empática", "Manejo de situaciones difíciles", "Apoyo emocional", "Protocolos de acompañamiento"] },
+      { titulo: "MÓDULO 4: CEREMONIAL Y PROTOCOLO", contenido: ["Organización de ceremonias religiosas y civiles", "Protocolo en velatorios", "Coordinación de actos funerarios", "Atención a diferentes culturas", "Gestión de espacios"] },
+      { titulo: "MÓDULO 5: GESTIÓN ADMINISTRATIVA", contenido: ["Tramitación de documentos oficiales", "Gestión de seguros de decesos", "Facturación y presupuestos", "Relaciones con AAPP", "Gestión de cementerios", "Software del sector"] },
+      { titulo: "MÓDULO 6: SERVICIOS FUNERARIOS ESPECIALIZADOS", contenido: ["Repatriación nacional e internacional", "Cremación: procedimientos y normativa", "Inhumación tradicional", "Servicios de memoria", "Flores y ornamentación", "Transporte funerario"] }
+    ],
+    salidasProfesionales: [
+      "Funerarias y tanatorios",
+      "Cementerios y crematorios",
+      "Servicios de repatriación",
+      "Empresas de seguros de decesos",
+      "Gestión administrativa funeraria",
+      "Asesor de servicios funerarios"
+    ]
   },
   { 
     nombre: 'Auxiliar Clínico Veterinario', 
@@ -142,9 +190,36 @@ const baseCursos = [
     imagen: '/images/cursos/auxiliar-de.jpg',
     copy: {
       slogan: 'Especialízate en el sector de la belleza y el bienestar.',
-      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      textosPrincipales: ['Tratamientos Faciales', 'Aparatología Estética'],
       titulos: ['Tratamientos Faciales', 'Aparatología Estética']
-    }
+    },
+    descripcionDetallada: {
+      introduccion: "El curso de Auxiliar de Clínicas Estéticas te prepara para trabajar como especialista en tratamientos de belleza y cuidado estético, dominando las técnicas más modernas del sector.",
+      queAprendes: "Adquirirás las competencias profesionales para realizar tratamientos faciales, corporales, depilación y manejo de aparatología estética avanzada.",
+      puntosClave: [
+        { icono: 'Clock', texto: '8 meses / 30 sesiones' },
+        { icono: 'Users', texto: 'Modalidad Presencial' },
+        { icono: 'Award', texto: '200h de Prácticas' }
+      ]
+    },
+    modulos: [
+      { titulo: "MÓDULO 1: INTRODUCCIÓN A LA ESTÉTICA", contenido: ["Historia y evolución de la estética", "Ética profesional", "Legislación y normativas", "Higiene y seguridad", "Organización del gabinete"] },
+      { titulo: "MÓDULO 2: ANATOMÍA Y FISIOLOGÍA DE LA PIEL", contenido: ["Estructura de la piel", "Funciones de la piel", "Tipos de piel", "Proceso de envejecimiento", "Alteraciones comunes", "pH cutáneo"] },
+      { titulo: "MÓDULO 3: COSMETOLOGÍA", contenido: ["Principios activos", "Formas cosméticas", "Cosméticos por tipo de piel", "Cosmética masculina", "Cosmética solar", "Cosmecéuticos"] },
+      { titulo: "MÓDULO 4: TÉCNICAS DE DIAGNÓSTICO ESTÉTICO", contenido: ["Análisis facial con lupa y luz de Wood", "Técnicas de exploración cutánea", "Ficha técnica del cliente", "Fotografía estética", "Protocolos de diagnóstico"] },
+      { titulo: "MÓDULO 5: TRATAMIENTOS FACIALES", contenido: ["Limpieza facial profunda", "Exfoliación mecánica y química", "Extracción de comedones", "Masajes faciales", "Mascarillas específicas", "Tratamientos anti-edad"] },
+      { titulo: "MÓDULO 6: TRATAMIENTOS CORPORALES", contenido: ["Tratamientos reductores y reafirmantes", "Técnicas anti-celulíticas", "Drenaje linfático manual", "Exfoliación corporal", "Envolturas corporales", "Tratamientos de hidratación"] },
+      { titulo: "MÓDULO 7: APARATOLOGÍA ESTÉTICA", contenido: ["Alta frecuencia", "Ultrasonidos", "Radiofrecuencia", "Cavitación", "Presoterapia", "Mantenimiento de equipos"] },
+      { titulo: "MÓDULO 8: DEPILACIÓN", contenido: ["Métodos de depilación temporal", "Depilación con cera", "Depilación eléctrica", "Fotodepilación IPL", "Cuidados pre y post depilación", "Contraindicaciones"] }
+    ],
+    salidasProfesionales: [
+      "Centros de estética",
+      "Spas y centros wellness",
+      "Clínicas de medicina estética",
+      "Centros de depilación",
+      "Gabinetes de estética propios",
+      "Asesor de belleza en grandes superficies"
+    ]
   },
   { 
     nombre: 'Auxiliar Enfermería', 
@@ -152,9 +227,34 @@ const baseCursos = [
     imagen: '/images/cursos/auxiliar-enfermeria.jpg',
     copy: {
       slogan: 'Una vocación de cuidado, una profesión de futuro.',
-      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      textosPrincipales: ['Cuidados Básicos', 'Higiene y Movilización'],
       titulos: ['Cuidados Básicos', 'Higiene y Movilización']
-    }
+    },
+    descripcionDetallada: {
+      introduccion: "El curso de Auxiliar de Enfermería te prepara para trabajar como asistente sanitario especializado en hospitales, clínicas y centros de atención primaria, proporcionando cuidados básicos a los pacientes.",
+      queAprendes: "Adquirirás las competencias profesionales para realizar técnicas básicas de enfermería, cuidados auxiliares y apoyo al personal sanitario cualificado.",
+      puntosClave: [
+        { icono: 'Clock', texto: '10 meses / 40 sesiones' },
+        { icono: 'Users', texto: 'Modalidad Presencial' },
+        { icono: 'Award', texto: '300h de Prácticas' }
+      ]
+    },
+    modulos: [
+      { titulo: "MÓDULO 1: ANATOMÍA Y FISIOLOGÍA HUMANA", contenido: ["Organización del cuerpo humano", "Sistema esquelético y muscular", "Sistema cardiovascular", "Sistema respiratorio", "Sistema digestivo", "Sistema nervioso", "Sistema endocrino", "Sistema genitourinario"] },
+      { titulo: "MÓDULO 2: FUNDAMENTOS DE ENFERMERÍA", contenido: ["Historia de la enfermería", "Ética y deontología", "Comunicación terapéutica", "Educación para la salud", "Proceso de atención de enfermería", "Documentación sanitaria"] },
+      { titulo: "MÓDULO 3: TÉCNICAS BÁSICAS DE ENFERMERÍA", contenido: ["Higiene y aseo del paciente", "Movilización y traslado", "Constantes vitales", "Administración de medicación", "Cuidados de heridas", "Técnicas de vendajes", "Sondajes y drenajes"] },
+      { titulo: "MÓDULO 4: CUIDADOS AUXILIARES HOSPITALARIOS", contenido: ["Organización hospitalaria", "Unidades de hospitalización", "Cuidados pre y postoperatorios", "Urgencias y emergencias", "Cuidados intensivos", "Esterilización y desinfección"] },
+      { titulo: "MÓDULO 5: CUIDADOS AUXILIARES EN GERIATRÍA", contenido: ["Proceso de envejecimiento", "Patologías geriátricas", "Cuidados específicos del anciano", "Prevención de caídas", "Estimulación cognitiva", "Cuidados paliativos"] },
+      { titulo: "MÓDULO 6: PRIMEROS AUXILIOS", contenido: ["Evaluación inicial del paciente", "Reanimación cardiopulmonar (RCP)", "Atención a traumatismos", "Quemaduras y heridas", "Intoxicaciones", "Crisis convulsivas"] }
+    ],
+    salidasProfesionales: [
+      "Hospitales públicos y privados",
+      "Centros de atención primaria",
+      "Clínicas especializadas (dentales, pediátricas, etc.)",
+      "Residencias geriátricas",
+      "Centros de día",
+      "Atención domiciliaria"
+    ]
   },
   { 
     nombre: 'Auxiliar Farmacia y Dermo', 
@@ -162,9 +262,33 @@ const baseCursos = [
     imagen: '/images/cursos/farmacia-parafarmacia.jpg',
     copy: {
       slogan: 'Conviértete en un profesional clave en la oficina de farmacia.',
-      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      textosPrincipales: ['Dispensación de Productos', 'Dermocosmética'],
       titulos: ['Dispensación de Productos', 'Dermocosmética']
-    }
+    },
+    descripcionDetallada: {
+      introduccion: "El curso de Auxiliar de Farmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar de farmacia y un módulo de orientación laboral, dinámico y actualizado.",
+      queAprendes: "Adquirirás la confianza, habilidades y conocimientos para trabajar como Auxiliar en Farmacias o parafarmacias, y almacenes de medicamentos.",
+      puntosClave: [
+        { icono: 'Clock', texto: '12 meses / 48 sesiones' },
+        { icono: 'Award', texto: '350h de Prácticas' },
+        { icono: 'Users', texto: 'Grupos Reducidos' }
+      ]
+    },
+    modulos: [
+      { titulo: "1. Anatomía Humana", contenido: ["Introducción a la Anatomía y Enfermedad", "Aparato Locomotor", "Sistema Nervioso", "Sistema Endocrino", "La sangre", "Aparato Respiratorio, Digestivo y Urinario"] },
+      { titulo: "2. El Auxiliar en la Oficina de Farmacia", contenido: ["Marco legislativo", "Personal y servicios", "Compra/venta de Productos", "Acondicionamiento y clasificación", "Medicamentos de uso humano y animal"] },
+      { titulo: "3. Los Productos de Parafarmacia", contenido: ["Productos sanitarios", "Antisépticos", "Nutrición", "Cosmética, dermocosmética y solar", "Infantil, ortopedia, óptica y audioprótesis"] },
+      { titulo: "4. Dermocosmética", contenido: ["Introducción a la dermocosmética", "Tipos de piel", "Alteraciones cutáneas", "Productos dermocosméticos"] },
+      { titulo: "5. Primeros Auxilios Básicos", contenido: ["Técnicas básicas", "Actuación en emergencias", "Protocolos de seguridad", "Manejo de situaciones críticas"] },
+      { titulo: "6. Orientación Laboral", contenido: ["Técnicas de búsqueda de empleo", "Elaboración de CV", "Preparación para entrevistas", "Mercado laboral farmacéutico"] }
+    ],
+    salidasProfesionales: [
+      "Oficinas de Farmacia",
+      "Parafarmacias",
+      "Almacenes de distribución de medicamentos",
+      "Farmacias hospitalarias (sector público y privado)",
+      "Laboratorios farmacéuticos"
+    ]
   },
   { 
     nombre: 'Auxiliar Odontología', 

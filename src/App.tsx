@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import CursosPage from './pages/CursosPage';
+// import CursosPage from './pages/CursosPage'; // Obsoleto
 import ContactPage from './pages/ContactPage';
 import AvisoLegalPage from './pages/AvisoLegalPage';
 import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
@@ -41,21 +41,22 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/cursos" element={<CursosPage />} />
+        {/* La ruta principal de cursos ahora muestra el nuevo índice dinámico */}
+        <Route path="/cursos" element={<NuevosCursosIndexPage />} />
         
-        {/* Rutas genéricas que apuntan a páginas estáticas legacy */}
-        <Route path="/adiestramiento-canino" element={<AdiestramientoCaninoPage />} />
-        <Route path="/agente-funerario" element={<AgenteFunerarioPage />} />
-        <Route path="/auxiliar-enfermeria" element={<AuxiliarEnfermeriaPage />} />
-        <Route path="/auxiliar-clinicas-esteticas" element={<AuxiliarEsteticasPage />} />
-        <Route path="/auxiliar-farmacia-dermo" element={<AuxiliarFarmaciaPage />} />
-        <Route path="/auxiliar-clinico-veterinario" element={<AuxiliarVeterinarioPage />} />
-        {/* Rutas ahora dinámicas para evitar errores de tipo */}
-        <Route path="/cfgm-farmacia-parafarmacia" element={<DynamicCoursePageWrapper slug="cfgm-farmacia-parafarmacia-santacruz" />} />
-        <Route path="/cfgs-higiene-bucodental" element={<DynamicCoursePageWrapper slug="cfgs-higiene-bucodental-santacruz" />} />
+        {/* Rutas genéricas redirigen al nuevo índice para selección de sede */}
+        <Route path="/adiestramiento-canino" element={<Navigate to="/cursos" replace />} />
+        <Route path="/agente-funerario" element={<Navigate to="/cursos" replace />} />
+        <Route path="/auxiliar-enfermeria" element={<Navigate to="/cursos" replace />} />
+        <Route path="/auxiliar-clinicas-esteticas" element={<Navigate to="/cursos" replace />} />
+        <Route path="/auxiliar-farmacia-dermo" element={<Navigate to="/cursos" replace />} />
+        <Route path="/auxiliar-clinico-veterinario" element={<Navigate to="/cursos" replace />} />
+        <Route path="/cfgm-farmacia-parafarmacia" element={<Navigate to="/cursos" replace />} />
+        <Route path="/cfgs-higiene-bucodental" element={<Navigate to="/cursos" replace />} />
 
         {/* --- NUEVAS RUTAS EN /new/ --- */}
-        <Route path="/new/cursos" element={<NuevosCursosIndexPage />} />
+        {/* Se mantiene por si hay enlaces externos, pero redirige a la ruta principal */}
+        <Route path="/new/cursos" element={<Navigate to="/cursos" replace />} />
         <Route path="/new/cursos/:slug" element={<PaginaCursoDinamica />} />
         
         <Route path="/contacto" element={<ContactPage />} />
