@@ -6,8 +6,8 @@ import CepFooter from '../components/organisms/CepFooter';
 
 const SedeSection: React.FC<{ sede: 'Norte' | 'Santa Cruz', cursos: CursoMaestro[] }> = ({ sede, cursos }) => {
   const direccion = sede === 'Norte' 
-    ? 'C/ Maximiliano Payout, 13, 38300 La Orotava'
-    : 'C/ Duggi, 23, 38006 Santa Cruz de Tenerife';
+    ? 'La Orotava'
+    : 'Santa Cruz de Tenerife';
 
   const Badge: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
     if (curso.estado === 'activo' && curso.inicio) {
@@ -28,7 +28,7 @@ const SedeSection: React.FC<{ sede: 'Norte' | 'Santa Cruz', cursos: CursoMaestro
   return (
     <section className="mb-16">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-2">
+        <h2 className="text-4xl font-extrabold text-pink-600 uppercase mb-2">
           Sede CEP {sede}
         </h2>
         <p className="text-lg text-gray-500">{direccion}</p>
