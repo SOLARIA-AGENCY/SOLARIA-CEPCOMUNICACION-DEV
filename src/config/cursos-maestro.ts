@@ -64,7 +64,7 @@ const baseCursos = [
   { 
     nombre: 'Auxiliar Clínicas Estéticas', 
     slugBase: 'auxiliar-clinicas-esteticas',
-    imagen: '/images/cursos/diseno-de-medios.jpg',
+    imagen: '/images/cursos/auxiliar-de.jpg',
     copy: {
       slogan: 'Especialízate en el sector de la belleza y el bienestar.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
