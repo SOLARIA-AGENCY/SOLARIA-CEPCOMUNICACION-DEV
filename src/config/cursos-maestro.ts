@@ -1,3 +1,5 @@
+import { StaticImageData } from 'next/image';
+
 export type Modulo = {
   titulo: string;
   contenido: string[];
@@ -6,7 +8,26 @@ export type Modulo = {
 export type Profesor = {
   nombre: string;
   foto: string;
+  especialidad: string;
   bio: string;
+  tags: string[];
+};
+
+export type PuntoClave = {
+  icono: string;
+  texto: string;
+};
+
+export type InfoAdicional = {
+  duracion: string;
+  practicas: string;
+  especializacion: string;
+};
+
+export type Inversion = {
+  total: string;
+  modalidad: string;
+  incluye: string;
 };
 
 export type Entidad = {
@@ -14,55 +35,47 @@ export type Entidad = {
   logo: string;
 };
 
-export type CursoMaestro = {
-  id: string;
-  slug: string;
+export type DescripcionDetallada = {
+  introduccion: string;
+  queAprendes: string;
+  puntosClave: PuntoClave[];
+  infoAdicional?: InfoAdicional;
+  inversion?: Inversion;
+  salidasProfesionales: string[];
+  modulos: Modulo[];
+  profesores: Profesor[];
+  certificaciones?: Entidad[];
+  colaboradores?: Entidad[];
+  cursosComplementarios?: string[];
+};
+
+export interface CursoBase {
   nombre: string;
-  sede: 'Norte' | 'Santa Cruz';
-  estado: 'activo' | 'proximamente' | 'cancelado';
+  slugBase: string;
   imagen: string;
+  categoria: 'sanidad' | 'veterinaria' | 'bienestar' | 'ciclos' | 'adiestramiento' | 'diseño';
   copy: {
     slogan: string;
     textosPrincipales: string[];
     titulos: string[];
   };
-  inicio?: string;
-  duracion?: string;
-  precio?: string;
-  practicas?: string;
-  profesor?: string;
-  certificacion?: string;
-  
-  descripcionDetallada?: {
-    introduccion: string;
-    queAprendes: string;
-    puntosClave: { icono: string; texto: string }[];
-  };
-  modulos?: Modulo[];
-  salidasProfesionales?: string[];
-  profesores?: Profesor[];
-  certificaciones?: Entidad[];
-  colaboradores?: Entidad[];
+  descripcionDetallada?: DescripcionDetallada;
+}
 
-  profesorDetalle?: {
-    nombre: string;
-    especialidad: string;
-    descripcion: string;
-    foto: string;
-  };
-  modalidadInfo?: {
-    tipo: string;
-    horario: string;
-    sesiones: string;
-  };
-  temario?: string[];
-};
+export interface CursoMaestro extends CursoBase {
+  id: string;
+  slug: string;
+  sede: 'Norte' | 'Santa Cruz';
+  estado: 'activo' | 'proximamente';
+  inicio: string | undefined;
+}
 
-const baseCursos = [
+const baseCursos: CursoBase[] = [
   { 
     nombre: 'Adiestramiento Canino', 
     slugBase: 'adiestramiento-canino', 
     imagen: '/images/cursos/adiestramiento-canino.jpg',
+    categoria: 'adiestramiento',
     copy: {
       slogan: 'Conviértete en un experto en el comportamiento y educación canina.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -75,27 +88,24 @@ const baseCursos = [
         { icono: 'Clock', texto: '6 meses / 25 sesiones' },
         { icono: 'Users', texto: 'Prácticas con animales' },
         { icono: 'Award', texto: 'Preparación examen ANACP' }
-      ]
-    },
-    modulos: [
-      { titulo: "Módulo 1: Técnicas de adiestramiento de base aplicadas a perros", contenido: ["Comportamiento social y bases morfológicas de conducta en el perro.", "Morfología", "Factores básicos modificadores de la conducta y principios para su modificación.", "Biología, genética y ecología de la conducta.", "Aprendizaje no asociativo: habituación y sensibilización.", "Aprendizaje asociativo: condicionamiento clásico e instrumental.", "Programas básicos de obediencia y desarrollo de habilidades.", "Seguridad y autoprotección en el adiestramiento.", "Técnicas de manipulación y manejo.", "Bienestar animal: Leyes y normativas."] },
-      { titulo: "Módulo 2: Modificación de conductas no deseadas en perros", contenido: ["Valoración de conductas no deseadas.", "Interpretación del lenguaje corporal canino.", "Reconocimiento de conductas generadas por patologías.", "Identificación de factores que producen conductas no deseadas.", "Identificación del tipo de agresión y su tratamiento.", "Medidas de autoprotección y bienestar animal."] },
-      { titulo: "Módulo 3: Cuidados higiénicos aplicados a perros", contenido: ["Metodología y control de la alimentación y nutrición.", "Alojamiento y transporte, normativa.", "Cuidados higiénicos, control sanitario y estimulación."] },
-      { titulo: "Módulo 4: Primeros Auxilios aplicados a Perros", contenido: ["Morfología y fisiología del perro.", "Diagnóstico y valoración inicial.", "Material de primeros auxilios y manejo.", "Administración de medicamentos.", "Técnicas de inmovilización y traslado.", "Masaje cardíaco."] }
-    ],
-    salidasProfesionales: [
-      "Adiestrador canino profesional",
-      "Educador canino en centros especializados",
-      "Técnico en modificación de conducta",
-      "Preparador para competiciones caninas",
-      "Asesor en protectoras y refugios",
-      "Colaborador en clínicas veterinarias"
-    ]
+      ],
+      salidasProfesionales: [
+        "Adiestrador canino profesional", "Educador canino en centros especializados", "Técnico en modificación de conducta", "Preparador para competiciones caninas", "Asesor en protectoras y refugios", "Colaborador en clínicas veterinarias"
+      ],
+      modulos: [
+        { titulo: "Módulo 1: Técnicas de adiestramiento de base aplicadas a perros", contenido: ["Comportamiento social y bases morfológicas de conducta en el perro.", "Morfología", "Factores básicos modificadores de la conducta y principios para su modificación.", "Biología, genética y ecología de la conducta.", "Aprendizaje no asociativo: habituación y sensibilización.", "Aprendizaje asociativo: condicionamiento clásico e instrumental.", "Programas básicos de obediencia y desarrollo de habilidades.", "Seguridad y autoprotección en el adiestramiento.", "Técnicas de manipulación y manejo.", "Bienestar animal: Leyes y normativas."] },
+        { titulo: "Módulo 2: Modificación de conductas no deseadas en perros", contenido: ["Valoración de conductas no deseadas.", "Interpretación del lenguaje corporal canino.", "Reconocimiento de conductas generadas por patologías.", "Identificación de factores que producen conductas no deseadas.", "Identificación del tipo de agresión y su tratamiento.", "Medidas de autoprotección y bienestar animal."] },
+        { titulo: "Módulo 3: Cuidados higiénicos aplicados a perros", contenido: ["Metodología y control de la alimentación y nutrición.", "Alojamiento y transporte, normativa.", "Cuidados higiénicos, control sanitario y estimulación."] },
+        { titulo: "Módulo 4: Primeros Auxilios aplicados a Perros", contenido: ["Morfología y fisiología del perro.", "Diagnóstico y valoración inicial.", "Material de primeros auxilios y manejo.", "Administración de medicamentos.", "Técnicas de inmovilización y traslado.", "Masaje cardíaco."] }
+      ],
+      profesores: []
+    }
   },
   { 
     nombre: 'Agente Funerario', 
     slugBase: 'agente-funerario', 
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
+    categoria: 'sanidad',
     copy: {
       slogan: 'Fórmate en una profesión esencial y de gran demanda social.',
       textosPrincipales: ['Tanatopraxia', 'Protocolo Funerario'],
@@ -108,29 +118,26 @@ const baseCursos = [
         { icono: 'Clock', texto: '6 meses / 30 sesiones' },
         { icono: 'Users', texto: 'Modalidad Presencial' },
         { icono: 'Award', texto: 'Prácticas en empresas' }
-      ]
-    },
-    modulos: [
-      { titulo: "MÓDULO 1: LEGISLACIÓN FUNERARIA", contenido: ["Normativa estatal y autonómica", "Ley de Sanidad Mortuoria", "Reglamentos de cementerios", "Protección de datos", "Derechos del consumidor", "Documentación legal obligatoria"] },
-      { titulo: "MÓDULO 2: TANATOPRAXIA Y CONSERVACIÓN", contenido: ["Fundamentos de la tanatopraxia", "Técnicas de conservación temporal", "Preparación del difunto", "Productos químicos y aplicación", "Higiene y seguridad", "Equipos y materiales"] },
-      { titulo: "MÓDULO 3: PSICOLOGÍA DEL DUELO", contenido: ["Proceso de duelo y sus fases", "Atención psicológica a familias", "Comunicación empática", "Manejo de situaciones difíciles", "Apoyo emocional", "Protocolos de acompañamiento"] },
-      { titulo: "MÓDULO 4: CEREMONIAL Y PROTOCOLO", contenido: ["Organización de ceremonias religiosas y civiles", "Protocolo en velatorios", "Coordinación de actos funerarios", "Atención a diferentes culturas", "Gestión de espacios"] },
-      { titulo: "MÓDULO 5: GESTIÓN ADMINISTRATIVA", contenido: ["Tramitación de documentos oficiales", "Gestión de seguros de decesos", "Facturación y presupuestos", "Relaciones con AAPP", "Gestión de cementerios", "Software del sector"] },
-      { titulo: "MÓDULO 6: SERVICIOS FUNERARIOS ESPECIALIZADOS", contenido: ["Repatriación nacional e internacional", "Cremación: procedimientos y normativa", "Inhumación tradicional", "Servicios de memoria", "Flores y ornamentación", "Transporte funerario"] }
-    ],
-    salidasProfesionales: [
-      "Funerarias y tanatorios",
-      "Cementerios y crematorios",
-      "Servicios de repatriación",
-      "Empresas de seguros de decesos",
-      "Gestión administrativa funeraria",
-      "Asesor de servicios funerarios"
-    ]
+      ],
+       salidasProfesionales: [
+        "Funerarias y tanatorios", "Cementerios y crematorios", "Servicios de repatriación", "Empresas de seguros de decesos", "Gestión administrativa funeraria", "Asesor de servicios funerarios"
+      ],
+      modulos: [
+        { titulo: "MÓDULO 1: LEGISLACIÓN FUNERARIA", contenido: ["Normativa estatal y autonómica", "Ley de Sanidad Mortuoria", "Reglamentos de cementerios", "Protección de datos", "Derechos del consumidor", "Documentación legal obligatoria"] },
+        { titulo: "MÓDULO 2: TANATOPRAXIA Y CONSERVACIÓN", contenido: ["Fundamentos de la tanatopraxia", "Técnicas de conservación temporal", "Preparación del difunto", "Productos químicos y aplicación", "Higiene y seguridad", "Equipos y materiales"] },
+        { titulo: "MÓDULO 3: PSICOLOGÍA DEL DUELO", contenido: ["Proceso de duelo y sus fases", "Atención psicológica a familias", "Comunicación empática", "Manejo de situaciones difíciles", "Apoyo emocional", "Protocolos de acompañamiento"] },
+        { titulo: "MÓDULO 4: CEREMONIAL Y PROTOCOLO", contenido: ["Organización de ceremonias religiosas y civiles", "Protocolo en velatorios", "Coordinación de actos funerarios", "Atención a diferentes culturas", "Gestión de espacios"] },
+        { titulo: "MÓDULO 5: GESTIÓN ADMINISTRATIVA", contenido: ["Tramitación de documentos oficiales", "Gestión de seguros de decesos", "Facturación y presupuestos", "Relaciones con AAPP", "Gestión de cementerios", "Software del sector"] },
+        { titulo: "MÓDULO 6: SERVICIOS FUNERARIOS ESPECIALIZADOS", contenido: ["Repatriación nacional e internacional", "Cremación: procedimientos y normativa", "Inhumación tradicional", "Servicios de memoria", "Flores y ornamentación", "Transporte funerario"] }
+      ],
+      profesores: []
+    }
   },
   { 
     nombre: 'Auxiliar Clínico Veterinario', 
     slugBase: 'auxiliar-clinico-veterinario',
     imagen: '/images/cursos/auxiliar-veterinaria.jpg',
+    categoria: 'veterinaria',
     copy: {
       slogan: 'Tu primer paso hacia una carrera dedicada al cuidado animal.',
       textosPrincipales: ['Anatomía Animal', 'Asistencia Quirúrgica'],
@@ -140,91 +147,98 @@ const baseCursos = [
       introduccion: "Conviértete en un profesional especializado en el cuidado y asistencia técnica veterinaria, con amplias salidas laborales en clínicas y hospitales veterinarios.",
       queAprendes: "El curso de Auxiliar Técnico Veterinario (ATV) te prepara para trabajar como asistente especializado en clínicas y hospitales veterinarios, proporcionando cuidados técnicos profesionales a todo tipo de animales. Adquirirás las competencias profesionales para asistir en consultas, cirugías, laboratorio, hospitalización y todas las áreas de una clínica veterinaria moderna.",
       puntosClave: [
-        { icono: 'Clock', texto: '10 meses de duración' },
-        { icono: 'Users', texto: 'Modalidad Presencial' },
-        { icono: 'Award', texto: '300h de Prácticas Garantizadas' }
+        { icono: 'Clock', texto: '10 meses' },
+        { icono: 'Users', texto: 'Presencial' },
+        { icono: 'Award', texto: '300h Prácticas' }
+      ],
+      infoAdicional: {
+        duracion: "10 meses - 40 sesiones presenciales",
+        practicas: "300 horas en clínicas veterinarias",
+        especializacion: "Asistencia técnica veterinaria completa"
+      },
+      inversion: {
+        total: "1.150€ (10 cuotas de 100€ + 150€ matrícula)",
+        modalidad: "Presencial - 1 día por semana",
+        incluye: "Incluye agencia de colocación oficial"
+      },
+      salidasProfesionales: [
+        "Clínicas veterinarias", "Hospitales veterinarios", "Centros de investigación", "Zoológicos y parques naturales", "Centros de cría y adiestramiento"
+      ],
+      modulos: [
+        { titulo: "MÓDULO 1: ANATOMÍA Y FISIOLOGÍA ANIMAL", contenido: ["Anatomía y fisiología de los sistemas corporales", "Aparato locomotor: huesos, músculos y articulaciones", "Sistema nervioso y órganos de los sentidos", "Aparato circulatorio y respiratorio", "Aparato digestivo y sistema urinario", "Aparato reproductor", "Sistema endocrino", "Diferencias anatómicas entre especies"] },
+        { titulo: "MÓDULO 2: PATOLOGÍA ANIMAL", contenido: ["Concepto de enfermedad y etiología", "Enfermedades infecciosas más comunes", "Enfermedades parasitarias", "Enfermedades metabólicas", "Traumatología veterinaria", "Oncología veterinaria básica", "Enfermedades hereditarias", "Zoonosis y salud pública"] },
+        { titulo: "MÓDULO 3: TÉCNICAS DE EXPLORACIÓN CLÍNICA", contenido: ["Manejo y sujeción de animales", "Constantes vitales en diferentes especies", "Técnicas de exploración física", "Auscultación y palpación", "Inspección y observación clínica", "Registro de datos clínicos", "Comunicación con propietarios"] },
+        { titulo: "MÓDULO 4: TÉCNICAS DE LABORATORIO", contenido: ["Toma de muestras biológicas", "Análisis de sangre básicos", "Análisis de orina", "Análisis coprológicos", "Citología básica", "Microbiología veterinaria", "Uso de equipos de laboratorio", "Interpretación de resultados básicos"] },
+        { titulo: "MÓDULO 5: TÉCNICAS DE IMAGEN", contenido: ["Radiología veterinaria", "Posicionamiento para radiografías", "Protección radiológica", "Ecografía básica", "Endoscopia", "Mantenimiento de equipos", "Archivo y documentación de imágenes"] },
+        { titulo: "MÓDULO 6: FARMACOLOGÍA VETERINARIA", contenido: ["Principios de farmacología", "Vías de administración de medicamentos", "Cálculo de dosis", "Medicamentos más utilizados", "Anestesia y analgesia", "Vacunas y programas de vacunación", "Almacenamiento de medicamentos", "Legislación farmacéutica veterinaria"] },
+        { titulo: "MÓDULO 7: CIRUGÍA VETERINARIA", contenido: ["Instrumental quirúrgico", "Preparación del campo quirúrgico", "Esterilización y desinfección", "Asistencia en cirugía", "Anestesia y monitorización", "Cuidados postoperatorios", "Suturas básicas", "Urgencias quirúrgicas"] },
+        { titulo: "MÓDULO 8: HOSPITALIZACIÓN Y CUIDADOS INTENSIVOS", contenido: ["Manejo de pacientes hospitalizados", "Fluidoterapia", "Alimentación de pacientes críticos", "Monitorización de constantes", "Cuidados de heridas", "Administración de medicamentos", "Fisioterapia veterinaria básica", "Eutanasia y manejo del dolor"] },
+        { titulo: "MÓDULO 9: MEDICINA PREVENTIVA", contenido: ["Programas de vacunación", "Desparasitaciones", "Medicina preventiva por especies", "Nutrición animal", "Bienestar animal", "Programas sanitarios", "Educación sanitaria a propietarios"] },
+        { titulo: "MÓDULO 10: GESTIÓN Y ADMINISTRACIÓN", contenido: ["Organización de la clínica veterinaria", "Atención al cliente", "Gestión de historiales clínicos", "Facturación y cobros", "Gestión de stock y almacén", "Legislación veterinaria", "Ética profesional", "Primeros auxilios en humanos"] }
+      ],
+      profesores: [
+        { 
+          nombre: "Cecilia Rodríguez", 
+          foto: "/images/profesores/cecilia.jpg", 
+          especialidad: "Veterinaria especialista en Medicina Interna",
+          bio: "Veterinaria titulada con amplia experiencia en clínica de pequeños animales. Especialista en medicina interna, cirugía y diagnóstico por imagen. Formadora oficial de auxiliares técnicos veterinarios.",
+          tags: ["Medicina Interna", "Cirugía Veterinaria", "Formadora Oficial"]
+        }
+      ],
+      cursosComplementarios: [
+        "Peluquería y Estética Canina", "Adiestramiento Canino", "Auxiliar de Enfermería", "Técnico en Emergencias Sanitarias", "Inglés Técnico Veterinario"
+      ],
+      certificaciones: [
+        { nombre: 'Ministerio de Educación', logo: '/images/certificaciones/ministerio-educacion.png' },
+        { nombre: 'Gobierno de Canarias', logo: '/images/certificaciones/gobierno-canarias.png' },
+        { nombre: 'SEPE', logo: '/images/certificaciones/sepe.png' }
+      ],
+      colaboradores: [
+        { nombre: 'Valle Colino', logo: '/images/ongs/valle-colino-logo.jpg' },
+        { nombre: 'Clínica Veterinaria Anaza', logo: '/images/colaboradores/clinica-anaza-logo.jpg' },
+        { nombre: 'Clínica Veterinaria Duggi', logo: '/images/colaboradores/clinica-duggi-logo.jpg' }
       ]
-    },
-    modulos: [
-      { titulo: "MÓDULO 1: ANATOMÍA Y FISIOLOGÍA ANIMAL", contenido: ["Anatomía y fisiología de los sistemas corporales", "Aparato locomotor: huesos, músculos y articulaciones", "Sistema nervioso y órganos de los sentidos", "Aparato circulatorio y respiratorio", "Aparato digestivo y sistema urinario", "Aparato reproductor", "Sistema endocrino", "Diferencias anatómicas entre especies"] },
-      { titulo: "MÓDULO 2: PATOLOGÍA ANIMAL", contenido: ["Concepto de enfermedad y etiología", "Enfermedades infecciosas más comunes", "Enfermedades parasitarias", "Enfermedades metabólicas", "Traumatología veterinaria", "Oncología veterinaria básica", "Enfermedades hereditarias", "Zoonosis y salud pública"] },
-      { titulo: "MÓDULO 3: TÉCNICAS DE EXPLORACIÓN CLÍNICA", contenido: ["Manejo y sujeción de animales", "Constantes vitales en diferentes especies", "Técnicas de exploración física", "Auscultación y palpación", "Inspección y observación clínica", "Registro de datos clínicos", "Comunicación con propietarios"] },
-      { titulo: "MÓDULO 4: TÉCNICAS DE LABORATORIO", contenido: ["Toma de muestras biológicas", "Análisis de sangre básicos", "Análisis de orina", "Análisis coprológicos", "Citología básica", "Microbiología veterinaria", "Uso de equipos de laboratorio", "Interpretación de resultados básicos"] },
-      { titulo: "MÓDULO 5: TÉCNICAS DE IMAGEN", contenido: ["Radiología veterinaria", "Posicionamiento para radiografías", "Protección radiológica", "Ecografía básica", "Endoscopia", "Mantenimiento de equipos", "Archivo y documentación de imágenes"] },
-      { titulo: "MÓDULO 6: FARMACOLOGÍA VETERINARIA", contenido: ["Principios de farmacología", "Vías de administración de medicamentos", "Cálculo de dosis", "Medicamentos más utilizados", "Anestesia y analgesia", "Vacunas y programas de vacunación", "Almacenamiento de medicamentos", "Legislación farmacéutica veterinaria"] },
-      { titulo: "MÓDULO 7: CIRUGÍA VETERINARIA", contenido: ["Instrumental quirúrgico", "Preparación del campo quirúrgico", "Esterilización y desinfección", "Asistencia en cirugía", "Anestesia y monitorización", "Cuidados postoperatorios", "Suturas básicas", "Urgencias quirúrgicas"] },
-      { titulo: "MÓDULO 8: HOSPITALIZACIÓN Y CUIDADOS INTENSIVOS", contenido: ["Manejo de pacientes hospitalizados", "Fluidoterapia", "Alimentación de pacientes críticos", "Monitorización de constantes", "Cuidados de heridas", "Administración de medicamentos", "Fisioterapia veterinaria básica", "Eutanasia y manejo del dolor"] },
-      { titulo: "MÓDULO 9: MEDICINA PREVENTIVA", contenido: ["Programas de vacunación", "Desparasitaciones", "Medicina preventiva por especies", "Nutrición animal", "Bienestar animal", "Programas sanitarios", "Educación sanitaria a propietarios"] },
-      { titulo: "MÓDULO 10: GESTIÓN Y ADMINISTRACIÓN", contenido: ["Organización de la clínica veterinaria", "Atención al cliente", "Gestión de historiales clínicos", "Facturación y cobros", "Gestión de stock y almacén", "Legislación veterinaria", "Ética profesional", "Primeros auxilios en humanos"] }
-    ],
-    salidasProfesionales: [
-      "Clínicas Veterinarias",
-      "Hospitales Veterinarios 24h",
-      "Consultorios Veterinarios",
-      "Centros de Acogida de Animales",
-      "Residencias Caninas y Felinas",
-      "Tiendas de Animales Especializadas",
-      "Laboratorios de Diagnóstico Veterinario",
-      "Empresas de Nutrición Animal",
-      "Centros de Cría de Animales",
-      "Zoológicos y Reservas Naturales"
-    ],
-    profesores: [
-      { nombre: "Dr. Luis Martínez", foto: "/images/profesores/luis.jpg", bio: "Veterinario con más de 15 años de experiencia en cirugía y medicina interna. Apasionado por la enseñanza y el bienestar animal." },
-      { nombre: "Dra. Sara Gutiérrez", foto: "/images/profesores/sara.jpg", bio: "Especialista en animales exóticos y diagnóstico por imagen. Su enfoque práctico facilita el aprendizaje de las técnicas más complejas." }
-    ],
-    certificaciones: [
-      { nombre: 'Ministerio de Educación', logo: '/images/certificaciones/ministerio-educacion.png' },
-      { nombre: 'Gobierno de Canarias', logo: '/images/certificaciones/gobierno-canarias.png' },
-      { nombre: 'SEPE', logo: '/images/certificaciones/sepe.png' }
-    ],
-    colaboradores: [
-      { nombre: 'Valle Colino', logo: '/images/ongs/valle-colino-logo.jpg' },
-      { nombre: 'Clínica Veterinaria Anaza', logo: '/images/colaboradores/clinica-anaza-logo.jpg' },
-      { nombre: 'Clínica Veterinaria Duggi', logo: '/images/colaboradores/clinica-duggi-logo.jpg' }
-    ]
+    }
   },
   { 
     nombre: 'Auxiliar Clínicas Estéticas', 
     slugBase: 'auxiliar-clinicas-esteticas',
     imagen: '/images/cursos/auxiliar-de.jpg',
+    categoria: 'bienestar',
     copy: {
       slogan: 'Especialízate en el sector de la belleza y el bienestar.',
       textosPrincipales: ['Tratamientos Faciales', 'Aparatología Estética'],
       titulos: ['Tratamientos Faciales', 'Aparatología Estética']
     },
-    descripcionDetallada: {
+     descripcionDetallada: {
       introduccion: "El curso de Auxiliar de Clínicas Estéticas te prepara para trabajar como especialista en tratamientos de belleza y cuidado estético, dominando las técnicas más modernas del sector.",
       queAprendes: "Adquirirás las competencias profesionales para realizar tratamientos faciales, corporales, depilación y manejo de aparatología estética avanzada.",
       puntosClave: [
         { icono: 'Clock', texto: '8 meses / 30 sesiones' },
         { icono: 'Users', texto: 'Modalidad Presencial' },
         { icono: 'Award', texto: '200h de Prácticas' }
-      ]
-    },
-    modulos: [
-      { titulo: "MÓDULO 1: INTRODUCCIÓN A LA ESTÉTICA", contenido: ["Historia y evolución de la estética", "Ética profesional", "Legislación y normativas", "Higiene y seguridad", "Organización del gabinete"] },
-      { titulo: "MÓDULO 2: ANATOMÍA Y FISIOLOGÍA DE LA PIEL", contenido: ["Estructura de la piel", "Funciones de la piel", "Tipos de piel", "Proceso de envejecimiento", "Alteraciones comunes", "pH cutáneo"] },
-      { titulo: "MÓDULO 3: COSMETOLOGÍA", contenido: ["Principios activos", "Formas cosméticas", "Cosméticos por tipo de piel", "Cosmética masculina", "Cosmética solar", "Cosmecéuticos"] },
-      { titulo: "MÓDULO 4: TÉCNICAS DE DIAGNÓSTICO ESTÉTICO", contenido: ["Análisis facial con lupa y luz de Wood", "Técnicas de exploración cutánea", "Ficha técnica del cliente", "Fotografía estética", "Protocolos de diagnóstico"] },
-      { titulo: "MÓDULO 5: TRATAMIENTOS FACIALES", contenido: ["Limpieza facial profunda", "Exfoliación mecánica y química", "Extracción de comedones", "Masajes faciales", "Mascarillas específicas", "Tratamientos anti-edad"] },
-      { titulo: "MÓDULO 6: TRATAMIENTOS CORPORALES", contenido: ["Tratamientos reductores y reafirmantes", "Técnicas anti-celulíticas", "Drenaje linfático manual", "Exfoliación corporal", "Envolturas corporales", "Tratamientos de hidratación"] },
-      { titulo: "MÓDULO 7: APARATOLOGÍA ESTÉTICA", contenido: ["Alta frecuencia", "Ultrasonidos", "Radiofrecuencia", "Cavitación", "Presoterapia", "Mantenimiento de equipos"] },
-      { titulo: "MÓDULO 8: DEPILACIÓN", contenido: ["Métodos de depilación temporal", "Depilación con cera", "Depilación eléctrica", "Fotodepilación IPL", "Cuidados pre y post depilación", "Contraindicaciones"] }
-    ],
-    salidasProfesionales: [
-      "Centros de estética",
-      "Spas y centros wellness",
-      "Clínicas de medicina estética",
-      "Centros de depilación",
-      "Gabinetes de estética propios",
-      "Asesor de belleza en grandes superficies"
-    ]
+      ],
+       salidasProfesionales: [
+        "Centros de estética", "Spas y centros wellness", "Clínicas de medicina estética", "Centros de depilación", "Gabinetes de estética propios", "Asesor de belleza en grandes superficies"
+      ],
+      modulos: [
+        { titulo: "MÓDULO 1: INTRODUCCIÓN A LA ESTÉTICA", contenido: ["Historia y evolución de la estética", "Ética profesional", "Legislación y normativas", "Higiene y seguridad", "Organización del gabinete"] },
+        { titulo: "MÓDULO 2: ANATOMÍA Y FISIOLOGÍA DE LA PIEL", contenido: ["Estructura de la piel", "Funciones de la piel", "Tipos de piel", "Proceso de envejecimiento", "Alteraciones comunes", "pH cutáneo"] },
+        { titulo: "MÓDULO 3: COSMETOLOGÍA", contenido: ["Principios activos", "Formas cosméticas", "Cosméticos por tipo de piel", "Cosmética masculina", "Cosmética solar", "Cosmecéuticos"] },
+        { titulo: "MÓDULO 4: TÉCNICAS DE DIAGNÓSTICO ESTÉTICO", contenido: ["Análisis facial con lupa y luz de Wood", "Técnicas de exploración cutánea", "Ficha técnica del cliente", "Fotografía estética", "Protocolos de diagnóstico"] },
+        { titulo: "MÓDULO 5: TRATAMIENTOS FACIALES", contenido: ["Limpieza facial profunda", "Exfoliación mecánica y química", "Extracción de comedones", "Masajes faciales", "Mascarillas específicas", "Tratamientos anti-edad"] },
+        { titulo: "MÓDULO 6: TRATAMIENTOS CORPORALES", contenido: ["Tratamientos reductores y reafirmantes", "Técnicas anti-celulíticas", "Drenaje linfático manual", "Exfoliación corporal", "Envolturas corporales", "Tratamientos de hidratación"] },
+        { titulo: "MÓDULO 7: APARATOLOGÍA ESTÉTICA", contenido: ["Alta frecuencia", "Ultrasonidos", "Radiofrecuencia", "Cavitación", "Presoterapia", "Mantenimiento de equipos"] },
+        { titulo: "MÓDULO 8: DEPILACIÓN", contenido: ["Métodos de depilación temporal", "Depilación con cera", "Depilación eléctrica", "Fotodepilación IPL", "Cuidados pre y post depilación", "Contraindicaciones"] }
+      ],
+      profesores: []
+    }
   },
   { 
     nombre: 'Auxiliar Enfermería', 
     slugBase: 'auxiliar-enfermeria',
     imagen: '/images/cursos/auxiliar-enfermeria.jpg',
+    categoria: 'sanidad',
     copy: {
       slogan: 'Una vocación de cuidado, una profesión de futuro.',
       textosPrincipales: ['Cuidados Básicos', 'Higiene y Movilización'],
@@ -237,29 +251,26 @@ const baseCursos = [
         { icono: 'Clock', texto: '10 meses / 40 sesiones' },
         { icono: 'Users', texto: 'Modalidad Presencial' },
         { icono: 'Award', texto: '300h de Prácticas' }
-      ]
-    },
-    modulos: [
-      { titulo: "MÓDULO 1: ANATOMÍA Y FISIOLOGÍA HUMANA", contenido: ["Organización del cuerpo humano", "Sistema esquelético y muscular", "Sistema cardiovascular", "Sistema respiratorio", "Sistema digestivo", "Sistema nervioso", "Sistema endocrino", "Sistema genitourinario"] },
-      { titulo: "MÓDULO 2: FUNDAMENTOS DE ENFERMERÍA", contenido: ["Historia de la enfermería", "Ética y deontología", "Comunicación terapéutica", "Educación para la salud", "Proceso de atención de enfermería", "Documentación sanitaria"] },
-      { titulo: "MÓDULO 3: TÉCNICAS BÁSICAS DE ENFERMERÍA", contenido: ["Higiene y aseo del paciente", "Movilización y traslado", "Constantes vitales", "Administración de medicación", "Cuidados de heridas", "Técnicas de vendajes", "Sondajes y drenajes"] },
-      { titulo: "MÓDULO 4: CUIDADOS AUXILIARES HOSPITALARIOS", contenido: ["Organización hospitalaria", "Unidades de hospitalización", "Cuidados pre y postoperatorios", "Urgencias y emergencias", "Cuidados intensivos", "Esterilización y desinfección"] },
-      { titulo: "MÓDULO 5: CUIDADOS AUXILIARES EN GERIATRÍA", contenido: ["Proceso de envejecimiento", "Patologías geriátricas", "Cuidados específicos del anciano", "Prevención de caídas", "Estimulación cognitiva", "Cuidados paliativos"] },
-      { titulo: "MÓDULO 6: PRIMEROS AUXILIOS", contenido: ["Evaluación inicial del paciente", "Reanimación cardiopulmonar (RCP)", "Atención a traumatismos", "Quemaduras y heridas", "Intoxicaciones", "Crisis convulsivas"] }
-    ],
-    salidasProfesionales: [
-      "Hospitales públicos y privados",
-      "Centros de atención primaria",
-      "Clínicas especializadas (dentales, pediátricas, etc.)",
-      "Residencias geriátricas",
-      "Centros de día",
-      "Atención domiciliaria"
-    ]
+      ],
+      salidasProfesionales: [
+        "Hospitales públicos y privados", "Centros de atención primaria", "Clínicas especializadas (dentales, pediátricas, etc.)", "Residencias geriátricas", "Centros de día", "Atención domiciliaria"
+      ],
+      modulos: [
+        { titulo: "MÓDULO 1: ANATOMÍA Y FISIOLOGÍA HUMANA", contenido: ["Organización del cuerpo humano", "Sistema esquelético y muscular", "Sistema cardiovascular", "Sistema respiratorio", "Sistema digestivo", "Sistema nervioso", "Sistema endocrino", "Sistema genitourinario"] },
+        { titulo: "MÓDULO 2: FUNDAMENTOS DE ENFERMERÍA", contenido: ["Historia de la enfermería", "Ética y deontología", "Comunicación terapéutica", "Educación para la salud", "Proceso de atención de enfermería", "Documentación sanitaria"] },
+        { titulo: "MÓDULO 3: TÉCNICAS BÁSICAS DE ENFERMERÍA", contenido: ["Higiene y aseo del paciente", "Movilización y traslado", "Constantes vitales", "Administración de medicación", "Cuidados de heridas", "Técnicas de vendajes", "Sondajes y drenajes"] },
+        { titulo: "MÓDULO 4: CUIDADOS AUXILIARES HOSPITALARIOS", contenido: ["Organización hospitalaria", "Unidades de hospitalización", "Cuidados pre y postoperatorios", "Urgencias y emergencias", "Cuidados intensivos", "Esterilización y desinfección"] },
+        { titulo: "MÓDULO 5: CUIDADOS AUXILIARES EN GERIATRÍA", contenido: ["Proceso de envejecimiento", "Patologías geriátricas", "Cuidados específicos del anciano", "Prevención de caídas", "Estimulación cognitiva", "Cuidados paliativos"] },
+        { titulo: "MÓDULO 6: PRIMEROS AUXILIOS", contenido: ["Evaluación inicial del paciente", "Reanimación cardiopulmonar (RCP)", "Atención a traumatismos", "Quemaduras y heridas", "Intoxicaciones", "Crisis convulsivas"] }
+      ],
+      profesores: []
+    }
   },
   { 
     nombre: 'Auxiliar Farmacia y Dermo', 
     slugBase: 'auxiliar-farmacia-dermo',
     imagen: '/images/cursos/farmacia-parafarmacia.jpg',
+    categoria: 'sanidad',
     copy: {
       slogan: 'Conviértete en un profesional clave en la oficina de farmacia.',
       textosPrincipales: ['Dispensación de Productos', 'Dermocosmética'],
@@ -272,28 +283,26 @@ const baseCursos = [
         { icono: 'Clock', texto: '12 meses / 48 sesiones' },
         { icono: 'Award', texto: '350h de Prácticas' },
         { icono: 'Users', texto: 'Grupos Reducidos' }
-      ]
-    },
-    modulos: [
-      { titulo: "1. Anatomía Humana", contenido: ["Introducción a la Anatomía y Enfermedad", "Aparato Locomotor", "Sistema Nervioso", "Sistema Endocrino", "La sangre", "Aparato Respiratorio, Digestivo y Urinario"] },
-      { titulo: "2. El Auxiliar en la Oficina de Farmacia", contenido: ["Marco legislativo", "Personal y servicios", "Compra/venta de Productos", "Acondicionamiento y clasificación", "Medicamentos de uso humano y animal"] },
-      { titulo: "3. Los Productos de Parafarmacia", contenido: ["Productos sanitarios", "Antisépticos", "Nutrición", "Cosmética, dermocosmética y solar", "Infantil, ortopedia, óptica y audioprótesis"] },
-      { titulo: "4. Dermocosmética", contenido: ["Introducción a la dermocosmética", "Tipos de piel", "Alteraciones cutáneas", "Productos dermocosméticos"] },
-      { titulo: "5. Primeros Auxilios Básicos", contenido: ["Técnicas básicas", "Actuación en emergencias", "Protocolos de seguridad", "Manejo de situaciones críticas"] },
-      { titulo: "6. Orientación Laboral", contenido: ["Técnicas de búsqueda de empleo", "Elaboración de CV", "Preparación para entrevistas", "Mercado laboral farmacéutico"] }
-    ],
-    salidasProfesionales: [
-      "Oficinas de Farmacia",
-      "Parafarmacias",
-      "Almacenes de distribución de medicamentos",
-      "Farmacias hospitalarias (sector público y privado)",
-      "Laboratorios farmacéuticos"
-    ]
+      ],
+      salidasProfesionales: [
+        "Oficinas de Farmacia", "Parafarmacias", "Almacenes de distribución de medicamentos", "Farmacias hospitalarias (sector público y privado)", "Laboratorios farmacéuticos"
+      ],
+      modulos: [
+        { titulo: "1. Anatomía Humana", contenido: ["Introducción a la Anatomía y Enfermedad", "Aparato Locomotor", "Sistema Nervioso", "Sistema Endocrino", "La sangre", "Aparato Respiratorio, Digestivo y Urinario"] },
+        { titulo: "2. El Auxiliar en la Oficina de Farmacia", contenido: ["Marco legislativo", "Personal y servicios", "Compra/venta de Productos", "Acondicionamiento y clasificación", "Medicamentos de uso humano y animal"] },
+        { titulo: "3. Los Productos de Parafarmacia", contenido: ["Productos sanitarios", "Antisépticos", "Nutrición", "Cosmética, dermocosmética y solar", "Infantil, ortopedia, óptica y audioprótesis"] },
+        { titulo: "4. Dermocosmética", contenido: ["Introducción a la dermocosmética", "Tipos de piel", "Alteraciones cutáneas", "Productos dermocosméticos"] },
+        { titulo: "5. Primeros Auxilios Básicos", contenido: ["Técnicas básicas", "Actuación en emergencias", "Protocolos de seguridad", "Manejo de situaciones críticas"] },
+        { titulo: "6. Orientación Laboral", contenido: ["Técnicas de búsqueda de empleo", "Elaboración de CV", "Preparación para entrevistas", "Mercado laboral farmacéutico"] }
+      ],
+      profesores: []
+    }
   },
   { 
     nombre: 'Auxiliar Odontología', 
     slugBase: 'auxiliar-odontologia',
     imagen: '/images/cursos/auxiliar-odontologia.jpg',
+    categoria: 'sanidad',
     copy: {
       slogan: 'Asiste al odontólogo y mejora la salud bucodental de los pacientes.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -304,6 +313,7 @@ const baseCursos = [
     nombre: 'Dietética y Nutrición', 
     slugBase: 'dietetica-nutricion',
     imagen: '/images/cursos/dietetica-nutricion.jpg',
+    categoria: 'bienestar',
     copy: {
       slogan: 'Promueve hábitos de vida saludable a través de la alimentación.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -314,6 +324,7 @@ const baseCursos = [
     nombre: 'Peluquería Canina y Felina', 
     slugBase: 'peluqueria-canina-felina',
     imagen: '/images/cursos/peluqueria-canina.jpg',
+    categoria: 'veterinaria',
     copy: {
       slogan: 'Transforma tu pasión por los animales en una profesión creativa.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -324,6 +335,7 @@ const baseCursos = [
     nombre: 'Quiromasaje Nivel I', 
     slugBase: 'quiromasaje-nivel1',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    categoria: 'bienestar',
     copy: {
       slogan: 'Iníciate en el arte del masaje terapéutico y de relajación.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -334,6 +346,7 @@ const baseCursos = [
     nombre: 'Quiromasaje Nivel II', 
     slugBase: 'quiromasaje-nivel2',
     imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    categoria: 'bienestar',
     copy: {
       slogan: 'Avanza en tus técnicas y especialízate en masaje deportivo.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -344,6 +357,7 @@ const baseCursos = [
     nombre: 'CFGS Higiene Bucodental', 
     slugBase: 'cfgs-higiene-bucodental',
     imagen: '/images/cursos/auxiliar-odontologia.jpg',
+    categoria: 'ciclos',
     copy: {
       slogan: 'Tu título oficial para una carrera en salud dental.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -354,6 +368,7 @@ const baseCursos = [
     nombre: 'CFGM Farmacia y Parafarmacia', 
     slugBase: 'cfgm-farmacia-parafarmacia',
     imagen: '/images/cursos/farmacia-parafarmacia.jpg',
+    categoria: 'ciclos',
     copy: {
       slogan: 'Obtén tu título oficial y trabaja en farmacias y hospitales.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
