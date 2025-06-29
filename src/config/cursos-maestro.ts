@@ -144,7 +144,7 @@ const baseCursos = [
   { 
     nombre: 'CFGS Higiene Bucodental', 
     slugBase: 'cfgs-higiene-bucodental',
-    imagen: '/images/cursos/ciclos-formativos.jpg',
+    imagen: '/images/cursos/auxiliar-odontologia.jpg',
     copy: {
       slogan: 'Tu título oficial para una carrera en salud dental.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
@@ -154,7 +154,7 @@ const baseCursos = [
   { 
     nombre: 'CFGM Farmacia y Parafarmacia', 
     slugBase: 'cfgm-farmacia-parafarmacia',
-    imagen: '/images/cursos/ciclos-formativos.jpg',
+    imagen: '/images/cursos/farmacia-parafarmacia.jpg',
     copy: {
       slogan: 'Obtén tu título oficial y trabaja en farmacias y hospitales.',
       textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
