@@ -35,15 +35,26 @@ const SedeSection: React.FC<{ sede: 'Norte' | 'Santa Cruz', cursos: CursoMaestro
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {cursos.map(curso => (
-          <Link to={`/new/cursos/${curso.slug}`} key={curso.id} className="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 ease-in-out group">
+          <Link to={`/new/cursos/${curso.slug}`} key={curso.id} className="bg-gray-50 rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 ease-in-out group flex flex-col">
             <div className="relative">
               <img src={curso.imagen} alt={`Imagen de ${curso.nombre}`} className="w-full h-48 object-cover" />
               <div className="absolute top-2 right-2 bg-cep-primary text-white text-xs font-bold px-2 py-1 rounded-full">{curso.sede}</div>
               <Badge curso={curso} />
             </div>
-            <div className="p-6">
+            <div className="p-6 flex flex-col flex-grow">
               <h2 className="text-xl font-bold text-gray-900 group-hover:text-cep-primary transition-colors">{curso.nombre}</h2>
-              <p className="mt-2 text-gray-600 text-sm">{curso.copy.slogan}</p>
+              <p className="mt-2 text-gray-600 text-sm flex-grow">{curso.copy.slogan}</p>
+              <div className="mt-4">
+                {curso.estado === 'activo' ? (
+                  <div className="bg-green-600 text-white text-center font-bold py-2 px-4 rounded-lg group-hover:bg-green-700 transition-colors">
+                    RESERVA TU PLAZA AHORA
+                  </div>
+                ) : (
+                  <div className="bg-pink-600 text-white text-center font-bold py-2 px-4 rounded-lg group-hover:bg-pink-700 transition-colors">
+                    VER CURSO
+                  </div>
+                )}
+              </div>
             </div>
           </Link>
         ))}
