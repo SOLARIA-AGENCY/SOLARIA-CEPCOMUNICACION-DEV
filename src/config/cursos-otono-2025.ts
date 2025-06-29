@@ -748,7 +748,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-quiromasaje-nivel1-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    imagen: '/images/cursos/quiromasaje-nivel-1.jpg',
     temario: [
       'Anatomía y fisiología del aparato locomotor',
       'Técnicas básicas de quiromasaje',
@@ -807,7 +807,7 @@ export const cursoData = [
     sede: 'Santa Cruz', 
     tag: 'otono-2025-quiromasaje-nivel2-santacruz',
     inicio: 'Julio 2025',
-    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    imagen: '/images/cursos/quiromasaje-nivel-2.jpg',
     temario: [
       'Anatomía y fisiología del aparato locomotor avanzada',
       'Patologías del sistema muscoesquelético',
@@ -866,7 +866,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-quiromasaje-nivel2-norte',
     inicio: 'Julio 2025',
-    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    imagen: '/images/cursos/quiromasaje-nivel-2.jpg',
     temario: [
       'Masaje terapéutico: indicaciones, contraindicaciones y pautas',
       'Técnicas funcionales (Jones) y estructurales (inhibición, miotensiva)',
