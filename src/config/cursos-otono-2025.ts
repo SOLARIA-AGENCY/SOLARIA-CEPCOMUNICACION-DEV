@@ -859,7 +859,61 @@ export const cursoData = [
     }
   },
 
-  // 16. CICLO FORMATIVO DE GRADO SUPERIOR HIGIENE BUCODENTAL (OFICIAL)
+  // 16. Quiromasaje Nivel II Norte
+  {
+    slug: 'quiromasaje-nivel2-norte',
+    nombre: 'Quiromasaje Nivel II',
+    sede: 'Norte',
+    tag: 'otono-2025-quiromasaje-nivel2-norte',
+    inicio: 'Julio 2025',
+    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg',
+    temario: [
+      'Masaje terapéutico: indicaciones, contraindicaciones y pautas',
+      'Técnicas funcionales (Jones) y estructurales (inhibición, miotensiva)',
+      'Tests de valoración: ruptura, contrarresistencia y movimiento articular',
+      'Fricción transversa profunda de Cyriax (F.T.P.)',
+      'Crioterapia, termoterapia y baños de contraste',
+      'Tratamiento de lesiones musculares, tendinosas y articulares',
+      'Masaje deportivo: pre-competición, post-competición y de entrenamiento',
+      'Orientación laboral y gestión de clientes en bienestar'
+    ],
+    duracion: '20 sesiones / 5 meses',
+    precio: {
+        cuotas: 5,
+        importe: 85,
+        matricula: 150
+    },
+    practicas: '50 horas prácticas en empresas',
+    certificacion: 'Diploma CEP en Quiromasaje Nivel II',
+    profesorDetalle: {
+        nombre: 'Alexis Hernández',
+        foto: '/images/profesores/alexis.jpg',
+        especialidad: 'Especialista en Quiromasaje y Terapias Manuales',
+        descripcion: 'Profesional certificado en quiromasaje y técnicas de terapia manual avanzada. Especialista en tratamientos de rehabilitación y bienestar. Amplia experiencia en centros de fisioterapia y wellness.'
+    },
+    modalidadInfo: {
+        tipo: 'Formación presencial en grupos reducidos',
+        horario: '1 día por semana - 3 horas por sesión',
+        sesiones: '20 sesiones - 5 meses de duración',
+        certificacion: 'Diploma profesional + Opción doble diploma + Agencia de colocación'
+    },
+    copy: {
+        slogan: "Tu cuerpo es tu compañero de vida. Cuídalo, escúchalo, atiéndelo.",
+        textosPrincipales: [
+            "Conocimientos avanzados de las principales técnicas del masaje deportivo y terapéutico, anatomía y trato al paciente.",
+            "Adquiere la confianza, habilidades y conocimientos para trabajar en balnearios, spas, gimnasios, o abrir tu propio centro.",
+            "Curso práctico para trabajar como quiromasajista en centros spa, deportivos y hoteles."
+        ],
+        titulos: ["Especialista en Masaje Deportivo", "Experto en Masaje Terapéutico", "Prácticas en Empresas del Sector"],
+        descripciones: [
+            "Aprende las técnicas de masaje deportivo para antes, durante y después de la competición.",
+            "Domina el tratamiento de lesiones comunes como contracturas, tendinitis y esguinces.",
+            "Realiza 50 horas de prácticas en empresas para una inserción laboral real y efectiva."
+        ]
+    }
+  },
+
+  // 17. CICLO FORMATIVO DE GRADO SUPERIOR HIGIENE BUCODENTAL (OFICIAL)
   {
     slug: 'cfgs-higiene-bucodental-santacruz',
     nombre: 'Ciclo Formativo de Grado Superior Higiene Bucodental',
@@ -921,7 +975,7 @@ export const cursoData = [
     }
   },
 
-  // 17. CICLO FORMATIVO DE GRADO MEDIO FARMACIA Y PARAFARMACIA (OFICIAL)
+  // 18. CICLO FORMATIVO DE GRADO MEDIO FARMACIA Y PARAFARMACIA (OFICIAL)
   {
     slug: 'cfgm-farmacia-parafarmacia-santacruz',
     nombre: 'Ciclo Formativo de Grado Medio Farmacia y Parafarmacia',

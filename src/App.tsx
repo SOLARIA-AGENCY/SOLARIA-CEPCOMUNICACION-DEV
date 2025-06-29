@@ -290,6 +290,7 @@ const PeluqueriaCaninaNortePage = () => <CursoPageComponent curso={cursoData[11]
 const PeluqueriaCaninaSantaCruzPage = () => <CursoPageComponent curso={cursoData[12]} />;
 const QuiromasajeNivel1Page = () => <CursoPageComponent curso={cursoData[13]} />;
 const QuiromasajeNivel2Page = () => <CursoPageComponent curso={cursoData[14]} />;
+const QuiromasajeNivel2NortePage = () => <CursoPageComponent curso={cursoData[15]} />;
 // Ahora importamos las páginas específicas desde archivos separados
 
 
@@ -336,6 +337,10 @@ function App() {
         <Route path="/peluqueria-canina-felina-santacruz" element={<PeluqueriaCaninaSantaCruzPage />} />
         <Route path="/quiromasaje-nivel1-norte" element={<QuiromasajeNivel1Page />} />
         <Route path="/quiromasaje-nivel2-santacruz" element={<QuiromasajeNivel2Page />} />
+        <Route path="/quiromasaje-nivel2-norte" element={<QuiromasajeNivel2NortePage />} />
+
+        {/* --- NUEVA ESTRUCTURA DINÁMICA (EN PARALELO) --- */}
+        <Route path="/cursos-v2" element={<NuevosCursosIndexPage />} />
       </Routes>
     </Router>
   );
