@@ -1,3 +1,19 @@
+export type Modulo = {
+  titulo: string;
+  contenido: string[];
+};
+
+export type Profesor = {
+  nombre: string;
+  foto: string;
+  bio: string;
+};
+
+export type Entidad = {
+  nombre: string;
+  logo: string;
+};
+
 export type CursoMaestro = {
   id: string;
   slug: string;
@@ -16,6 +32,18 @@ export type CursoMaestro = {
   practicas?: string;
   profesor?: string;
   certificacion?: string;
+  
+  descripcionDetallada?: {
+    introduccion: string;
+    queAprendes: string;
+    puntosClave: { icono: string; texto: string }[];
+  };
+  modulos?: Modulo[];
+  salidasProfesionales?: string[];
+  profesores?: Profesor[];
+  certificaciones?: Entidad[];
+  colaboradores?: Entidad[];
+
   profesorDetalle?: {
     nombre: string;
     especialidad: string;
@@ -57,9 +85,56 @@ const baseCursos = [
     imagen: '/images/cursos/auxiliar-veterinaria.jpg',
     copy: {
       slogan: 'Tu primer paso hacia una carrera dedicada al cuidado animal.',
-      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      textosPrincipales: ['Anatomía Animal', 'Asistencia Quirúrgica'],
       titulos: ['Anatomía Animal', 'Asistencia Quirúrgica']
-    }
+    },
+    descripcionDetallada: {
+      introduccion: "Conviértete en un profesional especializado en el cuidado y asistencia técnica veterinaria, con amplias salidas laborales en clínicas y hospitales veterinarios.",
+      queAprendes: "El curso de Auxiliar Técnico Veterinario (ATV) te prepara para trabajar como asistente especializado en clínicas y hospitales veterinarios, proporcionando cuidados técnicos profesionales a todo tipo de animales. Adquirirás las competencias profesionales para asistir en consultas, cirugías, laboratorio, hospitalización y todas las áreas de una clínica veterinaria moderna.",
+      puntosClave: [
+        { icono: 'Clock', texto: '10 meses de duración' },
+        { icono: 'Users', texto: 'Modalidad Presencial' },
+        { icono: 'Award', texto: '300h de Prácticas Garantizadas' }
+      ]
+    },
+    modulos: [
+      { titulo: "MÓDULO 1: ANATOMÍA Y FISIOLOGÍA ANIMAL", contenido: ["Anatomía y fisiología de los sistemas corporales", "Aparato locomotor: huesos, músculos y articulaciones", "Sistema nervioso y órganos de los sentidos", "Aparato circulatorio y respiratorio", "Aparato digestivo y sistema urinario", "Aparato reproductor", "Sistema endocrino", "Diferencias anatómicas entre especies"] },
+      { titulo: "MÓDULO 2: PATOLOGÍA ANIMAL", contenido: ["Concepto de enfermedad y etiología", "Enfermedades infecciosas más comunes", "Enfermedades parasitarias", "Enfermedades metabólicas", "Traumatología veterinaria", "Oncología veterinaria básica", "Enfermedades hereditarias", "Zoonosis y salud pública"] },
+      { titulo: "MÓDULO 3: TÉCNICAS DE EXPLORACIÓN CLÍNICA", contenido: ["Manejo y sujeción de animales", "Constantes vitales en diferentes especies", "Técnicas de exploración física", "Auscultación y palpación", "Inspección y observación clínica", "Registro de datos clínicos", "Comunicación con propietarios"] },
+      { titulo: "MÓDULO 4: TÉCNICAS DE LABORATORIO", contenido: ["Toma de muestras biológicas", "Análisis de sangre básicos", "Análisis de orina", "Análisis coprológicos", "Citología básica", "Microbiología veterinaria", "Uso de equipos de laboratorio", "Interpretación de resultados básicos"] },
+      { titulo: "MÓDULO 5: TÉCNICAS DE IMAGEN", contenido: ["Radiología veterinaria", "Posicionamiento para radiografías", "Protección radiológica", "Ecografía básica", "Endoscopia", "Mantenimiento de equipos", "Archivo y documentación de imágenes"] },
+      { titulo: "MÓDULO 6: FARMACOLOGÍA VETERINARIA", contenido: ["Principios de farmacología", "Vías de administración de medicamentos", "Cálculo de dosis", "Medicamentos más utilizados", "Anestesia y analgesia", "Vacunas y programas de vacunación", "Almacenamiento de medicamentos", "Legislación farmacéutica veterinaria"] },
+      { titulo: "MÓDULO 7: CIRUGÍA VETERINARIA", contenido: ["Instrumental quirúrgico", "Preparación del campo quirúrgico", "Esterilización y desinfección", "Asistencia en cirugía", "Anestesia y monitorización", "Cuidados postoperatorios", "Suturas básicas", "Urgencias quirúrgicas"] },
+      { titulo: "MÓDULO 8: HOSPITALIZACIÓN Y CUIDADOS INTENSIVOS", contenido: ["Manejo de pacientes hospitalizados", "Fluidoterapia", "Alimentación de pacientes críticos", "Monitorización de constantes", "Cuidados de heridas", "Administración de medicamentos", "Fisioterapia veterinaria básica", "Eutanasia y manejo del dolor"] },
+      { titulo: "MÓDULO 9: MEDICINA PREVENTIVA", contenido: ["Programas de vacunación", "Desparasitaciones", "Medicina preventiva por especies", "Nutrición animal", "Bienestar animal", "Programas sanitarios", "Educación sanitaria a propietarios"] },
+      { titulo: "MÓDULO 10: GESTIÓN Y ADMINISTRACIÓN", contenido: ["Organización de la clínica veterinaria", "Atención al cliente", "Gestión de historiales clínicos", "Facturación y cobros", "Gestión de stock y almacén", "Legislación veterinaria", "Ética profesional", "Primeros auxilios en humanos"] }
+    ],
+    salidasProfesionales: [
+      "Clínicas Veterinarias",
+      "Hospitales Veterinarios 24h",
+      "Consultorios Veterinarios",
+      "Centros de Acogida de Animales",
+      "Residencias Caninas y Felinas",
+      "Tiendas de Animales Especializadas",
+      "Laboratorios de Diagnóstico Veterinario",
+      "Empresas de Nutrición Animal",
+      "Centros de Cría de Animales",
+      "Zoológicos y Reservas Naturales"
+    ],
+    profesores: [
+      { nombre: "Dr. Luis Martínez", foto: "/images/profesores/luis.jpg", bio: "Veterinario con más de 15 años de experiencia en cirugía y medicina interna. Apasionado por la enseñanza y el bienestar animal." },
+      { nombre: "Dra. Sara Gutiérrez", foto: "/images/profesores/sara.jpg", bio: "Especialista en animales exóticos y diagnóstico por imagen. Su enfoque práctico facilita el aprendizaje de las técnicas más complejas." }
+    ],
+    certificaciones: [
+      { nombre: 'Ministerio de Educación', logo: '/images/certificaciones/ministerio-educacion.png' },
+      { nombre: 'Gobierno de Canarias', logo: '/images/certificaciones/gobierno-canarias.png' },
+      { nombre: 'SEPE', logo: '/images/certificaciones/sepe.png' }
+    ],
+    colaboradores: [
+      { nombre: 'Valle Colino', logo: '/images/ongs/valle-colino-logo.jpg' },
+      { nombre: 'Clínica Veterinaria Anaza', logo: '/images/colaboradores/clinica-anaza-logo.jpg' },
+      { nombre: 'Clínica Veterinaria Duggi', logo: '/images/colaboradores/clinica-duggi-logo.jpg' }
+    ]
   },
   { 
     nombre: 'Auxiliar Clínicas Estéticas', 
