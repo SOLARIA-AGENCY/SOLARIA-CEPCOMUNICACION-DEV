@@ -15,8 +15,6 @@ import AuxiliarEnfermeriaPage from './pages/AuxiliarEnfermeriaPage';
 import AuxiliarEsteticasPage from './pages/AuxiliarEsteticasPage';
 import AuxiliarFarmaciaPage from './pages/AuxiliarFarmaciaPage';
 import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
-import CFGMFarmaciaParafarmaciaPage from './pages/CFGMFarmaciaParafarmaciaPage';
-import CFGSHigieneBucodentalPage from './pages/CFGSHigieneBucodentalPage';
 
 // --- NUEVA ESTRUCTURA DINÁMICA ---
 import NuevosCursosIndexPage from './pages/NuevosCursosIndexPage';
