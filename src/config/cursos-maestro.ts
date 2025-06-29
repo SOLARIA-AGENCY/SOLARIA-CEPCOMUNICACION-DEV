@@ -31,79 +31,151 @@ export type CursoMaestro = {
   temario?: string[];
 };
 
-export const cursosMaestro: CursoMaestro[] = [
-  // Adiestramiento Canino
-  {
-    id: 'adiestramiento-canino-norte',
-    slug: 'adiestramiento-canino-norte',
-    nombre: 'Adiestramiento Canino',
-    sede: 'Norte',
-    estado: 'proximamente',
+const baseCursos = [
+  { 
+    nombre: 'Adiestramiento Canino', 
+    slugBase: 'adiestramiento-canino', 
     imagen: '/images/cursos/adiestramiento-canino.jpg',
     copy: {
       slogan: 'Conviértete en un experto en el comportamiento y educación canina.',
-      textosPrincipales: [
-        'Aprende las técnicas más efectivas y respetuosas para adiestrar perros de todas las razas y edades.',
-        'Nuestro enfoque se basa en el refuerzo positivo para construir un vínculo sólido entre el perro y su guía.',
-        'Ideal para futuros adiestradores profesionales o dueños que deseen comprender mejor a su compañero.'
-      ],
-      titulos: ['Psicología Canina', 'Técnicas de Modificación de Conducta', 'Creación de Planes de Adiestramiento', 'Legislación y Bienestar Animal']
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Psicología Canina', 'Modificación de Conducta']
     }
   },
-  {
-    id: 'adiestramiento-canino-santacruz',
-    slug: 'adiestramiento-canino-santacruz',
-    nombre: 'Adiestramiento Canino',
-    sede: 'Santa Cruz',
-    estado: 'activo',
-    inicio: "Octubre 2025",
-    imagen: '/images/cursos/adiestramiento-canino.jpg',
-    copy: {
-      slogan: 'Conviértete en un experto en el comportamiento y educación canina.',
-      textosPrincipales: [
-        'Aprende las técnicas más efectivas y respetuosas para adiestrar perros de todas las razas y edades.',
-        'Nuestro enfoque se basa en el refuerzo positivo para construir un vínculo sólido entre el perro y su guía.',
-        'Ideal para futuros adiestradores profesionales o dueños que deseen comprender mejor a su compañero.'
-      ],
-      titulos: ['Psicología Canina', 'Técnicas de Modificación de Conducta', 'Creación de Planes de Adiestramiento', 'Legislación y Bienestar Animal']
-    }
-  },
-  // Agente Funerario
-  {
-    id: 'agente-funerario-norte',
-    slug: 'agente-funerario-norte',
-    nombre: 'Agente Funerario',
-    sede: 'Norte',
-    estado: 'proximamente',
+  { 
+    nombre: 'Agente Funerario', 
+    slugBase: 'agente-funerario', 
     imagen: '/images/cursos/especializacion-sanitaria.jpg',
     copy: {
-        slogan: 'Fórmate en una profesión esencial y de gran demanda social.',
-        textosPrincipales: [
-            'Adquiere las competencias técnicas y humanas para asistir a las familias en momentos difíciles.',
-            'El curso cubre desde la tanatopraxia y tanatoestética hasta el protocolo funerario y la gestión administrativa.',
-            'Una formación completa para un sector con alta empleabilidad.'
-        ],
-        titulos: ['Tanatopraxia y Tanatoestética', 'Protocolo Funerario', 'Psicología y Atención a la Familia', 'Gestión Funeraria']
+      slogan: 'Fórmate en una profesión esencial y de gran demanda social.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Tanatopraxia', 'Protocolo Funerario']
     }
   },
-  {
-    id: 'agente-funerario-santacruz',
-    slug: 'agente-funerario-santacruz',
-    nombre: 'Agente Funerario',
-    sede: 'Santa Cruz',
-    estado: 'activo',
-    inicio: "Noviembre 2025",
-    imagen: '/images/cursos/especializacion-sanitaria.jpg',
+  { 
+    nombre: 'Auxiliar Clínico Veterinario', 
+    slugBase: 'auxiliar-clinico-veterinario',
+    imagen: '/images/cursos/auxiliar-veterinaria.jpg',
     copy: {
-        slogan: 'Fórmate en una profesión esencial y de gran demanda social.',
-        textosPrincipales: [
-            'Adquiere las competencias técnicas y humanas para asistir a las familias en momentos difíciles.',
-            'El curso cubre desde la tanatopraxia y tanatoestética hasta el protocolo funerario y la gestión administrativa.',
-            'Una formación completa para un sector con alta empleabilidad.'
-        ],
-        titulos: ['Tanatopraxia y Tanatoestética', 'Protocolo Funerario', 'Psicología y Atención a la Familia', 'Gestión Funeraria']
+      slogan: 'Tu primer paso hacia una carrera dedicada al cuidado animal.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Anatomía Animal', 'Asistencia Quirúrgica']
     }
   },
-  // ... y así sucesivamente para los 26 cursos.
-  // Este es un ejemplo, completaría todos los cursos.
-]; 
+  { 
+    nombre: 'Auxiliar Clínicas Estéticas', 
+    slugBase: 'auxiliar-clinicas-esteticas',
+    imagen: '/images/cursos/diseno-de-medios.jpg', // Placeholder image
+    copy: {
+      slogan: 'Especialízate en el sector de la belleza y el bienestar.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Tratamientos Faciales', 'Aparatología Estética']
+    }
+  },
+  { 
+    nombre: 'Auxiliar Enfermería', 
+    slugBase: 'auxiliar-enfermeria',
+    imagen: '/images/cursos/auxiliar-enfermeria.jpg',
+    copy: {
+      slogan: 'Una vocación de cuidado, una profesión de futuro.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Cuidados Básicos', 'Higiene y Movilización']
+    }
+  },
+  { 
+    nombre: 'Auxiliar Farmacia y Dermo', 
+    slugBase: 'auxiliar-farmacia-dermo',
+    imagen: '/images/cursos/farmacia-parafarmacia.jpg',
+    copy: {
+      slogan: 'Conviértete en un profesional clave en la oficina de farmacia.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Dispensación de Productos', 'Dermocosmética']
+    }
+  },
+  { 
+    nombre: 'Auxiliar Odontología', 
+    slugBase: 'auxiliar-odontologia',
+    imagen: '/images/cursos/auxiliar-odontologia.jpg',
+    copy: {
+      slogan: 'Asiste al odontólogo y mejora la salud bucodental de los pacientes.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Instrumental Dental', 'Esterilización']
+    }
+  },
+  { 
+    nombre: 'Dietética y Nutrición', 
+    slugBase: 'dietetica-nutricion',
+    imagen: '/images/cursos/dietetica-nutricion.jpg',
+    copy: {
+      slogan: 'Promueve hábitos de vida saludable a través de la alimentación.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Elaboración de Dietas', 'Nutrición Deportiva']
+    }
+  },
+  { 
+    nombre: 'Peluquería Canina y Felina', 
+    slugBase: 'peluqueria-canina-felina',
+    imagen: '/images/cursos/peluqueria-canina.jpg',
+    copy: {
+      slogan: 'Transforma tu pasión por los animales en una profesión creativa.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Técnicas de Corte', 'Cosmética Animal']
+    }
+  },
+  { 
+    nombre: 'Quiromasaje Nivel I', 
+    slugBase: 'quiromasaje-nivel1',
+    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg', // Placeholder
+    copy: {
+      slogan: 'Iníciate en el arte del masaje terapéutico y de relajación.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Anatomía Palpatoria', 'Maniobras Básicas']
+    }
+  },
+  { 
+    nombre: 'Quiromasaje Nivel II', 
+    slugBase: 'quiromasaje-nivel2',
+    imagen: '/images/cursos/salud-bienestar-y-deporte.jpg', // Placeholder
+    copy: {
+      slogan: 'Avanza en tus técnicas y especialízate en masaje deportivo.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Masaje Deportivo', 'Tratamiento de Lesiones']
+    }
+  },
+  { 
+    nombre: 'CFGS Higiene Bucodental', 
+    slugBase: 'cfgs-higiene-bucodental',
+    imagen: '/images/cursos/ciclos-formativos.jpg', // Placeholder
+    copy: {
+      slogan: 'Tu título oficial para una carrera en salud dental.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Educación Sanitaria', 'Odontología Preventiva']
+    }
+  },
+  { 
+    nombre: 'CFGM Farmacia y Parafarmacia', 
+    slugBase: 'cfgm-farmacia-parafarmacia',
+    imagen: '/images/cursos/ciclos-formativos.jpg', // Placeholder
+    copy: {
+      slogan: 'Obtén tu título oficial y trabaja en farmacias y hospitales.',
+      textosPrincipales: ['Texto principal 1', 'Texto principal 2'],
+      titulos: ['Oficina de Farmacia', 'Farmacología Básica']
+    }
+  }
+];
+
+export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
+  const sedes: ('Norte' | 'Santa Cruz')[] = ['Norte', 'Santa Cruz'];
+  return sedes.map(sede => {
+    const slugSede = sede === 'Norte' ? 'norte' : 'santacruz';
+    return {
+      ...cursoBase,
+      id: `${cursoBase.slugBase}-${slugSede}`,
+      slug: `${cursoBase.slugBase}-${slugSede}`,
+      sede: sede,
+      // Lógica de ejemplo para el estado: Santa Cruz activo, Norte próximamente
+      estado: sede === 'Santa Cruz' ? 'activo' : 'proximamente',
+      inicio: sede === 'Santa Cruz' ? 'Octubre 2025' : undefined,
+    };
+  });
+}); 
