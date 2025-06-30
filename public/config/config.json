@@ -1,0 +1,13 @@
+{
+  "tracking": {
+    "ga4": "",
+    "pixel": "",
+    "gtm": ""
+  },
+  "services": {
+    "mailchimp": {
+      "apiKey": "",
+      "audienceId": ""
+    }
+  }
+} 

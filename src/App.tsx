@@ -21,6 +21,9 @@ import NuevosCursosIndexPage from './pages/NuevosCursosIndexPage';
 import PaginaCursoDinamica from './pages/PaginaCursoDinamica';
 import CursoPageComponent from './components/templates/CursoPageComponent';
 import { cursosMaestro } from './config/cursos-maestro';
+import SolariaStatusPage from './pages/SolariaStatusPage';
+import useTracking from './utils/useTracking';
+import ThankYouPage from './pages/ThankYouPage';
 // --- FIN NUEVA ESTRUCTURA ---
 
 import './index.css';
@@ -37,6 +40,8 @@ const DynamicCoursePageWrapper = ({ slug }: { slug: string }) => {
 };
 
 function App() {
+  useTracking();
+
   return (
     <Router>
       <Routes>
@@ -65,6 +70,8 @@ function App() {
         <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
         <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />
         <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
+        <Route path="/solaria-status" element={<SolariaStatusPage />} />
+        <Route path="/thank-you" element={<ThankYouPage />} />
         
         {/* LANDINGS DIRECTAS - Ahora todas usan la estructura dinámica */}
         <Route path="/adiestramiento-canino-norte" element={<DynamicCoursePageWrapper slug="adiestramiento-canino-norte" />} />

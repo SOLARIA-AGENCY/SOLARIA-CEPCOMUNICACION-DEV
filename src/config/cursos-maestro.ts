@@ -1090,7 +1090,8 @@ export type NewsletterConfig = {
   descripcion: string;
   beneficios: string[];
   frecuencia: string;
-}; 
+  privacidad: string; // Añadir la propiedad
+};
 
 // Configuración de folletos específicos por curso (descarga directa)
 export const getFolletoCurso = (cursoSlug: string): FolletoPDF | null => {
@@ -1193,15 +1194,14 @@ export const getFolletoCurso = (cursoSlug: string): FolletoPDF | null => {
 
 // Configuración del newsletter
 export const newsletterConfig: NewsletterConfig = {
-  titulo: "Newsletter CEP Formación",
-  descripcion: "Mantente al día con las últimas novedades, ofertas exclusivas y consejos profesionales del mundo de la formación.",
+  titulo: 'Mantente al Día con CEP Formación',
+  descripcion: 'Recibe las últimas noticias sobre nuestros cursos, eventos especiales y ofertas exclusivas directamente en tu bandeja de entrada. Únete a nuestra comunidad y no te pierdas ninguna oportunidad para seguir creciendo profesionalmente.',
   beneficios: [
-    "🎓 Acceso anticipado a nuevos cursos y especialidades",
-    "💰 Ofertas y descuentos exclusivos para suscriptores",
-    "📚 Recursos gratuitos y materiales de estudio",
-    "🏆 Consejos de expertos y casos de éxito",
-    "📅 Información sobre fechas de inicio y eventos especiales",
-    "🔔 Alertas sobre becas y ayudas disponibles"
+    'Nuevos cursos y fechas de inicio',
+    'Descuentos y promociones exclusivas',
+    'Eventos y talleres gratuitos',
+    'Noticias del sector y salidas laborales'
   ],
-  frecuencia: "Semanal"
+  frecuencia: 'Semanal',
+  privacidad: 'Tus datos son privados y no se compartirán.' // Añadir el texto
 };

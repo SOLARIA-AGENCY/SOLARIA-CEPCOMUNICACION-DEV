@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp, Phone, Mail, MapPin, PawPrint, Heart, Activity, Download, FileText, Send } from 'lucide-react';
+import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp, Phone, Mail, MapPin, PawPrint, Heart, Activity, Download, FileText, Send, Shield } from 'lucide-react';
 import { CursoMaestro, getFolletoCurso, newsletterConfig } from '../../config/cursos-maestro';
 import CursoInscripcionModal from '../organisms/CursoInscripcionModal';
 import CepHeader from '../organisms/CepHeader';
@@ -36,23 +36,8 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Aquí iría la lógica para suscribir al newsletter
-      console.log('Suscribiendo al newsletter:', newsletterEmail);
-      
-      // Simular envío
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      setNewsletterEmail('');
-      alert('¡Gracias por suscribirte! Recibirás nuestro newsletter semanal con las últimas novedades.');
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Hubo un error. Por favor, inténtalo de nuevo.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    // This function will be removed, but kept here for reference if needed later.
+    // The form will now submit directly via HTML.
   };
 
   const HeroIcon = () => {
@@ -383,58 +368,66 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
             );
           })()}
 
-          {/* Sección de Newsletter */}
-          <section className="mb-12">
-            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl shadow-lg p-8">
-              <div className="md:flex items-center">
-                {/* Contenido Newsletter */}
-                <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
-                    <Send className="w-7 h-7 mr-3 text-pink-600" />
-                    {newsletterConfig.titulo}
-                  </h2>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {newsletterConfig.descripcion}
-                  </p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-                    {newsletterConfig.beneficios.slice(0, 4).map((beneficio, index) => (
-                      <div key={index} className="flex items-start">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600">{beneficio}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+          {/* Formulario de Newsletter */}
+          <section className="bg-gray-100">
+            <div className="container mx-auto px-4 sm:px-6 py-12">
+                <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 overflow-hidden">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        {/* Columna de Texto */}
+                        <div>
+                            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+                                <Send className="inline-block w-8 h-8 mr-3 text-pink-600"/>
+                                {newsletterConfig.titulo}
+                            </h2>
+                            <p className="text-gray-600 mb-6">{newsletterConfig.descripcion}</p>
+                            <ul className="space-y-3">
+                                {newsletterConfig.beneficios.map((beneficio, index) => (
+                                    <li key={index} className="flex items-center">
+                                        <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0"/>
+                                        <span className="text-gray-700">{beneficio}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        {/* Columna de Formulario */}
+                        <div className="bg-gray-50 p-6 rounded-lg">
+                            <form 
+                                action="https://formsubmit.co/agency.solaria@gmail.com" 
+                                method="POST"
+                            >
+                                <h3 className="text-lg font-semibold text-gray-800 mb-3">Suscríbete ahora</h3>
+                                
+                                {/* --- CAMPOS PARA FORMSUBMIT --- */}
+                                <input type="hidden" name="_cc" value="cepformacion.admi@hotmail.com" />
+                                <input type="hidden" name="_subject" value="Nueva Suscripción al Newsletter de CEP Formación" />
+                                <input type="hidden" name="_captcha" value="false" />
+                                <input type="hidden" name="_next" value={`${window.location.origin}/thank-you`} />
+                                <input type="hidden" name="origen_lead" value="Suscripción Newsletter" />
+                                <input type="hidden" name="url_pagina" value={window.location.href} />
 
-                {/* Formulario Newsletter */}
-                <div className="md:w-1/3">
-                  <div className="bg-white rounded-xl p-6 shadow-lg">
-                    <h3 className="font-bold text-gray-900 mb-4 text-center">¡Suscríbete Ahora!</h3>
-                    <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-                      <input
-                        type="email"
-                        placeholder="Tu email"
-                        value={newsletterEmail}
-                        onChange={(e) => setNewsletterEmail(e.target.value)}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
-                        required
-                      />
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-700 disabled:opacity-50 transition-colors flex items-center justify-center font-semibold"
-                      >
-                        <Send className="w-4 h-4 mr-2" />
-                        {isSubmitting ? 'Suscribiendo...' : 'Suscribirme'}
-                      </button>
-                      <p className="text-xs text-gray-500 text-center">
-                        {newsletterConfig.frecuencia} • Sin spam • Cancela cuando quieras
-                      </p>
-                    </form>
-                  </div>
+                                <div className="flex flex-col sm:flex-row gap-3">
+                                    <input
+                                        type="email"
+                                        name="email_newsletter"
+                                        required
+                                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                                        placeholder="tu@email.com"
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="bg-cep-primary hover:bg-cep-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
+                                    >
+                                        Suscribirme
+                                    </button>
+                                </div>
+                                <p className="text-xs text-gray-500 mt-3">
+                                    <Shield size={12} className="inline mr-1"/>
+                                    {newsletterConfig.privacidad} <a href="/politica-privacidad" target="_blank" className="underline">Ver política</a>.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
           </section>
 
@@ -495,12 +488,12 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
       {isModalOpen && (
         <CursoInscripcionModal
           isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
           curso={{
             nombre: curso.nombre,
             sede: curso.sede,
-            tag: curso.slugBase // Usar slugBase como tag
+            slug: curso.slug,
           }}
-          onClose={() => setIsModalOpen(false)}
         />
       )}
     </div>

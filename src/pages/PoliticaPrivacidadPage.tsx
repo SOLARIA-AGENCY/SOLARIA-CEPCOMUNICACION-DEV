@@ -125,7 +125,7 @@ const PoliticaPrivacidadPage: React.FC = () => {
                     <li><strong>Google Analytics:</strong> Para análisis de comportamiento web</li>
                     <li><strong>Mailchimp/Brevo:</strong> Para gestión de campañas de email marketing</li>
                     <li><strong>Netlify/Hostinger:</strong> Para alojamiento web y gestión de dominios</li>
-                    <li><strong>n8n/Zapier:</strong> Para automatización de flujos de trabajo</li>
+                    <li><strong>FormSubmit:</strong> Para la gestión de envío de formularios por correo electrónico.</li>
                   </ul>
                 </div>
 
