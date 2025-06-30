@@ -156,3 +156,15 @@ curl -X PUT \
 **Configurado por**: SOLARIA.AGENCY-ECO  
 **Target**: www.cepcomunicacion.com  
 **Fecha**: Enero 2025 
+
+# ESTADO DE DESPLIEGUE: ESTABLE
+
+**Este documento certifica que el proyecto se encuentra en un estado de despliegue estable y funcional en producción.**
+
+## Punto de Restauración Seguro
+
+- **Commit Hash:** `c97591b35c5c645b23e7f6d2f5a6bfa9f835064f`
+- **Mensaje de Commit:** `feat(faq): refactor and enhance FAQ page with categorized content`
+- **Descripción:** Este commit representa el último estado estable conocido antes de la introducción de cambios que provocaron inestabilidad en el entorno de producción.
+
+Cualquier restauración de emergencia futura debe tomar este commit como punto de partida. 
