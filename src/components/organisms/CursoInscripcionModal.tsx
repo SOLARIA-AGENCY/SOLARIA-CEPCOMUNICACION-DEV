@@ -16,8 +16,19 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
 
   if (!isOpen) return null;
 
+  // --- Lógica para datos dinámicos y de campaña ---
   const formSubmitEndpoint = 'https://formsubmit.co/agency.solaria@gmail.com';
   const thankYouUrl = `${window.location.origin}/thank-you`;
+  const campaignName = "Campaña Otoño 2025";
+  const campaignTag = `otono-2025-${curso.slug}`;
+  const timestamp = new Date().toLocaleString('es-ES', { 
+    year: 'numeric', month: '2-digit', day: '2-digit', 
+    hour: '2-digit', minute: '2-digit', second: '2-digit' 
+  });
+  const formOriginUrl = typeof window !== 'undefined' ? window.location.href : '';
+
+  // Asunto dinámico para el correo electrónico
+  const emailSubject = `🎯 NUEVO LEAD - ${curso.nombre} - ${curso.sede} - ${campaignName}`;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
@@ -48,17 +59,23 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
           </div>
 
           <form action={formSubmitEndpoint} method="POST" className="space-y-4">
-            {/* --- CAMPOS PARA FORMSUBMIT --- */}
+            {/* --- CAMPOS OCULTOS ENRIQUECIDOS PARA FORMSUBMIT Y AUTOMATIZACIÓN --- */}
             <input type="hidden" name="_cc" value="cepformacion.admi@hotmail.com" />
-            <input type="hidden" name="_subject" value={`Nueva Solicitud de Información: ${curso.nombre}`} />
+            <input type="hidden" name="_subject" value={emailSubject} />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value={thankYouUrl} />
-            <input type="hidden" name="curso_interes" value={curso.nombre} />
-            <input type="hidden" name="sede_curso" value={curso.sede} />
-            <input type="hidden" name="origen_lead" value="Modal Inscripción Web" />
-            <input type="hidden" name="url_pagina" value={window.location.href} />
-            <input type="hidden" name="curso_slug" value={curso.slug} />
+            
+            {/* --- Campos de Datos del Curso --- */}
+            <input type="hidden" name="Curso" value={curso.nombre} />
+            <input type="hidden" name="Sede_Curso" value={curso.sede} />
 
+            {/* --- Campos de Campaña y Seguimiento --- */}
+            <input type="hidden" name="Campana" value={campaignName} />
+            <input type="hidden" name="Tag_Campana" value={campaignTag} />
+            <input type="hidden" name="Timestamp" value={timestamp} />
+            <input type="hidden" name="URL_Origen" value={formOriginUrl} />
+            <input type="hidden" name="Origen_Lead" value="Modal Inscripción Web" />
+            
             {/* --- CAMPOS VISIBLES PARA EL USUARIO --- */}
             
             {/* Datos personales */}
@@ -70,7 +87,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 </label>
                 <input
                   type="text"
-                  name="nombre"
+                  name="Nombre"
                   required
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tu nombre"
@@ -84,7 +101,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 </label>
                 <input
                   type="text"
-                  name="apellidos"
+                  name="Apellidos"
                   required
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tus apellidos"
@@ -101,7 +118,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 </label>
                 <input
                   type="email"
-                  name="email"
+                  name="Email"
                   required
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="tu@email.com"
@@ -114,7 +131,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 </label>
                 <input
                   type="tel"
-                  name="telefono"
+                  name="Telefono"
                   required
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tu teléfono"
@@ -129,7 +146,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 Sede de Preferencia
               </label>
               <select
-                name="sede_preferida"
+                name="Sede_Preferida"
                 defaultValue={curso.sede}
                 className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base bg-white"
               >
@@ -145,7 +162,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 Comentarios (Opcional)
               </label>
               <textarea
-                name="comentarios"
+                name="Comentarios"
                 rows={3}
                 className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                 placeholder="¿Tienes alguna pregunta o preferencia de horario para contactarte?"
@@ -158,7 +175,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 <div className="flex items-center h-5">
                   <input
                     id="aceptaRgpd"
-                    name="acepta_rgpd"
+                    name="Acepta_RGPD"
                     type="checkbox"
                     required
                     checked={aceptaRgpd}
