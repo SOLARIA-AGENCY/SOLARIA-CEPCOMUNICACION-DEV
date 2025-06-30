@@ -1,134 +1,85 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Tag, BookOpen, MapPin, Search } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import { cursosMaestro } from '../config/cursos-maestro';
-import type { CursoMaestro } from '../config/cursos-maestro';
+import CursoCard from '../components/molecules/CursoCard';
+import { Search } from 'lucide-react';
 
 const TodosLosCursosPage: React.FC = () => {
-  const [filtroCategoria, setFiltroCategoria] = useState<string>('todos');
   const [terminoBusqueda, setTerminoBusqueda] = useState<string>('');
 
-  const categorias = [
-    'todos', 
-    'sanidad', 
-    'veterinaria', 
-    'bienestar', 
-    'adiestramiento',
-  ];
+  const cursosActivos = cursosMaestro.filter(curso => 
+    curso.estado === 'activo' &&
+    curso.categoria !== 'ciclos' &&
+    curso.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase())
+  );
 
-  const cursosFiltrados = cursosMaestro.filter(curso => {
-    if (curso.categoria === 'ciclos') {
-      return false;
-    }
-    const pasaCategoria = filtroCategoria === 'todos' || curso.categoria === filtroCategoria;
-    const pasaBusqueda = terminoBusqueda === '' || curso.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase());
-    return curso.estado === 'activo' && pasaCategoria && pasaBusqueda;
-  });
-
-  const getCategoriaNombre = (id: string) => {
-    const nombres: { [key: string]: string } = {
-      todos: 'Todos los Cursos',
-      sanidad: 'Sanidad',
-      veterinaria: 'Mundo Animal',
-      bienestar: 'Bienestar y Deporte',
-      adiestramiento: 'Adiestramiento Canino',
-    };
-    return nombres[id] || 'Categoría';
-  };
+  const cursosNorte = cursosActivos.filter(curso => curso.sede === 'Norte');
+  const cursosSantaCruz = cursosActivos.filter(curso => curso.sede === 'Santa Cruz');
 
   return (
     <div className="bg-gray-50 min-h-screen">
       <CepHeader />
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12 sm:py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-cep-primary mb-4">Nuestros Cursos</h1>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-cep-primary mb-4">Todos Nuestros Cursos</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Explora nuestra oferta formativa. Encuentra el curso perfecto para impulsar tu carrera profesional.
+            Explora nuestra oferta formativa. Cursos diseñados para impulsar tu carrera profesional en nuestras sedes de Tenerife.
           </p>
         </div>
 
-        {/* Filtros */}
-        <div className="mb-10 p-4 bg-white rounded-lg shadow-md">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-              <input
-                type="text"
-                placeholder="Buscar por nombre..."
-                value={terminoBusqueda}
-                onChange={(e) => setTerminoBusqueda(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-cep-primary focus:border-cep-primary"
-              />
-            </div>
-            <div className="flex flex-wrap gap-2 justify-center">
-              {categorias.map(categoria => (
-                <button
-                  key={categoria}
-                  onClick={() => setFiltroCategoria(categoria)}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                    filtroCategoria === categoria
-                      ? 'bg-cep-primary text-white shadow'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {getCategoriaNombre(categoria)}
-                </button>
+        <div className="mb-12 max-w-lg mx-auto">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Buscar un curso por nombre..."
+              value={terminoBusqueda}
+              onChange={(e) => setTerminoBusqueda(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-full shadow-sm focus:ring-2 focus:ring-cep-primary focus:outline-none"
+            />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+          </div>
+        </div>
+        
+        {/* --- SEDE CEP NORTE --- */}
+        <section id="sede-norte" className="mb-16">
+          <div className="flex items-center mb-8">
+            <span className="w-16 h-1 bg-cep-primary rounded-full"></span>
+            <h2 className="text-3xl font-bold text-gray-800 mx-4">SEDE CEP NORTE</h2>
+            <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
+          </div>
+          {cursosNorte.length > 0 ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {cursosNorte.map(curso => (
+                <CursoCard key={`${curso.id}-norte`} curso={curso} />
               ))}
             </div>
-          </div>
-        </div>
+          ) : (
+            <p className="text-center text-gray-500 py-8">No se encontraron cursos para la sede Norte con el término de búsqueda actual.</p>
+          )}
+        </section>
 
-        {/* Listado de Cursos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {cursosFiltrados.map(curso => (
-            <CursoCard key={curso.id} curso={curso} />
-          ))}
-        </div>
-        {cursosFiltrados.length === 0 && (
-          <div className="text-center py-16">
-            <p className="text-xl text-gray-500">No se encontraron cursos que coincidan con tu búsqueda.</p>
+        {/* --- SEDE CEP SANTA CRUZ --- */}
+        <section id="sede-santa-cruz">
+          <div className="flex items-center mb-8">
+            <span className="w-16 h-1 bg-cep-secondary rounded-full"></span>
+            <h2 className="text-3xl font-bold text-gray-800 mx-4">SEDE CEP SANTA CRUZ</h2>
+            <span className="flex-grow h-1 bg-cep-secondary rounded-full"></span>
           </div>
-        )}
+          {cursosSantaCruz.length > 0 ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {cursosSantaCruz.map(curso => (
+                <CursoCard key={`${curso.id}-sc`} curso={curso} />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500 py-8">No se encontraron cursos para la sede Santa Cruz con el término de búsqueda actual.</p>
+          )}
+        </section>
+        
       </main>
       <CepFooter />
     </div>
-  );
-};
-
-const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
-  return (
-    <Link to={`/curso/${curso.slug}`} className="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group transform hover:-translate-y-1">
-      <div className="relative">
-        <img
-          src={curso.imagen}
-          alt={`Imagen del curso ${curso.nombre}`}
-          className="w-full h-48 object-cover"
-        />
-        <div className="absolute top-0 right-0 bg-cep-primary text-white text-xs font-bold px-3 py-1 m-2 rounded-full">
-          {curso.sede}
-        </div>
-      </div>
-      <div className="p-5">
-        <div className="flex items-center gap-2 mb-2">
-          <Tag className="w-4 h-4 text-cep-primary/80" />
-          <p className="text-xs font-semibold uppercase text-cep-primary/80 tracking-wider">
-            {curso.categoria.replace(/-/g, ' ')}
-          </p>
-        </div>
-        <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-cep-primary transition-colors">
-          {curso.nombre}
-        </h3>
-        <p className="text-sm text-gray-600 line-clamp-3 mb-4">
-          {curso.copy.slogan}
-        </p>
-        <div className="border-t border-gray-100 pt-3 flex justify-between items-center text-sm text-gray-500">
-            <span className="font-bold text-cep-primary">VER CURSO</span>
-            <BookOpen className="w-5 h-5 group-hover:text-cep-primary transition-colors" />
-        </div>
-      </div>
-    </Link>
   );
 };
 
