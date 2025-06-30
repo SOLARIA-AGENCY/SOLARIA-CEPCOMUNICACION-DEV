@@ -379,18 +379,46 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonios */}
-      <section className="py-16 bg-white">
+      {/* Sección Cursos por Sede - Tabs */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-cep-primary">LO QUE OPINAN NUESTROS ALUMNOS</h2>
-          </div>
-          {/* Aquí iría el carrusel o grid de testimonios */}
+          {/* ... existing code ... */}
         </div>
       </section>
 
+      {/* Sección Especial - Ciclos Formativos Oficiales */}
+      <section className="py-16 bg-gradient-to-br from-cep-primary via-pink-600 to-purple-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-yellow-400 text-cep-primary px-4 py-2 rounded-full text-sm font-bold mb-4">
+              <span className="mr-2">🏆</span>
+              TÍTULOS OFICIALES MINISTERIO DE EDUCACIÓN
+            </div>
+            <h2 className="text-4xl font-bold mb-4">CICLOS FORMATIVOS OFICIALES</h2>
+            <p className="text-xl text-pink-100 mb-2">Formación Profesional Homologada por el MEC</p>
+            <p className="text-lg text-pink-200">3 años de duración • Acceso directo a Universidad • Becas disponibles</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {ciclosFormativosUnicos.map(ciclo => (
+              <div key={ciclo.id} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 hover:bg-white/20 transition-all">
+                <h3 className="text-2xl font-bold mb-3">{ciclo.nombre}</h3>
+                <p className="mb-4 text-pink-200">{ciclo.copy.slogan}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="bg-yellow-400 text-cep-primary text-xs font-bold px-2 py-1 rounded-full">{ciclo.subtitulo}</span>
+                  <span className="bg-pink-200 text-pink-800 text-xs font-bold px-2 py-1 rounded-full">{ciclo.modalidad}</span>
+                </div>
+                <Link to={`/curso/${ciclo.slug}`} className="font-bold inline-flex items-center text-yellow-300 hover:text-white">
+                  Ver Ciclo Formativo <ExternalLink className="ml-2" size={16} />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
       {/* Equipo Docente */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-cep-primary mb-4">Conoce a Nuestro Equipo Docente</h2>
@@ -410,180 +438,6 @@ const HomePage: React.FC = () => {
                 <p className="text-sm text-cep-primary font-medium">{profesor.especialidad}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* ONGs Colaboradoras */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold text-gray-800 mb-2">Concienciados con el cuidado animal, somos socios de:</h3>
-          <p className="text-gray-600 max-w-3xl mx-auto mb-10">Somos una empresa socialmente responsable, sensible ante las injusticias y desigualdades, por lo que colaboramos con varias ONGs.</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-x-8 gap-y-10 items-center">
-            {ongs.map(logo => (
-              <div key={logo.nombre} className="flex justify-center">
-                <img src={logo.src} alt={`Logo de ${logo.nombre}`} className="h-20 object-contain" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Sección Especial - Ciclos Formativos Oficiales */}
-      <section className="py-16 bg-gradient-to-br from-cep-primary via-pink-600 to-purple-700 text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-yellow-400 text-cep-primary px-4 py-2 rounded-full text-sm font-bold mb-4">
-              <span className="mr-2">🏆</span>
-              TÍTULOS OFICIALES MINISTERIO DE EDUCACIÓN
-            </div>
-            <h2 className="text-4xl font-bold mb-4">CICLOS FORMATIVOS OFICIALES</h2>
-            <p className="text-xl text-pink-100 mb-2">Formación Profesional Homologada por el MEC</p>
-            <p className="text-lg text-pink-200">3 años de duración • Acceso directo a Universidad • Becas disponibles</p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {ciclosFormativosUnicos.map(curso => {
-                const getFechaTag = (inicio: string | undefined) => {
-                  if (!inicio) return { text: 'Próximamente', color: 'bg-gray-500' };
-                  const mes = inicio.toLowerCase();
-                  if (mes.includes('septiembre')) return { text: 'SEPTIEMBRE 2025', color: 'bg-green-500' };
-                  return { text: inicio.toUpperCase(), color: 'bg-purple-500' };
-                };
-                const fechaTag = getFechaTag(curso.inicio);
-                const esGradoSuperior = curso.nombre.includes('CFGS');
-
-                return (
-                  <div key={curso.id} className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div className="relative">
-                      <img
-                        src={curso.imagen}
-                        alt={curso.nombre}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 rounded-full text-sm font-bold text-white ${fechaTag.color}`}>
-                          {fechaTag.text}
-                        </span>
-                      </div>
-                      <div className="absolute top-4 right-4 bg-yellow-400 text-cep-primary px-3 py-1 rounded-full text-xs font-bold">
-                        {esGradoSuperior ? 'GRADO SUPERIOR' : 'GRADO MEDIO'}
-                      </div>
-                    </div>
-                    <div className="p-6 text-gray-800">
-                      <h3 className="text-xl font-bold text-cep-primary mb-3">{curso.nombre}</h3>
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="mr-2">📍</span>
-                          <span className="font-semibold">Sede:</span>
-                          <span className="ml-1">{curso.sede}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="mr-2">⏱️</span>
-                          <span className="font-semibold">Duración:</span>
-                          <span className="ml-1 text-cep-primary font-bold">{curso.descripcionDetallada?.infoAdicional?.duracion || '2.000 horas'}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="mr-2">🎓</span>
-                          <span className="font-semibold">Título:</span>
-                          <span className="ml-1">Oficial MEC</span>
-                        </div>
-                      </div>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Prácticas Incluidas</span>
-                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Becas MEC</span>
-                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Acceso Universidad</span>
-                      </div>
-                      <Link
-                        to={`/curso/${curso.slug}`}
-                        className="block w-full bg-cep-primary text-white text-center py-3 rounded-lg hover:bg-cep-primary-dark transition-colors font-bold"
-                      >
-                        VER INFORMACIÓN COMPLETA
-                      </Link>
-                    </div>
-                  </div>
-                );
-            })}
-          </div>
-
-          <div className="text-center mt-12">
-            <div className="bg-white/10 rounded-lg p-6 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4">¿Por qué elegir nuestros Ciclos Formativos?</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div>
-                  <div className="text-3xl mb-2">🏛️</div>
-                  <h4 className="font-bold mb-2">Título Oficial MEC</h4>
-                  <p className="text-sm text-pink-100">Reconocimiento nacional e internacional</p>
-                </div>
-                <div>
-                  <div className="text-3xl mb-2">🎓</div>
-                  <h4 className="font-bold mb-2">Acceso Universidad</h4>
-                  <p className="text-sm text-pink-100">Acceso directo a estudios universitarios</p>
-                </div>
-                <div>
-                  <div className="text-3xl mb-2">💰</div>
-                  <h4 className="font-bold mb-2">Becas Disponibles</h4>
-                  <p className="text-sm text-pink-100">Becas del Ministerio de Educación</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Conócenos */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <h2 className="text-3xl font-bold text-cep-primary mb-6">Conócenos</h2>
-              <div className="space-y-4 text-gray-700">
-                <p>
-                  El Centro de Estudios Profesionales (CEP) es una empresa de formación privada con más de 25 años de experiencia en la impartición de cursos profesionales y ciclos formativos de grado medio y superior.
-                </p>
-                <p>
-                  Miles de alumnos han pasado por nuestras aulas, mejorando su capacitación profesional y accediendo al mercado laboral en las mejores condiciones.
-                </p>
-                <a 
-                  href="https://cursostenerife.es/#quienes-somos"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-cep-primary font-bold hover:underline"
-                >
-                  Saber más <ExternalLink className="ml-2" size={16} />
-                </a>
-              </div>
-            </div>
-            <div className="order-1 md:order-2">
-              <img 
-                src="/images/video-preview.jpg" 
-                alt="Aula de formación de CEP" 
-                className="rounded-lg shadow-xl w-full h-auto"
-              />
-            </div>
-          </div>
-
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">Agradecemos la profesionalidad de nuestros colaboradores:</h3>
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
-              {colaboradores.map(logo => (
-                <div key={logo.nombre} className="flex justify-center">
-                  <img src={logo.src} alt={`Logo de ${logo.nombre}`} className="h-16 object-contain" />
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">Concienciados con el cuidado animal, somos socios de:</h3>
-            <p className="text-gray-600 max-w-3xl mx-auto">Somos una empresa socialmente responsable, sensible ante las injusticias y desigualdades, por lo que colaboramos con varias ONGs.</p>
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-8 items-center">
-              {ongs.map(logo => (
-                <div key={logo.nombre} className="flex justify-center">
-                  <img src={logo.src} alt={`Logo de ${logo.nombre}`} className="h-16 object-contain" />
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

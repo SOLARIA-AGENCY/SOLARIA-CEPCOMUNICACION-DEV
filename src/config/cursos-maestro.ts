@@ -1033,6 +1033,117 @@ export const baseCursos: CursoBase[] = [
         incluye: "Título Oficial del Ministerio de Educación y acceso a ciclos de grado superior."
       }
     }
+  },
+  {
+    nombre: 'Ciclo Formativo de Grado Superior en Higiene Bucodental',
+    slugBase: 'cfgs-higiene-bucodental',
+    imagen: '/images/cursos/ciclos-formativos.jpg',
+    categoria: 'ciclos',
+    subtitulo: 'Grado Superior',
+    modalidad: 'Presencial',
+    copy: {
+      slogan: 'Conviértete en un profesional esencial de la salud oral con un título oficial.',
+      textosPrincipales: ['Prevención Bucodental', 'Salud Pública y Comunitaria'],
+      titulos: ['Educación Sanitaria', 'Control de Placa', 'Fluorización']
+    },
+    descripcionDetallada: {
+      introduccion: "El Ciclo Formativo de Grado Superior en Higiene Bucodental te prepara para convertirte en un profesional altamente cualificado dentro del equipo de salud dental. Trabajarás en la prevención de enfermedades bucodentales y la promoción de la salud oral en la comunidad.",
+      queAprendes: "Este ciclo te capacita para promover la salud bucodental, realizar técnicas de higiene, colaborar en estudios epidemiológicos y aplicar técnicas de apoyo en tratamientos odontológicos complejos. Serás un profesional clave en cualquier equipo de salud dental.",
+      puntosClave: [
+        { icono: 'Clock', texto: '3 cursos / 2000h' },
+        { icono: 'Users', texto: 'Modalidad Presencial y Prácticas' },
+        { icono: 'Award', texto: 'Título Oficial con Acceso a Universidad' }
+      ],
+      requisitos: [
+        "Título de Bachiller (cualquier modalidad)",
+        "Tener 3º de BUP o COU superado",
+        "Título de Formación Profesional de Grado Medio",
+        "Estar en posesión de titulación universitaria o equivalente",
+        "Haber superado la prueba de acceso a ciclos de grado superior (mayores de 19 años)"
+      ],
+      salidasProfesionales: [
+        "Higienista bucodental en clínicas dentales y centros de salud",
+        "Educador en salud bucodental en el sector público y privado",
+        "Técnico especialista en hospitales y mutuas",
+        "Colaborador en estudios epidemiológicos",
+        "Asistente en centros geriátricos y de educación especial"
+      ],
+      modulos: [
+        { titulo: "FISIOPATOLOGÍA GENERAL", contenido: ["Bases anatomofisiológicas", "Procesos patológicos", "Microbiología e inmunología"] },
+        { titulo: "ESTUDIO DE LA CAVIDAD ORAL", contenido: ["Anatomía bucodental", "Histología y embriología", "Fisiología del sistema estomatognático"] },
+        { titulo: "INTERVENCIÓN BUCODENTAL", contenido: ["Técnicas de higiene", "Aplicación de fluoruros", "Sellado de fisuras"] },
+        { titulo: "RECEPCIÓN Y LOGÍSTICA EN LA CLÍNICA DENTAL", contenido: ["Organización del gabinete", "Gestión de pacientes", "Documentación clínica"] },
+        { titulo: "FORMACIÓN Y ORIENTACIÓN LABORAL (F.O.L.)", contenido: ["Orientación profesional", "Legislación laboral", "Prevención de riesgos"] },
+        { titulo: "PRÓTESIS Y ORTODONCIA", contenido: ["Tipos de prótesis", "Aparatología ortodóncica", "Mantenimiento y cuidados"] },
+        { titulo: "EDUCACIÓN PARA LA SALUD ORAL", contenido: ["Programas de promoción de salud", "Técnicas educativas", "Prevención de enfermedades"] },
+        { titulo: "PRIMEROS AUXILIOS", contenido: ["Soporte vital básico", "Actuación en emergencias", "Uso de desfibriladores"] },
+        { titulo: "CONSERVADORA, PERIODONCIA, CIRUGÍA E IMPLANTES", contenido: ["Odontología conservadora", "Tratamientos periodontales", "Asistencia en cirugía oral"] },
+        { titulo: "PROYECTO DE HIGIENE BUCODENTAL", contenido: ["Diseño de proyectos", "Implementación y evaluación", "Metodología de investigación"] },
+        { titulo: "FORMACIÓN EN CENTROS DE TRABAJO (FCT)", contenido: ["Prácticas profesionales en empresas del sector.", "Aplicación de conocimientos teóricos.", "Integración en el mundo laboral."] }
+      ],
+      profesores: [],
+      cursosComplementarios: [
+        "Seminario de cirugía dental", "Seminario de odontopediatría", "Seminario de ortodoncia", "Seminario de periodoncia", "Inglés (todos los niveles)"
+      ],
+      inversion: {
+        total: "5.000€ (pago único) / 6.000€ (financiado)",
+        modalidad: "DURACIÓN: 3 años. Opción financiada: 30 cuotas de 160€ + 200€ matrícula. Se cursan 10 cuotas por año académico (3 años).",
+        incluye: "Título Oficial del Ministerio de Educación y acceso directo a la Universidad."
+      }
+    }
+  },
+  {
+    nombre: 'Ciclo Formativo de Grado Medio en Técnico en Farmacia y Parafarmacia',
+    slugBase: 'ciclo-farmacia-parafarmacia-medio',
+    imagen: '/images/cursos/ciclos-formativos.jpg',
+    categoria: 'ciclos',
+    copy: {
+      slogan: 'Tu puerta de entrada al sector farmacéutico con un título oficial.',
+      textosPrincipales: ['Título Oficial del Ministerio de Educación', 'Dispensación Farmacéutica Profesional', 'Prácticas en Oficinas de Farmacia'],
+      titulos: ['Título Oficial', 'Práctica Farmacéutica', 'Técnico en Farmacia']
+    },
+    descripcionDetallada: {
+      introduccion: "Fórmate como Técnico en Farmacia y Parafarmacia con un título oficial y adquiere los conocimientos para trabajar en farmacias, parafarmacias y hospitales, dispensando productos y elaborando preparados farmacéuticos.",
+      queAprendes: "Este ciclo te capacita para la dispensación de productos farmacéuticos y parafarmacéuticos, la realización de operaciones básicas de laboratorio, la promoción de la salud y la gestión integral de la oficina de farmacia.",
+      puntosClave: [
+        { icono: 'Clock', texto: '3 cursos / 2000h' },
+        { icono: 'Users', texto: 'Modalidad Presencial y Prácticas' },
+        { icono: 'Award', texto: 'Título Oficial del Ministerio' }
+      ],
+      requisitos: [
+        "Título de Graduado en Educación Secundaria Obligatoria (ESO)",
+        "Título de Formación Profesional Básica",
+        "Título de Técnico o Técnico Auxiliar",
+        "Haber superado el segundo curso de BUP",
+        "Haber superado la prueba de acceso a ciclos de grado medio"
+      ],
+      salidasProfesionales: [
+        "Técnico en farmacia",
+        "Auxiliar de farmacia",
+        "Técnico en parafarmacia",
+        "Técnico en almacén de medicamentos",
+        "Técnico en farmacia hospitalaria",
+        "Delegado comercial de productos farmacéuticos y parafarmacéuticos"
+      ],
+      modulos: [
+        { titulo: "DISPOSICIÓN Y VENTA DE PRODUCTOS", contenido: ["Dispensación de parafarmacia", "Operaciones básicas de laboratorio", "Promoción de la Salud", "Primeros Auxilios"] },
+        { titulo: "OFICINA DE FARMACIA", contenido: ["Organización y gestión", "Atención al cliente", "Sistemas de información"] },
+        { titulo: "DISPENSACIÓN DE PRODUCTOS FARMACÉUTICOS", contenido: ["Medicamentos con y sin receta", "Productos sanitarios"] },
+        { titulo: "FORMULACIÓN MAGISTRAL", contenido: ["Preparación de medicamentos", "Control de calidad", "Normativa aplicable"] },
+        { titulo: "FORMACIÓN Y ORIENTACIÓN LABORAL", contenido: ["Orientación profesional", "Legislación laboral", "Seguridad y salud"] },
+        { titulo: "EMPRESA E INICIATIVA EMPRENDEDORA", contenido: ["Creación de empresas", "Gestión empresarial", "Plan de negocio"] },
+        { titulo: "FORMACIÓN EN CENTROS DE TRABAJO (FCT)", contenido: ["Prácticas profesionales en empresas del sector.", "Aplicación de conocimientos teóricos.", "Integración en el mundo laboral."] }
+      ],
+      profesores: [],
+      cursosComplementarios: [
+        "Curso dermocosmética", "Seminario Unycop", "Curso Auxiliar de óptica", "Ciclo superior de Higiene bucodental", "Inglés (todos los niveles)"
+      ],
+      inversion: {
+        total: "5.000€ (pago único) / 6.000€ (financiado)",
+        modalidad: "DURACIÓN: 3 años. Opción financiada: 30 cuotas de 160€ + 200€ matrícula. Se cursan 10 cuotas por año académico (3 años).",
+        incluye: "Título Oficial del Ministerio de Educación y acceso a ciclos de grado superior."
+      }
+    }
   }
 ];
 
