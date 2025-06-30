@@ -8,7 +8,7 @@ interface Props {
     nombre: string;
     sede: string;
     slug: string;
-  };
+  } | null;
 }
 
 const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
@@ -17,24 +17,13 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     Apellidos: '',
     Email: '',
     Telefono: '',
-    Sede_Preferida: curso.sede || 'Cualquiera',
+    Sede_Preferida: curso?.sede || 'Cualquiera',
     Comentarios: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [aceptaRgpd, setAceptaRgpd] = useState(false);
 
-  if (!isOpen) return null;
-
-  const formSubmitEndpoint = 'https://formsubmit.co/agency.solaria@gmail.com';
-  const thankYouUrl = `${window.location.origin}/thank-you`;
-  const campaignName = "Campaña Otoño 2025";
-  const campaignTag = `otono-2025-${curso.slug}`;
-  const timestamp = new Date().toLocaleString('es-ES', { 
-    year: 'numeric', month: '2-digit', day: '2-digit', 
-    hour: '2-digit', minute: '2-digit', second: '2-digit' 
-  });
-  const formOriginUrl = typeof window !== 'undefined' ? window.location.href : '';
-  const emailSubject = `🎯 NUEVO LEAD - ${curso.nombre} - ${curso.sede} - ${campaignName}`;
+  if (!isOpen || !curso) return null;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -43,48 +32,58 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (isSubmitting) return;
-    
+    if (!aceptaRgpd) {
+      alert("Debes aceptar la política de privacidad para continuar.");
+      return;
+    }
     setIsSubmitting(true);
 
-    const fullMessage = `
-📋 NUEVA INSCRIPCIÓN - CEP FORMACIÓN
-
-👤 DATOS DEL LEAD:
-- Nombre Completo: ${formData.Nombre} ${formData.Apellidos}
-- Email: ${formData.Email}
-- Teléfono: ${formData.Telefono}
-- Sede de Preferencia: ${formData.Sede_Preferida}
-- Comentarios: ${formData.Comentarios || 'Sin comentarios adicionales.'}
-
-🎓 CURSO SOLICITADO:
-- Curso de Interés: ${curso.nombre}
-- Sede del Curso: ${curso.sede}
-- Tag de Campaña: ${campaignTag}
-
-📊 METADATOS DE SEGUIMIENTO:
-- Campaña: ${campaignName}
-- URL de Origen: ${formOriginUrl}
-- Timestamp de Envío: ${timestamp}
-
-🚀 ACCIONES REQUERIDAS (URGENCIA ALTA):
-1.  **Contacto Inmediato:** Llamar al lead en menos de 30 minutos.
-2.  **Verificar Disponibilidad:** Confirmar plazas en la sede solicitada.
-3.  **Enviar Información:** Proveer detalles completos del curso vía email.
-4.  **Agendar Cita:** Programar visita al centro o entrevista si es necesario.
-
-⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.
-
----
-📧 Copia enviada a: Solaria Agency y CEP Formación.
-`;
+    const formSubmitEndpoint = 'https://formsubmit.co/agency.solaria@gmail.com';
+    const campaignName = "Campaña Otoño 2025";
+    const campaignTag = `otono-2025-${curso.slug}`;
+    const timestamp = new Date().toLocaleString('es-ES', { 
+      year: 'numeric', month: '2-digit', day: '2-digit', 
+      hour: '2-digit', minute: '2-digit', second: '2-digit' 
+    });
+    const formOriginUrl = typeof window !== 'undefined' ? window.location.href : '';
+    const emailSubject = `🎯 NUEVO LEAD - ${curso.nombre} - ${formData.Sede_Preferida} - ${campaignName}`;
     
+    const fullMessage = `
+    📋 NUEVA SOLICITUD DE INFORMACIÓN - CEP FORMACIÓN
+    -------------------------------------------------
+    👤 DATOS DEL LEAD:
+    - Nombre Completo: ${formData.Nombre} ${formData.Apellidos}
+    - Email: ${formData.Email}
+    - Teléfono: ${formData.Telefono}
+    - Sede de Preferencia: ${formData.Sede_Preferida}
+    - Comentarios: ${formData.Comentarios || 'Sin comentarios.'}
+    
+    🎓 CURSO DE INTERÉS:
+    - Curso: ${curso.nombre}
+    
+    📊 METADATOS DE SEGUIMIENTO:
+    - Campaña: ${campaignName}
+    - Tag de Campaña: ${campaignTag}
+    - URL de Origen: ${formOriginUrl}
+    - Timestamp de Envío: ${timestamp}
+    
+    🚀 ACCIONES REQUERIDAS (URGENCIA ALTA):
+    1.  Contacto Inmediato: Llamar al lead.
+    2.  Verificar Disponibilidad: Confirmar plazas.
+    3.  Enviar Información: Proveer detalles del curso vía email.
+    
+    ⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.
+    `;
+
     const payload = {
       ...formData,
-      _cc: "cepformacion.admi@hotmail.com",
       _subject: emailSubject,
+      _template: "table",
       _captcha: "false",
-      "MENSAJE_COMPLETO": fullMessage,
+      _cc: "cepformacion.admi@hotmail.com",
+      "MENSAJE COMPLETO": fullMessage,
+      "URL Origen": formOriginUrl,
+      "Tag Campaña": campaignTag,
     };
 
     try {
@@ -98,14 +97,14 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
       });
 
       if (response.ok) {
-        window.location.href = thankYouUrl;
+        window.location.href = "/gracias-form-curso";
       } else {
-        alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.');
-        setIsSubmitting(false);
+        alert("Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde o contacta con nosotros directamente.");
       }
     } catch (error) {
-      console.error('Error de red al enviar el formulario:', error);
-      alert('Hubo un error de red al enviar el formulario. Por favor, comprueba tu conexión e inténtalo de nuevo.');
+      console.error("Error al enviar el formulario:", error);
+      alert("Error de conexión. Por favor, revisa tu conexión a internet e inténtalo de nuevo.");
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -122,27 +121,19 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
         </button>
 
         <div className="p-6 sm:p-8">
-          {/* Header optimizado para conversión */}
           <div className="text-center mb-6">
-            <div className="w-16 h-16 bg-gradient-to-r from-cep-primary to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl">🎯</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-cep-primary mb-3">¡Reserva tu Plaza!</h2>
-            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-4 mb-4">
-              <p className="text-lg font-semibold text-gray-800 mb-2">
-                🏆 {curso.nombre} - {curso.sede}
+            <h2 className="text-2xl sm:text-3xl font-bold text-cep-primary mb-3">Solicita Información</h2>
+            <div className="bg-gray-100 rounded-lg p-3">
+              <p className="text-lg font-semibold text-gray-800">
+                {curso.nombre} - {formData.Sede_Preferida}
               </p>
-              <p className="text-sm text-gray-700">
-                <strong>✅ Esta inscripción es para separar tu plaza</strong><br/>
-                <strong>📞 Un asesor se pondrá en contacto contigo</strong> para formalizar la matrícula.
+              <p className="text-sm text-gray-600 mt-1">
+                Un asesor se pondrá en contacto contigo para resolver todas tus dudas.
               </p>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* --- CAMPOS VISIBLES Y CONTROLADOS POR REACT --- */}
-            
-            {/* Datos personales */}
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
@@ -155,12 +146,11 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   required
                   value={formData.Nombre}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors"
                   placeholder="Tu nombre"
                   disabled={isSubmitting}
                 />
               </div>
-              
               <div>
                 <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
                   <User className="w-4 h-4 mr-2 text-cep-primary" />
@@ -172,14 +162,13 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   required
                   value={formData.Apellidos}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors"
                   placeholder="Tus apellidos"
                   disabled={isSubmitting}
                 />
               </div>
             </div>
-
-            {/* Contacto */}
+            
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
@@ -192,7 +181,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   required
                   value={formData.Email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors"
                   placeholder="tu@email.com"
                   disabled={isSubmitting}
                 />
@@ -208,14 +197,13 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   required
                   value={formData.Telefono}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors"
                   placeholder="Tu teléfono"
                   disabled={isSubmitting}
                 />
               </div>
             </div>
 
-            {/* Sede y Comentarios */}
             <div>
               <label className="flex items-center text-sm font-semibold text-gray-700 mb-2">
                 <MapPin className="w-4 h-4 mr-2 text-cep-primary" />
@@ -225,11 +213,11 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 name="Sede_Preferida"
                 value={formData.Sede_Preferida}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base bg-white"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors bg-white"
                 disabled={isSubmitting}
               >
                 <option value="Cualquiera">Cualquiera</option>
-                <option value="CEP NORTE">CEP NORTE (La Orotava)</option>
+                <option value="CEP NORTE (La Orotava)">CEP NORTE (La Orotava)</option>
                 <option value="CEP SANTA CRUZ">CEP SANTA CRUZ</option>
               </select>
             </div>
@@ -244,13 +232,12 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 rows={3}
                 value={formData.Comentarios}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
-                placeholder="¿Tienes alguna pregunta o preferencia de horario para contactarte?"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors"
+                placeholder="¿Tienes alguna pregunta?"
                 disabled={isSubmitting}
               ></textarea>
             </div>
 
-            {/* RGPD y Botón */}
             <div className="pt-2">
               <div className="flex items-start">
                 <div className="flex items-center h-5">
@@ -269,21 +256,24 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   <label htmlFor="aceptaRgpd" className="font-medium text-gray-700">
                     He leído y acepto la <a href="/politica-privacidad" target="_blank" rel="noopener noreferrer" className="text-cep-primary hover:underline">política de privacidad</a> *
                   </label>
-                  <p className="text-gray-500 text-xs mt-1">
-                    <Shield size={12} className="inline mr-1"/> Tus datos están seguros y solo se usarán para contactarte sobre este curso.
-                  </p>
                 </div>
               </div>
             </div>
-            
-            <div className="pt-2">
+
+            <div className="pt-4">
               <button
                 type="submit"
-                className="w-full flex justify-center items-center px-6 py-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 transition-opacity"
-                disabled={!aceptaRgpd || isSubmitting}
+                className="w-full flex justify-center items-center bg-gradient-to-r from-cep-primary to-pink-600 hover:from-cep-primary hover:to-pink-700 text-white font-bold py-4 px-4 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isSubmitting || !aceptaRgpd}
               >
-                {isSubmitting ? <Loader2 className="animate-spin mr-2" /> : null}
-                {isSubmitting ? 'Enviando...' : 'RESERVAR MI PLAZA AHORA'}
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    Enviando...
+                  </>
+                ) : (
+                  'Enviar Solicitud y Reservar Plaza'
+                )}
               </button>
             </div>
           </form>
