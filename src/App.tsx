@@ -9,6 +9,7 @@ import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
 
 // --- ESTRUCTURA DINÁMICA ---
 import TodosLosCursosPage from './pages/TodosLosCursosPage';
+import CiclosPage from './pages/CiclosPage';
 import CursoPageComponent from './components/templates/CursoPageComponent';
 import { cursosMaestro } from './config/cursos-maestro';
 import type { CursoMaestro } from './config/cursos-maestro';
@@ -45,6 +46,7 @@ function App() {
         
         {/* Rutas de Cursos */}
         <Route path="/cursos" element={<TodosLosCursosPage />} />
+        <Route path="/ciclos" element={<CiclosPage />} />
         <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
 
         {/* Páginas Legales y de Contacto */}

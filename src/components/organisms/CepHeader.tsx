@@ -63,6 +63,12 @@ const CepHeader: React.FC = () => {
               >
                 CURSOS
               </Link>
+              <Link 
+                to="/ciclos" 
+                className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
+              >
+                CICLOS
+              </Link>
               <a 
                 href="https://cursostenerife.es/#quienes-somos" 
                 target="_blank"
@@ -107,6 +113,13 @@ const CepHeader: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   CURSOS
+                </Link>
+                <Link
+                  to="/ciclos"
+                  className="block px-3 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 rounded-md transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  CICLOS
                 </Link>
                 <a
                   href="https://cursostenerife.es/#quienes-somos"
