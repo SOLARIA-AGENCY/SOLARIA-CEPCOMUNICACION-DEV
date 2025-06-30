@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp, Phone, Mail, MapPin, PawPrint, Heart, Activity } from 'lucide-react';
-import { CursoMaestro } from '../config/cursos-maestro';
-import CursoInscripcionModal from '../components/organisms/CursoInscripcionModal';
-import CepHeader from '../components/organisms/CepHeader';
-import CepFooter from '../components/organisms/CepFooter';
+import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp, Phone, Mail, MapPin, PawPrint, Heart, Activity, Download, FileText, Send } from 'lucide-react';
+import { CursoMaestro, getFolletoCurso, newsletterConfig } from '../../config/cursos-maestro';
+import CursoInscripcionModal from '../organisms/CursoInscripcionModal';
+import CepHeader from '../organisms/CepHeader';
+import CepFooter from '../organisms/CepFooter';
 
 interface CursoPageComponentProps {
   curso: CursoMaestro;
@@ -12,6 +12,8 @@ interface CursoPageComponentProps {
 const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedModule, setExpandedModule] = useState<number | null>(null);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   if (!curso) {
     return (
@@ -30,6 +32,61 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
 
   const toggleModule = (moduleIndex: number) => {
     setExpandedModule(prev => prev === moduleIndex ? null : moduleIndex);
+  };
+
+  const handleDownloadPDF = async (folleto: any) => {
+    if (!folleto.requiereEmail) {
+      // Descarga directa
+      window.open(folleto.archivo, '_blank');
+      return;
+    }
+    
+    setShowEmailForm(folleto.titulo);
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent, folleto: any) => {
+    e.preventDefault();
+    if (!emailFormData.email || !emailFormData.consentimiento) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Aquí iría la lógica para enviar el email al sistema de leads
+      // Por ahora simulamos con un timeout
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Descargar el PDF
+      window.open(folleto.archivo, '_blank');
+      
+      // Limpiar formulario
+      setEmailFormData({ email: '', consentimiento: false });
+      setShowEmailForm(null);
+      
+      alert('¡Gracias! El folleto se está descargando y recibirás información adicional en tu email.');
+    } catch (error) {
+      alert('Hubo un error. Por favor, inténtalo de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Aquí iría la lógica para suscribir al newsletter
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setNewsletterEmail('');
+      alert('¡Te has suscrito exitosamente a nuestro newsletter!');
+    } catch (error) {
+      alert('Hubo un error. Por favor, inténtalo de nuevo.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!detalles) {
@@ -85,10 +142,10 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
         </div>
         <div className="relative container mx-auto px-4 py-12 sm:py-16">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
+            {/* <div className="flex justify-center mb-6">
               <HeroIcon />
-            </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+            </div> */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 pt-12">
               {curso.nombre}
             </h1>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
@@ -128,7 +185,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
           {/* ¿Qué Aprendo? - ESTRUCTURA ORIGINAL */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-pink-600" />
               ¿Qué Aprendo?
             </h2>
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
@@ -146,22 +203,22 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
           {/* Información del Ciclo - CARDS ORIGINALES */}
           <section className="mb-12">
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-xl p-6 text-center">
-                <Clock className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6 text-center">
+                <Clock className="w-12 h-12 text-pink-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Duración</h3>
                 <p className="text-gray-700">
                   {(detalles as any).infoAdicional?.duracion || '10 meses - 40 sesiones presenciales'}
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-green-50 to-purple-50 rounded-xl p-6 text-center">
-                <Award className="w-12 h-12 text-green-600 mx-auto mb-4" />
+              <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6 text-center">
+                <Award className="w-12 h-12 text-pink-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Prácticas</h3>
                 <p className="text-gray-700">
                   {(detalles as any).infoAdicional?.practicas || '300 horas en clínicas veterinarias'}
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 text-center">
-                <PawPrint className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+              <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-6 text-center">
+                <PawPrint className="w-12 h-12 text-pink-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Especialización</h3>
                 <p className="text-gray-700">
                   {(detalles as any).infoAdicional?.especializacion || 'Asistencia técnica veterinaria completa'}
@@ -172,7 +229,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
 
           {/* Información Comercial - ESTRUCTURA ORIGINAL */}
           <section className="mb-12">
-            <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-xl p-6 sm:p-8">
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl p-6 sm:p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Información del Curso</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -183,7 +240,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                   <p className="text-gray-700 mb-4">
                     <strong>Modalidad:</strong> {(detalles as any).inversion?.modalidad || 'Presencial - 1 día por semana'}
                   </p>
-                  <p className="text-sm text-blue-600 font-medium">
+                  <p className="text-sm text-pink-600 font-medium">
                     ✓ {(detalles as any).inversion?.incluye || 'Incluye agencia de colocación oficial'}
                   </p>
                 </div>
@@ -199,10 +256,30 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
             </div>
           </section>
 
+          {/* Requisitos de Acceso */}
+          {detalles.requisitos && detalles.requisitos.length > 0 && (
+            <section className="mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
+                <CheckCircle className="inline-block w-8 h-8 mr-3 text-pink-600" />
+                Requisitos de Acceso
+              </h2>
+              <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                  {detalles.requisitos.map((requisito: string, index: number) => (
+                    <li key={index} className="flex items-center">
+                      <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                      <span className="text-gray-700">{requisito}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          )}
+
           {/* Temario Expandible - ESTRUCTURA ORIGINAL */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <BookOpen className="inline-block w-8 h-8 mr-3 text-blue-600" />
+              <BookOpen className="inline-block w-8 h-8 mr-3 text-pink-600" />
               Temario Completo
             </h2>
             <div className="space-y-4">
@@ -224,7 +301,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                       <ul className="space-y-2">
                         {modulo.contenido && modulo.contenido.map((item: any, itemIndex: number) => (
                           <li key={itemIndex} className="flex items-start">
-                            <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
+                            <CheckCircle className="w-4 h-4 text-pink-500 mr-2 mt-1 flex-shrink-0" />
                             <span className="text-gray-700">{item}</span>
                           </li>
                         ))}
@@ -239,7 +316,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
           {/* Tu Profesor Especialista - DISEÑO ORIGINAL COMPLETO */}
           <section className="mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-              <Star className="inline-block w-8 h-8 mr-3 text-yellow-500" />
+              <Star className="inline-block w-8 h-8 mr-3 text-pink-600" />
               Tu Profesor Especialista
             </h2>
             {detalles.profesores && detalles.profesores.map((profesor: any, index: number) => (
@@ -259,13 +336,13 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                   </div>
                   <div className="md:w-2/3 p-6 sm:p-8">
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">{profesor.nombre}</h3>
-                    <p className="text-lg text-blue-600 font-semibold mb-4">{profesor.especialidad}</p>
+                    <p className="text-lg text-pink-600 font-semibold mb-4">{profesor.especialidad}</p>
                     <p className="text-gray-700 mb-4 leading-relaxed">
                       {profesor.bio}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {profesor.tags && profesor.tags.map((tag: any) => (
-                        <span key={tag} className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                        <span key={tag} className="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium">
                           {tag}
                         </span>
                       ))}
@@ -280,7 +357,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
           {detalles.cursosComplementarios && (
             <section className="mb-12">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-8 text-center">
-                <BookOpen className="inline-block w-8 h-8 mr-3 text-green-600" />
+                <BookOpen className="inline-block w-8 h-8 mr-3 text-pink-600" />
                 Cursos Complementarios
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -293,13 +370,127 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
             </section>
           )}
 
+          {/* Sección de Descarga de Folleto Específico */}
+          {(() => {
+            const folleto = getFolletoCurso(curso.slugBase);
+            if (!folleto) return null;
+            
+            return (
+              <section className="mb-12">
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <div className="md:flex">
+                    {/* Imagen del folleto */}
+                    <div className="md:w-1/3 bg-gradient-to-br from-pink-100 to-purple-100 p-8 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="bg-white rounded-lg p-6 shadow-lg">
+                          <FileText className="w-16 h-16 text-pink-600 mx-auto mb-4" />
+                          <p className="text-sm font-medium text-gray-600">Folleto PDF</p>
+                          <p className="text-xs text-gray-500 mt-1">Información Completa</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Contenido */}
+                    <div className="md:w-2/3 p-8">
+                      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                        {folleto.titulo}
+                      </h2>
+                      <p className="text-gray-600 mb-6 leading-relaxed">
+                        {folleto.descripcion}
+                      </p>
+                      
+                      <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                        <h3 className="font-semibold text-gray-900 mb-2">📋 Incluye:</h3>
+                        <ul className="text-sm text-gray-600 space-y-1">
+                          <li>• Programa académico completo</li>
+                          <li>• Horarios y modalidades disponibles</li>
+                          <li>• Precios y formas de pago</li>
+                          <li>• Salidas profesionales detalladas</li>
+                          <li>• Información del profesorado</li>
+                          <li>• Prácticas y certificaciones</li>
+                        </ul>
+                      </div>
+                      
+                      <button
+                        onClick={() => window.open(folleto.archivo, '_blank')}
+                        className="bg-pink-600 text-white px-8 py-3 rounded-lg hover:bg-pink-700 transition-colors flex items-center text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
+                      >
+                        <Download className="w-5 h-5 mr-3" />
+                        Descargar Folleto Gratuito
+                      </button>
+                      
+                      <p className="text-xs text-gray-500 mt-3">
+                        ✓ Descarga inmediata • ✓ Sin registro requerido • ✓ Información actualizada 2025
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            );
+          })()}
+
+          {/* Sección de Newsletter */}
+          <section className="mb-12">
+            <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-xl shadow-lg p-8">
+              <div className="md:flex items-center">
+                {/* Contenido Newsletter */}
+                <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                    <Send className="w-7 h-7 mr-3 text-pink-600" />
+                    {newsletterConfig.titulo}
+                  </h2>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
+                    {newsletterConfig.descripcion}
+                  </p>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+                    {newsletterConfig.beneficios.slice(0, 4).map((beneficio, index) => (
+                      <div key={index} className="flex items-start">
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span className="text-gray-600">{beneficio}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Formulario Newsletter */}
+                <div className="md:w-1/3">
+                  <div className="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 className="font-bold text-gray-900 mb-4 text-center">¡Suscríbete Ahora!</h3>
+                    <form onSubmit={handleNewsletterSubmit} className="space-y-4">
+                      <input
+                        type="email"
+                        placeholder="Tu email"
+                        value={newsletterEmail}
+                        onChange={(e) => setNewsletterEmail(e.target.value)}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        required
+                      />
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-700 disabled:opacity-50 transition-colors flex items-center justify-center font-semibold"
+                      >
+                        <Send className="w-4 h-4 mr-2" />
+                        {isSubmitting ? 'Suscribiendo...' : 'Suscribirme'}
+                      </button>
+                      <p className="text-xs text-gray-500 text-center">
+                        {newsletterConfig.frecuencia} • Sin spam • Cancela cuando quieras
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* CTA Principal - DISEÑO ORIGINAL */}
           <section className="mb-12">
-            <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-xl p-6 sm:p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl p-6 sm:p-8 text-white text-center">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 ¡Inicia tu Carrera Veterinaria!
               </h2>
-              <p className="text-lg text-blue-100 mb-6">
+              <p className="text-lg text-pink-100 mb-6">
                 Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
               <div className="bg-yellow-400 rounded-lg p-1 inline-block">
@@ -310,7 +501,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                   ¡RESERVAR MI PLAZA AHORA!
                 </button>
               </div>
-              <p className="text-sm text-blue-100 mt-4">
+              <p className="text-sm text-pink-100 mt-4">
                 <Clock className="inline-block w-4 h-4 mr-1" />
                 Te contactaremos en menos de 30 minutos
               </p>
@@ -322,17 +513,17 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
             <h2 className="text-xl font-bold text-gray-900 mb-6 text-center">¿Necesitas más información?</h2>
             <div className="grid sm:grid-cols-3 gap-6 text-center">
               <div className="flex flex-col items-center">
-                <Phone className="w-8 h-8 text-blue-600 mb-2" />
+                <Phone className="w-8 h-8 text-pink-600 mb-2" />
                 <p className="font-semibold">Teléfono</p>
                 <p className="text-gray-600">922 21 92 57</p>
               </div>
               <div className="flex flex-col items-center">
-                <Mail className="w-8 h-8 text-green-600 mb-2" />
+                <Mail className="w-8 h-8 text-pink-600 mb-2" />
                 <p className="font-semibold">Email</p>
                 <p className="text-gray-600">info@cursostenerife.es</p>
               </div>
               <div className="flex flex-col items-center">
-                <MapPin className="w-8 h-8 text-red-600 mb-2" />
+                <MapPin className="w-8 h-8 text-pink-600 mb-2" />
                 <p className="font-semibold">Sede Norte</p>
                 <p className="text-gray-600">C.C El Tompo - La Orotava</p>
               </div>
@@ -357,4 +548,4 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
   );
 };
 
-export default CursoPageComponent; 
+export default CursoPageComponent;

@@ -398,6 +398,34 @@ const HomePage: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
+  // Función para obtener el color de la etiqueta según la fecha
+  const getFechaTag = (inicio: string) => {
+    const mes = inicio.toLowerCase();
+    if (mes.includes('julio')) {
+      return { color: 'bg-orange-500 text-white', texto: 'JULIO 2025' };
+    } else if (mes.includes('septiembre')) {
+      return { color: 'bg-green-500 text-white', texto: 'SEPTIEMBRE 2025' };
+    } else if (mes.includes('octubre')) {
+      return { color: 'bg-blue-500 text-white', texto: 'OCTUBRE 2025' };
+    } else if (mes.includes('noviembre')) {
+      return { color: 'bg-purple-500 text-white', texto: 'NOVIEMBRE 2025' };
+    } else {
+      return { color: 'bg-gray-500 text-white', texto: 'PRÓXIMAMENTE' };
+    }
+  };
+
+  // Separar cursos por sede EXCLUYENDO los ciclos formativos
+  const cursosNorte = cursosOtono2025.filter(curso => 
+    curso.sede === 'CEP NORTE' && 
+    !curso.titulo.includes('CFGM') && 
+    !curso.titulo.includes('CFGS')
+  );
+  const cursosSantaCruz = cursosOtono2025.filter(curso => 
+    curso.sede === 'CEP SANTA CRUZ' && 
+    !curso.titulo.includes('CFGM') && 
+    !curso.titulo.includes('CFGS')
+  );
+
   return (
     <div className="min-h-screen bg-white">
       <CepHeader />
@@ -482,16 +510,26 @@ const HomePage: React.FC = () => {
             <div className="text-center">
               <h2 className="text-3xl font-bold text-cep-primary mb-4">AGENCIA DE COLOCACIÓN</h2>
               <p className="text-gray-600 mb-6">Ofrecemos un servicio para demandantes de empleo.</p>
-              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
+              <a 
+                href="https://cursostenerife.es/agencia-colocacion/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
+              >
                 Ir a la Agencia
-              </button>
+              </a>
             </div>
             <div className="text-center">
               <h2 className="text-3xl font-bold text-cep-primary mb-4">FORMACIÓN GRATUITA</h2>
               <p className="text-gray-600 mb-6">Cursos subvencionados para trabajadores y desempleados.</p>
-              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
+              <a 
+                href="https://cursostenerife.es/formacion-gratuita/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
+              >
                 VER CURSOS GRATUITOS
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -501,51 +539,119 @@ const HomePage: React.FC = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-cep-primary mb-4">CURSOS INICIO SEPTIEMBRE 2025</h2>
+            <h2 className="text-3xl font-bold text-cep-primary mb-4">CURSOS CAMPAÑA OTOÑO 2025</h2>
             <p className="text-xl text-gray-600 mb-2">¡ÚLTIMAS PLAZAS DISPONIBLES!</p>
             <p className="text-lg text-cep-primary font-semibold">Reserva tu plaza ahora - Los cursos empiezan pronto</p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {cursosOtono2025.map((curso) => (
-              <div key={curso.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <img
-                  src={curso.imagen}
-                  alt={curso.titulo}
-                  className="w-full h-40 sm:h-48 object-cover"
-                />
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
-                  <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-                    <p><strong>Sede:</strong> {curso.sede}</p>
-                    <p><strong>Inicio:</strong> {curso.inicio}</p>
-                    <p><strong>Duración:</strong> {curso.duracion}</p>
+          {/* Sección CEP NORTE */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP NORTE</h3>
+              <p className="text-gray-600">Cursos disponibles en nuestra sede del Norte</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {cursosNorte.map((curso) => {
+                const fechaTag = getFechaTag(curso.inicio);
+                return (
+                  <div key={curso.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
+                    <div className="relative">
+                      <img
+                        src={curso.imagen}
+                        alt={curso.titulo}
+                        className="w-full h-40 sm:h-48 object-cover"
+                      />
+                      <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold ${fechaTag.color}`}>
+                        {fechaTag.texto}
+                      </div>
+                    </div>
+                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                      <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
+                      <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
+                        <p><strong>Inicio:</strong> {curso.inicio}</p>
+                        <p><strong>Duración:</strong> {curso.duracion}</p>
+                      </div>
+                      <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.descripcion}</p>
+                      {curso.hasPage ? (
+                        <Link 
+                          to={curso.link}
+                          className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                        >
+                          VER CURSO COMPLETO
+                        </Link>
+                      ) : (
+                        <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed text-sm sm:text-base mt-auto">
+                          PRÓXIMAMENTE
+                        </button>
+                      )}
+                    </div>
                   </div>
-                  <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 line-clamp-3">{curso.descripcion}</p>
-                  {curso.hasPage ? (
-                    <Link 
-                      to={curso.link}
-                      className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base"
-                    >
-                      VER CURSO COMPLETO
-                    </Link>
-                  ) : (
-                    <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed text-sm sm:text-base">
-                      PRÓXIMAMENTE
-                    </button>
-                  )}
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Sección CEP SANTA CRUZ */}
+          <div className="mb-12">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP SANTA CRUZ</h3>
+              <p className="text-gray-600">Cursos disponibles en nuestra sede de Santa Cruz</p>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {cursosSantaCruz.map((curso) => {
+                const fechaTag = getFechaTag(curso.inicio);
+                return (
+                  <div key={curso.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
+                    <div className="relative">
+                      <img
+                        src={curso.imagen}
+                        alt={curso.titulo}
+                        className="w-full h-40 sm:h-48 object-cover"
+                      />
+                      <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold ${fechaTag.color}`}>
+                        {fechaTag.texto}
+                      </div>
+                    </div>
+                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                      <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
+                      <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
+                        <p><strong>Inicio:</strong> {curso.inicio}</p>
+                        <p><strong>Duración:</strong> {curso.duracion}</p>
+                      </div>
+                      <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.descripcion}</p>
+                      {curso.hasPage ? (
+                        <Link 
+                          to={curso.link}
+                          className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                        >
+                          VER CURSO COMPLETO
+                        </Link>
+                      ) : (
+                        <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed text-sm sm:text-base mt-auto">
+                          PRÓXIMAMENTE
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
           
-          <div className="text-center mt-12">
+          <div className="text-center">
             <div className="bg-cep-primary text-white p-6 rounded-lg inline-block">
               <h3 className="text-xl font-bold mb-2">⏰ ¡No te quedes sin plaza!</h3>
-              <p className="mb-4">Los cursos empiezan en septiembre. Reserva ahora y asegura tu futuro profesional.</p>
-              <button className="bg-white text-cep-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-bold">
+              <p className="mb-4">Los cursos empiezan pronto. Reserva ahora y asegura tu futuro profesional.</p>
+              <a 
+                href="https://cursostenerife.es/contacto/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-white text-cep-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-bold"
+              >
                 CONTACTAR AHORA
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -561,12 +667,22 @@ const HomePage: React.FC = () => {
               className="mx-auto mb-8 rounded-lg shadow-lg max-w-md w-full"
             />
             <div className="flex justify-center space-x-8">
-              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
+              <a 
+                href="https://cursostenerife.es/formacion-gratuita/desempleados/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
+              >
                 TRABAJADORES/AS DESEMPLEADOS/AS
-              </button>
-              <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
+              </a>
+              <a 
+                href="https://cursostenerife.es/formacion-gratuita/ocupados/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
+              >
                 TRABAJADORES/AS OCUPADOS/AS
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -591,9 +707,170 @@ const HomePage: React.FC = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <button className="bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors">
+            <a 
+              href="https://cursostenerife.es/cursos/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
+            >
               VER TODOS LOS CURSOS
-            </button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección Especial - Ciclos Formativos Oficiales */}
+      <section className="py-16 bg-gradient-to-br from-cep-primary via-pink-600 to-purple-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-yellow-400 text-cep-primary px-4 py-2 rounded-full text-sm font-bold mb-4">
+              <span className="mr-2">🏆</span>
+              TÍTULOS OFICIALES MINISTERIO DE EDUCACIÓN
+            </div>
+            <h2 className="text-4xl font-bold mb-4">CICLOS FORMATIVOS OFICIALES</h2>
+            <p className="text-xl text-pink-100 mb-2">Formación Profesional Homologada por el MEC</p>
+            <p className="text-lg text-pink-200">3 años de duración • Acceso directo a Universidad • Becas disponibles</p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* CFGM Farmacia y Parafarmacia */}
+            {cursosOtono2025
+              .filter(curso => curso.titulo.includes('CFGM Farmacia'))
+              .slice(0, 1)
+              .map((curso) => {
+                const fechaTag = getFechaTag(curso.inicio || '');
+                return (
+                  <div key={curso.id} className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div className="relative">
+                      <img
+                        src={curso.imagen}
+                        alt={curso.titulo}
+                        className="w-full h-48 object-cover"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className={`px-3 py-1 rounded-full text-sm font-bold ${fechaTag.color}`}>
+                          {fechaTag.texto}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4 bg-yellow-400 text-cep-primary px-3 py-1 rounded-full text-xs font-bold">
+                        GRADO MEDIO
+                      </div>
+                    </div>
+                    <div className="p-6 text-gray-800">
+                      <h3 className="text-xl font-bold text-cep-primary mb-3">{curso.titulo}</h3>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">📍</span>
+                          <span className="font-semibold">Sede:</span>
+                          <span className="ml-1">{curso.sede}</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">⏱️</span>
+                          <span className="font-semibold">Duración:</span>
+                          <span className="ml-1 text-cep-primary font-bold">3 años (2.000 horas)</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">🎓</span>
+                          <span className="font-semibold">Título:</span>
+                          <span className="ml-1">Oficial MEC</span>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Prácticas Incluidas</span>
+                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Becas MEC</span>
+                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Acceso Universidad</span>
+                      </div>
+                      <Link
+                        to={curso.link}
+                        className="block w-full bg-cep-primary text-white text-center py-3 rounded-lg hover:bg-cep-primary-dark transition-colors font-bold"
+                      >
+                        VER INFORMACIÓN COMPLETA
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+
+            {/* CFGS Higiene Bucodental */}
+            {cursosOtono2025
+              .filter(curso => curso.titulo.includes('CFGS Higiene'))
+              .slice(0, 1)
+              .map((curso) => {
+                const fechaTag = getFechaTag(curso.inicio || '');
+                return (
+                  <div key={curso.id} className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div className="relative">
+                      <img
+                        src={curso.imagen}
+                        alt={curso.titulo}
+                        className="w-full h-48 object-cover"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className={`px-3 py-1 rounded-full text-sm font-bold ${fechaTag.color}`}>
+                          {fechaTag.texto}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4 bg-yellow-400 text-cep-primary px-3 py-1 rounded-full text-xs font-bold">
+                        GRADO SUPERIOR
+                      </div>
+                    </div>
+                    <div className="p-6 text-gray-800">
+                      <h3 className="text-xl font-bold text-cep-primary mb-3">{curso.titulo}</h3>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">📍</span>
+                          <span className="font-semibold">Sede:</span>
+                          <span className="ml-1">{curso.sede}</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">⏱️</span>
+                          <span className="font-semibold">Duración:</span>
+                          <span className="ml-1 text-cep-primary font-bold">3 años (2.000 horas)</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="mr-2">🎓</span>
+                          <span className="font-semibold">Título:</span>
+                          <span className="ml-1">Oficial MEC</span>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Prácticas Incluidas</span>
+                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Becas MEC</span>
+                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Acceso Universidad</span>
+                      </div>
+                      <Link
+                        to={curso.link}
+                        className="block w-full bg-cep-primary text-white text-center py-3 rounded-lg hover:bg-cep-primary-dark transition-colors font-bold"
+                      >
+                        VER INFORMACIÓN COMPLETA
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-white/10 rounded-lg p-6 max-w-4xl mx-auto">
+              <h3 className="text-2xl font-bold mb-4">¿Por qué elegir nuestros Ciclos Formativos?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div>
+                  <div className="text-3xl mb-2">🏛️</div>
+                  <h4 className="font-bold mb-2">Título Oficial MEC</h4>
+                  <p className="text-sm text-pink-100">Reconocimiento nacional e internacional</p>
+                </div>
+                <div>
+                  <div className="text-3xl mb-2">🎓</div>
+                  <h4 className="font-bold mb-2">Acceso Universidad</h4>
+                  <p className="text-sm text-pink-100">Acceso directo a estudios universitarios</p>
+                </div>
+                <div>
+                  <div className="text-3xl mb-2">💰</div>
+                  <h4 className="font-bold mb-2">Becas Disponibles</h4>
+                  <p className="text-sm text-pink-100">Becas del Ministerio de Educación</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -609,9 +886,14 @@ const HomePage: React.FC = () => {
                 Llevamos en el ADN la enseñanza, somos la séptima generación dedicada a la docencia. 
                 También colaboramos con éxito con el servicio y asistimos regularmente a seminarios de formación.
               </p>
-              <button className="bg-cep-primary text-white px-6 py-2 rounded-lg hover:bg-cep-primary-dark transition-colors">
+              <a 
+                href="https://cursostenerife.es/conocenos/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block bg-cep-primary text-white px-6 py-2 rounded-lg hover:bg-cep-primary-dark transition-colors"
+              >
                 Saber más
-              </button>
+              </a>
             </div>
             <div className="text-center">
               <img 

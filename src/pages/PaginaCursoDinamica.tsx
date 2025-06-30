@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { cursosMaestro } from '../config/cursos-maestro';
 import CepHeader from '../components/organisms/CepHeader';
@@ -7,6 +7,11 @@ import CepFooter from '../components/organisms/CepFooter';
 const PaginaCursoDinamica: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const curso = cursosMaestro.find(c => c.slug === slug);
+
+  // Scroll to top cuando se carga el componente
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!curso) {
     return (

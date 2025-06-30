@@ -18,7 +18,8 @@ homologacion: "ministerio-educacion"
 - **Modalidad**: Presencial
 - **Título**: Expedido por el **Ministerio de Educación y Ciencia**
 - **Homologación**: Título oficial reconocido por el Ministerio de Educación
-- **Precio**: Posibilidad de pago fraccionado - Personaliza tu cuota cómodamente
+- **Precio**: 5.000€ sin financiación / 6.000€ con financiación
+- **Modalidad de pago**: 30 cuotas de 160€ + 200€ matrícula (10 cuotas anuales por 3 años)
 - **Acceso directo**: A Ciclos Formativos de Grado Superior relacionados
 - **Profesorado**: Amplia experiencia profesional y docente
 
@@ -88,8 +89,28 @@ El Ciclo medio de Farmacia y Parafarmacia va a ofrecerte la oportunidad de adqui
 - **3 CURSOS ESCOLARES**
 - **Título expedido por el Ministerio de Educación y Ciencia**
 - **Todo nuestro profesorado cuenta con amplia experiencia profesional y docente**
-- **POSIBILIDAD PAGO FRACCIONADO**
-- **PERSONALIZA TU CUOTA CÓMODAMENTE**
+
+## Modalidades de Financiación
+
+### **OPCIÓN 1: PAGO SIN FINANCIACIÓN**
+- **Precio total: 5.000€**
+- **Matrícula: 200€**
+- **Curso: 4.800€**
+- **Ventaja**: Precio más económico
+
+### **OPCIÓN 2: PAGO CON FINANCIACIÓN**
+- **Precio total: 6.000€**
+- **Matrícula: 200€** 
+- **30 cuotas de 160€** (10 cuotas por año académico durante 3 años)
+- **Ventaja**: Pago fraccionado cómodo
+
+### **Detalles de Matrícula y Plazos:**
+- **Reserva de plaza**: Con el pago de la matrícula (200€)
+- **Plazo de matrícula**: Hasta completar plazas disponibles
+- **Grupos**: Reducidos para garantizar calidad formativa
+- **Inicio de pagos**: Primera cuota en septiembre de cada año académico
+- **Duración del pago**: 10 meses por año académico (septiembre a junio)
+- **Modalidad**: Domiciliación bancaria mensual
 
 ## Salidas Profesionales
 
