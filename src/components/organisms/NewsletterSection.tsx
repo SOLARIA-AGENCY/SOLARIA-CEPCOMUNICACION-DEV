@@ -12,12 +12,12 @@ const NewsletterSection: React.FC = () => {
         </p>
         
         <form 
-          action="https://formsubmit.co/info@cursostenerife.es" 
+          action="https://formsubmit.co/agency.solaria@gmail.com" 
           method="POST" 
           className="max-w-md mx-auto"
         >
           {/* Configuración de FormSubmit */}
-          <input type="hidden" name="_next" value="https://solaria-cep.netlify.app/thank-you" />
+          <input type="hidden" name="_next" value="https://cepcomunicacion.com/thank-you" />
           <input type="hidden" name="_subject" value="Nueva suscripción al Newsletter de CEP Formación" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
