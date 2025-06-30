@@ -67,6 +67,7 @@ function App() {
         <Route path="/solaria-status" element={<SolariaStatusPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
         <Route path="/gracias-suscripcion" element={<GraciasSuscripcionPage />} />
+        <Route path="/gracias-form-curso" element={<ThankYouPage />} />
 
         {/* Redirecciones de rutas antiguas a las nuevas */}
         <Route path="/new/cursos" element={<Navigate to="/cursos" replace />} />

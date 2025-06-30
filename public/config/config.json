@@ -1,13 +1,16 @@
 {
   "tracking": {
-    "ga4": "",
-    "pixel": "",
-    "gtm": ""
+    "gtm": "GTM-5D4839F3",
+    "ga4": "G-347NGFNZ90",
+    "pixel": "1189071876088388"
   },
   "services": {
     "mailchimp": {
       "apiKey": "",
       "audienceId": ""
     }
+  },
+  "api": {
+    "formsubmit": "agency.solaria@gmail.com"
   }
 } 

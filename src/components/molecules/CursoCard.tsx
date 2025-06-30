@@ -11,8 +11,23 @@ const getFechaTag = (inicio: string | undefined) => {
   return { text: inicio.toUpperCase(), color: 'bg-purple-500' };
 };
 
+const NivelTag: React.FC<{ nivel?: string }> = ({ nivel }) => {
+  if (!nivel) return null;
+
+  const esSuperior = nivel.toLowerCase().includes('superior');
+  const color = esSuperior ? 'bg-cep-primary' : 'bg-green-600';
+  const texto = esSuperior ? 'GRADO SUPERIOR' : 'GRADO MEDIO';
+
+  return (
+    <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white ${color}`}>
+      {texto}
+    </div>
+  );
+};
+
 const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
   const fechaTag = getFechaTag(curso.inicio);
+  const duracion = curso.descripcionDetallada?.puntosClave.find(p => p.icono === 'Clock')?.texto;
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
@@ -25,9 +40,11 @@ const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
         <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${fechaTag.color}`}>
           {fechaTag.text}
         </div>
+        {curso.categoria === 'ciclos' && <NivelTag nivel={curso.subtitulo} />}
       </div>
       <div className="p-4 sm:p-6 flex-grow flex flex-col">
         <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.nombre}</h3>
+        {duracion && <p className="text-xs text-gray-500 font-semibold mb-2 uppercase">{duracion}</p>}
         <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.copy.slogan}</p>
         <Link
           to={`/curso/${curso.slug}`}

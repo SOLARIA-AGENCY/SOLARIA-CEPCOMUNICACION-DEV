@@ -149,9 +149,13 @@ const HomePage: React.FC = () => {
   const cursosNorte = cursosMaestro.filter(c => c.sede === 'Norte' && c.estado === 'activo' && c.categoria !== 'ciclos');
   const cursosSantaCruz = cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.estado === 'activo' && c.categoria !== 'ciclos');
   
-  // CORRECCIÓN: Obtener los ciclos formativos y asegurar que solo haya uno por tipo (Grado Medio/Superior)
-  const todosLosCiclos = cursosMaestro.filter(c => c.categoria === 'ciclos' && c.estado === 'activo');
-  const ciclosFormativosUnicos = Array.from(new Map(todosLosCiclos.map(c => [c.slugBase, c])).values());
+  const ciclosFormativos = cursosMaestro.filter(c => c.categoria === 'ciclos' && c.estado === 'activo');
+  
+  // Para asegurar que mostramos solo una tarjeta por tipo de ciclo, pero usando la información más actualizada.
+  const ciclosFormativosUnicos = [
+    ciclosFormativos.find(c => c.slugBase === 'cfgm-farmacia-parafarmacia'),
+    ciclosFormativos.find(c => c.slugBase === 'cfgs-higiene-bucodental')
+  ].filter(Boolean) as CursoMaestro[];
 
   return (
     <div className="min-h-screen bg-white">
@@ -382,7 +386,11 @@ const HomePage: React.FC = () => {
       {/* Sección Cursos por Sede - Tabs */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          {/* ... existing code ... */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-cep-primary mb-4">CURSOS POR SEDE</h2>
+            <p className="text-xl text-gray-600 mb-2">Selecciona una sede para ver los cursos disponibles</p>
+          </div>
+          {/* Aquí iría el componente de Tabs para seleccionar sede */}
         </div>
       </section>
 
@@ -396,7 +404,7 @@ const HomePage: React.FC = () => {
             </div>
             <h2 className="text-4xl font-bold mb-4">CICLOS FORMATIVOS OFICIALES</h2>
             <p className="text-xl text-pink-100 mb-2">Formación Profesional Homologada por el MEC</p>
-            <p className="text-lg text-pink-200">3 años de duración • Acceso directo a Universidad • Becas disponibles</p>
+            <p className="text-lg text-pink-200">3 Cursos Escolares • Acceso a Universidad • Becas disponibles</p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -405,7 +413,7 @@ const HomePage: React.FC = () => {
                 <h3 className="text-2xl font-bold mb-3">{ciclo.nombre}</h3>
                 <p className="mb-4 text-pink-200">{ciclo.copy.slogan}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-yellow-400 text-cep-primary text-xs font-bold px-2 py-1 rounded-full">{ciclo.subtitulo}</span>
+                  <span className={`text-xs font-bold px-2 py-1 rounded-full ${ciclo.subtitulo?.toLowerCase().includes('superior') ? 'bg-blue-400 text-blue-900' : 'bg-green-400 text-green-900'}`}>{ciclo.subtitulo}</span>
                   <span className="bg-pink-200 text-pink-800 text-xs font-bold px-2 py-1 rounded-full">{ciclo.modalidad}</span>
                 </div>
                 <Link to={`/curso/${ciclo.slug}`} className="font-bold inline-flex items-center text-yellow-300 hover:text-white">
@@ -416,7 +424,10 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-      
+
+      {/* Separador */}
+      <div className="border-t border-gray-200"></div>
+
       {/* Equipo Docente */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">

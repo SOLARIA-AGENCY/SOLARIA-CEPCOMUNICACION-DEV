@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, User, Mail, Phone, MapPin, MessageSquare, Shield, Loader2 } from 'lucide-react';
 
 interface Props {
@@ -17,11 +17,17 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     Apellidos: '',
     Email: '',
     Telefono: '',
-    Sede_Preferida: curso?.sede || 'Cualquiera',
+    Sede_Preferida: '',
     Comentarios: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [aceptaRgpd, setAceptaRgpd] = useState(false);
+
+  useEffect(() => {
+    if (isOpen && curso) {
+      setFormData(prev => ({ ...prev, Sede_Preferida: curso.sede || 'Cualquiera' }));
+    }
+  }, [isOpen, curso]);
 
   if (!isOpen || !curso) return null;
 
@@ -29,7 +35,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
+  
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!aceptaRgpd) {
@@ -38,71 +44,32 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     }
     setIsSubmitting(true);
 
-    const formSubmitEndpoint = 'https://formsubmit.co/agency.solaria@gmail.com';
-    const campaignName = "Campaña Otoño 2025";
-    const campaignTag = `otono-2025-${curso.slug}`;
-    const timestamp = new Date().toLocaleString('es-ES', { 
-      year: 'numeric', month: '2-digit', day: '2-digit', 
-      hour: '2-digit', minute: '2-digit', second: '2-digit' 
-    });
-    const formOriginUrl = typeof window !== 'undefined' ? window.location.href : '';
-    const emailSubject = `🎯 NUEVO LEAD - ${curso.nombre} - ${formData.Sede_Preferida} - ${campaignName}`;
-    
-    const fullMessage = `
-    📋 NUEVA SOLICITUD DE INFORMACIÓN - CEP FORMACIÓN
-    -------------------------------------------------
-    👤 DATOS DEL LEAD:
-    - Nombre Completo: ${formData.Nombre} ${formData.Apellidos}
-    - Email: ${formData.Email}
-    - Teléfono: ${formData.Telefono}
-    - Sede de Preferencia: ${formData.Sede_Preferida}
-    - Comentarios: ${formData.Comentarios || 'Sin comentarios.'}
-    
-    🎓 CURSO DE INTERÉS:
-    - Curso: ${curso.nombre}
-    
-    📊 METADATOS DE SEGUIMIENTO:
-    - Campaña: ${campaignName}
-    - Tag de Campaña: ${campaignTag}
-    - URL de Origen: ${formOriginUrl}
-    - Timestamp de Envío: ${timestamp}
-    
-    🚀 ACCIONES REQUERIDAS (URGENCIA ALTA):
-    1.  Contacto Inmediato: Llamar al lead.
-    2.  Verificar Disponibilidad: Confirmar plazas.
-    3.  Enviar Información: Proveer detalles del curso vía email.
-    
-    ⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.
-    `;
-
     const payload = {
       ...formData,
-      _subject: emailSubject,
-      _template: "table",
-      _captcha: "false",
-      _cc: "cepformacion.admi@hotmail.com",
-      "MENSAJE COMPLETO": fullMessage,
-      "URL Origen": formOriginUrl,
-      "Tag Campaña": campaignTag,
+      cursoNombre: curso.nombre,
+      campaignName: "Campaña Otoño 2025",
+      campaignTag: `otono-2025-${curso.slug}`,
+      formOriginUrl: typeof window !== 'undefined' ? window.location.href : '',
     };
 
     try {
-      const response = await fetch(formSubmitEndpoint, {
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         window.location.href = "/gracias-form-curso";
       } else {
-        alert("Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde o contacta con nosotros directamente.");
+        const errorData = await response.json();
+        console.error("Error del servidor:", errorData);
+        alert(`Hubo un error al enviar tu solicitud: ${errorData.message}. Por favor, inténtalo de nuevo más tarde.`);
       }
     } catch (error) {
-      console.error("Error al enviar el formulario:", error);
+      console.error("Error de red o de envío:", error);
       alert("Error de conexión. Por favor, revisa tu conexión a internet e inténtalo de nuevo.");
     } finally {
       setIsSubmitting(false);
@@ -248,13 +215,13 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                     required
                     checked={aceptaRgpd}
                     onChange={(e) => setAceptaRgpd(e.target.checked)}
-                    className="focus:ring-cep-primary h-5 w-5 text-cep-primary border-gray-300 rounded"
+                    className="focus:ring-cep-primary h-4 w-4 text-cep-primary border-gray-300 rounded"
                     disabled={isSubmitting}
                   />
                 </div>
                 <div className="ml-3 text-sm">
-                  <label htmlFor="aceptaRgpd" className="font-medium text-gray-700">
-                    He leído y acepto la <a href="/politica-privacidad" target="_blank" rel="noopener noreferrer" className="text-cep-primary hover:underline">política de privacidad</a> *
+                  <label htmlFor="aceptaRgpd" className="text-gray-600">
+                    Acepto la <a href="/politica-privacidad" target="_blank" className="font-medium text-cep-primary hover:underline">política de privacidad</a> y el tratamiento de mis datos.
                   </label>
                 </div>
               </div>
@@ -263,16 +230,19 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full flex justify-center items-center bg-gradient-to-r from-cep-primary to-pink-600 hover:from-cep-primary hover:to-pink-700 text-white font-bold py-4 px-4 rounded-lg shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex items-center justify-center px-6 py-4 border border-transparent text-base font-bold rounded-lg text-white bg-cep-primary hover:bg-cep-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cep-primary transition-all disabled:bg-gray-400 disabled:cursor-not-allowed"
                 disabled={isSubmitting || !aceptaRgpd}
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                    <Loader2 className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
                     Enviando...
                   </>
                 ) : (
-                  'Enviar Solicitud y Reservar Plaza'
+                  <>
+                    <Shield className="mr-3 h-5 w-5" />
+                    Enviar Solicitud de Información
+                  </>
                 )}
               </button>
             </div>

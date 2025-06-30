@@ -1,0 +1,39 @@
+name: CI/CD Pipeline para CEP Formación
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    name: Build, Test and Generate Report
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout del Repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 3. Instalar Dependencias
+        run: npm install
+
+      - name: 4. Ejecutar Pruebas
+        run: npm test
+
+      - name: 5. Compilar el Proyecto
+        run: npm run build
+
+      - name: 6. Generar Reporte de Despliegue
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          npm run generate-report
+          git add public/api/deploy-report.json
+          git commit -m "chore: Actualizar reporte de despliegue [skip ci]" || echo "No hay cambios en el reporte para commitear"
+          git push 
