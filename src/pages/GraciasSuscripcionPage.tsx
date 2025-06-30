@@ -1,6 +1,6 @@
 import { MailCheck } from 'lucide-react';
-import CepHeader from 'src/components/organisms/CepHeader';
-import CepFooter from 'src/components/organisms/CepFooter';
+import CepHeader from '../components/organisms/CepHeader';
+import CepFooter from '../components/organisms/CepFooter';
 import { Link } from 'react-router-dom';
 
 const GraciasSuscripcionPage = () => {
