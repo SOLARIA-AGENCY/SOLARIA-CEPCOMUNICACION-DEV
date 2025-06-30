@@ -22,7 +22,7 @@ describe('HomePage', () => {
         <HomePage />
       </BrowserRouter>
     )
-    const cursosSection = screen.getByText(/CURSOS INICIO SEPTIEMBRE 2025/i)
+    const cursosSection = screen.getByText(/CICLOS FORMATIVOS OFICIALES/i)
     expect(cursosSection).toBeInTheDocument()
   })
 
