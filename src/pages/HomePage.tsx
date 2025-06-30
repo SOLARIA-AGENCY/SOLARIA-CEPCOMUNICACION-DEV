@@ -511,7 +511,7 @@ const HomePage: React.FC = () => {
               <h2 className="text-3xl font-bold text-cep-primary mb-4">AGENCIA DE COLOCACIÓN</h2>
               <p className="text-gray-600 mb-6">Ofrecemos un servicio para demandantes de empleo.</p>
               <a 
-                href="https://cursostenerife.es/agencia-colocacion/" 
+                href="https://cursostenerife.agenciascolocacion.com/candidatos/registro" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
@@ -523,7 +523,7 @@ const HomePage: React.FC = () => {
               <h2 className="text-3xl font-bold text-cep-primary mb-4">FORMACIÓN GRATUITA</h2>
               <p className="text-gray-600 mb-6">Cursos subvencionados para trabajadores y desempleados.</p>
               <a 
-                href="https://cursostenerife.es/formacion-gratuita/" 
+                href="https://cursostenerife.es/cursos/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
@@ -668,7 +668,7 @@ const HomePage: React.FC = () => {
             />
             <div className="flex justify-center space-x-8">
               <a 
-                href="https://cursostenerife.es/formacion-gratuita/desempleados/" 
+                href="https://cursostenerife.es/cursos/#desempleadas" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
@@ -676,7 +676,7 @@ const HomePage: React.FC = () => {
                 TRABAJADORES/AS DESEMPLEADOS/AS
               </a>
               <a 
-                href="https://cursostenerife.es/formacion-gratuita/ocupados/" 
+                href="https://cursostenerife.es/cursos/#ocupadas" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
@@ -887,7 +887,7 @@ const HomePage: React.FC = () => {
                 También colaboramos con éxito con el servicio y asistimos regularmente a seminarios de formación.
               </p>
               <a 
-                href="https://cursostenerife.es/conocenos/" 
+                href="https://cursostenerife.es/quienes-somos/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block bg-cep-primary text-white px-6 py-2 rounded-lg hover:bg-cep-primary-dark transition-colors"
