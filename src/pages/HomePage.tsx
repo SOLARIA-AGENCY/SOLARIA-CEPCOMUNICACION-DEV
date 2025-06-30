@@ -144,6 +144,26 @@ const equipoDocente = [
   }
 ];
 
+// Datos de Colaboradores y ONGs
+const colaboradores = [
+  { nombre: 'Aboras', src: '/images/colaboradores/aboras-logo.jpg' },
+  { nombre: 'Clínica Dental Cidme', src: '/images/colaboradores/cidme-logo.jpg' },
+  { nombre: 'Clínica Alper', src: '/images/colaboradores/clinica-alper-logo.jpg' },
+  { nombre: 'Clínica Anaza', src: '/images/colaboradores/clinica-anaza-logo.jpg' },
+  { nombre: 'Clínica Duggi', src: '/images/colaboradores/clinica-duggi-logo.jpg' },
+  { nombre: 'Mi Óptica Central', src: '/images/colaboradores/mi-optica-central-logo.jpg' },
+];
+
+const ongs = [
+  { nombre: 'Addanca', src: '/images/ongs/addanca-logo.jpg' },
+  { nombre: 'Adepac', src: '/images/ongs/adepac-logo.jpg' },
+  { nombre: 'Animal Club', src: '/images/ongs/animal-club-logo.jpg' },
+  { nombre: 'Apanot', src: '/images/ongs/apanot-logo.jpg' },
+  { nombre: 'La Esperanza del Sur', src: '/images/ongs/la-esperanza-del-sur-logo.jpg' },
+  { nombre: 'SOS Felina', src: '/images/ongs/sosfelina-logo.jpg' },
+  { nombre: 'Valle Colino', src: '/images/ongs/valle-colino-logo.jpg' },
+];
+
 const HomePage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -503,28 +523,54 @@ const HomePage: React.FC = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-cep-primary mb-6">CONÓCENOS</h2>
-              <p className="text-gray-600 mb-6">
-                CEP Santa Cruz es una empresa familiar rodeada de un magnifico equipo de profesionales. 
-                Llevamos en el ADN la enseñanza, somos la séptima generación dedicada a la docencia. 
-                También colaboramos con éxito con el servicio y asistimos regularmente a seminarios de formación.
-              </p>
-              <a 
-                href="https://cursostenerife.es/quienes-somos/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block bg-cep-primary text-white px-6 py-2 rounded-lg hover:bg-cep-primary-dark transition-colors"
-              >
-                Saber más
-              </a>
+            <div className="order-2 md:order-1">
+              <h2 className="text-3xl font-bold text-cep-primary mb-6">Conócenos</h2>
+              <div className="space-y-4 text-gray-700">
+                <p>
+                  El Centro de Estudios Profesionales (CEP) es una empresa de formación privada con más de 25 años de experiencia en la impartición de cursos profesionales y ciclos formativos de grado medio y superior.
+                </p>
+                <p>
+                  Miles de alumnos han pasado por nuestras aulas, mejorando su capacitación profesional y accediendo al mercado laboral en las mejores condiciones.
+                </p>
+                <a 
+                  href="https://cursostenerife.es/#quienes-somos"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-cep-primary font-bold hover:underline"
+                >
+                  Saber más <ExternalLink className="ml-2" size={16} />
+                </a>
+              </div>
             </div>
-            <div className="text-center">
+            <div className="order-1 md:order-2">
               <img 
                 src="/images/video-preview.jpg" 
-                alt="Vista previa del video" 
-                className="w-full h-64 rounded-lg object-cover shadow-lg"
+                alt="Aula de formación de CEP" 
+                className="rounded-lg shadow-xl w-full h-auto"
               />
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">Agradecemos la profesionalidad de nuestros colaboradores:</h3>
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 items-center">
+              {colaboradores.map(logo => (
+                <div key={logo.nombre} className="flex justify-center">
+                  <img src={logo.src} alt={`Logo de ${logo.nombre}`} className="h-16 object-contain" />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mt-16 text-center">
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">Concienciados con el cuidado animal, somos socios de:</h3>
+            <p className="text-gray-600 max-w-3xl mx-auto">Somos una empresa socialmente responsable, sensible ante las injusticias y desigualdades, por lo que colaboramos con varias ONGs.</p>
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-8 items-center">
+              {ongs.map(logo => (
+                <div key={logo.nombre} className="flex justify-center">
+                  <img src={logo.src} alt={`Logo de ${logo.nombre}`} className="h-16 object-contain" />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -550,33 +596,10 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Colaboradores */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-cep-primary text-center mb-12">
-            Agradecemos la buena relación y profesionalidad de nuestros colaboradores
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {/* Colaboradores hardcoded */}
-          </div>
-        </div>
-      </section>
-
-      {/* ONGs */}
+      {/* Testimonios */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-cep-primary text-center mb-6">
-            Concienciados ante la necesidad de dar cuidado a nuestros animales abandonados, somos socios de:
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center justify-items-center mb-8">
-            {/* ONGs hardcoded */}
-          </div>
-          <div className="text-center">
-            <p className="text-gray-600">
-              Somos una empresa socialmente responsable, sensible ante las injusticias y desigualdades 
-              por lo que colaboramos con varias ONGs.
-            </p>
-          </div>
+          {/* Testimonios content */}
         </div>
       </section>
 
