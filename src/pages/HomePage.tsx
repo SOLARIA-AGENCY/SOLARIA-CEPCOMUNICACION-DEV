@@ -167,11 +167,9 @@ const HomePage: React.FC = () => {
   const cursosNorte = cursosMaestro.filter(c => c.sede === 'Norte' && c.estado === 'activo' && c.categoria !== 'ciclos');
   const cursosSantaCruz = cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.estado === 'activo' && c.categoria !== 'ciclos');
   
-  // CORRECCIÓN: Obtener solo los 2 ciclos formativos únicos, no uno por sede.
-  const ciclosFormativosUnicos = [
-    cursosMaestro.find(c => c.slugBase === 'ciclo-formativo-grado-medio-farmacia-parafarmacia'),
-    cursosMaestro.find(c => c.slugBase === 'ciclo-formativo-grado-superior-higiene-bucodental')
-  ].filter(Boolean) as CursoMaestro[];
+  // CORRECCIÓN: Obtener los ciclos formativos y asegurar que solo haya uno por tipo (Grado Medio/Superior)
+  const todosLosCiclos = cursosMaestro.filter(c => c.categoria === 'ciclos' && c.estado === 'activo');
+  const ciclosFormativosUnicos = Array.from(new Map(todosLosCiclos.map(c => [c.slugBase, c])).values());
 
   return (
     <div className="min-h-screen bg-white">
