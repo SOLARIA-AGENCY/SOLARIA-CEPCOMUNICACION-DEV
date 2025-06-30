@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { X, User, Mail, Phone, MapPin, MessageSquare, Shield } from 'lucide-react';
+import React, { useState } from 'react';
+import { X, User, Mail, Phone, MapPin, MessageSquare, Shield, Loader2 } from 'lucide-react';
 
 interface Props {
   isOpen: boolean;
@@ -7,7 +7,7 @@ interface Props {
   curso: {
     nombre: string;
     sede: string;
-    slug: string; // Añadir slug para usar en los campos ocultos
+    slug: string;
   };
 }
 
@@ -20,20 +20,11 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     Sede_Preferida: curso.sede || 'Cualquiera',
     Comentarios: '',
   });
-  const [mensajeCompleto, setMensajeCompleto] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [aceptaRgpd, setAceptaRgpd] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    // Cuando el mensaje se actualiza, y solo si no está vacío, enviamos el formulario.
-    if (mensajeCompleto && formRef.current) {
-      formRef.current.submit();
-    }
-  }, [mensajeCompleto]);
 
   if (!isOpen) return null;
 
-  // --- Lógica para datos dinámicos y de campaña ---
   const formSubmitEndpoint = 'https://formsubmit.co/agency.solaria@gmail.com';
   const thankYouUrl = `${window.location.origin}/thank-you`;
   const campaignName = "Campaña Otoño 2025";
@@ -43,8 +34,6 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     hour: '2-digit', minute: '2-digit', second: '2-digit' 
   });
   const formOriginUrl = typeof window !== 'undefined' ? window.location.href : '';
-
-  // Asunto dinámico para el correo electrónico
   const emailSubject = `🎯 NUEVO LEAD - ${curso.nombre} - ${curso.sede} - ${campaignName}`;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -52,9 +41,12 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return;
     
+    setIsSubmitting(true);
+
     const fullMessage = `
 📋 NUEVA INSCRIPCIÓN - CEP FORMACIÓN
 
@@ -86,7 +78,36 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
 ---
 📧 Copia enviada a: Solaria Agency y CEP Formación.
 `;
-    setMensajeCompleto(fullMessage);
+    
+    const payload = {
+      ...formData,
+      _cc: "cepformacion.admi@hotmail.com",
+      _subject: emailSubject,
+      _captcha: "false",
+      "MENSAJE_COMPLETO": fullMessage,
+    };
+
+    try {
+      const response = await fetch(formSubmitEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        window.location.href = thankYouUrl;
+      } else {
+        alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo más tarde.');
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error('Error de red al enviar el formulario:', error);
+      alert('Hubo un error de red al enviar el formulario. Por favor, comprueba tu conexión e inténtalo de nuevo.');
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -95,6 +116,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors z-10"
+          disabled={isSubmitting}
         >
           <X size={24} />
         </button>
@@ -117,16 +139,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
             </div>
           </div>
 
-          <form ref={formRef} action={formSubmitEndpoint} method="POST" onSubmit={handleSubmit} className="space-y-4">
-            {/* --- CAMPOS DE CONFIGURACIÓN DE FORMSUBMIT --- */}
-            <input type="hidden" name="_cc" value="cepformacion.admi@hotmail.com" />
-            <input type="hidden" name="_subject" value={emailSubject} />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value={thankYouUrl} />
-            
-            {/* --- CAMPO OCULTO CON EL MENSAJE COMPLETO Y FORMATEADO --- */}
-            <textarea name="MENSAJE_COMPLETO" value={mensajeCompleto} readOnly style={{ display: 'none' }} />
-
+          <form onSubmit={handleSubmit} className="space-y-4">
             {/* --- CAMPOS VISIBLES Y CONTROLADOS POR REACT --- */}
             
             {/* Datos personales */}
@@ -144,6 +157,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tu nombre"
+                  disabled={isSubmitting}
                 />
               </div>
               
@@ -160,6 +174,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tus apellidos"
+                  disabled={isSubmitting}
                 />
               </div>
             </div>
@@ -179,6 +194,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="tu@email.com"
+                  disabled={isSubmitting}
                 />
               </div>
               <div>
@@ -194,6 +210,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tu teléfono"
+                  disabled={isSubmitting}
                 />
               </div>
             </div>
@@ -209,6 +226,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 value={formData.Sede_Preferida}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base bg-white"
+                disabled={isSubmitting}
               >
                 <option value="Cualquiera">Cualquiera</option>
                 <option value="CEP NORTE">CEP NORTE (La Orotava)</option>
@@ -228,6 +246,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                 placeholder="¿Tienes alguna pregunta o preferencia de horario para contactarte?"
+                disabled={isSubmitting}
               ></textarea>
             </div>
 
@@ -243,6 +262,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                     checked={aceptaRgpd}
                     onChange={(e) => setAceptaRgpd(e.target.checked)}
                     className="focus:ring-cep-primary h-5 w-5 text-cep-primary border-gray-300 rounded"
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div className="ml-3 text-sm">
@@ -259,10 +279,11 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full flex justify-center items-center px-6 py-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50"
-                disabled={!aceptaRgpd}
+                className="w-full flex justify-center items-center px-6 py-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 disabled:opacity-50 transition-opacity"
+                disabled={!aceptaRgpd || isSubmitting}
               >
-                RESERVAR MI PLAZA AHORA
+                {isSubmitting ? <Loader2 className="animate-spin mr-2" /> : null}
+                {isSubmitting ? 'Enviando...' : 'RESERVAR MI PLAZA AHORA'}
               </button>
             </div>
           </form>
