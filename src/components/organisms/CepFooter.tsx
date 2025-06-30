@@ -82,17 +82,17 @@ const CepFooter: React.FC = () => {
                <img 
                 src="/images/logos/logo-certificaciones.jpg" 
                 alt="Logos de certificaciones de calidad" 
-                className="w-full h-auto"
+                className="w-3/4 h-auto mx-auto lg:mx-0"
               />
               <img 
                 src="/images/logos/logo-fondo-europeo.jpg" 
                 alt="Logo del Fondo Social Europeo" 
-                className="w-full h-auto"
+                className="w-3/4 h-auto mx-auto lg:mx-0"
               />
               <img 
                 src="/images/logos/logo-sce.jpg" 
                 alt="Logo del Servicio Canario de Empleo" 
-                className="w-full h-auto"
+                className="w-3/4 h-auto mx-auto lg:mx-0"
               />
             </div>
           </div>
