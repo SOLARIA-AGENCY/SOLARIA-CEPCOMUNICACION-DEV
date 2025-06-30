@@ -379,6 +379,56 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Testimonios */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-cep-primary">LO QUE OPINAN NUESTROS ALUMNOS</h2>
+          </div>
+          {/* Aquí iría el carrusel o grid de testimonios */}
+        </div>
+      </section>
+
+      {/* Equipo Docente */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-cep-primary mb-4">Conoce a Nuestro Equipo Docente</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Profesionales apasionados y con amplia experiencia en sus sectores, dedicados a tu éxito.</p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-x-6 gap-y-10">
+            {equipoDocente.map((profesor) => (
+              <div key={profesor.id} className="text-center">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-4">
+                  <img
+                    src={profesor.imagen}
+                    alt={`Foto de ${profesor.nombre}`}
+                    className="w-full h-full rounded-full object-cover shadow-lg"
+                  />
+                </div>
+                <h4 className="text-lg font-bold text-gray-800">{profesor.nombre}</h4>
+                <p className="text-sm text-cep-primary font-medium">{profesor.especialidad}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* ONGs Colaboradoras */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="text-2xl font-bold text-gray-800 mb-2">Concienciados con el cuidado animal, somos socios de:</h3>
+          <p className="text-gray-600 max-w-3xl mx-auto mb-10">Somos una empresa socialmente responsable, sensible ante las injusticias y desigualdades, por lo que colaboramos con varias ONGs.</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-x-8 gap-y-10 items-center">
+            {ongs.map(logo => (
+              <div key={logo.nombre} className="flex justify-center">
+                <img src={logo.src} alt={`Logo de ${logo.nombre}`} className="h-20 object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Sección Especial - Ciclos Formativos Oficiales */}
       <section className="py-16 bg-gradient-to-br from-cep-primary via-pink-600 to-purple-700 text-white">
         <div className="container mx-auto px-4">
@@ -535,33 +585,6 @@ const HomePage: React.FC = () => {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Equipo Docente */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            {equipoDocente.map((profesor) => (
-              <div key={profesor.id} className="text-center">
-                <img
-                  src={profesor.imagen}
-                  alt={profesor.nombre}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                />
-                <h3 className="text-lg font-bold text-cep-primary">{profesor.nombre}</h3>
-                <p className="text-gray-600">{profesor.especialidad}</p>
-                <p className="text-sm text-gray-500">Cursos Tenerife</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonios */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          {/* Testimonios content */}
         </div>
       </section>
 
