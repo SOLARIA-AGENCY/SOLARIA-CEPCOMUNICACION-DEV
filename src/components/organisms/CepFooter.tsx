@@ -14,7 +14,7 @@ const CepFooter: React.FC = () => {
             </button>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Logo CEP Formación a la izquierda */}
             <div className="flex flex-col items-center lg:items-start">
               <img 
@@ -76,6 +76,24 @@ const CepFooter: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
+             {/* Logos de Certificaciones */}
+            <div className="flex flex-col items-center lg:items-start space-y-4">
+               <img 
+                src="/images/logos/logo-certificaciones.jpg" 
+                alt="Logos de certificaciones de calidad" 
+                className="w-full h-auto"
+              />
+              <img 
+                src="/images/logos/logo-fondo-europeo.jpg" 
+                alt="Logo del Fondo Social Europeo" 
+                className="w-full h-auto"
+              />
+              <img 
+                src="/images/logos/logo-sce.jpg" 
+                alt="Logo del Servicio Canario de Empleo" 
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
