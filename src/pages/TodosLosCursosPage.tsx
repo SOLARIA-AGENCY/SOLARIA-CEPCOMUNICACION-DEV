@@ -15,11 +15,13 @@ const TodosLosCursosPage: React.FC = () => {
     'sanidad', 
     'veterinaria', 
     'bienestar', 
-    'ciclos', 
     'adiestramiento',
   ];
 
   const cursosFiltrados = cursosMaestro.filter(curso => {
+    if (curso.categoria === 'ciclos') {
+      return false;
+    }
     const pasaCategoria = filtroCategoria === 'todos' || curso.categoria === filtroCategoria;
     const pasaBusqueda = terminoBusqueda === '' || curso.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase());
     return curso.estado === 'activo' && pasaCategoria && pasaBusqueda;
@@ -31,7 +33,6 @@ const TodosLosCursosPage: React.FC = () => {
       sanidad: 'Sanidad',
       veterinaria: 'Mundo Animal',
       bienestar: 'Bienestar y Deporte',
-      ciclos: 'Ciclos Formativos',
       adiestramiento: 'Adiestramiento Canino',
     };
     return nombres[id] || 'Categoría';
