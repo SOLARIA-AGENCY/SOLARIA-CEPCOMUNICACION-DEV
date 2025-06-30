@@ -6,6 +6,8 @@ import AvisoLegalPage from './pages/AvisoLegalPage';
 import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
 import ProteccionDatosPage from './pages/ProteccionDatosPage';
 import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
+import FaqPage from './pages/FaqPage';
+import BlogPage from './pages/BlogPage';
 
 // --- ESTRUCTURA DINÁMICA ---
 import TodosLosCursosPage from './pages/TodosLosCursosPage';
@@ -48,6 +50,10 @@ function App() {
         <Route path="/cursos" element={<TodosLosCursosPage />} />
         <Route path="/ciclos" element={<CiclosPage />} />
         <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
+
+        {/* Paginas de Contenido y SEO */}
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/faq" element={<FaqPage />} />
 
         {/* Páginas Legales y de Contacto */}
         <Route path="/contacto" element={<ContactPage />} />
