@@ -3,6 +3,8 @@ import { ChevronLeft, ChevronRight, Users, Award, TrendingUp, ExternalLink } fro
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import { Link } from 'react-router-dom';
+import { cursosMaestro } from '../config/cursos-maestro';
+import type { CursoMaestro } from '../config/cursos-maestro';
 
 // Datos para los slides del hero - solo imágenes como en el original
 const heroSlides = [
@@ -23,234 +25,70 @@ const heroSlides = [
   }
 ];
 
-// Cursos de la Campaña Otoño 2025 - COMPLETOS (14 variaciones)
-const cursosOtono2025 = [
-  {
-    id: 1,
-    titulo: "Adiestramiento Canino",
-    sede: "CEP NORTE",
-    imagen: "/images/cursos/adiestramiento-canino.jpg",
-    inicio: "Septiembre 2025",
-    duracion: "6 meses - 25 sesiones",
-    descripcion: "Técnicas de adiestramiento de base y educación canina nivel I",
-    link: "/adiestramiento-canino-norte",
-    hasPage: true
-  },
-  {
-    id: 2,
-    titulo: "Auxiliar Clínicas Estéticas",
-    sede: "CEP SANTA CRUZ",
-    imagen: "/images/cursos/auxiliar-de.jpg",
-    inicio: "Septiembre 2025",
-    duracion: "8 meses",
-    descripcion: "Formación integral en tratamientos de estética y procedimientos en clínicas de medicina estética",
-    link: "/auxiliar-clinicas-esteticas-santacruz",
-    hasPage: true
-  },
-  {
-    id: 3,
-    titulo: "Agente Funerario",
-    sede: "CEP SANTA CRUZ",
-    imagen: "/images/cursos/especializacion-sanitaria.jpg",
-    inicio: "Septiembre 2025",
-    duracion: "6 meses",
-    descripcion: "Curso profesional para trabajar en servicios funerarios. Incluye protocolos, legislación y atención a familias",
-    link: "/agente-funerario-santacruz",
-    hasPage: true
-  },
-  {
-    id: 4,
-    titulo: "Auxiliar Veterinario",
-    sede: "CEP NORTE",
-    imagen: "/images/cursos/auxiliar-veterinaria.jpg",
-    inicio: "Septiembre 2025",
-    duracion: "10 meses",
-    descripcion: "Asistencia en clínicas veterinarias, cuidado animal, instrumentación quirúrgica y atención al cliente",
-    link: "/auxiliar-clinico-veterinario-norte",
-    hasPage: true
-  },
-  {
-    id: 5,
-    titulo: "Auxiliar Veterinario",
-    sede: "CEP SANTA CRUZ",
-    imagen: "/images/cursos/auxiliar-veterinaria.jpg",
-    inicio: "Octubre 2025",
-    duracion: "10 meses",
-    descripcion: "Asistencia en clínicas veterinarias, cuidado animal, instrumentación quirúrgica y atención al cliente",
-    link: "/auxiliar-clinico-veterinario-santacruz",
-    hasPage: true
-  },
-  {
-    id: 6,
-    titulo: "Auxiliar de Farmacia",
-    sede: "CEP NORTE",
-    imagen: "/images/cursos/farmacia-parafarmacia.jpg",
-    inicio: "Septiembre 2025",
-    duracion: "8 meses",
-    descripcion: "Formación completa para trabajar en farmacias. Dispensación de medicamentos y atención farmacéutica",
-    link: "/auxiliar-farmacia-dermo-norte",
-    hasPage: true
-  },
-  {
-    id: 7,
-    titulo: "Auxiliar de Odontología",
-    sede: "CEP NORTE",
-    imagen: "/images/cursos/auxiliar-odontologia.jpg",
-    inicio: "Septiembre 2025",
-    duracion: "9 meses",
-    descripcion: "Asistencia en clínicas dentales, instrumental odontológico, radiología dental y atención al paciente",
-    link: "/auxiliar-odontologia-norte",
-    hasPage: true
-  },
-  {
-    id: 8,
-    titulo: "Auxiliar de Odontología",
-    sede: "CEP SANTA CRUZ",
-    imagen: "/images/cursos/auxiliar-odontologia.jpg",
-    inicio: "Octubre 2025",
-    duracion: "9 meses",
-    descripcion: "Asistencia en clínicas dentales, instrumental odontológico, radiología dental y atención al paciente",
-    link: "/auxiliar-odontologia-santacruz",
-    hasPage: true
-  },
-   {
-     id: 9,
-     titulo: "Auxiliar de Enfermería",
-     sede: "CEP NORTE",
-     imagen: "/images/cursos/auxiliar-enfermeria.jpg",
-     inicio: "Septiembre 2025",
-     duracion: "10 meses",
-     descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
-     link: "/auxiliar-enfermeria-norte",
-     hasPage: true
-   },
-   {
-     id: 10,
-     titulo: "Auxiliar de Enfermería",
-     sede: "CEP SANTA CRUZ",
-     imagen: "/images/cursos/auxiliar-enfermeria.jpg",
-     inicio: "Octubre 2025",
-     duracion: "10 meses",
-     descripcion: "Cuidados básicos de enfermería, asistencia sanitaria, técnicas de primeros auxilios y atención a pacientes",
-     link: "/auxiliar-enfermeria-santacruz",
-     hasPage: true
-   },
-   {
-     id: 11,
-     titulo: "Dietética y Nutrición",
-     sede: "CEP NORTE",
-     imagen: "/images/cursos/dietetica-nutricion.jpg",
-     inicio: "Septiembre 2025",
-     duracion: "8 meses",
-     descripcion: "Especialización en nutrición clínica, dietoterapia y educación alimentaria para promoción de la salud",
-     link: "/dietetica-nutricion-norte",
-     hasPage: true
-   },
-   {
-     id: 12,
-     titulo: "Peluquería Canina y Felina",
-     sede: "CEP NORTE",
-     imagen: "/images/cursos/peluqueria-canina.jpg",
-     inicio: "Septiembre 2025",
-     duracion: "6 meses",
-     descripcion: "Técnicas profesionales de peluquería y estética animal para perros y gatos de todas las razas",
-     link: "/peluqueria-canina-felina-norte",
-     hasPage: true
-   },
-   {
-     id: 13,
-     titulo: "Peluquería Canina y Felina",
-     sede: "CEP SANTA CRUZ",
-     imagen: "/images/cursos/peluqueria-canina.jpg",
-     inicio: "Octubre 2025",
-     duracion: "6 meses",
-     descripcion: "Técnicas profesionales de peluquería y estética animal para perros y gatos de todas las razas",
-     link: "/peluqueria-canina-felina-santacruz",
-     hasPage: true
-   },
-   {
-     id: 14,
-     titulo: "Quiromasaje Nivel I",
-     sede: "CEP NORTE",
-     imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
-     inicio: "Septiembre 2025",
-     duracion: "6 meses",
-     descripcion: "Técnicas básicas de masaje terapéutico y relajación para iniciación profesional en quiromasaje",
-     link: "/quiromasaje-nivel1-norte",
-     hasPage: true
-   },
-   {
-     id: 15,
-     titulo: "Quiromasaje Nivel II",
-     sede: "CEP SANTA CRUZ",
-     imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
-     inicio: "Julio 2025",
-     duracion: "5 meses",
-     descripcion: "Técnicas avanzadas de masaje terapéutico, rehabilitación y tratamiento de lesiones musculoesqueléticas",
-     link: "/quiromasaje-nivel2-santacruz",
-     hasPage: true
-   },
-   {
-     id: 16,
-     titulo: "CFGS Higiene Bucodental",
-     sede: "CEP SANTA CRUZ",
-     imagen: "/images/cursos/auxiliar-odontologia.jpg",
-     inicio: "Septiembre 2025",
-     duracion: "3 cursos escolares",
-     descripcion: "Título oficial de Técnico Superior. Modalidad semipresencial. Prácticas con pacientes reales desde 1º año",
-     link: "/cfgs-higiene-bucodental-santacruz",
-     hasPage: true
-   },
-   {
-     id: 17,
-     titulo: "CFGM Farmacia y Parafarmacia",
-     sede: "CEP SANTA CRUZ",
-     imagen: "/images/cursos/farmacia-parafarmacia.jpg",
-     inicio: "Septiembre 2025",
-     duracion: "2 cursos escolares",
-     descripcion: "Título oficial de Técnico. Modalidad semipresencial. Acceso directo al mundo laboral farmacéutico",
-     link: "/cfgm-farmacia-parafarmacia-santacruz",
-     hasPage: true
-   }
- ];
+// Componente de tarjeta de curso reutilizable
+const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
+  const getFechaTag = (inicio: string | undefined) => {
+    if (!inicio) return { text: 'Próximamente', color: 'bg-gray-500' };
+    const mes = inicio.toLowerCase();
+    if (mes.includes('julio')) return { text: 'JULIO 2025', color: 'bg-orange-500' };
+    if (mes.includes('septiembre')) return { text: 'SEPTIEMBRE 2025', color: 'bg-green-500' };
+    if (mes.includes('octubre')) return { text: 'OCTUBRE 2025', color: 'bg-blue-500' };
+    return { text: inicio.toUpperCase(), color: 'bg-purple-500' };
+  };
 
-// Datos de cursos con imágenes reales
-const cursosPrivados = [
+  const fechaTag = getFechaTag(curso.inicio);
+
+  return (
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
+      <div className="relative">
+        <img
+          src={curso.imagen}
+          alt={curso.nombre}
+          className="w-full h-40 sm:h-48 object-cover"
+        />
+        <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${fechaTag.color}`}>
+          {fechaTag.text}
+        </div>
+      </div>
+      <div className="p-4 sm:p-6 flex-grow flex flex-col">
+        <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.nombre}</h3>
+        <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.copy.slogan}</p>
+        <Link
+          to={`/curso/${curso.slug}`}
+          className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+        >
+          VER CURSO COMPLETO
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+// Datos de las categorías de cursos privados
+const categoriasCursos = [
   {
     id: 1,
     titulo: "CICLOS FORMATIVOS",
     imagen: "/images/cursos/ciclos-formativos.jpg",
-    link: "/categoria/ciclos-formativos"
-  },
-  {
-    id: 2,
-    titulo: "AUXILIAR DE",
-    imagen: "/images/cursos/auxiliar-de.jpg",
-    link: "/categoria/auxiliar-de"
+    categoria: "ciclos"
   },
   {
     id: 3,
     titulo: "SALUD, BIENESTAR Y DEPORTE",
     imagen: "/images/cursos/salud-bienestar-y-deporte.jpg",
-    link: "/categoria/salud-bienestar-y-deporte"
+    categoria: "bienestar"
   },
   {
     id: 4,
     titulo: "MUNDO ANIMAL",
     imagen: "/images/cursos/mundo-animal.jpg",
-    link: "/categoria/mundo-animal"
+    categoria: "veterinaria"
   },
   {
     id: 5,
     titulo: "ESPECIALIZACIÓN SANITARIA",
     imagen: "/images/cursos/especializacion-sanitaria.jpg",
-    link: "/categoria/especializacion-sanitaria"
-  },
-  {
-    id: 6,
-    titulo: "MEDIA DESIGN",
-    imagen: "/images/cursos/diseno-de-medios.jpg",
-    link: "/categoria/media-design"
+    categoria: "sanidad"
   }
 ];
 
@@ -306,79 +144,6 @@ const equipoDocente = [
   }
 ];
 
-// Datos de colaboradores
-const colaboradores = [
-  {
-    id: 1,
-    nombre: "Clínica Veterinaria Añaza",
-    imagen: "/images/colaboradores/clinica-anaza-logo.jpg"
-  },
-  {
-    id: 2,
-    nombre: "Clínica Veterinaria Duggi",
-    imagen: "/images/colaboradores/clinica-duggi-logo.jpg"
-  },
-  {
-    id: 3,
-    nombre: "Centro Veterinario Alper",
-    imagen: "/images/colaboradores/clinica-alper-logo.jpg"
-  },
-  {
-    id: 4,
-    nombre: "Aboras Obediencia",
-    imagen: "/images/colaboradores/aboras-logo.jpg"
-  },
-  {
-    id: 5,
-    nombre: "CIDME",
-    imagen: "/images/colaboradores/cidme-logo.jpg"
-  },
-  {
-    id: 6,
-    nombre: "Mi Óptica Central",
-    imagen: "/images/colaboradores/mi-optica-central-logo.jpg"
-  }
-];
-
-// Datos de ONGs
-const ongs = [
-  {
-    id: 1,
-    nombre: "Addanca",
-    imagen: "/images/ongs/addanca-logo.jpg"
-  },
-  {
-    id: 2,
-    nombre: "Adepac",
-    imagen: "/images/ongs/adepac-logo.jpg"
-  },
-  {
-    id: 3,
-    nombre: "Animal Club",
-    imagen: "/images/ongs/animal-club-logo.jpg"
-  },
-  {
-    id: 4,
-    nombre: "Apanot",
-    imagen: "/images/ongs/apanot-logo.jpg"
-  },
-  {
-    id: 5,
-    nombre: "La Esperanza del Sur",
-    imagen: "/images/ongs/la-esperanza-del-sur-logo.jpg"
-  },
-  {
-    id: 6,
-    nombre: "SOS Felina",
-    imagen: "/images/ongs/sosfelina-logo.jpg"
-  },
-  {
-    id: 7,
-    nombre: "Valle Colino",
-    imagen: "/images/ongs/valle-colino-logo.jpg"
-  }
-];
-
 const HomePage: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -398,33 +163,10 @@ const HomePage: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
-  // Función para obtener el color de la etiqueta según la fecha
-  const getFechaTag = (inicio: string) => {
-    const mes = inicio.toLowerCase();
-    if (mes.includes('julio')) {
-      return { color: 'bg-orange-500 text-white', texto: 'JULIO 2025' };
-    } else if (mes.includes('septiembre')) {
-      return { color: 'bg-green-500 text-white', texto: 'SEPTIEMBRE 2025' };
-    } else if (mes.includes('octubre')) {
-      return { color: 'bg-blue-500 text-white', texto: 'OCTUBRE 2025' };
-    } else if (mes.includes('noviembre')) {
-      return { color: 'bg-purple-500 text-white', texto: 'NOVIEMBRE 2025' };
-    } else {
-      return { color: 'bg-gray-500 text-white', texto: 'PRÓXIMAMENTE' };
-    }
-  };
-
-  // Separar cursos por sede EXCLUYENDO los ciclos formativos
-  const cursosNorte = cursosOtono2025.filter(curso => 
-    curso.sede === 'CEP NORTE' && 
-    !curso.titulo.includes('CFGM') && 
-    !curso.titulo.includes('CFGS')
-  );
-  const cursosSantaCruz = cursosOtono2025.filter(curso => 
-    curso.sede === 'CEP SANTA CRUZ' && 
-    !curso.titulo.includes('CFGM') && 
-    !curso.titulo.includes('CFGS')
-  );
+  // Filtrar cursos por sede y estado
+  const cursosNorte = cursosMaestro.filter(c => c.sede === 'Norte' && c.estado === 'activo' && c.categoria !== 'ciclos');
+  const cursosSantaCruz = cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.estado === 'activo' && c.categoria !== 'ciclos');
+  const ciclosFormativos = cursosMaestro.filter(c => c.categoria === 'ciclos' && c.estado === 'activo');
 
   return (
     <div className="min-h-screen bg-white">
@@ -545,100 +287,32 @@ const HomePage: React.FC = () => {
           </div>
           
           {/* Sección CEP NORTE */}
-          <div className="mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP NORTE</h3>
-              <p className="text-gray-600">Cursos disponibles en nuestra sede del Norte</p>
+          {cursosNorte.length > 0 && (
+            <div className="mb-16">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP NORTE</h3>
+                <p className="text-gray-600">Cursos disponibles en nuestra sede del Norte</p>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {cursosNorte.map((curso) => <CursoCard key={curso.id} curso={curso} />)}
+              </div>
             </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {cursosNorte.map((curso) => {
-                const fechaTag = getFechaTag(curso.inicio);
-                return (
-                  <div key={curso.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
-                    <div className="relative">
-                      <img
-                        src={curso.imagen}
-                        alt={curso.titulo}
-                        className="w-full h-40 sm:h-48 object-cover"
-                      />
-                      <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold ${fechaTag.color}`}>
-                        {fechaTag.texto}
-                      </div>
-                    </div>
-                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
-                      <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
-                      <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-                        <p><strong>Inicio:</strong> {curso.inicio}</p>
-                        <p><strong>Duración:</strong> {curso.duracion}</p>
-                      </div>
-                      <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.descripcion}</p>
-                      {curso.hasPage ? (
-                        <Link 
-                          to={curso.link}
-                          className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                        >
-                          VER CURSO COMPLETO
-                        </Link>
-                      ) : (
-                        <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed text-sm sm:text-base mt-auto">
-                          PRÓXIMAMENTE
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          )}
 
           {/* Sección CEP SANTA CRUZ */}
-          <div className="mb-12">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP SANTA CRUZ</h3>
-              <p className="text-gray-600">Cursos disponibles en nuestra sede de Santa Cruz</p>
+          {cursosSantaCruz.length > 0 && (
+            <div className="mb-12">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP SANTA CRUZ</h3>
+                <p className="text-gray-600">Cursos disponibles en nuestra sede de Santa Cruz</p>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {cursosSantaCruz.map((curso) => <CursoCard key={curso.id} curso={curso} />)}
+              </div>
             </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {cursosSantaCruz.map((curso) => {
-                const fechaTag = getFechaTag(curso.inicio);
-                return (
-                  <div key={curso.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
-                    <div className="relative">
-                      <img
-                        src={curso.imagen}
-                        alt={curso.titulo}
-                        className="w-full h-40 sm:h-48 object-cover"
-                      />
-                      <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold ${fechaTag.color}`}>
-                        {fechaTag.texto}
-                      </div>
-                    </div>
-                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
-                      <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.titulo}</h3>
-                      <div className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
-                        <p><strong>Inicio:</strong> {curso.inicio}</p>
-                        <p><strong>Duración:</strong> {curso.duracion}</p>
-                      </div>
-                      <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.descripcion}</p>
-                      {curso.hasPage ? (
-                        <Link 
-                          to={curso.link}
-                          className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                        >
-                          VER CURSO COMPLETO
-                        </Link>
-                      ) : (
-                        <button className="w-full bg-gray-100 text-gray-600 py-2 px-4 rounded-lg font-semibold cursor-not-allowed text-sm sm:text-base mt-auto">
-                          PRÓXIMAMENTE
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          )}
           
           <div className="text-center">
             <div className="bg-cep-primary text-white p-6 rounded-lg inline-block">
@@ -692,17 +366,18 @@ const HomePage: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-cep-primary text-center mb-12">NUESTROS CURSOS PRIVADOS</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {cursosPrivados.map((curso) => (
-              <div key={curso.id} className="relative group overflow-hidden rounded-lg shadow-lg">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {categoriasCursos.map((categoria) => (
+              <div key={categoria.id} className="relative group overflow-hidden rounded-lg shadow-lg">
                 <img
-                  src={curso.imagen}
-                  alt={curso.titulo}
+                  src={categoria.imagen}
+                  alt={categoria.titulo}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end justify-center pb-6">
-                  <h3 className="text-white text-lg font-bold text-center px-4 drop-shadow-lg">{curso.titulo}</h3>
+                  <h3 className="text-white text-lg font-bold text-center px-4 drop-shadow-lg">{categoria.titulo}</h3>
                 </div>
+                <Link to={`/cursos/${categoria.categoria}`} className="absolute inset-0" />
               </div>
             ))}
           </div>
@@ -733,89 +408,35 @@ const HomePage: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {/* CFGM Farmacia y Parafarmacia */}
-            {cursosOtono2025
-              .filter(curso => curso.titulo.includes('CFGM Farmacia'))
-              .slice(0, 1)
-              .map((curso) => {
-                const fechaTag = getFechaTag(curso.inicio || '');
-                return (
-                  <div key={curso.id} className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div className="relative">
-                      <img
-                        src={curso.imagen}
-                        alt={curso.titulo}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 rounded-full text-sm font-bold ${fechaTag.color}`}>
-                          {fechaTag.texto}
-                        </span>
-                      </div>
-                      <div className="absolute top-4 right-4 bg-yellow-400 text-cep-primary px-3 py-1 rounded-full text-xs font-bold">
-                        GRADO MEDIO
-                      </div>
-                    </div>
-                    <div className="p-6 text-gray-800">
-                      <h3 className="text-xl font-bold text-cep-primary mb-3">{curso.titulo}</h3>
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="mr-2">📍</span>
-                          <span className="font-semibold">Sede:</span>
-                          <span className="ml-1">{curso.sede}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="mr-2">⏱️</span>
-                          <span className="font-semibold">Duración:</span>
-                          <span className="ml-1 text-cep-primary font-bold">3 años (2.000 horas)</span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="mr-2">🎓</span>
-                          <span className="font-semibold">Título:</span>
-                          <span className="ml-1">Oficial MEC</span>
-                        </div>
-                      </div>
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Prácticas Incluidas</span>
-                        <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Becas MEC</span>
-                        <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Acceso Universidad</span>
-                      </div>
-                      <Link
-                        to={curso.link}
-                        className="block w-full bg-cep-primary text-white text-center py-3 rounded-lg hover:bg-cep-primary-dark transition-colors font-bold"
-                      >
-                        VER INFORMACIÓN COMPLETA
-                      </Link>
-                    </div>
-                  </div>
-                );
-              })}
+            {ciclosFormativos.map(curso => {
+                const getFechaTag = (inicio: string | undefined) => {
+                  if (!inicio) return { text: 'Próximamente', color: 'bg-gray-500' };
+                  const mes = inicio.toLowerCase();
+                  if (mes.includes('septiembre')) return { text: 'SEPTIEMBRE 2025', color: 'bg-green-500' };
+                  return { text: inicio.toUpperCase(), color: 'bg-purple-500' };
+                };
+                const fechaTag = getFechaTag(curso.inicio);
+                const esGradoSuperior = curso.nombre.includes('CFGS');
 
-            {/* CFGS Higiene Bucodental */}
-            {cursosOtono2025
-              .filter(curso => curso.titulo.includes('CFGS Higiene'))
-              .slice(0, 1)
-              .map((curso) => {
-                const fechaTag = getFechaTag(curso.inicio || '');
                 return (
                   <div key={curso.id} className="bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
                     <div className="relative">
                       <img
                         src={curso.imagen}
-                        alt={curso.titulo}
+                        alt={curso.nombre}
                         className="w-full h-48 object-cover"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 rounded-full text-sm font-bold ${fechaTag.color}`}>
-                          {fechaTag.texto}
+                        <span className={`px-3 py-1 rounded-full text-sm font-bold text-white ${fechaTag.color}`}>
+                          {fechaTag.text}
                         </span>
                       </div>
                       <div className="absolute top-4 right-4 bg-yellow-400 text-cep-primary px-3 py-1 rounded-full text-xs font-bold">
-                        GRADO SUPERIOR
+                        {esGradoSuperior ? 'GRADO SUPERIOR' : 'GRADO MEDIO'}
                       </div>
                     </div>
                     <div className="p-6 text-gray-800">
-                      <h3 className="text-xl font-bold text-cep-primary mb-3">{curso.titulo}</h3>
+                      <h3 className="text-xl font-bold text-cep-primary mb-3">{curso.nombre}</h3>
                       <div className="space-y-2 mb-4">
                         <div className="flex items-center text-sm text-gray-600">
                           <span className="mr-2">📍</span>
@@ -825,7 +446,7 @@ const HomePage: React.FC = () => {
                         <div className="flex items-center text-sm text-gray-600">
                           <span className="mr-2">⏱️</span>
                           <span className="font-semibold">Duración:</span>
-                          <span className="ml-1 text-cep-primary font-bold">3 años (2.000 horas)</span>
+                          <span className="ml-1 text-cep-primary font-bold">{curso.descripcionDetallada?.infoAdicional?.duracion || '2.000 horas'}</span>
                         </div>
                         <div className="flex items-center text-sm text-gray-600">
                           <span className="mr-2">🎓</span>
@@ -839,7 +460,7 @@ const HomePage: React.FC = () => {
                         <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Acceso Universidad</span>
                       </div>
                       <Link
-                        to={curso.link}
+                        to={`/curso/${curso.slug}`}
                         className="block w-full bg-cep-primary text-white text-center py-3 rounded-lg hover:bg-cep-primary-dark transition-colors font-bold"
                       >
                         VER INFORMACIÓN COMPLETA
@@ -847,7 +468,7 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                 );
-              })}
+            })}
           </div>
 
           <div className="text-center mt-12">
@@ -933,16 +554,7 @@ const HomePage: React.FC = () => {
             Agradecemos la buena relación y profesionalidad de nuestros colaboradores
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {colaboradores.map((colaborador) => (
-              <div key={colaborador.id} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <img
-                  src={colaborador.imagen}
-                  alt={colaborador.nombre}
-                  className="w-20 h-20 object-contain mx-auto"
-                  title={colaborador.nombre}
-                />
-              </div>
-            ))}
+            {/* Colaboradores hardcoded */}
           </div>
         </div>
       </section>
@@ -954,16 +566,7 @@ const HomePage: React.FC = () => {
             Concienciados ante la necesidad de dar cuidado a nuestros animales abandonados, somos socios de:
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center justify-items-center mb-8">
-            {ongs.map((ong) => (
-              <div key={ong.id} className="bg-gray-50 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <img
-                  src={ong.imagen}
-                  alt={ong.nombre}
-                  className="w-20 h-20 object-contain mx-auto"
-                  title={ong.nombre}
-                />
-              </div>
-            ))}
+            {/* ONGs hardcoded */}
           </div>
           <div className="text-center">
             <p className="text-gray-600">

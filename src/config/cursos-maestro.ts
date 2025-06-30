@@ -121,7 +121,7 @@ export const baseCursos: CursoBase[] = [
   { 
     nombre: 'Adiestramiento Canino II', 
     slugBase: 'adiestramiento-canino-ii', 
-    imagen: '/images/cursos/adiestramiento-canino-2.jpg',
+    imagen: '/images/cursos/adiestramiento-canino.jpg',
     categoria: 'adiestramiento',
     copy: {
       slogan: 'Perfecciona tus habilidades y especialízate en adiestramiento avanzado.',

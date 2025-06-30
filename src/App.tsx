@@ -1,41 +1,36 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-// import CursosPage from './pages/CursosPage'; // Obsoleto
 import ContactPage from './pages/ContactPage';
 import AvisoLegalPage from './pages/AvisoLegalPage';
 import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
 import ProteccionDatosPage from './pages/ProteccionDatosPage';
 import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
 
-// Componentes de página estáticos (se mantienen para rutas genéricas/legacy)
-import AdiestramientoCaninoPage from './pages/AdiestramientoCaninoPage';
-import AgenteFunerarioPage from './pages/AgenteFunerarioPage';
-import AuxiliarEnfermeriaPage from './pages/AuxiliarEnfermeriaPage';
-import AuxiliarEsteticasPage from './pages/AuxiliarEsteticasPage';
-import AuxiliarFarmaciaPage from './pages/AuxiliarFarmaciaPage';
-import AuxiliarVeterinarioPage from './pages/AuxiliarVeterinarioPage';
-
-// --- NUEVA ESTRUCTURA DINÁMICA ---
-import NuevosCursosIndexPage from './pages/NuevosCursosIndexPage';
-import PaginaCursoDinamica from './pages/PaginaCursoDinamica';
+// --- ESTRUCTURA DINÁMICA ---
+import TodosLosCursosPage from './pages/TodosLosCursosPage';
 import CursoPageComponent from './components/templates/CursoPageComponent';
 import { cursosMaestro } from './config/cursos-maestro';
+import type { CursoMaestro } from './config/cursos-maestro';
 import SolariaStatusPage from './pages/SolariaStatusPage';
 import useTracking from './utils/useTracking';
 import ThankYouPage from './pages/ThankYouPage';
-// --- FIN NUEVA ESTRUCTURA ---
+// --- FIN ESTRUCTURA ---
 
 import './index.css';
 
-// Componente "Wrapper" que busca el curso por slug y renderiza la página
-// o redirige si no lo encuentra.
-const DynamicCoursePageWrapper = ({ slug }: { slug: string }) => {
-  const curso = cursosMaestro.find(c => c.slug === slug);
+// Componente "Wrapper" que extrae el slug de la URL y renderiza la página
+const DynamicCoursePageWrapper = () => {
+  const { slug } = useParams<{ slug: string }>();
+  if (!slug) return <Navigate to="/cursos" replace />;
+  
+  const curso = cursosMaestro.find((c: CursoMaestro) => c.slug === slug);
+  
   if (!curso) {
-    // Si no se encuentra el curso, redirigir a la página principal de nuevos cursos.
-    return <Navigate to="/new/cursos" replace />;
+    // Si no se encuentra el curso, redirigir a la página de todos los cursos.
+    return <Navigate to="/cursos" replace />;
   }
+  
   return <CursoPageComponent curso={curso} />;
 };
 
@@ -46,10 +41,26 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* La ruta principal de cursos ahora muestra el nuevo índice dinámico */}
-        <Route path="/cursos" element={<NuevosCursosIndexPage />} />
+        <Route path="/inicio" element={<HomePage />} />
         
-        {/* Rutas genéricas redirigen al nuevo índice para selección de sede */}
+        {/* Rutas de Cursos */}
+        <Route path="/cursos" element={<TodosLosCursosPage />} />
+        <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
+
+        {/* Páginas Legales y de Contacto */}
+        <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
+        <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
+        <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />
+        <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
+        
+        {/* Páginas de Sistema */}
+        <Route path="/solaria-status" element={<SolariaStatusPage />} />
+        <Route path="/thank-you" element={<ThankYouPage />} />
+
+        {/* Redirecciones de rutas antiguas a las nuevas */}
+        <Route path="/new/cursos" element={<Navigate to="/cursos" replace />} />
+        <Route path="/new/cursos/:slug" element={<Navigate to="/cursos" replace />} />
         <Route path="/adiestramiento-canino" element={<Navigate to="/cursos" replace />} />
         <Route path="/agente-funerario" element={<Navigate to="/cursos" replace />} />
         <Route path="/auxiliar-enfermeria" element={<Navigate to="/cursos" replace />} />
@@ -58,46 +69,9 @@ function App() {
         <Route path="/auxiliar-clinico-veterinario" element={<Navigate to="/cursos" replace />} />
         <Route path="/cfgm-farmacia-parafarmacia" element={<Navigate to="/cursos" replace />} />
         <Route path="/cfgs-higiene-bucodental" element={<Navigate to="/cursos" replace />} />
-
-        {/* --- NUEVAS RUTAS EN /new/ --- */}
-        {/* Se mantiene por si hay enlaces externos, pero redirige a la ruta principal */}
-        <Route path="/new/cursos" element={<Navigate to="/cursos" replace />} />
-        <Route path="/new/cursos/:slug" element={<PaginaCursoDinamica />} />
         
-        <Route path="/contacto" element={<ContactPage />} />
-        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
-        <Route path="/inicio" element={<HomePage />} />
-        <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
-        <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />
-        <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
-        <Route path="/solaria-status" element={<SolariaStatusPage />} />
-        <Route path="/thank-you" element={<ThankYouPage />} />
-        
-        {/* LANDINGS DIRECTAS - Ahora todas usan la estructura dinámica */}
-        <Route path="/adiestramiento-canino-norte" element={<DynamicCoursePageWrapper slug="adiestramiento-canino-norte" />} />
-        <Route path="/agente-funerario-santacruz" element={<DynamicCoursePageWrapper slug="agente-funerario-santacruz" />} />
-        <Route path="/auxiliar-clinico-veterinario-norte" element={<DynamicCoursePageWrapper slug="auxiliar-clinico-veterinario-norte" />} />
-        <Route path="/auxiliar-clinico-veterinario-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-clinico-veterinario-santacruz" />} />
-        <Route path="/auxiliar-clinicas-esteticas-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-clinicas-esteticas-santacruz" />} />
-        <Route path="/auxiliar-enfermeria-norte" element={<DynamicCoursePageWrapper slug="auxiliar-enfermeria-norte" />} />
-        <Route path="/auxiliar-enfermeria-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-enfermeria-santacruz" />} />
-        <Route path="/auxiliar-farmacia-dermo-norte" element={<DynamicCoursePageWrapper slug="auxiliar-farmacia-dermo-norte" />} />
-        <Route path="/auxiliar-odontologia-norte" element={<DynamicCoursePageWrapper slug="auxiliar-odontologia-norte" />} />
-        <Route path="/auxiliar-odontologia-santacruz" element={<DynamicCoursePageWrapper slug="auxiliar-odontologia-santacruz" />} />
-        <Route path="/dietetica-nutricion-norte" element={<DynamicCoursePageWrapper slug="dietetica-nutricion-norte" />} />
-        
-        {/* Rutas deprecadas de peluquería se pueden omitir o redirigir si se desea */}
-        {/* <Route path="/peluqueria-canina-felina-norte" element={<Navigate to="/new/cursos" />} /> */}
-        {/* <Route path="/peluqueria-canina-felina-santacruz" element={<Navigate to="/new/cursos" />} /> */}
-        
-        <Route path="/quiromasaje-nivel1-norte" element={<DynamicCoursePageWrapper slug="quiromasaje-nivel1-norte" />} />
-        <Route path="/quiromasaje-nivel2-santacruz" element={<DynamicCoursePageWrapper slug="quiromasaje-nivel2-santacruz" />} />
-        <Route path="/quiromasaje-nivel2-norte" element={<DynamicCoursePageWrapper slug="quiromasaje-nivel2-norte" />} />
-        <Route path="/cfgs-higiene-bucodental-santacruz" element={<DynamicCoursePageWrapper slug="cfgs-higiene-bucodental-santacruz" />} />
-        <Route path="/cfgm-farmacia-parafarmacia-santacruz" element={<DynamicCoursePageWrapper slug="cfgm-farmacia-parafarmacia-santacruz" />} />
-        <Route path="/cfgm-farmacia-parafarmacia-norte" element={<DynamicCoursePageWrapper slug="cfgm-farmacia-parafarmacia-norte" />} />
-        <Route path="/cfgs-higiene-bucodental-norte" element={<DynamicCoursePageWrapper slug="cfgs-higiene-bucodental-norte" />} />
-
+        {/* Wildcard para cualquier otra ruta no definida */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
