@@ -18,6 +18,7 @@ import type { CursoMaestro } from './config/cursos-maestro';
 import SolariaStatusPage from './pages/SolariaStatusPage';
 import useTracking from './utils/useTracking';
 import ThankYouPage from './pages/ThankYouPage';
+import GraciasSuscripcionPage from './pages/GraciasSuscripcionPage';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -65,6 +66,7 @@ function App() {
         {/* Páginas de Sistema */}
         <Route path="/solaria-status" element={<SolariaStatusPage />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
+        <Route path="/gracias-suscripcion" element={<GraciasSuscripcionPage />} />
 
         {/* Redirecciones de rutas antiguas a las nuevas */}
         <Route path="/new/cursos" element={<Navigate to="/cursos" replace />} />

@@ -2,6 +2,17 @@ import React from 'react';
 import { Mail } from 'lucide-react';
 
 const NewsletterSection: React.FC = () => {
+
+  // --- Lógica para datos dinámicos y de campaña ---
+  const thankYouUrl = `${window.location.origin}/gracias-suscripcion`;
+  const campaignTag = `suscripcion-newsletter-web`;
+  const timestamp = new Date().toLocaleString('es-ES', { 
+    year: 'numeric', month: '2-digit', day: '2-digit', 
+    hour: '2-digit', minute: '2-digit', second: '2-digit' 
+  });
+  const formOriginUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const emailSubject = `🚀 NUEVO SUSCRIPTOR - Newsletter CEP Formación`;
+
   return (
     <section className="bg-gray-100 py-16">
       <div className="container mx-auto px-4 text-center">
@@ -16,11 +27,16 @@ const NewsletterSection: React.FC = () => {
           method="POST" 
           className="max-w-md mx-auto"
         >
-          {/* Configuración de FormSubmit */}
-          <input type="hidden" name="_next" value="https://cepcomunicacion.com/thank-you" />
-          <input type="hidden" name="_subject" value="Nueva suscripción al Newsletter de CEP Formación" />
+          {/* --- CAMPOS OCULTOS ENRIQUECIDOS PARA FORMSUBMIT Y AUTOMATIZACIÓN --- */}
+          <input type="hidden" name="_next" value={thankYouUrl} />
+          <input type="hidden" name="_subject" value={emailSubject} />
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
+          
+          {/* --- Campos de Campaña y Seguimiento --- */}
+          <input type="hidden" name="Origen_Lead" value="Suscripción Newsletter Web" />
+          <input type="hidden" name="Tag_Suscripcion" value={campaignTag} />
+          <input type="hidden" name="Timestamp" value={timestamp} />
+          <input type="hidden" name="URL_Origen" value={formOriginUrl} />
 
           <div className="flex flex-col sm:flex-row gap-4">
             <input
