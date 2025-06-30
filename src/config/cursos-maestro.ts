@@ -55,6 +55,8 @@ export interface CursoBase {
   slugBase: string;
   imagen: string;
   categoria: 'sanidad' | 'veterinaria' | 'bienestar' | 'ciclos' | 'adiestramiento' | 'diseño';
+  subtitulo?: string; // Propiedad opcional para ciclos
+  modalidad?: string; // Propiedad opcional para ciclos
   copy: {
     slogan: string;
     textosPrincipales: string[];

@@ -166,7 +166,12 @@ const HomePage: React.FC = () => {
   // Filtrar cursos por sede y estado
   const cursosNorte = cursosMaestro.filter(c => c.sede === 'Norte' && c.estado === 'activo' && c.categoria !== 'ciclos');
   const cursosSantaCruz = cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.estado === 'activo' && c.categoria !== 'ciclos');
-  const ciclosFormativos = cursosMaestro.filter(c => c.categoria === 'ciclos' && c.estado === 'activo');
+  
+  // CORRECCIÓN: Obtener solo los 2 ciclos formativos únicos, no uno por sede.
+  const ciclosFormativosUnicos = [
+    cursosMaestro.find(c => c.slugBase === 'ciclo-formativo-grado-medio-farmacia-parafarmacia'),
+    cursosMaestro.find(c => c.slugBase === 'ciclo-formativo-grado-superior-higiene-bucodental')
+  ].filter(Boolean) as CursoMaestro[];
 
   return (
     <div className="min-h-screen bg-white">
@@ -408,7 +413,7 @@ const HomePage: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {ciclosFormativos.map(curso => {
+            {ciclosFormativosUnicos.map(curso => {
                 const getFechaTag = (inicio: string | undefined) => {
                   if (!inicio) return { text: 'Próximamente', color: 'bg-gray-500' };
                   const mes = inicio.toLowerCase();
