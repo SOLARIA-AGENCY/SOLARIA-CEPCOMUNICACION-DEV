@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { X, User, Mail, Phone, MapPin, MessageSquare, Shield } from 'lucide-react';
 
 interface Props {
@@ -12,7 +12,24 @@ interface Props {
 }
 
 const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
+  const [formData, setFormData] = useState({
+    Nombre: '',
+    Apellidos: '',
+    Email: '',
+    Telefono: '',
+    Sede_Preferida: curso.sede || 'Cualquiera',
+    Comentarios: '',
+  });
+  const [mensajeCompleto, setMensajeCompleto] = useState('');
   const [aceptaRgpd, setAceptaRgpd] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    // Cuando el mensaje se actualiza, y solo si no está vacío, enviamos el formulario.
+    if (mensajeCompleto && formRef.current) {
+      formRef.current.submit();
+    }
+  }, [mensajeCompleto]);
 
   if (!isOpen) return null;
 
@@ -29,6 +46,48 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
 
   // Asunto dinámico para el correo electrónico
   const emailSubject = `🎯 NUEVO LEAD - ${curso.nombre} - ${curso.sede} - ${campaignName}`;
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    const fullMessage = `
+📋 NUEVA INSCRIPCIÓN - CEP FORMACIÓN
+
+👤 DATOS DEL LEAD:
+- Nombre Completo: ${formData.Nombre} ${formData.Apellidos}
+- Email: ${formData.Email}
+- Teléfono: ${formData.Telefono}
+- Sede de Preferencia: ${formData.Sede_Preferida}
+- Comentarios: ${formData.Comentarios || 'Sin comentarios adicionales.'}
+
+🎓 CURSO SOLICITADO:
+- Curso de Interés: ${curso.nombre}
+- Sede del Curso: ${curso.sede}
+- Tag de Campaña: ${campaignTag}
+
+📊 METADATOS DE SEGUIMIENTO:
+- Campaña: ${campaignName}
+- URL de Origen: ${formOriginUrl}
+- Timestamp de Envío: ${timestamp}
+
+🚀 ACCIONES REQUERIDAS (URGENCIA ALTA):
+1.  **Contacto Inmediato:** Llamar al lead en menos de 30 minutos.
+2.  **Verificar Disponibilidad:** Confirmar plazas en la sede solicitada.
+3.  **Enviar Información:** Proveer detalles completos del curso vía email.
+4.  **Agendar Cita:** Programar visita al centro o entrevista si es necesario.
+
+⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.
+
+---
+📧 Copia enviada a: Solaria Agency y CEP Formación.
+`;
+    setMensajeCompleto(fullMessage);
+  };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
@@ -58,25 +117,17 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
             </div>
           </div>
 
-          <form action={formSubmitEndpoint} method="POST" className="space-y-4">
-            {/* --- CAMPOS OCULTOS ENRIQUECIDOS PARA FORMSUBMIT Y AUTOMATIZACIÓN --- */}
+          <form ref={formRef} action={formSubmitEndpoint} method="POST" onSubmit={handleSubmit} className="space-y-4">
+            {/* --- CAMPOS DE CONFIGURACIÓN DE FORMSUBMIT --- */}
             <input type="hidden" name="_cc" value="cepformacion.admi@hotmail.com" />
             <input type="hidden" name="_subject" value={emailSubject} />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value={thankYouUrl} />
             
-            {/* --- Campos de Datos del Curso --- */}
-            <input type="hidden" name="Curso" value={curso.nombre} />
-            <input type="hidden" name="Sede_Curso" value={curso.sede} />
+            {/* --- CAMPO OCULTO CON EL MENSAJE COMPLETO Y FORMATEADO --- */}
+            <textarea name="MENSAJE_COMPLETO" value={mensajeCompleto} readOnly style={{ display: 'none' }} />
 
-            {/* --- Campos de Campaña y Seguimiento --- */}
-            <input type="hidden" name="Campana" value={campaignName} />
-            <input type="hidden" name="Tag_Campana" value={campaignTag} />
-            <input type="hidden" name="Timestamp" value={timestamp} />
-            <input type="hidden" name="URL_Origen" value={formOriginUrl} />
-            <input type="hidden" name="Origen_Lead" value="Modal Inscripción Web" />
-            
-            {/* --- CAMPOS VISIBLES PARA EL USUARIO --- */}
+            {/* --- CAMPOS VISIBLES Y CONTROLADOS POR REACT --- */}
             
             {/* Datos personales */}
             <div className="grid sm:grid-cols-2 gap-4">
@@ -89,6 +140,8 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   type="text"
                   name="Nombre"
                   required
+                  value={formData.Nombre}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tu nombre"
                 />
@@ -103,6 +156,8 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   type="text"
                   name="Apellidos"
                   required
+                  value={formData.Apellidos}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tus apellidos"
                 />
@@ -120,6 +175,8 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   type="email"
                   name="Email"
                   required
+                  value={formData.Email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="tu@email.com"
                 />
@@ -133,6 +190,8 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
                   type="tel"
                   name="Telefono"
                   required
+                  value={formData.Telefono}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                   placeholder="Tu teléfono"
                 />
@@ -147,7 +206,8 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
               </label>
               <select
                 name="Sede_Preferida"
-                defaultValue={curso.sede}
+                value={formData.Sede_Preferida}
+                onChange={handleInputChange}
                 className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base bg-white"
               >
                 <option value="Cualquiera">Cualquiera</option>
@@ -164,6 +224,8 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
               <textarea
                 name="Comentarios"
                 rows={3}
+                value={formData.Comentarios}
+                onChange={handleInputChange}
                 className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary transition-colors text-base"
                 placeholder="¿Tienes alguna pregunta o preferencia de horario para contactarte?"
               ></textarea>
