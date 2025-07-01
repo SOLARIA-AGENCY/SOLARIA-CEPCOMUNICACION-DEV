@@ -17,7 +17,7 @@ export interface ColorTag {
 const isTestEnvironment = () => {
   return typeof window === 'undefined' || 
          process.env.NODE_ENV === 'test' || 
-         typeof global !== 'undefined' && global.hasOwnProperty('__vitest__');
+         typeof global !== 'undefined' && Object.hasOwnProperty.call(global, '__vitest__');
 };
 
 // Obtener fecha actual desde API de tiempo real

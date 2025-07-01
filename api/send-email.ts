@@ -4,6 +4,46 @@ import { Resend } from 'resend';
 // Leer la clave API desde las variables de entorno
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Función de fallback usando FormSubmit
+const sendViaFormSubmit = async (payload: any) => {
+  const formData = new FormData();
+  
+  // Crear el contenido del mensaje para FormSubmit
+  const mensaje = `
+NUEVA SOLICITUD DE INFORMACIÓN - CEP FORMACIÓN
+
+👤 DATOS DEL LEAD:
+- Nombre Completo: ${payload.Nombre} ${payload.Apellidos || ''}
+- Email: ${payload.Email}
+- Teléfono: ${payload.Telefono}
+- Sede de Preferencia: ${payload.Sede_Preferida}
+- Comentarios: ${payload.Comentarios || 'Sin comentarios.'}
+
+🎓 CURSO DE INTERÉS:
+- Curso: ${payload.cursoNombre}
+
+📊 METADATOS DE SEGUIMIENTO:
+- Campaña: ${payload.campaignName}
+- Tag de Campaña: ${payload.campaignTag}
+- URL de Origen: ${payload.formOriginUrl}
+- Timestamp: ${new Date().toLocaleString('es-ES')}
+
+⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.
+  `;
+
+  formData.append('message', mensaje);
+  formData.append('_subject', `🎯 NUEVO LEAD - ${payload.cursoNombre} - ${payload.Sede_Preferida}`);
+  formData.append('_captcha', 'false');
+  formData.append('_template', 'box');
+
+  const response = await fetch('https://formsubmit.co/ajax/agency.solaria@gmail.com', {
+    method: 'POST',
+    body: formData
+  });
+
+  return response;
+};
+
 export default async (req: VercelRequest, res: VercelResponse) => {
   // Aceptar solo peticiones POST
   if (req.method !== 'POST') {
@@ -73,23 +113,68 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       </div>
     `;
 
-    // Envío del correo
-    const { data, error } = await resend.emails.send({
-      from: 'CEP Formación Leads <onboarding@resend.dev>', // Dominio de Resend por defecto para pruebas
-      to: ['agency.solaria@gmail.com'],
-      cc: ['cepformacion.admi@hotmail.com'],
-      subject: emailSubject,
-      html: emailHtmlBody,
-    });
+    // Intentar envío con Resend primero
+    let emailSent = false;
+    let emailProvider = '';
+    
+    if (process.env.RESEND_API_KEY) {
+      try {
+        const { data, error } = await resend.emails.send({
+          from: 'CEP Formación Leads <onboarding@resend.dev>', // Dominio de Resend por defecto para pruebas
+          to: ['agency.solaria@gmail.com'],
+          cc: ['cepformacion.admi@hotmail.com'],
+          subject: emailSubject,
+          html: emailHtmlBody,
+        });
 
-    if (error) {
-      console.error({ error });
-      return res.status(500).json({ message: 'Error al enviar el correo.', details: error });
+        if (!error) {
+          emailSent = true;
+          emailProvider = 'Resend';
+          console.log('✅ Email enviado via Resend:', data);
+        } else {
+          console.error('❌ Error con Resend:', error);
+          throw new Error('Resend failed');
+        }
+      } catch (resendError) {
+        console.error('❌ Resend falló, intentando FormSubmit...', resendError);
+      }
     }
 
-    return res.status(200).json({ message: 'Correo enviado exitosamente.', details: data });
+    // Fallback a FormSubmit si Resend no funciona
+    if (!emailSent) {
+      try {
+        const formSubmitResponse = await sendViaFormSubmit({
+          Nombre, Apellidos, Email, Telefono, Sede_Preferida, 
+          Comentarios, cursoNombre, campaignName, campaignTag, formOriginUrl
+        });
+
+        if (formSubmitResponse.ok) {
+          emailSent = true;
+          emailProvider = 'FormSubmit';
+          console.log('✅ Email enviado via FormSubmit');
+        } else {
+          throw new Error('FormSubmit failed');
+        }
+      } catch (formSubmitError) {
+        console.error('❌ FormSubmit también falló:', formSubmitError);
+      }
+    }
+
+    if (emailSent) {
+      return res.status(200).json({ 
+        message: 'Correo enviado exitosamente.',
+        provider: emailProvider,
+        timestamp: timestamp
+      });
+    } else {
+      return res.status(500).json({ 
+        message: 'Error: No se pudo enviar el correo con ningún proveedor.',
+        error: 'Tanto Resend como FormSubmit fallaron' 
+      });
+    }
+
   } catch (error) {
-    console.error(error);
+    console.error('❌ Error general del servidor:', error);
     return res.status(500).json({ message: 'Error interno del servidor.' });
   }
 }; 

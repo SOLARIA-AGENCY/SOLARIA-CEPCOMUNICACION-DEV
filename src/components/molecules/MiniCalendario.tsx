@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTimeReal, formatearFechaCalendario } from '../../utils/timeUtils';
+import { useTimeReal } from '../../utils/timeUtils';
 import { Calendar } from 'lucide-react';
 
 /**
