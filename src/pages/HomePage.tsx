@@ -5,6 +5,7 @@ import CepFooter from '../components/organisms/CepFooter';
 import { Link } from 'react-router-dom';
 import { cursosMaestro } from '../config/cursos-maestro';
 import type { CursoMaestro } from '../config/cursos-maestro';
+import { ordenarCursosPorPrioridad } from '../utils/timeUtils';
 import CursoCard from '../components/molecules/CursoCard';
 
 // Datos para los slides del hero - solo imágenes como en el original
@@ -146,9 +147,17 @@ const HomePage: React.FC = () => {
   };
 
   // Filtrar cursos por sede y estado
-  const cursosNorte = cursosMaestro.filter(c => c.sede === 'Norte' && c.estado === 'activo' && c.categoria !== 'ciclos');
-  const cursosSantaCruz = cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.estado === 'activo' && c.categoria !== 'ciclos');
+  const cursosNorte = ordenarCursosPorPrioridad(
+    cursosMaestro.filter(c => c.sede === 'Norte' && c.categoria !== 'ciclos')
+  );
+  const cursosSantaCruz = ordenarCursosPorPrioridad(
+    cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.categoria !== 'ciclos')
+  );
   
+  const cursosDestacados = ordenarCursosPorPrioridad(
+    cursosMaestro.filter(c => c.destacado && c.estado === 'activo' && c.categoria !== 'ciclos')
+  );
+
   const ciclosFormativos = cursosMaestro.filter(c => c.categoria === 'ciclos' && c.estado === 'activo');
   
   // Para asegurar que mostramos solo una tarjeta por tipo de ciclo, pero usando la información más actualizada.
@@ -278,11 +287,11 @@ const HomePage: React.FC = () => {
           {/* Sección CEP NORTE */}
           {cursosNorte.length > 0 && (
             <div className="mb-16">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP NORTE</h3>
-                <p className="text-gray-600">Cursos disponibles en nuestra sede del Norte</p>
+              <div className="flex items-center mb-8">
+                <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
+                <h2 className="text-3xl font-bold text-gray-800 mx-4">SEDE CEP NORTE</h2>
+                <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
               </div>
-              
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {cursosNorte.map((curso) => <CursoCard key={curso.id} curso={curso} />)}
               </div>
@@ -291,12 +300,12 @@ const HomePage: React.FC = () => {
 
           {/* Sección CEP SANTA CRUZ */}
           {cursosSantaCruz.length > 0 && (
-            <div className="mb-12">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-cep-primary mb-2">CEP SANTA CRUZ</h3>
-                <p className="text-gray-600">Cursos disponibles en nuestra sede de Santa Cruz</p>
+            <div className="mb-16">
+              <div className="flex items-center mb-8">
+                <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
+                <h2 className="text-3xl font-bold text-gray-800 mx-4">SEDE CEP SANTA CRUZ</h2>
+                <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
               </div>
-              
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {cursosSantaCruz.map((curso) => <CursoCard key={curso.id} curso={curso} />)}
               </div>

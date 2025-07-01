@@ -1,4 +1,5 @@
 // Utilidades de tiempo para sistema de colores de etiquetas de cursos
+import type { CursoMaestro } from '../config/cursos-maestro';
 
 export interface FechaInfo {
   fecha: Date;
@@ -125,6 +126,59 @@ export const determinarColorEtiqueta = (
     // Caso edge = morado
     return { text: fechaInicio.toUpperCase(), color: 'bg-purple-500' };
   }
+};
+
+
+
+/**
+ * Ordena los cursos por fecha de inicio de la forma más simple y directa:
+ * 1. Cursos con fecha, del más cercano al más lejano.
+ * 2. Cursos sin fecha ('Próximamente').
+ * 3. Ciclos formativos.
+ */
+export const ordenarCursosPorPrioridad = (cursos: CursoMaestro[]): CursoMaestro[] => {
+  const getScore = (curso: CursoMaestro): number => {
+    // Prioridad 1: Cursos con fecha de inicio (van primero).
+    if (curso.inicio && curso.categoria !== 'ciclos') {
+      return 1;
+    }
+    // Prioridad 2: Cursos sin fecha de inicio ('Próximamente').
+    if (!curso.inicio && curso.categoria !== 'ciclos') {
+      return 2;
+    }
+    // Prioridad 3: Ciclos formativos (van al final).
+    if (curso.categoria === 'ciclos') {
+      return 3;
+    }
+    return 4; // Fallback
+  };
+
+  return [...cursos].sort((a, b) => {
+    const scoreA = getScore(a);
+    const scoreB = getScore(b);
+
+    // Si las prioridades son diferentes, ordenar por prioridad.
+    if (scoreA !== scoreB) {
+      return scoreA - scoreB;
+    }
+
+    // Si ambos son cursos con fecha, ordenar por la más cercana.
+    if (a.inicio && b.inicio) {
+      const fechaA = parsearFechaCurso(a.inicio);
+      const fechaB = parsearFechaCurso(b.inicio);
+
+      // Si alguna fecha es inválida, no cambiar el orden.
+      if (!fechaA || !fechaB) {
+        return 0;
+      }
+      
+      // Ordenar de más cercano a más lejano.
+      return fechaA.getTime() - fechaB.getTime();
+    }
+
+    // Si ambos son 'Próximamente' o ambos son 'Ciclos', mantener su orden relativo.
+    return 0;
+  });
 };
 
 // Formatear fecha para display en calendario

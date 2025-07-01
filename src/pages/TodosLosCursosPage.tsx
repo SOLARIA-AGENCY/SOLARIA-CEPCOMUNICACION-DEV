@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import { cursosMaestro } from '../config/cursos-maestro';
+import { ordenarCursosPorPrioridad } from '../utils/timeUtils';
 import CursoCard from '../components/molecules/CursoCard';
 import { Search } from 'lucide-react';
 
@@ -12,14 +13,17 @@ interface TodosLosCursosPageProps {
 const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp }) => {
   const [terminoBusqueda, setTerminoBusqueda] = useState<string>('');
 
-  const cursosActivos = cursosMaestro.filter(curso => 
-    curso.estado === 'activo' &&
+  const cursosFiltrados = cursosMaestro.filter(curso => 
     curso.categoria !== 'ciclos' &&
     curso.nombre.toLowerCase().includes(terminoBusqueda.toLowerCase())
   );
 
-  const cursosNorte = cursosActivos.filter(curso => curso.sede === 'Norte');
-  const cursosSantaCruz = cursosActivos.filter(curso => curso.sede === 'Santa Cruz');
+  const cursosNorte = ordenarCursosPorPrioridad(
+    cursosFiltrados.filter(curso => curso.sede === 'Norte')
+  );
+  const cursosSantaCruz = ordenarCursosPorPrioridad(
+    cursosFiltrados.filter(curso => curso.sede === 'Santa Cruz')
+  );
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -48,7 +52,7 @@ const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp 
         {/* --- SEDE CEP NORTE --- */}
         <section id="sede-norte" className="mb-16">
           <div className="flex items-center mb-8">
-            <span className="w-16 h-1 bg-cep-primary rounded-full"></span>
+            <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
             <h2 className="text-3xl font-bold text-gray-800 mx-4">SEDE CEP NORTE</h2>
             <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
           </div>
@@ -66,9 +70,9 @@ const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp 
         {/* --- SEDE CEP SANTA CRUZ --- */}
         <section id="sede-santa-cruz">
           <div className="flex items-center mb-8">
-            <span className="w-16 h-1 bg-cep-secondary rounded-full"></span>
+            <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
             <h2 className="text-3xl font-bold text-gray-800 mx-4">SEDE CEP SANTA CRUZ</h2>
-            <span className="flex-grow h-1 bg-cep-secondary rounded-full"></span>
+            <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
           </div>
           {cursosSantaCruz.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
