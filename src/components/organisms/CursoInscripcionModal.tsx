@@ -45,24 +45,141 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
     }
     setIsSubmitting(true);
 
-    const payload = {
-      ...formData,
-      cursoNombre: curso.nombre,
-      campaignName: "Campaña Otoño 2025",
-      campaignTag: `otono-2025-${curso.slug}`,
-      formOriginUrl: typeof window !== 'undefined' ? window.location.href : '',
-    };
+    // Preparar payload para tracking
+    const campaignTag = `otono-2025-${curso.slug}`;
+    const timestamp = new Date().toLocaleString('es-ES', {
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+
+    const emailSubject = `🎯 NUEVO LEAD - ${curso.nombre} - ${formData.Sede_Preferida} - Campaña Otoño 2025`;
+    
+    // Crear mensaje estructurado
+    const mensaje = `
+NUEVA SOLICITUD DE INFORMACIÓN - CEP FORMACIÓN
+
+👤 DATOS DEL LEAD:
+- Nombre Completo: ${formData.Nombre} ${formData.Apellidos || ''}
+- Email: ${formData.Email}
+- Teléfono: ${formData.Telefono}
+- Sede de Preferencia: ${formData.Sede_Preferida}
+- Comentarios: ${formData.Comentarios || 'Sin comentarios.'}
+
+🎓 CURSO DE INTERÉS:
+- Curso: ${curso.nombre}
+
+📊 METADATOS DE SEGUIMIENTO:
+- Campaña: Campaña Otoño 2025
+- Tag de Campaña: ${campaignTag}
+- URL de Origen: ${typeof window !== 'undefined' ? window.location.href : ''}
+- Timestamp: ${timestamp}
+
+⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.
+    `;
+
+    // HTML para Resend
+    const emailHtmlBody = `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+        <h2 style="color: #003366;">📋 NUEVA SOLICITUD DE INFORMACIÓN - CEP FORMACIÓN</h2>
+        <hr>
+        <h3>👤 DATOS DEL LEAD:</h3>
+        <ul>
+          <li><strong>Nombre Completo:</strong> ${formData.Nombre} ${formData.Apellidos || ''}</li>
+          <li><strong>Email:</strong> ${formData.Email}</li>
+          <li><strong>Teléfono:</strong> ${formData.Telefono}</li>
+          <li><strong>Sede de Preferencia:</strong> ${formData.Sede_Preferida}</li>
+          <li><strong>Comentarios:</strong> ${formData.Comentarios || 'Sin comentarios.'}</li>
+        </ul>
+        <h3>🎓 CURSO DE INTERÉS:</h3>
+        <ul>
+          <li><strong>Curso:</strong> ${curso.nombre}</li>
+        </ul>
+        <h3>📊 METADATOS DE SEGUIMIENTO:</h3>
+        <ul>
+          <li><strong>Campaña:</strong> Campaña Otoño 2025</li>
+          <li><strong>Tag de Campaña:</strong> ${campaignTag}</li>
+          <li><strong>URL de Origen:</strong> ${typeof window !== 'undefined' ? window.location.href : ''}</li>
+          <li><strong>Timestamp:</strong> ${timestamp}</li>
+        </ul>
+        <div style="background-color: #f0f8ff; border-left: 5px solid #003366; padding: 15px; margin-top: 20px;">
+            <h3 style="color: #003366; margin-top: 0;">🚀 ACCIONES REQUERIDAS (URGENCIA ALTA):</h3>
+            <ol>
+              <li><strong>Contacto Inmediato:</strong> Llamar al lead en ${formData.Telefono}.</li>
+              <li><strong>Verificar Disponibilidad:</strong> Confirmar plazas en ${formData.Sede_Preferida}.</li>
+              <li><strong>Enviar Información:</strong> Proveer detalles del curso vía email a ${formData.Email}.</li>
+            </ol>
+        </div>
+        <p style="text-align: center; margin-top: 20px; font-size: 1.2em;">
+          <strong style="color: #d9534f;">⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.</strong>
+        </p>
+      </div>
+    `;
+
+    let emailSent = false;
+    let emailProvider = '';
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
+      // OPCIÓN 1: Intentar Resend primero (si está configurado)
+      const resendApiKey = import.meta.env.VITE_RESEND_API_KEY;
+      if (resendApiKey) {
+        try {
+          console.log('🔄 Intentando envío via Resend...');
+          const resendResponse = await fetch('https://api.resend.com/emails', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${resendApiKey}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              from: 'CEP Formación Leads <onboarding@resend.dev>',
+              to: ['agency.solaria@gmail.com'],
+              cc: ['cepformacion.admi@hotmail.com'],
+              subject: emailSubject,
+              html: emailHtmlBody,
+            }),
+          });
 
-      if (response.ok) {
+          if (resendResponse.ok) {
+            const resendData = await resendResponse.json();
+            emailSent = true;
+            emailProvider = 'Resend';
+            console.log('✅ Email enviado via Resend:', resendData.id);
+          } else {
+            console.error('❌ Error con Resend:', resendResponse.status, resendResponse.statusText);
+            throw new Error('Resend failed');
+          }
+        } catch (resendError) {
+          console.error('❌ Resend falló, intentando FormSubmit...', resendError);
+        }
+      } else {
+        console.log('⚠️ RESEND_API_KEY no configurado, usando FormSubmit...');
+      }
+
+      // OPCIÓN 2: Fallback a FormSubmit si Resend no funciona
+      if (!emailSent) {
+        console.log('🔄 Enviando via FormSubmit...');
+        const formDataSubmit = new FormData();
+        formDataSubmit.append('message', mensaje);
+        formDataSubmit.append('_subject', emailSubject);
+        formDataSubmit.append('_captcha', 'false');
+        formDataSubmit.append('_template', 'box');
+        formDataSubmit.append('_cc', 'cepformacion.admi@hotmail.com');
+
+        const formSubmitResponse = await fetch('https://formsubmit.co/ajax/agency.solaria@gmail.com', {
+          method: 'POST',
+          body: formDataSubmit
+        });
+
+        if (formSubmitResponse.ok) {
+          emailSent = true;
+          emailProvider = 'FormSubmit';
+          console.log('✅ Email enviado via FormSubmit');
+        } else {
+          throw new Error('FormSubmit también falló');
+        }
+      }
+
+      if (emailSent) {
         // Trackear el lead en Facebook Conversions API
         try {
           await trackCourseLeadEvent({
@@ -70,7 +187,7 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
             phone: formData.Telefono,
             name: `${formData.Nombre} ${formData.Apellidos}`.trim(),
             curso: curso.nombre,
-            modalidad: 'presencial' // Se puede adaptar según la sede
+            modalidad: 'presencial'
           });
           console.log('✅ Lead trackeado en Facebook Conversions API');
         } catch (trackingError) {
@@ -78,15 +195,15 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
           // No interrumpir el flujo del usuario por errores de tracking
         }
 
+        console.log(`✅ Formulario enviado exitosamente via ${emailProvider}`);
         window.location.href = "/gracias-form-curso";
       } else {
-        const errorData = await response.json();
-        console.error("Error del servidor:", errorData);
-        alert(`Hubo un error al enviar tu solicitud: ${errorData.message}. Por favor, inténtalo de nuevo más tarde.`);
+        throw new Error('Todos los proveedores fallaron');
       }
+
     } catch (error) {
-      console.error("Error de red o de envío:", error);
-      alert("Error de conexión. Por favor, revisa tu conexión a internet e inténtalo de nuevo.");
+      console.error("❌ Error crítico en envío:", error);
+      alert("Error al enviar tu solicitud. Por favor, inténtalo de nuevo más tarde o contáctanos directamente al 922 219 257.");
     } finally {
       setIsSubmitting(false);
     }
