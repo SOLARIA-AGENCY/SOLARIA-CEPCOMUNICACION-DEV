@@ -29,12 +29,15 @@ CEP Formación utiliza un **sistema pionero de rutas dobles** que permite tracki
 | **📊 Marketing/Growth** | [`docs/ASSETS_SLUGS_CURSOS_CEP.md`](docs/ASSETS_SLUGS_CURSOS_CEP.md) | `npm run campaigns:status` |
 | **⚙️ DevOps** | [`docs/CEPCOMUNICACION_HOSTING_SETUP.md`](docs/CEPCOMUNICACION_HOSTING_SETUP.md) | GitHub Actions |
 | **📱 Analytics** | [`docs/FACEBOOK_CONVERSIONS_CONFIG.md`](docs/FACEBOOK_CONVERSIONS_CONFIG.md) | `npm run campaigns:analytics` |
+| **📧 Email/CRM** | [`docs/HOSTINGER_RESEND_CONFIG.md`](docs/HOSTINGER_RESEND_CONFIG.md) | `docs/PRUEBA_FORMULARIO_CEP.md` |
 
 ### **📋 DOCUMENTACIÓN ESTRATÉGICA**
 - 💎 **[Inventario de Assets](docs/ASSETS_SLUGS_CURSOS_CEP.md)** - Gestión estratégica de slugs y campañas
 - 📱 **[Facebook Conversions](docs/FACEBOOK_CONVERSIONS_CONFIG.md)** - Configuración pixel y eventos de tracking
 - 🌐 **[Setup Hosting](docs/CEPCOMUNICACION_HOSTING_SETUP.md)** - Configuración completa Hostinger
 - 🔌 **[API Hostinger](docs/HOSTINGER_API_TECHNICAL_DOCUMENTATION.md)** - Integración técnica detallada
+- 📧 **[Sistema Resend](docs/HOSTINGER_RESEND_CONFIG.md)** - Configuración email avanzado con redundancia
+- 🚀 **[Deployment Status](docs/DEPLOYMENT_READY.md)** - Estado y activación de producción
 
 ### **🛠️ SCRIPTS OPERACIONALES**
 - 🎛️ **[Gestión de Campañas](scripts/manage-campaigns.cjs)** - Sistema completo → `npm run campaigns:status`
@@ -181,6 +184,72 @@ public/_redirects
 - **Attribution:** Último click vs primer contacto
 - **Customer Journey:** Mapping completo por fuente
 - **ROI:** Medición independiente por canal
+
+---
+
+## 📧 **SISTEMA DE FORMULARIOS AVANZADO**
+
+### **ARQUITECTURA DUAL DE EMAIL**
+El sistema implementa una **arquitectura híbrida** con redundancia garantizada:
+
+```bash
+# FLUJO PRINCIPAL (Prioritario)
+Frontend → /api/resend-email.php → Resend API → Email enviado
+
+# FLUJO FALLBACK (Backup automático)  
+Frontend → FormSubmit.co → Email de respaldo
+```
+
+### **PROVIDER PRINCIPAL: RESEND**
+- **API Endpoint:** `/public/api/resend-email.php`
+- **Ventajas:** Templates HTML profesionales, tracking avanzado
+- **Configuración:** Clave API segura en servidor (compatible Hostinger)
+- **Email Templates:** Diseño corporativo con CSS completo
+
+### **PROVIDER BACKUP: FORMSUBMIT**
+- **Función:** Redundancia automática si Resend falla
+- **Ventajas:** 100% confiable, sin configuración de servidor
+- **Formato:** Texto estructurado con mismo contenido
+
+### **GUIÓN PERSONALIZADO AUTOMATIZADO** 🎯
+Ambos providers incluyen guión completo para equipos de ventas:
+
+```markdown
+🔥 GUIÓN PERSONALIZADO DE CONTACTO:
+
+"Hola, ¿[Nombre]?
+
+Te llamo de CEP Formación. Has solicitado información sobre 
+nuestro curso de [Curso] en la sede de [Sede_Preferida].
+
+¿Tienes un minuto para contarte los detalles?"
+
+📋 OBJETIVOS DE LA LLAMADA:
+• Confirmar interés en el curso específico
+• Explicar modalidad y fechas de inicio  
+• Resolver dudas sobre temario y prácticas
+• Ofrecer facilidades de pago personalizadas
+• Reservar plaza si hay interés confirmado
+
+⚠️ SI NO RESPONDE: Dejar WhatsApp profesional
+```
+
+### **CONFIGURACIÓN TÉCNICA**
+```bash
+# Documentación completa
+docs/HOSTINGER_RESEND_CONFIG.md
+
+# Testing de formularios
+docs/PRUEBA_FORMULARIO_CEP.md
+
+# Ventajas clave
+✅ Compatible hosting compartido Hostinger
+✅ Sin variables de entorno necesarias  
+✅ Doble redundancia garantizada
+✅ Templates profesionales con CSS
+✅ Guión de ventas automatizado
+✅ Logging completo para debugging
+```
 
 ---
 

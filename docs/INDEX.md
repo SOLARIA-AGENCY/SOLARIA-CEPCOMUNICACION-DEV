@@ -27,7 +27,16 @@
 |-------------|--------------|---------------|-----------|
 | [`docs/CEPCOMUNICACION_HOSTING_SETUP.md`](CEPCOMUNICACION_HOSTING_SETUP.md) | 🌐 **Setup Hosting** - Configuración Hostinger completa | DevOps, Desarrolladores | ✅ Documentado |
 | [`docs/HOSTINGER_API_TECHNICAL_DOCUMENTATION.md`](HOSTINGER_API_TECHNICAL_DOCUMENTATION.md) | 🔌 **API Hostinger** - Integración técnica detallada | Desarrolladores Backend | ✅ Técnico |
+| [`docs/HOSTINGER_RESEND_CONFIG.md`](HOSTINGER_RESEND_CONFIG.md) | 📧 **Sistema Resend** - Configuración email avanzado | Desarrolladores, DevOps | ✅ Implementado |
 | [`docs/SETUP_GUIDE_CEPFORMACION.md`](SETUP_GUIDE_CEPFORMACION.md) | ⚙️ **Guía Setup** - Configuración inicial del proyecto | Nuevos desarrolladores | ✅ Onboarding |
+| [`docs/DEPLOYMENT_READY.md`](DEPLOYMENT_READY.md) | 🚀 **Deployment Status** - Estado y activación de producción | DevOps, Project Manager | ✅ Actualizado |
+
+### **🧪 NIVEL 4: DESARROLLO Y TESTING**
+
+| 📄 Archivo | 🎯 Propósito | 👥 Audiencia | 🔄 Estado |
+|-------------|--------------|---------------|-----------|
+| [`docs/PRUEBA_FORMULARIO_CEP.md`](PRUEBA_FORMULARIO_CEP.md) | 🧪 **Testing Formularios** - Protocolo de pruebas y validación | QA, Desarrolladores | ✅ Documentado |
+| [`docs/COMPLETE_COURSE_DATA.md`](COMPLETE_COURSE_DATA.md) | 📋 **Planificación Cursos** - Roadmap de desarrollo de landings | Desarrolladores, Product | ✅ Planificado |
 
 ---
 
