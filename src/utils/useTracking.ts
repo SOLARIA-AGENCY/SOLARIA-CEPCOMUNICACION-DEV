@@ -33,7 +33,7 @@ const useTracking = () => {
           document.body.insertBefore(noscript, document.body.firstChild);
 
         } else {
-          // Si no hay GTM, inyectar GA4 y Pixel individualmente
+          // Si no hay GTM, inyectar GA4 individualmente
           if (config.ga4) {
             const script = document.createElement('script');
             script.async = true;
@@ -50,6 +50,9 @@ const useTracking = () => {
             document.head.appendChild(inlineScript);
           }
 
+          // PIXEL DE FACEBOOK COMENTADO - SE GESTIONA EN INDEX.HTML CON CONSENTIMIENTO
+          // Evitamos implementación duplicada que puede causar errores de detección
+          /*
           if (config.pixel) {
             const script = document.createElement('script');
             script.innerHTML = `
@@ -71,6 +74,7 @@ const useTracking = () => {
             src="https://www.facebook.com/tr?id=${config.pixel}&ev=PageView&noscript=1"/>`;
             document.body.insertBefore(noscript, document.body.firstChild);
           }
+          */
         }
       } catch (error) {
         console.error('Error loading tracking config:', error);

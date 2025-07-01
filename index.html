@@ -45,18 +45,26 @@
     
     <!-- Meta Pixel Code -->
     <script>
+      // Cargar el pixel base para detección pero sin tracking hasta consentimiento
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){
+          n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;
+        n.push=n; n.loaded=!0; n.version='2.0';
+        n.queue=[]; t=b.createElement(e); t.async=!0;
+        t.src=v; s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)
+      }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      
+      // Inicializar pixel pero sin tracking hasta consentimiento
+      fbq('init', '1189071876088388', {}, { autoConfig: false, debug: false });
+      
       function activateFacebookPixel() {
-        !function(f,b,e,v,n,t,s){
-          if(f.fbq)return;n=f.fbq=function(){
-            n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;
-          n.push=n; n.loaded=!0; n.version='2.0';
-          n.queue=[]; t=b.createElement(e); t.async=!0;
-          t.src=v; s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)
-        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1189071876088388');
-        fbq('track', 'PageView');
+        // Solo activar tracking tras consentimiento
+        if (typeof fbq !== 'undefined') {
+          fbq('track', 'PageView');
+          console.log('Facebook Pixel activated with consent');
+        }
       }
       
       // Función para actualizar el consentimiento de Google (v2)
@@ -185,6 +193,11 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5D4839F3"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Meta Pixel (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1189071876088388&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel (noscript) -->
     
     <!-- Banner de Cookies Personalizado -->
     <div id="cookie-banner">
