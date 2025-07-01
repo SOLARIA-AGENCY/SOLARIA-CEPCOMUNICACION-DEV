@@ -44,9 +44,8 @@
     "deploy": "echo 'Deployment ready'",
     "clean": "rm -rf dist coverage node_modules/.cache",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-    "prepare": "husky",
-    "generate-report": "node scripts/generate-deploy-report.js",
-    "pre-commit": "npm run test:run && npm run lint && npm run build",
+          "prepare": "husky",
+      "pre-commit": "npm run test:run && npm run lint && npm run build",
     "pre-deploy": "npm run pre-commit && echo '✅ Ready for deployment!'",
     "safe-push": "npm run pre-deploy && git push"
   },
