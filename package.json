@@ -44,10 +44,14 @@
     "deploy": "echo 'Deployment ready'",
     "clean": "rm -rf dist coverage node_modules/.cache",
     "reinstall": "rm -rf node_modules package-lock.json && npm install",
-          "prepare": "husky",
-      "pre-commit": "npm run test:run && npm run lint && npm run build",
+    "prepare": "husky",
+    "pre-commit": "npm run test:run && npm run lint && npm run build",
     "pre-deploy": "npm run pre-commit && echo '✅ Ready for deployment!'",
-    "safe-push": "npm run pre-deploy && git push"
+    "safe-push": "npm run pre-deploy && git push",
+    "campaigns:list": "node scripts/manage-campaigns.cjs list",
+    "campaigns:status": "node scripts/manage-campaigns.cjs status",
+    "campaigns:analytics": "node scripts/manage-campaigns.cjs analytics",
+    "campaigns:help": "node scripts/manage-campaigns.cjs help"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -55,6 +59,7 @@
     "@tanstack/react-query": "^5.17.0",
     "@types/react-router-dom": "^5.3.3",
     "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "lucide-react": "^0.522.0",
@@ -71,6 +76,7 @@
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^16.3.0",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^24.0.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",

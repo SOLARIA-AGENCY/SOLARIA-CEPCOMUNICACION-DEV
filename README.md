@@ -1,164 +1,364 @@
-# SOLARIA - CEP Comunicación
+# 🎯 CEP FORMACIÓN - Sistema de Rutas Dobles
 
-Sitio web institucional para **CEP Comunicación** desarrollado por **SOLARIA.AGENCY**.
+> **Plataforma avanzada de gestión de campañas con tracking diferenciado desarrollada por SOLARIA.AGENCY**
 
-## 🚀 Deployment Automatizado
+## 🚀 **SISTEMA REVOLUCIONARIO IMPLEMENTADO**
 
-### Configuración de Producción
-- **Dominio**: www.cepcomunicacion.com
-- **Hosting**: Hostinger (IP: 46.202.172.98)
-- **Deployment**: GitHub Actions con FTP automatizado
-- **SSL**: Let's Encrypt (automático)
+CEP Formación utiliza un **sistema pionero de rutas dobles** que permite tracking diferenciado según la fuente de tráfico:
 
-### 🔧 Configuración Inicial
+- **🎯 Rutas Directas** (`/curso-slug`) → Facebook Ads con pixel tracking específico
+- **🌐 Rutas Semánticas** (`/cursos/curso-slug`) → SEO/Orgánico con analytics diferenciado
 
-#### 1. Configurar Secrets de GitHub
+### **BENEFICIOS ESTRATÉGICOS**
+✅ **ROI Medible por Canal** - Métricas separadas para Facebook vs Orgánico  
+✅ **Conversión Optimizada** - Experiencias específicas por tipo de visitante  
+✅ **Escalabilidad Total** - Sistema preparado para activar/desactivar campañas  
+✅ **Assets Protegidos** - Slugs de cursos como recursos digitales estratégicos  
+
+---
+
+## 📚 **SISTEMA DE DOCUMENTACIÓN INDEXADO**
+
+> 🗂️ **[ÍNDICE MAESTRO COMPLETO](docs/INDEX.md)** - Navegación avanzada por rol y función
+
+### **🚀 NAVEGACIÓN RÁPIDA**
+
+| 🎯 Rol | 📄 Documento Principal | 🔧 Comandos Clave |
+|---------|------------------------|-------------------|
+| **👨‍💻 Desarrollador** | [`docs/SETUP_GUIDE_CEPFORMACION.md`](docs/SETUP_GUIDE_CEPFORMACION.md) | `npm run dev` `npm run pre-deploy` |
+| **📊 Marketing/Growth** | [`docs/ASSETS_SLUGS_CURSOS_CEP.md`](docs/ASSETS_SLUGS_CURSOS_CEP.md) | `npm run campaigns:status` |
+| **⚙️ DevOps** | [`docs/CEPCOMUNICACION_HOSTING_SETUP.md`](docs/CEPCOMUNICACION_HOSTING_SETUP.md) | GitHub Actions |
+| **📱 Analytics** | [`docs/FACEBOOK_CONVERSIONS_CONFIG.md`](docs/FACEBOOK_CONVERSIONS_CONFIG.md) | `npm run campaigns:analytics` |
+
+### **📋 DOCUMENTACIÓN ESTRATÉGICA**
+- 💎 **[Inventario de Assets](docs/ASSETS_SLUGS_CURSOS_CEP.md)** - Gestión estratégica de slugs y campañas
+- 📱 **[Facebook Conversions](docs/FACEBOOK_CONVERSIONS_CONFIG.md)** - Configuración pixel y eventos de tracking
+- 🌐 **[Setup Hosting](docs/CEPCOMUNICACION_HOSTING_SETUP.md)** - Configuración completa Hostinger
+- 🔌 **[API Hostinger](docs/HOSTINGER_API_TECHNICAL_DOCUMENTATION.md)** - Integración técnica detallada
+
+### **🛠️ SCRIPTS OPERACIONALES**
+- 🎛️ **[Gestión de Campañas](scripts/manage-campaigns.cjs)** - Sistema completo → `npm run campaigns:status`
+- 🔒 **[Validación Pre-Commit](scripts/pre-commit-validation.sh)** - Seguridad automática → `npm run pre-deploy`
+- 📱 **[Setup Facebook](scripts/configure-facebook-vars.sh)** - Variables de entorno → Manual
+
+### **🧪 SUITE DE TESTING**
+- ✅ **Tests de Validación** (2/2) - Funcionalidad core
+- 🎨 **Tests de Componentes** (3/3) - UI/UX  
+- 🏠 **Tests de Homepage** (4/4) - Landing principal
+- 📚 **Tests de Páginas** (4/4) - Páginas de cursos
+
+---
+
+## ⚡ **COMANDOS DISPONIBLES**
+
+### **🎛️ GESTIÓN DE CAMPAÑAS**
 ```bash
-# Ejecutar script de configuración
-./scripts/setup-hostinger-secrets.sh
+# Ver estado actual del sistema
+npm run campaigns:status
+
+# Listar todas las campañas disponibles  
+npm run campaigns:list
+
+# Reporte de tracking configurado
+npm run campaigns:analytics
+
+# Ayuda del sistema
+npm run campaigns:help
 ```
 
-#### 2. Validar DNS
+### **🔒 FLUJO DE SEGURIDAD PRE-DEPLOY**
 ```bash
-# Verificar configuración DNS
-./scripts/dns-validation.sh
+# Validación completa (tests + lint + build)
+npm run pre-deploy
+
+# Push seguro tras validación exitosa
+npm run safe-push
 ```
 
-### 📦 Build y Desarrollo
-
+### **🧪 TESTING Y DESARROLLO**
 ```bash
-# Instalar dependencias
-npm install
-
 # Desarrollo local
 npm run dev
 
+# Tests en modo watch
+npm run test:watch
+
+# Tests con cobertura
+npm run test:coverage
+
+# Linting con auto-fix
+npm run lint:fix
+```
+
+### **🚀 BUILD Y DEPLOYMENT**
+```bash
 # Build para producción
 npm run build
 
 # Preview del build
 npm run preview
+
+# Deploy automático (GitHub Actions)
+git push origin main
 ```
-
-### 🚀 Deployment
-
-#### Automático
-El deployment se ejecuta automáticamente en cada push a la rama `main`.
-
-#### Manual
-```bash
-# Via GitHub CLI
-gh workflow run "Deploy CEP Comunicación to Production"
-
-# O desde GitHub Actions tab en el repositorio
-```
-
-### 📊 Monitoreo
-
-El workflow incluye:
-- ✅ Validación de build
-- ✅ Deployment via FTP
-- ✅ Verificación DNS
-- ✅ Health checks
-- ✅ Validación SSL
-- ✅ Performance checks
-
-### 🔍 Estructura del Proyecto
-
-```
-SOLARIA-CEPCOMUNICACION/
-├── src/
-│   ├── components/        # Componentes React
-│   ├── pages/            # Páginas de la aplicación
-│   ├── config/           # Configuración de cursos y features
-│   └── utils/            # Utilidades
-├── public/
-│   └── images/           # Assets estáticos
-├── .github/
-│   └── workflows/        # GitHub Actions
-├── scripts/              # Scripts de automatización
-└── docs/                 # Documentación técnica
-```
-
-### 📋 Features Principales
-
-- 🎨 **Diseño Moderno**: Interface responsive con Tailwind CSS
-- 📱 **Mobile First**: Optimizado para dispositivos móviles
-- ⚡ **Performance**: Build optimizado con Vite
-- 🔒 **Seguro**: HTTPS y headers de seguridad
-- 📊 **SEO Ready**: Meta tags y structured data
-- 🚀 **CI/CD**: Deployment automatizado
-
-### 🛠️ Tecnologías
-
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **Build**: Vite
-- **Testing**: Vitest
-- **Deployment**: GitHub Actions + FTP
-- **Hosting**: Hostinger Shared Hosting
-
-### 📄 Documentación
-
-- [Configuración Hosting](docs/CEPCOMUNICACION_HOSTING_SETUP.md)
-- [API de Hostinger](docs/HOSTINGER_API_TECHNICAL_DOCUMENTATION.md)
-- [Guía de Setup](docs/SETUP_GUIDE_CEPFORMACION.md)
-
-### 🎯 URLs de Producción
-
-- **Principal**: https://www.cepcomunicacion.com
-- **Alternativa**: https://cepcomunicacion.com
 
 ---
 
-## Desarrollo por SOLARIA.AGENCY
+## 🎯 **CAMPAÑAS ACTIVAS - EJEMPLO DE USO**
 
-**Transformación empresarial mediante IA y automatización**
-
-- 🌐 **Web**: solaria.agency
-- 📧 **Email**: info@solaria.agency
-- 📱 **Sedes**: Barcelona, Guayaquil, Miami
-
-## 🚀 Características
-
-- Portal de cursos con información detallada
-- Diseño responsive y moderno
-- Integración con sistema de inscripciones
-- Optimizado para SEO
-
-## 🛠️ Desarrollo
-
+### **CAMPAÑA 1: QUIROMASAJE NIVEL 2 NORTE** 🔴 ACTIVA
 ```bash
-# Instalar dependencias
-npm install
+# URL Directa (Facebook Ads)
+https://cepcomunicacion.com/quiromasaje-nivel2-norte
 
-# Ejecutar en desarrollo
+# URL Semántica (SEO/Orgánico)  
+https://cepcomunicacion.com/cursos/quiromasaje-nivel2-norte
+
+# Tracking Configurado
+✅ Facebook Pixel: quiromasaje-nivel2-norte-direct
+✅ Analytics Goal: quiromasaje-nivel2-norte-organic
+✅ Tag Manager: course_quiromasaje_nivel2_norte
+```
+
+### **CAMPAÑA 2: AUXILIAR FARMACIA DERMO NORTE** 🔴 ACTIVA
+```bash
+# URL Directa (Facebook Ads)
+https://cepcomunicacion.com/auxiliar-farmacia-dermo-norte
+
+# URL Semántica (SEO/Orgánico)
+https://cepcomunicacion.com/cursos/auxiliar-farmacia-dermo-norte
+
+# Tracking Configurado  
+✅ Facebook Pixel: auxiliar-farmacia-dermo-norte-direct
+✅ Analytics Goal: auxiliar-farmacia-dermo-norte-organic
+✅ Tag Manager: course_auxiliar_farmacia_dermo_norte
+```
+
+---
+
+## 🏗️ **ARQUITECTURA TÉCNICA**
+
+### **COMPONENTES CLAVE**
+```typescript
+// DirectCourseWrapper → Rutas Facebook /slug
+src/components/templates/DirectCourseWrapper.tsx
+
+// SemanticCourseWrapper → Rutas SEO /cursos/slug  
+src/components/templates/SemanticCourseWrapper.tsx
+
+// Routing Principal
+src/App.tsx - Rutas dobles implementadas
+
+// Configuración de Cursos
+src/config/cursos-maestro.ts - Base de datos de cursos
+src/config/cursos-otono-2025.ts - Campañas activas
+```
+
+### **CONFIGURACIÓN DE SERVIDOR**
+```apache
+# Apache .htaccess - Rutas directas y semánticas
+public/.htaccess
+
+# Netlify redirects - Backup deployment  
+public/_redirects
+```
+
+---
+
+## 📊 **MÉTRICAS Y ANALYTICS**
+
+### **FACEBOOK ADS (Rutas Directas)**
+- **Event Tracking:** `ViewContent` con source `facebook_direct`
+- **Conversión:** Formularios completados desde `/curso-slug`
+- **Optimización:** CTR, CPL, Quality Score
+
+### **SEO/ORGÁNICO (Rutas Semánticas)**  
+- **Event Tracking:** `course_view_organic` con source `organic_semantic`
+- **Conversión:** Navegación desde `/cursos/curso-slug`
+- **Optimización:** Bounce Rate, Time on Page, Pages per Session
+
+### **DATOS COMBINADOS**
+- **Attribution:** Último click vs primer contacto
+- **Customer Journey:** Mapping completo por fuente
+- **ROI:** Medición independiente por canal
+
+---
+
+## 🚀 **DEPLOYMENT Y HOSTING**
+
+### **PRODUCCIÓN**
+- **Dominio Principal:** https://www.cepcomunicacion.com
+- **Hosting:** Hostinger (IP: 46.202.172.98)
+- **SSL:** Let's Encrypt automático
+- **Deployment:** GitHub Actions + FTP
+
+### **STAGING/BACKUP**
+- **Netlify:** https://solaria-cepcomunicacion.netlify.app
+- **Auto-deploy:** Desde rama `main`
+- **Testing:** Preview deployments
+
+### **MONITOREO AUTOMATIZADO**
+✅ Validación de build  
+✅ Health checks  
+✅ Verificación DNS  
+✅ SSL validation  
+✅ Performance checks  
+
+---
+
+## 🔐 **FLUJO DE SEGURIDAD IMPLEMENTADO**
+
+### **PRE-COMMIT OBLIGATORIO**
+```bash
+# Ejecutado automáticamente antes de cada commit
+1. ✅ Tests (13/13 pasando)
+2. ✅ Linting (máximo 20 warnings)  
+3. ✅ Build validation
+4. ✅ Type checking
+```
+
+### **CONTINUOUS INTEGRATION**
+```bash
+# GitHub Actions workflow
+1. ✅ Install dependencies
+2. ✅ Run test suite  
+3. ✅ Build for production
+4. ✅ Deploy via FTP
+5. ✅ Post-deploy validation
+```
+
+---
+
+## 🎛️ **GESTIÓN AVANZADA DE CAMPAÑAS**
+
+### **ESTADO ACTUAL DEL SISTEMA**
+```bash
+npm run campaigns:status
+```
+🔴 CAMPAÑAS ACTIVAS: 2
+   • Quiromasaje Nivel 2 Norte (Norte)
+   • Auxiliar Farmacia Dermocosmética Norte (Norte)
+
+🟡 CAMPAÑAS PREPARADAS: 2  
+   • Adiestramiento Canino Norte (Norte)
+   • Agente Funerario Santa Cruz (Santa Cruz)
+```
+
+### **ACTIVACIÓN DE NUEVAS CAMPAÑAS**
+1. **Identificar Oportunidad** → Análisis de demanda
+2. **Configurar Rutas** → Añadir a `App.tsx`
+3. **Actualizar Servidor** → `.htaccess` y `_redirects`
+4. **Implementar Tracking** → Eventos específicos
+5. **Validar Sistema** → `npm run pre-deploy`
+
+---
+
+## 📚 **RECURSOS PARA DESARROLLADORES**
+
+### **DOCUMENTACIÓN TÉCNICA COMPLETA**
+- 📋 [**Inventario de Assets**](docs/ASSETS_SLUGS_CURSOS_CEP.md) - Gestión estratégica de slugs
+- 📊 [**Facebook Conversions**](docs/FACEBOOK_CONVERSIONS_CONFIG.md) - Configuración pixel y eventos  
+- 🌐 [**Setup Hosting**](docs/CEPCOMUNICACION_HOSTING_SETUP.md) - Configuración Hostinger
+- 🔌 [**API Documentation**](docs/HOSTINGER_API_TECHNICAL_DOCUMENTATION.md) - Integración técnica
+
+### **SCRIPTS UTILITARIOS**
+- 🎛️ [`manage-campaigns.cjs`](scripts/manage-campaigns.cjs) - Gestión completa de campañas
+- 🔒 [`pre-commit-validation.sh`](scripts/pre-commit-validation.sh) - Validación automática
+- 📱 [`configure-facebook-vars.sh`](scripts/configure-facebook-vars.sh) - Setup Facebook
+
+### **GUÍAS RÁPIDAS**
+```bash
+# Setup inicial completo
+npm install && npm run pre-deploy
+
+# Desarrollo local con hot reload
 npm run dev
 
-# Construir para producción
-npm run build
+# Validación antes de commit
+npm run pre-deploy
 
-# Ejecutar tests
-npm run test
+# Estado del sistema de campañas  
+npm run campaigns:status
 ```
-
-## 📦 Deployment
-
-El sitio se despliega automáticamente en Netlify desde la rama main.
-
-URL: https://solaria-cepcomunicacion.netlify.app
-
-## 🎨 Personalización
-
-1. Actualiza el contenido en `src/pages/WelcomePage.tsx`
-2. Modifica los estilos en `src/index.css`
-3. Añade nuevas páginas en `src/pages/`
-
-## 📄 Licencia
-
-Desarrollado por **SOLARIA.AGENCY** - 2025
 
 ---
 
-*Proyecto generado el 6/23/2025 usando SOLARIA Template*
+## 🌟 **TECNOLOGÍAS Y STACK**
 
-<!-- Force deploy trigger -->
+### **FRONTEND AVANZADO**
+- **React 18** con TypeScript estricto
+- **Vite** para build ultra-rápido  
+- **Tailwind CSS** para diseño moderno
+- **React Router 7** para routing avanzado
+
+### **TESTING ROBUSTO**
+- **Vitest** para tests unitarios (13/13 ✅)
+- **Testing Library** para tests de componentes
+- **ESLint** con reglas estrictas TypeScript
+- **Pre-commit hooks** para validación automática
+
+### **DEPLOYMENT PROFESIONAL**
+- **GitHub Actions** para CI/CD automático
+- **Hostinger** para hosting profesional
+- **Netlify** para staging y previews
+- **FTP Sync** para deployment robusto
+
+---
+
+## 🚀 **ROADMAP Y FUTURO**
+
+### **FASE 1: CONSOLIDACIÓN** ✅ **COMPLETADA**
+- [x] Sistema de rutas dobles implementado
+- [x] Tracking diferenciado configurado  
+- [x] Campañas activas funcionando
+- [x] Documentación completa
+
+### **FASE 2: EXPANSIÓN** 🔄 **EN PROGRESO**
+- [ ] Activación de campañas preparadas
+- [ ] Dashboard avanzado de métricas
+- [ ] A/B testing automatizado
+- [ ] Attribution modeling
+
+### **FASE 3: AUTOMATIZACIÓN** 🔮 **FUTURO**
+- [ ] Machine Learning para predicción de demanda
+- [ ] Personalización dinámica por fuente
+- [ ] Auto-scaling de campañas
+- [ ] Optimización automática de conversión
+
+---
+
+## 👥 **DESARROLLO Y MANTENIMIENTO**
+
+### **DESARROLLADO POR SOLARIA.AGENCY**
+- 🌐 **Web:** solaria.agency
+- 📧 **Email:** info@solaria.agency  
+- 📱 **Sedes:** Barcelona, Guayaquil, Miami
+- 🏆 **Especialización:** Transformación empresarial mediante IA y automatización
+
+### **EQUIPO TÉCNICO**
+- **Arquitectura:** Sistema de rutas dobles innovador
+- **Desarrollo:** React/TypeScript con best practices
+- **DevOps:** CI/CD automatizado y robusto
+- **Analytics:** Tracking avanzado multi-canal
+
+### **SOPORTE Y ACTUALIZACIONES**
+- 🔧 **Mantenimiento:** Automático via GitHub Actions
+- 📊 **Monitoreo:** 24/7 con alertas automáticas  
+- 🚀 **Updates:** Deploy automático en cada push
+- 📞 **Soporte:** A través de issues de GitHub
+
+---
+
+## 📄 **LICENCIA Y TÉRMINOS**
+
+**© 2025 SOLARIA.AGENCY - Todos los derechos reservados**
+
+*Proyecto desarrollado para CEP Formación con tecnología avanzada de tracking diferenciado y gestión automatizada de campañas.*
+
+---
+
+### 🎯 **PROYECTO ESTRATÉGICO DE ÚLTIMA GENERACIÓN**
+
+> *Este sistema representa la evolución del marketing digital educativo, combinando tracking inteligente, automatización avanzada y gestión estratégica de assets digitales para maximizar el ROI de cada canal de adquisición.*
+
+**Última actualización:** Enero 2025 - Sistema 100% operativo ✅

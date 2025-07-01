@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, User, Mail, Phone, MapPin, MessageSquare, Shield, Loader2 } from 'lucide-react';
+import { trackCourseLeadEvent } from '../../utils/facebookConversionsAPI';
 
 interface Props {
   isOpen: boolean;
@@ -62,6 +63,21 @@ const CursoInscripcionModal: React.FC<Props> = ({ isOpen, onClose, curso }) => {
       });
 
       if (response.ok) {
+        // Trackear el lead en Facebook Conversions API
+        try {
+          await trackCourseLeadEvent({
+            email: formData.Email,
+            phone: formData.Telefono,
+            name: `${formData.Nombre} ${formData.Apellidos}`.trim(),
+            curso: curso.nombre,
+            modalidad: 'presencial' // Se puede adaptar según la sede
+          });
+          console.log('✅ Lead trackeado en Facebook Conversions API');
+        } catch (trackingError) {
+          console.error('⚠️ Error al trackear en Facebook:', trackingError);
+          // No interrumpir el flujo del usuario por errores de tracking
+        }
+
         window.location.href = "/gracias-form-curso";
       } else {
         const errorData = await response.json();

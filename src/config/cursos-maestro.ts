@@ -8,6 +8,7 @@ const fechasInicio: { [key: string]: string } = {
   'auxiliar-farmacia-dermo-norte': 'Julio 2025',
   'auxiliar-odontologia-norte': 'Noviembre 2025',
   'auxiliar-farmacia-parafarmacia-norte': 'Julio 2025',
+  'quiromasaje-nivel2-norte': 'Julio 2025',
   'dietetica-nutricion-norte': 'Septiembre 2025',
   'cfgm-farmacia-parafarmacia-norte': 'Octubre 2025',
   'cfgs-higiene-bucodental-norte': 'Octubre 2025',

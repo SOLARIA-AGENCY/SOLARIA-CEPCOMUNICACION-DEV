@@ -9,9 +9,23 @@ RewriteRule .* - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Specific redirects for course pages
+# 🎯 RUTAS DIRECTAS (Facebook Ads) - Campañas Activas
+RewriteRule ^quiromasaje-nivel2-norte/?$ /index.html [L]
+RewriteRule ^auxiliar-farmacia-dermo-norte/?$ /index.html [L]
+
+# 🔄 RUTAS DIRECTAS (Facebook Ads) - Preparadas para Activación  
 RewriteRule ^adiestramiento-canino-norte/?$ /index.html [L]
 RewriteRule ^agente-funerario-santacruz/?$ /index.html [L]
+
+# 🌐 RUTAS SEMÁNTICAS (SEO/Orgánico) - Campañas Activas
+RewriteRule ^cursos/quiromasaje-nivel2-norte/?$ /index.html [L]
+RewriteRule ^cursos/auxiliar-farmacia-dermo-norte/?$ /index.html [L]
+
+# 🌐 RUTAS SEMÁNTICAS (SEO/Orgánico) - Preparadas para Activación
+RewriteRule ^cursos/adiestramiento-canino-norte/?$ /index.html [L]
+RewriteRule ^cursos/agente-funerario-santacruz/?$ /index.html [L]
+
+# 📚 RUTAS LEGACY - Cursos Existentes
 RewriteRule ^auxiliar-clinico-veterinario-norte/?$ /index.html [L]
 RewriteRule ^auxiliar-clinico-veterinario-santacruz/?$ /index.html [L]
 RewriteRule ^auxiliar-clinicas-esteticas-santacruz/?$ /index.html [L]

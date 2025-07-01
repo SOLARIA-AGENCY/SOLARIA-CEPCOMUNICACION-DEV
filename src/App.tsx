@@ -13,6 +13,8 @@ import BlogPage from './pages/BlogPage';
 import TodosLosCursosPage from './pages/TodosLosCursosPage';
 import CiclosPage from './pages/CiclosPage';
 import CursoPageComponent from './components/templates/CursoPageComponent';
+import DirectCourseWrapper from './components/templates/DirectCourseWrapper';
+import SemanticCourseWrapper from './components/templates/SemanticCourseWrapper';
 import { cursosMaestro } from './config/cursos-maestro';
 import type { CursoMaestro } from './config/cursos-maestro';
 import SolariaStatusPage from './pages/SolariaStatusPage';
@@ -51,6 +53,26 @@ function App() {
         <Route path="/cursos" element={<TodosLosCursosPage />} />
         <Route path="/ciclos" element={<CiclosPage />} />
         <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
+
+        {/* 🎯 RUTAS DOBLES - CAMPAÑAS ACTIVAS OTOÑO 2025 */}
+        
+        {/* CAMPAÑA 1: Quiromasaje Nivel 2 Norte */}
+        <Route path="/quiromasaje-nivel2-norte" element={<DirectCourseWrapper />} />
+        <Route path="/cursos/quiromasaje-nivel2-norte" element={<SemanticCourseWrapper />} />
+        
+        {/* CAMPAÑA 2: Auxiliar Farmacia Dermocosmética Norte */}
+        <Route path="/auxiliar-farmacia-dermo-norte" element={<DirectCourseWrapper />} />
+        <Route path="/cursos/auxiliar-farmacia-dermo-norte" element={<SemanticCourseWrapper />} />
+
+        {/* 🔄 RUTAS PREPARADAS - PRÓXIMAS CAMPAÑAS */}
+        
+        {/* Adiestramiento Canino Norte - Preparado para activación */}
+        <Route path="/adiestramiento-canino-norte" element={<DirectCourseWrapper />} />
+        <Route path="/cursos/adiestramiento-canino-norte" element={<SemanticCourseWrapper />} />
+        
+        {/* Agente Funerario Santa Cruz - Preparado para activación */}
+        <Route path="/agente-funerario-santacruz" element={<DirectCourseWrapper />} />
+        <Route path="/cursos/agente-funerario-santacruz" element={<SemanticCourseWrapper />} />
 
         {/* Paginas de Contenido y SEO */}
         <Route path="/blog" element={<BlogPage />} />

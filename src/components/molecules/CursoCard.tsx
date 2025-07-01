@@ -1,15 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { CursoMaestro } from '../../config/cursos-maestro';
-
-const getFechaTag = (inicio: string | undefined) => {
-  if (!inicio) return { text: 'Próximamente', color: 'bg-gray-500' };
-  const mes = inicio.toLowerCase();
-  if (mes.includes('julio')) return { text: 'JULIO 2025', color: 'bg-orange-500' };
-  if (mes.includes('septiembre')) return { text: 'SEPTIEMBRE 2025', color: 'bg-green-500' };
-  if (mes.includes('octubre')) return { text: 'OCTUBRE 2025', color: 'bg-blue-500' };
-  return { text: inicio.toUpperCase(), color: 'bg-purple-500' };
-};
+import { determinarColorEtiqueta, useTimeReal } from '../../utils/timeUtils';
 
 const NivelTag: React.FC<{ nivel?: string }> = ({ nivel }) => {
   if (!nivel) return null;
@@ -26,7 +18,14 @@ const NivelTag: React.FC<{ nivel?: string }> = ({ nivel }) => {
 };
 
 const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
-  const fechaTag = getFechaTag(curso.inicio);
+  const fechaActual = useTimeReal();
+  
+  // Determinar si es ciclo formativo
+  const esCiclo = curso.categoria === 'ciclos';
+  
+  // Usar nuevo sistema inteligente de colores
+  const fechaTag = determinarColorEtiqueta(curso.inicio, esCiclo, fechaActual);
+  
   const duracion = curso.descripcionDetallada?.puntosClave.find(p => p.icono === 'Clock')?.texto;
 
   return (

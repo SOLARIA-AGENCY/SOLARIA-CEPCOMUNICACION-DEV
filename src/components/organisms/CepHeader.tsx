@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Phone, Clock, Facebook, Instagram, Youtube } from 'lucide-react';
+import MiniCalendario from '../molecules/MiniCalendario';
 
 const CepHeader: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,16 +22,22 @@ const CepHeader: React.FC = () => {
                 <span>HORARIO: Lunes a viernes 10 a 14 - 16 a 20</span>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <a href="https://www.facebook.com/cepsantacruz/" className="hover:text-pink-200 transition-colors">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="https://www.instagram.com/cep_formacion/" className="hover:text-pink-200 transition-colors">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href="#" className="hover:text-pink-200 transition-colors">
-                <Youtube className="w-4 h-4" />
-              </a>
+            <div className="flex items-center space-x-4">
+              {/* Mini Calendario en tiempo real */}
+              <MiniCalendario />
+              
+              {/* Redes Sociales */}
+              <div className="flex items-center space-x-3">
+                <a href="https://www.facebook.com/cepsantacruz/" className="hover:text-pink-200 transition-colors">
+                  <Facebook className="w-4 h-4" />
+                </a>
+                <a href="https://www.instagram.com/cep_formacion/" className="hover:text-pink-200 transition-colors">
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a href="#" className="hover:text-pink-200 transition-colors">
+                  <Youtube className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
