@@ -74,7 +74,44 @@ NUEVA SOLICITUD DE INFORMACIÓN - CEP FORMACIÓN
 - URL de Origen: ${typeof window !== 'undefined' ? window.location.href : ''}
 - Timestamp: ${timestamp}
 
-⚡ URGENCIA: ALTA - Lead caliente esperando respuesta.
+🚀 ACCIONES REQUERIDAS – LLAMADA AL LEAD (URGENCIA ALTA)
+
+📞 Llamar al lead en menos de 2 horas al número: ${formData.Telefono}
+
+🗣️ Guion sugerido de contacto:
+
+Hola, ¿${formData.Nombre}?
+Te llamo desde CEP Formación, nos dejaste tus datos para recibir información sobre el curso de ${curso.nombre} en nuestra sede de ${formData.Sede_Preferida}. ¿Es buen momento para hablar un minuto?
+
+Solo quería darte la bienvenida y asegurarme de que hayas recibido el email con el temario y toda la información.
+¿Tuviste oportunidad de verlo ya?
+
+(Escuchar. Si responde que sí o muestra interés, continuar:)
+
+Perfecto. Como las plazas son limitadas y estamos justo en fase de inscripción, te llamo para saber si te gustaría reservar tu plaza ahora mismo con una preinscripción sin compromiso.
+
+Es muy sencillo, te acompaño si lo necesitas y así te aseguras un hueco en el grupo.
+¿Te viene bien hacerlo ahora o prefieres que lo dejemos agendado para más tarde?
+
+✅ Tu objetivo como operador:
+• Confirmar que recibió la info (email + WhatsApp)
+• Medir interés real
+• Ofrecer ayuda para la preinscripción directa
+• Registrar el resultado (interesado / pendiente / no contesta)
+
+⚠️ Si no responde:
+• Reintentar más tarde (mínimo 2 intentos en el día)
+• Marcar como "sin respuesta" en la hoja de control
+
+⚡ Este lead ha mostrado alto interés (formulario enviado activamente). ¡Prioriza esta llamada!
+
+📋 RESUMEN RÁPIDO:
+- Lead: ${formData.Nombre} ${formData.Apellidos || ''}
+- Teléfono: ${formData.Telefono}
+- Email: ${formData.Email}
+- Curso: ${curso.nombre}
+- Sede: ${formData.Sede_Preferida}
+- Prioridad: ALTA
     `;
 
     // HTML para Resend
