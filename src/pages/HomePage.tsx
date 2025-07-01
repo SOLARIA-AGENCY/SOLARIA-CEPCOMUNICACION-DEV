@@ -107,7 +107,7 @@ const equipoDocente = [
 ];
 
 // Datos de Colaboradores y ONGs
-const colaboradores = [
+  const _colaboradores = [
   { nombre: 'Aboras', src: '/images/colaboradores/aboras-logo.jpg' },
   { nombre: 'Clínica Dental Cidme', src: '/images/colaboradores/cidme-logo.jpg' },
   { nombre: 'Clínica Alper', src: '/images/colaboradores/clinica-alper-logo.jpg' },
@@ -116,7 +116,7 @@ const colaboradores = [
   { nombre: 'Mi Óptica Central', src: '/images/colaboradores/mi-optica-central-logo.jpg' },
 ];
 
-const ongs = [
+  const _ongs = [
   { nombre: 'Addanca', src: '/images/ongs/addanca-logo.jpg' },
   { nombre: 'Adepac', src: '/images/ongs/adepac-logo.jpg' },
   { nombre: 'Animal Club', src: '/images/ongs/animal-club-logo.jpg' },

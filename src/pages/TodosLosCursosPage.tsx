@@ -5,7 +5,11 @@ import { cursosMaestro } from '../config/cursos-maestro';
 import CursoCard from '../components/molecules/CursoCard';
 import { Search } from 'lucide-react';
 
-const TodosLosCursosPage: React.FC = () => {
+interface TodosLosCursosPageProps {
+  fixedTimestamp?: string; // Para tests determinísticos
+}
+
+const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp }) => {
   const [terminoBusqueda, setTerminoBusqueda] = useState<string>('');
 
   const cursosActivos = cursosMaestro.filter(curso => 
@@ -78,7 +82,7 @@ const TodosLosCursosPage: React.FC = () => {
         </section>
         
       </main>
-      <CepFooter />
+      <CepFooter fixedTimestamp={fixedTimestamp} />
     </div>
   );
 };

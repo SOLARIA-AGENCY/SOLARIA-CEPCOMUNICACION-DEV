@@ -4,11 +4,14 @@ import { describe, it, expect } from 'vitest'
 import { BrowserRouter } from 'react-router-dom'
 import TodosLosCursosPage from '../pages/TodosLosCursosPage'
 
+// Timestamp fijo para tests determinísticos
+const FIXED_TEST_TIMESTAMP = '01/01/2024, 12:00:00';
+
 describe('TodosLosCursosPage', () => {
   it('renders the main title', () => {
     render(
       <BrowserRouter>
-        <TodosLosCursosPage />
+        <TodosLosCursosPage fixedTimestamp={FIXED_TEST_TIMESTAMP} />
       </BrowserRouter>
     )
     const mainTitle = screen.getByRole('heading', { name: /Todos Nuestros Cursos/i, level: 1 })
@@ -18,7 +21,7 @@ describe('TodosLosCursosPage', () => {
   it('renders both campus sections', () => {
     render(
       <BrowserRouter>
-        <TodosLosCursosPage />
+        <TodosLosCursosPage fixedTimestamp={FIXED_TEST_TIMESTAMP} />
       </BrowserRouter>
     )
     const norteSection = screen.getByRole('heading', { name: /SEDE CEP NORTE/i, level: 2 })
@@ -31,7 +34,7 @@ describe('TodosLosCursosPage', () => {
   it('renders search input field', () => {
     render(
       <BrowserRouter>
-        <TodosLosCursosPage />
+        <TodosLosCursosPage fixedTimestamp={FIXED_TEST_TIMESTAMP} />
       </BrowserRouter>
     )
     const searchInput = screen.getByPlaceholderText(/Buscar un curso por nombre.../i)
@@ -41,7 +44,7 @@ describe('TodosLosCursosPage', () => {
   it('matches snapshot', () => {
     const { asFragment } = render(
       <BrowserRouter>
-        <TodosLosCursosPage />
+        <TodosLosCursosPage fixedTimestamp={FIXED_TEST_TIMESTAMP} />
       </BrowserRouter>
     )
     expect(asFragment()).toMatchSnapshot()

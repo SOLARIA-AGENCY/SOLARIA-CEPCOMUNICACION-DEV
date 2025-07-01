@@ -2,10 +2,14 @@ import React from 'react';
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Youtube } from 'lucide-react';
 import NewsletterSection from './NewsletterSection';
 
-const CepFooter: React.FC = () => {
+interface CepFooterProps {
+  fixedTimestamp?: string; // Para tests determinísticos
+}
+
+const CepFooter: React.FC<CepFooterProps> = ({ fixedTimestamp }) => {
   return (
     <>
-      <NewsletterSection />
+      <NewsletterSection fixedTimestamp={fixedTimestamp} />
       <footer className="bg-white text-gray-700 border-t border-gray-200">
         {/* Contact Section */}
         <div className="bg-gray-50 text-gray-800 py-12">

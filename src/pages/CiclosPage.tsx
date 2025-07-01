@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import { cursosMaestro } from '../config/cursos-maestro';
-import type { CursoMaestro } from '../config/cursos-maestro';
 
 const CiclosPage: React.FC = () => {
   // Obtener los ciclos formativos y asegurar que solo haya uno por tipo

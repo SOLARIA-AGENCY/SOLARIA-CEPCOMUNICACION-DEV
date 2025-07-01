@@ -1012,7 +1012,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
           <input
             name="Timestamp"
             type="hidden"
-            value="30/06/2025, 19:23:05"
+            value="01/01/2024, 12:00:00"
           />
           <input
             name="URL_Origen"

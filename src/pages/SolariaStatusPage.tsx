@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
-import { CheckCircle, XCircle, AlertTriangle, Power, PowerOff, Mail, Key, Users, Eye, BarChartHorizontal, BarChart2, Server, TestTube2 } from 'lucide-react';
+import { CheckCircle, XCircle, Power, Mail, Key, Users, Eye, BarChartHorizontal, BarChart2, Server, TestTube2 } from 'lucide-react';
 
 interface TrackingConfig {
   ga4?: string;

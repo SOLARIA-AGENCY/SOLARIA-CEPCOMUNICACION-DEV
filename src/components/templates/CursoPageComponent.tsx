@@ -12,8 +12,8 @@ interface CursoPageComponentProps {
 const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedModule, setExpandedModule] = useState<number | null>(null);
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [_newsletterEmail, _setNewsletterEmail] = useState<string>('');
+  const [_isSubmitting, _setIsSubmitting] = useState<boolean>(false);
   
   // Scroll to top cuando se carga el componente
   useEffect(() => {
@@ -34,7 +34,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
     setExpandedModule(prev => prev === moduleIndex ? null : moduleIndex);
   };
 
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+  const _handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // This function will be removed, but kept here for reference if needed later.
     // The form will now submit directly via HTML.

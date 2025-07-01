@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Users, Award, MapPin, Phone, Mail, Calendar, CheckCircle, Star } from 'lucide-react';
+import { Clock, Users, Award, MapPin, Calendar, CheckCircle, Star } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 

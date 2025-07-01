@@ -1,15 +1,22 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 
-const NewsletterSection: React.FC = () => {
+interface NewsletterSectionProps {
+  fixedTimestamp?: string; // Para tests determinísticos
+}
+
+const NewsletterSection: React.FC<NewsletterSectionProps> = ({ fixedTimestamp }) => {
 
   // --- Lógica para datos dinámicos y de campaña ---
   const thankYouUrl = `${window.location.origin}/gracias-suscripcion`;
   const campaignTag = `suscripcion-newsletter-web`;
-  const timestamp = new Date().toLocaleString('es-ES', { 
+  
+  // Usar timestamp fijo en tests, dinámico en producción
+  const timestamp = fixedTimestamp || new Date().toLocaleString('es-ES', { 
     year: 'numeric', month: '2-digit', day: '2-digit', 
     hour: '2-digit', minute: '2-digit', second: '2-digit' 
   });
+  
   const formOriginUrl = typeof window !== 'undefined' ? window.location.href : '';
   const emailSubject = `🚀 NUEVO SUSCRIPTOR - Newsletter CEP Formación`;
 
