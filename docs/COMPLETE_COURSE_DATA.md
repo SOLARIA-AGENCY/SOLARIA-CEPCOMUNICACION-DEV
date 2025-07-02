@@ -17,6 +17,8 @@ Cada curso necesita:
 
 ## DATOS COMPLETOS DE LOS 14 CURSOS
 
+**NOTA**: Precios actualizados a 2025 según las últimas correcciones implementadas.
+
 ### 1. ADIESTRAMIENTO CANINO - NORTE ✅ (YA EXISTE)
 **Ruta:** `/adiestramiento-canino` → mantener como está
 **Archivo:** `AdiestramientoCaninoPage.tsx` → ya implementado

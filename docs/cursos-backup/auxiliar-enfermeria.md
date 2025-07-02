@@ -4,6 +4,7 @@ slug: "auxiliar-enfermeria"
 categoria: "sanidad"
 url_original: "https://cursostenerife.es/cursos/auxiliar-de-enfermeria"
 fecha_extraccion: "2025-01-02"
+fecha_actualizacion_precios: "2025-01-02"
 estado: "activo"
 ---
 
@@ -13,7 +14,7 @@ estado: "activo"
 
 - **Duración**: 10 meses / 40 sesiones
 - **Modalidad**: Presencial (1 día por semana)
-- **Precio**: 10 cuotas de 100€ + 150€ matrícula = **1.150€ total**
+- **Precio**: 10 cuotas de 105€ + 150€ matrícula = **1.200€ total** *(Precios actualizados 2025)*
 - **Grupos**: Reducidos
 - **Prácticas**: 300 horas en empresas
 - **Agencia de colocación**: Oficial incluida

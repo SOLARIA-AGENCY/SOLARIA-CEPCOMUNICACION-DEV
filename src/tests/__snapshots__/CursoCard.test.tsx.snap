@@ -14,7 +14,7 @@ exports[`CursoCard > matches snapshot 1`] = `
         src="/images/cursos/test.jpg"
       />
       <div
-        class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+        class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
       >
         SEPTIEMBRE 2025
       </div>

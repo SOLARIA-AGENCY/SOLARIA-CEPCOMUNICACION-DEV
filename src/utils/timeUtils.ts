@@ -1,4 +1,5 @@
 // Utilidades de tiempo para sistema de colores de etiquetas de cursos
+import { useState, useEffect } from 'react';
 import type { CursoMaestro } from '../config/cursos-maestro';
 
 export interface FechaInfo {
@@ -53,7 +54,7 @@ export const getFechaActualSync = (): Date => {
   return new Date();
 };
 
-// Parsear fecha de texto de curso (ej: "Julio 2025", "Septiembre 2025")
+// Parsear fecha de texto de curso (ej: "Julio 2025", "4 de Julio de 2025")
 export const parsearFechaCurso = (fechaTexto: string): Date | null => {
   const meses = {
     'enero': 0, 'febrero': 1, 'marzo': 2, 'abril': 3,
@@ -61,21 +62,37 @@ export const parsearFechaCurso = (fechaTexto: string): Date | null => {
     'septiembre': 8, 'octubre': 9, 'noviembre': 10, 'diciembre': 11
   };
 
-  const texto = fechaTexto.toLowerCase().trim();
+  const texto = fechaTexto.toLowerCase().trim().replace(/\sde\s/g, ' ');
   const palabras = texto.split(' ');
   
-  if (palabras.length < 2) return null;
+  // Formato "Día Mes Año" (ej: "4 Julio 2025")
+  if (palabras.length === 3) {
+    const dia = parseInt(palabras[0]);
+    const mesTexto = palabras[1];
+    const año = parseInt(palabras[2]);
+    const mes = meses[mesTexto as keyof typeof meses];
+
+    if (!isNaN(dia) && mes !== undefined && !isNaN(año)) {
+      return new Date(año, mes, dia);
+    }
+  }
+
+  // Formato "Mes Año" (ej: "Julio 2025")
+  if (palabras.length === 2) {
+    const mesTexto = palabras[0];
+    const añoTexto = palabras[1];
+    
+    const mes = meses[mesTexto as keyof typeof meses];
+    const año = parseInt(añoTexto);
+    
+    if (mes !== undefined && !isNaN(año)) {
+      // Usar día 15 del mes como referencia estándar
+      return new Date(año, mes, 15);
+    }
+  }
   
-  const mesTexto = palabras[0];
-  const añoTexto = palabras[1];
-  
-  const mes = meses[mesTexto as keyof typeof meses];
-  const año = parseInt(añoTexto);
-  
-  if (mes === undefined || isNaN(año)) return null;
-  
-  // Usar día 15 del mes como referencia estándar
-  return new Date(año, mes, 15);
+  // Si no coincide con ninguno de los formatos
+  return null;
 };
 
 // Calcular diferencia en meses entre dos fechas
@@ -127,8 +144,6 @@ export const determinarColorEtiqueta = (
     return { text: fechaInicio.toUpperCase(), color: 'bg-purple-500' };
   }
 };
-
-
 
 /**
  * Ordena los cursos por fecha de inicio de la forma más simple y directa:
@@ -189,9 +204,6 @@ export const formatearFechaCalendario = (fecha: Date): string => {
     year: '2-digit'
   });
 };
-
-// Importar React para el hook
-import { useState, useEffect } from 'react';
 
 // Hook personalizado para tiempo real (para React)
 export const useTimeReal = () => {

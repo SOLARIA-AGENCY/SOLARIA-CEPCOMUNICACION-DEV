@@ -11,7 +11,7 @@ const NivelTag: React.FC<{ nivel?: string }> = ({ nivel }) => {
   const texto = esSuperior ? 'GRADO SUPERIOR' : 'GRADO MEDIO';
 
   return (
-    <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white ${color}`}>
+    <div className={`absolute top-12 left-3 px-3 py-1 rounded-full text-xs font-bold text-white ${color}`}>
       {texto}
     </div>
   );
@@ -36,9 +36,17 @@ const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
           alt={`Imagen del curso ${curso.nombre}`}
           className="w-full h-40 sm:h-48 object-cover"
         />
-        <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${fechaTag.color}`}>
+        {/* Etiqueta de Estado/Fecha (Izquierda) */}
+        <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white ${fechaTag.color}`}>
           {fechaTag.text}
         </div>
+
+        {/* Etiqueta de Disponibilidad (Derecha) */}
+        {curso.etiquetaPlazas && (
+          <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600 animate-pulse">
+            {curso.etiquetaPlazas}
+          </div>
+        )}
         {curso.categoria === 'ciclos' && <NivelTag nivel={curso.subtitulo} />}
       </div>
       <div className="p-4 sm:p-6 flex-grow flex flex-col">

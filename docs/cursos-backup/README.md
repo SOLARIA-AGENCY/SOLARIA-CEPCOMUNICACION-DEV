@@ -38,8 +38,8 @@ estado: "activo"
 ### **Cursos Principales (Ya implementados en nuestra web)**
 1. **adiestramiento-canino.md** - Adiestramiento Canino I (660€)
 2. **auxiliar-clinicas-esteticas.md** - Auxiliar de Clínicas Estéticas (1.250€)
-3. **auxiliar-enfermeria.md** - Auxiliar de Enfermería (1.150€)
-4. **farmacia-parafarmacia.md** - Farmacia y Parafarmacia (1.150€)
+3. **auxiliar-enfermeria.md** - Auxiliar de Enfermería (1.200€) *(Actualizado 2025)*
+4. **farmacia-parafarmacia.md** - Farmacia y Parafarmacia (1.410€) *(Actualizado 2025)*
 5. **agente-funerario-tanatopraxia.md** - Tanatoestética y Tanatopraxia
 6. **auxiliar-veterinaria.md** - Auxiliar de Veterinaria
 
@@ -93,12 +93,14 @@ estado: "activo"
 
 ## Información de Precios Extraída
 
+**NOTA**: Precios actualizados a 2025 - Última actualización: Enero 2025
+
 | Curso | Precio Total | Modalidad de Pago |
 |-------|--------------|-------------------|
 | Adiestramiento Canino I | 660€ | 6 cuotas 85€ + 150€ matrícula |
 | Auxiliar Clínicas Estéticas | 1.250€ | 10 cuotas 110€ + 150€ matrícula |
-| Auxiliar de Enfermería | 1.150€ | 10 cuotas 100€ + 150€ matrícula |
-| Farmacia y Parafarmacia | 1.150€ | 10 cuotas 100€ + 150€ matrícula |
+| **Auxiliar de Enfermería** | **1.200€** | **10 cuotas 105€ + 150€ matrícula** *(Actualizado 2025)* |
+| **Farmacia y Parafarmacia** | **1.410€** | **12 cuotas 105€ + 150€ matrícula** *(Actualizado 2025)* |
 | ATV | 690€ | 6 cuotas 90€ + 150€ matrícula |
 | Quiromasaje Nivel I | 660€ | 6 cuotas 85€ + 150€ matrícula |
 | Quiromasaje Nivel II | 575€ | 5 cuotas 85€ + 150€ matrícula |

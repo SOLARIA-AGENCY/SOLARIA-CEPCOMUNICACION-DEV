@@ -75,19 +75,19 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
             class="flex items-center space-x-4"
           >
             <div
-              class="flex items-center space-x-2"
+              class="flex items-center space-x-2 text-white"
             >
               <svg
                 aria-hidden="true"
-                class="lucide lucide-calendar w-4 h-4"
+                class="lucide lucide-calendar"
                 fill="none"
-                height="24"
+                height="14"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
                 viewBox="0 0 24 24"
-                width="24"
+                width="14"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -108,7 +108,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 />
               </svg>
               <span>
-                mar, 01 jul 25 - 15:43
+                Martes, 1 de julio de 2025 - 15:43h
               </span>
             </div>
             <div
@@ -389,12 +389,61 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Quiromasaje Nivel III"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje II.png"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                4 DE JULIO DE 2025
+              </div>
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600 animate-pulse"
+              >
+                POCAS PLAZAS
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel III
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                4 meses / 16 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Avanza en tus técnicas y especialízate en masaje deportivo.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel3-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Quiromasaje Nivel II"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/Quiromasaje II.png"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 JULIO 2025
               </div>
@@ -438,7 +487,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/farmacia-parafarmacia.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 JULIO 2025
               </div>
@@ -482,7 +531,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 SEPTIEMBRE 2025
               </div>
@@ -526,7 +575,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-veterinaria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 SEPTIEMBRE 2025
               </div>
@@ -570,7 +619,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/dietetica-nutricion.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 SEPTIEMBRE 2025
               </div>
@@ -614,7 +663,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-enfermeria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 NOVIEMBRE 2025
               </div>
@@ -658,7 +707,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-odontologia.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 NOVIEMBRE 2025
               </div>
@@ -702,7 +751,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -746,7 +795,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -790,7 +839,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -834,7 +883,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/Quiromasaje I.png"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -896,12 +945,105 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Quiromasaje Nivel III"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje II.png"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                4 DE JULIO DE 2025
+              </div>
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600 animate-pulse"
+              >
+                POCAS PLAZAS
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel III
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                4 meses / 16 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Avanza en tus técnicas y especialízate en masaje deportivo.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel3-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel II"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje II.png"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                JULIO 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel II
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                5 meses / 20 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Avanza en tus técnicas y especialízate en masaje deportivo.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel2-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/farmacia-parafarmacia.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 JULIO 2025
               </div>
@@ -945,7 +1087,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 SEPTIEMBRE 2025
               </div>
@@ -989,7 +1131,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-veterinaria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 SEPTIEMBRE 2025
               </div>
@@ -1033,7 +1175,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-enfermeria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 SEPTIEMBRE 2025
               </div>
@@ -1077,7 +1219,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 OCTUBRE 2025
               </div>
@@ -1121,7 +1263,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-odontologia.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
                 NOVIEMBRE 2025
               </div>
@@ -1165,7 +1307,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -1209,7 +1351,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -1253,7 +1395,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/Quiromasaje I.png"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -1297,7 +1439,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/dietetica-nutricion.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
                 PRÓXIMAMENTE
               </div>
@@ -1324,50 +1466,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
                 href="/curso/dietetica-nutricion-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Quiromasaje Nivel II"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/Quiromasaje II.png"
-              />
-              <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje Nivel II
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                5 meses / 20 sesiones
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Avanza en tus técnicas y especialízate en masaje deportivo.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-nivel2-santacruz"
               >
                 VER CURSO COMPLETO
               </a>

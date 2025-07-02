@@ -1,4 +1,5 @@
 import baseCursosData from './data/base-cursos.json';
+import { parsearFechaCurso } from '../utils/timeUtils';
 
 // Fuente de verdad para las fechas de inicio, extraído de la matriz.
 const fechasInicio: { [key: string]: string } = {
@@ -18,6 +19,9 @@ const fechasInicio: { [key: string]: string } = {
   'auxiliar-enfermeria-santacruz': 'Septiembre 2025',
   'auxiliar-odontologia-santacruz': 'Noviembre 2025',
   'auxiliar-farmacia-parafarmacia-santacruz': 'Julio 2025',
+  'quiromasaje-nivel2-santacruz': 'Julio 2025',
+  'quiromasaje-nivel3-norte': '4 de Julio de 2025',
+  'quiromasaje-nivel3-santacruz': '4 de Julio de 2025',
 
   'cfgm-farmacia-parafarmacia-santacruz': 'Octubre 2025',
   'cfgs-higiene-bucodental-santacruz': 'Octubre 2025',
@@ -76,11 +80,12 @@ export type DescripcionDetallada = {
 };
 
 export interface CursoBase {
+  fechaInicioISO?: string;
+  etiquetaPlazas?: string;
   nombre: string;
   slugBase: string;
   imagen: string;
   categoria: 'sanidad' | 'veterinaria' | 'bienestar' | 'ciclos' | 'adiestramiento' | 'diseño';
-  destacado?: boolean;
   subtitulo?: string; // Propiedad opcional para ciclos
   modalidad?: string; // Propiedad opcional para ciclos
   copy: {
@@ -113,6 +118,10 @@ export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
     const id = `${cursoBase.slugBase}-${slugSede}`;
     const inicio = fechasInicio[id];
     
+    // Parsear fecha y manejar posible null de forma segura
+    const fechaParseada = inicio ? parsearFechaCurso(inicio) : null;
+    const fechaInicioISO = fechaParseada ? fechaParseada.toISOString() : undefined;
+
     let subtitulo = cursoBase.subtitulo;
     if (cursoBase.categoria === 'ciclos') {
       if (cursoBase.nombre.toLowerCase().includes('grado superior')) {
@@ -127,11 +136,26 @@ export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
       id,
       slug: id,
       sede: sede,
-      estado: inicio ? 'activo' : 'proximamente',
+      estado: (inicio ? 'activo' : 'proximamente') as 'activo' | 'proximamente',
       inicio: inicio,
+      fechaInicioISO: fechaInicioISO,
       subtitulo: subtitulo,
     };
   });
+}).sort((a, b) => {
+  const fechaA = a.inicio ? parsearFechaCurso(a.inicio) : null;
+  const fechaB = b.inicio ? parsearFechaCurso(b.inicio) : null;
+
+  if (fechaA && fechaB) {
+    return fechaA.getTime() - fechaB.getTime();
+  }
+  if (fechaA) {
+    return -1; // A tiene fecha, B no, A va primero
+  }
+  if (fechaB) {
+    return 1; // B tiene fecha, A no, B va primero
+  }
+  return 0; // Ambos sin fecha, orden estable
 }); 
 
 export type FolletoPDF = {
