@@ -13,7 +13,7 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
   const navigate = useNavigate();
   
   const handleClick = () => {
-    navigate(`/sede-${slug}`);
+    navigate(`/sede/${slug}`);
   };
 
   return (

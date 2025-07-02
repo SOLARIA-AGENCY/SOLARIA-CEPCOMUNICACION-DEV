@@ -49,7 +49,7 @@ describe('SedeCard', () => {
     const sedeCard = screen.getByText('CEP NORTE').closest('div');
     fireEvent.click(sedeCard!);
     
-    expect(mockNavigate).toHaveBeenCalledWith('/sede-cep-norte');
+    expect(mockNavigate).toHaveBeenCalledWith('/sede/cep-norte');
   });
 
   it('navigates to Santa Cruz sede correctly', () => {
@@ -63,7 +63,7 @@ describe('SedeCard', () => {
     const sedeCard = screen.getByText('CEP SANTA CRUZ').closest('div');
     fireEvent.click(sedeCard!);
     
-    expect(mockNavigate).toHaveBeenCalledWith('/sede-cep-santa-cruz');
+    expect(mockNavigate).toHaveBeenCalledWith('/sede/cep-santa-cruz');
   });
 
   it('displays correct campus image', () => {
