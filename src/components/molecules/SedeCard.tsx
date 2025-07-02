@@ -13,7 +13,6 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
   const navigate = useNavigate();
   
   const handleClick = () => {
-    console.log(`Navegando a: /sede-${slug}`);
     navigate(`/sede-${slug}`);
   };
 
@@ -45,7 +44,7 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
           {descripcion}
         </p>
         
-        <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between">
           <span className="text-sm text-cep-primary font-semibold">
             Ver cursos disponibles
           </span>
@@ -54,19 +53,6 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
             className="text-cep-primary group-hover:translate-x-1 transition-transform duration-300" 
           />
         </div>
-        
-        {/* Debug button - remove in production */}
-        <button 
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log(`DEBUG: Intentando navegar a /sede-${slug}`);
-            window.location.href = `/sede-${slug}`;
-          }}
-          className="mt-3 w-full bg-red-500 text-white py-2 rounded text-sm font-bold"
-        >
-          DEBUG: IR A SEDE {nombre.toUpperCase()}
-                </button>
         </div>
       </div>
     );

@@ -57,8 +57,7 @@ function App() {
         <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
 
         {/* 🏫 RUTAS DE SEDES */}
-        <Route path="/sede-cep-norte" element={<SedePage />} />
-        <Route path="/sede-cep-santa-cruz" element={<SedePage />} />
+        <Route path="/sede/:slug" element={<SedePage />} />
 
         {/* 🎯 RUTAS DOBLES - CAMPAÑAS ACTIVAS OTOÑO 2025 */}
         
