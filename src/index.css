@@ -3,7 +3,7 @@
 @import "tailwindcss";
 
 @theme {
-  --font-family-montserrat: "Montserrat", sans-serif;
+  --font-family-poppins: "Poppins", sans-serif;
   
   /* Colores personalizados CEP */
   --color-cep-primary: #f2014b;
@@ -23,7 +23,7 @@
 
 @layer base {
   html {
-    font-family: var(--font-family-montserrat);
+    font-family: var(--font-family-poppins);
     scroll-behavior: smooth;
   }
   
