@@ -510,53 +510,6 @@
       "cursosComplementarios": ["Quiromasaje Nivel I", "Entrenador Personal", "Dietética y Nutrición", "Auxiliar de Enfermería"]
     }
   },
-  {
-    "nombre": "Quiromasaje Nivel III",
-    "slugBase": "quiromasaje-nivel3",
-    "imagen": "/images/cursos/Quiromasaje II.png",
-    "categoria": "bienestar",
-    "etiquetaPlazas": "POCAS PLAZAS",
-    "copy": {
-      "slogan": "Avanza en tus técnicas y especialízate en masaje deportivo.",
-      "textosPrincipales": ["Técnicas avanzadas de masaje terapéutico y deportivo para profesionales especializados."],
-      "titulos": ["Masaje Terapéutico Avanzado", "Masaje Deportivo", "Técnicas Especializadas"]
-    },
-    "descripcionDetallada": {
-      "introduccion": "El curso de Quiromasaje Nivel III (Técnicas Especializadas) ofrece técnicas de última generación en masaje terapéutico, especializaciones en masaje deportivo avanzado y metodologías innovadoras para el tratamiento profesional.",
-      "queAprendes": "Dominarás técnicas especializadas de alto nivel, aprenderás metodologías avanzadas de evaluación y tratamiento, y adquirirás competencias para la formación de otros profesionales y la gestión de centros especializados.",
-      "puntosClave": [
-        { "icono": "Clock", "texto": "4 meses / 16 sesiones" },
-        { "icono": "Users", "texto": "40 horas de prácticas especializadas" },
-        { "icono": "Award", "texto": "Nivel máster especializado" },
-        { "icono": "Book", "texto": "Técnicas innovadoras" }
-      ],
-      "inversion": {
-        "total": "495€",
-        "modalidad": "4 cuotas de 85€ + 150€ matrícula",
-        "incluye": "Material didáctico especializado y certificación nivel III."
-      },
-      "requisitos": ["Requerido haber completado Quiromasaje Nivel II o demostrar experiencia profesional equivalente."],
-      "salidasProfesionales": [
-        "Especialista en masaje terapéutico", "Formador de quiromasajistas", "Director técnico de centros de masaje", "Consultor en terapias manuales", "Especialista deportivo de alto rendimiento", "Terapeuta manual especializado"
-      ],
-      "modulos": [
-        { "titulo": "Técnicas Avanzadas Especializadas", "contenido": ["Técnicas de liberación miofascial.", "Masaje neuromuscular avanzado.", "Técnicas de energía muscular."] },
-        { "titulo": "Evaluación y Diagnóstico", "contenido": ["Evaluación postural avanzada.", "Tests específicos de movilidad.", "Protocolos de diagnóstico diferencial."] },
-        { "titulo": "Especialización Deportiva", "contenido": ["Masaje para deportes específicos.", "Técnicas de recuperación avanzada.", "Prevención de lesiones deportivas."] },
-        { "titulo": "Gestión y Formación", "contenido": ["Metodología docente en terapias manuales.", "Gestión de centros especializados.", "Investigación en terapias manuales."] }
-      ],
-      "profesores": [
-        { 
-          "nombre": "Expertos en Terapias Avanzadas", 
-          "foto": "/images/profesores/luis.jpg", 
-          "especialidad": "Especialistas de Alto Nivel",
-          "bio": "Profesionales especialistas en técnicas avanzadas de terapia manual, con formación internacional y experiencia en formación de profesionales del sector.",
-          "tags": ["Técnicas Avanzadas", "Formación Especializada", "Terapia Manual"]
-        }
-      ],
-      "cursosComplementarios": ["Quiromasaje Nivel I", "Quiromasaje Nivel II", "Osteopatía", "Fisioterapia"]
-    }
-  },
   { 
     "nombre": "Auxiliar de Farmacia y Parafarmacia", 
     "slugBase": "auxiliar-farmacia-parafarmacia", 

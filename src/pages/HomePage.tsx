@@ -7,6 +7,7 @@ import { cursosMaestro } from '../config/cursos-maestro';
 import type { CursoMaestro } from '../config/cursos-maestro';
 import { ordenarCursosPorPrioridad } from '../utils/timeUtils';
 import CursoCard from '../components/molecules/CursoCard';
+import SedeSelector from '../components/organisms/SedeSelector';
 
 // Datos para los slides del hero - solo imágenes como en el original
 const heroSlides = [
@@ -154,9 +155,9 @@ const HomePage: React.FC = () => {
     cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.categoria !== 'ciclos')
   );
   
-  const _cursosDestacados = ordenarCursosPorPrioridad(
-    cursosMaestro.filter(c => c.destacado && c.estado === 'activo' && c.categoria !== 'ciclos')
-  );
+  // const _cursosDestacados = ordenarCursosPorPrioridad(
+  //   cursosMaestro.filter(c => c.destacado && c.estado === 'activo' && c.categoria !== 'ciclos')
+  // );
 
   const ciclosFormativos = cursosMaestro.filter(c => c.categoria === 'ciclos' && c.estado === 'activo');
   
@@ -392,16 +393,8 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Sección Cursos por Sede - Tabs */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-cep-primary mb-4">CURSOS POR SEDE</h2>
-            <p className="text-xl text-gray-600 mb-2">Selecciona una sede para ver los cursos disponibles</p>
-          </div>
-          {/* Aquí iría el componente de Tabs para seleccionar sede */}
-        </div>
-      </section>
+      {/* Sección Cursos por Sede */}
+      <SedeSelector />
 
       {/* Sección Especial - Ciclos Formativos Oficiales */}
       <section className="py-16 bg-gradient-to-br from-cep-primary via-pink-600 to-purple-700 text-white">

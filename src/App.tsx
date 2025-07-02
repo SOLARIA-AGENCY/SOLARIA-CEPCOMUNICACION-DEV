@@ -22,6 +22,7 @@ import useTracking from './utils/useTracking';
 import ThankYouPage from './pages/ThankYouPage';
 import GraciasSuscripcionPage from './pages/GraciasSuscripcionPage';
 import GraciasInscripcionPage from './pages/GraciasInscripcionPage';
+import SedePage from './pages/SedePage';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -54,6 +55,10 @@ function App() {
         <Route path="/cursos" element={<TodosLosCursosPage />} />
         <Route path="/ciclos" element={<CiclosPage />} />
         <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
+
+        {/* 🏫 RUTAS DE SEDES */}
+        <Route path="/sede-cep-norte" element={<SedePage />} />
+        <Route path="/sede-cep-santa-cruz" element={<SedePage />} />
 
         {/* 🎯 RUTAS DOBLES - CAMPAÑAS ACTIVAS OTOÑO 2025 */}
         
