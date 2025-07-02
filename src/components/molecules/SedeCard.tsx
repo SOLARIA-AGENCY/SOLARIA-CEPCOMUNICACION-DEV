@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MapPin, ArrowRight } from 'lucide-react';
 
 interface SedeCardProps {
@@ -10,15 +10,17 @@ interface SedeCardProps {
 }
 
 const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }) => {
+  const navigate = useNavigate();
+  
   const handleClick = () => {
     console.log(`Navegando a: /sede-${slug}`);
+    navigate(`/sede-${slug}`);
   };
 
   return (
-    <Link 
-      to={`/sede-${slug}`}
+    <div 
       onClick={handleClick}
-      className="group block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer relative z-10"
+      className="group block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
     >
       <div className="relative h-48 sm:h-56 overflow-hidden">
         <img
@@ -64,10 +66,10 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
           className="mt-3 w-full bg-red-500 text-white py-2 rounded text-sm font-bold"
         >
           DEBUG: IR A SEDE {nombre.toUpperCase()}
-        </button>
+                </button>
+        </div>
       </div>
-    </Link>
-  );
-};
+    );
+  };
 
 export default SedeCard; 
