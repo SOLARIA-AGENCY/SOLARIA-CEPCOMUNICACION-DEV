@@ -10,10 +10,15 @@ interface SedeCardProps {
 }
 
 const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }) => {
+  const handleClick = () => {
+    console.log(`Navegando a: /sede-${slug}`);
+  };
+
   return (
     <Link 
       to={`/sede-${slug}`}
-      className="group block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+      onClick={handleClick}
+      className="group block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer relative z-10"
     >
       <div className="relative h-48 sm:h-56 overflow-hidden">
         <img
@@ -34,7 +39,7 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
       </div>
       
       <div className="p-6">
-        <p className="text-gray-600 mb-4 line-clamp-2">
+        <p className="text-gray-600 mb-4">
           {descripcion}
         </p>
         
@@ -47,6 +52,19 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
             className="text-cep-primary group-hover:translate-x-1 transition-transform duration-300" 
           />
         </div>
+        
+        {/* Debug button - remove in production */}
+        <button 
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log(`DEBUG: Intentando navegar a /sede-${slug}`);
+            window.location.href = `/sede-${slug}`;
+          }}
+          className="mt-3 w-full bg-red-500 text-white py-2 rounded text-sm font-bold"
+        >
+          DEBUG: IR A SEDE {nombre.toUpperCase()}
+        </button>
       </div>
     </Link>
   );
