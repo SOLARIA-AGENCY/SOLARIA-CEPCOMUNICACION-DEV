@@ -75,19 +75,19 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
             class="flex items-center space-x-4"
           >
             <div
-              class="flex items-center space-x-2 text-xs text-gray-600 bg-gray-50 px-3 py-1 rounded-lg border"
+              class="flex items-center space-x-2"
             >
               <svg
                 aria-hidden="true"
-                class="lucide lucide-calendar text-cep-primary"
+                class="lucide lucide-calendar w-4 h-4"
                 fill="none"
-                height="14"
+                height="24"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
                 viewBox="0 0 24 24"
-                width="14"
+                width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -107,20 +107,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                   d="M3 10h18"
                 />
               </svg>
-              <div
-                class="flex flex-col leading-tight"
-              >
-                <span
-                  class="font-semibold text-gray-800"
-                >
-                  mar, 01 jul 25
-                </span>
-                <span
-                  class="text-xs text-gray-500"
-                >
-                  15:43
-                </span>
-              </div>
+              <span>
+                mar, 01 jul 25 - 15:43
+              </span>
             </div>
             <div
               class="flex items-center space-x-3"
@@ -379,7 +368,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
           class="flex items-center mb-8"
         >
           <span
-            class="w-16 h-1 bg-cep-primary rounded-full"
+            class="flex-grow h-1 bg-cep-primary rounded-full"
           />
           <h2
             class="text-3xl font-bold text-gray-800 mx-4"
@@ -393,6 +382,94 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
         <div
           class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
         >
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel II"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje II.png"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                JULIO 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel II
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                5 meses / 20 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Avanza en tus técnicas y especialízate en masaje deportivo.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel2-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/farmacia-parafarmacia.jpg"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                JULIO 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Auxiliar de Farmacia y Parafarmacia
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                10 meses / 40 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en el enlace entre el farmacéutico y el paciente.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/auxiliar-farmacia-parafarmacia-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
           <div
             class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
           >
@@ -476,6 +553,50 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
                 href="/curso/auxiliar-clinico-veterinario-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Dietética y Nutrición"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/dietetica-nutricion.jpg"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+              >
+                SEPTIEMBRE 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Dietética y Nutrición
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                10 meses / 40 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Promueve hábitos de vida saludable a través de la alimentación.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/dietetica-nutricion-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -576,14 +697,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Dietética y Nutrición"
+                alt="Imagen del curso Adiestramiento Canino II"
                 class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/dietetica-nutricion.jpg"
+                src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
-                SEPTIEMBRE 2025
+                PRÓXIMAMENTE
               </div>
             </div>
             <div
@@ -592,22 +713,22 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <h3
                 class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
               >
-                Dietética y Nutrición
+                Adiestramiento Canino II
               </h3>
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                10 meses / 40 sesiones
+                6 meses / 24 sesiones
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
               >
-                Promueve hábitos de vida saludable a través de la alimentación.
+                Perfecciona tus habilidades y especialízate en adiestramiento avanzado.
               </p>
               <a
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
-                href="/curso/dietetica-nutricion-norte"
+                href="/curso/adiestramiento-canino-ii-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -620,14 +741,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Quiromasaje Nivel II"
+                alt="Imagen del curso Tanatoestética y Tanatopraxia (Agente Funerario)"
                 class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/Quiromasaje II.png"
+                src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
-                JULIO 2025
+                PRÓXIMAMENTE
               </div>
             </div>
             <div
@@ -636,27 +757,138 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <h3
                 class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
               >
-                Quiromasaje Nivel II
+                Tanatoestética y Tanatopraxia (Agente Funerario)
               </h3>
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                5 meses / 20 sesiones
+                10 meses / 40 sesiones
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
               >
-                Avanza en tus técnicas y especialízate en masaje deportivo.
+                Fórmate en una profesión esencial y de gran demanda social.
               </p>
               <a
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
-                href="/curso/quiromasaje-nivel2-norte"
+                href="/curso/agente-funerario-norte"
               >
                 VER CURSO COMPLETO
               </a>
             </div>
           </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Auxiliar de Clínicas Estéticas"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/especializacion-sanitaria.jpg"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Auxiliar de Clínicas Estéticas
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                10 meses / 40 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Especialízate en medicina estética y centros de belleza.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/auxiliar-clinicas-esteticas-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel I"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje I.png"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel I
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                7 meses / 28 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Iníciate en el arte del masaje terapéutico y el bienestar.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel-1-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="sede-santa-cruz"
+      >
+        <div
+          class="flex items-center mb-8"
+        >
+          <span
+            class="flex-grow h-1 bg-cep-primary rounded-full"
+          />
+          <h2
+            class="text-3xl font-bold text-gray-800 mx-4"
+          >
+            SEDE CEP SANTA CRUZ
+          </h2>
+          <span
+            class="flex-grow h-1 bg-cep-primary rounded-full"
+          />
+        </div>
+        <div
+          class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        >
           <div
             class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
           >
@@ -695,35 +927,12 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <a
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
-                href="/curso/auxiliar-farmacia-parafarmacia-norte"
+                href="/curso/auxiliar-farmacia-parafarmacia-santacruz"
               >
                 VER CURSO COMPLETO
               </a>
             </div>
           </div>
-        </div>
-      </section>
-      <section
-        id="sede-santa-cruz"
-      >
-        <div
-          class="flex items-center mb-8"
-        >
-          <span
-            class="w-16 h-1 bg-cep-secondary rounded-full"
-          />
-          <h2
-            class="text-3xl font-bold text-gray-800 mx-4"
-          >
-            SEDE CEP SANTA CRUZ
-          </h2>
-          <span
-            class="flex-grow h-1 bg-cep-secondary rounded-full"
-          />
-        </div>
-        <div
-          class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-        >
           <div
             class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
           >
@@ -819,50 +1028,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Auxiliar de Clínicas Estéticas"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/especializacion-sanitaria.jpg"
-              />
-              <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
-              >
-                OCTUBRE 2025
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Clínicas Estéticas
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                10 meses / 40 sesiones
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Especialízate en medicina estética y centros de belleza.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-clinicas-esteticas-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
                 alt="Imagen del curso Auxiliar de Enfermería"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/auxiliar-enfermeria.jpg"
@@ -895,6 +1060,50 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
                 href="/curso/auxiliar-enfermeria-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Auxiliar de Clínicas Estéticas"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/especializacion-sanitaria.jpg"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+              >
+                OCTUBRE 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Auxiliar de Clínicas Estéticas
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                10 meses / 40 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Especialízate en medicina estética y centros de belleza.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/auxiliar-clinicas-esteticas-santacruz"
               >
                 VER CURSO COMPLETO
               </a>
@@ -951,14 +1160,190 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Adiestramiento Canino I"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/adiestramiento-canino.jpg"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Adiestramiento Canino I
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                6 meses / 25 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un experto en el comportamiento y educación canina.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/adiestramiento-canino-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Adiestramiento Canino II"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/adiestramiento-canino.jpg"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Adiestramiento Canino II
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                6 meses / 24 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Perfecciona tus habilidades y especialízate en adiestramiento avanzado.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/adiestramiento-canino-ii-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel I"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje I.png"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel I
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                7 meses / 28 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Iníciate en el arte del masaje terapéutico y el bienestar.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel-1-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Dietética y Nutrición"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/dietetica-nutricion.jpg"
+              />
+              <div
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Dietética y Nutrición
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                10 meses / 40 sesiones
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Promueve hábitos de vida saludable a través de la alimentación.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/dietetica-nutricion-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Quiromasaje Nivel II"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/Quiromasaje II.png"
               />
               <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
-                JULIO 2025
+                PRÓXIMAMENTE
               </div>
             </div>
             <div
@@ -983,50 +1368,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
                 href="/curso/quiromasaje-nivel2-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
-              />
-              <div
-                class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
-              >
-                JULIO 2025
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Farmacia y Parafarmacia
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                10 meses / 40 sesiones
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en el enlace entre el farmacéutico y el paciente.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-farmacia-parafarmacia-santacruz"
               >
                 VER CURSO COMPLETO
               </a>

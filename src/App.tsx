@@ -65,6 +65,14 @@ function App() {
         <Route path="/auxiliar-farmacia-dermo-norte" element={<DirectCourseWrapper />} />
         <Route path="/cursos/auxiliar-farmacia-dermo-norte" element={<SemanticCourseWrapper />} />
 
+        {/* CAMPAÑA 3: Auxiliar Farmacia y Parafarmacia Norte */}
+        <Route path="/auxiliar-farmacia-parafarmacia-norte" element={<DirectCourseWrapper />} />
+        <Route path="/cursos/auxiliar-farmacia-parafarmacia-norte" element={<SemanticCourseWrapper />} />
+
+        {/* CAMPAÑA 4: Auxiliar Farmacia y Parafarmacia Santa Cruz */}
+        <Route path="/auxiliar-farmacia-parafarmacia-santacruz" element={<DirectCourseWrapper />} />
+        <Route path="/cursos/auxiliar-farmacia-parafarmacia-santacruz" element={<SemanticCourseWrapper />} />
+
         {/* 🔄 RUTAS PREPARADAS - PRÓXIMAS CAMPAÑAS */}
         
         {/* Adiestramiento Canino Norte - Preparado para activación */}

@@ -17,6 +17,7 @@ const fechasInicio: { [key: string]: string } = {
   'auxiliar-clinicas-esteticas-santacruz': 'Octubre 2025',
   'auxiliar-enfermeria-santacruz': 'Septiembre 2025',
   'auxiliar-odontologia-santacruz': 'Noviembre 2025',
+  'auxiliar-farmacia-parafarmacia-santacruz': 'Julio 2025',
 
   'cfgm-farmacia-parafarmacia-santacruz': 'Octubre 2025',
   'cfgs-higiene-bucodental-santacruz': 'Octubre 2025',

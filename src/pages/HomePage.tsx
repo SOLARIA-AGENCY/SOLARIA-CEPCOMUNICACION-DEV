@@ -154,7 +154,7 @@ const HomePage: React.FC = () => {
     cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.categoria !== 'ciclos')
   );
   
-  const cursosDestacados = ordenarCursosPorPrioridad(
+  const _cursosDestacados = ordenarCursosPorPrioridad(
     cursosMaestro.filter(c => c.destacado && c.estado === 'activo' && c.categoria !== 'ciclos')
   );
 

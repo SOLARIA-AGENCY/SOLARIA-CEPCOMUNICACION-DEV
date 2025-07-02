@@ -224,6 +224,11 @@
         { "icono": "Users", "texto": "400 horas de prácticas en empresas" },
         { "icono": "Award", "texto": "Formación integral para el sector salud" }
       ],
+      "inversion": {
+        "total": "1.200€",
+        "modalidad": "10 cuotas de 105€ + 150€ matrícula",
+        "incluye": "Material didáctico y agencia de colocación oficial."
+      },
       "requisitos": ["Tener 2º de ESO o EGB superado."],
       "salidasProfesionales": [
         "Auxiliar de enfermería en hospitales", "Clínicas privadas y centros de salud", "Residencias de mayores", "Centros de día", "Atención domiciliaria", "Unidades de cuidados especiales", "Consultas médicas"
@@ -525,8 +530,8 @@
         { "icono": "Book", "texto": "Farmacología y parafarmacia" }
       ],
       "inversion": {
-        "total": "1.150€",
-        "modalidad": "10 cuotas de 100€ + 150€ matrícula",
+        "total": "1.410€",
+        "modalidad": "12 cuotas de 105€ + 150€ matrícula",
         "incluye": "Material didáctico y agencia de colocación oficial."
       },
       "requisitos": ["Tener 2º de ESO o EGB superado."],
