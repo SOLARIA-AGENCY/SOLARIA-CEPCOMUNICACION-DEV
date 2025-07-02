@@ -468,6 +468,7 @@
     "slugBase": "quiromasaje-nivel2", 
     "imagen": "/images/cursos/Quiromasaje II.png",
     "categoria": "bienestar",
+    "etiquetaPlazas": "POCAS PLAZAS",
     "copy": {
       "slogan": "Avanza en tus técnicas y especialízate en masaje deportivo.",
       "textosPrincipales": ["Técnicas avanzadas de masaje terapéutico y deportivo para profesionales especializados."],

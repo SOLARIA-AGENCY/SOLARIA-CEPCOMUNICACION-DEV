@@ -19,7 +19,7 @@ const fechasInicio: { [key: string]: string } = {
   'auxiliar-enfermeria-santacruz': 'Septiembre 2025',
   'auxiliar-odontologia-santacruz': 'Noviembre 2025',
   'auxiliar-farmacia-parafarmacia-santacruz': 'Julio 2025',
-  'quiromasaje-nivel2-santacruz': '4 de Julio de 2025',
+  // 'quiromasaje-nivel2-santacruz': '4 de Julio de 2025', // Proximamente
 
   'cfgm-farmacia-parafarmacia-santacruz': 'Octubre 2025',
   'cfgs-higiene-bucodental-santacruz': 'Octubre 2025',
@@ -129,6 +129,12 @@ export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
       }
     }
 
+    // Configurar etiquetas específicas por sede y curso
+    let etiquetaPlazas = cursoBase.etiquetaPlazas;
+    if (cursoBase.slugBase === 'quiromasaje-nivel2' && sede === 'Santa Cruz') {
+      etiquetaPlazas = undefined; // Quitar etiqueta para Santa Cruz
+    }
+
     return {
       ...cursoBase,
       id,
@@ -138,6 +144,7 @@ export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
       inicio: inicio,
       fechaInicioISO: fechaInicioISO,
       subtitulo: subtitulo,
+      etiquetaPlazas: etiquetaPlazas,
     };
   });
 }).sort((a, b) => {

@@ -4,6 +4,8 @@ import { CursoMaestro, getFolletoCurso, newsletterConfig } from '../../config/cu
 import CursoInscripcionModal from '../organisms/CursoInscripcionModal';
 import CepHeader from '../organisms/CepHeader';
 import CepFooter from '../organisms/CepFooter';
+import CountdownTimer from '../atoms/CountdownTimer';
+import { parsearFechaCurso } from '../../utils/timeUtils';
 
 interface CursoPageComponentProps {
   curso: CursoMaestro;
@@ -100,13 +102,50 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
               </div>
               <p className="text-pink-100 mt-4 text-sm">
                 <MapPin className="inline-block w-4 h-4 mr-1" />
-                Sede: {curso.sede} • Inicio: {curso.inicio}
+                Sede: {curso.sede} • Inicio: 
+                <span className={`ml-1 font-bold ${
+                  curso.inicio && curso.inicio.includes('4 de Julio') 
+                    ? 'text-pink-400 text-lg uppercase tracking-wide' 
+                    : ''
+                }`}>
+                  {curso.inicio}
+                </span>
               </p>
             </div>
           </div>
         </section>
 
         <div className="container mx-auto px-4 sm:px-6 py-12">
+          {/* Contador Regresivo - Solo para fechas específicas */}
+          {curso.inicio && curso.inicio.includes('4 de Julio') && (
+            <section className="mb-12">
+              <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl p-6 sm:p-8 text-white text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+                  ⏰ ¡EL CURSO EMPIEZA PRONTO!
+                </h2>
+                <p className="text-lg mb-6 opacity-90">
+                  No te quedes sin plaza - Solo quedan pocas plazas disponibles
+                </p>
+                                 {(() => {
+                   const fechaInicio = parsearFechaCurso(curso.inicio);
+                   return fechaInicio ? (
+                     <CountdownTimer 
+                       targetDate={fechaInicio.toISOString()}
+                     />
+                   ) : null;
+                 })()}
+                <div className="mt-6">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="bg-white text-pink-600 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
+                  >
+                    ¡RESERVAR AHORA MI PLAZA!
+                  </button>
+                </div>
+              </div>
+            </section>
+          )}
+
           {/* Introducción */}
           <section className="mb-12">
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8">
