@@ -25,6 +25,7 @@
   html {
     font-family: var(--font-family-poppins);
     scroll-behavior: smooth;
+    /* Force cache bust - Poppins deployment */
   }
   
   :root {
@@ -59,4 +60,4 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities; /* Cache bust timestamp: 20250702023141*/
