@@ -44,7 +44,7 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
           {descripcion}
         </p>
         
-                <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <span className="text-sm text-cep-primary font-semibold">
             Ver cursos disponibles
           </span>
@@ -53,9 +53,9 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
             className="text-cep-primary group-hover:translate-x-1 transition-transform duration-300" 
           />
         </div>
-        </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default SedeCard; 
