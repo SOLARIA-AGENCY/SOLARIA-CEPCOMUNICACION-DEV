@@ -7,6 +7,7 @@ import { cursosMaestro } from '../config/cursos-maestro';
 import type { CursoMaestro } from '../config/cursos-maestro';
 import { ordenarCursosPorPrioridad } from '../utils/timeUtils';
 import CursoCard from '../components/molecules/CursoCard';
+import CicloCard from '../components/molecules/CicloCard';
 import SedeSelector from '../components/organisms/SedeSelector';
 
 // Datos para los slides del hero - solo imágenes como en el original
@@ -409,42 +410,10 @@ const HomePage: React.FC = () => {
             <p className="text-lg text-gray-500">3 Cursos Escolares • Acceso a Universidad • Becas disponibles</p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {ciclosFormativosUnicos.map(ciclo => {
-                             // Determinar la imagen específica para cada ciclo
-               const getImagenCiclo = (slugBase: string) => {
-                 if (slugBase === 'cfgm-farmacia-parafarmacia') return '/images/cursos/cfgm-farmacia-parafarmacia.png';
-                 if (slugBase === 'cfgs-higiene-bucodental') return '/images/cursos/cfgs-higiene-bucodental.png';
-                 return ciclo.imagen;
-               };
-
-              return (
-                <div key={ciclo.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
-                  <div className="flex">
-                    <div className="w-1/3">
-                      <img
-                        src={getImagenCiclo(ciclo.slugBase)}
-                        alt={ciclo.nombre}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="w-2/3 p-6">
-                      <div className="text-left">
-                        <h3 className="text-xl font-bold text-cep-primary mb-3 uppercase">{ciclo.nombre}</h3>
-                        <p className="mb-4 text-gray-600">{ciclo.copy.slogan}</p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className={`text-xs font-bold px-2 py-1 rounded-full ${ciclo.subtitulo?.toLowerCase().includes('superior') ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'}`}>{ciclo.subtitulo}</span>
-                          <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">{ciclo.modalidad}</span>
-                        </div>
-                        <Link to={`/curso/${ciclo.slug}`} className="inline-flex items-center text-cep-primary hover:text-cep-primary-dark font-bold">
-                          Ver Ciclo Formativo <ExternalLink className="ml-2" size={16} />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {ciclosFormativosUnicos.map(ciclo => (
+              <CicloCard key={ciclo.id} ciclo={ciclo} />
+            ))}
           </div>
         </div>
       </section>

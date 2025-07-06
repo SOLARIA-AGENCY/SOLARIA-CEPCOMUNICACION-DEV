@@ -92,13 +92,18 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                   </span>
                 ))}
               </div>
-              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
-                >
-                  ¡RESERVAR MI PLAZA AHORA!
-                </button>
+              <div className="text-center">
+                <div className="bg-yellow-400 rounded-lg p-1 inline-block shadow-2xl">
+                  <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 "
+                  >
+                    ¡QUIERO RESERVAR MI PLAZA!
+                  </button>
+                </div>
+                <p className="text-white text-sm mt-3 font-medium tracking-wide opacity-90">
+                  Plazas limitadas · Reserva sin compromiso de pago
+                </p>
               </div>
               <p className="text-pink-100 mt-4 text-sm">
                 <MapPin className="inline-block w-4 h-4 mr-1" />
@@ -479,18 +484,19 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
               <p className="text-lg text-pink-100 mb-6">
                 Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
-              <div className="bg-yellow-400 rounded-lg p-1 inline-block">
-                <button
-                  onClick={() => setIsModalOpen(true)}
-                  className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
-                >
-                  ¡RESERVAR MI PLAZA AHORA!
-                </button>
+              <div className="text-center">
+                <div className="bg-yellow-400 rounded-lg p-1 inline-block shadow-2xl">
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 "
+                    >
+                        ¡QUIERO RESERVAR MI PLAZA!
+                    </button>
+                </div>
+                <p className="text-sm text-pink-100 mt-4">
+                    Plazas limitadas · Reserva sin compromiso · Te llamamos en 30 min.
+                </p>
               </div>
-              <p className="text-sm text-pink-100 mt-4">
-                <Clock className="inline-block w-4 h-4 mr-1" />
-                Te contactaremos en menos de 30 minutos
-              </p>
             </div>
           </section>
 
@@ -532,6 +538,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
             nombre: curso.nombre,
             sede: curso.sede,
             slug: curso.slug,
+            imagen: curso.imagen,
           }}
         />
       )}

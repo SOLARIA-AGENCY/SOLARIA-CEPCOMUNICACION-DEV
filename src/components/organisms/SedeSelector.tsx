@@ -6,13 +6,13 @@ const SedeSelector: React.FC = () => {
     {
       nombre: 'Norte',
       slug: 'cep-norte',
-      imagen: '/images/sedes/cep-norte.jpg',
+      imagen: '/images/sedes/sede-cep-norte.png',
       descripcion: 'Campus situado en la zona norte de Tenerife, ofreciendo formación especializada en un entorno moderno y accesible.'
     },
     {
       nombre: 'Santa Cruz',
       slug: 'cep-santa-cruz',
-      imagen: '/images/sedes/cep-santa-cruz.jpg',
+      imagen: '/images/sedes/sede-cep-santa-cruz.png',
       descripcion: 'Campus principal en Santa Cruz de Tenerife, con instalaciones de vanguardia y excelente conectividad.'
     }
   ];

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import { cursosMaestro } from '../config/cursos-maestro';
+import CicloCard from '../components/molecules/CicloCard';
 
 const CiclosPage: React.FC = () => {
   // Obtener los ciclos formativos y asegurar que solo haya uno por tipo
@@ -24,77 +25,10 @@ const CiclosPage: React.FC = () => {
             <p className="text-lg text-gray-500">3 años de duración • Acceso directo a Universidad • Becas disponibles</p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {ciclosFormativosUnicos.map(curso => {
-                                 // Determinar la imagen específica para cada ciclo
-                 const getImagenCiclo = (slugBase: string) => {
-                   if (slugBase === 'cfgm-farmacia-parafarmacia') return '/images/cursos/cfgm-farmacia-parafarmacia.png';
-                   if (slugBase === 'cfgs-higiene-bucodental') return '/images/cursos/cfgs-higiene-bucodental.png';
-                   return curso.imagen;
-                 };
-
-                const getFechaTag = (inicio: string | undefined) => {
-                  if (!inicio) return { text: 'Próximamente', color: 'bg-gray-500' };
-                  const mes = inicio.toLowerCase();
-                  if (mes.includes('septiembre')) return { text: 'SEPTIEMBRE 2025', color: 'bg-green-500' };
-                  return { text: inicio.toUpperCase(), color: 'bg-purple-500' };
-                };
-                const fechaTag = getFechaTag(curso.inicio);
-                const esGradoSuperior = curso.nombre.includes('CFGS');
-
-                return (
-                  <div key={curso.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div className="relative">
-                      <img
-                        src={getImagenCiclo(curso.slugBase)}
-                        alt={curso.nombre}
-                        className="w-full h-48 object-cover"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 rounded-full text-sm font-bold text-white ${fechaTag.color}`}>
-                          {fechaTag.text}
-                        </span>
-                      </div>
-                      <div className="absolute top-4 right-4 bg-yellow-400 text-cep-primary px-3 py-1 rounded-full text-xs font-bold">
-                        {esGradoSuperior ? 'GRADO SUPERIOR' : 'GRADO MEDIO'}
-                      </div>
-                    </div>
-                    <div className="p-6 text-gray-800">
-                      <div className="text-left">
-                        <h3 className="text-xl font-bold text-cep-primary mb-3 uppercase">{curso.nombre}</h3>
-                        <div className="space-y-2 mb-4">
-                          <div className="flex items-center text-sm text-gray-600">
-                            <span className="mr-2">📍</span>
-                            <span className="font-semibold">Sede:</span>
-                            <span className="ml-1">{curso.sede}</span>
-                          </div>
-                          <div className="flex items-center text-sm text-gray-600">
-                            <span className="mr-2">⏱️</span>
-                            <span className="font-semibold">Duración:</span>
-                            <span className="ml-1 text-cep-primary font-bold">{curso.descripcionDetallada?.infoAdicional?.duracion || '2.000 horas'}</span>
-                          </div>
-                          <div className="flex items-center text-sm text-gray-600">
-                            <span className="mr-2">🎓</span>
-                            <span className="font-semibold">Título:</span>
-                            <span className="ml-1">Oficial MEC</span>
-                          </div>
-                        </div>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Prácticas Incluidas</span>
-                          <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Becas MEC</span>
-                          <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Acceso Universidad</span>
-                        </div>
-                        <Link
-                          to={`/curso/${curso.slug}`}
-                          className="block w-full bg-cep-primary text-white text-center py-3 rounded-lg hover:bg-cep-primary-dark transition-colors font-bold"
-                        >
-                          VER INFORMACIÓN COMPLETA
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                );
-            })}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {ciclosFormativosUnicos.map(ciclo => (
+              <CicloCard key={ciclo.id} ciclo={ciclo} />
+            ))}
           </div>
 
           <div className="text-center mt-12">

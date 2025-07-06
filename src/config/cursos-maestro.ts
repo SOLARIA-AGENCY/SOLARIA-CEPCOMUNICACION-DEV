@@ -131,12 +131,21 @@ export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
 
     // Configurar etiquetas específicas por sede y curso
     let etiquetaPlazas = cursoBase.etiquetaPlazas;
+
+    // Sobrescribir imagen para ciclos formativos específicos
+    let imagen = cursoBase.imagen;
+    if (cursoBase.slugBase === 'cfgm-farmacia-parafarmacia') {
+      imagen = '/images/ciclos/CICLO GRADO MEDIO FARMACIA PARAFARMACIA.png';
+    } else if (cursoBase.slugBase === 'cfgs-higiene-bucodental') {
+      imagen = '/images/ciclos/CICLO GRADO SUPERIOR HIGIENE BUCODENTAL - CARD.png';
+    }
     if (cursoBase.slugBase === 'quiromasaje-nivel2' && sede === 'Santa Cruz') {
       etiquetaPlazas = undefined; // Quitar etiqueta para Santa Cruz
     }
 
     return {
       ...cursoBase,
+      imagen: imagen,
       id,
       slug: id,
       sede: sede,
