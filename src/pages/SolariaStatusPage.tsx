@@ -232,15 +232,15 @@ const SolariaStatusPage: React.FC = () => {
           <div className="space-y-3 text-sm">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">DataLayer (GTM):</span>
-              <StatusIndicator active={!!(window as any).dataLayer} />
+              <StatusIndicator active={!!(window as typeof window & { dataLayer?: unknown[] }).dataLayer} />
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">gtag (GA4):</span>
-              <StatusIndicator active={typeof (window as any).gtag === 'function'} />
+              <StatusIndicator active={typeof (window as typeof window & { gtag?: unknown }).gtag === 'function'} />
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Pixel (fbq):</span>
-              <StatusIndicator active={typeof (window as any).fbq === 'function'} preference={marketingConsent} />
+              <StatusIndicator active={typeof (window as typeof window & { fbq?: unknown }).fbq === 'function'} preference={marketingConsent} />
             </div>
           </div>
         </div>

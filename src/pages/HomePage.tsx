@@ -397,32 +397,54 @@ const HomePage: React.FC = () => {
       <SedeSelector />
 
       {/* Sección Especial - Ciclos Formativos Oficiales */}
-      <section className="py-16 bg-gradient-to-br from-cep-primary via-pink-600 to-purple-700 text-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-yellow-400 text-cep-primary px-4 py-2 rounded-full text-sm font-bold mb-4">
               <span className="mr-2">🏆</span>
               TÍTULOS OFICIALES MINISTERIO DE EDUCACIÓN
             </div>
-            <h2 className="text-4xl font-bold mb-4">CICLOS FORMATIVOS OFICIALES</h2>
-            <p className="text-xl text-pink-100 mb-2">Formación Profesional Homologada por el MEC</p>
-            <p className="text-lg text-pink-200">3 Cursos Escolares • Acceso a Universidad • Becas disponibles</p>
+            <h2 className="text-4xl font-bold mb-4 text-cep-primary">CICLOS FORMATIVOS OFICIALES</h2>
+            <p className="text-xl text-gray-600 mb-2">Formación Profesional Homologada por el MEC</p>
+            <p className="text-lg text-gray-500">3 Cursos Escolares • Acceso a Universidad • Becas disponibles</p>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {ciclosFormativosUnicos.map(ciclo => (
-              <div key={ciclo.id} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white border border-white/20 hover:bg-white/20 transition-all">
-                <h3 className="text-2xl font-bold mb-3">{ciclo.nombre}</h3>
-                <p className="mb-4 text-pink-200">{ciclo.copy.slogan}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className={`text-xs font-bold px-2 py-1 rounded-full ${ciclo.subtitulo?.toLowerCase().includes('superior') ? 'bg-blue-400 text-blue-900' : 'bg-green-400 text-green-900'}`}>{ciclo.subtitulo}</span>
-                  <span className="bg-pink-200 text-pink-800 text-xs font-bold px-2 py-1 rounded-full">{ciclo.modalidad}</span>
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {ciclosFormativosUnicos.map(ciclo => {
+                             // Determinar la imagen específica para cada ciclo
+               const getImagenCiclo = (slugBase: string) => {
+                 if (slugBase === 'cfgm-farmacia-parafarmacia') return '/images/cursos/cfgm-farmacia-parafarmacia.png';
+                 if (slugBase === 'cfgs-higiene-bucodental') return '/images/cursos/cfgs-higiene-bucodental.png';
+                 return ciclo.imagen;
+               };
+
+              return (
+                <div key={ciclo.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200">
+                  <div className="flex">
+                    <div className="w-1/3">
+                      <img
+                        src={getImagenCiclo(ciclo.slugBase)}
+                        alt={ciclo.nombre}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="w-2/3 p-6">
+                      <div className="text-left">
+                        <h3 className="text-xl font-bold text-cep-primary mb-3 uppercase">{ciclo.nombre}</h3>
+                        <p className="mb-4 text-gray-600">{ciclo.copy.slogan}</p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <span className={`text-xs font-bold px-2 py-1 rounded-full ${ciclo.subtitulo?.toLowerCase().includes('superior') ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'}`}>{ciclo.subtitulo}</span>
+                          <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">{ciclo.modalidad}</span>
+                        </div>
+                        <Link to={`/curso/${ciclo.slug}`} className="inline-flex items-center text-cep-primary hover:text-cep-primary-dark font-bold">
+                          Ver Ciclo Formativo <ExternalLink className="ml-2" size={16} />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <Link to={`/curso/${ciclo.slug}`} className="font-bold inline-flex items-center text-yellow-300 hover:text-white">
-                  Ver Ciclo Formativo <ExternalLink className="ml-2" size={16} />
-                </Link>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

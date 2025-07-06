@@ -20,9 +20,7 @@ const SemanticCourseWrapper: React.FC = () => {
   useEffect(() => {
     if (slug) {
       // Facebook Pixel - Evento de visualización orgánica (menos prioridad)
-      // @ts-ignore - fbq is injected by external script
       if (typeof window !== 'undefined' && window.fbq) {
-        // @ts-ignore - fbq is injected by external script
         window.fbq('track', 'ViewContent', {
           content_type: 'course_page',
           content_name: slug,

@@ -76,7 +76,14 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
       <div className="relative bg-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img 
-            src={curso.imagen} 
+            src={(() => {
+              // Usar imágenes específicas para ciclos formativos
+              if (curso.categoria === 'ciclos') {
+                if (curso.slugBase === 'cfgm-farmacia-parafarmacia') return '/images/cursos/cfgm-farmacia-parafarmacia.png';
+                if (curso.slugBase === 'cfgs-higiene-bucodental') return '/images/cursos/cfgs-higiene-bucodental.png';
+              }
+              return curso.imagen;
+            })()} 
             alt={`Curso de ${curso.nombre}`}
             className="w-full h-full object-cover"
           />
@@ -96,7 +103,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
               </p>
             </div>
             <div className="flex flex-wrap justify-center gap-4 text-sm sm:text-base">
-              {detalles.puntosClave && detalles.puntosClave.map((item: any, index: number) => (
+              {detalles.puntosClave && detalles.puntosClave.map((item: { icono: string; texto: string }, index: number) => (
                 <div key={index} className="flex items-center bg-white/20 rounded-full px-4 py-2">
                   {item.icono === 'Clock' && <Clock className="w-5 h-5 mr-2" />}
                   {item.icono === 'Users' && <Users className="w-5 h-5 mr-2" />}
@@ -184,7 +191,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">🎯 Salidas Profesionales</h4>
                   <ul className="text-gray-700 space-y-1">
-                    {detalles.salidasProfesionales && detalles.salidasProfesionales.map((salida: any, index: number) => (
+                    {detalles.salidasProfesionales && detalles.salidasProfesionales.map((salida: string, index: number) => (
                       <li key={index}>• {salida}</li>
                     ))}
                   </ul>
@@ -199,7 +206,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
               Temario Completo
             </h2>
             <div className="space-y-4">
-              {detalles.modulos && detalles.modulos.map((modulo: any, index: number) => (
+              {detalles.modulos && detalles.modulos.map((modulo: { titulo: string; contenido: string[] }, index: number) => (
                 <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <button
                     onClick={() => toggleModule(index)}
@@ -215,7 +222,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                   {expandedModule === index && (
                     <div className="px-6 pb-4">
                       <ul className="space-y-2">
-                        {modulo.contenido && modulo.contenido.map((item: any, itemIndex: number) => (
+                        {modulo.contenido && modulo.contenido.map((item: string, itemIndex: number) => (
                           <li key={itemIndex} className="flex items-start">
                             <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-1 flex-shrink-0" />
                             <span className="text-gray-700">{item}</span>
@@ -234,7 +241,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
               <Star className="inline-block w-8 h-8 mr-3 text-yellow-500" />
               Tu Profesor Especialista
             </h2>
-            {detalles.profesores && detalles.profesores.map((profesor: any, index: number) => (
+            {detalles.profesores && detalles.profesores.map((profesor: { nombre: string; especialidad: string; bio: string; foto: string; tags: string[] }, index: number) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="md:flex">
                   <div className="md:w-1/3 p-6 sm:p-8 flex justify-center">
@@ -256,7 +263,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                       {profesor.bio}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {profesor.tags && profesor.tags.map((tag: any, tagIndex: number) => (
+                      {profesor.tags && profesor.tags.map((tag: string, tagIndex: number) => (
                          <span key={tagIndex} className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">{tag}</span>
                       ))}
                     </div>

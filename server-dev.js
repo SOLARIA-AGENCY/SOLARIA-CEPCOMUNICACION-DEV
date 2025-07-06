@@ -12,11 +12,23 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Inicializar Resend
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Inicializar Resend de forma condicional
+let resend;
+if (process.env.RESEND_API_KEY) {
+  resend = new Resend(process.env.RESEND_API_KEY);
+} else {
+  console.warn('ADVERTENCIA: RESEND_API_KEY no encontrada. El envío de correos estará deshabilitado.');
+}
 
 // Endpoint para envío de correos
 app.post('/api/send-email', async (req, res) => {
+  if (!resend) {
+    console.error('Intento de envío de correo sin RESEND_API_KEY configurada.');
+    return res.status(503).json({
+      message: 'El servicio de correo no está configurado en el servidor de desarrollo.',
+    });
+  }
+
   try {
     const {
       Nombre,
@@ -123,6 +135,10 @@ app.get('/health', (req, res) => {
 
 app.listen(port, () => {
   console.log(`🚀 Servidor de desarrollo corriendo en http://localhost:${port}`);
-  console.log(`📧 Endpoint disponible: http://localhost:${port}/api/send-email`);
-  console.log(`💼 Resend API configurado para: agency.solaria@gmail.com`);
+  if (resend) {
+    console.log(`📧 Endpoint de correo activo: http://localhost:${port}/api/send-email`);
+    console.log(`💼 Resend API configurado para: agency.solaria@gmail.com`);
+  } else {
+    console.log('🔌 Endpoint de correo INACTIVO. Configure RESEND_API_KEY para habilitarlo.');
+  }
 }); 

@@ -293,7 +293,7 @@ export async function trackCourseRegistrationEvent(registrationData: {
 // Declaración de tipos globales para TypeScript
 declare global {
   interface Window {
-    fbq: (command: string, eventName: string, parameters?: any, options?: any) => void;
+    fbq: (command: string, eventName: string, parameters?: Record<string, unknown>, options?: Record<string, unknown>) => void;
   }
 }
 
