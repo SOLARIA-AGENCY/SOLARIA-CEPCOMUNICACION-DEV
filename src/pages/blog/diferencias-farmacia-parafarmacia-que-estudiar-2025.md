@@ -5,8 +5,8 @@ keywords: ["diferencias farmacia parafarmacia", "auxiliar farmacia tenerife", "f
 fecha: "2025-01-15"
 categoria: "Sanidad"
 autor: "CEP Formación"
-imagen: "/images/cursos/farmacia-parafarmacia.jpg"
-imagen_hero: "/images/cursos/farmacia-parafarmacia.jpg"
+imagen: "/images/blog-professional/farmacia-parafarmacia-hero.jpg"
+imagen_hero: "/images/blog-professional/farmacia-parafarmacia-hero.jpg"
 slug: "diferencias-farmacia-parafarmacia-analisis-academico-formacion"
 readTime: "8"
 ---

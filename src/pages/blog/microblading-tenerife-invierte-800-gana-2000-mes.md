@@ -5,8 +5,8 @@ keywords: ["microblading tenerife", "micropigmentación canarias", "formación m
 fecha: "2025-01-15"
 categoria: "Estética"
 autor: "CEP Formación"
-imagen: "/images/cursos/especializacion-sanitaria.jpg"
-imagen_hero: "/images/cursos/especializacion-sanitaria.jpg"
+imagen: "/images/blog-professional/microblading-hero.jpg"
+imagen_hero: "/images/blog-professional/microblading-hero.jpg"
 slug: "microblading-tenerife-tecnica-micropigmentacion-profesional"
 readTime: "8"
 ---

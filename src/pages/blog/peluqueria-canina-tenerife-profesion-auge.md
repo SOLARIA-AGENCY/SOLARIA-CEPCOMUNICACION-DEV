@@ -5,8 +5,8 @@ keywords: ["peluquería canina tenerife", "formación peluquería perros", "cuid
 fecha: "2025-01-15"
 categoria: "Mundo Animal"
 autor: "CEP Formación"
-imagen: "/images/cursos/peluqueria-canina.jpg"
-imagen_hero: "/images/cursos/peluqueria-canina.jpg"
+imagen: "/images/blog-professional/peluqueria-canina-hero.jpg"
+imagen_hero: "/images/blog-professional/peluqueria-canina-hero.jpg"
 slug: "peluqueria-canina-tenerife-analisis-sector-profesional"
 readTime: "8"
 ---

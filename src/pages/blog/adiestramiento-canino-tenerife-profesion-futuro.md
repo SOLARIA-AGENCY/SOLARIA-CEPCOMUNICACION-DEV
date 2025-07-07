@@ -5,8 +5,8 @@ keywords: ["adiestramiento canino tenerife", "certificación ANACP canarias", "e
 fecha: "2025-01-15"
 categoria: "Mundo Animal"
 autor: "CEP Formación"
-imagen: "/images/cursos/adiestramiento-canino.jpg"
-imagen_hero: "/images/cursos/adiestramiento-canino.jpg"
+imagen: "/images/blog-professional/adiestramiento-canino-hero.jpg"
+imagen_hero: "/images/blog-professional/adiestramiento-canino-hero.jpg"
 slug: "adiestramiento-canino-formacion-profesional-certificacion-anacp"
 readTime: "8"
 ---

@@ -5,8 +5,8 @@ keywords: ["estudiar en tenerife venezuela", "cursos para venezolanos tenerife",
 fecha: "2025-01-15"
 categoria: "Guías"
 autor: "CEP Formación"
-imagen: "/images/blog/estudiantes-extranjeros-hero.jpg"
-imagen_hero: "/images/blog/estudiantes-extranjeros-hero.jpg"
+imagen: "/images/blog-professional/estudiantes-extranjeros-hero.jpg"
+imagen_hero: "/images/blog-professional/estudiantes-extranjeros-hero.jpg"
 slug: "guia-estudiantes-extranjeros-estudiar-tenerife-venezuela"
 ---
 

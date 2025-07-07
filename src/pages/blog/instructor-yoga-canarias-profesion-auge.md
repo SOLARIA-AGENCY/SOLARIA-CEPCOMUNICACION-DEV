@@ -5,8 +5,8 @@ keywords: ["instructor yoga tenerife", "formación yoga canarias", "certificaci�
 fecha: "2025-01-15"
 categoria: "Bienestar"
 autor: "CEP Formación"
-imagen: "/images/cursos/salud-bienestar-y-deporte.jpg"
-imagen_hero: "/images/cursos/salud-bienestar-y-deporte.jpg"
+imagen: "/images/blog-professional/instructor-yoga-hero.jpg"
+imagen_hero: "/images/blog-professional/instructor-yoga-hero.jpg"
 slug: "instructor-yoga-perspectivas-profesionales-canarias"
 readTime: "8"
 ---

@@ -5,8 +5,8 @@ keywords: ["cursos julio 2025 tenerife", "auxiliar farmacia tenerife", "quiromas
 fecha: "2025-06-20"
 categoria: "Guías"
 autor: "CEP Formación"
-imagen: "/images/blog/ultimas-plazas-cursos-hero.jpg"
-imagen_hero: "/images/blog/ultimas-plazas-cursos-hero.jpg"
+imagen: "/images/blog-professional/ultimas-plazas-cursos-hero.jpg"
+imagen_hero: "/images/blog-professional/ultimas-plazas-cursos-hero.jpg"
 slug: "ultimas-plazas-cursos-julio-2025-cep-tenerife"
 ---
 

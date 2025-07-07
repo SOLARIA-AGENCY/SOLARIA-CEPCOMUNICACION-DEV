@@ -5,8 +5,8 @@ keywords: ["auxiliar veterinaria tenerife", "salidas profesionales veterinaria c
 fecha: "2025-01-15"
 categoria: "Mundo Animal"
 autor: "CEP Formación"
-imagen: "/images/cursos/auxiliar-veterinaria.jpg"
-imagen_hero: "/images/cursos/auxiliar-veterinaria.jpg"
+imagen: "/images/blog-professional/auxiliar-veterinario-hero.jpg"
+imagen_hero: "/images/blog-professional/auxiliar-veterinario-hero.jpg"
 slug: "7-salidas-profesionales-auxiliar-veterinario-tenerife"
 readTime: "8"
 ---
