@@ -289,7 +289,7 @@ const BlogPage: React.FC = () => {
                       
                       <a 
                         href={`/blog/${article.slug}`}
-                        className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                        className="inline-flex items-center text-cep-primary font-semibold hover:text-pink-700 transition-colors"
                       >
                         Leer más →
                       </a>
@@ -362,7 +362,7 @@ const BlogPage: React.FC = () => {
                     
                     <a 
                       href={`/blog/${article.slug}`}
-                      className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                      className="inline-flex items-center text-cep-primary font-semibold hover:text-pink-700 transition-colors"
                     >
                       Leer más →
                     </a>

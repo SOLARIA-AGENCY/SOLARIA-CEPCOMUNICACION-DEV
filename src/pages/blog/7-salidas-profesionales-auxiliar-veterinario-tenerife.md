@@ -4,7 +4,7 @@ meta_description: "Descubre las principales oportunidades profesionales para aux
 keywords: ["auxiliar veterinaria tenerife", "salidas profesionales veterinaria canarias", "formación auxiliar veterinario", "estudios veterinaria tenerife", "auxiliar clínico veterinario canarias"]
 fecha: "2025-01-15"
 categoria: "Mundo Animal"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/auxiliar-veterinario-hero.jpg"
 imagen_hero: "/images/blog-professional/auxiliar-veterinario-hero.jpg"
 slug: "7-salidas-profesionales-auxiliar-veterinario-tenerife"
