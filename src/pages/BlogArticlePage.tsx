@@ -58,6 +58,8 @@ const BlogArticlePage: React.FC = () => {
               const value = values.join(':').trim();
               if (key.trim() === 'keywords') {
                 meta[key.trim()] = value.replace(/[[\\]"]/g, '').split(',').map(k => k.trim());
+              } else if (key.trim() === 'imagen' || key.trim() === 'imagen_hero') {
+                meta['image'] = value.replace(/['"]/g, '');
               } else {
                 meta[key.trim()] = value.replace(/['"]/g, '');
               }
@@ -196,12 +198,16 @@ const BlogArticlePage: React.FC = () => {
               
               {/* Imagen destacada si existe */}
               {metadata?.image && (
-                <div className="mb-8">
-                  <img 
-                    src={metadata.image} 
-                    alt={metadata.title}
-                    className="w-full h-64 object-cover rounded-lg shadow-lg"
-                  />
+                <div className="relative mb-8 rounded-xl overflow-hidden shadow-2xl">
+                  <div className="aspect-video md:aspect-[21/9]">
+                    <img 
+                      src={metadata.image} 
+                      alt={metadata.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 </div>
               )}
             </div>

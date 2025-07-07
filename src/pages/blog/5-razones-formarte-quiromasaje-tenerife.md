@@ -5,8 +5,8 @@ keywords: ["curso quiromasaje tenerife", "quiromasaje santa cruz tenerife", "for
 fecha: "2025-01-15"
 categoria: "Bienestar"
 autor: "CEP Formación"
-imagen: "/images/blog/quiromasaje-terapia-manual-hero.webp"
-imagen_hero: "/images/blog/quiromasaje-terapia-manual-hero.webp"
+imagen: "/images/blog-professional/quiromasaje-terapia-manual-hero.jpg"
+imagen_hero: "/images/blog-professional/quiromasaje-terapia-manual-hero.jpg"
 slug: "5-razones-formarte-quiromasaje-tenerife"
 ---
 
