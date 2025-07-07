@@ -8,6 +8,7 @@ import type { CursoMaestro } from '../config/cursos-maestro'
 const mockCurso: CursoMaestro = {
   id: 'test-1',
   nombre: 'Curso de Prueba',
+  codigo: 'TEST01',
   slug: 'curso-de-prueba',
   slugBase: 'curso-de-prueba',
   estado: 'activo',

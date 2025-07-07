@@ -40,7 +40,7 @@ describe('SedeCard', () => {
     expect(screen.getByText('CEP NORTE')).toBeInTheDocument();
     expect(screen.getByText('Campus Norte')).toBeInTheDocument();
     expect(screen.getByText('Campus situado en la zona norte de Tenerife')).toBeInTheDocument();
-    expect(screen.getByText('Ver cursos disponibles')).toBeInTheDocument();
+    expect(screen.getByText('Ver Cursos')).toBeInTheDocument();
   });
 
   it('navigates to correct sede URL when clicked', () => {
