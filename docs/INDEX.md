@@ -297,3 +297,177 @@ npm run pre-deploy             # Validación completa
 ---
 
 > **💡 TIP:** Usa este índice como punto de partida para cualquier tarea relacionada con CEP Formación. Cada documento está optimizado para audiencias específicas y casos de uso particulares. 
+
+# CEP Comunicación - Documentación del Proyecto
+
+## 📋 Índice General
+
+### 🔧 **Configuración y Setup**
+- [`SETUP_GUIDE_CEPFORMACION.md`](SETUP_GUIDE_CEPFORMACION.md) - Guía completa de configuración inicial
+- [`CEPCOMUNICACION_HOSTING_SETUP.md`](CEPCOMUNICACION_HOSTING_SETUP.md) - Configuración específica de hosting
+- [`HOSTINGER_RESEND_CONFIG.md`](HOSTINGER_RESEND_CONFIG.md) - Configuración del sistema de email con Resend
+- [`FACEBOOK_CONVERSIONS_CONFIG.md`](FACEBOOK_CONVERSIONS_CONFIG.md) - Setup de Facebook Pixel y Conversions API
+
+### 🚀 **Despliegue y Producción**
+- [`DEPLOYMENT_READY.md`](DEPLOYMENT_READY.md) - Checklist pre-despliegue
+- [`DEPLOYMENT_MONITORING_GUIDE.md`](DEPLOYMENT_MONITORING_GUIDE.md) - Monitoreo post-despliegue
+- [`scripts/manual-deployment-guide.md`](../scripts/manual-deployment-guide.md) - Guía de despliegue manual
+
+### 📊 **SEO y Marketing**
+- [`SEO CEP COMUNICACION 2025/INVESTIGACION_SEO_ESTRATEGIA_CEP_FORMACION_TENERIFE.md`](SEO%20CEP%20COMUNICACION%202025/INVESTIGACION_SEO_ESTRATEGIA_CEP_FORMACION_TENERIFE.md) - **NUEVO** Investigación SEO completa para superar competencia
+- [`SEO CEP COMUNICACION 2025/ESTRATEGIA_SEO_CEP_COMUNICACION_2025.md`](SEO%20CEP%20COMUNICACION%202025/ESTRATEGIA_SEO_CEP_COMUNICACION_2025.md) - Estrategia SEO 2025
+- [`FILOSOFIA_FACILIDADES_FORMACION.md`](FILOSOFIA_FACILIDADES_FORMACION.md) - Filosofía de marca y copywriting
+
+### 📝 **Blog y Contenido Estratégico** ⭐ **NUEVO**
+- **Blog SEO Implementado**: 4 artículos estratégicos basados en investigación de mercado
+  - `7 Salidas Profesionales Auxiliar Veterinario en Tenerife` (Mundo Animal)
+  - `Diferencias entre Farmacia y Parafarmacia 2025` (Sanidad)
+  - `Guía Estudiantes Extranjeros Venezuela` (Audiencia específica)
+  - `5 Razones Quiromasaje Tenerife` (Bienestar)
+- **Objetivo**: Captar tráfico orgánico informativo y convertir a leads cualificados
+- **Keywords atacadas**: 40+ keywords locales de alta intención
+
+### 📚 **Cursos y Contenido Académico**
+- [`COMPLETE_COURSE_DATA.md`](COMPLETE_COURSE_DATA.md) - Base de datos completa de cursos
+- [`INFORMACION_COMPLETA_CURSOS_CEP.md`](INFORMACION_COMPLETA_CURSOS_CEP.md) - Información detallada por curso
+- [`ASSETS_SLUGS_CURSOS_CEP.md`](ASSETS_SLUGS_CURSOS_CEP.md) - Gestión estratégica de slugs
+- [`PLAN_ENRIQUECIMIENTO_CURSOS.md`](PLAN_ENRIQUECIMIENTO_CURSOS.md) - Plan de mejora de contenido
+
+### 🎯 **Campañas de Marketing**
+- [`CAMPAÑA OTOÑO 2025/`](CAMPAÑA%20OTOÑO%202025/) - Campaña completa otoño 2025
+  - [`README_CAMPAÑA_OTOÑO_2025.md`](CAMPAÑA%20OTOÑO%202025/README_CAMPAÑA_OTOÑO_2025.md)
+  - [`MATRIZ_CURSOS_SEDES_FECHAS_OTONO_2025_ACTUALIZADA.md`](CAMPAÑA%20OTOÑO%202025/MATRIZ_CURSOS_SEDES_FECHAS_OTONO_2025_ACTUALIZADA.md)
+  - [`TEXTOS_COMPLETOS_14_ANUNCIOS_OTONO_2025.md`](CAMPAÑA%20OTOÑO%202025/TEXTOS_COMPLETOS_14_ANUNCIOS_OTONO_2025.md)
+
+### 🔐 **Configuración Técnica**
+- [`TRACKING_CREDENTIALS.md`](TRACKING_CREDENTIALS.md) - Credenciales de tracking
+- [`WEBHOOK_N8N_CONFIG.md`](WEBHOOK_N8N_CONFIG.md) - Configuración de webhooks
+- [`HOSTINGER_API_TECHNICAL_DOCUMENTATION.md`](HOSTINGER_API_TECHNICAL_DOCUMENTATION.md) - Documentación técnica API
+
+### 📋 **Respaldos y Datos**
+- [`cursos-backup/`](cursos-backup/) - Backup completo de cursos con precios actualizados 2025
+  - [`README.md`](cursos-backup/README.md) - Inventario de respaldos
+
+---
+
+## 🚨 **Actualizaciones Recientes**
+
+### ✅ **Enero 2025 - Blog SEO Estratégico**
+- **Investigación SEO completa** vs cursostenerife.es (competencia principal)
+- **4 artículos evergreen** optimizados para 40+ keywords locales
+- **Blog renovado** con categorización y diseño profesional
+- **Keywords objetivo**: salidas profesionales, diferencias farmacia/parafarmacia, guía venezolanos, quiromasaje Tenerife
+- **Objetivo**: Captar 500+ visitas orgánicas mensuales en 6 meses
+
+### ✅ **Diciembre 2024 - Precios Oficiales 2025**
+- **Auxiliar de Enfermería**: 1.200€ total (150€ matrícula + 10x105€)
+- **Auxiliar de Farmacia + Dermo**: 1.410€ total (150€ matrícula + 12x105€)
+- Documentación actualizada en 5 archivos críticos
+
+### ✅ **Noviembre 2024 - Sistema Email Completo**
+- **Resend integrado** con fallback FormSubmit
+- **Modal refactorizado** con UX mejorada
+- **Página de agradecimiento** optimizada
+- **Flujo dual** para máxima compatibilidad
+
+### ✅ **Octubre 2024 - Sistema de Activación de Cursos**
+- **Proceso estandarizado** de activación por demanda
+- **Rutas dobles estratégicas** (directas + semánticas)
+- **Sistema de colores inteligente** basado en fechas
+- **Mini calendario** en tiempo real
+
+---
+
+## 📌 **Navegación por Roles**
+
+### 👨‍💻 **Desarrolladores**
+```bash
+# Setup inicial
+docs/SETUP_GUIDE_CEPFORMACION.md
+docs/TECHNICAL_SPECS.md
+
+# Email y CRM
+docs/HOSTINGER_RESEND_CONFIG.md
+docs/WEBHOOK_N8N_CONFIG.md
+
+# Despliegue
+docs/DEPLOYMENT_READY.md
+scripts/pre-commit-validation.sh
+```
+
+### 📈 **Marketing/SEO**
+```bash
+# SEO Strategy 2025
+docs/SEO CEP COMUNICACION 2025/INVESTIGACION_SEO_ESTRATEGIA_CEP_FORMACION_TENERIFE.md
+docs/SEO CEP COMUNICACION 2025/ESTRATEGIA_SEO_CEP_COMUNICACION_2025.md
+
+# Blog Content
+src/pages/blog/ (4 artículos estratégicos)
+
+# Campaigns
+docs/CAMPAÑA OTOÑO 2025/
+docs/FACEBOOK_CONVERSIONS_CONFIG.md
+```
+
+### 🎓 **Académicos/Contenido**
+```bash
+# Base de Cursos
+docs/COMPLETE_COURSE_DATA.md
+docs/cursos-backup/
+docs/ASSETS_SLUGS_CURSOS_CEP.md
+
+# Filosofía de Marca
+docs/FILOSOFIA_FACILIDADES_FORMACION.md
+```
+
+### 🚀 **Operaciones/Deploy**
+```bash
+# Monitoring
+docs/DEPLOYMENT_MONITORING_GUIDE.md
+
+# Hosting
+docs/CEPCOMUNICACION_HOSTING_SETUP.md
+docs/HOSTINGER_API_TECHNICAL_DOCUMENTATION.md
+```
+
+---
+
+## 🔄 **Flujo de Trabajo Estándar**
+
+### Pre-Commit (OBLIGATORIO)
+```bash
+npm run pre-deploy  # Validación completa
+npm run safe-push   # Push tras validación
+```
+
+### Activación de Cursos
+1. Verificar en `base-cursos.json`
+2. Configurar en `cursos-otono-2025.ts`
+3. Agregar fecha en `cursos-maestro.ts`
+4. Rutas automáticas en `App.tsx`
+
+### Blog y SEO
+1. Investigación keywords target
+2. Artículo optimizado (H1, H2, meta)
+3. Enlaces internos estratégicos
+4. Actualización BlogPage.tsx
+
+---
+
+## 🎯 **Métricas y Objetivos 2025**
+
+### SEO Goals
+- **Posicionamiento**: Top 3 para "curso auxiliar [especialidad] Tenerife"
+- **Tráfico orgánico**: 500+ visitas/mes desde blog
+- **Conversión blog**: 5% artículo → lead
+
+### Technical Goals
+- **Performance**: Mantener >90 Lighthouse
+- **Uptime**: >99.9% mensual
+- **Lead capture**: >95% formularios exitosos
+
+---
+
+> **📍 Última actualización**: 15 Enero 2025  
+> **🔗 Repositorio**: [solaria-cepcomunicacion](https://github.com/nazca-media/solaria-cepcomunicacion)  
+> **🌐 Producción**: [cepcomunicacion.com](https://cepcomunicacion.com) 

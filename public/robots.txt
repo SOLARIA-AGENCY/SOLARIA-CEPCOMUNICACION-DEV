@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+# Permitir acceso a recursos estáticos importantes
+Allow: /images/
+Allow: /fonts/
+Allow: /docs/brochures/
+
+# Bloquear archivos de configuración y desarrollo
+Disallow: /config/
+Disallow: /api/test-*
+Disallow: /.well-known/
+Disallow: /debug*
+
+# Sitemap principal
+Sitemap: https://cepcomunicacion.com/sitemap.xml
+
+# Crawl-delay recomendado para preservar recursos del servidor
+Crawl-delay: 1
+
+# Horarios preferenciales para crawling (evitar picos de tráfico)
+# Google, Bing y otros bots principales pueden crawlear 24/7
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0.5
+
+# Bloquear bots agresivos o innecesarios
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: / 

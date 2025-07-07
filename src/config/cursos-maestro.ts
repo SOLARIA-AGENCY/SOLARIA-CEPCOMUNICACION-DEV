@@ -4,12 +4,15 @@ import { parsearFechaCurso } from '../utils/timeUtils';
 // Mapa para generar códigos de curso cortos y únicos
 const codigosCursoCortos: { [key: string]: string } = {
   'adiestramiento-canino': 'ADICAN',
+  'adiestramiento-canino-ii': 'ADICAN2',
   'auxiliar-clinico-veterinario': 'ACV',
   'auxiliar-enfermeria': 'AUXENF',
   'auxiliar-farmacia-dermo': 'AUXDRM',
   'auxiliar-odontologia': 'AUXODO',
   'auxiliar-farmacia-parafarmacia': 'AUXFAR',
   'quiromasaje-nivel2': 'QUIRO2',
+  'quiromasaje-nivel-1': 'QUIRO1',
+  'quiromasaje-11-meses': 'QUIRO11M',
   'dietetica-nutricion': 'NUTRIC',
   'cfgm-farmacia-parafarmacia': 'CFGMFARM',
   'cfgs-higiene-bucodental': 'CFGSHIG',
@@ -17,36 +20,41 @@ const codigosCursoCortos: { [key: string]: string } = {
   'auxiliar-clinicas-esteticas': 'ESTCLN',
   'tanatoestetica-tanatopraxia': 'TANATO',
   'ayudante-tecnico-veterinario-atv': 'ATV',
-  // Añadir más si es necesario
+  'especialista-animales-exoticos': 'EXOTIC',
+  'ayudante-tecnico-veterinario-santa-cruz': 'ATVSC',
+  'ayudante-tecnico-veterinario-norte': 'ATVN',
+  'peluqueria-canina-felina': 'PELCAN',
+  // Códigos completos - sin GENERIC
 };
 
-// Fuente de verdad para las fechas de inicio. Actualizado el 06/07/2025
-// a partir de 'cep_cursos_CAMPAÑA_2025_consolidado_1_JULIO_2025.md'.
+// Fuente de verdad para las fechas de inicio. Actualizado el 07/01/2025
+// a partir de 'Cursos_CEP_2025.markdown' - CAMPAÑA OTOÑO 2025.
 const fechasInicio: { [key: string]: string } = {
   // --- SEDE NORTE ---
-  'auxiliar-farmacia-dermo-norte': '7 de Julio de 2025',
-  'quiromasaje-nivel2-norte': '4 de Julio de 2025',
-  'auxiliar-clinico-veterinario-norte': '28 de Mayo de 2025',
-  'peluqueria-canina-norte': 'Septiembre 2025',
-  'auxiliar-odontologia-norte': '27 de Noviembre de 2025',
-  'quiromasaje-norte': '19 de Junio de 2025',
-  'ayudante-tecnico-veterinario-atv-norte': '25 de Junio de 2025',
-  'dietetica-nutricion-norte': 'Septiembre 2025',
-  'adiestramiento-canino-norte': 'Septiembre 2025',
-  'auxiliar-enfermeria-norte': 'Noviembre 2025',
-  'adiestramiento-canino-nivel2-norte': 'Próximamente',
+  'auxiliar-farmacia-parafarmacia-norte': '7 de Julio de 2025', // Línea 51: 07/07/2025 (grupo principal)
+  'quiromasaje-nivel2-norte': '4 de Julio de 2025', // Línea 52: 04/07/2025
+  'auxiliar-clinico-veterinario-norte': '28 de Mayo de 2025', // Línea 53: 28/05/2025
+  'peluqueria-canina-norte': 'Septiembre 2025', // Línea 54: Septiembre 2025
+  'auxiliar-odontologia-norte': '27 de Noviembre de 2025', // Línea 55: 27/11/2025
+  'quiromasaje-11-meses-norte': '19 de Junio de 2025', // Líneas 61-62: 19/06/2025
+  'ayudante-tecnico-veterinario-atv-norte': '25 de Junio de 2025', // Línea 63: 25/06/2025
+  'dietetica-nutricion-norte': 'Septiembre 2025', // Línea 64: Septiembre 2025
+  'adiestramiento-canino-norte': 'Septiembre 2025', // Línea 65: Septiembre 2025
+  'auxiliar-enfermeria-norte': 'Noviembre 2025', // Línea 68: Noviembre 2025
+  'adiestramiento-canino-ii-norte': 'Próximamente', // Línea 75: Sin fecha definida
 
   // --- SEDE SANTA CRUZ ---
-  'quiromasaje-santacruz': '20 de Junio de 2025',
-  'auxiliar-odontologia-santacruz': '26 de Noviembre de 2025',
-  'auxiliar-clinicas-esteticas-santacruz': '9 de Octubre de 2025',
-  'agente-funerario-santacruz': '11 de Septiembre de 2025',
-  'ayudante-tecnico-veterinario-atv-santacruz': '1 de Julio de 2025',
-  'auxiliar-clinico-veterinario-santacruz': '8 de Septiembre de 2025',
-  'peluqueria-canina-felina-santacruz': 'Junio 2025',
-  'auxiliar-enfermeria-santacruz': '29 de Septiembre de 2025',
-  'cfgm-farmacia-parafarmacia-santacruz': '18 de Septiembre de 2025',
-  'cfgs-higiene-bucodental-santacruz': '17 de Septiembre de 2025',
+  'auxiliar-farmacia-parafarmacia-santacruz': '13 de Octubre de 2025', // Usar fecha de puntosClave
+  'quiromasaje-11-meses-santacruz': '20 de Junio de 2025', // Línea 8: 20/06/2025
+  'auxiliar-odontologia-santacruz': '26 de Noviembre de 2025', // Línea 9: 26/11/2025
+  'auxiliar-clinicas-esteticas-santacruz': '9 de Octubre de 2025', // Línea 10: 09/10/2025
+  'agente-funerario-santacruz': '11 de Septiembre de 2025', // Línea 16: 11/09/2025
+  'ayudante-tecnico-veterinario-atv-santacruz': '1 de Julio de 2025', // Línea 17: 01/07/2025
+  'auxiliar-clinico-veterinario-santacruz': '9 de Septiembre de 2025', // Línea 18: 09/09/2025
+  'peluqueria-canina-felina-santacruz': 'Junio 2025', // Línea 19: Junio 2025
+  'auxiliar-enfermeria-santacruz': '29 de Septiembre de 2025', // Línea 20: 29/09/2025
+  'cfgm-farmacia-parafarmacia-santacruz': '18 de Septiembre de 2025', // Línea 25: 18/09/2025
+  'cfgs-higiene-bucodental-santacruz': '17 de Septiembre de 2025', // Línea 26: 17/09/2025
 };
 
 // Tipos para cursos CEP Formación
@@ -129,7 +137,45 @@ export interface CursoMaestro extends CursoBase {
 
 const baseCursos: CursoBase[] = baseCursosData as CursoBase[];
 
-export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
+// Separar cursos que ya están diferenciados por sede de los que necesitan generación automática
+const cursosConSede = baseCursos.filter(curso => 
+  curso.nombre.includes(' - Norte') || curso.nombre.includes(' - Santa Cruz')
+);
+
+const cursosSinSede = baseCursos.filter(curso => 
+  !curso.nombre.includes(' - Norte') && !curso.nombre.includes(' - Santa Cruz')
+);
+
+// Procesar cursos que ya tienen sede específica
+const cursosConSedeProcessed: CursoMaestro[] = cursosConSede.map(cursoBase => {
+  const esNorte = cursoBase.nombre.includes(' - Norte');
+  const sede = esNorte ? 'Norte' : 'Santa Cruz';
+  const slugSede = esNorte ? 'norte' : 'santacruz';
+  const id = `${cursoBase.slugBase}-${slugSede}`;
+  const inicio = fechasInicio[id];
+  
+  const fechaParseada = inicio ? parsearFechaCurso(inicio) : null;
+  const fechaInicioISO = fechaParseada ? fechaParseada.toISOString() : undefined;
+
+  const codigoCurso = codigosCursoCortos[cursoBase.slugBase] || 'GENERIC';
+  const anio = fechaParseada ? fechaParseada.getFullYear().toString().slice(-2) : 'XX';
+  const codigoSede = sede === 'Norte' ? 'CN' : 'SC';
+  const codigo = `PRO-${codigoSede}-${codigoCurso}-${anio}`;
+
+  return {
+    ...cursoBase,
+    id,
+    slug: id,
+    codigo: codigo,
+    sede: sede as 'Norte' | 'Santa Cruz',
+    estado: (inicio ? 'activo' : 'proximamente') as 'activo' | 'proximamente',
+    inicio: inicio,
+    fechaInicioISO: fechaInicioISO,
+  };
+});
+
+// Procesar cursos sin sede específica (generación automática)
+const cursosSinSedeProcessed: CursoMaestro[] = cursosSinSede.flatMap(cursoBase => {
   const sedes: ('Norte' | 'Santa Cruz')[] = ['Norte', 'Santa Cruz'];
   
   if (cursoBase.slugBase === 'peluqueria-canina-felina') {
@@ -187,7 +233,10 @@ export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
       etiquetaPlazas: etiquetaPlazas,
     };
   });
-}).sort((a, b) => {
+});
+
+// Combinar ambos tipos de cursos y ordenar
+export const cursosMaestro: CursoMaestro[] = [...cursosConSedeProcessed, ...cursosSinSedeProcessed].sort((a, b) => {
   const fechaA = a.inicio ? parsearFechaCurso(a.inicio) : null;
   const fechaB = b.inicio ? parsearFechaCurso(b.inicio) : null;
 

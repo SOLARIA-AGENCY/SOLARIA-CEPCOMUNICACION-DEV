@@ -597,9 +597,64 @@
     }
   },
   {
-    "nombre": "Quiromasaje (11 meses)",
-    "codigo": "QUIROMASAJE",
+    "nombre": "Quiromasaje (11 meses) - Norte",
+    "codigo": "QUIROMASAJE-NORTE",
     "slugBase": "quiromasaje-11-meses",
+    "slug": "quiromasaje-11-meses-norte",
+    "sede": "CEP NORTE",
+    "imagen": "/images/cursos/quiromasaje-11-meses.jpg",
+    "categoria": "bienestar",
+    "copy": {
+      "slogan": "Conviértete en un profesional del masaje terapéutico en 11 meses.",
+      "textosPrincipales": ["Técnicas Manuales Avanzadas", "Anatomía Aplicada", "Bienestar Integral"],
+      "titulos": ["Quiromasaje Profesional", "Protocolos Terapéuticos", "Gestión de Clientes"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "Este curso completo de 11 meses te forma como quiromasajista profesional, cubriendo desde las técnicas fundamentales hasta los protocolos avanzados para el tratamiento de diversas afecciones y la promoción del bienestar.",
+      "queAprendes": "Aprenderás a realizar un masaje completo y profesional, aplicar técnicas específicas para lesiones comunes, entender la anatomía y fisiología en profundidad, y desarrollar protocolos de tratamiento personalizados para tus clientes.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio 19/06/2025 - Jueves 16:00-20:00H" },
+        { "icono": "Users", "texto": "100 horas de prácticas" },
+        { "icono": "Award", "texto": "Certificación Profesional" }
+      ],
+      "inversion": {
+        "total": "1045€",
+        "modalidad": "11 cuotas de 95€",
+        "incluye": "Matrícula de 150€ y material."
+      },
+      "requisitos": ["No se requieren conocimientos previos."],
+      "salidasProfesionales": [
+        "Quiromasajista en centros de estética, spas, gimnasios y por cuenta propia."
+      ],
+      "modulos": [
+        { "titulo": "Fundamentos del Quiromasaje", "contenido": ["Historia y principios del quiromasaje.", "Efectos del masaje sobre el organismo.", "Indicaciones y contraindicaciones."] },
+        { "titulo": "Anatomía y Fisiología", "contenido": ["Sistema esquelético y muscular.", "Sistema circulatorio y linfático.", "Anatomía palpatoria."] },
+        { "titulo": "Técnicas y Maniobras", "contenido": ["Preparación del masajista y del cliente.", "Maniobras básicas: roces, fricciones, amasamientos, percusiones, etc.", "Estiramientos y movilizaciones."] },
+        { "titulo": "Protocolos por Zonas", "contenido": ["Masaje de espalda y cuello.", "Masaje de piernas y pies.", "Masaje de brazos y manos.", "Masaje facial y craneal."] },
+        { "titulo": "Masaje Terapéutico Avanzado", "contenido": ["Técnicas funcionales y estructurales.", "Test de evaluación muscular.", "Fricción transversa profunda de Cyriax."] },
+        { "titulo": "Patología y Lesiones", "contenido": ["Lesiones musculares, tendinosas y articulares.", "Inflamación y su tratamiento.", "Lesiones óseas y meniscales."] },
+        { "titulo": "Terapias Complementarias", "contenido": ["Crioterapia y termoterapia.", "Baños de contraste.", "Aplicaciones terapéuticas."] },
+        { "titulo": "Masaje Deportivo", "contenido": ["Técnicas específicas deportivas.", "Masaje pre y post competición.", "Masaje de entrenamiento."] },
+        { "titulo": "Evaluación y Tratamiento", "contenido": ["Historial del paciente.", "Indicaciones y contraindicaciones.", "Protocolos de tratamiento."] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Marco",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Quiromasajista y Terapeuta",
+          "bio": "Marco es un quiromasajista con amplia experiencia en el sector, especializado en masaje terapéutico y deportivo.",
+          "tags": ["Quiromasaje", "Masaje Deportivo", "Terapias Manuales"]
+        }
+      ],
+      "cursosComplementarios": ["Quiromasaje Nivel I", "Quiromasaje Nivel II", "Masaje Deportivo"]
+    }
+  },
+  {
+    "nombre": "Quiromasaje (11 meses) - Santa Cruz",
+    "codigo": "QUIROMASAJE-STACRUZ",
+    "slugBase": "quiromasaje-11-meses",
+    "slug": "quiromasaje-11-meses-santa-cruz",
+    "sede": "CEP SANTA CRUZ",
     "imagen": "/images/cursos/quiromasaje-11-meses.jpg",
     "categoria": "bienestar",
     "copy": {
@@ -616,7 +671,7 @@
         { "icono": "Award", "texto": "Certificación Profesional" }
       ],
       "inversion": {
-        "total": "1045€",
+        "total": "1054€",
         "modalidad": "11 cuotas de 95€",
         "incluye": "Matrícula de 150€ y material."
       },

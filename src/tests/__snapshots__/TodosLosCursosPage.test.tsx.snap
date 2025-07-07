@@ -394,9 +394,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-veterinaria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
               >
-                28 DE MAYO DE 2025
+                MATRÍCULA CERRADA
               </div>
             </div>
             <div
@@ -433,6 +433,182 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/auxiliar-veterinaria.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio: 25/06/2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/ayudante-tecnico-veterinario-norte-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje (11 meses) - Norte"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/quiromasaje-11-meses.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje (11 meses) - Norte
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 19/06/2025 - Jueves 16:00-20:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un profesional del masaje terapéutico en 11 meses.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-11-meses-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel I"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje I.png"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel I
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 19/06/2025 - Jueves 16:00-20:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Iníciate en el arte del masaje terapéutico y el bienestar.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel-1-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/auxiliar-veterinaria.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                ÚLTIMAS PLAZAS
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio: 01/07/2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/ayudante-tecnico-veterinario-santa-cruz-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Quiromasaje Nivel II"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/Quiromasaje II.png"
@@ -440,7 +616,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                4 DE JULIO DE 2025
+                ÚLTIMAS PLAZAS
               </div>
               <div
                 class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600 animate-pulse"
@@ -547,7 +723,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                Inicio 17/09/2025 - Miércoles 10:00-13:00H
+                Inicio Septiembre 2025 - Jueves 17:00-20:00H
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -577,7 +753,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                NOVIEMBRE 2025
+                SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -591,7 +767,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                Inicio Noviembre 2025 - Martes 17:00-20:00H
+                Inicio 29/09/2025 - Lunes 16:30-19:30H
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -614,6 +790,50 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/farmacia-parafarmacia.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+              >
+                OCTUBRE 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Auxiliar de Farmacia y Parafarmacia
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 13/10/2025 - Lunes 16:00-19:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en el enlace entre el farmacéutico y el paciente.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/auxiliar-farmacia-parafarmacia-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Auxiliar de Odontología + Periodoncia"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/auxiliar-odontologia.jpg"
@@ -621,7 +841,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                27 DE NOVIEMBRE DE 2025
+                NOVIEMBRE 2025
               </div>
             </div>
             <div
@@ -635,7 +855,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                Inicio 27/11/2025 - Jueves 10:00-14:00H
+                Inicio 26/11/2025 - Miércoles 10:00-14:00
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -702,58 +922,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Tanatoestética y Tanatopraxia (Agente Funerario)"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/especializacion-sanitaria.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Tanatoestética y Tanatopraxia (Agente Funerario)
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 11/09/2025 - Jueves 18:00-21:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Fórmate en una profesión esencial y de gran demanda social.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/agente-funerario-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
                 alt="Imagen del curso Auxiliar de Clínicas Estéticas"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                PRÓXIMAMENTE
+                OCTUBRE 2025
               </div>
             </div>
             <div
@@ -778,138 +954,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
                 href="/curso/auxiliar-clinicas-esteticas-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Quiromasaje Nivel I"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/Quiromasaje I.png"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje Nivel I
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 19/06/2025 - Jueves 16:00-20:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Iníciate en el arte del masaje terapéutico y el bienestar.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-nivel-1-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Quiromasaje (11 meses)"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/quiromasaje-11-meses.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje (11 meses)
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 20/06/2025 - Viernes 10:00-14:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en un profesional del masaje terapéutico en 11 meses.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-11-meses-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Farmacia y Parafarmacia
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 13/10/2025 - Lunes 16:00-19:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en el enlace entre el farmacéutico y el paciente.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-farmacia-parafarmacia-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -966,14 +1010,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)"
+                alt="Imagen del curso Tanatoestética y Tanatopraxia (Agente Funerario)"
                 class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
+                src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                PRÓXIMAMENTE
+                SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -982,66 +1026,22 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <h3
                 class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
               >
-                Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)
+                Tanatoestética y Tanatopraxia (Agente Funerario)
               </h3>
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                Inicio: 01/07/2025
+                Inicio 11/09/2025 - Jueves 18:00-21:00H
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
               >
-                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
+                Fórmate en una profesión esencial y de gran demanda social.
               </p>
               <a
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
-                href="/curso/ayudante-tecnico-veterinario-santa-cruz-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio: 25/06/2025
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/ayudante-tecnico-veterinario-norte-norte"
+                href="/curso/agente-funerario-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -1082,9 +1082,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-veterinaria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
               >
-                8 DE SEPTIEMBRE DE 2025
+                MATRÍCULA CERRADA
               </div>
             </div>
             <div
@@ -1121,6 +1121,226 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/auxiliar-veterinaria.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio: 25/06/2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/ayudante-tecnico-veterinario-norte-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje (11 meses) - Santa Cruz"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/quiromasaje-11-meses.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje (11 meses) - Santa Cruz
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 20/06/2025 - Viernes 10:00-14:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un profesional del masaje terapéutico en 11 meses.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-11-meses-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel I"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje I.png"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel I
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 19/06/2025 - Jueves 16:00-20:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Iníciate en el arte del masaje terapéutico y el bienestar.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel-1-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/auxiliar-veterinaria.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                ÚLTIMAS PLAZAS
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio: 01/07/2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/ayudante-tecnico-veterinario-santa-cruz-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel II"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/Quiromasaje II.png"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                ÚLTIMAS PLAZAS
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Quiromasaje Nivel II
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 04/07/2025 - Viernes 10:00-14:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Avanza en tus técnicas y especialízate en masaje deportivo.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel2-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Tanatoestética y Tanatopraxia (Agente Funerario)"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/especializacion-sanitaria.jpg"
@@ -1128,7 +1348,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                11 DE SEPTIEMBRE DE 2025
+                SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1172,7 +1392,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                29 DE SEPTIEMBRE DE 2025
+                SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1186,7 +1406,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                Inicio Noviembre 2025 - Martes 17:00-20:00H
+                Inicio 29/09/2025 - Lunes 16:30-19:30H
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1216,7 +1436,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                9 DE OCTUBRE DE 2025
+                OCTUBRE 2025
               </div>
             </div>
             <div
@@ -1253,6 +1473,50 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
+                class="w-full h-40 sm:h-48 object-cover"
+                src="/images/cursos/farmacia-parafarmacia.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+              >
+                OCTUBRE 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Auxiliar de Farmacia y Parafarmacia
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 13/10/2025 - Lunes 16:00-19:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en el enlace entre el farmacéutico y el paciente.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/auxiliar-farmacia-parafarmacia-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Auxiliar de Odontología + Periodoncia"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/auxiliar-odontologia.jpg"
@@ -1260,7 +1524,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                26 DE NOVIEMBRE DE 2025
+                NOVIEMBRE 2025
               </div>
             </div>
             <div
@@ -1274,7 +1538,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                Inicio 27/11/2025 - Jueves 10:00-14:00H
+                Inicio 26/11/2025 - Miércoles 10:00-14:00
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1302,9 +1566,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                PRÓXIMAMENTE
+                SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1385,58 +1649,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Quiromasaje Nivel I"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/Quiromasaje I.png"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje Nivel I
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 19/06/2025 - Jueves 16:00-20:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Iníciate en el arte del masaje terapéutico y el bienestar.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-nivel-1-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
                 alt="Imagen del curso Dietética y Nutrición"
                 class="w-full h-40 sm:h-48 object-cover"
                 src="/images/cursos/dietetica-nutricion.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
               >
-                PRÓXIMAMENTE
+                SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1450,7 +1670,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <p
                 class="text-xs text-gray-500 font-semibold mb-2 uppercase"
               >
-                Inicio 17/09/2025 - Miércoles 10:00-13:00H
+                Inicio Septiembre 2025 - Jueves 17:00-20:00H
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1461,138 +1681,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
                 href="/curso/dietetica-nutricion-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Quiromasaje Nivel II"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/Quiromasaje II.png"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje Nivel II
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 04/07/2025 - Viernes 10:00-14:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Avanza en tus técnicas y especialízate en masaje deportivo.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-nivel2-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Quiromasaje (11 meses)"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/quiromasaje-11-meses.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje (11 meses)
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 20/06/2025 - Viernes 10:00-14:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en un profesional del masaje terapéutico en 11 meses.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-11-meses-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Farmacia y Parafarmacia
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 13/10/2025 - Lunes 16:00-19:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en el enlace entre el farmacéutico y el paciente.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-farmacia-parafarmacia-santacruz"
               >
                 VER CURSO COMPLETO
               </a>
@@ -1637,94 +1725,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                 data-discover="true"
                 href="/curso/especialista-animales-exoticos-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio: 01/07/2025
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/ayudante-tecnico-veterinario-santa-cruz-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)"
-                class="w-full h-40 sm:h-48 object-cover"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
-              >
-                PRÓXIMAMENTE
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio: 25/06/2025
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/ayudante-tecnico-veterinario-norte-santacruz"
               >
                 VER CURSO COMPLETO
               </a>

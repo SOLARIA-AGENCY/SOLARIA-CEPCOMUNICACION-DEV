@@ -54,6 +54,89 @@ export const getFechaActualSync = (): Date => {
   return new Date();
 };
 
+// Extraer fecha de puntosClave de un curso
+export const extraerFechaDePuntosClave = (curso: CursoMaestro): string | null => {
+  if (!curso.descripcionDetallada?.puntosClave) {
+    return null;
+  }
+
+  // Buscar punto clave que contenga fecha de inicio
+  const puntoFecha = curso.descripcionDetallada.puntosClave.find(punto => 
+    punto.icono === 'Clock' && punto.texto.toLowerCase().includes('inicio')
+  );
+
+  if (!puntoFecha) {
+    return null;
+  }
+
+  // Extraer fecha del texto usando múltiples patrones
+  const textoFecha = puntoFecha.texto;
+  
+  // Patrón 1: "Inicio DD/MM/YYYY" o "Inicio: DD/MM/YYYY"
+  const patronFechaNumerico = /inicio:?\s*(\d{1,2}\/\d{1,2}\/\d{4})/i;
+  const matchNumerico = textoFecha.match(patronFechaNumerico);
+  
+  if (matchNumerico) {
+    const fechaStr = matchNumerico[1]; // "13/10/2025"
+    const [dia, mes, año] = fechaStr.split('/').map(num => parseInt(num));
+    
+    // Convertir a formato legible para parsearFechaCurso
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                   'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    
+    return `${dia} de ${meses[mes - 1]} de ${año}`;
+  }
+
+  // Patrón 2: "Inicio Mes YYYY" (ej: "Inicio Septiembre 2025")
+  const patronMesAño = /inicio\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\s+(\d{4})/i;
+  const matchMesAño = textoFecha.match(patronMesAño);
+  
+  if (matchMesAño) {
+    const mes = matchMesAño[1];
+    const año = matchMesAño[2];
+    return `${mes} ${año}`;
+  }
+
+  // Patrón 3: "Inicio Mes" (ej: "Inicio Septiembre")
+  const patronMesSolo = /inicio\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)(?:\s|$|-)/i;
+  const matchMesSolo = textoFecha.match(patronMesSolo);
+  
+  if (matchMesSolo) {
+    const mes = matchMesSolo[1];
+    // Asumir año actual si no se especifica
+    const añoActual = new Date().getFullYear();
+    return `${mes} ${añoActual}`;
+  }
+
+  // Patrón 4: "Inicio DD/MM/YYYY - Día HH:MM-HH:MMH" (formato completo)
+  const patronCompleto = /inicio:?\s*(\d{1,2}\/\d{1,2}\/\d{4})\s*-\s*\w+\s+\d{1,2}:\d{2}-\d{1,2}:\d{2}h?/i;
+  const matchCompleto = textoFecha.match(patronCompleto);
+  
+  if (matchCompleto) {
+    const fechaStr = matchCompleto[1]; // "29/09/2025"
+    const [dia, mes, año] = fechaStr.split('/').map(num => parseInt(num));
+    
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                   'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    
+    return `${dia} de ${meses[mes - 1]} de ${año}`;
+  }
+
+  return null;
+};
+
+// Obtener fecha de inicio unificada (prioriza puntosClave sobre fechasInicio)
+export const obtenerFechaInicioUnificada = (curso: CursoMaestro): string | undefined => {
+  // 1. Prioridad: fecha extraída de puntosClave (más específica y actualizada)
+  const fechaDePuntosClave = extraerFechaDePuntosClave(curso);
+  if (fechaDePuntosClave) {
+    return fechaDePuntosClave;
+  }
+
+  // 2. Fallback: fecha de fechasInicio (sistema legacy)
+  return curso.inicio;
+};
+
 // Parsear fecha de texto de curso (ej: "Julio 2025", "4 de Julio de 2025")
 export const parsearFechaCurso = (fechaTexto: string): Date | null => {
   const meses = {
@@ -106,11 +189,12 @@ export const calcularMesesDiferencia = (fechaActual: Date, fechaCurso: Date): nu
   return (añoCurso - añoActual) * 12 + (mesCurso - mesActual);
 };
 
-// Determinar color de etiqueta según proximidad temporal
+// Determinar color de etiqueta según reglas del refactor-plan.md (VERSIÓN UNIFICADA)
 export const determinarColorEtiqueta = (
   fechaInicio: string | undefined, 
   esCiclo: boolean = false,
-  fechaActual?: Date
+  fechaActual?: Date,
+  curso?: CursoMaestro // Nuevo parámetro para acceder a puntosClave
 ): ColorTag => {
   // Ciclos siempre azul
   if (esCiclo) {
@@ -118,81 +202,122 @@ export const determinarColorEtiqueta = (
     return { text: texto, color: 'bg-blue-500', esCiclo: true };
   }
 
+  // Obtener fecha unificada si tenemos acceso al curso completo
+  let fechaFinal = fechaInicio;
+  if (curso) {
+    fechaFinal = obtenerFechaInicioUnificada(curso);
+  }
+
   // Sin fecha = próximamente en gris
-  if (!fechaInicio) {
+  if (!fechaFinal || fechaFinal.toLowerCase().includes('próximamente')) {
     return { text: 'PRÓXIMAMENTE', color: 'bg-gray-500' };
   }
 
   const ahora = fechaActual || getFechaActualSync();
-  const fechaCurso = parsearFechaCurso(fechaInicio);
+  const fechaCurso = parsearFechaCurso(fechaFinal);
   
   if (!fechaCurso) {
-    return { text: fechaInicio.toUpperCase(), color: 'bg-purple-500' };
+    // Si no se puede parsear pero tiene texto, mostrar como mes/año
+    return { text: fechaFinal.toUpperCase(), color: 'bg-green-500' };
   }
 
-  const mesesDiferencia = calcularMesesDiferencia(ahora, fechaCurso);
+  // Calcular diferencia en días
+  const diferenciaDias = Math.floor((fechaCurso.getTime() - ahora.getTime()) / (1000 * 60 * 60 * 24));
   
-  // Lógica de colores según proximidad
-  if (mesesDiferencia <= 1) {
-    // Este mes o próximo mes = NARANJA (urgente)
-    return { text: fechaInicio.toUpperCase(), color: 'bg-orange-500' };
-  } else if (mesesDiferencia >= 2) {
-    // 2 meses o más = VERDE (planificación)
-    return { text: fechaInicio.toUpperCase(), color: 'bg-green-500' };
+  // Aplicar reglas del refactor-plan.md:
+  if (diferenciaDias < -5) {
+    // Más de 5 días después de fechaInicio = MATRÍCULA CERRADA (Rojo)
+    return { text: 'MATRÍCULA CERRADA', color: 'bg-red-600' };
+  } else if (diferenciaDias >= -5 && diferenciaDias <= 5) {
+    // En el rango de 5 días antes y 5 días después = ÚLTIMAS PLAZAS (Naranja)
+    return { text: 'ÚLTIMAS PLAZAS', color: 'bg-orange-500' };
   } else {
-    // Caso edge = morado
-    return { text: fechaInicio.toUpperCase(), color: 'bg-purple-500' };
+    // Cualquier otra fecha futura = MES AÑO (Verde)
+    const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+                   'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
+    const mes = meses[fechaCurso.getMonth()];
+    const año = fechaCurso.getFullYear();
+    
+    // Para fechas muy futuras, mostrar mes y año
+    if (diferenciaDias > 60) {
+      return { text: `${mes} ${año}`, color: 'bg-green-500' };
+    } else {
+      // Para fechas próximas, mostrar fecha específica
+      const dia = fechaCurso.getDate();
+      return { text: `${dia} DE ${mes} DE ${año}`, color: 'bg-orange-500' };
+    }
   }
 };
 
 /**
- * Ordena los cursos por fecha de inicio de la forma más simple y directa:
- * 1. Cursos con fecha, del más cercano al más lejano.
- * 2. Cursos sin fecha ('Próximamente').
- * 3. Ciclos formativos.
+ * Ordena los cursos por prioridad estratégica para maximizar conversiones:
+ * 1. MATRÍCULA CERRADA (máxima urgencia/escasez)
+ * 2. ÚLTIMAS PLAZAS (urgencia media-alta, ventana crítica)
+ * 3. Cursos con fecha futura (ordenados por proximidad)
+ * 4. PRÓXIMAMENTE (cursos sin fecha definida)
+ * 5. Ciclos formativos (al final)
  */
 export const ordenarCursosPorPrioridad = (cursos: CursoMaestro[]): CursoMaestro[] => {
+  const fechaActual = getFechaActualSync();
+
   const getScore = (curso: CursoMaestro): number => {
-    // Prioridad 1: Cursos con fecha de inicio (van primero).
-    if (curso.inicio && curso.categoria !== 'ciclos') {
+    const esCiclo = curso.categoria === 'ciclos';
+    const etiqueta = determinarColorEtiqueta(curso.inicio, esCiclo, fechaActual, curso);
+    
+    // Prioridad 1: MATRÍCULA CERRADA (máxima urgencia para conversiones)
+    if (etiqueta.text === 'MATRÍCULA CERRADA') {
       return 1;
     }
-    // Prioridad 2: Cursos sin fecha de inicio ('Próximamente').
-    if (!curso.inicio && curso.categoria !== 'ciclos') {
+    
+    // Prioridad 2: ÚLTIMAS PLAZAS (urgencia media-alta, ventana crítica de ±5 días)
+    if (etiqueta.text === 'ÚLTIMAS PLAZAS') {
       return 2;
     }
-    // Prioridad 3: Ciclos formativos (van al final).
-    if (curso.categoria === 'ciclos') {
+    
+    // Prioridad 3: Cursos con fecha futura definida (ordenar por proximidad)
+    if (curso.inicio && !curso.inicio.toLowerCase().includes('próximamente') && curso.categoria !== 'ciclos') {
       return 3;
     }
-    return 4; // Fallback
+    
+    // Prioridad 4: Cursos sin fecha ('Próximamente')
+    if (!curso.inicio || curso.inicio.toLowerCase().includes('próximamente')) {
+      return 4;
+    }
+    
+    // Prioridad 5: Ciclos formativos (al final)
+    if (curso.categoria === 'ciclos') {
+      return 5;
+    }
+    
+    return 6; // Fallback
+  };
+
+  const getFechaParaOrden = (curso: CursoMaestro): number => {
+    const fechaUnificada = obtenerFechaInicioUnificada(curso);
+    if (!fechaUnificada) return Infinity;
+    
+    const fechaParseada = parsearFechaCurso(fechaUnificada);
+    return fechaParseada ? fechaParseada.getTime() : Infinity;
   };
 
   return [...cursos].sort((a, b) => {
     const scoreA = getScore(a);
     const scoreB = getScore(b);
 
-    // Si las prioridades son diferentes, ordenar por prioridad.
+    // Si las prioridades son diferentes, ordenar por prioridad
     if (scoreA !== scoreB) {
       return scoreA - scoreB;
     }
 
-    // Si ambos son cursos con fecha, ordenar por la más cercana.
-    if (a.inicio && b.inicio) {
-      const fechaA = parsearFechaCurso(a.inicio);
-      const fechaB = parsearFechaCurso(b.inicio);
-
-      // Si alguna fecha es inválida, no cambiar el orden.
-      if (!fechaA || !fechaB) {
-        return 0;
-      }
-      
-      // Ordenar de más cercano a más lejano.
-      return fechaA.getTime() - fechaB.getTime();
+    // Dentro de la misma prioridad, ordenar por fecha (más cercana primero)
+    if (scoreA === 2 || scoreA === 3) { // ÚLTIMAS PLAZAS y cursos con fecha futura
+      const fechaA = getFechaParaOrden(a);
+      const fechaB = getFechaParaOrden(b);
+      return fechaA - fechaB;
     }
 
-    // Si ambos son 'Próximamente' o ambos son 'Ciclos', mantener su orden relativo.
-    return 0;
+    // Para otros casos, mantener orden alfabético
+    return a.nombre.localeCompare(b.nombre);
   });
 };
 

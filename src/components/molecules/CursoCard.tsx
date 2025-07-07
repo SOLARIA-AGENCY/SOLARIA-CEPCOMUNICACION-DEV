@@ -23,8 +23,8 @@ const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
   // Determinar si es ciclo formativo
   const esCiclo = curso.categoria === 'ciclos';
   
-  // Usar nuevo sistema inteligente de colores
-  const fechaTag = determinarColorEtiqueta(curso.inicio, esCiclo, fechaActual);
+  // Usar nuevo sistema inteligente de colores con lógica unificada
+  const fechaTag = determinarColorEtiqueta(curso.inicio, esCiclo, fechaActual, curso);
   
   const duracion = curso.descripcionDetallada?.puntosClave.find(p => p.icono === 'Clock')?.texto;
 
