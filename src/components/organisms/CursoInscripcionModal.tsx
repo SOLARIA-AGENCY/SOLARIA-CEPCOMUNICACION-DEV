@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, User, Mail, Phone, MapPin, MessageSquare, Calendar, CheckCircle } from 'lucide-react';
+import { X, User, Mail, Phone, MapPin, MessageSquare, CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 type CursoInfo = {

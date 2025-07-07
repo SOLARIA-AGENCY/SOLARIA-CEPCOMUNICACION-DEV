@@ -59,7 +59,7 @@ const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp 
           {cursosNorte.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {cursosNorte.map(curso => (
-                <CursoCard key={`${curso.id}-norte`} curso={curso} />
+                <CursoCard key={curso.codigo} curso={curso} />
               ))}
             </div>
           ) : (
@@ -77,7 +77,7 @@ const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp 
           {cursosSantaCruz.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
               {cursosSantaCruz.map(curso => (
-                <CursoCard key={`${curso.id}-sc`} curso={curso} />
+                <CursoCard key={curso.codigo} curso={curso} />
               ))}
             </div>
           ) : (

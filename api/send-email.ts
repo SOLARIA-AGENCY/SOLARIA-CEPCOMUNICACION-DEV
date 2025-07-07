@@ -4,8 +4,22 @@ import { Resend } from 'resend';
 // Leer la clave API desde las variables de entorno
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Interfaces para tipado
+interface FormSubmitPayload {
+  Nombre: string;
+  Apellidos?: string;
+  Email: string;
+  Telefono: string;
+  Sede_Preferida: string;
+  Comentarios?: string;
+  cursoNombre: string;
+  campaignName: string;
+  campaignTag: string;
+  formOriginUrl: string;
+}
+
 // Función de fallback usando FormSubmit
-const sendViaFormSubmit = async (payload: any) => {
+const sendViaFormSubmit = async (payload: FormSubmitPayload) => {
   const formData = new FormData();
   
   // Crear el contenido del mensaje para FormSubmit

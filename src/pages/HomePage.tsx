@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Users, Award, TrendingUp, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, Award, TrendingUp } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import { Link } from 'react-router-dom';
@@ -316,7 +316,7 @@ const HomePage: React.FC = () => {
                 <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {cursosNorte.map((curso) => <CursoCard key={curso.id} curso={curso} />)}
+                {cursosNorte.map((curso) => <CursoCard key={curso.codigo} curso={curso} />)}
               </div>
             </div>
           )}
@@ -330,7 +330,7 @@ const HomePage: React.FC = () => {
                 <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {cursosSantaCruz.map((curso) => <CursoCard key={curso.id} curso={curso} />)}
+                {cursosSantaCruz.map((curso) => <CursoCard key={curso.codigo} curso={curso} />)}
               </div>
             </div>
           )}

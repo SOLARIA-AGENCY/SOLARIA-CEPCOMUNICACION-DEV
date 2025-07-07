@@ -3,12 +3,15 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'rea
 import ScrollToTop from './components/utils/ScrollToTop';
 import HomePage from './pages/HomePage';
 import ContactPage from './pages/ContactPage';
+import ContactoPage from './pages/ContactoPage';
+import QuienesSomosPage from './pages/QuienesSomosPage';
 import AvisoLegalPage from './pages/AvisoLegalPage';
 import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
 import ProteccionDatosPage from './pages/ProteccionDatosPage';
 import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
 import FaqPage from './pages/FaqPage';
 import BlogPage from './pages/BlogPage';
+import BlogArticlePage from './pages/BlogArticlePage';
 
 // --- ESTRUCTURA DINÁMICA ---
 import TodosLosCursosPage from './pages/TodosLosCursosPage';
@@ -27,6 +30,7 @@ import SedePage from './pages/SedePage';
 import LoginPage from './pages/admin/LoginPage';
 import GestionCursosPage from './pages/admin/GestionCursosPage';
 import ProtectedRoute from './components/utils/ProtectedRoute';
+import SedesPage from './pages/SedesPage';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -59,6 +63,7 @@ function App() {
         {/* Rutas de Cursos */}
         <Route path="/cursos" element={<TodosLosCursosPage />} />
         <Route path="/ciclos" element={<CiclosPage />} />
+        <Route path="/sedes" element={<SedesPage />} />
         <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
 
         {/* 🏫 RUTAS DE SEDES */}
@@ -94,14 +99,19 @@ function App() {
 
         {/* Paginas de Contenido y SEO */}
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogArticlePage />} />
         <Route path="/faq" element={<FaqPage />} />
 
         {/* Páginas Legales y de Contacto */}
-        <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/contacto" element={<ContactoPage />} />
+        <Route path="/quienes-somos" element={<QuienesSomosPage />} />
         <Route path="/aviso-legal" element={<AvisoLegalPage />} />
         <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
         <Route path="/politica-cookies" element={<PoliticaCookiesPage />} />
         <Route path="/proteccion-datos" element={<ProteccionDatosPage />} />
+        
+        {/* Ruta temporal para el curso de adiestramiento (antes en ContactPage) */}
+        <Route path="/adiestramiento-canino-temp" element={<ContactPage />} />
         
         {/* Páginas de Sistema */}
         <Route path="/solaria-status" element={<SolariaStatusPage />} />

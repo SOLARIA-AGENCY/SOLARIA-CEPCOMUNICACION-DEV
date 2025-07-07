@@ -23,8 +23,8 @@ const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
   // Determinar si es ciclo formativo
   const esCiclo = curso.categoria === 'ciclos';
   
-  // Usar nuevo sistema inteligente de colores
-  const fechaTag = determinarColorEtiqueta(curso.inicio, esCiclo, fechaActual);
+  // Usar nuevo sistema inteligente de colores con lógica unificada
+  const fechaTag = determinarColorEtiqueta(curso.inicio, esCiclo, fechaActual, curso);
   
   const duracion = curso.descripcionDetallada?.puntosClave.find(p => p.icono === 'Clock')?.texto;
 
@@ -32,9 +32,13 @@ const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
       <div className="relative">
         <img
-          src={curso.imagen}
+          src={curso.imagen.includes('quiromasaje-11-meses') ? '/images/cursos/quiromasaje-11-meses-optimized.webp' : 
+               curso.imagen.includes('especialista-animales-exoticos') ? '/images/cursos/especialista-animales-exoticos-optimized.webp' : 
+               curso.imagen}
           alt={`Imagen del curso ${curso.nombre}`}
           className="w-full h-40 sm:h-48 object-cover"
+          loading="lazy"
+          decoding="async"
         />
         {/* Etiqueta de Estado/Fecha (Izquierda) */}
         <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white ${fechaTag.color}`}>

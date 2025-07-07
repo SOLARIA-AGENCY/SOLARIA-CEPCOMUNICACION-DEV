@@ -597,10 +597,65 @@
     }
   },
   {
-    "nombre": "Quiromasaje (11 meses)",
-    "codigo": "QUIROMASAJE",
+    "nombre": "Quiromasaje (11 meses) - Norte",
+    "codigo": "QUIROMASAJE-NORTE",
     "slugBase": "quiromasaje-11-meses",
-    "imagen": "/images/cursos/quiromasaje-11-meses.jpg",
+    "slug": "quiromasaje-11-meses-norte",
+    "sede": "CEP NORTE",
+    "imagen": "/images/cursos/Quiromasaje I.png",
+    "categoria": "bienestar",
+    "copy": {
+      "slogan": "Conviértete en un profesional del masaje terapéutico en 11 meses.",
+      "textosPrincipales": ["Técnicas Manuales Avanzadas", "Anatomía Aplicada", "Bienestar Integral"],
+      "titulos": ["Quiromasaje Profesional", "Protocolos Terapéuticos", "Gestión de Clientes"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "Este curso completo de 11 meses te forma como quiromasajista profesional, cubriendo desde las técnicas fundamentales hasta los protocolos avanzados para el tratamiento de diversas afecciones y la promoción del bienestar.",
+      "queAprendes": "Aprenderás a realizar un masaje completo y profesional, aplicar técnicas específicas para lesiones comunes, entender la anatomía y fisiología en profundidad, y desarrollar protocolos de tratamiento personalizados para tus clientes.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio 19/06/2025 - Jueves 16:00-20:00H" },
+        { "icono": "Users", "texto": "100 horas de prácticas" },
+        { "icono": "Award", "texto": "Certificación Profesional" }
+      ],
+      "inversion": {
+        "total": "1045€",
+        "modalidad": "11 cuotas de 95€",
+        "incluye": "Matrícula de 150€ y material."
+      },
+      "requisitos": ["No se requieren conocimientos previos."],
+      "salidasProfesionales": [
+        "Quiromasajista en centros de estética, spas, gimnasios y por cuenta propia."
+      ],
+      "modulos": [
+        { "titulo": "Fundamentos del Quiromasaje", "contenido": ["Historia y principios del quiromasaje.", "Efectos del masaje sobre el organismo.", "Indicaciones y contraindicaciones."] },
+        { "titulo": "Anatomía y Fisiología", "contenido": ["Sistema esquelético y muscular.", "Sistema circulatorio y linfático.", "Anatomía palpatoria."] },
+        { "titulo": "Técnicas y Maniobras", "contenido": ["Preparación del masajista y del cliente.", "Maniobras básicas: roces, fricciones, amasamientos, percusiones, etc.", "Estiramientos y movilizaciones."] },
+        { "titulo": "Protocolos por Zonas", "contenido": ["Masaje de espalda y cuello.", "Masaje de piernas y pies.", "Masaje de brazos y manos.", "Masaje facial y craneal."] },
+        { "titulo": "Masaje Terapéutico Avanzado", "contenido": ["Técnicas funcionales y estructurales.", "Test de evaluación muscular.", "Fricción transversa profunda de Cyriax."] },
+        { "titulo": "Patología y Lesiones", "contenido": ["Lesiones musculares, tendinosas y articulares.", "Inflamación y su tratamiento.", "Lesiones óseas y meniscales."] },
+        { "titulo": "Terapias Complementarias", "contenido": ["Crioterapia y termoterapia.", "Baños de contraste.", "Aplicaciones terapéuticas."] },
+        { "titulo": "Masaje Deportivo", "contenido": ["Técnicas específicas deportivas.", "Masaje pre y post competición.", "Masaje de entrenamiento."] },
+        { "titulo": "Evaluación y Tratamiento", "contenido": ["Historial del paciente.", "Indicaciones y contraindicaciones.", "Protocolos de tratamiento."] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Marco",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Quiromasajista y Terapeuta",
+          "bio": "Marco es un quiromasajista con amplia experiencia en el sector, especializado en masaje terapéutico y deportivo.",
+          "tags": ["Quiromasaje", "Masaje Deportivo", "Terapias Manuales"]
+        }
+      ],
+      "cursosComplementarios": ["Quiromasaje Nivel I", "Quiromasaje Nivel II", "Masaje Deportivo"]
+    }
+  },
+  {
+    "nombre": "Quiromasaje (11 meses) - Santa Cruz",
+    "codigo": "QUIROMASAJE-STACRUZ",
+    "slugBase": "quiromasaje-11-meses",
+    "slug": "quiromasaje-11-meses-santa-cruz",
+    "sede": "CEP SANTA CRUZ",
+    "imagen": "/images/cursos/Quiromasaje I.png",
     "categoria": "bienestar",
     "copy": {
       "slogan": "Conviértete en un profesional del masaje terapéutico en 11 meses.",
@@ -616,7 +671,7 @@
         { "icono": "Award", "texto": "Certificación Profesional" }
       ],
       "inversion": {
-        "total": "1045€",
+        "total": "1054€",
         "modalidad": "11 cuotas de 95€",
         "incluye": "Matrícula de 150€ y material."
       },
@@ -666,6 +721,104 @@
         { "icono": "Users", "texto": "150 horas de prácticas" },
         { "icono": "Award", "texto": "Certificación farmacéutica" },
         { "icono": "Book", "texto": "Farmacología y parafarmacia" }
+      ],
+      "inversion": {
+        "total": "1200€",
+        "modalidad": "12 cuotas de 105€ + 150€ matrícula",
+        "incluye": "Material didáctico y agencia de colocación oficial."
+      },
+      "requisitos": ["Tener 2º de ESO o EGB superado."],
+      "salidasProfesionales": [
+        "Auxiliar en farmacias", "Auxiliar en parafarmacias", "Almacén de medicamentos", "Distribuidoras farmacéuticas", "Laboratorios farmacéuticos", "Hospitales (servicio farmacia)", "Centros sociosanitarios"
+      ],
+      "modulos": [
+        { "titulo": "Anatomopatología", "contenido": ["Sistemas del cuerpo humano.", "Constantes vitales y primeros auxilios.", "Aparatos respiratorio, digestivo y urinario."] },
+        { "titulo": "Farmacología", "contenido": ["Medicamentos y prescripción.", "Dispensación farmacéutica.", "Biofarmacia y farmacocinética."] },
+        { "titulo": "Farmacología por Sistemas", "contenido": ["Terapia antiinfecciosa.", "Homeopatía y fitoterapia.", "Medicamentos veterinarios."] },
+        { "titulo": "Parafarmacia", "contenido": ["Productos parafarmacéuticos.", "Alimentación y nutrición.", "Productos sanitarios."] },
+        { "titulo": "Dermocosmética", "contenido": ["Productos cosméticos.", "Dermocosmética especializada.", "Cosmética infantil y masculina."] },
+        { "titulo": "Especialidades", "contenido": ["Ortopedia y prótesis.", "Óptica y audioprótesis.", "Productos odontológicos."] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Alexis",
+          "foto": "/images/profesores/alexis.jpg",
+          "especialidad": "Farmacéutico Colegiado",
+          "bio": "Alexis es un profesional con amplia experiencia en el sector farmacéutico, especializado en atención farmacéutica y dispensación de medicamentos.",
+          "tags": ["Farmacología", "Atención Farmacéutica", "Parafarmacia"]
+        }
+      ],
+      "cursosComplementarios": ["Auxiliar de Enfermería", "Dietética y Nutrición", "CFGM Farmacia y Parafarmacia"]
+    }
+  },
+  {
+    "nombre": "Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2",
+    "codigo": "AUXFARMA2", 
+    "slugBase": "auxiliar-farmacia-parafarmacia-norte-grupo2", 
+    "imagen": "/images/cursos/farmacia-parafarmacia.jpg",
+    "categoria": "sanidad",
+    "copy": {
+      "slogan": "Conviértete en el enlace entre el farmacéutico y el paciente.",
+      "textosPrincipales": ["Domina la dispensación de medicamentos, atención farmacéutica y productos de parafarmacia."],
+      "titulos": ["Atención Farmacéutica", "Dispensación Especializada", "Productos Sanitarios"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
+      "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio 21/07/2025 - Lunes 10:00-13:00H" },
+        { "icono": "Users", "texto": "150 horas de prácticas" },
+        { "icono": "Award", "texto": "Certificación farmacéutica" },
+        { "icono": "Book", "texto": "Sede CEP Norte - Aula 5" }
+      ],
+      "inversion": {
+        "total": "1200€",
+        "modalidad": "12 cuotas de 100€ + 150€ matrícula",
+        "incluye": "Material didáctico y agencia de colocación oficial."
+      },
+      "requisitos": ["Tener 2º de ESO o EGB superado."],
+      "salidasProfesionales": [
+        "Auxiliar en farmacias", "Auxiliar en parafarmacias", "Almacén de medicamentos", "Distribuidoras farmacéuticas", "Laboratorios farmacéuticos", "Hospitales (servicio farmacia)", "Centros sociosanitarios"
+      ],
+      "modulos": [
+        { "titulo": "Anatomopatología", "contenido": ["Sistemas del cuerpo humano.", "Constantes vitales y primeros auxilios.", "Aparatos respiratorio, digestivo y urinario."] },
+        { "titulo": "Farmacología", "contenido": ["Medicamentos y prescripción.", "Dispensación farmacéutica.", "Biofarmacia y farmacocinética."] },
+        { "titulo": "Farmacología por Sistemas", "contenido": ["Terapia antiinfecciosa.", "Homeopatía y fitoterapia.", "Medicamentos veterinarios."] },
+        { "titulo": "Parafarmacia", "contenido": ["Productos parafarmacéuticos.", "Alimentación y nutrición.", "Productos sanitarios."] },
+        { "titulo": "Dermocosmética", "contenido": ["Productos cosméticos.", "Dermocosmética especializada.", "Cosmética infantil y masculina."] },
+        { "titulo": "Especialidades", "contenido": ["Ortopedia y prótesis.", "Óptica y audioprótesis.", "Productos odontológicos."] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Alexis",
+          "foto": "/images/profesores/alexis.jpg",
+          "especialidad": "Farmacéutico Colegiado",
+          "bio": "Alexis es un profesional con amplia experiencia en el sector farmacéutico, especializado en atención farmacéutica y dispensación de medicamentos.",
+          "tags": ["Farmacología", "Atención Farmacéutica", "Parafarmacia"]
+        }
+      ],
+      "cursosComplementarios": ["Auxiliar de Enfermería", "Dietética y Nutrición", "CFGM Farmacia y Parafarmacia"]
+    }
+  },
+  {
+    "nombre": "Auxiliar de Farmacia y Parafarmacia - Norte Tarde",
+    "codigo": "AUXFARMAT", 
+    "slugBase": "auxiliar-farmacia-parafarmacia-norte-tarde", 
+    "imagen": "/images/cursos/farmacia-parafarmacia.jpg",
+    "categoria": "sanidad",
+    "copy": {
+      "slogan": "Conviértete en el enlace entre el farmacéutico y el paciente.",
+      "textosPrincipales": ["Domina la dispensación de medicamentos, atención farmacéutica y productos de parafarmacia."],
+      "titulos": ["Atención Farmacéutica", "Dispensación Especializada", "Productos Sanitarios"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
+      "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio 13/10/2025 - Lunes 16:00-19:00H" },
+        { "icono": "Users", "texto": "150 horas de prácticas" },
+        { "icono": "Award", "texto": "Certificación farmacéutica" },
+        { "icono": "Book", "texto": "Sede CEP Norte - Aula 5" }
       ],
       "inversion": {
         "total": "1200€",
@@ -749,7 +902,7 @@
     "nombre": "Especialista en Animales Exóticos",
     "codigo": "EXOTICOS",
     "slugBase": "especialista-animales-exoticos",
-    "imagen": "/images/cursos/especialista-animales-exoticos.jpg",
+    "imagen": "/images/cursos/mundo-animal.jpg",
     "categoria": "veterinaria",
     "copy": {
       "slogan": "Adéntrate en el fascinante mundo de las especies no convencionales.",

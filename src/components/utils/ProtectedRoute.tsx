@@ -1,19 +1,11 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
 
 interface ProtectedRouteProps {
-  children: React.ReactElement;
+  children: React.ReactNode;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  // const { isAuthenticated } = useAuth();
-
-  // if (!isAuthenticated) {
-  //   return <Navigate to="/login" replace />;
-  // }
-
-  return children;
-};
-
-export default ProtectedRoute;
+export default function ProtectedRoute({ children }: ProtectedRouteProps) {
+  // Por ahora, simplemente renderiza los children sin autenticación
+  // En el futuro se puede implementar autenticación real
+  return <>{children}</>;
+}

@@ -100,3 +100,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities; /* Cache bust timestamp: 20250702023141*/
+
+/* Estilos para el mapa Leaflet */
+.leaflet-container {
+  font-family: var(--font-family-poppins);
+}
+
+.custom-popup .leaflet-popup-content {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.custom-popup .leaflet-popup-tip {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,31 +1,407 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
-import { Rss } from 'lucide-react';
+
+interface BlogArticle {
+  id: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  readTime: number;
+  publishDate: string;
+  slug: string;
+  keywords: string[];
+  featured?: boolean;
+  courseRelated?: string[];
+  image?: string;
+}
 
 const BlogPage: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  const articles: BlogArticle[] = [
+    // ARTÍCULOS DE URGENCIA
+    {
+      id: 'julio-2025',
+      title: 'Cursos de Verano 2025: Formación Especializada en CEP Tenerife',
+      excerpt: 'Análisis de las oportunidades formativas disponibles para el periodo estival. Auxiliar de Farmacia, Quiromasaje Nivel II y especialización en Atención Veterinaria.',
+      category: 'Guías',
+      readTime: 8,
+      publishDate: '2025-06-20',
+      slug: 'ultimas-plazas-cursos-julio-2025-cep-tenerife',
+      keywords: ['cursos julio 2025 tenerife', 'auxiliar farmacia tenerife', 'quiromasaje tenerife', 'auxiliar veterinario tenerife', 'formación urgente canarias'],
+      featured: true,
+      courseRelated: ['auxiliar-farmacia', 'quiromasaje', 'auxiliar-veterinario'],
+      image: '/images/cursos/formacion-gratuita.jpg'
+    },
+    {
+      id: 'microblading-2025',
+      title: 'Microblading en Tenerife: Técnica de Micropigmentación Profesional',
+      excerpt: 'Estudio del mercado de micropigmentación en Canarias. Análisis de la demanda profesional y perspectivas laborales en el sector de la estética avanzada.',
+      category: 'Estética',
+      readTime: 12,
+      publishDate: '2025-06-18',
+      slug: 'microblading-tenerife-invierte-800-gana-2000-mes',
+      keywords: ['microblading tenerife', 'curso microblading canarias', 'cejas microblading santa cruz', 'micropigmentación tenerife'],
+      featured: true,
+      courseRelated: ['microblading', 'estetica'],
+      image: '/images/cursos/especializacion-sanitaria.jpg'
+    },
+
+    // ARTÍCULOS ESTRATÉGICOS NUEVOS
+    {
+      id: 'peluqueria-canina-auge',
+      title: 'Peluquería Canina en Tenerife: Análisis del Sector Profesional',
+      excerpt: 'Estudio de la demanda de servicios de peluquería canina en Tenerife. Análisis estadístico del mercado y perspectivas profesionales en el cuidado animal.',
+      category: 'Mundo Animal',
+      readTime: 15,
+      publishDate: '2025-06-17',
+      slug: 'peluqueria-canina-tenerife-profesion-auge',
+      keywords: ['peluquería canina tenerife', 'curso peluquería perros canarias', 'peluquero canino puerto cruz', 'formación mascotas tenerife'],
+      featured: true,
+      courseRelated: ['peluqueria-canina', 'mundo-animal'],
+      image: '/images/cursos/peluqueria-canina.jpg'
+    },
+    {
+      id: 'instructor-yoga-canarias',
+      title: 'Instructor de Yoga: Perspectivas Profesionales en Canarias',
+      excerpt: 'Análisis de las oportunidades laborales para instructores de yoga en el archipiélago canario. Estudio del mercado y factores geográficos favorables.',
+      category: 'Bienestar',
+      readTime: 18,
+      publishDate: '2025-06-16',
+      slug: 'instructor-yoga-canarias-profesion-auge',
+      keywords: ['instructor yoga tenerife', 'curso yoga canarias', 'formación profesor yoga', 'certificación yoga tenerife'],
+      featured: true,
+      courseRelated: ['instructor-yoga', 'bienestar'],
+      image: '/images/cursos/salud-bienestar-y-deporte.jpg'
+    },
+    {
+      id: 'adiestramiento-canino-futuro',
+      title: 'Adiestramiento Canino: Formación Profesional y Certificación ANACP',
+      excerpt: 'Estudio de la demanda profesional en adiestramiento canino en Tenerife. Análisis de la certificación ANACP y perspectivas laborales en educación animal.',
+      category: 'Mundo Animal',
+      readTime: 20,
+      publishDate: '2025-06-15',
+      slug: 'adiestramiento-canino-tenerife-profesion-futuro',
+      keywords: ['adiestramiento canino tenerife', 'curso adiestrador perros', 'ANACP tenerife', 'educador canino canarias'],
+      featured: true,
+      courseRelated: ['adiestramiento-canino', 'mundo-animal'],
+      image: '/images/cursos/adiestramiento-canino.jpg'
+    },
+
+    // ARTÍCULOS EXISTENTES
+    {
+      id: 'salidas-auxiliar-veterinario',
+      title: '7 Salidas Profesionales de Auxiliar Veterinario en Tenerife Que No Conocías',
+      excerpt: 'Descubre las oportunidades laborales más rentables para auxiliares veterinarios en Tenerife. Desde clínicas especializadas hasta empresas de alimentación animal.',
+      category: 'Mundo Animal',
+      readTime: 12,
+      publishDate: '2025-01-15',
+      slug: '7-salidas-profesionales-auxiliar-veterinario-tenerife',
+      keywords: ['salidas profesionales auxiliar veterinario', 'auxiliar veterinaria tenerife', 'trabajo veterinario canarias'],
+      courseRelated: ['auxiliar-veterinario'],
+      image: '/images/cursos/auxiliar-veterinaria.jpg'
+    },
+    {
+      id: 'farmacia-vs-parafarmacia',
+      title: 'Diferencias Entre Farmacia y Parafarmacia: ¿Qué Estudiar en 2025?',
+      excerpt: 'Análisis completo de las diferencias entre trabajar en farmacia vs parafarmacia. Salarios, funciones y las mejores opciones formativas en Tenerife.',
+      category: 'Sanidad',
+      readTime: 10,
+      publishDate: '2025-01-12',
+      slug: 'diferencias-farmacia-parafarmacia-que-estudiar-2025',
+      keywords: ['diferencias farmacia parafarmacia', 'auxiliar farmacia tenerife', 'curso farmacia canarias'],
+      courseRelated: ['auxiliar-farmacia'],
+      image: '/images/cursos/farmacia-parafarmacia.jpg'
+    },
+    {
+      id: 'estudiantes-extranjeros-venezuela',
+      title: 'Guía Completa: Estudiantes Extranjeros Estudiar en Tenerife (Venezuela)',
+      excerpt: 'Todo lo que necesitas saber para estudiar en Tenerife siendo venezolano. Requisitos, homologaciones, mejores cursos y facilidades económicas disponibles.',
+      category: 'Guías',
+      readTime: 15,
+      publishDate: '2025-01-10',
+      slug: 'guia-estudiantes-extranjeros-estudiar-tenerife-venezuela',
+      keywords: ['estudiar en tenerife venezuela', 'cursos para venezolanos tenerife', 'formación extranjeros canarias'],
+      courseRelated: ['todos'],
+      image: '/images/cursos/ciclos-formativos.jpg'
+    },
+    {
+      id: 'quiromasaje-tenerife-razones',
+      title: '5 Razones para Formarte en Quiromasaje en Tenerife',
+      excerpt: 'El mercado del quiromasaje en Tenerife crece un 15% anual. Descubre por qué es una de las mejores inversiones formativas que puedes hacer en 2025.',
+      category: 'Bienestar',
+      readTime: 8,
+      publishDate: '2025-01-08',
+      slug: '5-razones-formarte-quiromasaje-tenerife',
+      keywords: ['curso quiromasaje tenerife', 'quiromasaje santa cruz tenerife', 'formación masajes canarias'],
+      courseRelated: ['quiromasaje'],
+      image: '/images/cursos/Quiromasaje I.png'
+    }
+  ];
+
+  const categories = ['all', 'Mundo Animal', 'Sanidad', 'Estética', 'Bienestar', 'Guías'];
+  
+  const featuredArticles = articles.filter(article => article.featured);
+  
+  const filteredArticles = selectedCategory === 'all' 
+    ? articles
+    : articles.filter(article => article.category === selectedCategory);
+
+  const getCategoryColor = (category: string) => {
+    const colors = {
+      'Mundo Animal': 'bg-green-600 text-white',
+      'Sanidad': 'bg-blue-600 text-white',
+      'Estética': 'bg-pink-600 text-white',
+      'Bienestar': 'bg-purple-600 text-white',
+      'Guías': 'bg-orange-600 text-white'
+    };
+    return colors[category as keyof typeof colors] || 'bg-gray-600 text-white';
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <CepHeader />
-      <main className="flex-grow flex items-center justify-center text-center">
-        <div className="container mx-auto px-4">
-          <Rss className="mx-auto text-cep-primary h-16 w-16 mb-6" />
-          <h1 className="text-4xl font-bold text-gray-800 tracking-tight sm:text-5xl">Nuestro Blog</h1>
-          <p className="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">
-            Estamos preparando contenido de valor para ti. Muy pronto encontrarás aquí artículos, noticias y consejos sobre el sector de la formación profesional y el empleo.
-          </p>
-          <div className="mt-8">
-            <a 
-              href="/inicio" 
-              className="inline-block bg-cep-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-cep-primary-dark transition-colors"
-            >
-              Volver al Inicio
-            </a>
+    <>
+      <Helmet>
+        <title>Blog CEP Formación | Guías, Consejos y Tendencias Formativas en Tenerife</title>
+        <meta name="description" content="Descubre las mejores oportunidades formativas en Tenerife. Guías completas, análisis del mercado laboral y consejos para tu desarrollo profesional." />
+        <meta name="keywords" content="blog formación tenerife, cursos profesionales canarias, salidas laborales tenerife, formación profesional canarias, CEP formación blog" />
+        <link rel="canonical" href="https://cep-formacion.com/blog" />
+        
+        {/* Schema.org para Blog */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Blog CEP Formación",
+            "description": "Blog oficial de CEP Formación con guías, análisis y tendencias del mercado formativo en Tenerife",
+            "url": "https://cep-formacion.com/blog",
+            "publisher": {
+              "@type": "Organization",
+              "name": "CEP Formación",
+              "url": "https://cep-formacion.com"
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <div className="min-h-screen bg-gray-50">
+        <CepHeader />
+        
+        <main className="pt-20">
+          {/* Hero Section */}
+          <div className="bg-white py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl">
+                  Blog CEP Formación
+                </h1>
+                <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+                  Guías completas, análisis del mercado laboral y las mejores oportunidades formativas en Tenerife
+                </p>
+                <div className="mt-8 flex flex-wrap justify-center gap-4">
+                  <div className="bg-blue-50 px-4 py-2 rounded-full">
+                    <span className="text-blue-800 font-semibold">📊 {articles.length} Artículos</span>
+                  </div>
+                  <div className="bg-green-50 px-4 py-2 rounded-full">
+                    <span className="text-green-800 font-semibold">🎯 Estrategias SEO</span>
+                  </div>
+                  <div className="bg-purple-50 px-4 py-2 rounded-full">
+                    <span className="text-purple-800 font-semibold">💼 Mercado Laboral 2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </main>
-      <CepFooter />
-    </div>
+
+          {/* Filtros de Categorías */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex flex-wrap gap-3 justify-center">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 rounded-full font-medium transition-colors ${
+                    selectedCategory === category
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+                  }`}
+                >
+                  {category === 'all' ? 'Todos' : category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Artículos Destacados */}
+          {selectedCategory === 'all' && featuredArticles.length > 0 && (
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  ⭐ Artículos Destacados
+                </h2>
+                <p className="text-gray-600">Los artículos más relevantes para tu formación profesional</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {featuredArticles.slice(0, 3).map((article) => (
+                  <article key={article.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    {/* Imagen del artículo */}
+                    {article.image && (
+                      <div className="aspect-video overflow-hidden">
+                        <img 
+                          src={article.image} 
+                          alt={article.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    )}
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(article.category)}`}>
+                          {article.category}
+                        </span>
+                        <div className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-semibold">
+                          DESTACADO
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">
+                        {article.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 mb-4 line-clamp-3">
+                        {article.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                        <span>{article.readTime} min</span>
+                        <span>{new Date(article.publishDate).toLocaleDateString('es-ES')}</span>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {article.keywords.slice(0, 2).map((keyword, index) => (
+                          <span key={index} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
+                            {keyword}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <a 
+                        href={`/blog/${article.slug}`}
+                        className="w-full bg-gradient-to-r from-cep-primary to-pink-600 text-white px-6 py-3 rounded-full font-bold text-center block hover:from-pink-600 hover:to-cep-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                      >
+                        Leer Más
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Todos los Artículos */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                {selectedCategory === 'all' ? '📚 Todos los Artículos' : `📂 ${selectedCategory}`}
+              </h2>
+              <p className="text-gray-600">
+                {selectedCategory === 'all' 
+                  ? 'Explora nuestra biblioteca completa de contenido formativo'
+                  : `Artículos especializados en ${selectedCategory.toLowerCase()}`
+                }
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredArticles.map((article) => (
+                <article key={article.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  {/* Imagen del artículo */}
+                  {article.image && (
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={article.image} 
+                        alt={article.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(article.category)}`}>
+                        {article.category}
+                      </span>
+                      {article.featured && (
+                        <div className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-semibold">
+                          NUEVO
+                        </div>
+                      )}
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">
+                      {article.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-4 line-clamp-3">
+                      {article.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                      <span>{article.readTime} min lectura</span>
+                      <span>{new Date(article.publishDate).toLocaleDateString('es-ES')}</span>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {article.keywords.slice(0, 2).map((keyword, index) => (
+                        <span key={index} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
+                          {keyword}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    <a 
+                      href={`/blog/${article.slug}`}
+                      className="w-full bg-gradient-to-r from-cep-primary to-pink-600 text-white px-6 py-3 rounded-full font-bold text-center block hover:from-pink-600 hover:to-cep-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    >
+                      Leer Más
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="bg-blue-600 py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl font-bold text-white mb-4">
+                ¿Listo para Dar el Siguiente Paso?
+              </h2>
+              <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+                Descubre nuestros cursos profesionales y convierte tu pasión en una carrera exitosa
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="/cursos"
+                  className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                >
+                  Ver Todos los Cursos
+                </a>
+                <a 
+                  href="/contacto"
+                  className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors border border-blue-500"
+                >
+                  Contactar Asesor
+                </a>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <CepFooter />
+      </div>
+    </>
   );
 };
 

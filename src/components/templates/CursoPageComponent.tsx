@@ -64,12 +64,16 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
       <main className="pt-20">
         {/* Hero Section */}
         <section className="relative py-16 sm:py-20 text-white overflow-hidden">
-          {/* Imagen de fondo */}
+          {/* Imagen de fondo optimizada */}
           <div className="absolute inset-0">
             <img 
-              src={curso.imagen} 
+              src={curso.imagen.includes('quiromasaje-11-meses') ? '/images/cursos/quiromasaje-11-meses-optimized.webp' : 
+                   curso.imagen.includes('especialista-animales-exoticos') ? '/images/cursos/especialista-animales-exoticos-optimized.webp' : 
+                   curso.imagen} 
               alt={curso.nombre}
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
           </div>
