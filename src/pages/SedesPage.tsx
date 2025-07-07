@@ -140,7 +140,7 @@ const SedesPage: React.FC = () => {
                     {/* Botón Ver Cursos */}
                     <div className="mt-8">
                       <Link
-                        to="/sede/cep-norte"
+                        to="/sede/norte"
                         className="w-full bg-gradient-to-r from-cep-primary to-pink-600 text-white px-8 py-4 rounded-full font-bold text-center block hover:from-pink-600 hover:to-cep-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
                         VER CURSOS POR SEDE
@@ -249,7 +249,7 @@ const SedesPage: React.FC = () => {
                     {/* Botón Ver Cursos */}
                     <div className="mt-8">
                       <Link
-                        to="/sede/cep-santa-cruz"
+                        to="/sede/santa-cruz"
                         className="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-center block hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
                         VER CURSOS POR SEDE
