@@ -437,15 +437,7 @@
         { "titulo": "Empresa e Iniciativa Emprendedora", "contenido": ["Creación y gestión de una clínica dental", "Plan de negocio"] },
         { "titulo": "Formación en Centros de Trabajo (FCT)", "contenido": ["Prácticas profesionales en clínicas dentales"] }
       ],
-      "profesores": [
-        {
-          "nombre": "Sillones",
-          "foto": "/images/profesores/default.png",
-          "especialidad": "Higiene Bucodental",
-          "bio": "",
-          "tags": []
-        }
-      ],
+      "profesores": [],
       "certificaciones": [
         { "nombre": "Ministerio de Educación y Formación Profesional", "logo": "/images/certificaciones/ministerio-educacion.png" },
         { "nombre": "Gobierno de Canarias", "logo": "/images/certificaciones/gobierno-canarias.png" }
