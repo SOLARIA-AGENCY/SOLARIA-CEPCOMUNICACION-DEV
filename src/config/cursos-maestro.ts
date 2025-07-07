@@ -37,7 +37,7 @@ const fechasInicio: { [key: string]: string } = {
   'peluqueria-canina-norte': 'Septiembre 2025', // Línea 54: Septiembre 2025
   'auxiliar-odontologia-norte': '27 de Noviembre de 2025', // Línea 55: 27/11/2025
   'quiromasaje-11-meses-norte': '19 de Junio de 2025', // Líneas 61-62: 19/06/2025
-  'ayudante-tecnico-veterinario-atv-norte': '25 de Junio de 2025', // Línea 63: 25/06/2025
+  'ayudante-tecnico-veterinario-norte-norte': '25 de Junio de 2025', // Línea 63: 25/06/2025
   'dietetica-nutricion-norte': 'Septiembre 2025', // Línea 64: Septiembre 2025
   'adiestramiento-canino-norte': 'Septiembre 2025', // Línea 65: Septiembre 2025
   'auxiliar-enfermeria-norte': 'Noviembre 2025', // Línea 68: Noviembre 2025
@@ -49,7 +49,7 @@ const fechasInicio: { [key: string]: string } = {
   'auxiliar-odontologia-santacruz': '26 de Noviembre de 2025', // Línea 9: 26/11/2025
   'auxiliar-clinicas-esteticas-santacruz': '9 de Octubre de 2025', // Línea 10: 09/10/2025
   'agente-funerario-santacruz': '11 de Septiembre de 2025', // Línea 16: 11/09/2025
-  'ayudante-tecnico-veterinario-atv-santacruz': '1 de Julio de 2025', // Línea 17: 01/07/2025
+  'ayudante-tecnico-veterinario-santa-cruz-santacruz': '1 de Julio de 2025', // Línea 17: 01/07/2025
   'auxiliar-clinico-veterinario-santacruz': '9 de Septiembre de 2025', // Línea 18: 09/09/2025
   'peluqueria-canina-felina-santacruz': 'Junio 2025', // Línea 19: Junio 2025
   'auxiliar-enfermeria-santacruz': '29 de Septiembre de 2025', // Línea 20: 29/09/2025
@@ -139,16 +139,22 @@ const baseCursos: CursoBase[] = baseCursosData as CursoBase[];
 
 // Separar cursos que ya están diferenciados por sede de los que necesitan generación automática
 const cursosConSede = baseCursos.filter(curso => 
-  curso.nombre.includes(' - Norte') || curso.nombre.includes(' - Santa Cruz')
+  curso.nombre.includes(' - Norte') || curso.nombre.includes(' - Santa Cruz') ||
+  curso.nombre.includes('(Norte)') || curso.nombre.includes('(Santa Cruz)') ||
+  curso.nombre.includes('(La Laguna/Norte)')
 );
 
 const cursosSinSede = baseCursos.filter(curso => 
-  !curso.nombre.includes(' - Norte') && !curso.nombre.includes(' - Santa Cruz')
+  !curso.nombre.includes(' - Norte') && !curso.nombre.includes(' - Santa Cruz') &&
+  !curso.nombre.includes('(Norte)') && !curso.nombre.includes('(Santa Cruz)') &&
+  !curso.nombre.includes('(La Laguna/Norte)')
 );
 
 // Procesar cursos que ya tienen sede específica
 const cursosConSedeProcessed: CursoMaestro[] = cursosConSede.map(cursoBase => {
-  const esNorte = cursoBase.nombre.includes(' - Norte');
+  const esNorte = cursoBase.nombre.includes(' - Norte') || 
+                  cursoBase.nombre.includes('(Norte)') ||
+                  cursoBase.nombre.includes('(La Laguna/Norte)');
   const sede = esNorte ? 'Norte' : 'Santa Cruz';
   const slugSede = esNorte ? 'norte' : 'santacruz';
   const id = `${cursoBase.slugBase}-${slugSede}`;
