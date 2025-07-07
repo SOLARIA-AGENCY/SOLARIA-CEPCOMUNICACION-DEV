@@ -269,17 +269,15 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
             </a>
             <a
               class="text-gray-700 hover:text-cep-primary font-medium transition-colors"
-              href="https://cursostenerife.es/#quienes-somos"
-              rel="noopener noreferrer"
-              target="_blank"
+              data-discover="true"
+              href="/quienes-somos"
             >
               QUIENES SOMOS
             </a>
             <a
               class="text-gray-700 hover:text-cep-primary font-medium transition-colors"
-              href="https://cursostenerife.es/#contacto"
-              rel="noopener noreferrer"
-              target="_blank"
+              data-discover="true"
+              href="/contacto"
             >
               CONTACTO
             </a>

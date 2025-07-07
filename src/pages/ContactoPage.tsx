@@ -12,7 +12,8 @@ const ContactoPage: React.FC = () => {
     tipoFormacion: '',
     cursoInteres: '',
     mensaje: '',
-    aceptaPrivacidad: false
+    aceptaPrivacidad: false,
+    honeypot: '' // Campo oculto para prevenir spam
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,6 +43,12 @@ const ContactoPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Verificar honeypot (si hay contenido, es spam)
+    if (formData.honeypot.trim() !== '') {
+      return; // Silently reject spam
+    }
+    
     if (!formData.aceptaPrivacidad) {
       alert('Debes aceptar la política de privacidad para enviar el formulario.');
       return;
@@ -82,7 +89,8 @@ const ContactoPage: React.FC = () => {
           tipoFormacion: '',
           cursoInteres: '',
           mensaje: '',
-          aceptaPrivacidad: false
+          aceptaPrivacidad: false,
+          honeypot: ''
         });
       } else {
         throw new Error('Error en el envío');
@@ -95,20 +103,8 @@ const ContactoPage: React.FC = () => {
     }
   };
 
+  // Cursos exactos de cursostenerife.es
   const cursosDesempleados = [
-    'Control y Formación en Consumo',
-    'Atención al Cliente: consumidor o usuario',
-    'Gestión Ambiental',
-    'Gestión de Servicios para el control de organismos nocivos',
-    'Atención al Alumnado con necesidades educativas especiales',
-    'Inserción laboral de personas con discapacidad',
-    'Asistencia en la gestión de procedimientos tributarios',
-    'Seguridad Informática',
-    'Gestión Integrada de Recursos Humanos',
-    'Alemán B2'
-  ];
-
-  const cursosPrivados = [
     'Adiestramiento Canino I',
     'Adiestramiento Canino II',
     'Auxiliar de Clínicas Estéticas',
@@ -137,6 +133,19 @@ const ContactoPage: React.FC = () => {
   ];
 
   const cursosOcupados = [
+    'Control y Formación en Consumo',
+    'Atención al Cliente: consumidor o usuario',
+    'Gestión Ambiental',
+    'Gestión de Servicios para el control de organismos nocivos',
+    'Atención al Alumnado con necesidades educativas especiales',
+    'Inserción laboral de personas con discapacidad',
+    'Asistencia en la gestión de procedimientos tributarios',
+    'Seguridad Informática',
+    'Gestión Integrada de Recursos Humanos',
+    'Alemán B2'
+  ];
+
+  const cursosPrivados = [
     'Cocina vegetariana en restauración',
     'Cocina vegetal y cocina especial con intolerancias',
     'Ecoturismo',
@@ -171,9 +180,12 @@ const ContactoPage: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-2xl">
               RESPONDEMOS TUS DUDAS
             </h1>
-            <p className="text-xl text-white drop-shadow-xl font-medium">
-              Estamos aquí para ayudarte a encontrar la formación que necesitas
-            </p>
+            <div className="flex items-center justify-center mb-4">
+              <Phone className="w-6 h-6 mr-3" />
+              <span className="text-xl font-bold">TELÉFONO: 922 219 257</span>
+              <span className="mx-4">/</span>
+              <span className="text-lg">HORARIO: Lunes a viernes 10 a 14 - 16 a 20</span>
+            </div>
           </div>
         </div>
       </section>
@@ -242,20 +254,15 @@ const ContactoPage: React.FC = () => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
                   Teléfono *
                 </label>
-                <div className="flex">
-                  <span className="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
-                    Spain +34
-                  </span>
-                  <input
-                    type="tel"
-                    name="telefono"
-                    required
-                    value={formData.telefono}
-                    onChange={handleInputChange}
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary"
-                    placeholder="922 000 000"
-                  />
-                </div>
+                <input
+                  type="tel"
+                  name="telefono"
+                  required
+                  value={formData.telefono}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary focus:border-cep-primary"
+                  placeholder="922 000 000"
+                />
               </div>
 
               <div>
@@ -335,6 +342,9 @@ const ContactoPage: React.FC = () => {
                   <li>• <strong>Destinatarios:</strong> Los datos son guardados en Sered, nuestro proveedor de hosting.</li>
                   <li>• <strong>Derechos:</strong> Tienes derecho a acceder, rectificar, limitar y eliminar tus datos cuando quieras.</li>
                 </ul>
+                <p className="mt-3 text-xs">
+                  • Para enviarnos este mensaje debes confirmar que has leído y estás de acuerdo con nuestra Política de Privacidad.
+                </p>
               </div>
 
               <div className="flex items-start">
@@ -350,6 +360,18 @@ const ContactoPage: React.FC = () => {
                   Sí, acepto la <a href="/politica-privacidad" className="text-cep-primary hover:underline">política de privacidad</a>.
                 </label>
               </div>
+
+              {/* Campo honeypot oculto */}
+              <input
+                type="text"
+                name="honeypot"
+                value={formData.honeypot}
+                onChange={handleInputChange}
+                style={{ display: 'none' }}
+                tabIndex={-1}
+                autoComplete="off"
+                placeholder="Por favor, no rellenes este campo."
+              />
 
               <button
                 type="submit"
@@ -372,7 +394,16 @@ const ContactoPage: React.FC = () => {
                   <MapPin className="w-5 h-5 mr-2 text-cep-primary" />
                   SANTA CRUZ
                 </h3>
-                <div className="bg-gray-100 rounded-lg p-4 mb-4">
+                <p className="text-gray-700 mb-4 font-medium">
+                  Plaza José Antonio Barrios Olivero, 38005, Santa Cruz, S/C de Tenerife (bajo Estadio Heliodoro)
+                </p>
+                <div className="flex items-center text-cep-primary mb-4">
+                  <Phone className="w-5 h-5 mr-2" />
+                  <a href="tel:+34922219257" className="hover:underline font-semibold">
+                    922 219 257
+                  </a>
+                </div>
+                <div className="bg-gray-100 rounded-lg p-4">
                   <div className="aspect-video rounded-lg overflow-hidden">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.3826280119504!2d-16.244443899999995!3d28.4678479!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc41cce4f6b35b8d%3A0x872e8fd8d67f14d!2sCEP%20Formaci%C3%B3n%20Santa%20Cruz!5e0!3m2!1ses!2ses!4v1635854874853!5m2!1ses!2ses"
@@ -385,12 +416,6 @@ const ContactoPage: React.FC = () => {
                     />
                   </div>
                 </div>
-                <div className="flex items-center text-cep-primary">
-                  <Phone className="w-5 h-5 mr-2" />
-                  <a href="tel:+34922219257" className="hover:underline font-semibold">
-                    922 21 92 57
-                  </a>
-                </div>
               </div>
 
               {/* Sede Norte */}
@@ -399,7 +424,16 @@ const ContactoPage: React.FC = () => {
                   <MapPin className="w-5 h-5 mr-2 text-cep-primary" />
                   NORTE
                 </h3>
-                <div className="bg-gray-100 rounded-lg p-4 mb-4">
+                <p className="text-gray-700 mb-4 font-medium">
+                  Molinos de Gofio 2, 38312 La Orotava, S/C de Tenerife (C.C. El Trompo – Última planta)
+                </p>
+                <div className="flex items-center text-cep-primary mb-4">
+                  <Phone className="w-5 h-5 mr-2" />
+                  <a href="tel:+34922219257" className="hover:underline font-semibold">
+                    922 219 257
+                  </a>
+                </div>
+                <div className="bg-gray-100 rounded-lg p-4">
                   <div className="aspect-video rounded-lg overflow-hidden">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.1734043577887!2d-16.541519299999998!3d28.4897423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9a68b5a3c4cd%3A0x1234567890abcdef!2sCEP%20Norte%20La%20Orotava!5e0!3m2!1ses!2ses!4v1635854874853!5m2!1ses!2ses"
@@ -411,12 +445,6 @@ const ContactoPage: React.FC = () => {
                       referrerPolicy="no-referrer-when-downgrade"
                     />
                   </div>
-                </div>
-                <div className="flex items-center text-cep-primary">
-                  <Phone className="w-5 h-5 mr-2" />
-                  <a href="tel:+34922219257" className="hover:underline font-semibold">
-                    922 21 92 57
-                  </a>
                 </div>
               </div>
 
@@ -434,6 +462,22 @@ const ContactoPage: React.FC = () => {
                     Facebook
                   </a>
                   <a
+                    href="https://wa.me/34618989648"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    WhatsApp
+                  </a>
+                  <a
+                    href="mailto:info@cursostenerife.es"
+                    className="flex items-center bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    Mail
+                  </a>
+                  <a
                     href="https://www.instagram.com/cep_santacruz/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -449,21 +493,7 @@ const ContactoPage: React.FC = () => {
                     className="flex items-center bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors"
                   >
                     <Youtube className="w-5 h-5 mr-2" />
-                    YouTube
-                  </a>
-                  <a
-                    href="tel:+34618989648"
-                    className="flex items-center bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    WhatsApp
-                  </a>
-                  <a
-                    href="mailto:info@cursostenerife.es"
-                    className="flex items-center bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                  >
-                    <Mail className="w-5 h-5 mr-2" />
-                    Email
+                    Youtube
                   </a>
                 </div>
               </div>
