@@ -257,7 +257,7 @@
       "introduccion": "El curso de Auxiliar de Enfermería te proporciona los conocimientos teórico-prácticos para poder ejercer una de las profesiones con más demanda en nuestra sociedad, preparándote para trabajar en hospitales, clínicas y centros de salud.",
       "queAprendes": "Aprenderás a proporcionar cuidados auxiliares al paciente, preparar materiales e instrumental, realizar tareas de higiene y aseo, y asistir al equipo de enfermería en diversos procedimientos, todo ello con un enfoque humano y profesional.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio Noviembre 2025 - Martes 17:00-20:00H" },
+        { "icono": "Clock", "texto": "Inicio 29/09/2025 - Lunes 16:30-19:30H" },
         { "icono": "Users", "texto": "400 horas de prácticas en empresas" },
         { "icono": "Award", "texto": "Formación integral para el sector salud" }
       ],
@@ -306,7 +306,7 @@
         "introduccion": "El curso de Auxiliar de Odontología ofrece los conocimientos imprescindibles del funcionamiento de una clínica odontológica, las funciones del auxiliar de odontología y técnicas especializadas en salud bucodental.",
         "queAprendes": "Si consideras que la salud bucodental es fundamental para una buena salud física y emocional y te ves desarrollando tu carrera profesional como parte de un equipo multidisciplinar odontológico, este curso te capacitará completamente.",
         "puntosClave": [
-          { "icono": "Clock", "texto": "Inicio 27/11/2025 - Jueves 10:00-14:00H" },
+          { "icono": "Clock", "texto": "Inicio 26/11/2025 - Miércoles 10:00-14:00" },
           { "icono": "Users", "texto": "200 horas de prácticas" },
           { "icono": "Award", "texto": "Certificación especializada dental" },
           { "icono": "Book", "texto": "Manejo de radiología dental" }
@@ -513,7 +513,7 @@
         "introduccion": "El curso de Dietética y Nutrición ofrece los conocimientos imprescindibles sobre nutrición aplicada, elaboración de dietas personalizadas, educación nutricional y tratamiento de trastornos alimentarios.",
         "queAprendes": "Si te interesa la alimentación saludable, quieres ayudar a las personas a mejorar su calidad de vida a través de la nutrición y deseas especializarte en este campo en crecimiento, adquirirás todos los conocimientos necesarios.",
         "puntosClave": [
-          { "icono": "Clock", "texto": "Inicio 17/09/2025 - Miércoles 10:00-13:00H" },
+          { "icono": "Clock", "texto": "Inicio Septiembre 2025 - Jueves 17:00-20:00H" },
           { "icono": "Users", "texto": "150 horas de prácticas" },
           { "icono": "Award", "texto": "Certificación en dietética" },
           { "icono": "Book", "texto": "Enfoque en nutrición terapéutica" }
@@ -624,7 +624,17 @@
       "salidasProfesionales": [
         "Quiromasajista en centros de estética, spas, gimnasios y por cuenta propia."
       ],
-      "modulos": [],
+      "modulos": [
+        { "titulo": "Fundamentos del Quiromasaje", "contenido": ["Historia y principios del quiromasaje.", "Efectos del masaje sobre el organismo.", "Indicaciones y contraindicaciones."] },
+        { "titulo": "Anatomía y Fisiología", "contenido": ["Sistema esquelético y muscular.", "Sistema circulatorio y linfático.", "Anatomía palpatoria."] },
+        { "titulo": "Técnicas y Maniobras", "contenido": ["Preparación del masajista y del cliente.", "Maniobras básicas: roces, fricciones, amasamientos, percusiones, etc.", "Estiramientos y movilizaciones."] },
+        { "titulo": "Protocolos por Zonas", "contenido": ["Masaje de espalda y cuello.", "Masaje de piernas y pies.", "Masaje de brazos y manos.", "Masaje facial y craneal."] },
+        { "titulo": "Masaje Terapéutico Avanzado", "contenido": ["Técnicas funcionales y estructurales.", "Test de evaluación muscular.", "Fricción transversa profunda de Cyriax."] },
+        { "titulo": "Patología y Lesiones", "contenido": ["Lesiones musculares, tendinosas y articulares.", "Inflamación y su tratamiento.", "Lesiones óseas y meniscales."] },
+        { "titulo": "Terapias Complementarias", "contenido": ["Crioterapia y termoterapia.", "Baños de contraste.", "Aplicaciones terapéuticas."] },
+        { "titulo": "Masaje Deportivo", "contenido": ["Técnicas específicas deportivas.", "Masaje pre y post competición.", "Masaje de entrenamiento."] },
+        { "titulo": "Evaluación y Tratamiento", "contenido": ["Historial del paciente.", "Indicaciones y contraindicaciones.", "Protocolos de tratamiento."] }
+      ],
       "profesores": [
         {
           "nombre": "Abraham Sillones",
