@@ -4,6 +4,7 @@ import { MapPin, Phone, Clock, Mail, Bus, Building } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
+import MapaTenerife from '../components/molecules/MapaTenerife';
 
 const SedesPage: React.FC = () => {
   return (
@@ -140,7 +141,7 @@ const SedesPage: React.FC = () => {
                     {/* Botón Ver Cursos */}
                     <div className="mt-8">
                       <Link
-                        to="/sede/norte"
+                        to="/sede/cep-norte"
                         className="w-full bg-gradient-to-r from-cep-primary to-pink-600 text-white px-8 py-4 rounded-full font-bold text-center block hover:from-pink-600 hover:to-cep-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
                         VER CURSOS POR SEDE
@@ -249,7 +250,7 @@ const SedesPage: React.FC = () => {
                     {/* Botón Ver Cursos */}
                     <div className="mt-8">
                       <Link
-                        to="/sede/santa-cruz"
+                        to="/sede/cep-santa-cruz"
                         className="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-center block hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
                         VER CURSOS POR SEDE
@@ -271,17 +272,7 @@ const SedesPage: React.FC = () => {
                 </div>
                 
                 <div className="bg-white rounded-2xl shadow-xl p-8">
-                  <div className="aspect-video bg-gray-100 rounded-xl flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="w-16 h-16 text-cep-primary mx-auto mb-4" />
-                      <p className="text-lg font-medium text-gray-900 mb-2">
-                        Mapa Interactivo
-                      </p>
-                      <p className="text-gray-600">
-                        Próximamente disponible con direcciones exactas y rutas optimizadas
-                      </p>
-                    </div>
-                  </div>
+                  <MapaTenerife />
                 </div>
               </div>
               

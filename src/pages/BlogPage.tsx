@@ -289,9 +289,9 @@ const BlogPage: React.FC = () => {
                       
                       <a 
                         href={`/blog/${article.slug}`}
-                        className="inline-flex items-center text-cep-primary font-semibold hover:text-pink-700 transition-colors"
+                        className="w-full bg-gradient-to-r from-cep-primary to-pink-600 text-white px-6 py-3 rounded-full font-bold text-center block hover:from-pink-600 hover:to-cep-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                       >
-                        Leer más →
+                        Leer Más
                       </a>
                     </div>
                   </article>
@@ -362,9 +362,9 @@ const BlogPage: React.FC = () => {
                     
                     <a 
                       href={`/blog/${article.slug}`}
-                      className="inline-flex items-center text-cep-primary font-semibold hover:text-pink-700 transition-colors"
+                      className="w-full bg-gradient-to-r from-cep-primary to-pink-600 text-white px-6 py-3 rounded-full font-bold text-center block hover:from-pink-600 hover:to-cep-primary transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
-                      Leer más →
+                      Leer Más
                     </a>
                   </div>
                 </article>
