@@ -127,15 +127,17 @@ const QuienesSomosPage: React.FC = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 max-w-md">
-                <img 
-                  src="/images/logos/CIRCULO CEP FORMACION LOGO.png" 
-                  alt="CEP Formación Logo"
-                  className="w-full h-auto rounded-lg shadow-lg"
-                />
-                <div className="mt-4 text-center">
-                  <h3 className="text-xl font-bold mb-2">CEP Formación</h3>
-                  <p className="text-sm opacity-90">Centro de Enseñanzas Profesionales</p>
+              <div className="bg-white rounded-2xl p-8 max-w-md shadow-2xl border-4 border-white/30">
+                <div className="bg-white rounded-xl p-6 shadow-inner">
+                  <img 
+                    src="/images/logos/CIRCULO CEP FORMACION LOGO.png" 
+                    alt="CEP Formación Logo"
+                    className="w-full h-auto mx-auto drop-shadow-lg"
+                  />
+                </div>
+                <div className="mt-6 text-center">
+                  <h3 className="text-xl font-bold mb-2 text-cep-primary">CEP Formación</h3>
+                  <p className="text-sm text-gray-600 font-medium">Centro de Enseñanzas Profesionales</p>
                 </div>
               </div>
             </div>

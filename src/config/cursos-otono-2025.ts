@@ -886,8 +886,8 @@ export const cursoData = [
     practicas: '50 horas prácticas en empresas',
     certificacion: 'Diploma CEP en Quiromasaje Nivel II',
     profesorDetalle: {
-        nombre: 'Alexis Hernández',
-        foto: '/images/profesores/alexis.jpg',
+        nombre: 'Marco',
+        foto: '/images/profesores/luis.jpg', // Placeholder hasta tener foto de Marco
         especialidad: 'Especialista en Quiromasaje y Terapias Manuales',
         descripcion: 'Profesional certificado en quiromasaje y técnicas de terapia manual avanzada. Especialista en tratamientos de rehabilitación y bienestar. Amplia experiencia en centros de fisioterapia y wellness.'
     },
@@ -943,12 +943,7 @@ export const cursoData = [
     },
     practicas: 'Prácticas con pacientes reales desde 1º año + 350h en empresa',
     certificacion: 'Título oficial MEC - Centro autorizado Nº 38017275',
-    profesorDetalle: {
-      nombre: 'Nuria E. Ángel',
-      foto: '/images/profesores/nuria.jpg',
-      especialidad: 'Especialista en Higiene Bucodental y Periodoncia',
-      descripcion: 'Higienista bucodental titulada con amplia experiencia en clínicas especializadas. Experta en educación sanitaria y técnicas preventivas avanzadas. Formadora oficial de ciclos formativos sanitarios.'
-    },
+    // profesorDetalle: Sin profesor asignado actualmente según datos oficiales CEP
     modalidadInfo: {
       tipo: 'Ciclo Formativo Oficial homologado por el Ministerio de Educación y Formación Profesional - Centro autorizado por Consejería de Educación',
       horario: 'Semipresencial - Miércoles 17:00-21:00h',
