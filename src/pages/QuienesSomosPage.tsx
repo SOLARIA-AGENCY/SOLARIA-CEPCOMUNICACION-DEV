@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Users, Heart, Target, CheckCircle, Quote } from 'lucide-react';
+import { Users, Heart, Target, CheckCircle, Quote, Play, Award, BookOpen } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 
@@ -14,25 +14,40 @@ const QuienesSomosPage: React.FC = () => {
       texto: "Gracias a CEP he conseguido encontrar una estabilidad laboral y una profesión que me gusta y que consigue hacerme llegar todas las noches a casa feliz",
       nombre: "Pilar",
       profesion: "Técnico sup. higiene bucodental",
-      imagen: "/images/profesores/pilar.jpg" // Usando imagen existente como placeholder
+      imagen: "/images/profesores/sara.jpg"
     },
     {
       texto: "Las practicas han sido 100% beneficiosas para mi, para mi aprendizaje, he conocido gente fantástica y estoy feliz con mi carta de recomendación",
       nombre: "Sonia", 
       profesion: "Técnico en odontología",
-      imagen: "/images/profesores/sara.jpg"
+      imagen: "/images/profesores/cecilia.jpg"
     },
     {
       texto: "Feliz porque conseguí trabajo en la farmacia donde realice las prácticas profesionales",
       nombre: "Priscila",
       profesion: "Auxiliar de farmacia", 
-      imagen: "/images/profesores/cecilia.jpg"
+      imagen: "/images/profesores/esther.jpg"
     },
     {
       texto: "Agradecida de la docente que me toco, no pude tener un mejor ejemplo",
       nombre: "Jennifer",
       profesion: "Auxiliar de odontología",
-      imagen: "/images/profesores/esther.jpg"
+      imagen: "/images/profesores/nuria.jpg"
+    }
+  ];
+
+  const fundadores = [
+    {
+      nombre: "Fran de Amo Olivier",
+      cargo: "Director y Fundador",
+      descripcion: "Séptima generación dedicada a la docencia. Visionario del proyecto educativo CEP con más de 25 años de experiencia en formación profesional.",
+      imagen: "/images/profesores/luis.jpg" // Placeholder
+    },
+    {
+      nombre: "Carol de Amo Olivier", 
+      cargo: "Directora y Co-fundadora",
+      descripcion: "Especialista en metodologías innovadoras y desarrollo curricular. Líder en la implementación de valores educativos holísticos.",
+      imagen: "/images/profesores/livia.jpg" // Placeholder
     }
   ];
 
@@ -84,45 +99,82 @@ const QuienesSomosPage: React.FC = () => {
     <div className="min-h-screen bg-white">
       <CepHeader />
       
-      {/* Hero Section */}
+      {/* Hero Section Mejorado */}
       <section className="relative bg-gradient-to-r from-cep-primary to-pink-600 text-white py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-2xl">
-              NOSOTROS
-            </h1>
-            <p className="text-xl text-white drop-shadow-xl font-medium max-w-3xl mx-auto">
-              Una empresa familiar dedicada a la enseñanza durante 7 generaciones, 
-              comprometida con el desarrollo personal y profesional de nuestros estudiantes
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-2xl">
+                NOSOTROS
+              </h1>
+              <p className="text-xl text-white drop-shadow-xl font-medium mb-8">
+                Una empresa familiar dedicada a la enseñanza durante 7 generaciones, 
+                comprometida con el desarrollo personal y profesional de nuestros estudiantes
+              </p>
+              <div className="flex items-center space-x-6">
+                <div className="text-center">
+                  <div className="text-3xl font-bold">25+</div>
+                  <div className="text-sm opacity-90">Años de experiencia</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">7</div>
+                  <div className="text-sm opacity-90">Generaciones</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold">1000+</div>
+                  <div className="text-sm opacity-90">Alumnos titulados</div>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 max-w-md">
+                <img 
+                  src="/images/logos/CIRCULO CEP FORMACION LOGO.png" 
+                  alt="CEP Formación Logo"
+                  className="w-full h-auto rounded-lg shadow-lg"
+                />
+                <div className="mt-4 text-center">
+                  <h3 className="text-xl font-bold mb-2">CEP Formación</h3>
+                  <p className="text-sm opacity-90">Centro de Enseñanzas Profesionales</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Slideshow de imágenes */}
-      <section className="py-8 bg-gray-100">
+      {/* Sección Fundadores */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="/images/sedes/cep-santa-cruz.jpg" 
-                alt="Aula CEP"
-                className="w-full h-48 object-cover"
-              />
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-cep-primary mb-4">NUESTROS FUNDADORES</h2>
+              <p className="text-xl text-gray-600">Fran y Carol de Amo Olivier - Séptima generación dedicada a la docencia</p>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="/images/sedes/cep-norte.jpg" 
-                alt="Laboratorio CEP"
-                className="w-full h-48 object-cover"
-              />
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src="/images/slideshow-1.jpg" 
-                alt="Instalaciones CEP"
-                className="w-full h-48 object-cover"
-              />
+            
+            <div className="grid lg:grid-cols-2 gap-8">
+              {fundadores.map((fundador, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <div className="p-8">
+                    <div className="flex items-center mb-6">
+                      <img 
+                        src={fundador.imagen} 
+                        alt={fundador.nombre}
+                        className="w-20 h-20 rounded-full object-cover border-4 border-cep-primary mr-6"
+                      />
+                      <div>
+                        <h3 className="text-2xl font-bold text-cep-primary">{fundador.nombre}</h3>
+                        <p className="text-lg text-gray-600 font-medium">{fundador.cargo}</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed">{fundador.descripcion}</p>
+                    <div className="mt-6 flex items-center text-cep-primary">
+                      <Award className="w-5 h-5 mr-2" />
+                      <span className="text-sm font-medium">7ª Generación en Docencia</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -152,15 +204,15 @@ const QuienesSomosPage: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <div className="text-center">
-                <div className="bg-gray-100 rounded-lg p-8">
+              <div className="space-y-6">
+                <div className="bg-gray-100 rounded-lg p-8 text-center">
                   <div className="w-24 h-24 bg-cep-primary rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="w-12 h-12 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-800 mb-2">7 Generaciones</h3>
                   <p className="text-gray-600">dedicadas a la enseñanza</p>
                 </div>
-                <div className="mt-8 bg-pink-100 rounded-lg p-6">
+                <div className="bg-pink-100 rounded-lg p-6 text-center">
                   <Quote className="w-8 h-8 text-pink-600 mx-auto mb-2" />
                   <p className="text-lg font-medium text-gray-800 italic">
                     "Educar la mente sin educar el corazón no es educar en absoluto"
@@ -311,8 +363,51 @@ const QuienesSomosPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Colaboraciones con ONG's */}
+      {/* Video sección mejorada */}
       <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-cep-primary mb-4">Conoce nuestras instalaciones</h2>
+              <p className="text-lg text-gray-600">Descubre nuestros espacios formativos y metodología educativa</p>
+            </div>
+            
+            <div className="relative bg-gradient-to-br from-cep-primary to-pink-600 rounded-xl overflow-hidden shadow-xl">
+              <div className="relative aspect-video">
+                <img 
+                  src="/images/logos/CIRCULO CEP FORMACION LOGO.png" 
+                  alt="CEP Formación - Video institucional"
+                  className="absolute inset-0 w-full h-full object-contain bg-white/10 backdrop-blur-sm"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                  <a 
+                    href="https://www.youtube.com/watch?v=8NqQav808LY"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative"
+                  >
+                    <div className="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                      <Play className="w-10 h-10 text-white ml-1" fill="currentColor" />
+                    </div>
+                    <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white text-center">
+                      <p className="text-sm font-medium">Ver Video Institucional</p>
+                    </div>
+                  </a>
+                </div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <div className="flex items-center space-x-2">
+                    <BookOpen className="w-5 h-5" />
+                    <span className="text-sm font-medium">CEP Formación - Tour Virtual</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Colaboraciones con ONG's */}
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-cep-primary mb-6">Colaboramos con ONG's Canarias</h2>
@@ -335,7 +430,7 @@ const QuienesSomosPage: React.FC = () => {
       </section>
 
       {/* Testimonios */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -345,7 +440,7 @@ const QuienesSomosPage: React.FC = () => {
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {testimonios.map((testimonio, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center">
+                <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center border-t-4 border-cep-primary">
                   <div className="mb-4">
                     <img 
                       src={testimonio.imagen} 
@@ -363,34 +458,6 @@ const QuienesSomosPage: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Video sección */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-cep-primary mb-8">Conoce nuestras instalaciones</h2>
-            <div className="relative bg-gray-200 rounded-lg overflow-hidden aspect-video">
-              <a 
-                href="https://www.youtube.com/watch?v=8NqQav808LY"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute inset-0 flex items-center justify-center hover:bg-black hover:bg-opacity-20 transition-all group"
-              >
-                <img 
-                  src="/images/video-preview.jpg" 
-                  alt="Vista previa del video"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <div className="w-0 h-0 border-l-[12px] border-l-white border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent ml-1"></div>
-                  </div>
-                </div>
-              </a>
             </div>
           </div>
         </div>
