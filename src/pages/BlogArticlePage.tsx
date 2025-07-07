@@ -50,7 +50,7 @@ const BlogArticlePage: React.FC = () => {
           
           // Parsear el front matter básico
           const lines = frontMatter.split('\n');
-          const meta: any = {};
+          const meta: Record<string, string | string[]> = {};
           
           lines.forEach(line => {
             const [key, ...values] = line.split(':');
@@ -66,7 +66,17 @@ const BlogArticlePage: React.FC = () => {
             }
           });
           
-          setMetadata(meta as BlogMetadata);
+          // Convertir a BlogMetadata de manera segura
+          const blogMeta: BlogMetadata = {
+            title: (meta.title as string) || '',
+            description: (meta.description as string) || '',
+            publishDate: (meta.publishDate as string) || '',
+            readTime: (meta.readTime as string) || '5',
+            category: (meta.category as string) || 'General',
+            keywords: Array.isArray(meta.keywords) ? meta.keywords : [],
+            image: (meta.image as string) || undefined
+          };
+          setMetadata(blogMeta);
           setContent(articleContent.trim());
         } else {
           setContent(text);
