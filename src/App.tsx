@@ -9,6 +9,7 @@ import ProteccionDatosPage from './pages/ProteccionDatosPage';
 import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
 import FaqPage from './pages/FaqPage';
 import BlogPage from './pages/BlogPage';
+import BlogArticlePage from './pages/BlogArticlePage';
 
 // --- ESTRUCTURA DINÁMICA ---
 import TodosLosCursosPage from './pages/TodosLosCursosPage';
@@ -94,6 +95,7 @@ function App() {
 
         {/* Paginas de Contenido y SEO */}
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogArticlePage />} />
         <Route path="/faq" element={<FaqPage />} />
 
         {/* Páginas Legales y de Contacto */}

@@ -10,6 +10,8 @@ const codigosCursoCortos: { [key: string]: string } = {
   'auxiliar-farmacia-dermo': 'AUXDRM',
   'auxiliar-odontologia': 'AUXODO',
   'auxiliar-farmacia-parafarmacia': 'AUXFAR',
+  'auxiliar-farmacia-parafarmacia-norte-grupo2': 'AUXFAR2',
+  'auxiliar-farmacia-parafarmacia-norte-tarde': 'AUXFART',
   'quiromasaje-nivel2': 'QUIRO2',
   'quiromasaje-nivel-1': 'QUIRO1',
   'quiromasaje-11-meses': 'QUIRO11M',
@@ -32,6 +34,8 @@ const codigosCursoCortos: { [key: string]: string } = {
 const fechasInicio: { [key: string]: string } = {
   // --- SEDE NORTE ---
   'auxiliar-farmacia-parafarmacia-norte': '7 de Julio de 2025', // Línea 51: 07/07/2025 (grupo principal)
+  'auxiliar-farmacia-parafarmacia-norte-grupo2-norte': '21 de Julio de 2025', // Línea 51: 21/07/2025 (grupo 2)
+  'auxiliar-farmacia-parafarmacia-norte-tarde-norte': '13 de Octubre de 2025', // Línea 67: 13/10/2025 (modalidad tarde)
   'quiromasaje-nivel2-norte': '4 de Julio de 2025', // Línea 52: 04/07/2025
   'auxiliar-clinico-veterinario-norte': '28 de Mayo de 2025', // Línea 53: 28/05/2025
   'peluqueria-canina-norte': 'Septiembre 2025', // Línea 54: Septiembre 2025

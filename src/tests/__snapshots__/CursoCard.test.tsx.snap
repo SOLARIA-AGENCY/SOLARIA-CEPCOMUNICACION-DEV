@@ -11,6 +11,8 @@ exports[`CursoCard > matches snapshot 1`] = `
       <img
         alt="Imagen del curso Curso de Prueba"
         class="w-full h-40 sm:h-48 object-cover"
+        decoding="async"
+        loading="lazy"
         src="/images/cursos/test.jpg"
       />
       <div

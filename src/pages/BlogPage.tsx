@@ -12,9 +12,9 @@ interface BlogArticle {
   publishDate: string;
   slug: string;
   keywords: string[];
-  urgency?: boolean;
   featured?: boolean;
   courseRelated?: string[];
+  image?: string;
 }
 
 const BlogPage: React.FC = () => {
@@ -24,67 +24,70 @@ const BlogPage: React.FC = () => {
     // ARTÍCULOS DE URGENCIA
     {
       id: 'julio-2025',
-      title: '⏰ Últimas Plazas Disponibles: Cursos de Julio 2025 en CEP Tenerife',
-      excerpt: '¿Pensando en formarte este verano? Estos cursos empiezan en menos de 2 semanas. Auxiliar de Farmacia, Quiromasaje Nivel II y ATV Combo con plazas limitadas.',
-      category: 'Urgente',
+      title: 'Cursos de Verano 2025: Formación Especializada en CEP Tenerife',
+      excerpt: 'Análisis de las oportunidades formativas disponibles para el periodo estival. Auxiliar de Farmacia, Quiromasaje Nivel II y especialización en Atención Veterinaria.',
+      category: 'Guías',
       readTime: 8,
       publishDate: '2025-06-20',
       slug: 'ultimas-plazas-cursos-julio-2025-cep-tenerife',
       keywords: ['cursos julio 2025 tenerife', 'auxiliar farmacia tenerife', 'quiromasaje tenerife', 'auxiliar veterinario tenerife', 'formación urgente canarias'],
-      urgency: true,
       featured: true,
-      courseRelated: ['auxiliar-farmacia', 'quiromasaje', 'auxiliar-veterinario']
+      courseRelated: ['auxiliar-farmacia', 'quiromasaje', 'auxiliar-veterinario'],
+      image: '/images/cursos/formacion-gratuita.jpg'
     },
     {
       id: 'microblading-2025',
-      title: '💰 Microblading en Tenerife: Invierte 800€, Gana hasta 2.000€/mes',
-      excerpt: 'Una sesión de microblading en Tenerife cuesta entre 250-400€. Con 10 clientas al mes ya generas más que un salario promedio. Descubre esta oportunidad única.',
+      title: 'Microblading en Tenerife: Técnica de Micropigmentación Profesional',
+      excerpt: 'Estudio del mercado de micropigmentación en Canarias. Análisis de la demanda profesional y perspectivas laborales en el sector de la estética avanzada.',
       category: 'Estética',
       readTime: 12,
       publishDate: '2025-06-18',
       slug: 'microblading-tenerife-invierte-800-gana-2000-mes',
       keywords: ['microblading tenerife', 'curso microblading canarias', 'cejas microblading santa cruz', 'micropigmentación tenerife'],
-      urgency: true,
       featured: true,
-      courseRelated: ['microblading', 'estetica']
+      courseRelated: ['microblading', 'estetica'],
+      image: '/images/cursos/especializacion-sanitaria.jpg'
     },
 
     // ARTÍCULOS ESTRATÉGICOS NUEVOS
     {
       id: 'peluqueria-canina-auge',
-      title: '🐕 ¿Por Qué la Peluquería Canina Está en Auge en Tenerife?',
-      excerpt: 'Con más de 85.000 perros registrados en Tenerife y solo 12 peluquerías caninas profesionales, existe una oportunidad de negocio extraordinaria esperándote.',
+      title: 'Peluquería Canina en Tenerife: Análisis del Sector Profesional',
+      excerpt: 'Estudio de la demanda de servicios de peluquería canina en Tenerife. Análisis estadístico del mercado y perspectivas profesionales en el cuidado animal.',
       category: 'Mundo Animal',
       readTime: 15,
       publishDate: '2025-06-17',
       slug: 'peluqueria-canina-tenerife-profesion-auge',
       keywords: ['peluquería canina tenerife', 'curso peluquería perros canarias', 'peluquero canino puerto cruz', 'formación mascotas tenerife'],
       featured: true,
-      courseRelated: ['peluqueria-canina', 'mundo-animal']
+      courseRelated: ['peluqueria-canina', 'mundo-animal'],
+      image: '/images/cursos/peluqueria-canina.jpg'
     },
     {
       id: 'instructor-yoga-canarias',
-      title: '🧘‍♀️ Instructor de Yoga: La Profesión que Buscan en las Islas Canarias',
-      excerpt: 'Un instructor de yoga en Tenerife puede ganar entre 40-80€ por clase. Con 300+ días de sol al año, Canarias es el paraíso perfecto para esta profesión en auge.',
+      title: 'Instructor de Yoga: Perspectivas Profesionales en Canarias',
+      excerpt: 'Análisis de las oportunidades laborales para instructores de yoga en el archipiélago canario. Estudio del mercado y factores geográficos favorables.',
       category: 'Bienestar',
       readTime: 18,
       publishDate: '2025-06-16',
       slug: 'instructor-yoga-canarias-profesion-auge',
       keywords: ['instructor yoga tenerife', 'curso yoga canarias', 'formación profesor yoga', 'certificación yoga tenerife'],
       featured: true,
-      courseRelated: ['instructor-yoga', 'bienestar']
+      courseRelated: ['instructor-yoga', 'bienestar'],
+      image: '/images/cursos/salud-bienestar-y-deporte.jpg'
     },
     {
       id: 'adiestramiento-canino-futuro',
-      title: '🐕‍🦺 Adiestramiento Canino: Profesión del Futuro con Certificación ANACP',
-      excerpt: 'En Tenerife hay más de 85.000 perros y solo 8 adiestradores certificados. Es la profesión con mayor demanda insatisfecha del sector animal. ¿Te sumas?',
+      title: 'Adiestramiento Canino: Formación Profesional y Certificación ANACP',
+      excerpt: 'Estudio de la demanda profesional en adiestramiento canino en Tenerife. Análisis de la certificación ANACP y perspectivas laborales en educación animal.',
       category: 'Mundo Animal',
       readTime: 20,
       publishDate: '2025-06-15',
       slug: 'adiestramiento-canino-tenerife-profesion-futuro',
       keywords: ['adiestramiento canino tenerife', 'curso adiestrador perros', 'ANACP tenerife', 'educador canino canarias'],
       featured: true,
-      courseRelated: ['adiestramiento-canino', 'mundo-animal']
+      courseRelated: ['adiestramiento-canino', 'mundo-animal'],
+      image: '/images/cursos/adiestramiento-canino.jpg'
     },
 
     // ARTÍCULOS EXISTENTES
@@ -97,7 +100,8 @@ const BlogPage: React.FC = () => {
       publishDate: '2025-01-15',
       slug: '7-salidas-profesionales-auxiliar-veterinario-tenerife',
       keywords: ['salidas profesionales auxiliar veterinario', 'auxiliar veterinaria tenerife', 'trabajo veterinario canarias'],
-      courseRelated: ['auxiliar-veterinario']
+      courseRelated: ['auxiliar-veterinario'],
+      image: '/images/cursos/auxiliar-veterinaria.jpg'
     },
     {
       id: 'farmacia-vs-parafarmacia',
@@ -108,7 +112,8 @@ const BlogPage: React.FC = () => {
       publishDate: '2025-01-12',
       slug: 'diferencias-farmacia-parafarmacia-que-estudiar-2025',
       keywords: ['diferencias farmacia parafarmacia', 'auxiliar farmacia tenerife', 'curso farmacia canarias'],
-      courseRelated: ['auxiliar-farmacia']
+      courseRelated: ['auxiliar-farmacia'],
+      image: '/images/cursos/farmacia-parafarmacia.jpg'
     },
     {
       id: 'estudiantes-extranjeros-venezuela',
@@ -119,7 +124,8 @@ const BlogPage: React.FC = () => {
       publishDate: '2025-01-10',
       slug: 'guia-estudiantes-extranjeros-estudiar-tenerife-venezuela',
       keywords: ['estudiar en tenerife venezuela', 'cursos para venezolanos tenerife', 'formación extranjeros canarias'],
-      courseRelated: ['todos']
+      courseRelated: ['todos'],
+      image: '/images/cursos/ciclos-formativos.jpg'
     },
     {
       id: 'quiromasaje-tenerife-razones',
@@ -130,22 +136,21 @@ const BlogPage: React.FC = () => {
       publishDate: '2025-01-08',
       slug: '5-razones-formarte-quiromasaje-tenerife',
       keywords: ['curso quiromasaje tenerife', 'quiromasaje santa cruz tenerife', 'formación masajes canarias'],
-      courseRelated: ['quiromasaje']
+      courseRelated: ['quiromasaje'],
+      image: '/images/cursos/Quiromasaje I.png'
     }
   ];
 
-  const categories = ['all', 'Urgente', 'Mundo Animal', 'Sanidad', 'Estética', 'Bienestar', 'Guías'];
+  const categories = ['all', 'Mundo Animal', 'Sanidad', 'Estética', 'Bienestar', 'Guías'];
   
-  const urgentArticles = articles.filter(article => article.urgency);
-  const featuredArticles = articles.filter(article => article.featured && !article.urgency);
+  const featuredArticles = articles.filter(article => article.featured);
   
   const filteredArticles = selectedCategory === 'all' 
-    ? articles.filter(article => !article.urgency)
+    ? articles
     : articles.filter(article => article.category === selectedCategory);
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      'Urgente': 'bg-red-600 text-white',
       'Mundo Animal': 'bg-green-600 text-white',
       'Sanidad': 'bg-blue-600 text-white',
       'Estética': 'bg-pink-600 text-white',
@@ -184,28 +189,6 @@ const BlogPage: React.FC = () => {
         <CepHeader />
         
         <main className="pt-20">
-          {/* Banner de Urgencia */}
-          {urgentArticles.length > 0 && (
-            <div className="bg-red-600 text-white py-4">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-center">
-                  <div className="flex items-center space-x-2">
-                    <span className="inline-flex animate-pulse h-3 w-3 rounded-full bg-red-300"></span>
-                    <span className="font-semibold text-lg">🚨 URGENT</span>
-                    <span className="text-red-100">|</span>
-                    <span className="font-medium">Últimas plazas disponibles para cursos de Julio 2025</span>
-                    <a 
-                      href={`/blog/${urgentArticles[0].slug}`}
-                      className="bg-white text-red-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-red-50 transition-colors ml-4"
-                    >
-                      Ver Disponibilidad →
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
           {/* Hero Section */}
           <div className="bg-white py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,63 +213,6 @@ const BlogPage: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Artículos Urgentes */}
-          {urgentArticles.length > 0 && (
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  🚨 Artículos Urgentes
-                </h2>
-                <p className="text-gray-600">Información crítica que necesitas conocer ahora</p>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {urgentArticles.map((article) => (
-                  <article key={article.id} className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl shadow-lg overflow-hidden border-l-4 border-red-500 hover:shadow-xl transition-shadow">
-                    <div className="p-8">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(article.category)}`}>
-                          {article.category}
-                        </span>
-                        <div className="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-semibold animate-pulse">
-                          URGENTE
-                        </div>
-                      </div>
-                      
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                        {article.title}
-                      </h3>
-                      
-                      <p className="text-gray-600 mb-4 line-clamp-3">
-                        {article.excerpt}
-                      </p>
-                      
-                      <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                        <span>{article.readTime} min lectura</span>
-                        <span>{new Date(article.publishDate).toLocaleDateString('es-ES')}</span>
-                      </div>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {article.keywords.slice(0, 3).map((keyword, index) => (
-                          <span key={index} className="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">
-                            {keyword}
-                          </span>
-                        ))}
-                      </div>
-                      
-                      <a 
-                        href={`/blog/${article.slug}`}
-                        className="inline-flex items-center bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
-                      >
-                        Leer Ahora →
-                      </a>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          )}
 
           {/* Filtros de Categorías */}
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -320,6 +246,16 @@ const BlogPage: React.FC = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {featuredArticles.slice(0, 3).map((article) => (
                   <article key={article.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    {/* Imagen del artículo */}
+                    {article.image && (
+                      <div className="aspect-video overflow-hidden">
+                        <img 
+                          src={article.image} 
+                          alt={article.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    )}
                     <div className="p-6">
                       <div className="flex items-center justify-between mb-4">
                         <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(article.category)}`}>
@@ -381,6 +317,16 @@ const BlogPage: React.FC = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredArticles.map((article) => (
                 <article key={article.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                  {/* Imagen del artículo */}
+                  {article.image && (
+                    <div className="aspect-video overflow-hidden">
+                      <img 
+                        src={article.image} 
+                        alt={article.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(article.category)}`}>

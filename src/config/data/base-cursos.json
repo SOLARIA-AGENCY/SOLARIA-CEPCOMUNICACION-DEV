@@ -752,6 +752,104 @@
     }
   },
   {
+    "nombre": "Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2",
+    "codigo": "AUXFARMA2", 
+    "slugBase": "auxiliar-farmacia-parafarmacia-norte-grupo2", 
+    "imagen": "/images/cursos/farmacia-parafarmacia.jpg",
+    "categoria": "sanidad",
+    "copy": {
+      "slogan": "Conviértete en el enlace entre el farmacéutico y el paciente.",
+      "textosPrincipales": ["Domina la dispensación de medicamentos, atención farmacéutica y productos de parafarmacia."],
+      "titulos": ["Atención Farmacéutica", "Dispensación Especializada", "Productos Sanitarios"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
+      "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio 21/07/2025 - Lunes 10:00-13:00H" },
+        { "icono": "Users", "texto": "150 horas de prácticas" },
+        { "icono": "Award", "texto": "Certificación farmacéutica" },
+        { "icono": "Book", "texto": "Sede CEP Norte - Aula 5" }
+      ],
+      "inversion": {
+        "total": "1200€",
+        "modalidad": "12 cuotas de 100€ + 150€ matrícula",
+        "incluye": "Material didáctico y agencia de colocación oficial."
+      },
+      "requisitos": ["Tener 2º de ESO o EGB superado."],
+      "salidasProfesionales": [
+        "Auxiliar en farmacias", "Auxiliar en parafarmacias", "Almacén de medicamentos", "Distribuidoras farmacéuticas", "Laboratorios farmacéuticos", "Hospitales (servicio farmacia)", "Centros sociosanitarios"
+      ],
+      "modulos": [
+        { "titulo": "Anatomopatología", "contenido": ["Sistemas del cuerpo humano.", "Constantes vitales y primeros auxilios.", "Aparatos respiratorio, digestivo y urinario."] },
+        { "titulo": "Farmacología", "contenido": ["Medicamentos y prescripción.", "Dispensación farmacéutica.", "Biofarmacia y farmacocinética."] },
+        { "titulo": "Farmacología por Sistemas", "contenido": ["Terapia antiinfecciosa.", "Homeopatía y fitoterapia.", "Medicamentos veterinarios."] },
+        { "titulo": "Parafarmacia", "contenido": ["Productos parafarmacéuticos.", "Alimentación y nutrición.", "Productos sanitarios."] },
+        { "titulo": "Dermocosmética", "contenido": ["Productos cosméticos.", "Dermocosmética especializada.", "Cosmética infantil y masculina."] },
+        { "titulo": "Especialidades", "contenido": ["Ortopedia y prótesis.", "Óptica y audioprótesis.", "Productos odontológicos."] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Alexis",
+          "foto": "/images/profesores/alexis.jpg",
+          "especialidad": "Farmacéutico Colegiado",
+          "bio": "Alexis es un profesional con amplia experiencia en el sector farmacéutico, especializado en atención farmacéutica y dispensación de medicamentos.",
+          "tags": ["Farmacología", "Atención Farmacéutica", "Parafarmacia"]
+        }
+      ],
+      "cursosComplementarios": ["Auxiliar de Enfermería", "Dietética y Nutrición", "CFGM Farmacia y Parafarmacia"]
+    }
+  },
+  {
+    "nombre": "Auxiliar de Farmacia y Parafarmacia - Norte Tarde",
+    "codigo": "AUXFARMAT", 
+    "slugBase": "auxiliar-farmacia-parafarmacia-norte-tarde", 
+    "imagen": "/images/cursos/farmacia-parafarmacia.jpg",
+    "categoria": "sanidad",
+    "copy": {
+      "slogan": "Conviértete en el enlace entre el farmacéutico y el paciente.",
+      "textosPrincipales": ["Domina la dispensación de medicamentos, atención farmacéutica y productos de parafarmacia."],
+      "titulos": ["Atención Farmacéutica", "Dispensación Especializada", "Productos Sanitarios"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
+      "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio 13/10/2025 - Lunes 16:00-19:00H" },
+        { "icono": "Users", "texto": "150 horas de prácticas" },
+        { "icono": "Award", "texto": "Certificación farmacéutica" },
+        { "icono": "Book", "texto": "Sede CEP Norte - Aula 5" }
+      ],
+      "inversion": {
+        "total": "1200€",
+        "modalidad": "12 cuotas de 105€ + 150€ matrícula",
+        "incluye": "Material didáctico y agencia de colocación oficial."
+      },
+      "requisitos": ["Tener 2º de ESO o EGB superado."],
+      "salidasProfesionales": [
+        "Auxiliar en farmacias", "Auxiliar en parafarmacias", "Almacén de medicamentos", "Distribuidoras farmacéuticas", "Laboratorios farmacéuticos", "Hospitales (servicio farmacia)", "Centros sociosanitarios"
+      ],
+      "modulos": [
+        { "titulo": "Anatomopatología", "contenido": ["Sistemas del cuerpo humano.", "Constantes vitales y primeros auxilios.", "Aparatos respiratorio, digestivo y urinario."] },
+        { "titulo": "Farmacología", "contenido": ["Medicamentos y prescripción.", "Dispensación farmacéutica.", "Biofarmacia y farmacocinética."] },
+        { "titulo": "Farmacología por Sistemas", "contenido": ["Terapia antiinfecciosa.", "Homeopatía y fitoterapia.", "Medicamentos veterinarios."] },
+        { "titulo": "Parafarmacia", "contenido": ["Productos parafarmacéuticos.", "Alimentación y nutrición.", "Productos sanitarios."] },
+        { "titulo": "Dermocosmética", "contenido": ["Productos cosméticos.", "Dermocosmética especializada.", "Cosmética infantil y masculina."] },
+        { "titulo": "Especialidades", "contenido": ["Ortopedia y prótesis.", "Óptica y audioprótesis.", "Productos odontológicos."] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Alexis",
+          "foto": "/images/profesores/alexis.jpg",
+          "especialidad": "Farmacéutico Colegiado",
+          "bio": "Alexis es un profesional con amplia experiencia en el sector farmacéutico, especializado en atención farmacéutica y dispensación de medicamentos.",
+          "tags": ["Farmacología", "Atención Farmacéutica", "Parafarmacia"]
+        }
+      ],
+      "cursosComplementarios": ["Auxiliar de Enfermería", "Dietética y Nutrición", "CFGM Farmacia y Parafarmacia"]
+    }
+  },
+  {
     "nombre": "Peluquería Canina y Felina",
     "codigo": "PELUCAN",
     "slugBase": "peluqueria-canina-felina",
