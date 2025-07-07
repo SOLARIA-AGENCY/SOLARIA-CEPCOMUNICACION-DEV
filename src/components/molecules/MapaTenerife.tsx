@@ -5,6 +5,7 @@ import { MapPin, Phone, Clock, Navigation } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 
 // Configurar iconos de Leaflet
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
