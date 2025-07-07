@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
+import ScrollToTop from './components/utils/ScrollToTop';
 import HomePage from './pages/HomePage';
 import ContactPage from './pages/ContactPage';
 import AvisoLegalPage from './pages/AvisoLegalPage';
@@ -23,6 +24,9 @@ import ThankYouPage from './pages/ThankYouPage';
 import GraciasSuscripcionPage from './pages/GraciasSuscripcionPage';
 import GraciasInscripcionPage from './pages/GraciasInscripcionPage';
 import SedePage from './pages/SedePage';
+import LoginPage from './pages/admin/LoginPage';
+import GestionCursosPage from './pages/admin/GestionCursosPage';
+import ProtectedRoute from './components/utils/ProtectedRoute';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -47,6 +51,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/inicio" element={<HomePage />} />
@@ -117,6 +122,17 @@ function App() {
         <Route path="/cfgm-farmacia-parafarmacia" element={<Navigate to="/cursos" replace />} />
         <Route path="/cfgs-higiene-bucodental" element={<Navigate to="/cursos" replace />} />
         
+        {/* Rutas de Administración */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route 
+          path="/admin/gestion-cursos" 
+          element={
+            <ProtectedRoute>
+              <GestionCursosPage />
+            </ProtectedRoute>
+          } 
+        />
+
         {/* Wildcard para cualquier otra ruta no definida */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

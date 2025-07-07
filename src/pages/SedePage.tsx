@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { MapPin, Users, Calendar, TrendingUp } from 'lucide-react';
+import CepHeader from '../components/organisms/CepHeader';
+import CepFooter from '../components/organisms/CepFooter';
 import TimelineSection from '../components/organisms/TimelineSection';
 import CursoCard from '../components/molecules/CursoCard';
 import MiniCalendario from '../components/molecules/MiniCalendario';
@@ -12,57 +14,55 @@ type SedeSlug = 'cep-norte' | 'cep-santa-cruz';
 const SedePage: React.FC = () => {
   const { slug } = useParams<{ slug: SedeSlug }>();
   
-  // Validar que el slug es válido
   if (!slug || !['cep-norte', 'cep-santa-cruz'].includes(slug)) {
     return <Navigate to="/" replace />;
   }
   
-  // Mapear slug a nombre de sede
   const sede = slug === 'cep-norte' ? 'Norte' : 'Santa Cruz';
   const nombreCompleto = `CEP ${sede.toUpperCase()}`;
   
-  // Obtener cursos agrupados y estadísticas
   const cursosAgrupados = agruparCursosPorMes(cursosMaestro, sede);
   const estadisticas = obtenerEstadisticasSede(cursosMaestro, sede);
   
-  // Información de la sede
   const infoSede = {
     'Norte': {
       descripcion: 'Campus situado en la zona norte de Tenerife, ofreciendo formación especializada en un entorno moderno y accesible.',
       direccion: 'Zona Norte, Tenerife',
-      imagen: '/images/sedes/cep-norte.jpg'
+      imagen: '/images/sedes/sede-cep-norte.png'
     },
     'Santa Cruz': {
       descripcion: 'Campus principal en Santa Cruz de Tenerife, con instalaciones de vanguardia y excelente conectividad.',
       direccion: 'Santa Cruz de Tenerife',
-      imagen: '/images/sedes/cep-santa-cruz.jpg'
+      imagen: '/images/sedes/sede-cep-santa-cruz.png'
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 font-poppins">
+      <CepHeader />
+      
       {/* Header Hero */}
-      <div className="relative h-64 bg-gradient-to-r from-cep-primary to-cep-primary-dark overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: `url(${infoSede[sede].imagen})` }}
-        ></div>
-        <div className="relative container mx-auto px-4 h-full flex items-center">
-          <div className="text-white max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-              {nombreCompleto}
-            </h1>
-            <p className="text-xl sm:text-2xl text-white/90 mb-4">
-              {infoSede[sede].descripcion}
-            </p>
-            <div className="flex items-center space-x-4 text-white/80">
-              <div className="flex items-center">
-                <MapPin size={20} className="mr-2" />
-                <span>{infoSede[sede].direccion}</span>
-              </div>
-              <div className="hidden sm:block">
-                <MiniCalendario />
-              </div>
+      <div className="relative h-80 text-white overflow-hidden">
+        <img 
+          src={infoSede[sede].imagen} 
+          alt={`Campus de ${nombreCompleto}`}
+          className="absolute inset-0 w-full h-full object-cover" 
+        />
+        <div className="absolute inset-0 bg-black/50"></div> {/* Overlay */}
+        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4" style={{textShadow: '2px 2px 4px rgba(0,0,0,0.5)'}}>
+            {nombreCompleto}
+          </h1>
+          <p className="text-xl sm:text-2xl text-white/90 mb-4 max-w-3xl" style={{textShadow: '1px 1px 3px rgba(0,0,0,0.5)'}}>
+            {infoSede[sede].descripcion}
+          </p>
+          <div className="flex items-center space-x-4 text-white/80">
+            <div className="flex items-center">
+              <MapPin size={20} className="mr-2" />
+              <span>{infoSede[sede].direccion}</span>
+            </div>
+            <div className="hidden sm:block">
+              <MiniCalendario />
             </div>
           </div>
         </div>
@@ -105,9 +105,8 @@ const SedePage: React.FC = () => {
       </div>
 
       {/* Contenido Principal */}
-      <div className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12">
         
-        {/* Línea de Tiempo de Cursos */}
         {cursosAgrupados.conFecha.length > 0 && (
           <div className="mb-16">
             <div className="text-center mb-12">
@@ -132,7 +131,6 @@ const SedePage: React.FC = () => {
           </div>
         )}
 
-        {/* Cursos Próximamente */}
         {cursosAgrupados.proximamente.length > 0 && (
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="text-center mb-8">
@@ -155,7 +153,6 @@ const SedePage: React.FC = () => {
           </div>
         )}
 
-        {/* Mensaje si no hay cursos */}
         {cursosAgrupados.conFecha.length === 0 && cursosAgrupados.proximamente.length === 0 && (
           <div className="text-center py-16">
             <div className="text-gray-400 mb-4">
@@ -169,7 +166,8 @@ const SedePage: React.FC = () => {
             </p>
           </div>
         )}
-      </div>
+      </main>
+      <CepFooter />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 [
   { 
-    "nombre": "Adiestramiento Canino I", 
+    "nombre": "Adiestramiento Canino Nivel 1",
+    "codigo": "ADICANI", 
     "slugBase": "adiestramiento-canino", 
     "imagen": "/images/cursos/adiestramiento-canino.jpg",
     "categoria": "adiestramiento",
@@ -10,43 +11,44 @@
       "titulos": ["Psicología Canina", "Modificación de Conducta", "Educación Canina"]
     },
     "descripcionDetallada": {
-      "introduccion": "El curso de Adiestramiento de base I ofrece los conocimientos imprescindibles acerca de las técnicas de adiestramiento de base aplicadas a perros, modificación de conductas no deseadas así como los cuidados básicos y primeros auxilios, además de un módulo de orientación laboral, dinámico y actualizado.",
-      "queAprendes": "Si te gusta el mundo animal y crees que ayudar a las personas a entender a sus mascotas contribuye al bienestar de la sociedad, este curso es para ti. Adquirirás la confianza, habilidades y conocimientos para trabajar como adiestrador canino o aplicarlo con tus propios animales.",
-      "puntosClave": [
-        { "icono": "Clock", "texto": "6 meses / 25 sesiones" },
-        { "icono": "Users", "texto": "Prácticas con animales reales" },
-        { "icono": "Award", "texto": "Preparación examen ANACP" },
-        { "icono": "Book", "texto": "Enfoque en psicología canina" }
-      ],
-      "requisitos": ["Tener 2º de ESO o EGB superado."],
-      "inversion": {
-        "total": "660€",
-        "modalidad": "6 cuotas de 85€ + 150€ matrícula",
-        "incluye": "Agencia de colocación oficial y material didáctico."
-      },
-      "salidasProfesionales": [
-        "Adiestrador canino profesional", "Educador canino en centros especializados", "Técnico en modificación de conducta", "Preparador para competiciones caninas", "Asesor en protectoras y refugios", "Colaborador en clínicas veterinarias"
-      ],
-      "modulos": [
-        { "titulo": "Módulo 1: Técnicas de adiestramiento de base aplicadas a perros", "contenido": ["Comportamiento social y bases morfológicas de conducta en el perro.", "Factores básicos modificadores de la conducta.", "Aprendizaje no asociativo y asociativo.", "Programas básicos de obediencia y habilidades.", "Seguridad y autoprotección en el manejo.", "Leyes y normativas sobre protección animal."] },
-        { "titulo": "Módulo 2: Modificación de conductas no deseadas en perros", "contenido": ["Valoración de conductas no deseadas.", "Interpretación del lenguaje corporal canino.", "Reconocimiento de conductas por patología.", "Identificación del tipo de agresión y su tratamiento."] },
-        { "titulo": "Módulo 3: Cuidados higiénicos aplicados a perros", "contenido": ["Metodología y control de la alimentación.", "Alojamiento y transporte.", "Cuidados higiénicos y control sanitario."] },
-        { "titulo": "Módulo 4: Primeros Auxilios aplicados a Perros", "contenido": ["Morfología y fisiología del perro.", "Diagnóstico y valoración inicial.", "Material y técnicas de primeros auxilios.", "Administración de medicamentos y técnicas de inmovilización."] }
-      ],
-      "profesores": [
-        { 
-          "nombre": "Livia Bernardi", 
-          "foto": "/images/profesores/livia.jpg", 
-          "especialidad": "Fundadora de Aboras Obediencia",
-          "bio": "Adiestradora canina profesional en activo, con amplia experiencia docente en el sector y fundadora del reconocido centro Aboras Obediencia.",
-          "tags": ["Adiestramiento Base", "Modificación de Conducta", "Educación Canina"]
-        }
-      ],
-      "cursosComplementarios": ["Auxiliar de Veterinaria", "ATV Felino", "ATV Animales Exóticos", "Adiestramiento Canino II", "Peluquería Canina y Felina"]
-    }
+        "introduccion": "El curso de Adiestramiento de base I ofrece los conocimientos imprescindibles acerca de las técnicas de adiestramiento de base aplicadas a perros, modificación de conductas no deseadas así como los cuidados básicos y primeros auxilios, además de un módulo de orientación laboral, dinámico y actualizado.",
+        "queAprendes": "Si te gusta el mundo animal y crees que ayudar a las personas a entender a sus mascotas contribuye al bienestar de la sociedad, este curso es para ti. Adquirirás la confianza, habilidades y conocimientos para trabajar como adiestrador canino o aplicarlo con tus propios animales.",
+        "puntosClave": [
+          { "icono": "Clock", "texto": "Inicio Septiembre - Horario pendiente confirmación" },
+          { "icono": "Users", "texto": "Teórico-práctico" },
+          { "icono": "Award", "texto": "Preparación examen ANACP" },
+          { "icono": "Book", "texto": "Enfoque en psicología canina" }
+        ],
+        "requisitos": ["Tener 2º de ESO o EGB superado."],
+        "inversion": {
+          "total": "510€",
+          "modalidad": "6 cuotas de 85€ + 150€ matrícula",
+          "incluye": "Agencia de colocación oficial y material didáctico."
+        },
+        "salidasProfesionales": [
+          "Adiestrador canino profesional", "Educador canino en centros especializados", "Técnico en modificación de conducta", "Preparador para competiciones caninas", "Asesor en protectoras y refugios", "Colaborador en clínicas veterinarias"
+        ],
+        "modulos": [
+          { "titulo": "Módulo 1: Técnicas de adiestramiento de base aplicadas a perros", "contenido": ["Comportamiento social y bases morfológicas de conducta en el perro.", "Factores básicos modificadores de la conducta.", "Aprendizaje no asociativo y asociativo.", "Programas básicos de obediencia y habilidades.", "Seguridad y autoprotección en el manejo.", "Leyes y normativas sobre protección animal."] },
+          { "titulo": "Módulo 2: Modificación de conductas no deseadas en perros", "contenido": ["Valoración de conductas no deseadas.", "Interpretación del lenguaje corporal canino.", "Reconocimiento de conductas por patología.", "Identificación del tipo de agresión y su tratamiento."] },
+          { "titulo": "Módulo 3: Cuidados higiénicos aplicados a perros", "contenido": ["Metodología y control de la alimentación.", "Alojamiento y transporte.", "Cuidados higiénicos y control sanitario."] },
+          { "titulo": "Módulo 4: Primeros Auxilios aplicados a Perros", "contenido": ["Morfología y fisiología del perro.", "Diagnóstico y valoración inicial.", "Material y técnicas de primeros auxilios.", "Administración de medicamentos y técnicas de inmovilización."] }
+        ],
+        "profesores": [
+          {
+            "nombre": "Johana",
+            "foto": "/images/profesores/alexis.jpg",
+            "especialidad": "Adiestradora Canina Profesional",
+            "bio": "Johana es una profesional con amplia experiencia en el campo del adiestramiento canino, dedicada a la formación de nuevos especialistas.",
+            "tags": ["Adiestramiento Base", "Modificación de Conducta", "Educación Canina"]
+          }
+        ],
+        "cursosComplementarios": ["Auxiliar de Veterinaria", "ATV Felino", "ATV Animales Exóticos", "Adiestramiento Canino II", "Peluquería Canina y Felina"]
+      }
   },
   { 
-    "nombre": "Adiestramiento Canino II", 
+    "nombre": "Adiestramiento Canino Nivel 2",
+    "codigo": "ADICANII", 
     "slugBase": "adiestramiento-canino-ii", 
     "imagen": "/images/cursos/adiestramiento-canino.jpg",
     "categoria": "adiestramiento",
@@ -59,11 +61,16 @@
       "introduccion": "El curso de Adiestramiento Canino Nivel II es la continuación natural para perfeccionar tus habilidades como adiestrador profesional, profundizando en técnicas avanzadas, modificación de conductas problemáticas y adiestramiento especializado.",
       "queAprendes": "Este curso te permitirá especializarte en técnicas de alto nivel, resolver problemas de comportamiento complejos y prepararte para trabajar en centros de adiestramiento, terapia asistida, preparación de perros de trabajo y competiciones deportivas.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "6 meses / 24 sesiones" },
+        { "icono": "Clock", "texto": "Lunes 16-18:30h" },
         { "icono": "Users", "texto": "Prácticas avanzadas con perros" },
         { "icono": "Award", "texto": "Diploma Nivel II y especialización" }
       ],
       "requisitos": ["Haber completado Adiestramiento Canino I o demostrar experiencia equivalente."],
+      "inversion": {
+        "total": "510€",
+        "modalidad": "6 cuotas de 85€ + 150€ matrícula",
+        "incluye": "Material didáctico y certificación ANACP."
+      },
       "salidasProfesionales": [
         "Adiestrador especializado", "Consultor en modificación de conducta", "Instructor de deportes caninos", "Terapeuta con animales de compañía", "Formador de adiestradores", "Asesor en centros de acogida", "Especialista en perros de trabajo"
       ],
@@ -73,12 +80,21 @@
         { "titulo": "Adiestramiento Especializado", "contenido": ["Perros de terapia y de trabajo (detección, rescate).", "Introducción a deportes caninos como Agility y Obediencia competitiva."] },
         { "titulo": "Desarrollo Profesional", "contenido": ["Protocolos de evaluación y diagnóstico comportamental.", "Manejo de grupos, aspectos legales y marketing para adiestradores."] }
       ],
-      "profesores": [],
+      "profesores": [
+        {
+          "nombre": "Johana",
+          "foto": "/images/profesores/alexis.jpg",
+          "especialidad": "Adiestradora Canina Profesional",
+          "bio": "Johana es una profesional con amplia experiencia en el campo del adiestramiento canino, dedicada a la formación de nuevos especialistas.",
+          "tags": ["Adiestramiento Avanzado", "Etología", "Perros de Trabajo"]
+        }
+      ],
       "cursosComplementarios": ["Especialización en terapia asistida", "Instructor de deportes caninos", "Etología clínica", "Auxiliar de veterinaria", "Peluquería canina"]
     }
   },
   { 
-    "nombre": "Tanatoestética y Tanatopraxia (Agente Funerario)", 
+    "nombre": "Tanatoestética y Tanatopraxia (Agente Funerario)",
+    "codigo": "TANATO", 
     "slugBase": "agente-funerario", 
     "imagen": "/images/cursos/especializacion-sanitaria.jpg",
     "categoria": "sanidad",
@@ -91,11 +107,16 @@
       "introduccion": "El curso de Tanatopraxia y Tanatoestética te proporciona los conocimientos teóricos y prácticos para la conservación, restauración y presentación estética de cadáveres, una profesión de alta especialización y demanda.",
       "queAprendes": "Aprenderás a realizar desde la conservación transitoria y embalsamamiento hasta restauraciones complejas, aplicando técnicas estéticas y manejando las habilidades relacionales necesarias para prestar un servicio profesional y respetuoso en el sector funerario.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "10 meses / 40 sesiones" },
-        { "icono": "Users", "texto": "160 horas de prácticas en empresas" },
+        { "icono": "Clock", "texto": "Inicio 11/09/2025 - Jueves 18:00-21:00H" },
+        { "icono": "Users", "texto": "150 horas de prácticas" },
         { "icono": "Award", "texto": "Formación completa y especializada" }
       ],
       "requisitos": ["Tener 2º de ESO o EGB superado."],
+      "inversion": {
+        "total": "2000€",
+        "modalidad": "10 cuotas de 200€ + 250€ matrícula",
+        "incluye": "Material didáctico y prácticas garantizadas."
+      },
       "salidasProfesionales": [
         "Técnico en Tanatopraxia", "Especialista en Tanatoestética", "Funerarias y tanatorios", "Cementerios y crematorios", "Servicios de repatriación", "Empresas de seguros de decesos", "Gestión administrativa funeraria"
       ],
@@ -110,12 +131,21 @@
         { "titulo": "Tema 8. Primeros Auxilios y Emergencias", "contenido": ["Activación del sistema de emergencia y valoración.", "Técnicas de reanimación cardiopulmonar."] },
         { "titulo": "Tema 9-12. Habilidades Profesionales", "contenido": ["Trabajo en equipo.", "Gestión de conflictos y negociación.", "Gestión del tiempo.", "Inteligencia Emocional."] }
       ],
-      "profesores": [],
+      "profesores": [
+        {
+          "nombre": "Luis Cruz",
+          "foto": "/images/profesores/alexis.jpg",
+          "especialidad": "Técnico en Tanatopraxia",
+          "bio": "Luis Cruz es un profesional con una amplia y contrastada experiencia en el sector funerario, garantizando una formación práctica y totalmente actualizada.",
+          "tags": ["Tanatopraxia", "Tanatoestética", "Protocolo Funerario"]
+        }
+      ],
       "cursosComplementarios": ["Ciclo medio de Farmacia", "Ciclo superior Higiene Bucodental"]
     }
   },
   { 
-    "nombre": "Auxiliar de Veterinaria", 
+    "nombre": "Auxiliar de Veterinaria",
+    "codigo": "AUXVET", 
     "slugBase": "auxiliar-clinico-veterinario",
     "imagen": "/images/cursos/auxiliar-veterinaria.jpg",
     "categoria": "veterinaria",
@@ -128,11 +158,16 @@
       "introduccion": "El curso de Auxiliar de Veterinaria te ofrece los conocimientos imprescindibles del funcionamiento de una clínica veterinaria, las funciones del auxiliar y todos los conocimientos relativos a perros y gatos, con pinceladas en animales exóticos.",
       "queAprendes": "Adquirirás la confianza, habilidades y conocimientos para trabajar como Auxiliar en clínicas, hospitales veterinarios, tiendas de animales, centros de acogida y ONGs, o para aplicarlo con tus propias mascotas. Incluye un módulo de orientación laboral actualizado.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "9 meses / 36 sesiones" },
-        { "icono": "Users", "texto": "350 horas de prácticas en empresas" },
-        { "icono": "Award", "texto": "Formación completa en múltiples especies" }
+        { "icono": "Clock", "texto": "Inicio 28/05/2025 - Miércoles 10:00-13:00H" },
+        { "icono": "Users", "texto": "350 horas de prácticas" },
+        { "icono": "Award", "texto": "Titulación Propia" }
       ],
       "requisitos": ["No se especifican requisitos previos, ideal para amantes de los animales."],
+      "inversion": {
+        "total": "810€",
+        "modalidad": "9 cuotas de 90€ + 150€ matrícula",
+        "incluye": "Material didáctico y prácticas en clínicas."
+      },
       "salidasProfesionales": [
         "Auxiliar en clínicas veterinarias", "Hospitales veterinarios", "Tiendas de animales", "Centros de acogida de animales", "ONGs de protección animal", "Zoológicos", "Centros de investigación", "Parques naturales"
       ],
@@ -147,19 +182,20 @@
         { "titulo": "Asistencia Quirúrgica y Vendajes", "contenido": ["El quirófano, instrumental, anestesia.", "Esterilización y cuidados postquirúrgicos.", "Tipos y técnicas de vendajes."] }
       ],
       "profesores": [
-        { 
-          "nombre": "Equipo Docente Multidisciplinar", 
-          "foto": "/images/profesores/alexis.jpg", 
-          "especialidad": "Veterinarios y Auxiliares en activo",
-          "bio": "Nuestro equipo está formado por profesionales con una amplia y contrastada experiencia en clínica de pequeños y grandes animales, garantizando una formación práctica y totalmente actualizada.",
-          "tags": ["Medicina Veterinaria", "Cirugía", "Cuidado Animal"]
+        {
+          "nombre": "Elena",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Auxiliar Clínico Veterinario",
+          "bio": "Elena es una profesional con amplia experiencia en clínicas veterinarias, especializada en la formación de auxiliares clínicos y el cuidado integral de animales.",
+          "tags": ["Medicina interna", "Cirugía", "Animales exóticos"]
         }
       ],
       "cursosComplementarios": ["ATV (Ayudante Técnico Veterinario)", "ATV felinos", "ATV animales Exóticos", "Especialista en animales marinos y cetáceos", "Adiestramiento canino", "Peluquería canina"]
     }
   },
   { 
-    "nombre": "Auxiliar de Clínicas Estéticas", 
+    "nombre": "Auxiliar de Clínicas Estéticas",
+    "codigo": "AUXESTETICA", 
     "slugBase": "auxiliar-clinicas-esteticas",
     "imagen": "/images/cursos/especializacion-sanitaria.jpg",
     "categoria": "sanidad",
@@ -169,45 +205,46 @@
       "titulos": ["Medicina Estética", "Aparatología Avanzada", "Atención Especializada"]
     },
     "descripcionDetallada": {
-      "introduccion": "El curso de Auxiliar de Clínicas Estéticas ofrece los conocimientos imprescindibles del funcionamiento de un centro médico estético, las técnicas de medicina estética moderna y las funciones especializadas del auxiliar.",
-      "queAprendes": "Si te gusta el área sanitaria, el trato al público especializado, aconsejar en tratamientos estéticos y ayudar en la promoción de la salud y el bienestar, adquirirás todos los conocimientos necesarios para trabajar en el sector de la medicina estética.",
-      "puntosClave": [
-        { "icono": "Clock", "texto": "10 meses / 40 sesiones" },
-        { "icono": "Users", "texto": "150 horas de prácticas" },
-        { "icono": "Award", "texto": "Certificación medicina estética" },
-        { "icono": "Book", "texto": "Aparatología láser avanzada" }
-      ],
-      "inversion": {
-        "total": "1.250€",
-        "modalidad": "10 cuotas de 110€ + 150€ matrícula",
-        "incluye": "Material didáctico y agencia de colocación oficial."
-      },
-      "requisitos": ["Tener 2º de ESO o EGB superado."],
-      "salidasProfesionales": [
-        "Auxiliar en centros médicos estéticos", "Centros de estética avanzada", "Balnearios y spas", "Clínicas de medicina estética", "Centros de bienestar", "Consultas de dermatología estética"
-      ],
-      "modulos": [
-        { "titulo": "Medicina Estética", "contenido": ["Introducción y origen de la medicina estética.", "Encuadre normativo e historia clínica.", "La consulta médico-estética."] },
-        { "titulo": "Anatomía Aplicada", "contenido": ["Bases anatómicas en medicina estética.", "Antropometría y planimetría.", "Anatomía e histología de la piel."] },
-        { "titulo": "Aparatología Avanzada", "contenido": ["Aparatología médico-estética.", "Tecnología láser y luz pulsada.", "Equipos especializados."] },
-        { "titulo": "Medicina Estética Facial", "contenido": ["Rellenos y fillers.", "Hilos de sustentación.", "Toxina botulínica."] },
-        { "titulo": "Medicina Estética Corporal", "contenido": ["Tratamiento de celulitis.", "Adiposidad localizada.", "Flacidez y patología venosa."] },
-        { "titulo": "Técnicas Especializadas", "contenido": ["Rejuvenecimiento cutáneo.", "Electroterapia y masajes.", "Cosmetología básica."] }
-      ],
-      "profesores": [
-        { 
-          "nombre": "Especialistas en Medicina Estética", 
-          "foto": "/images/profesores/ana.jpg", 
-          "especialidad": "Médicos Estéticos",
-          "bio": "Equipo multidisciplinar de profesionales del sector médico-estético en activo, con amplia experiencia en clínicas especializadas.",
-          "tags": ["Medicina Estética", "Aparatología", "Tratamientos Láser"]
-        }
-      ],
-      "cursosComplementarios": ["Auxiliar de Enfermería", "Dietética y Nutrición", "Auxiliar de Farmacia"]
-    }
+        "introduccion": "El curso de Auxiliar de Clínicas Estéticas ofrece los conocimientos imprescindibles del funcionamiento de un centro médico estético, las técnicas de medicina estética moderna y las funciones especializadas del auxiliar.",
+        "queAprendes": "Si te gusta el área sanitaria, el trato al público especializado, aconsejar en tratamientos estéticos y ayudar en la promoción de la salud y el bienestar, adquirirás todos los conocimientos necesarios para trabajar en el sector de la medicina estética.",
+        "puntosClave": [
+          { "icono": "Clock", "texto": "Inicio 09/10/2025 - Jueves 10:30-13:30H" },
+          { "icono": "Users", "texto": "150 horas de prácticas" },
+          { "icono": "Award", "texto": "Certificación medicina estética" },
+          { "icono": "Book", "texto": "Aparatología láser avanzada" }
+        ],
+        "inversion": {
+          "total": "1100€",
+          "modalidad": "10 cuotas de 110€",
+          "incluye": "Matrícula de 150€ y material didáctico."
+        },
+        "requisitos": ["Tener 2º de ESO o EGB superado."],
+        "salidasProfesionales": [
+          "Auxiliar en centros médicos estéticos", "Centros de estética avanzada", "Balnearios y spas", "Clínicas de medicina estética", "Centros de bienestar", "Consultas de dermatología estética"
+        ],
+        "modulos": [
+          { "titulo": "Medicina Estética", "contenido": ["Introducción y origen de la medicina estética.", "Encuadre normativo e historia clínica.", "La consulta médico-estética."] },
+          { "titulo": "Anatomía Aplicada", "contenido": ["Bases anatómicas en medicina estética.", "Antropometría y planimetría.", "Anatomía e histología de la piel."] },
+          { "titulo": "Aparatología Avanzada", "contenido": ["Aparatología médico-estética.", "Tecnología láser y luz pulsada.", "Equipos especializados."] },
+          { "titulo": "Medicina Estética Facial", "contenido": ["Rellenos y fillers.", "Hilos de sustentación.", "Toxina botulínica."] },
+          { "titulo": "Medicina Estética Corporal", "contenido": ["Tratamiento de celulitis.", "Adiposidad localizada.", "Flacidez y patología venosa."] },
+          { "titulo": "Técnicas Especializadas", "contenido": ["Rejuvenecimiento cutáneo.", "Electroterapia y masajes.", "Cosmetología básica."] }
+        ],
+        "profesores": [
+          {
+            "nombre": "Luis José Jenni Sillones",
+            "foto": "/images/profesores/default.png",
+            "especialidad": "Especialista en Estética Avanzada",
+            "bio": "Profesional con amplia experiencia en el sector de la estética, especializado en aparatología y tratamientos faciales y corporales.",
+            "tags": ["Medicina Estética", "Aparatología", "Tratamientos Láser"]
+          }
+        ],
+        "cursosComplementarios": ["Auxiliar de Enfermería", "Dietética y Nutrición", "Auxiliar de Farmacia"]
+      }
   },
   { 
-    "nombre": "Auxiliar de Enfermería", 
+    "nombre": "Auxiliar de Enfermería",
+    "codigo": "AUXENF", 
     "slugBase": "auxiliar-enfermeria",
     "imagen": "/images/cursos/auxiliar-enfermeria.jpg",
     "categoria": "sanidad",
@@ -220,12 +257,12 @@
       "introduccion": "El curso de Auxiliar de Enfermería te proporciona los conocimientos teórico-prácticos para poder ejercer una de las profesiones con más demanda en nuestra sociedad, preparándote para trabajar en hospitales, clínicas y centros de salud.",
       "queAprendes": "Aprenderás a proporcionar cuidados auxiliares al paciente, preparar materiales e instrumental, realizar tareas de higiene y aseo, y asistir al equipo de enfermería en diversos procedimientos, todo ello con un enfoque humano y profesional.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "11 meses / 44 sesiones" },
+        { "icono": "Clock", "texto": "Inicio Noviembre 2025 - Martes 17:00-20:00H" },
         { "icono": "Users", "texto": "400 horas de prácticas en empresas" },
         { "icono": "Award", "texto": "Formación integral para el sector salud" }
       ],
       "inversion": {
-        "total": "1.200€",
+        "total": "1.050€",
         "modalidad": "10 cuotas de 105€ + 150€ matrícula",
         "incluye": "Material didáctico y agencia de colocación oficial."
       },
@@ -242,12 +279,21 @@
         { "titulo": "Relaciones en el Equipo de Trabajo", "contenido": ["Roles, comunicación efectiva y trabajo en equipo."] },
         { "titulo": "Formación y Orientación Laboral", "contenido": ["Búsqueda de empleo, derechos laborales y prevención de riesgos."] }
       ],
-      "profesores": [],
+      "profesores": [
+        {
+          "nombre": "Epifanio",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Enfermería",
+          "bio": "Epifanio es un profesional con amplia experiencia en enfermería y docencia.",
+          "tags": ["Enfermería", "Atención Sanitaria", "Cuidados Auxiliares"]
+        }
+      ],
       "cursosComplementarios": ["Ciclo Medio en Farmacia y Parafarmacia", "Ciclo Superior en Higiene Bucodental", "Tanatopraxia"]
     }
   },
   { 
-    "nombre": "Auxiliar de Odontología", 
+    "nombre": "Auxiliar de Odontología + Periodoncia",
+    "codigo": "AUXODON", 
     "slugBase": "auxiliar-odontologia", 
     "imagen": "/images/cursos/auxiliar-odontologia.jpg",
     "categoria": "sanidad",
@@ -257,40 +303,46 @@
       "titulos": ["Asistencia Clínica Dental", "Radiología Odontológica", "Higiene Bucodental"]
     },
     "descripcionDetallada": {
-      "introduccion": "El curso de Auxiliar de Odontología ofrece los conocimientos imprescindibles del funcionamiento de una clínica odontológica, las funciones del auxiliar de odontología y técnicas especializadas en salud bucodental.",
-      "queAprendes": "Si consideras que la salud bucodental es fundamental para una buena salud física y emocional y te ves desarrollando tu carrera profesional como parte de un equipo multidisciplinar odontológico, este curso te capacitará completamente.",
-      "puntosClave": [
-        { "icono": "Clock", "texto": "6 meses / 24 sesiones" },
-        { "icono": "Users", "texto": "200 horas de prácticas en clínicas" },
-        { "icono": "Award", "texto": "Certificación especializada dental" },
-        { "icono": "Book", "texto": "Manejo de radiología dental" }
-      ],
-      "requisitos": ["Tener 2º de ESO o EGB superado."],
-      "salidasProfesionales": [
-        "Auxiliar en clínicas dentales", "Centros de salud bucodental", "Hospitales (servicios odontología)", "Clínicas de cirugía maxilofacial", "Centros de ortodoncia", "Consultas de odontopediatría"
-      ],
-      "modulos": [
-        { "titulo": "La Clínica Dental", "contenido": ["Estructura y organización del gabinete dental.", "El equipo odontológico y figura del auxiliar."] },
-        { "titulo": "Anatomía Bucodental", "contenido": ["Articulación temporomandibular y cavidad bucal.", "El diente y arcadas dentarias.", "Erupción dentaria."] },
-        { "titulo": "Control de Infecciones", "contenido": ["Cadena de infección y microorganismos.", "Desinfección y esterilización.", "Radioprotección."] },
-        { "titulo": "Técnicas Clínicas", "contenido": ["Anestesia y analgesia.", "Radiología odontológica.", "Odontología conservadora y endodoncia."] },
-        { "titulo": "Especialidades", "contenido": ["Prótesis y materiales de impresión.", "Enfermedades periodontológicas.", "Cirugía oral y urgencias dentales."] },
-        { "titulo": "Poblaciones Especiales", "contenido": ["Odontología pediátrica.", "Paciente anciano.", "Ergonomía dental."] }
-      ],
-      "profesores": [
-        { 
-          "nombre": "Equipo Docente Odontológico", 
-          "foto": "/images/profesores/sara.jpg", 
-          "especialidad": "Especialistas en Odontología",
-          "bio": "Profesionales odontólogos e higienistas dentales en activo, con amplia experiencia clínica y docente en el sector odontológico.",
-          "tags": ["Odontología", "Higiene Dental", "Radiología Dental"]
-        }
-      ],
-      "cursosComplementarios": ["Auxiliar de Enfermería", "CFGS Higiene Bucodental", "Auxiliar de Farmacia"]
-    }
+        "introduccion": "El curso de Auxiliar de Odontología ofrece los conocimientos imprescindibles del funcionamiento de una clínica odontológica, las funciones del auxiliar de odontología y técnicas especializadas en salud bucodental.",
+        "queAprendes": "Si consideras que la salud bucodental es fundamental para una buena salud física y emocional y te ves desarrollando tu carrera profesional como parte de un equipo multidisciplinar odontológico, este curso te capacitará completamente.",
+        "puntosClave": [
+          { "icono": "Clock", "texto": "Inicio 27/11/2025 - Jueves 10:00-14:00H" },
+          { "icono": "Users", "texto": "200 horas de prácticas" },
+          { "icono": "Award", "texto": "Certificación especializada dental" },
+          { "icono": "Book", "texto": "Manejo de radiología dental" }
+        ],
+        "inversion": {
+          "total": "1210€",
+          "modalidad": "6 cuotas de 165€ + 150€ matrícula",
+          "incluye": "Material didáctico y prácticas."
+        },
+        "requisitos": ["Tener 2º de ESO o EGB superado."],
+        "salidasProfesionales": [
+          "Auxiliar en clínicas dentales", "Centros de salud bucodental", "Hospitales (servicios odontología)", "Clínicas de cirugía maxilofacial", "Centros de ortodoncia", "Consultas de odontopediatría"
+        ],
+        "modulos": [
+          { "titulo": "La Clínica Dental", "contenido": ["Estructura y organización del gabinete dental.", "El equipo odontológico y figura del auxiliar."] },
+          { "titulo": "Anatomía Bucodental", "contenido": ["Articulación temporomandibular y cavidad bucal.", "El diente y arcadas dentarias.", "Erupción dentaria."] },
+          { "titulo": "Control de Infecciones", "contenido": ["Cadena de infección y microorganismos.", "Desinfección y esterilización.", "Radioprotección."] },
+          { "titulo": "Técnicas Clínicas", "contenido": ["Anestesia y analgesia.", "Radiología odontológica.", "Odontología conservadora y endodoncia."] },
+          { "titulo": "Especialidades", "contenido": ["Prótesis y materiales de impresión.", "Enfermedades periodontológicas.", "Cirugía oral y urgencias dentales."] },
+          { "titulo": "Poblaciones Especiales", "contenido": ["Odontología pediátrica.", "Paciente anciano.", "Ergonomía dental."] }
+        ],
+        "profesores": [
+          {
+            "nombre": "Nuria Sillones",
+            "foto": "/images/profesores/nuria.jpg",
+            "especialidad": "Odontóloga",
+            "bio": "Nuria es una profesional con experiencia en el campo de la odontología, dedicada a la formación de nuevos auxiliares.",
+            "tags": ["Odontología", "Asistencia Dental", "Salud Bucodental"]
+          }
+        ],
+        "cursosComplementarios": ["Auxiliar de Enfermería", "CFGS Higiene Bucodental", "Auxiliar de Farmacia"]
+      }
   },
   {
     "nombre": "Ciclo Formativo de Grado Medio en Farmacia y Parafarmacia",
+    "codigo": "CFGMFARMA",
     "slugBase": "cfgm-farmacia-parafarmacia",
     "imagen": "/images/cursos/farmacia-parafarmacia.jpg",
     "categoria": "ciclos",
@@ -308,12 +360,12 @@
         { "icono": "BookOpen", "texto": "Titulación Oficial del Ministerio" },
         { "icono": "Users", "texto": "Acceso a Grado Superior" },
         { "icono": "Award", "texto": "2.000 horas formativas" },
-        { "icono": "Clock", "texto": "3 Cursos Escolares" }
+        { "icono": "Clock", "texto": "Inicio 18/09/2025" }
       ],
       "inversion": {
-        "total": "5.000€ - 6.000€",
-        "modalidad": "Pago único o 30 cuotas de 160€",
-        "incluye": "Matrícula de 200€ y material completo."
+        "total": "2.000€ 1º año / 2.000€ 2º año FCT",
+        "modalidad": "10 cuotas de 200€/mes (1º año) / 10 cuotas de 200€/mes (2º año)",
+        "incluye": "Matrícula y material completo."
       },
       "salidasProfesionales": [
         "Técnico en Farmacia", "Técnico Auxiliar de Farmacia", "Técnico en Almacén de Medicamentos", "Técnico en Farmacia Hospitalaria", "Técnico en Establecimientos de Parafarmacia"
@@ -329,7 +381,15 @@
         { "titulo": "Empresa e Iniciativa Emprendedora", "contenido": ["Creación y gestión de una empresa", "Plan de viabilidad"] },
         { "titulo": "Formación en Centros de Trabajo (FCT)", "contenido": ["Prácticas profesionales en empresas del sector farmacéutico"] }
       ],
-      "profesores": [],
+      "profesores": [
+        {
+          "nombre": "Mac",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Farmacia",
+          "bio": "",
+          "tags": []
+        }
+      ],
       "certificaciones": [
         { "nombre": "Ministerio de Educación y Formación Profesional", "logo": "/images/certificaciones/ministerio-educacion.png" },
         { "nombre": "Gobierno de Canarias", "logo": "/images/certificaciones/gobierno-canarias.png" }
@@ -338,6 +398,7 @@
   },
   {
     "nombre": "Ciclo Formativo de Grado Superior en Higiene Bucodental",
+    "codigo": "CFGSHIGIENE",
     "slugBase": "cfgs-higiene-bucodental",
     "imagen": "/images/cursos/ciclos-formativos.jpg",
     "categoria": "ciclos",
@@ -355,33 +416,36 @@
         { "icono": "BookOpen", "texto": "Titulación Oficial del Ministerio" },
         { "icono": "Users", "texto": "Acceso Directo a la Universidad" },
         { "icono": "Award", "texto": "2.000 horas formativas" },
-        { "icono": "Clock", "texto": "3 Cursos Escolares" }
+        { "icono": "Clock", "texto": "Inicio 17/09/2025" }
       ],
       "inversion": {
-        "total": "5.000€ - 6.000€",
-        "modalidad": "Pago único o 30 cuotas de 160€",
-        "incluye": "Matrícula de 200€ y material completo."
+        "total": "2.000€ 1º año / 2.000€ 2º año FCT",
+        "modalidad": "10 cuotas de 200€/mes (1º año) / 10 cuotas de 200€/mes (2º año)",
+        "incluye": "Matrícula y material completo."
       },
       "salidasProfesionales": [
-        "Higienista Bucodental", "Técnico Especialista en Higiene Bucodental", "Educador en Salud Bucodental", "Técnico en Promoción de la Salud"
+        "Técnico Superior en Higiene Bucodental", "Higienista Dental", "Educador Sanitario"
       ],
       "modulos": [
-        { "titulo": "Recepción y Logística en la Clínica Dental", "contenido": ["Organización del gabinete", "Gestión de pacientes", "Documentación clínica"] },
-        { "titulo": "Estudio de la Cavidad Oral", "contenido": ["Anatomía bucodental", "Histología y embriología", "Fisiología del sistema estomatognático"] },
-        { "titulo": "Exploración de la Cavidad Oral", "contenido": ["Técnicas de exploración", "Instrumental específico", "Registro de datos clínicos"] },
-        { "titulo": "Intervención Bucodental", "contenido": ["Técnicas de higiene", "Aplicación de fluoruros", "Sellado de fisuras"] },
-        { "titulo": "Epidemiología y Salud Oral", "contenido": ["Estudios epidemiológicos", "Indicadores de salud", "Planificación sanitaria"] },
-        { "titulo": "Educación para la Salud Oral", "contenido": ["Programas de promoción", "Técnicas educativas", "Prevención de enfermedades"] },
-        { "titulo": "Conservadora, Periodoncia, Cirugía e Implantes", "contenido": ["Odontología conservadora", "Tratamientos periodontales", "Asistencia en cirugía oral"] },
-        { "titulo": "Prótesis y Ortodoncia", "contenido": ["Tipos de prótesis", "Aparatología ortodóncica", "Mantenimiento y cuidados"] },
-        { "titulo": "Primeros Auxilios", "contenido": ["Soporte vital básico", "Actuación en emergencias", "Uso de desfibriladores"] },
-        { "titulo": "Fisiopatología General", "contenido": ["Bases anatomofisiológicas", "Procesos patológicos", "Microbiología e inmunología"] },
+        { "titulo": "Recepción y Logística en la Clínica Dental", "contenido": ["Gestión de citas", "Control de stock", "Atención al paciente"] },
+        { "titulo": "Estudio de la Cavidad Oral", "contenido": ["Anatomía oral", "Odontograma", "Exploración bucodental"] },
+        { "titulo": "Exploración de la Cavidad Oral", "contenido": ["Técnicas de exploración", "Detección de patologías", "Radiología dental"] },
+        { "titulo": "Intervención Bucodental", "contenido": ["Profilaxis", "Aplicación de flúor", "Selladores de fosas y fisuras"] },
+        { "titulo": "Epidemiología en Salud Oral", "contenido": ["Estudios de población", "Índices epidemiológicos", "Prevención comunitaria"] },
+        { "titulo": "Educación para la Salud Oral", "contenido": ["Programas educativos", "Técnicas de cepillado", "Asesoramiento dietético"] },
         { "titulo": "Formación y Orientación Laboral (FOL)", "contenido": ["Derechos laborales", "Seguridad en el trabajo", "Orientación profesional"] },
-        { "titulo": "Empresa e Iniciativa Emprendedora", "contenido": ["Creación y gestión de una empresa", "Plan de viabilidad"] },
-        { "titulo": "Proyecto de Higiene Bucodental", "contenido": ["Diseño e implementación de proyectos", "Metodología de investigación"] },
-        { "titulo": "Formación en Centros de Trabajo (FCT)", "contenido": ["Prácticas profesionales en clínicas dentales y centros de salud"] }
+        { "titulo": "Empresa e Iniciativa Emprendedora", "contenido": ["Creación y gestión de una clínica dental", "Plan de negocio"] },
+        { "titulo": "Formación en Centros de Trabajo (FCT)", "contenido": ["Prácticas profesionales en clínicas dentales"] }
       ],
-      "profesores": [],
+      "profesores": [
+        {
+          "nombre": "Sillones",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Higiene Bucodental",
+          "bio": "",
+          "tags": []
+        }
+      ],
       "certificaciones": [
         { "nombre": "Ministerio de Educación y Formación Profesional", "logo": "/images/certificaciones/ministerio-educacion.png" },
         { "nombre": "Gobierno de Canarias", "logo": "/images/certificaciones/gobierno-canarias.png" }
@@ -390,6 +454,7 @@
   },
   {
     "nombre": "Quiromasaje Nivel I",
+    "codigo": "QUIRO1",
     "slugBase": "quiromasaje-nivel-1",
     "imagen": "/images/cursos/Quiromasaje I.png",
     "categoria": "bienestar",
@@ -402,10 +467,15 @@
       "introduccion": "El curso de Quiromasaje Nivel I te introduce en el mundo de las terapias manuales, proporcionándote una base sólida en anatomía, fisiología y las principales maniobras del masaje para aplicar técnicas relajantes, descontracturantes y circulatorias.",
       "queAprendes": "Aprenderás a identificar las principales estructuras anatómicas, realizar una valoración inicial del cliente, aplicar correctamente las diferentes maniobras de quiromasaje (roces, fricciones, presiones, etc.) y crear protocolos de masaje para diferentes zonas del cuerpo.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "7 meses / 28 sesiones" },
+        { "icono": "Clock", "texto": "Inicio 19/06/2025 - Jueves 16:00-20:00H" },
         { "icono": "Users", "texto": "Prácticas intensivas supervisadas" },
         { "icono": "Award", "texto": "Certificación Nivel Inicial" }
       ],
+      "inversion": {
+        "total": "935€",
+        "modalidad": "11 cuotas de 85€ + 150€ matrícula",
+        "incluye": "Material didáctico y certificación oficial."
+      },
       "requisitos": ["No se requieren conocimientos previos. Pasión por las terapias manuales y el bienestar."],
       "salidasProfesionales": [
         "Auxiliar de quiromasajista", "Spas y balnearios", "Gimnasios y centros deportivos", "Centros de belleza y bienestar", "Trabajo por cuenta propia"
@@ -416,12 +486,21 @@
         { "titulo": "Técnicas y Maniobras", "contenido": ["Preparación del masajista y del cliente.", "Maniobras básicas: roces, fricciones, amasamientos, percusiones, etc.", "Estiramientos y movilizaciones."] },
         { "titulo": "Protocolos por Zonas", "contenido": ["Masaje de espalda y cuello.", "Masaje de piernas y pies.", "Masaje de brazos y manos.", "Masaje facial y craneal."] }
       ],
-      "profesores": [],
+      "profesores": [
+        {
+          "nombre": "Marco",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Quiromasajista Profesional",
+          "bio": "Marco es un experimentado quiromasajista con amplia trayectoria en técnicas manuales y terapéuticas, especializado en la formación de nuevos profesionales.",
+          "tags": ["Quiromasaje", "Masaje Terapéutico", "Técnicas Manuales"]
+        }
+      ],
       "cursosComplementarios": ["Quiromasaje Nivel II", "Masaje Deportivo", "Técnicas de Spa"]
     }
   },
   {
-    "nombre": "Dietética y Nutrición", 
+    "nombre": "Dietética y Nutrición",
+    "codigo": "DIETETICA", 
     "slugBase": "dietetica-nutricion", 
     "imagen": "/images/cursos/dietetica-nutricion.jpg",
     "categoria": "bienestar",
@@ -431,40 +510,46 @@
       "titulos": ["Nutrición Personalizada", "Educación Alimentaria", "Dietética Aplicada"]
     },
     "descripcionDetallada": {
-      "introduccion": "El curso de Dietética y Nutrición ofrece los conocimientos imprescindibles sobre nutrición aplicada, elaboración de dietas personalizadas, educación nutricional y tratamiento de trastornos alimentarios.",
-      "queAprendes": "Si te interesa la alimentación saludable, quieres ayudar a las personas a mejorar su calidad de vida a través de la nutrición y deseas especializarte en este campo en crecimiento, adquirirás todos los conocimientos necesarios.",
-      "puntosClave": [
-        { "icono": "Clock", "texto": "10 meses / 40 sesiones" },
-        { "icono": "Users", "texto": "Prácticas en centros especializados" },
-        { "icono": "Award", "texto": "Certificación en dietética" },
-        { "icono": "Book", "texto": "Enfoque en nutrición terapéutica" }
-      ],
-      "requisitos": ["Tener 2º de ESO o EGB superado."],
-      "salidasProfesionales": [
-        "Centros de dietética y nutrición", "Consulta privada de nutrición", "Gimnasios y centros deportivos", "Centros de bienestar y spas", "Residencias geriátricas", "Industria alimentaria", "Comedores escolares", "Herboristerías y parafarmacias"
-      ],
-      "modulos": [
-        { "titulo": "Fundamentos de Nutrición", "contenido": ["Conceptos básicos y macronutrientes.", "Metabolismo y digestión.", "Necesidades nutricionales por edad."] },
-        { "titulo": "Alimentos y Nutrientes", "contenido": ["Clasificación y composición nutricional.", "Etiquetado y aditivos alimentarios.", "Alimentos funcionales."] },
-        { "titulo": "Dietética Aplicada", "contenido": ["Elaboración de dietas equilibradas.", "Cálculo de requerimientos energéticos.", "Planificación de menús terapéuticos."] },
-        { "titulo": "Evaluación Nutricional", "contenido": ["Antropometría y encuestas dietéticas.", "Indicadores bioquímicos.", "Métodos de evaluación."] },
-        { "titulo": "Nutrición Clínica", "contenido": ["Obesidad y diabetes.", "Enfermedades cardiovasculares.", "Trastornos alimentarios e intolerancias."] },
-        { "titulo": "Educación Nutricional", "contenido": ["Técnicas de comunicación.", "Programas educativos.", "Motivación al cambio."] }
-      ],
-      "profesores": [
-        { 
-          "nombre": "Especialistas en Nutrición", 
-          "foto": "/images/profesores/nuria.jpg", 
-          "especialidad": "Dietistas-Nutricionistas",
-          "bio": "Profesionales dietistas-nutricionistas colegiados en activo, con experiencia en consulta privada y centros especializados.",
-          "tags": ["Nutrición Clínica", "Dietética", "Educación Alimentaria"]
-        }
-      ],
-      "cursosComplementarios": ["Entrenador Personal", "Instructor de Yoga", "Quiromasaje", "Auxiliar de Farmacia"]
-    }
+        "introduccion": "El curso de Dietética y Nutrición ofrece los conocimientos imprescindibles sobre nutrición aplicada, elaboración de dietas personalizadas, educación nutricional y tratamiento de trastornos alimentarios.",
+        "queAprendes": "Si te interesa la alimentación saludable, quieres ayudar a las personas a mejorar su calidad de vida a través de la nutrición y deseas especializarte en este campo en crecimiento, adquirirás todos los conocimientos necesarios.",
+        "puntosClave": [
+          { "icono": "Clock", "texto": "Inicio 17/09/2025 - Miércoles 10:00-13:00H" },
+          { "icono": "Users", "texto": "150 horas de prácticas" },
+          { "icono": "Award", "texto": "Certificación en dietética" },
+          { "icono": "Book", "texto": "Enfoque en nutrición terapéutica" }
+        ],
+        "inversion": {
+          "total": "840€",
+          "modalidad": "8 cuotas de 105€ + 150€ matrícula",
+          "incluye": "Material didáctico y acceso a agencia de colocación."
+        },
+        "requisitos": ["Tener 2º de ESO o EGB superado."],
+        "salidasProfesionales": [
+          "Centros de dietética y nutrición", "Consulta privada de nutrición", "Gimnasios y centros deportivos", "Centros de bienestar y spas", "Residencias geriátricas", "Industria alimentaria", "Comedores escolares", "Herboristerías y parafarmacias"
+        ],
+        "modulos": [
+          { "titulo": "Fundamentos de Nutrición", "contenido": ["Conceptos básicos y macronutrientes.", "Metabolismo y digestión.", "Necesidades nutricionales por edad."] },
+          { "titulo": "Alimentos y Nutrientes", "contenido": ["Clasificación y composición nutricional.", "Etiquetado y aditivos alimentarios.", "Alimentos funcionales."] },
+          { "titulo": "Dietética Aplicada", "contenido": ["Elaboración de dietas equilibradas.", "Cálculo de requerimientos energéticos.", "Planificación de menús terapéuticos."] },
+          { "titulo": "Evaluación Nutricional", "contenido": ["Antropometría y encuestas dietéticas.", "Indicadores bioquímicos.", "Métodos de evaluación."] },
+          { "titulo": "Nutrición Clínica", "contenido": ["Obesidad y diabetes.", "Enfermedades cardiovasculares.", "Trastornos alimentarios e intolerancias."] },
+          { "titulo": "Educación Nutricional", "contenido": ["Técnicas de comunicación.", "Programas educativos.", "Motivación al cambio."] }
+        ],
+        "profesores": [
+          {
+            "nombre": "Yanira",
+            "foto": "/images/profesores/alexis.jpg",
+            "especialidad": "Dietista-Nutricionista",
+            "bio": "Yanira es una profesional con amplia experiencia en el campo de la nutrición y la dietética, dedicada a la formación de nuevos especialistas.",
+            "tags": ["Nutrición Clínica", "Dietética", "Educación Alimentaria"]
+          }
+        ],
+        "cursosComplementarios": ["Entrenador Personal", "Instructor de Yoga", "Quiromasaje", "Auxiliar de Farmacia"]
+      }
   },
   {
-    "nombre": "Quiromasaje Nivel II", 
+    "nombre": "Quiromasaje Nivel II",
+    "codigo": "QUIRO2", 
     "slugBase": "quiromasaje-nivel2", 
     "imagen": "/images/cursos/Quiromasaje II.png",
     "categoria": "bienestar",
@@ -478,13 +563,13 @@
       "introduccion": "El curso de Quiromasaje Nivel II (Terapéutico y Deportivo) ofrece técnicas avanzadas de masaje terapéutico, conocimientos especializados en masaje deportivo y herramientas profesionales para el tratamiento de lesiones.",
       "queAprendes": "Perfeccionarás tus habilidades en masaje terapéutico, aprenderás técnicas específicas de masaje deportivo y adquirirás conocimientos para trabajar con deportistas y en el tratamiento de lesiones musculares.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "5 meses / 20 sesiones" },
+        { "icono": "Clock", "texto": "Inicio 04/07/2025 - Viernes 10:00-14:00H" },
         { "icono": "Users", "texto": "50 horas de prácticas externas" },
         { "icono": "Award", "texto": "Especialización nivel avanzado" },
         { "icono": "Book", "texto": "Enfoque terapéutico y deportivo" }
       ],
       "inversion": {
-        "total": "575€",
+        "total": "425€",
         "modalidad": "5 cuotas de 85€ + 150€ matrícula",
         "incluye": "Material didáctico y agencia de colocación oficial."
       },
@@ -501,18 +586,60 @@
       ],
       "profesores": [
         { 
-          "nombre": "Especialistas en Terapias Manuales", 
-          "foto": "/images/profesores/luis.jpg", 
-          "especialidad": "Osteópatas y Terapeutas",
-          "bio": "Profesionales en ejercicio especialistas en osteopatía y terapias naturales complementarias, que aportan experiencia práctica en el trato diario con pacientes.",
-          "tags": ["Osteopatía", "Masaje Terapéutico", "Terapias Naturales"]
+          "nombre": "Marco", 
+          "foto": "/images/profesores/default.png", 
+          "especialidad": "Quiromasajista Profesional",
+          "bio": "Marco es un experimentado quiromasajista con amplia trayectoria en técnicas manuales y terapéuticas, especializado en la formación de nuevos profesionales y en tratamientos avanzados.",
+          "tags": ["Quiromasaje Avanzado", "Masaje Terapéutico", "Masaje Deportivo"]
         }
       ],
       "cursosComplementarios": ["Quiromasaje Nivel I", "Entrenador Personal", "Dietética y Nutrición", "Auxiliar de Enfermería"]
     }
   },
+  {
+    "nombre": "Quiromasaje (11 meses)",
+    "codigo": "QUIROMASAJE",
+    "slugBase": "quiromasaje-11-meses",
+    "imagen": "/images/cursos/quiromasaje-11-meses.jpg",
+    "categoria": "bienestar",
+    "copy": {
+      "slogan": "Conviértete en un profesional del masaje terapéutico en 11 meses.",
+      "textosPrincipales": ["Técnicas Manuales Avanzadas", "Anatomía Aplicada", "Bienestar Integral"],
+      "titulos": ["Quiromasaje Profesional", "Protocolos Terapéuticos", "Gestión de Clientes"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "Este curso completo de 11 meses te forma como quiromasajista profesional, cubriendo desde las técnicas fundamentales hasta los protocolos avanzados para el tratamiento de diversas afecciones y la promoción del bienestar.",
+      "queAprendes": "Aprenderás a realizar un masaje completo y profesional, aplicar técnicas específicas para lesiones comunes, entender la anatomía y fisiología en profundidad, y desarrollar protocolos de tratamiento personalizados para tus clientes.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio 20/06/2025 - Viernes 10:00-14:00H" },
+        { "icono": "Users", "texto": "100 horas de prácticas" },
+        { "icono": "Award", "texto": "Certificación Profesional" }
+      ],
+      "inversion": {
+        "total": "1045€",
+        "modalidad": "11 cuotas de 95€",
+        "incluye": "Matrícula de 150€ y material."
+      },
+      "requisitos": ["No se requieren conocimientos previos."],
+      "salidasProfesionales": [
+        "Quiromasajista en centros de estética, spas, gimnasios y por cuenta propia."
+      ],
+      "modulos": [],
+      "profesores": [
+        {
+          "nombre": "Abraham Sillones",
+          "foto": "/images/profesores/abraham.jpg",
+          "especialidad": "Quiromasajista y Terapeuta",
+          "bio": "Abraham es un quiromasajista con amplia experiencia en el sector, especializado en masaje terapéutico y deportivo.",
+          "tags": ["Quiromasaje", "Masaje Deportivo", "Terapias Manuales"]
+        }
+      ],
+      "cursosComplementarios": ["Quiromasaje Nivel I", "Quiromasaje Nivel II", "Masaje Deportivo"]
+    }
+  },
   { 
-    "nombre": "Auxiliar de Farmacia y Parafarmacia", 
+    "nombre": "Auxiliar de Farmacia y Parafarmacia",
+    "codigo": "AUXFARMA", 
     "slugBase": "auxiliar-farmacia-parafarmacia", 
     "imagen": "/images/cursos/farmacia-parafarmacia.jpg",
     "categoria": "sanidad",
@@ -525,13 +652,13 @@
       "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
       "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "10 meses / 40 sesiones" },
-        { "icono": "Users", "texto": "250 horas de prácticas" },
+        { "icono": "Clock", "texto": "Inicio 13/10/2025 - Lunes 16:00-19:00H" },
+        { "icono": "Users", "texto": "150 horas de prácticas" },
         { "icono": "Award", "texto": "Certificación farmacéutica" },
         { "icono": "Book", "texto": "Farmacología y parafarmacia" }
       ],
       "inversion": {
-        "total": "1.410€",
+        "total": "1200€",
         "modalidad": "12 cuotas de 105€ + 150€ matrícula",
         "incluye": "Material didáctico y agencia de colocación oficial."
       },
@@ -548,15 +675,218 @@
         { "titulo": "Especialidades", "contenido": ["Ortopedia y prótesis.", "Óptica y audioprótesis.", "Productos odontológicos."] }
       ],
       "profesores": [
-        { 
-          "nombre": "Farmacéuticos Especialistas", 
-          "foto": "/images/profesores/marta.jpg", 
-          "especialidad": "Farmacéuticos Colegiados",
-          "bio": "Equipo multidisciplinar de farmacéuticos colegiados en activo, con amplia experiencia en oficina de farmacia y atención farmacéutica.",
+        {
+          "nombre": "Alexis",
+          "foto": "/images/profesores/alexis.jpg",
+          "especialidad": "Farmacéutico Colegiado",
+          "bio": "Alexis es un profesional con amplia experiencia en el sector farmacéutico, especializado en atención farmacéutica y dispensación de medicamentos.",
           "tags": ["Farmacología", "Atención Farmacéutica", "Parafarmacia"]
         }
       ],
       "cursosComplementarios": ["Auxiliar de Enfermería", "Dietética y Nutrición", "CFGM Farmacia y Parafarmacia"]
+    }
+  },
+  {
+    "nombre": "Peluquería Canina y Felina",
+    "codigo": "PELUCAN",
+    "slugBase": "peluqueria-canina-felina",
+    "imagen": "/images/cursos/peluqueria-canina.jpg",
+    "categoria": "veterinaria",
+    "copy": {
+      "slogan": "Transforma tu pasión por los animales en una profesión creativa y demandada.",
+      "textosPrincipales": ["Aprende las técnicas de corte, higiene y estética para perros y gatos, y domina el uso de herramientas profesionales."],
+      "titulos": ["Estética Canina Profesional", "Cosmética Animal", "Gestión de Peluquería"]
+    },
+    "descripcionDetallada": {
+        "introduccion": "El curso de Peluquería Canina y Felina te capacita para trabajar como profesional en un sector con alta demanda, aprendiendo desde la anatomía y el cuidado de la piel hasta las técnicas de corte específicas para cada raza.",
+        "queAprendes": "Adquirirás las habilidades para realizar cortes de pelo según el estándar de la raza, aplicar tratamientos de higiene y cosmética, y gestionar tu propio negocio de peluquería canina y felina.",
+        "puntosClave": [
+          { "icono": "Clock", "texto": "Inicio 15/09/2025 - Lunes 10:00-13:00H" },
+          { "icono": "Users", "texto": "150 horas de prácticas" },
+          { "icono": "Award", "texto": "Certificación en Estética Canina" },
+          { "icono": "Book", "texto": "Visagismo y técnicas de corte" }
+        ],
+        "requisitos": ["No se requieren conocimientos previos, solo pasión por los animales."],
+        "inversion": {
+          "total": "540€",
+          "modalidad": "6 cuotas de 90€ + 150€ matrícula",
+          "incluye": "Material didáctico completo y acceso a bolsa de empleo."
+        },
+        "salidasProfesionales": [
+          "Peluquero/a canino y felino en clínicas veterinarias", "Estilista en salones de belleza para mascotas", "Responsable de estética en criaderos y residencias", "Asesor en tiendas de productos para animales", "Emprendedor/a (propia peluquería)"
+        ],
+        "modulos": [
+          { "titulo": "Anatomía y Fisiología de la Piel y el Pelo", "contenido": ["Tipos de piel y pelaje.", "Problemas dermatológicos comunes.", "Cosmética aplicada a la higiene."] },
+          { "titulo": "Manejo y Comportamiento en la Peluquería", "contenido": ["Técnicas de sujeción y manejo sin estrés.", "Identificación de señales de miedo o agresividad."] },
+          { "titulo": "Equipos y Herramientas Profesionales", "contenido": ["Uso y mantenimiento de máquinas, tijeras, cepillos y secadores.", "Seguridad e higiene del material."] },
+          { "titulo": "Técnicas de Baño y Secado", "contenido": ["Procedimientos de baño según tipo de pelo.", "Técnicas de secado y cepillado para evitar nudos."] },
+          { "titulo": "Técnicas de Corte", "contenido": ["Corte a máquina y a tijera.", "Stripping y técnicas para razas de pelo duro.", "Cortes estándar para las razas más comunes (Caniche, Yorkshire, Schnauzer, etc.)."] },
+          { "titulo": "Peluquería Felina", "contenido": ["Particularidades del manejo y cuidado del gato.", "Técnicas específicas para el pelaje felino."] }
+        ],
+        "profesores": [
+          {
+            "nombre": "Raquel",
+            "foto": "/images/profesores/default.png",
+            "especialidad": "Estilista Canina Profesional",
+            "bio": "Raquel es una profesional con amplia experiencia en el campo de la peluquería canina y felina, especializada en técnicas de corte y estilismo para diferentes razas.",
+            "tags": ["Peluquería Canina", "Estilismo", "Visagismo Animal"]
+          }
+        ],
+        "cursosComplementarios": ["Auxiliar de Veterinaria", "Adiestramiento Canino I", "ATV en Centros Veterinarios"]
+      }
+  },
+  {
+    "nombre": "Especialista en Animales Exóticos",
+    "codigo": "EXOTICOS",
+    "slugBase": "especialista-animales-exoticos",
+    "imagen": "/images/cursos/especialista-animales-exoticos.jpg",
+    "categoria": "veterinaria",
+    "copy": {
+      "slogan": "Adéntrate en el fascinante mundo de las especies no convencionales.",
+      "textosPrincipales": ["Aprende sobre la anatomía, manejo, y patologías de animales exóticos como reptiles, aves y pequeños mamíferos."],
+      "titulos": ["Manejo Clínico de Exóticos", "Biología y Conservación", "Medicina Preventiva"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "Este curso te especializa en el cuidado y manejo de animales exóticos, un campo en plena expansión y con una creciente demanda de profesionales cualificados.",
+      "queAprendes": "Dominarás las técnicas de manejo, nutrición, y asistencia clínica para una amplia variedad de especies exóticas, y aprenderás a asesorar a sus propietarios sobre su bienestar.",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "7 meses / 28 sesiones" },
+        { "icono": "Users", "texto": "Prácticas en centros especializados" },
+        { "icono": "Award", "texto": "Certificación en Cuidado de Exóticos" },
+        { "icono": "Book", "texto": "Enfoque en medicina preventiva" }
+      ],
+      "requisitos": ["Se recomienda tener formación previa como Auxiliar de Veterinaria o similar."],
+      "inversion": {
+        "total": "950€",
+        "modalidad": "8 cuotas de 100€ + 150€ matrícula",
+        "incluye": "Acceso a material de consulta especializado y bolsa de empleo."
+      },
+      "salidasProfesionales": [
+        "Auxiliar técnico en clínicas de animales exóticos", "Cuidador en zoológicos y parques de naturaleza", "Responsable en centros de recuperación de fauna", "Asesor en tiendas especializadas", "Colaborador en proyectos de investigación y conservación"
+      ],
+      "modulos": [
+        { "titulo": "Biología y Anatomía Comparada", "contenido": ["Clasificación de especies exóticas.", "Anatomía y fisiología de reptiles, aves y mamíferos exóticos."] },
+        { "titulo": "Manejo y Sujeción", "contenido": ["Técnicas seguras de manejo y contención.", "Prevención de estrés y riesgos para el animal y el profesional."] },
+        { "titulo": "Nutrición y Alojamiento", "contenido": ["Requerimientos nutricionales específicos.", "Diseño de hábitats y enriquecimiento ambiental."] },
+        { "titulo": "Patologías y Medicina Preventiva", "contenido": ["Enfermedades más comunes en especies exóticas.", "Planes de vacunación y desparasitación.", "Protocolos de cuarentena."] },
+        { "titulo": "Asistencia en Consulta y Cirugía", "contenido": ["Toma de muestras biológicas.", "Fluidoterapia y administración de medicamentos.", "Asistencia en procedimientos quirúrgicos."] }
+      ],
+      "profesores": [
+        { 
+          "nombre": "Dr. Alejandro Martín", 
+          "foto": "/images/profesores/alejandro.jpg", 
+          "especialidad": "Veterinario especialista en Exóticos",
+          "bio": "Veterinario con dedicación exclusiva a animales exóticos desde hace más de 10 años. Director de un centro de referencia en medicina de especies no convencionales.",
+          "tags": ["Medicina Exóticos", "Reptiles", "Aves", "Conservación"]
+        }
+      ],
+      "cursosComplementarios": ["Auxiliar de Veterinaria", "ATV en Centros Veterinarios", "Adiestramiento Canino I"]
+    }
+  },
+  {
+    "nombre": "Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)",
+    "codigo": "ATVSC",
+    "slugBase": "ayudante-tecnico-veterinario-santa-cruz",
+    "imagen": "/images/cursos/auxiliar-veterinaria.jpg",
+    "categoria": "veterinaria",
+    "copy": {
+      "slogan": "Conviértete en un profesional especializado en asistencia veterinaria avanzada.",
+      "textosPrincipales": ["Asistencia en quirófano", "Farmacología", "Imagenología diagnóstica", "Odontología veterinaria"],
+      "titulos": ["Asistencia Veterinaria Avanzada", "Técnicas Clínicas Especializadas"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "El curso de ATV ofrece los conocimientos imprescindibles acerca de las técnicas y conocimientos que debe manejar un Ayudante Técnico de Veterinaria, que incluye la legislación actual, nivel medio de anatomía y fisiología animal, farmacología y toxicología, imagenología, introducción a la odontología veterinaria, atención en el quirófano y hospitalización, y urgencias veterinarias, además de un módulo de orientación laboral, dinámico y actualizado.",
+      "queAprendes": "El objetivo es adquirir la confianza, habilidades y conocimientos para trabajar como ATV en clínicas, centros veterinarios, tiendas de animales, ong´s o núcleos zoológicos. Si te gusta el mundo animal, ya eres Auxiliar de Veterinaria y deseas ampliar conocimientos, ¡no lo dudes!",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio: 01/07/2025" },
+        { "icono": "Users", "texto": "Martes 19:00-22:00" },
+        { "icono": "Award", "texto": "150 horas de prácticas" },
+        { "icono": "Book", "texto": "Sede CEP Santa Cruz - Aula 2" }
+      ],
+      "requisitos": ["Se recomienda tener formación previa como Auxiliar de Veterinaria."],
+      "inversion": {
+        "total": "810€",
+        "modalidad": "6 cuotas de 90€ + 150€ matrícula",
+        "incluye": "Agencia de colocación oficial y material didáctico."
+      },
+      "salidasProfesionales": [
+        "Ayudante Técnico Veterinario en clínicas y hospitales", "Asistente en quirófano y hospitalización", "Técnico en centros veterinarios", "Auxiliar en tiendas de animales", "Asistente en ONGs y núcleos zoológicos"
+      ],
+      "modulos": [
+        { "titulo": "Identificacion y legislación", "contenido": ["Registro Canario de Identificación animal", "Obligaciones del propietario", "Importancia de la identificación", "Documentos para registro de nuevos animales y cambio de propietario", "Leyes y recomendaciones", "Pasaporte y otros trámites para el viaje de la mascota (zoocan)"] },
+        { "titulo": "Anatomía y fisiología de los animales domésticos (nivel medio)", "contenido": ["Anatomía del hueso, planos corporales y articulaciones (patologías)", "Músculos, movimiento y patologías mas frecuentes", "Cavidades corporales", "Sistema circulatorio, respiratorio, digestivo, urinario y reproductor"] },
+        { "titulo": "Introducción a la toma de muestras", "contenido": ["Tipos de muestras", "Recogida, identificación y conservación", "Tratamiento y envío", "Almacenamiento", "Desperdicios: descarte sanitario"] },
+        { "titulo": "Enfermedades infecciosas y contagiosas", "contenido": ["Aislamiento adecuado del paciente", "Asistencia y manejo", "Zoonosis y protección del personal asistencial", "Tipos: viral, bacteriano, parasitario"] },
+        { "titulo": "Farmacología y Toxicología", "contenido": ["Envases de los medicamentos finalidad y conservación", "Cuidados de la cadena de frio", "Pedidos y almacenaje", "Administración bajo la tutela del veterinario", "Intoxicaciones más frecuentes", "Reacciones medicamentosas", "Ajustes de tratamientos según peso"] },
+        { "titulo": "Imagenología (Diagnóstico por imagen)", "contenido": ["Sujeción para la toma de imágenes", "Posiciones y vistas del paciente", "Vestimenta adecuada y protección del área de Rx", "Ecosonografía, ultrasonido o ecografía", "Técnica axial computarizada (TAC)", "Resonancia magnética"] },
+        { "titulo": "Introducción a la odontología veterinaria", "contenido": ["Anatomía del diente", "Dentición decidua y permanente", "Importancia de la limpieza dental", "La exploración oral", "Enfermedad periodontal", "Patologías bucales", "Material odonto-veterinario"] },
+        { "titulo": "Asistencia y manejo del paciente con afección del Sistema Nervioso Central", "contenido": ["Cuidados especiales", "Manipulación", "Observación", "Historia evolutiva"] },
+        { "titulo": "Manejo quirúrgico", "contenido": ["Preparación del paciente", "Revisión, rasurado, vías de administración de fármacos y anestésicos", "Máquina de anestesia", "Material quirúrgico", "Limpieza de quirófano", "Asistencia al cirujano", "Manejo postquirúrgico del paciente"] },
+        { "titulo": "Hospitalización y urgencia", "contenido": ["Preparación del área hospitalaria", "Clasificación y ordenación del material", "Medicación al día", "Revisión periódica y actualización de hoja de hospitalización", "Asistencia en el manejo de paciente herido o accidentado"] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Andrea",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Veterinaria con experiencia clínica",
+          "bio": "Andrea cuenta con amplia experiencia profesional en el sector clínico y hospitalario veterinario.",
+          "tags": ["Medicina Veterinaria", "Cirugía", "Diagnóstico por imagen", "Hospitalización"]
+        }
+      ],
+      "cursosComplementarios": ["ATV felinos", "ATV animales Exóticos", "Seminario de urgencias", "Peluquería canina", "Adiestramiento canino"]
+    }
+  },
+  {
+    "nombre": "Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)",
+    "codigo": "ATVLN",
+    "slugBase": "ayudante-tecnico-veterinario-norte",
+    "imagen": "/images/cursos/auxiliar-veterinaria.jpg",
+    "categoria": "veterinaria",
+    "copy": {
+      "slogan": "Conviértete en un profesional especializado en asistencia veterinaria avanzada.",
+      "textosPrincipales": ["Asistencia en quirófano", "Farmacología", "Imagenología diagnóstica", "Odontología veterinaria"],
+      "titulos": ["Asistencia Veterinaria Avanzada", "Técnicas Clínicas Especializadas"]
+    },
+    "descripcionDetallada": {
+      "introduccion": "El curso de ATV ofrece los conocimientos imprescindibles acerca de las técnicas y conocimientos que debe manejar un Ayudante Técnico de Veterinaria, que incluye la legislación actual, nivel medio de anatomía y fisiología animal, farmacología y toxicología, imagenología, introducción a la odontología veterinaria, atención en el quirófano y hospitalización, y urgencias veterinarias, además de un módulo de orientación laboral, dinámico y actualizado.",
+      "queAprendes": "El objetivo es adquirir la confianza, habilidades y conocimientos para trabajar como ATV en clínicas, centros veterinarios, tiendas de animales, ong´s o núcleos zoológicos. Si te gusta el mundo animal, ya eres Auxiliar de Veterinaria y deseas ampliar conocimientos, ¡no lo dudes!",
+      "puntosClave": [
+        { "icono": "Clock", "texto": "Inicio: 25/06/2025" },
+        { "icono": "Users", "texto": "Horario: 17:00-20:00 (pendiente confirmar día)" },
+        { "icono": "Award", "texto": "50 horas de prácticas" },
+        { "icono": "Book", "texto": "Sede CEP Norte/La Laguna - Aula 5" }
+      ],
+      "requisitos": ["Se recomienda tener formación previa como Auxiliar de Veterinaria."],
+      "inversion": {
+        "total": "540€",
+        "modalidad": "6 cuotas de 90€ + 150€ matrícula",
+        "incluye": "Agencia de colocación oficial y material didáctico."
+      },
+      "salidasProfesionales": [
+        "Ayudante Técnico Veterinario en clínicas y hospitales", "Asistente en quirófano y hospitalización", "Técnico en centros veterinarios", "Auxiliar en tiendas de animales", "Asistente en ONGs y núcleos zoológicos"
+      ],
+      "modulos": [
+        { "titulo": "Identificacion y legislación", "contenido": ["Registro Canario de Identificación animal", "Obligaciones del propietario", "Importancia de la identificación", "Documentos para registro de nuevos animales y cambio de propietario", "Leyes y recomendaciones", "Pasaporte y otros trámites para el viaje de la mascota (zoocan)"] },
+        { "titulo": "Anatomía y fisiología de los animales domésticos (nivel medio)", "contenido": ["Anatomía del hueso, planos corporales y articulaciones (patologías)", "Músculos, movimiento y patologías mas frecuentes", "Cavidades corporales", "Sistema circulatorio, respiratorio, digestivo, urinario y reproductor"] },
+        { "titulo": "Introducción a la toma de muestras", "contenido": ["Tipos de muestras", "Recogida, identificación y conservación", "Tratamiento y envío", "Almacenamiento", "Desperdicios: descarte sanitario"] },
+        { "titulo": "Enfermedades infecciosas y contagiosas", "contenido": ["Aislamiento adecuado del paciente", "Asistencia y manejo", "Zoonosis y protección del personal asistencial", "Tipos: viral, bacteriano, parasitario"] },
+        { "titulo": "Farmacología y Toxicología", "contenido": ["Envases de los medicamentos finalidad y conservación", "Cuidados de la cadena de frio", "Pedidos y almacenaje", "Administración bajo la tutela del veterinario", "Intoxicaciones más frecuentes", "Reacciones medicamentosas", "Ajustes de tratamientos según peso"] },
+        { "titulo": "Imagenología (Diagnóstico por imagen)", "contenido": ["Sujeción para la toma de imágenes", "Posiciones y vistas del paciente", "Vestimenta adecuada y protección del área de Rx", "Ecosonografía, ultrasonido o ecografía", "Técnica axial computarizada (TAC)", "Resonancia magnética"] },
+        { "titulo": "Introducción a la odontología veterinaria", "contenido": ["Anatomía del diente", "Dentición decidua y permanente", "Importancia de la limpieza dental", "La exploración oral", "Enfermedad periodontal", "Patologías bucales", "Material odonto-veterinario"] },
+        { "titulo": "Asistencia y manejo del paciente con afección del Sistema Nervioso Central", "contenido": ["Cuidados especiales", "Manipulación", "Observación", "Historia evolutiva"] },
+        { "titulo": "Manejo quirúrgico", "contenido": ["Preparación del paciente", "Revisión, rasurado, vías de administración de fármacos y anestésicos", "Máquina de anestesia", "Material quirúrgico", "Limpieza de quirófano", "Asistencia al cirujano", "Manejo postquirúrgico del paciente"] },
+        { "titulo": "Hospitalización y urgencia", "contenido": ["Preparación del área hospitalaria", "Clasificación y ordenación del material", "Medicación al día", "Revisión periódica y actualización de hoja de hospitalización", "Asistencia en el manejo de paciente herido o accidentado"] }
+      ],
+      "profesores": [
+        {
+          "nombre": "Alicia",
+          "foto": "/images/profesores/default.png",
+          "especialidad": "Veterinaria con experiencia clínica",
+          "bio": "Alicia cuenta con amplia experiencia profesional en el sector clínico y hospitalario veterinario.",
+          "tags": ["Medicina Veterinaria", "Cirugía", "Diagnóstico por imagen", "Hospitalización"]
+        }
+      ],
+      "cursosComplementarios": ["ATV felinos", "ATV animales Exóticos", "Seminario de urgencias", "Peluquería canina", "Adiestramiento canino"]
     }
   }
 ] 

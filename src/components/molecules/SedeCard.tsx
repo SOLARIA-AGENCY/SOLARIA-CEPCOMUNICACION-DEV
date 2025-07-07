@@ -44,14 +44,10 @@ const SedeCard: React.FC<SedeCardProps> = ({ nombre, slug, imagen, descripcion }
           {descripcion}
         </p>
         
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-cep-primary font-semibold">
-            Ver cursos disponibles
-          </span>
-          <ArrowRight 
-            size={20} 
-            className="text-cep-primary group-hover:translate-x-1 transition-transform duration-300" 
-          />
+        <div className="mt-4 pt-4 border-t border-gray-200">
+          <div className="bg-[#D81B60] text-white font-bold text-sm py-3 px-5 rounded-lg group-hover:bg-cep-primary-dark transition-colors duration-300 w-full text-center">
+            Ver Cursos
+          </div>
         </div>
       </div>
     </div>

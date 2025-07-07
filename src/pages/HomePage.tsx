@@ -277,6 +277,27 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Sección Especial - Ciclos Formativos Oficiales */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-yellow-400 text-cep-primary px-4 py-2 rounded-full text-sm font-bold mb-4">
+              <span className="mr-2">🏆</span>
+              TÍTULOS OFICIALES MINISTERIO DE EDUCACIÓN
+            </div>
+            <h2 className="text-4xl font-bold mb-4 text-cep-primary">CICLOS FORMATIVOS OFICIALES</h2>
+            <p className="text-xl text-gray-600 mb-2">Formación Profesional Homologada por el MEC</p>
+            <p className="text-lg text-gray-500">3 Cursos Escolares • Acceso a Universidad • Becas disponibles</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {ciclosFormativosUnicos.map(ciclo => (
+              <CicloCard key={ciclo.id} ciclo={ciclo} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Cursos Campaña Otoño 2025 */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -396,27 +417,6 @@ const HomePage: React.FC = () => {
 
       {/* Sección Cursos por Sede */}
       <SedeSelector />
-
-      {/* Sección Especial - Ciclos Formativos Oficiales */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-yellow-400 text-cep-primary px-4 py-2 rounded-full text-sm font-bold mb-4">
-              <span className="mr-2">🏆</span>
-              TÍTULOS OFICIALES MINISTERIO DE EDUCACIÓN
-            </div>
-            <h2 className="text-4xl font-bold mb-4 text-cep-primary">CICLOS FORMATIVOS OFICIALES</h2>
-            <p className="text-xl text-gray-600 mb-2">Formación Profesional Homologada por el MEC</p>
-            <p className="text-lg text-gray-500">3 Cursos Escolares • Acceso a Universidad • Becas disponibles</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {ciclosFormativosUnicos.map(ciclo => (
-              <CicloCard key={ciclo.id} ciclo={ciclo} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Separador */}
       <div className="border-t border-gray-200"></div>

@@ -1,28 +1,52 @@
 import baseCursosData from './data/base-cursos.json';
 import { parsearFechaCurso } from '../utils/timeUtils';
 
-// Fuente de verdad para las fechas de inicio, extraído de la matriz.
-const fechasInicio: { [key: string]: string } = {
-  'adiestramiento-canino-norte': 'Septiembre 2025',
-  'auxiliar-clinico-veterinario-norte': 'Septiembre 2025',
-  'auxiliar-enfermeria-norte': 'Noviembre 2025',
-  'auxiliar-farmacia-dermo-norte': 'Julio 2025',
-  'auxiliar-odontologia-norte': 'Noviembre 2025',
-  'auxiliar-farmacia-parafarmacia-norte': 'Julio 2025',
-  'quiromasaje-nivel2-norte': '4 de Julio de 2025',
-  'dietetica-nutricion-norte': 'Septiembre 2025',
-  'cfgm-farmacia-parafarmacia-norte': 'Octubre 2025',
-  'cfgs-higiene-bucodental-norte': 'Octubre 2025',
-  'agente-funerario-santacruz': 'Septiembre 2025',
-  'auxiliar-clinico-veterinario-santacruz': 'Septiembre 2025',
-  'auxiliar-clinicas-esteticas-santacruz': 'Octubre 2025',
-  'auxiliar-enfermeria-santacruz': 'Septiembre 2025',
-  'auxiliar-odontologia-santacruz': 'Noviembre 2025',
-  'auxiliar-farmacia-parafarmacia-santacruz': 'Julio 2025',
-  // 'quiromasaje-nivel2-santacruz': '4 de Julio de 2025', // Proximamente
+// Mapa para generar códigos de curso cortos y únicos
+const codigosCursoCortos: { [key: string]: string } = {
+  'adiestramiento-canino': 'ADICAN',
+  'auxiliar-clinico-veterinario': 'ACV',
+  'auxiliar-enfermeria': 'AUXENF',
+  'auxiliar-farmacia-dermo': 'AUXDRM',
+  'auxiliar-odontologia': 'AUXODO',
+  'auxiliar-farmacia-parafarmacia': 'AUXFAR',
+  'quiromasaje-nivel2': 'QUIRO2',
+  'dietetica-nutricion': 'NUTRIC',
+  'cfgm-farmacia-parafarmacia': 'CFGMFARM',
+  'cfgs-higiene-bucodental': 'CFGSHIG',
+  'agente-funerario': 'FUNER',
+  'auxiliar-clinicas-esteticas': 'ESTCLN',
+  'tanatoestetica-tanatopraxia': 'TANATO',
+  'ayudante-tecnico-veterinario-atv': 'ATV',
+  // Añadir más si es necesario
+};
 
-  'cfgm-farmacia-parafarmacia-santacruz': 'Octubre 2025',
-  'cfgs-higiene-bucodental-santacruz': 'Octubre 2025',
+// Fuente de verdad para las fechas de inicio. Actualizado el 06/07/2025
+// a partir de 'cep_cursos_CAMPAÑA_2025_consolidado_1_JULIO_2025.md'.
+const fechasInicio: { [key: string]: string } = {
+  // --- SEDE NORTE ---
+  'auxiliar-farmacia-dermo-norte': '7 de Julio de 2025',
+  'quiromasaje-nivel2-norte': '4 de Julio de 2025',
+  'auxiliar-clinico-veterinario-norte': '28 de Mayo de 2025',
+  'peluqueria-canina-norte': 'Septiembre 2025',
+  'auxiliar-odontologia-norte': '27 de Noviembre de 2025',
+  'quiromasaje-norte': '19 de Junio de 2025',
+  'ayudante-tecnico-veterinario-atv-norte': '25 de Junio de 2025',
+  'dietetica-nutricion-norte': 'Septiembre 2025',
+  'adiestramiento-canino-norte': 'Septiembre 2025',
+  'auxiliar-enfermeria-norte': 'Noviembre 2025',
+  'adiestramiento-canino-nivel2-norte': 'Próximamente',
+
+  // --- SEDE SANTA CRUZ ---
+  'quiromasaje-santacruz': '20 de Junio de 2025',
+  'auxiliar-odontologia-santacruz': '26 de Noviembre de 2025',
+  'auxiliar-clinicas-esteticas-santacruz': '9 de Octubre de 2025',
+  'agente-funerario-santacruz': '11 de Septiembre de 2025',
+  'ayudante-tecnico-veterinario-atv-santacruz': '1 de Julio de 2025',
+  'auxiliar-clinico-veterinario-santacruz': '8 de Septiembre de 2025',
+  'peluqueria-canina-felina-santacruz': 'Junio 2025',
+  'auxiliar-enfermeria-santacruz': '29 de Septiembre de 2025',
+  'cfgm-farmacia-parafarmacia-santacruz': '18 de Septiembre de 2025',
+  'cfgs-higiene-bucodental-santacruz': '17 de Septiembre de 2025',
 };
 
 // Tipos para cursos CEP Formación
@@ -97,6 +121,7 @@ export interface CursoBase {
 export interface CursoMaestro extends CursoBase {
   id: string;
   slug: string;
+  codigo: string; // Código único para gestión interna
   sede: 'Norte' | 'Santa Cruz';
   estado: 'activo' | 'proximamente';
   inicio: string | undefined;
@@ -143,11 +168,17 @@ export const cursosMaestro: CursoMaestro[] = baseCursos.flatMap(cursoBase => {
       etiquetaPlazas = undefined; // Quitar etiqueta para Santa Cruz
     }
 
+    const codigoCurso = codigosCursoCortos[cursoBase.slugBase] || 'GENERIC';
+    const anio = fechaParseada ? fechaParseada.getFullYear().toString().slice(-2) : 'XX';
+    const codigoSede = sede === 'Norte' ? 'CN' : 'SC';
+    const codigo = `PRO-${codigoSede}-${codigoCurso}-${anio}`;
+
     return {
       ...cursoBase,
       imagen: imagen,
       id,
       slug: id,
+      codigo: codigo,
       sede: sede,
       estado: (inicio ? 'activo' : 'proximamente') as 'activo' | 'proximamente',
       inicio: inicio,
