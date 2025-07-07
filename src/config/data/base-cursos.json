@@ -602,7 +602,7 @@
     "slugBase": "quiromasaje-11-meses",
     "slug": "quiromasaje-11-meses-norte",
     "sede": "CEP NORTE",
-    "imagen": "/images/cursos/quiromasaje-11-meses.jpg",
+    "imagen": "/images/cursos/Quiromasaje I.png",
     "categoria": "bienestar",
     "copy": {
       "slogan": "Conviértete en un profesional del masaje terapéutico en 11 meses.",
@@ -655,7 +655,7 @@
     "slugBase": "quiromasaje-11-meses",
     "slug": "quiromasaje-11-meses-santa-cruz",
     "sede": "CEP SANTA CRUZ",
-    "imagen": "/images/cursos/quiromasaje-11-meses.jpg",
+    "imagen": "/images/cursos/Quiromasaje I.png",
     "categoria": "bienestar",
     "copy": {
       "slogan": "Conviértete en un profesional del masaje terapéutico en 11 meses.",
@@ -902,7 +902,7 @@
     "nombre": "Especialista en Animales Exóticos",
     "codigo": "EXOTICOS",
     "slugBase": "especialista-animales-exoticos",
-    "imagen": "/images/cursos/especialista-animales-exoticos.jpg",
+    "imagen": "/images/cursos/mundo-animal.jpg",
     "categoria": "veterinaria",
     "copy": {
       "slogan": "Adéntrate en el fascinante mundo de las especies no convencionales.",

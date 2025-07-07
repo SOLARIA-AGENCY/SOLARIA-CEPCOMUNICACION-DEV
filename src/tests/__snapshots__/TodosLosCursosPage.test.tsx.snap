@@ -249,6 +249,13 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
             <a
               class="text-gray-700 hover:text-cep-primary font-medium transition-colors"
               data-discover="true"
+              href="/sedes"
+            >
+              SEDES
+            </a>
+            <a
+              class="text-gray-700 hover:text-cep-primary font-medium transition-colors"
+              data-discover="true"
               href="/blog"
             >
               BLOG
@@ -485,7 +492,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/quiromasaje-11-meses-optimized.webp"
+                src="/images/cursos/Quiromasaje I.png"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -1042,7 +1049,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/especialista-animales-exoticos-optimized.webp"
+                src="/images/cursos/mundo-animal.jpg"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
@@ -1203,7 +1210,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/quiromasaje-11-meses-optimized.webp"
+                src="/images/cursos/Quiromasaje I.png"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -1755,7 +1762,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/especialista-animales-exoticos-optimized.webp"
+                src="/images/cursos/mundo-animal.jpg"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
