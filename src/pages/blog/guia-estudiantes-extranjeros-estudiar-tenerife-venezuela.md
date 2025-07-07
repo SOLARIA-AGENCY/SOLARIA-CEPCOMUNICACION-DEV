@@ -4,7 +4,7 @@ meta_description: "Guía completa para venezolanos que quieren estudiar en Tener
 keywords: ["estudiar en tenerife venezuela", "cursos para venezolanos tenerife", "homologacion estudios venezuela españa", "formacion profesional tenerife extranjeros"]
 fecha: "2025-01-15"
 categoria: "Guías"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/estudiantes-extranjeros-hero.jpg"
 imagen_hero: "/images/blog-professional/estudiantes-extranjeros-hero.jpg"
 slug: "guia-estudiantes-extranjeros-estudiar-tenerife-venezuela"

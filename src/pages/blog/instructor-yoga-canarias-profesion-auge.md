@@ -4,7 +4,7 @@ meta_description: "Análisis del sector de yoga en Canarias. Competencias profes
 keywords: ["instructor yoga tenerife", "formación yoga canarias", "certificación yoga profesional", "bienestar integral canarias", "yoga terapéutico tenerife"]
 fecha: "2025-01-15"
 categoria: "Bienestar"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/instructor-yoga-hero.jpg"
 imagen_hero: "/images/blog-professional/instructor-yoga-hero.jpg"
 slug: "instructor-yoga-perspectivas-profesionales-canarias"

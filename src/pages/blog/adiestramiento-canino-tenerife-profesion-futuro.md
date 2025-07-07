@@ -4,7 +4,7 @@ meta_description: "Análisis profesional del adiestramiento canino en Tenerife. 
 keywords: ["adiestramiento canino tenerife", "certificación ANACP canarias", "educador canino profesional", "comportamiento animal tenerife", "formación adiestrador perros"]
 fecha: "2025-01-15"
 categoria: "Mundo Animal"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/adiestramiento-canino-hero.jpg"
 imagen_hero: "/images/blog-professional/adiestramiento-canino-hero.jpg"
 slug: "adiestramiento-canino-formacion-profesional-certificacion-anacp"

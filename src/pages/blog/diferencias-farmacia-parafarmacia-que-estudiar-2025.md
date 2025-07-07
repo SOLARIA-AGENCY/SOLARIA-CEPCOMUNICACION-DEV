@@ -4,7 +4,7 @@ meta_description: "Análisis comparativo entre farmacia y parafarmacia. Competen
 keywords: ["diferencias farmacia parafarmacia", "auxiliar farmacia tenerife", "formación sanitaria canarias", "competencias farmacéuticas", "parafarmacia profesional"]
 fecha: "2025-01-15"
 categoria: "Sanidad"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/farmacia-parafarmacia-hero.jpg"
 imagen_hero: "/images/blog-professional/farmacia-parafarmacia-hero.jpg"
 slug: "diferencias-farmacia-parafarmacia-analisis-academico-formacion"

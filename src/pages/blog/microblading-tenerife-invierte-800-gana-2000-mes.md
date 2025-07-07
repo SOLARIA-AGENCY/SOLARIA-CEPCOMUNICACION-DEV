@@ -4,7 +4,7 @@ meta_description: "Análisis técnico de la micropigmentación con microblading 
 keywords: ["microblading tenerife", "micropigmentación canarias", "formación microblading", "técnicas micropigmentación", "estética profesional tenerife"]
 fecha: "2025-01-15"
 categoria: "Estética"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/microblading-hero.jpg"
 imagen_hero: "/images/blog-professional/microblading-hero.jpg"
 slug: "microblading-tenerife-tecnica-micropigmentacion-profesional"

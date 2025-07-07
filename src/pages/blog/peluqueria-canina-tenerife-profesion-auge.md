@@ -1,10 +1,10 @@
 ---
 title: "Peluquería Canina en Tenerife: Análisis del Sector Profesional y Competencias Técnicas"
-meta_description: "Estudio profesional del sector de peluquería canina en Tenerife. Competencias técnicas, formación especializada y perspectivas de desarrollo en el cuidado animal profesional."
-keywords: ["peluquería canina tenerife", "formación peluquería perros", "cuidado animal profesional", "técnicas grooming canino", "sector mascotas canarias"]
+meta_description: "Análisis académico del sector de la peluquería canina en Tenerife. Competencias técnicas requeridas, formación especializada y perspectivas profesionales en estética animal."
+keywords: ["peluquería canina tenerife", "grooming profesional canarias", "formación estética animal", "competencias técnicas grooming", "sector estética animal tenerife"]
 fecha: "2025-01-15"
 categoria: "Mundo Animal"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/peluqueria-canina-hero.jpg"
 imagen_hero: "/images/blog-professional/peluqueria-canina-hero.jpg"
 slug: "peluqueria-canina-tenerife-analisis-sector-profesional"

@@ -4,7 +4,7 @@ meta_description: "Análisis de las oportunidades formativas disponibles para el
 keywords: ["cursos julio 2025 tenerife", "auxiliar farmacia tenerife", "quiromasaje tenerife", "auxiliar veterinario tenerife", "formación urgente canarias"]
 fecha: "2025-06-20"
 categoria: "Guías"
-autor: "CEP Formación"
+autor: "equipo de comunicación de CEP FORMACIÓN"
 imagen: "/images/blog-professional/ultimas-plazas-cursos-hero.jpg"
 imagen_hero: "/images/blog-professional/ultimas-plazas-cursos-hero.jpg"
 slug: "ultimas-plazas-cursos-julio-2025-cep-tenerife"
@@ -27,7 +27,7 @@ slug: "ultimas-plazas-cursos-julio-2025-cep-tenerife"
   </div>
 </div>
 
-*¿Pensando en formarte este verano? Estos cursos empiezan en menos de 2 semanas. Plazas limitadas.*
+¿Consideras formarte este verano? Estos cursos especializados inician en julio, con plazas disponibles limitadas según la demanda actual del mercado formativo.
 
 ## 🔥 Cursos que Inician en Julio - ¡Quedan Pocas Plazas!
 
@@ -107,8 +107,8 @@ slug: "ultimas-plazas-cursos-julio-2025-cep-tenerife"
 🕒 **Horario**: Lunes a Viernes 9:00-14:00 y 16:00-20:00
 
 ### **Opción 2: WhatsApp**
-📱 **CEP Santa Cruz**: 922 XXX XXX  
-📱 **CEP Norte**: 922 XXX XXX  
+📱 **CEP Santa Cruz**: 922 21 92 57  
+📱 **CEP Norte**: 922 21 92 57  
 ⚡ **Respuesta inmediata** de 8:00 a 22:00
 
 ### **Documentación Necesaria**
@@ -159,7 +159,7 @@ Sí, diploma CEP + certificaciones oficiales cuando aplica (ANACP, FEFF, etc.).
 **Las plazas de julio se agotan en las próximas 48 horas.**
 
 ### ⏰ Reserva tu Plaza AHORA:
-1. **Llama ya**: 922 XXX XXX (CEP Santa Cruz) | 922 XXX XXX (CEP Norte)
+1. **Llama ya**: 922 21 92 57 (CEP Santa Cruz) | 922 21 92 57 (CEP Norte)
 2. **WhatsApp directo**: Envía "QUIERO PLAZA JULIO + [nombre del curso]"
 3. **Presencial**: Ven hoy mismo con la documentación
 
