@@ -57,7 +57,7 @@ const BlogArticlePage: React.FC = () => {
             if (key && values.length > 0) {
               const value = values.join(':').trim();
               if (key.trim() === 'keywords') {
-                meta[key.trim()] = value.replace(/[\[\]"]/g, '').split(',').map(k => k.trim());
+                meta[key.trim()] = value.replace(/[[\\]"]/g, '').split(',').map(k => k.trim());
               } else {
                 meta[key.trim()] = value.replace(/['"]/g, '');
               }
@@ -91,7 +91,8 @@ const BlogArticlePage: React.FC = () => {
       .replace(/^\* (.+)/gim, '<li class="mb-2">$1</li>')
       .replace(/^(\d+)\. (.+)/gim, '<li class="mb-2">$2</li>')
       .replace(/\n\n/g, '</p><p class="text-gray-700 mb-4 leading-relaxed">')
-      .replace(/^(.+)$/gim, '<p class="text-gray-700 mb-4 leading-relaxed">$1</p>');
+      .replace(/^(.+)$/gim, '<p class="text-gray-700 mb-4 leading-relaxed">$1</p>')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-cep-primary hover:text-cep-primary-dark underline" target="_blank" rel="noopener noreferrer">$1</a>');
   };
 
   if (loading) {

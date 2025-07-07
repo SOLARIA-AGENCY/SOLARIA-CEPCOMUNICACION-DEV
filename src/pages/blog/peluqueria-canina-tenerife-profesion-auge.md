@@ -1,4 +1,31 @@
+---
+title: "Peluquería Canina en Tenerife: Análisis del Sector Profesional"
+meta_description: "Estudio de la demanda de servicios de peluquería canina en Tenerife. Análisis estadístico del mercado y perspectivas profesionales en el cuidado animal."
+keywords: ["peluquería canina tenerife", "curso peluquería perros canarias", "peluquero canino puerto cruz", "formación mascotas tenerife"]
+fecha: "2025-06-17"
+categoria: "Mundo Animal"
+autor: "CEP Formación"
+imagen: "/images/blog/peluqueria-canina-hero.jpg"
+imagen_hero: "/images/blog/peluqueria-canina-hero.jpg"
+slug: "peluqueria-canina-tenerife-profesion-auge"
+---
+
 # 🐕 ¿Por Qué la Peluquería Canina Está en Auge en Tenerife?
+
+<div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden shadow-lg">
+  <img 
+    src="/images/blog/peluqueria-canina-hero.jpg" 
+    alt="Peluquero canino profesional trabajando en Tenerife - CEP Formación" 
+    className="w-full h-full object-cover"
+    loading="lazy"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end">
+    <div className="p-6 text-white">
+      <h2 className="text-xl font-bold mb-2">Peluquería Canina Profesional</h2>
+      <p className="text-sm opacity-90">85.000 perros registrados en Tenerife y solo 12 peluquerías especializadas</p>
+    </div>
+  </div>
+</div>
 
 *Con más de 85.000 perros registrados en Tenerife y solo 12 peluquerías caninas profesionales, ¿no crees que hay una oportunidad esperándote?*
 

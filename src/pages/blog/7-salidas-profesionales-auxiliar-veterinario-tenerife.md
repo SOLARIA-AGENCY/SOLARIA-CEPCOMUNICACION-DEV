@@ -5,11 +5,27 @@ keywords: ["salidas profesionales auxiliar veterinario", "auxiliar veterinaria t
 fecha: "2025-01-15"
 categoria: "Mundo Animal"
 autor: "CEP Formación"
-imagen: "/images/cursos/auxiliar-veterinaria.jpg"
+imagen: "/images/blog/auxiliar-veterinario-hero.jpg"
+imagen_hero: "/images/blog/auxiliar-veterinario-hero.jpg"
 slug: "salidas-profesionales-auxiliar-veterinario-tenerife"
 ---
 
 # 7 Salidas Profesionales tras estudiar Auxiliar de Veterinaria en Tenerife
+
+<div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden shadow-lg">
+  <img 
+    src="/images/blog/auxiliar-veterinario-hero.jpg" 
+    alt="Auxiliar de veterinaria atendiendo mascotas en clínica de Tenerife - CEP Formación" 
+    className="w-full h-full object-cover"
+    loading="lazy"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end">
+    <div className="p-6 text-white">
+      <h2 className="text-xl font-bold mb-2">Auxiliar de Veterinaria</h2>
+      <p className="text-sm opacity-90">Descubre las mejores oportunidades laborales en el sector veterinario de Tenerife</p>
+    </div>
+  </div>
+</div>
 
 ¿Te apasiona el mundo animal y estás considerando formarte como **Auxiliar de Veterinaria en Tenerife**? Esta profesión no solo te permite trabajar con animales, sino que ofrece múltiples oportunidades laborales en una isla donde el sector veterinario está en constante crecimiento.
 

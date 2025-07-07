@@ -1,4 +1,31 @@
+---
+title: "Cursos de Verano 2025: Formación Especializada en CEP Tenerife"
+meta_description: "Análisis de las oportunidades formativas disponibles para el periodo estival. Auxiliar de Farmacia, Quiromasaje Nivel II y especialización en Atención Veterinaria."
+keywords: ["cursos julio 2025 tenerife", "auxiliar farmacia tenerife", "quiromasaje tenerife", "auxiliar veterinario tenerife", "formación urgente canarias"]
+fecha: "2025-06-20"
+categoria: "Guías"
+autor: "CEP Formación"
+imagen: "/images/blog/ultimas-plazas-cursos-hero.jpg"
+imagen_hero: "/images/blog/ultimas-plazas-cursos-hero.jpg"
+slug: "ultimas-plazas-cursos-julio-2025-cep-tenerife"
+---
+
 # ⏰ Últimas Plazas Disponibles: Cursos de Julio 2025 en CEP Tenerife
+
+<div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden shadow-lg">
+  <img 
+    src="/images/blog/ultimas-plazas-cursos-hero.jpg" 
+    alt="Formación especializada de verano en CEP Tenerife - Últimas plazas disponibles" 
+    className="w-full h-full object-cover"
+    loading="lazy"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end">
+    <div className="p-6 text-white">
+      <h2 className="text-xl font-bold mb-2">Formación de Verano 2025</h2>
+      <p className="text-sm opacity-90">Cursos de alta demanda con inicio en julio - Plazas limitadas</p>
+    </div>
+  </div>
+</div>
 
 *¿Pensando en formarte este verano? Estos cursos empiezan en menos de 2 semanas. Plazas limitadas.*
 

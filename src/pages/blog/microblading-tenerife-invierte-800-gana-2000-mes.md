@@ -1,4 +1,31 @@
+---
+title: "Microblading en Tenerife: Técnica de Micropigmentación Profesional"
+meta_description: "Estudio del mercado de micropigmentación en Canarias. Análisis de la demanda profesional y perspectivas laborales en el sector de la estética avanzada."
+keywords: ["microblading tenerife", "curso microblading canarias", "cejas microblading santa cruz", "micropigmentación tenerife"]
+fecha: "2025-06-18"
+categoria: "Estética"
+autor: "CEP Formación"
+imagen: "/images/blog/microblading-hero.jpg"
+imagen_hero: "/images/blog/microblading-hero.jpg"
+slug: "microblading-tenerife-invierte-800-gana-2000-mes"
+---
+
 # 💰 Microblading en Tenerife: Invierte 800€, Gana hasta 2.000€/mes
+
+<div className="relative w-full h-64 md:h-96 mb-8 rounded-lg overflow-hidden shadow-lg">
+  <img 
+    src="/images/blog/microblading-hero.jpg" 
+    alt="Técnica de microblading profesional en Tenerife - CEP Formación" 
+    className="w-full h-full object-cover"
+    loading="lazy"
+  />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent flex items-end">
+    <div className="p-6 text-white">
+      <h2 className="text-xl font-bold mb-2">Microblading Profesional</h2>
+      <p className="text-sm opacity-90">Sesiones entre 250-400€ con 10 clientas al mes superando salario promedio</p>
+    </div>
+  </div>
+</div>
 
 *¿Sabías que una sesión de microblading en Tenerife cuesta entre 250-400€? Con 10 clientas al mes ya generas más que un salario promedio.*
 
