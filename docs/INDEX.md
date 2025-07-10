@@ -471,3 +471,12 @@ npm run safe-push   # Push tras validación
 > **📍 Última actualización**: 15 Enero 2025  
 > **🔗 Repositorio**: [solaria-cepcomunicacion](https://github.com/nazca-media/solaria-cepcomunicacion)  
 > **🌐 Producción**: [cepcomunicacion.com](https://cepcomunicacion.com) 
+
+### Reportes y Datos Generados
+
+*   [Reporte de Inicios de Cursos (2025)](./REPORTE_INICIOS_CURSOS_2025.md) - Listado cronológico de cursos, sedes y profesores.
+*   [Datos de Profesores a Completar (CSV)](./PROFESORES_DATOS_A_COMPLETAR.csv) - Archivo de trabajo para recopilar información del personal docente y no docente.
+
+---
+
+*Última actualización: 17 de Mayo, 2024* 

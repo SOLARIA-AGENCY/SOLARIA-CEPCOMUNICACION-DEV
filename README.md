@@ -431,3 +431,32 @@ npm run campaigns:status
 > *Este sistema representa la evolución del marketing digital educativo, combinando tracking inteligente, automatización avanzada y gestión estratégica de assets digitales para maximizar el ROI de cada canal de adquisición.*
 
 **Última actualización:** Enero 2025 - Sistema 100% operativo ✅
+
+---
+
+## 📧 **NUEVAS VARIABLES DE ENTORNO**
+
+- **`FB_N8N_WEBHOOK_URL`**: URL del webhook en n8n para la integración con la API de Conversiones.
+- **`VITE_SUPERMEMORY_API_KEY`**: Clave para el servicio Supermemory.
+- **`MAILCHIMP_API_KEY`**: Clave de API para la integración con Mailchimp.
+- **`MAILCHIMP_SERVER_PREFIX`**: Prefijo del servidor de Mailchimp (ej. `us7`).
+- **`MAILCHIMP_AUDIENCE_ID`**: ID de la audiencia/lista de Mailchimp.
+- **`BREVO_API_KEY`**: Clave de API para la integración con Brevo (anteriormente Sendinblue).
+
+### Estructura de Assets
+
+- **Imágenes de Cursos**: Ubicadas en `public/images/cursos/`.
+- **Logos**: En `public/images/logos/`.
+- **Logo para Email**: Se ha creado una versión específica para plantillas de email en `public/assets/images/email/logo-cep-email.jpg` para optimizar la entrega y el control.
+
+## 🚀 Despliegue
+
+Este proyecto está configurado para despliegue continuo a través de GitHub Actions. Cada `push` a la rama `main` dispara el workflow `.github/workflows/deploy-cepcomunicacion.yml`.
+
+### Protocolo de Seguridad Pre-Despliegue
+
+**Es mandatorio** ejecutar el script de validación local antes de hacer `push`:
+
+```bash
+npm run pre-deploy
+```

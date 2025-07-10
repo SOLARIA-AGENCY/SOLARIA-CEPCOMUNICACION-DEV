@@ -124,7 +124,7 @@ const CepFooter: React.FC<CepFooterProps> = ({ fixedTimestamp }) => {
               </div>
 
               {/* Legal Links */}
-              <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm">
+              <div className="flex flex-wrap justify-center md:justify-end space-x-6 text-sm items-center">
                 <a href="/aviso-legal" className="text-gray-500 hover:text-gray-800 transition-colors">
                   Aviso Legal
                 </a>
@@ -137,6 +137,15 @@ const CepFooter: React.FC<CepFooterProps> = ({ fixedTimestamp }) => {
                 <a href="/politica-cookies" className="text-gray-500 hover:text-gray-800 transition-colors">
                   Cookies
                 </a>
+                {/* Botón discreto de acceso al dashboard para uso personal */}
+                <button
+                  onClick={() => window.location.href = '/admin/gestion-cursos'}
+                  className="ml-4 px-2 py-1 text-xs text-gray-300 hover:text-blue-500 transition-all duration-200 opacity-20 hover:opacity-80 rounded-full hover:bg-gray-50"
+                  title="Dashboard Gestión Cursos"
+                  style={{ fontSize: '10px', lineHeight: '1' }}
+                >
+                  📊
+                </button>
               </div>
             </div>
           </div>
@@ -146,4 +155,4 @@ const CepFooter: React.FC<CepFooterProps> = ({ fixedTimestamp }) => {
   );
 };
 
-export default CepFooter; 
+export default CepFooter;
