@@ -440,7 +440,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                         {/* Columna de Formulario */}
                         <div className="bg-gray-50 p-6 rounded-lg">
                             <form 
-                                action="https://formsubmit.co/agency.solaria@gmail.com" 
+                                action="https://formsubmit.co/info@cepcomunicacion.com" 
                                 method="POST"
                             >
                                 <h3 className="text-lg font-semibold text-gray-800 mb-3">Suscríbete ahora</h3>

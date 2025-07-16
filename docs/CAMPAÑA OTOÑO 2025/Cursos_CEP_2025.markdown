@@ -48,7 +48,7 @@
 
 | Curso | Diploma | Fecha Inicio | Horarios | Prácticas | IGIC | Precio Total (Matrícula Aparte) | Cuotas | Profesor | Aula | Matrículas |
 |-------|---------|--------------|----------|-----------|------|--------------------------------|--------|----------|------|------------|
-| Auxiliar de Farmacia + Dermo | CEP | 07/07/2025 | Lunes 10:00-13:00 | 350h | No | 1200€ + 150€M | 100€ x 12 | Alexis | Aula 5 | 2 |
+| Auxiliar de Farmacia + Dermo | CEP | 21/07/2025 | Lunes 10:00-13:00 | 350h | No | 1200€ + 150€M | 100€ x 12 | Alexis | Aula 5 | 2 |
 | Auxiliar de Farmacia + Dermo | CEP | 07/07/2025 | Lunes 10:00-13:00 | 350h | No | 1200€ + 150€M | 105€ x 12 | Alexis | Aula 5 | 5 |
 | Quiromasaje Nivel II | CEP | 04/07/2025 | Viernes 10:00-14:00 | 50h (Opcionales) | Sí | 425€ + 150€M | 85€ x 5 | Marco | Aula 5 | 7 |
 | Auxiliar Clínico Veterinario | CEP | 28/05/2025 | Miércoles 10:00-13:00 | 350h | No | 810€ + 150€M | 90€ x 9 | Elena | Aula 2 | 17 |

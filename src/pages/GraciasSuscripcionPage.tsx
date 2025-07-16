@@ -22,7 +22,7 @@ const GraciasSuscripcionPage = () => {
             <h2 className="font-semibold text-gray-800">Próximos pasos:</h2>
             <ul className="list-disc list-inside mt-2 text-gray-600 space-y-1">
               <li>Revisa tu correo para confirmar que nos recibes correctamente.</li>
-              <li>Añade <span className="font-semibold">agency.solaria@gmail.com</span> a tus contactos para evitar el spam.</li>
+              <li>Añade <span className="font-semibold">info@cepcomunicacion.com</span> a tus contactos para evitar el spam.</li>
               <li>¡Prepárate para potenciar tu futuro profesional!</li>
             </ul>
           </div>
@@ -39,4 +39,4 @@ const GraciasSuscripcionPage = () => {
   );
 };
 
-export default GraciasSuscripcionPage; 
+export default GraciasSuscripcionPage;

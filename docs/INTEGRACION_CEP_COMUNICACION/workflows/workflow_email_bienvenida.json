@@ -1,0 +1,287 @@
+{
+  "name": "Newsletter Email Bienvenida - CEP Comunicación",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "newsletter-signup",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://www.cepcomunicacion.com"
+        }
+      },
+      "id": "webhook-001",
+      "name": "Newsletter_Subscription_Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "newsletter-signup"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Validación y sanitización de email\nconst email = $json.email;\nconst firstName = $json.firstName || '';\nconst lastName = $json.lastName || '';\n\n// Validación de email\nconst emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\nif (!emailRegex.test(email)) {\n  throw new Error('Formato de email inválido');\n}\n\n// Sanitización\nconst sanitizedData = {\n  email: email.toLowerCase().trim(),\n  firstName: firstName.trim(),\n  lastName: lastName.trim(),\n  timestamp: new Date().toISOString()\n};\n\nreturn sanitizedData;"
+      },
+      "id": "validator-002",
+      "name": "Email_Validator_Sanitizer",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Enriquecimiento de datos\nconst enrichedData = {\n  ...($json),\n  subscriber_id: 'CEP_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),\n  subscription_date: new Date().toISOString(),\n  source_enriched: 'website_newsletter',\n  device_info: 'web',\n  tags: ['newsletter', 'cep-comunicacion', 'new-subscriber']\n};\n\nreturn enrichedData;"
+      },
+      "id": "enricher-003",
+      "name": "Data_Enrichment_Engine",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://api.brevo.com/v3/contacts",
+        "method": "POST",
+        "headers": {
+          "api-key": "={{$env.BREVO_API_KEY}}",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "email": "={{$json.email}}",
+          "attributes": {
+            "FIRSTNAME": "={{$json.firstName}}",
+            "LASTNAME": "={{$json.lastName}}",
+            "SUBSCRIPTION_DATE": "={{$json.subscription_date}}",
+            "SOURCE": "={{$json.source_enriched}}",
+            "SUBSCRIBER_ID": "={{$json.subscriber_id}}"
+          },
+          "listIds": [2]
+        },
+        "options": {
+          "timeout": 10000,
+          "retry": {
+            "enabled": true,
+            "maxRetries": 3
+          }
+        }
+      },
+      "id": "brevo-reg-004",
+      "name": "Brevo_Contact_Registration",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [900, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://api.brevo.com/v3/smtp/email",
+        "method": "POST",
+        "headers": {
+          "api-key": "={{$env.BREVO_API_KEY}}",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "to": [
+            {
+              "email": "={{$json.email}}",
+              "name": "={{$json.firstName}} {{$json.lastName}}"
+            }
+          ],
+          "templateId": 7,
+          "params": {
+            "FIRSTNAME": "={{$json.firstName}}",
+            "LASTNAME": "={{$json.lastName}}",
+            "EMAIL": "={{$json.email}}"
+          }
+        },
+        "options": {
+          "timeout": 15000,
+          "retry": {
+            "enabled": true,
+            "maxRetries": 2
+          }
+        }
+      },
+      "id": "brevo-email-005",
+      "name": "Brevo_Welcome_Email_Sender",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [1120, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://{{$env.MAILCHIMP_SERVER_PREFIX}}.api.mailchimp.com/3.0/lists/{{$env.MAILCHIMP_LIST_ID}}/members",
+        "method": "POST",
+        "headers": {
+          "Authorization": "Bearer {{$env.MAILCHIMP_API_KEY}}",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "email_address": "={{$json.email}}",
+          "status": "subscribed",
+          "merge_fields": {
+            "FNAME": "={{$json.firstName}}",
+            "LNAME": "={{$json.lastName}}"
+          },
+          "tags": "={{$json.tags}}"
+        },
+        "options": {
+          "timeout": 10000,
+          "retry": {
+            "enabled": true,
+            "maxRetries": 2
+          }
+        }
+      },
+      "id": "mailchimp-006",
+      "name": "Mailchimp_Contact_Registration",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [900, 400],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": {
+          "success": true,
+          "message": "Suscripción exitosa. Revisa tu email para confirmar.",
+          "subscriber_id": "={{$json.subscriber_id}}",
+          "timestamp": "={{$json.subscription_date}}",
+          "services": {
+            "brevo_registered": true,
+            "mailchimp_registered": true,
+            "welcome_email_sent": true
+          }
+        },
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "success-007",
+      "name": "Success_Response_Handler",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": {
+          "success": false,
+          "message": "Error en el procesamiento. Inténtalo de nuevo.",
+          "error_code": "PROCESSING_ERROR",
+          "timestamp": "={{new Date().toISOString()}}",
+          "support": "contacto@cepcomunicacion.com"
+        },
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "error-008",
+      "name": "Error_Response_Handler",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 500]
+    }
+  ],
+  "connections": {
+    "Newsletter_Subscription_Webhook": {
+      "main": [
+        [
+          {
+            "node": "Email_Validator_Sanitizer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email_Validator_Sanitizer": {
+      "main": [
+        [
+          {
+            "node": "Data_Enrichment_Engine",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data_Enrichment_Engine": {
+      "main": [
+        [
+          {
+            "node": "Brevo_Contact_Registration",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mailchimp_Contact_Registration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brevo_Contact_Registration": {
+      "main": [
+        [
+          {
+            "node": "Brevo_Welcome_Email_Sender",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Brevo_Welcome_Email_Sender": {
+      "main": [
+        [
+          {
+            "node": "Success_Response_Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mailchimp_Contact_Registration": {
+      "main": [
+        [
+          {
+            "node": "Success_Response_Handler",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": {
+      "onError": "continueRegularExecution"
+    }
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-01-16T19:13:55.000Z",
+      "updatedAt": "2025-01-16T19:13:55.000Z",
+      "id": "1",
+      "name": "newsletter"
+    },
+    {
+      "createdAt": "2025-01-16T19:13:55.000Z",
+      "updatedAt": "2025-01-16T19:13:55.000Z",
+      "id": "2",
+      "name": "cep-comunicacion"
+    }
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-16T19:13:55.000Z",
+  "versionId": "1"
+}
