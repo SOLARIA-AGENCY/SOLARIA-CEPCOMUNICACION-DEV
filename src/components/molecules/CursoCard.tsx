@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import type { CursoMaestro } from '../../config/cursos-maestro';
 import { determinarColorEtiqueta, useTimeReal } from '../../utils/timeUtils';
+import type { EmploymentStatus } from '../../types/employment';
 
 const NivelTag: React.FC<{ nivel?: string }> = ({ nivel }) => {
   if (!nivel) return null;
@@ -17,7 +18,13 @@ const NivelTag: React.FC<{ nivel?: string }> = ({ nivel }) => {
   );
 };
 
-const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
+interface CursoCardProps {
+  curso: CursoMaestro;
+  showEmploymentType?: boolean;
+  employmentFilter?: EmploymentStatus;
+}
+
+const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employmentFilter }) => {
   const fechaActual = useTimeReal();
   
   // Determinar si es ciclo formativo
@@ -46,11 +53,21 @@ const CursoCard: React.FC<{ curso: CursoMaestro }> = ({ curso }) => {
         </div>
 
         {/* Etiqueta de Disponibilidad (Derecha) */}
-        {curso.etiquetaPlazas && (
+        {curso.etiquetaPlazas && !showEmploymentType && (
           <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600 animate-pulse">
             {curso.etiquetaPlazas}
           </div>
         )}
+        
+        {/* Etiqueta de Tipo de Empleo (Derecha) */}
+        {showEmploymentType && employmentFilter && (
+          <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${
+            employmentFilter === 'ocupados' ? 'bg-green-600' : 'bg-blue-600'
+          }`}>
+            {employmentFilter === 'ocupados' ? 'TRABAJADORES' : 'DESEMPLEADOS'}
+          </div>
+        )}
+        
         {curso.categoria === 'ciclos' && <NivelTag nivel={curso.subtitulo} />}
       </div>
       <div className="p-4 sm:p-6 flex-grow flex flex-col">

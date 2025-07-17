@@ -9,6 +9,7 @@ import { ordenarCursosPorPrioridad } from '../utils/timeUtils';
 import CursoCard from '../components/molecules/CursoCard';
 import CicloCard from '../components/molecules/CicloCard';
 import SedeSelector from '../components/organisms/SedeSelector';
+import CursosSubvencionadosSection from '../components/organisms/CursosSubvencionadosSection';
 
 // Datos para los slides del hero - solo imágenes como en el original
 const heroSlides = [
@@ -382,6 +383,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Cursos Subvencionados */}
+      <CursosSubvencionadosSection />
 
       {/* Nuestros Cursos Privados */}
       <section className="py-16 bg-white">

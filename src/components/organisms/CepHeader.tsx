@@ -64,12 +64,37 @@ const CepHeader: React.FC = () => {
               >
                 INICIO
               </Link>
-              <Link 
-                to="/cursos" 
-                className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
-              >
-                CURSOS
-              </Link>
+              <div className="relative group">
+                <Link 
+                  to="/cursos" 
+                  className="text-gray-700 hover:text-cep-primary font-medium transition-colors flex items-center"
+                >
+                  CURSOS
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </Link>
+                <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                  <Link 
+                    to="/cursos" 
+                    className="block px-4 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 transition-colors"
+                  >
+                    Cursos Privados
+                  </Link>
+                  <Link 
+                    to="/cursos-ocupados" 
+                    className="block px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors"
+                  >
+                    Trabajadores Ocupados
+                  </Link>
+                  <Link 
+                    to="/cursos-desempleados" 
+                    className="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                  >
+                    Trabajadores Desempleados
+                  </Link>
+                </div>
+              </div>
               <Link 
                 to="/ciclos" 
                 className="text-gray-700 hover:text-cep-primary font-medium transition-colors"
@@ -141,6 +166,20 @@ const CepHeader: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   CICLOS
+                </Link>
+                <Link
+                  to="/cursos-ocupados"
+                  className="block px-3 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-md transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  OCUPADOS
+                </Link>
+                <Link
+                  to="/cursos-desempleados"
+                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  DESEMPLEADOS
                 </Link>
                 <Link
                   to="/sedes"

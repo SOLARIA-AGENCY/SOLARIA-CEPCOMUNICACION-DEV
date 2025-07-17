@@ -31,6 +31,8 @@ import LoginPage from './pages/admin/LoginPage';
 import GestionCursosPage from './pages/admin/GestionCursosPage';
 import ProtectedRoute from './components/utils/ProtectedRoute';
 import SedesPage from './pages/SedesPage';
+import CursosOcupadosPage from './pages/CursosOcupadosPage';
+import CursosDesempleadosPage from './pages/CursosDesempleadosPage';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -65,6 +67,10 @@ function App() {
         <Route path="/ciclos" element={<CiclosPage />} />
         <Route path="/sedes" element={<SedesPage />} />
         <Route path="/curso/:slug" element={<DynamicCoursePageWrapper />} />
+        
+        {/* Rutas de Cursos Subvencionados */}
+        <Route path="/cursos-ocupados" element={<CursosOcupadosPage />} />
+        <Route path="/cursos-desempleados" element={<CursosDesempleadosPage />} />
 
         {/* 🏫 RUTAS DE SEDES */}
         <Route path="/sede/:slug" element={<SedePage />} />
