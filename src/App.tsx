@@ -35,6 +35,7 @@ import CursosOcupadosPage from './pages/CursosOcupadosPage';
 import CursosDesempleadosPage from './pages/CursosDesempleadosPage';
 import CursoOcupadosPageComponent from './templates/CursoOcupadosPageComponent';
 import { cursosOcupadosConfig } from './config/cursos-ocupados';
+import { cursosDesempleadosConfig } from './config/cursos-desempleados';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -68,6 +69,21 @@ const CursoOcupadosDetailWrapper = () => {
   return <CursoOcupadosPageComponent curso={curso} />;
 };
 
+// Componente wrapper para cursos de desempleados
+const CursoDesempleadosDetailWrapper = () => {
+  const { id } = useParams<{ id: string }>();
+  if (!id) return <Navigate to="/cursos-desempleados" replace />;
+  
+  const curso = cursosDesempleadosConfig.find(c => c.id === id);
+  
+  if (!curso) {
+    return <Navigate to="/cursos-desempleados" replace />;
+  }
+  
+  // Por ahora usa el mismo template de ocupados hasta que se cree uno específico
+  return <CursoOcupadosPageComponent curso={curso} />;
+};
+
 function App() {
   useTracking();
 
@@ -87,7 +103,8 @@ function App() {
         {/* Rutas de Cursos Subvencionados */}
         <Route path="/cursos-ocupados" element={<CursosOcupadosPage />} />
         <Route path="/cursos-desempleados" element={<CursosDesempleadosPage />} />
-        <Route path="/curso-ocupados/:id" element={<CursoOcupadosDetailWrapper />} />
+        <Route path="/curso-ocupado/:id" element={<CursoOcupadosDetailWrapper />} />
+        <Route path="/curso-desempleado/:id" element={<CursoDesempleadosDetailWrapper />} />
 
         {/* 🏫 RUTAS DE SEDES */}
         <Route path="/sede/:slug" element={<SedePage />} />

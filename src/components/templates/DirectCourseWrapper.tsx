@@ -30,10 +30,8 @@ const DirectCourseWrapper: React.FC = () => {
       }
 
       // Google Analytics - Evento diferenciado
-      // @ts-expect-error - gtag is injected by external script
-      if (typeof window !== 'undefined' && window.gtag) {
-        // @ts-expect-error - gtag is injected by external script
-        window.gtag('event', 'course_view_direct', {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'course_view_direct', {
           event_category: 'facebook_campaign',
           event_label: slug,
           course_slug: slug,
@@ -63,10 +61,8 @@ const DirectCourseWrapper: React.FC = () => {
   
   if (!curso) {
     // Tracking de 404 para rutas directas
-    // @ts-expect-error - gtag is injected by external script
-    if (typeof window !== 'undefined' && window.gtag) {
-      // @ts-expect-error - gtag is injected by external script
-      window.gtag('event', 'course_not_found_direct', {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'course_not_found_direct', {
         event_category: 'facebook_campaign',
         event_label: slug,
         attempted_slug: slug

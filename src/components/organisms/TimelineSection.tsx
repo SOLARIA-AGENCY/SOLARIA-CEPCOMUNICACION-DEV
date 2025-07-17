@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calendar, Clock } from 'lucide-react';
-import CursoCard from '../molecules/CursoCard';
+import CursoUnificadoCard from '../molecules/CursoUnificadoCard';
 import type { CursosPorMes } from '../../utils/sedeUtils';
 
 interface TimelineSectionProps {
@@ -52,8 +52,8 @@ const TimelineSection: React.FC<TimelineSectionProps> = ({ grupo, isFirst = fals
           {/* Grid de cursos */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {grupo.cursos.map((curso) => (
-              <CursoCard 
-                key={curso.id} 
+              <CursoUnificadoCard 
+                key={curso.id || curso.codigo} 
                 curso={curso} 
               />
             ))}

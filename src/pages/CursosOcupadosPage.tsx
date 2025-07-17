@@ -184,7 +184,7 @@ const CursosOcupadosPage: React.FC = () => {
                         </div>
                       </div>
                       <a
-                        href={`/curso-ocupados/${curso.id}`}
+                        href={`/curso-ocupado/${curso.id}`}
                         className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
                       >
                         VER CURSO COMPLETO

@@ -212,7 +212,7 @@ export async function trackConversionEvent(
   const hasMarketingConsent = localStorage.getItem('marketing_consent') === 'true';
   if (hasMarketingConsent && typeof window.fbq !== 'undefined') {
     try {
-      window.fbq('track', eventData.event_name, customData, { eventID: eventId });
+      window.fbq('track', eventData.event_name, customData);
       console.log('✅ Evento enviado al Facebook Pixel (cliente)');
     } catch (error) {
       console.error('❌ Error al enviar al Facebook Pixel:', error);
@@ -293,7 +293,7 @@ export async function trackCourseRegistrationEvent(registrationData: {
 // Declaración de tipos globales para TypeScript
 declare global {
   interface Window {
-    fbq: (command: string, eventName: string, parameters?: Record<string, unknown>, options?: Record<string, unknown>) => void;
+    fbq: (command: string, event: string, data?: any) => void;
   }
 }
 

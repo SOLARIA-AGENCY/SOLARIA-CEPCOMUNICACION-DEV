@@ -110,7 +110,7 @@ const CursoOcupadosPageComponent: React.FC<CursoOcupadosPageComponentProps> = ({
                     <p><strong>Inicio:</strong> {new Date(curso.fecha_inicio).toLocaleDateString('es-ES')}</p>
                     <p><strong>Fin:</strong> {new Date(curso.fecha_fin).toLocaleDateString('es-ES')}</p>
                     <p><strong>Duración:</strong> {curso.datos_especificos.duracion}</p>
-                    <p><strong>Horario:</strong> {curso.datos_especificos.caracteristicas.horario === 'tarde' ? 'Tardes' : 'Mañanas'}</p>
+                    <p><strong>Horario:</strong> {(curso.datos_especificos.caracteristicas as any).horario === 'tarde' ? 'Tardes' : 'Mañanas'}</p>
                     <p><strong>Modalidad:</strong> {curso.datos_especificos.modalidad}</p>
                   </div>
                 </div>

@@ -1,16 +1,38 @@
 import type { CursoMaestro } from '../config/cursos-maestro';
+import { cursosMaestro } from '../config/cursos-maestro';
+import { EmploymentCourseConfig } from '../types/employment';
+import { cursosOcupadosConfig } from '../config/cursos-ocupados';
+import { cursosDesempleadosConfig } from '../config/cursos-desempleados';
 import { parsearFechaCurso } from './timeUtils';
+
+// Tipo unificado para todos los cursos - incluye propiedades comunes
+export type CursoUnificado = CursoMaestro | (EmploymentCourseConfig & { 
+  esCursoSubvencionado: true;
+  slug: string;
+  codigo: string;
+  estado: string;
+  inicio: string;
+  categoria: string;
+  copy: {
+    slogan: string;
+    textosPrincipales: string[];
+    titulos: string[];
+  };
+  descripcionDetallada?: {
+    puntosClave: Array<{ icono: string; texto: string }>;
+  };
+});
 
 export interface CursosPorMes {
   mes: string;
   año: number;
-  cursos: CursoMaestro[];
+  cursos: CursoUnificado[];
   fechaOrden: Date;
 }
 
 export interface CursosAgrupados {
   conFecha: CursosPorMes[];
-  proximamente: CursoMaestro[];
+  proximamente: CursoUnificado[];
 }
 
 // Nombres de meses en español
@@ -31,21 +53,87 @@ export const formatearMesAño = (fecha: Date): string => {
   return `${mes} ${año}`;
 };
 
-// Agrupar cursos por mes para una sede específica
+// Convertir curso de empleo a formato unificado
+const convertirCursoEmpleo = (curso: EmploymentCourseConfig): CursoUnificado => {
+  return {
+    ...curso,
+    esCursoSubvencionado: true,
+    slug: `${curso.tipo}-${curso.id.toLowerCase()}`,
+    slugBase: `${curso.tipo}-${curso.id.toLowerCase()}`,
+    codigo: curso.id,
+    estado: curso.activo ? 'activo' : 'proximamente',
+    categoria: 'sanidad' as any,
+    imagen: curso.imagen || '/images/cursos/formacion-gratuita.jpg',
+    inicio: curso.fecha_inicio,
+    copy: {
+      slogan: curso.descripcion || 'Curso gratuito subvencionado',
+      textosPrincipales: curso.objetivos || [],
+      titulos: []
+    },
+    descripcionDetallada: {
+      introduccion: curso.descripcion || 'Curso gratuito subvencionado',
+      puntosClave: [
+        { icono: 'Clock', texto: curso.datos_especificos.duracion },
+        { icono: 'Globe', texto: curso.datos_especificos.modalidad },
+        { icono: 'Award', texto: curso.datos_especificos.certificacion }
+      ],
+      queAprendes: curso.metodologia || 'Formación especializada',
+      salidasProfesionales: curso.tipo === 'ocupados' 
+        ? ['Mejora profesional', 'Especialización técnica', 'Cumplimiento normativo']
+        : ['Inserción laboral', 'Certificación profesional', 'Prácticas en empresas'],
+      modulos: curso.temario?.map(t => ({
+        titulo: t.modulo,
+        contenido: t.contenidos
+      })) || [],
+      profesores: []
+    }
+  };
+};
+
+// Obtener todos los cursos (regulares + subvencionados)
+const obtenerTodosLosCursos = (): CursoUnificado[] => {
+  const cursosRegulares: CursoUnificado[] = [...cursosMaestro];
+  
+  const cursosOcupados: CursoUnificado[] = cursosOcupadosConfig
+    .filter(curso => curso.activo)
+    .map(convertirCursoEmpleo);
+    
+  const cursosDesempleados: CursoUnificado[] = cursosDesempleadosConfig
+    .filter(curso => curso.activo)
+    .map(convertirCursoEmpleo);
+  
+  return [...cursosRegulares, ...cursosOcupados, ...cursosDesempleados];
+};
+
+// Obtener fecha de inicio de un curso unificado
+const obtenerFechaInicio = (curso: CursoUnificado): string | null => {
+  if ('esCursoSubvencionado' in curso && curso.esCursoSubvencionado) {
+    return curso.fecha_inicio;
+  } else {
+    return curso.inicio || null;
+  }
+};
+
+// Agrupar cursos por mes para una sede específica (incluye todos los tipos)
 export const agruparCursosPorMes = (
   cursos: CursoMaestro[], 
   sede: 'Norte' | 'Santa Cruz'
 ): CursosAgrupados => {
+  // Obtener todos los cursos (regulares + subvencionados)
+  const todosLosCursos = obtenerTodosLosCursos();
+  
   // Filtrar cursos por sede
-  const cursosSede = cursos.filter(curso => curso.sede === sede);
+  const cursosSede = todosLosCursos.filter(curso => curso.sede === sede);
   
   // Separar cursos con fecha de los "próximamente"
-  const cursosConFecha: CursoMaestro[] = [];
-  const proximamente: CursoMaestro[] = [];
+  const cursosConFecha: CursoUnificado[] = [];
+  const proximamente: CursoUnificado[] = [];
   
   cursosSede.forEach(curso => {
-    if (curso.inicio && curso.inicio !== 'PRÓXIMAMENTE') {
-      const fechaParseada = parsearFechaCurso(curso.inicio);
+    const fechaInicio = obtenerFechaInicio(curso);
+    
+    if (fechaInicio && fechaInicio !== 'PRÓXIMAMENTE') {
+      const fechaParseada = parsearFechaCurso(fechaInicio);
       if (fechaParseada) {
         cursosConFecha.push(curso);
       } else {
@@ -57,11 +145,12 @@ export const agruparCursosPorMes = (
   });
   
   // Agrupar cursos con fecha por mes
-  const gruposPorMes = new Map<string, CursoMaestro[]>();
+  const gruposPorMes = new Map<string, CursoUnificado[]>();
   
   cursosConFecha.forEach(curso => {
-    if (curso.inicio) {
-      const fechaParseada = parsearFechaCurso(curso.inicio);
+    const fechaInicio = obtenerFechaInicio(curso);
+    if (fechaInicio) {
+      const fechaParseada = parsearFechaCurso(fechaInicio);
       if (fechaParseada) {
         const claveMonthYear = `${fechaParseada.getFullYear()}-${fechaParseada.getMonth()}`;
         
@@ -84,11 +173,14 @@ export const agruparCursosPorMes = (
         año,
         cursos: cursosMes.sort((a, b) => {
           // Ordenar cursos dentro del mes por fecha específica si existe
-          const fechaA = a.inicio ? parsearFechaCurso(a.inicio) : null;
-          const fechaB = b.inicio ? parsearFechaCurso(b.inicio) : null;
+          const fechaA = obtenerFechaInicio(a);
+          const fechaB = obtenerFechaInicio(b);
           
-          if (fechaA && fechaB) {
-            return fechaA.getTime() - fechaB.getTime();
+          const parsedFechaA = fechaA ? parsearFechaCurso(fechaA) : null;
+          const parsedFechaB = fechaB ? parsearFechaCurso(fechaB) : null;
+          
+          if (parsedFechaA && parsedFechaB) {
+            return parsedFechaA.getTime() - parsedFechaB.getTime();
           }
           return a.nombre.localeCompare(b.nombre);
         }),
@@ -103,12 +195,13 @@ export const agruparCursosPorMes = (
   };
 };
 
-// Obtener estadísticas de cursos por sede
+// Obtener estadísticas de cursos por sede (incluye todos los tipos)
 export const obtenerEstadisticasSede = (
   cursos: CursoMaestro[], 
   sede: 'Norte' | 'Santa Cruz'
 ) => {
-  const cursosSede = cursos.filter(curso => curso.sede === sede);
+  const todosLosCursos = obtenerTodosLosCursos();
+  const cursosSede = todosLosCursos.filter(curso => curso.sede === sede);
   const cursosAgrupados = agruparCursosPorMes(cursos, sede);
   
   const totalCursos = cursosSede.length;
@@ -116,20 +209,26 @@ export const obtenerEstadisticasSede = (
   const cursosProximamente = cursosAgrupados.proximamente.length;
   const mesesActivos = cursosAgrupados.conFecha.length;
   
+  // Contar cursos subvencionados
+  const cursosSubvencionados = cursosSede.filter(curso => 'esCursoSubvencionado' in curso).length;
+  const cursosRegulares = cursosSede.filter(curso => !('esCursoSubvencionado' in curso)).length;
+  
   return {
     totalCursos,
     cursosConFecha,
     cursosProximamente,
     mesesActivos,
+    cursosSubvencionados,
+    cursosRegulares,
     categorias: Array.from(new Set(cursosSede.map(curso => curso.categoria))).length
   };
 };
 
-// Obtener el próximo curso por sede
+// Obtener el próximo curso por sede (incluye todos los tipos)
 export const obtenerProximoCurso = (
   cursos: CursoMaestro[], 
   sede: 'Norte' | 'Santa Cruz'
-): CursoMaestro | null => {
+): CursoUnificado | null => {
   const cursosAgrupados = agruparCursosPorMes(cursos, sede);
   
   if (cursosAgrupados.conFecha.length > 0) {

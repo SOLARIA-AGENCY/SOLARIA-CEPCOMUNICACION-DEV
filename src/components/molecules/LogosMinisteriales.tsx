@@ -18,7 +18,7 @@ const LogosMinisteriales: React.FC<LogosMinisterialesProps> = ({ className = "" 
           <div className="logos-container flex justify-center items-center gap-8 flex-wrap">
             <div className="logo-item">
               <img 
-                src="/docs/cursostrabajadoresocupados/logo-sepe.png" 
+                src="/images/certificaciones/sepe.png" 
                 alt="SEPE - Servicio Público de Empleo Estatal" 
                 className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity"
                 loading="lazy"
@@ -26,7 +26,7 @@ const LogosMinisteriales: React.FC<LogosMinisterialesProps> = ({ className = "" 
             </div>
             <div className="logo-item">
               <img 
-                src="/docs/cursostrabajadoresocupados/logo-ministerio.png" 
+                src="/images/certificaciones/ministerio-educacion.png" 
                 alt="Ministerio de Trabajo y Economía Social" 
                 className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity"
                 loading="lazy"
@@ -34,7 +34,7 @@ const LogosMinisteriales: React.FC<LogosMinisterialesProps> = ({ className = "" 
             </div>
             <div className="logo-item">
               <img 
-                src="/docs/cursostrabajadoresocupados/logo-fse.png" 
+                src="/images/certificaciones/fse.png" 
                 alt="Fondo Social Europeo - Unión Europea" 
                 className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity"
                 loading="lazy"

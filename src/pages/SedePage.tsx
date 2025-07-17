@@ -4,7 +4,7 @@ import { MapPin, Users, Calendar, TrendingUp } from 'lucide-react';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import TimelineSection from '../components/organisms/TimelineSection';
-import CursoCard from '../components/molecules/CursoCard';
+import CursoUnificadoCard from '../components/molecules/CursoUnificadoCard';
 import MiniCalendario from '../components/molecules/MiniCalendario';
 import { cursosMaestro } from '../config/cursos-maestro';
 import { agruparCursosPorMes, obtenerEstadisticasSede } from '../utils/sedeUtils';
@@ -144,8 +144,8 @@ const SedePage: React.FC = () => {
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cursosAgrupados.proximamente.map((curso) => (
-                <CursoCard 
-                  key={curso.codigo} 
+                <CursoUnificadoCard 
+                  key={curso.codigo || curso.id} 
                   curso={curso} 
                 />
               ))}
