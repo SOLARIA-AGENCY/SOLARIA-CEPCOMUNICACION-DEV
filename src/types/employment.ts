@@ -64,6 +64,14 @@ export interface EmploymentCourseConfig {
   fecha_fin: string;
   plazas_disponibles: number;
   sede: 'Norte' | 'Santa Cruz';
+  imagen?: string;
+  descripcion?: string;
+  objetivos?: string[];
+  temario?: {
+    modulo: string;
+    contenidos: string[];
+  }[];
+  metodologia?: string;
   datos_especificos: CursoOcupados | CursoDesempleados;
 }
 

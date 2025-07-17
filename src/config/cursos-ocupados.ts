@@ -15,6 +15,54 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
     fecha_fin: '2025-09-12',
     plazas_disponibles: 15,
     sede: 'Santa Cruz',
+    imagen: '/images/cursos/prevencion-riesgos-ambientales.png',
+    descripcion: 'Curso especializado en identificación, evaluación y control de riesgos ambientales en el ámbito laboral, conforme a la normativa vigente de prevención de riesgos laborales.',
+    objetivos: [
+      'Identificar los principales riesgos ambientales en el entorno laboral',
+      'Aplicar técnicas de evaluación de riesgos ambientales',
+      'Implementar medidas preventivas y de control',
+      'Conocer la normativa legal aplicable en materia ambiental',
+      'Desarrollar planes de emergencia ambiental'
+    ],
+    temario: [
+      {
+        modulo: 'Módulo 1: Fundamentos de la Gestión Ambiental',
+        contenidos: [
+          'Conceptos básicos de medio ambiente',
+          'Legislación ambiental aplicable',
+          'Sistemas de gestión ambiental ISO 14001',
+          'Evaluación de aspectos ambientales'
+        ]
+      },
+      {
+        modulo: 'Módulo 2: Identificación de Riesgos Ambientales',
+        contenidos: [
+          'Contaminación atmosférica',
+          'Contaminación acústica',
+          'Gestión de residuos peligrosos',
+          'Contaminación de suelos y aguas'
+        ]
+      },
+      {
+        modulo: 'Módulo 3: Evaluación y Control de Riesgos',
+        contenidos: [
+          'Técnicas de evaluación de riesgos',
+          'Medidas preventivas y correctoras',
+          'Equipos de protección individual',
+          'Procedimientos de trabajo seguro'
+        ]
+      },
+      {
+        modulo: 'Módulo 4: Planes de Emergencia Ambiental',
+        contenidos: [
+          'Elaboración de planes de emergencia',
+          'Protocolos de actuación',
+          'Comunicación de riesgos',
+          'Simulacros y ejercicios prácticos'
+        ]
+      }
+    ],
+    metodologia: 'Metodología teórico-práctica con casos reales, talleres participativos y simulaciones de situaciones de riesgo ambiental.',
     datos_especificos: {
       tipo: 'ocupados',
       contacto: {
@@ -26,18 +74,21 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
         'Certificación oficial reconocida',
         'Mejora tu CV y empleabilidad',
         'Horario compatible con trabajo',
-        'Aplicación práctica inmediata'
+        'Aplicación práctica inmediata',
+        'Material didáctico incluido',
+        'Seguimiento personalizado'
       ],
       requisitos: [
         'Ser trabajador activo de cualquier sector',
         'Residir en Canarias',
         'Tener más de 18 años',
-        'Disponibilidad horaria'
+        'Disponibilidad horaria de tardes',
+        'Nivel básico de estudios'
       ],
       financiacion: 'SEPE - Servicio Público de Empleo Estatal',
       duracion: '40 horas lectivas',
       modalidad: 'Presencial',
-      certificacion: 'Certificado oficial reconocido',
+      certificacion: 'Certificado oficial de aprovechamiento reconocido por SEPE',
       caracteristicas: {
         modalidad: 'presencial',
         horario: 'tarde',

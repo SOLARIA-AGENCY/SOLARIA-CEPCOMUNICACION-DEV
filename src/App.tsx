@@ -33,6 +33,8 @@ import ProtectedRoute from './components/utils/ProtectedRoute';
 import SedesPage from './pages/SedesPage';
 import CursosOcupadosPage from './pages/CursosOcupadosPage';
 import CursosDesempleadosPage from './pages/CursosDesempleadosPage';
+import CursoOcupadosPageComponent from './templates/CursoOcupadosPageComponent';
+import { cursosOcupadosConfig } from './config/cursos-ocupados';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -50,6 +52,20 @@ const DynamicCoursePageWrapper = () => {
   }
   
   return <CursoPageComponent curso={curso} />;
+};
+
+// Componente wrapper para cursos de ocupados
+const CursoOcupadosDetailWrapper = () => {
+  const { id } = useParams<{ id: string }>();
+  if (!id) return <Navigate to="/cursos-ocupados" replace />;
+  
+  const curso = cursosOcupadosConfig.find(c => c.id === id);
+  
+  if (!curso) {
+    return <Navigate to="/cursos-ocupados" replace />;
+  }
+  
+  return <CursoOcupadosPageComponent curso={curso} />;
 };
 
 function App() {
@@ -71,6 +87,7 @@ function App() {
         {/* Rutas de Cursos Subvencionados */}
         <Route path="/cursos-ocupados" element={<CursosOcupadosPage />} />
         <Route path="/cursos-desempleados" element={<CursosDesempleadosPage />} />
+        <Route path="/curso-ocupados/:id" element={<CursoOcupadosDetailWrapper />} />
 
         {/* 🏫 RUTAS DE SEDES */}
         <Route path="/sede/:slug" element={<SedePage />} />

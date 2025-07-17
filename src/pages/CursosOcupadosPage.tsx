@@ -144,42 +144,52 @@ const CursosOcupadosPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {activeCursos.map((curso) => (
                 <div key={curso.id} className="relative">
-                  <CursoCard 
-                    curso={{
-                      id: curso.id,
-                      slug: `ocupados-${curso.id.toLowerCase()}`,
-                      slugBase: `ocupados-${curso.id.toLowerCase()}`,
-                      nombre: curso.nombre,
-                      codigo: curso.id,
-                      sede: curso.sede,
-                      estado: curso.activo ? 'activo' : 'proximamente',
-                      categoria: 'sanidad',
-                      imagen: '/images/cursos/formacion-gratuita.jpg',
-                      inicio: curso.fecha_inicio,
-                      copy: {
-                        slogan: 'Curso gratuito para trabajadores',
-                        destacados: []
-                      },
-                      descripcionDetallada: {
-                        introduccion: 'Curso gratuito para trabajadores',
-                        puntosClave: [
-                          { icono: 'Clock', texto: curso.datos_especificos.duracion },
-                          { icono: 'Globe', texto: curso.datos_especificos.modalidad },
-                          { icono: 'Award', texto: curso.datos_especificos.certificacion }
-                        ],
-                        queAprendes: 'Contenido específico del curso',
-                        salidasProfesionales: ['Mejora profesional'],
-                        modulos: [],
-                        profesores: []
-                      }
-                    }}
-                    showEmploymentType={true}
-                    employmentFilter="ocupados"
-                  />
-                  
-                  {/* Indicador de tipo de curso */}
-                  <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">
-                    Trabajadores
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
+                    <div className="relative">
+                      <img
+                        src={curso.imagen || '/images/cursos/formacion-gratuita.jpg'}
+                        alt={`Imagen del curso ${curso.nombre}`}
+                        className="w-full h-40 sm:h-48 object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {/* Etiqueta de Estado/Fecha */}
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-600">
+                        {curso.activo ? 'ACTIVO' : 'PRÓXIMAMENTE'}
+                      </div>
+                      
+                      {/* Etiqueta de Tipo de Empleo */}
+                      <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-600">
+                        TRABAJADORES
+                      </div>
+                    </div>
+                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                      <h3 className="text-lg sm:text-xl font-bold text-green-600 mb-2">{curso.nombre}</h3>
+                      <p className="text-xs text-gray-500 font-semibold mb-2 uppercase">{curso.datos_especificos.duracion}</p>
+                      <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">
+                        {curso.descripcion || 'Curso gratuito para trabajadores'}
+                      </p>
+                      <div className="space-y-2 mb-4">
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="font-medium">📅 Inicio:</span>
+                          <span className="ml-2">{new Date(curso.fecha_inicio).toLocaleDateString('es-ES')}</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="font-medium">📍 Sede:</span>
+                          <span className="ml-2">CEP {curso.sede}</span>
+                        </div>
+                        <div className="flex items-center text-sm text-gray-600">
+                          <span className="font-medium">💰 Precio:</span>
+                          <span className="ml-2 font-bold text-green-600">100% GRATUITO</span>
+                        </div>
+                      </div>
+                      <a
+                        href={`/curso-ocupados/${curso.id}`}
+                        className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                      >
+                        VER CURSO COMPLETO
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}

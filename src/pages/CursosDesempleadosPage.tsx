@@ -190,7 +190,8 @@ const CursosDesempleadosPage: React.FC = () => {
                       inicio: curso.fecha_inicio,
                       copy: {
                         slogan: 'Curso gratuito para desempleados',
-                        destacados: []
+                        textosPrincipales: [],
+                        titulos: []
                       },
                       descripcionDetallada: {
                         introduccion: 'Curso gratuito para desempleados',
