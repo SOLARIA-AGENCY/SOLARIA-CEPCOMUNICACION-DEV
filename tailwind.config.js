@@ -10,11 +10,12 @@ export default {
         sans: ['Poppins', 'sans-serif'],
       },
       colors: {
-        'cep-primary': '#1A237E', // Un azul oscuro y profesional
-        'cep-primary-dark': '#0D1B57',
+        'cep-primary': '#f2014b', // Color principal CEP (rosa/rojo)
+        'cep-primary-dark': '#d0013f',
+        'cep-primary-light': '#ff4d80',
         'cep-secondary': '#FF6D00', // Un naranja vibrante para acentos
       },
     },
   },
   plugins: [],
-} 
+}

@@ -251,6 +251,8 @@ describe('useNewsletterSubscription', () => {
   });
 
   it('trims and lowercases email', async () => {
+    mockFetch.mockClear();
+    
     const mockResponse = {
       success: true,
       message: 'Success'

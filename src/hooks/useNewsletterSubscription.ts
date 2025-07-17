@@ -43,8 +43,11 @@ export const useNewsletterSubscription = (options: UseNewsletterSubscriptionOpti
   });
 
   const subscribe = useCallback(async (data: SubscriptionData) => {
+    // Normalizar email primero
+    const normalizedEmail = data.email?.toLowerCase().trim() || '';
+    
     // Validación básica
-    if (!data.email || !data.email.trim()) {
+    if (!normalizedEmail) {
       setState({
         status: 'error',
         message: 'Por favor, introduce tu dirección de correo electrónico.'
@@ -54,7 +57,7 @@ export const useNewsletterSubscription = (options: UseNewsletterSubscriptionOpti
 
     // Validación de formato de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
+    if (!emailRegex.test(normalizedEmail)) {
       setState({
         status: 'error',
         message: 'Por favor, introduce un email válido.'
@@ -66,7 +69,7 @@ export const useNewsletterSubscription = (options: UseNewsletterSubscriptionOpti
 
     try {
       const payload = {
-        email: data.email.toLowerCase().trim(),
+        email: normalizedEmail,
         firstName: data.firstName?.trim() || '',
         lastName: data.lastName?.trim() || '',
         timestamp: new Date().toISOString(),

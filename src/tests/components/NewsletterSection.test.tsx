@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import NewsletterSection from '../../components/organisms/NewsletterSection';
 
@@ -44,13 +44,15 @@ describe('NewsletterSection', () => {
     const user = userEvent.setup();
     render(<NewsletterSection fixedTimestamp={fixedTimestamp} webhookUrl={mockWebhookUrl} />);
     
+    const emailInput = screen.getByTestId('email-input');
     const submitButton = screen.getByTestId('submit-button');
+    const form = screen.getByTestId('newsletter-form');
     
     // Submit button should be disabled when email is empty
     expect(submitButton).toBeDisabled();
     
-    // Try to submit without email
-    await user.click(submitButton);
+    // Submit form directly without email to trigger validation
+    fireEvent.submit(form);
     
     // Should show error message
     await waitFor(() => {
@@ -84,10 +86,15 @@ describe('NewsletterSection', () => {
       }
     };
 
-    mockFetch.mockResolvedValueOnce({
-      ok: true,
-      json: async () => mockResponse
-    });
+    // Mock a delayed response to capture loading state
+    mockFetch.mockImplementationOnce(() => 
+      new Promise(resolve => 
+        setTimeout(() => resolve({
+          ok: true,
+          json: async () => mockResponse
+        }), 200)
+      )
+    );
 
     render(<NewsletterSection fixedTimestamp={fixedTimestamp} webhookUrl={mockWebhookUrl} />);
     
@@ -287,7 +294,7 @@ describe('NewsletterSection', () => {
     Object.defineProperty(window, 'location', {
       value: {
         ...window.location,
-        set href(url) {
+        set href(url: string) {
           mockLocationSetter(url);
         }
       },

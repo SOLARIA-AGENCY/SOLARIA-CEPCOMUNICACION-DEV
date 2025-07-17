@@ -13,7 +13,7 @@ interface SubscriptionState {
 
 const NewsletterSection: React.FC<NewsletterSectionProps> = ({ 
   fixedTimestamp, 
-  webhookUrl = process.env.VITE_N8N_WEBHOOK_URL || 'https://n8n.cepcomunicacion.com/webhook/newsletter-signup'
+  webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL || 'https://n8n.cepcomunicacion.com/webhook/newsletter-signup'
 }) => {
   const [formData, setFormData] = useState({
     email: '',
