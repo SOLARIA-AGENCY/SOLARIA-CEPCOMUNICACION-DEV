@@ -25,6 +25,11 @@ RewriteRule ^cursos/auxiliar-farmacia-dermo-norte/?$ /index.html [L]
 RewriteRule ^cursos/adiestramiento-canino-norte/?$ /index.html [L]
 RewriteRule ^cursos/agente-funerario-santacruz/?$ /index.html [L]
 
+# 💼 RUTAS CURSOS EMPLEO (SEPE) - CRÍTICAS PARA SEO
+RewriteRule ^cursos-empleo/prevencion-riesgos-ambientales-ocupados/?$ /index.html [L]
+RewriteRule ^prevencion-riesgos-ambientales-ocupados/?$ /index.html [L]
+RewriteRule ^curso-ocupado/PRO-OCUP-PREV-RIESGOS-25/?$ /index.html [L]
+
 # 📚 RUTAS LEGACY - Cursos Existentes
 RewriteRule ^auxiliar-clinico-veterinario-norte/?$ /index.html [L]
 RewriteRule ^auxiliar-clinico-veterinario-santacruz/?$ /index.html [L]
@@ -88,4 +93,4 @@ RewriteRule ^(.*)$ /index.html [L]
     ExpiresByType image/jpeg "access plus 1 month"
     ExpiresByType image/gif "access plus 1 month"
     ExpiresByType image/svg+xml "access plus 1 month"
-</IfModule> 
+</IfModule>
