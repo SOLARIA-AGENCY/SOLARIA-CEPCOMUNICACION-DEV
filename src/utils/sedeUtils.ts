@@ -65,6 +65,7 @@ const convertirCursoEmpleo = (curso: EmploymentCourseConfig): CursoUnificado => 
     categoria: 'sanidad' as any,
     imagen: curso.imagen || '/images/cursos/formacion-gratuita.jpg',
     inicio: curso.fecha_inicio,
+    sede: curso.sede, // Preservar explícitamente la sede
     copy: {
       slogan: curso.descripcion || 'Curso gratuito subvencionado',
       textosPrincipales: curso.objetivos || [],
@@ -237,4 +238,4 @@ export const obtenerProximoCurso = (
   }
   
   return null;
-}; 
+};
