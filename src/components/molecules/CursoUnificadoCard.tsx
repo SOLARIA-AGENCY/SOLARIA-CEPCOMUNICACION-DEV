@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CursoUnificado } from '../../utils/sedeUtils';
-import { determinarColorEtiqueta, useTimeReal } from '../../utils/timeUtils';
+import { determinarColorEtiqueta, useTimeReal, formatearFechaLegible, parsearFechaCurso } from '../../utils/timeUtils';
 
 interface CursoUnificadoCardProps {
   curso: CursoUnificado;
@@ -104,7 +104,12 @@ const CursoUnificadoCard: React.FC<CursoUnificadoCardProps> = ({ curso }) => {
           <div className="space-y-2 mb-4">
             <div className="flex items-center text-sm text-gray-600">
               <span className="font-medium">📅 Inicio:</span>
-              <span className="ml-2">{new Date((curso as any).fecha_inicio).toLocaleDateString('es-ES')}</span>
+              <span className="ml-2">
+                {(() => {
+                  const fechaParseada = parsearFechaCurso((curso as any).fecha_inicio);
+                  return fechaParseada ? formatearFechaLegible(fechaParseada) : (curso as any).fecha_inicio;
+                })()}
+              </span>
             </div>
             <div className="flex items-center text-sm text-gray-600">
               <span className="font-medium">📍 Sede:</span>

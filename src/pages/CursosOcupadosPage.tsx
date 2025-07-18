@@ -7,6 +7,7 @@ import LogosMinisteriales from '../components/molecules/LogosMinisteriales';
 import { cursosOcupadosConfig, ocupadosDefaultConfig, ocupadosMetadata } from '../config/cursos-ocupados';
 import { trackEmploymentPageView } from '../utils/employmentTracking';
 import { EmploymentCourseConfig } from '../types/employment';
+import { formatearFechaLegible, parsearFechaCurso } from '../utils/timeUtils';
 
 const CursosOcupadosPage: React.FC = () => {
   const [selectedSede, setSelectedSede] = useState<'Norte' | 'Santa Cruz' | 'Todas'>('Todas');
@@ -171,7 +172,12 @@ const CursosOcupadosPage: React.FC = () => {
                       <div className="space-y-2 mb-4">
                         <div className="flex items-center text-sm text-gray-600">
                           <span className="font-medium">📅 Inicio:</span>
-                          <span className="ml-2">{new Date(curso.fecha_inicio).toLocaleDateString('es-ES')}</span>
+                          <span className="ml-2">
+                            {(() => {
+                              const fechaParseada = parsearFechaCurso(curso.fecha_inicio);
+                              return fechaParseada ? formatearFechaLegible(fechaParseada) : curso.fecha_inicio;
+                            })()}
+                          </span>
                         </div>
                         <div className="flex items-center text-sm text-gray-600">
                           <span className="font-medium">📍 Sede:</span>

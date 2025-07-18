@@ -680,7 +680,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                21 DE JULIO DE 2025
+                21 JULIO 2025
               </div>
             </div>
             <div

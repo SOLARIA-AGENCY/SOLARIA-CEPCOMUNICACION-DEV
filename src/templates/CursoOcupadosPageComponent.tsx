@@ -5,6 +5,7 @@ import EmploymentFormModal from '../components/molecules/EmploymentFormModal';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import LogosMinisteriales from '../components/molecules/LogosMinisteriales';
+import { formatearFechaLegible, parsearFechaCurso } from '../utils/timeUtils';
 
 interface CursoOcupadosPageComponentProps {
   curso: EmploymentCourseConfig;
@@ -107,8 +108,14 @@ const CursoOcupadosPageComponent: React.FC<CursoOcupadosPageComponentProps> = ({
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">📅 Fechas y Horarios</h4>
                   <div className="space-y-2 text-gray-700">
-                    <p><strong>Inicio:</strong> {new Date(curso.fecha_inicio).toLocaleDateString('es-ES')}</p>
-                    <p><strong>Fin:</strong> {new Date(curso.fecha_fin).toLocaleDateString('es-ES')}</p>
+                    <p><strong>Inicio:</strong> {(() => {
+                      const fechaParseada = parsearFechaCurso(curso.fecha_inicio);
+                      return fechaParseada ? formatearFechaLegible(fechaParseada) : curso.fecha_inicio;
+                    })()}</p>
+                    <p><strong>Fin:</strong> {(() => {
+                      const fechaParseada = parsearFechaCurso(curso.fecha_fin);
+                      return fechaParseada ? formatearFechaLegible(fechaParseada) : curso.fecha_fin;
+                    })()}</p>
                     <p><strong>Duración:</strong> {curso.datos_especificos.duracion}</p>
                     <p><strong>Horario:</strong> {(curso.datos_especificos.caracteristicas as any).horario === 'tarde' ? 'Tardes' : 'Mañanas'}</p>
                     <p><strong>Modalidad:</strong> {curso.datos_especificos.modalidad}</p>

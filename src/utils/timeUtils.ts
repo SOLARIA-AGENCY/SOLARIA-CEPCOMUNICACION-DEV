@@ -137,7 +137,7 @@ export const obtenerFechaInicioUnificada = (curso: CursoMaestro): string | undef
   return curso.inicio;
 };
 
-// Parsear fecha de texto de curso (ej: "Julio 2025", "4 de Julio de 2025")
+// Parsear fecha de texto de curso (ej: "Julio 2025", "4 de Julio de 2025", "2025-08-11")
 export const parsearFechaCurso = (fechaTexto: string): Date | null => {
   const meses = {
     'enero': 0, 'febrero': 1, 'marzo': 2, 'abril': 3,
@@ -146,6 +146,19 @@ export const parsearFechaCurso = (fechaTexto: string): Date | null => {
   };
 
   const texto = fechaTexto.toLowerCase().trim().replace(/\sde\s/g, ' ');
+  
+  // Formato ISO (ej: "2025-08-11")
+  const isoMatch = texto.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (isoMatch) {
+    const año = parseInt(isoMatch[1]);
+    const mes = parseInt(isoMatch[2]) - 1; // Los meses en Date van de 0-11
+    const dia = parseInt(isoMatch[3]);
+    
+    if (!isNaN(año) && !isNaN(mes) && !isNaN(dia)) {
+      return new Date(año, mes, dia);
+    }
+  }
+  
   const palabras = texto.split(' ');
   
   // Formato "Día Mes Año" (ej: "4 Julio 2025")
@@ -232,19 +245,14 @@ export const determinarColorEtiqueta = (
     // En el rango de 5 días antes y 5 días después = ÚLTIMAS PLAZAS (Naranja)
     return { text: 'ÚLTIMAS PLAZAS', color: 'bg-orange-500' };
   } else {
-    // Cualquier otra fecha futura = MES AÑO (Verde)
-    const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
-                   'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
-    const mes = meses[fechaCurso.getMonth()];
-    const año = fechaCurso.getFullYear();
+    // Cualquier otra fecha futura = formato legible
     
-    // Para fechas muy futuras, mostrar mes y año
+    // Para fechas muy futuras (más de 60 días), mostrar solo mes y año
     if (diferenciaDias > 60) {
-      return { text: `${mes} ${año}`, color: 'bg-green-500' };
+      return { text: formatearMesAñoLegible(fechaCurso), color: 'bg-green-500' };
     } else {
-      // Para fechas próximas, mostrar fecha específica
-      const dia = fechaCurso.getDate();
-      return { text: `${dia} DE ${mes} DE ${año}`, color: 'bg-orange-500' };
+      // Para fechas próximas, mostrar fecha específica completa
+      return { text: formatearFechaLegible(fechaCurso), color: 'bg-orange-500' };
     }
   }
 };
@@ -330,6 +338,27 @@ export const formatearFechaCalendario = (fecha: Date): string => {
   });
 };
 
+// Formatear fecha en formato legible para etiquetas (ej: "27 AGOSTO 2025")
+export const formatearFechaLegible = (fecha: Date): string => {
+  const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+                 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
+  const dia = fecha.getDate();
+  const mes = meses[fecha.getMonth()];
+  const año = fecha.getFullYear();
+  
+  return `${dia} ${mes} ${año}`;
+};
+
+// Formatear fecha solo con mes y año para fechas futuras (ej: "AGOSTO 2025")
+export const formatearMesAñoLegible = (fecha: Date): string => {
+  const meses = ['ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+                 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE'];
+  const mes = meses[fecha.getMonth()];
+  const año = fecha.getFullYear();
+  
+  return `${mes} ${año}`;
+};
+
 // Hook personalizado para tiempo real (para React)
 export const useTimeReal = () => {
   const [fechaActual, setFechaActual] = useState<Date>(getFechaActualSync());
@@ -356,4 +385,4 @@ export const useTimeReal = () => {
   }, []);
 
   return fechaActual;
-}; 
+};
