@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp, Download } from 'lucide-react';
+import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp } from 'lucide-react';
 import { EmploymentCourseConfig } from '../types/employment';
 import EmploymentFormModal from '../components/molecules/EmploymentFormModal';
 import CepHeader from '../components/organisms/CepHeader';

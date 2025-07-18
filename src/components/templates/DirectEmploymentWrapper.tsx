@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { cursosOcupadosConfig } from '../../config/cursos-ocupados';
 import { cursosDesempleadosConfig } from '../../config/cursos-desempleados';
-import type { EmploymentCourseConfig } from '../../types/employment';
+// Import removed - not used directly in this component
 import CursoOcupadosPageComponent from '../../templates/CursoOcupadosPageComponent';
 
 /**

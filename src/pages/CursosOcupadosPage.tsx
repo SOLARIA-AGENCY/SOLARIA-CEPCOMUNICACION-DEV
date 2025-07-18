@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
-import CursoCard from '../components/molecules/CursoCard';
-import SedeSelector from '../components/organisms/SedeSelector';
+// Unused imports removed
 import LogosMinisteriales from '../components/molecules/LogosMinisteriales';
 import { cursosOcupadosConfig, ocupadosDefaultConfig, ocupadosMetadata } from '../config/cursos-ocupados';
 import { trackEmploymentPageView } from '../utils/employmentTracking';
