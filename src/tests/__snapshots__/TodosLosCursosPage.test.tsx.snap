@@ -232,13 +232,55 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
             >
               INICIO
             </a>
-            <a
-              class="text-gray-700 hover:text-cep-primary font-medium transition-colors"
-              data-discover="true"
-              href="/cursos"
+            <div
+              class="relative group"
             >
-              CURSOS
-            </a>
+              <a
+                class="text-gray-700 hover:text-cep-primary font-medium transition-colors flex items-center"
+                data-discover="true"
+                href="/cursos"
+              >
+                CURSOS
+                <svg
+                  class="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9l-7 7-7-7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </svg>
+              </a>
+              <div
+                class="absolute top-full left-0 w-48 bg-white shadow-lg rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50"
+              >
+                <a
+                  class="block px-4 py-2 text-gray-700 hover:text-cep-primary hover:bg-gray-50 transition-colors"
+                  data-discover="true"
+                  href="/cursos"
+                >
+                  Cursos Privados
+                </a>
+                <a
+                  class="block px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 transition-colors"
+                  data-discover="true"
+                  href="/cursos-ocupados"
+                >
+                  Trabajadores Ocupados
+                </a>
+                <a
+                  class="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                  data-discover="true"
+                  href="/cursos-desempleados"
+                >
+                  Trabajadores Desempleados
+                </a>
+              </div>
+            </div>
             <a
               class="text-gray-700 hover:text-cep-primary font-medium transition-colors"
               data-discover="true"

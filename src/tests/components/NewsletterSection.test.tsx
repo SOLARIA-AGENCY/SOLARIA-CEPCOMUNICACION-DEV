@@ -41,10 +41,8 @@ describe('NewsletterSection', () => {
   });
 
   it('validates required email field', async () => {
-    const user = userEvent.setup();
     render(<NewsletterSection fixedTimestamp={fixedTimestamp} webhookUrl={mockWebhookUrl} />);
     
-    const emailInput = screen.getByTestId('email-input');
     const submitButton = screen.getByTestId('submit-button');
     const form = screen.getByTestId('newsletter-form');
     
