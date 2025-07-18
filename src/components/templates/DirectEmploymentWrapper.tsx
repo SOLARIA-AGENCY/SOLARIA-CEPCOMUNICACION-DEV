@@ -20,7 +20,9 @@ import CursoOcupadosPageComponent from '../../templates/CursoOcupadosPageCompone
  * - Renderiza usando el componente template apropiado
  */
 const DirectEmploymentWrapper: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>();
+  // Extraer el slug de la URL actual
+  const currentPath = window.location.pathname;
+  const slug = currentPath.replace('/', ''); // Remover la barra inicial
 
   // Buscar el curso en ambas configuraciones
   const curso = React.useMemo(() => {
