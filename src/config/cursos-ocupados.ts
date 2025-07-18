@@ -8,6 +8,7 @@ import { EmploymentCourseConfig } from '../types/employment';
 export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
   {
     id: 'PRO-OCUP-PREV-RIESGOS-25',
+    slug: 'prevencion-riesgos-ambientales-ocupados',
     nombre: 'Prevención de Riesgos Ambientales',
     tipo: 'ocupados',
     activo: true,
@@ -95,6 +96,33 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
         compatible_trabajo: true,
         certificacion_oficial: true,
         financiado_sepe: true
+      }
+    },
+    seo: {
+      title: 'Curso Prevención de Riesgos Ambientales - Trabajadores Ocupados | CEP Formación',
+      description: 'Curso gratuito de Prevención de Riesgos Ambientales para trabajadores. Financiado por SEPE. Aprende identificación, evaluación y control de riesgos ambientales. ¡Plazas limitadas!',
+      keywords: 'prevención riesgos ambientales, curso trabajadores ocupados, SEPE, formación gratuita, seguridad ambiental, santa cruz tenerife',
+      structuredData: {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Prevención de Riesgos Ambientales",
+        "description": "Curso especializado en identificación, evaluación y control de riesgos ambientales en el ámbito laboral, conforme a la normativa vigente de prevención de riesgos laborales.",
+        "provider": {
+          "@type": "Organization",
+          "name": "CEP Formación",
+          "url": "https://cepcomunicacion.com"
+        },
+        "url": "https://cepcomunicacion.com/curso-ocupado/prevencion-riesgos-ambientales-ocupados",
+        "courseMode": "blended",
+        "educationalLevel": "professional",
+        "audience": "Trabajadores ocupados",
+        "teaches": [
+          "Identificación de riesgos ambientales",
+          "Evaluación de riesgos ambientales", 
+          "Medidas preventivas y de control",
+          "Normativa legal ambiental",
+          "Planes de emergencia ambiental"
+        ]
       }
     }
   }

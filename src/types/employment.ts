@@ -57,6 +57,7 @@ export interface EmploymentFormData {
 
 export interface EmploymentCourseConfig {
   id: string;
+  slug: string; // NUEVO CAMPO OBLIGATORIO - Para rutas duales
   nombre: string;
   tipo: EmploymentStatus;
   activo: boolean;
@@ -73,6 +74,28 @@ export interface EmploymentCourseConfig {
   }[];
   metodologia?: string;
   datos_especificos: CursoOcupados | CursoDesempleados;
+  // NUEVA SECCIÓN SEO - Para optimización de rutas duales
+  seo: {
+    title: string;
+    description: string;
+    keywords: string;
+    structuredData?: {
+      "@context": string;
+      "@type": string;
+      name: string;
+      description: string;
+      provider: {
+        "@type": string;
+        name: string;
+        url: string;
+      };
+      url: string;
+      courseMode: string;
+      educationalLevel: string;
+      audience?: string;
+      teaches?: string[];
+    };
+  };
 }
 
 export interface EmploymentTracking {

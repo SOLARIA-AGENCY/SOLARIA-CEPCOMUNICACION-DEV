@@ -36,6 +36,9 @@ import CursosDesempleadosPage from './pages/CursosDesempleadosPage';
 import CursoOcupadosPageComponent from './templates/CursoOcupadosPageComponent';
 import { cursosOcupadosConfig } from './config/cursos-ocupados';
 import { cursosDesempleadosConfig } from './config/cursos-desempleados';
+import DirectEmploymentWrapper from './components/templates/DirectEmploymentWrapper';
+import SemanticEmploymentWrapper from './components/templates/SemanticEmploymentWrapper';
+import LegacyEmploymentRedirect from './components/templates/LegacyEmploymentRedirect';
 // --- FIN ESTRUCTURA ---
 
 import './index.css';
@@ -105,6 +108,20 @@ function App() {
         <Route path="/cursos-desempleados" element={<CursosDesempleadosPage />} />
         <Route path="/curso-ocupado/:id" element={<CursoOcupadosDetailWrapper />} />
         <Route path="/curso-desempleado/:id" element={<CursoDesempleadosDetailWrapper />} />
+
+        {/* 🎯 RUTAS DUALES EMPLEO - SISTEMA SEO AVANZADO */}
+        
+        {/* CURSOS OCUPADOS - Rutas Duales */}
+        <Route path="/prevencion-riesgos-ambientales-ocupados" element={<DirectEmploymentWrapper />} />
+        <Route path="/cursos-empleo/prevencion-riesgos-ambientales-ocupados" element={<SemanticEmploymentWrapper />} />
+        
+        {/* CURSOS DESEMPLEADOS - Rutas Duales (Preparado para futuros cursos) */}
+        {/* <Route path="/curso-desempleado-slug" element={<DirectEmploymentWrapper />} /> */}
+        {/* <Route path="/cursos-empleo/curso-desempleado-slug" element={<SemanticEmploymentWrapper />} /> */}
+        
+        {/* 🔄 REDIRECCIONES LEGACY - Preservación SEO */}
+        <Route path="/legacy-curso-ocupado/:id" element={<LegacyEmploymentRedirect />} />
+        <Route path="/legacy-curso-desempleado/:id" element={<LegacyEmploymentRedirect />} />
 
         {/* 🏫 RUTAS DE SEDES */}
         <Route path="/sede/:slug" element={<SedePage />} />
