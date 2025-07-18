@@ -20,9 +20,7 @@ const CursoUnificadoCard: React.FC<CursoUnificadoCardProps> = ({ curso }) => {
   
   // Determinar URL de destino
   const urlDestino = esCursoSubvencionado
-    ? (curso as any).tipo === 'ocupados' 
-      ? `/curso-ocupado/${(curso as any).id}`
-      : `/curso-desempleado/${(curso as any).id}`
+    ? `/${(curso as any).slug}` // Usar slug semántico para cursos subvencionados
     : `/curso/${curso.slug}`; // Para cursos regulares
   
   // Usar nuevo sistema inteligente de colores
