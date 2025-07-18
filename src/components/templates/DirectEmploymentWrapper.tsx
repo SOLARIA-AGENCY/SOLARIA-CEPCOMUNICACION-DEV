@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { cursosOcupadosConfig } from '../../config/cursos-ocupados';
 import { cursosDesempleadosConfig } from '../../config/cursos-desempleados';
 // Import removed - not used directly in this component
