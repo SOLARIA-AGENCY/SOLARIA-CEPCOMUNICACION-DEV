@@ -246,10 +246,12 @@ describe('NewsletterSection', () => {
     await user.click(submitButton);
     
     // All inputs should be disabled during loading
-    expect(emailInput).toBeDisabled();
-    expect(firstNameInput).toBeDisabled();
-    expect(lastNameInput).toBeDisabled();
-    expect(submitButton).toBeDisabled();
+    await waitFor(() => {
+      expect(emailInput).toBeDisabled();
+      expect(firstNameInput).toBeDisabled();
+      expect(lastNameInput).toBeDisabled();
+      expect(submitButton).toBeDisabled();
+    });
     
     // Wait for completion
     await waitFor(() => {

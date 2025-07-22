@@ -49,7 +49,11 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
       return;
     }
 
+    // Establecer estado de carga inmediatamente
     setSubscriptionState({ status: 'loading', message: 'Procesando suscripción...' });
+    
+    // Pequeña pausa para asegurar que React actualice el DOM
+    await new Promise(resolve => setTimeout(resolve, 0));
 
     try {
       const payload = {
@@ -152,6 +156,7 @@ const NewsletterSection: React.FC<NewsletterSectionProps> = ({
               className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary focus:outline-none"
               required
               disabled={subscriptionState.status === 'loading'}
+              aria-label="Email para suscripción"
               data-testid="email-input"
             />
             
