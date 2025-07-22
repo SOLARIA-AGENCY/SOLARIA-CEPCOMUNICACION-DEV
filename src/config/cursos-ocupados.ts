@@ -16,7 +16,7 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
     fecha_fin: '2025-09-12',
     plazas_disponibles: 15,
     sede: 'Santa Cruz',
-    imagen: '/images/cursos/prevencion-riesgos-ambientales.png',
+    imagen: '/images/cursos/prevencion-riesgos-ambientales-ocupados.png',
     descripcion: 'Curso especializado en identificación, evaluación y control de riesgos ambientales en el ámbito laboral, conforme a la normativa vigente de prevención de riesgos laborales.',
     objetivos: [
       'Identificar los principales riesgos ambientales en el entorno laboral',

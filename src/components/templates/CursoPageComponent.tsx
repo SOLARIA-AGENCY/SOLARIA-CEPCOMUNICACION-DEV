@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp, Phone, Mail, MapPin, PawPrint, Heart, Activity, Download, FileText, Send, Shield } from 'lucide-react';
+import { CheckCircle, Clock, Users, Award, BookOpen, Star, ChevronDown, ChevronUp, Phone, Mail, MapPin, PawPrint, Heart, Activity, Download, FileText, Send, Shield, ArrowRight } from 'lucide-react';
 import { CursoMaestro, getFolletoCurso, newsletterConfig } from '../../config/cursos-maestro';
 import CursoInscripcionModal from '../organisms/CursoInscripcionModal';
 import CepHeader from '../organisms/CepHeader';
@@ -481,7 +481,7 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
 
           {/* CTA Principal */}
           <section className="mb-12">
-            <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl p-6 sm:p-8 text-white text-center">
+            <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-xl p-6 sm:p-8 text-white text-center shadow-xl">
               <h2 className="text-2xl sm:text-3xl font-bold mb-4">
                 ¡Inicia tu Carrera Profesional!
               </h2>
@@ -489,12 +489,13 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
                 Un operador de CEP se pondrá en contacto contigo para formalizar la matrícula y despejar todas las dudas
               </p>
               <div className="text-center">
-                <div className="bg-yellow-400 rounded-lg p-1 inline-block shadow-2xl">
+                <div className="bg-yellow-400 rounded-lg p-1.5 inline-block shadow-2xl transform hover:scale-105 transition-all duration-300">
                     <button
                         onClick={() => setIsModalOpen(true)}
-                        className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 "
+                        className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-10 rounded-lg text-xl flex items-center justify-center gap-2"
                     >
-                        ¡QUIERO RESERVAR MI PLAZA!
+                        <span>Reserva tu Plaza</span>
+                        <ArrowRight className="w-5 h-5" />
                     </button>
                 </div>
                 <p className="text-sm text-pink-100 mt-4">
