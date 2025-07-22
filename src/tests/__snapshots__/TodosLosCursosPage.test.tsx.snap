@@ -1889,6 +1889,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
             class="flex flex-col gap-4 mb-4"
           >
             <input
+              aria-label="Email para suscripción"
               class="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary focus:outline-none"
               data-testid="email-input"
               name="email"
