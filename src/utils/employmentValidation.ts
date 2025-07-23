@@ -29,9 +29,8 @@ export const validateEmploymentForm = (formData: EmploymentFormData): { [key: st
     errors.telefono = 'El teléfono no tiene un formato válido';
   }
 
-  if (!formData.dni.trim()) {
-    errors.dni = 'El DNI es obligatorio';
-  } else if (!isValidDNI(formData.dni)) {
+  // DNI es opcional por políticas de privacidad
+  if (formData.dni && formData.dni.trim() && !isValidDNI(formData.dni)) {
     errors.dni = 'El DNI no tiene un formato válido';
   }
 
@@ -40,9 +39,11 @@ export const validateEmploymentForm = (formData: EmploymentFormData): { [key: st
   }
 
   // Validaciones específicas para ocupados
-  if (formData.situacion_laboral === 'ocupados') {
-    if (!formData.empresa_actual?.trim()) {
-      errors.empresa_actual = 'La empresa actual es obligatoria para trabajadores ocupados';
+  // La empresa actual es opcional para mayor flexibilidad
+  if (formData.situacion_laboral === 'ocupados' && formData.empresa_actual && formData.empresa_actual.trim().length > 0) {
+    // Solo validamos formato si se proporciona
+    if (formData.empresa_actual.trim().length < 2) {
+      errors.empresa_actual = 'El nombre de la empresa debe tener al menos 2 caracteres';
     }
   }
 

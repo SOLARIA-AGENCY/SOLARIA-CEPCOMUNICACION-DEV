@@ -77,61 +77,25 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
     trackEmploymentFormStep(employmentType, 'submit_attempt', courseId);
 
     try {
-      // Preparar email personalizado
-      const emailSubject = `Solicitud de información - ${courseName} (${employmentType})`;
-      const emailHtml = `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: ${config.colors.primary};">Nueva Solicitud de Información</h2>
-          
-          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3>Información del Curso</h3>
-            <p><strong>Curso:</strong> ${courseName}</p>
-            <p><strong>Tipo:</strong> ${employmentType === 'ocupados' ? 'Cursos para Trabajadores' : 'Cursos para Desempleados'}</p>
-            <p><strong>ID:</strong> ${courseId}</p>
-          </div>
+      // Preparar datos para el webhook de n8n
+      const webhookData = {
+        nombre: `${formData.nombre} ${formData.apellidos}`,
+        email: formData.email,
+        telefono: formData.telefono,
+        curso: courseName,
+        sede: formData.provincia,
+        empresa: formData.empresa_actual || 'No especificada',
+        experiencia: formData.sector_interes || 'No especificada',
+        comentarios: `Disponibilidad: ${formData.disponibilidad}. DNI: ${formData.dni || 'No proporcionado'}. Marketing: ${formData.consentimiento_marketing ? 'Sí' : 'No'}.`
+      };
 
-          <div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-            <h3>Datos del Interesado</h3>
-            <p><strong>Nombre:</strong> ${formData.nombre} ${formData.apellidos}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Teléfono:</strong> ${formData.telefono}</p>
-            <p><strong>DNI:</strong> ${formData.dni}</p>
-            <p><strong>Situación Laboral:</strong> ${formData.situacion_laboral}</p>
-            ${formData.empresa_actual ? `<p><strong>Empresa Actual:</strong> ${formData.empresa_actual}</p>` : ''}
-            ${formData.sector_interes ? `<p><strong>Sector de Interés:</strong> ${formData.sector_interes}</p>` : ''}
-            <p><strong>Disponibilidad:</strong> ${formData.disponibilidad}</p>
-            <p><strong>Provincia:</strong> ${formData.provincia}</p>
-          </div>
-
-          <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-            <h3>Consentimientos</h3>
-            <p><strong>Marketing:</strong> ${formData.consentimiento_marketing ? 'Sí' : 'No'}</p>
-            <p><strong>Datos:</strong> ${formData.consentimiento_datos ? 'Sí' : 'No'}</p>
-          </div>
-
-          <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px;">
-            <h3>Acción Recomendada</h3>
-            <p>Contactar con ${formData.nombre} a través de:</p>
-            <ul>
-              <li>Email: ${formData.email}</li>
-              <li>Teléfono: ${formData.telefono}</li>
-            </ul>
-            <p><strong>Prioridad:</strong> ${employmentType === 'ocupados' ? 'Media (trabajador activo)' : 'Alta (desempleado)'}</p>
-          </div>
-        </div>
-      `;
-
-      // Enviar email
-      const response = await fetch('/api/resend-email.php', {
+      // Enviar al webhook de n8n para ocupados
+      const response = await fetch('https://n8n.cepcomunicacion.com/webhook/course-inscription-ocupados', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          to: config.contact.email,
-          subject: emailSubject,
-          html: emailHtml
-        })
+        body: JSON.stringify(webhookData)
       });
 
       const result = await response.json();
@@ -184,7 +148,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
           <div className="flex justify-between items-center mb-6">
             <div>
               <h2 className="text-2xl font-bold text-gray-800">
-                Solicitar Información
+                Inscripción al Curso
               </h2>
               <p className="text-gray-600">{courseName}</p>
               <p className="text-sm text-gray-500">
@@ -292,7 +256,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  DNI/NIE *
+                  DNI/NIE (opcional)
                 </label>
                 <input
                   type="text"
@@ -302,7 +266,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                   className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                     errors.dni ? 'border-red-500' : 'border-gray-300'
                   }`}
-                  required
+                  placeholder="Opcional - Solo si deseas proporcionarlo"
                 />
                 {errors.dni && <p className="text-red-500 text-sm mt-1">{errors.dni}</p>}
               </div>
@@ -311,7 +275,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
               {employmentType === 'ocupados' && (
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Empresa Actual *
+                    Empresa Actual (opcional)
                   </label>
                   <input
                     type="text"
@@ -321,7 +285,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                       errors.empresa_actual ? 'border-red-500' : 'border-gray-300'
                     }`}
-                    required
+                    placeholder="Opcional - Nombre de tu empresa actual"
                   />
                   {errors.empresa_actual && <p className="text-red-500 text-sm mt-1">{errors.empresa_actual}</p>}
                 </div>
@@ -437,13 +401,13 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`flex-1 px-4 py-2 text-white rounded-lg font-semibold transition-colors ${
+                  className={`px-6 py-3 text-white rounded-lg font-semibold transition-colors mr-auto ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
-                      : `bg-${config.colors.primary} hover:bg-${config.colors.dark}`
+                      : 'bg-green-600 hover:bg-green-700'
                   }`}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Solicitar Información'}
+                  {isSubmitting ? 'Procesando...' : '¡Inscribirme Ahora!'}
                 </button>
               </div>
             </form>

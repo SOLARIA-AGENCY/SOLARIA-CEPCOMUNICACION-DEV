@@ -89,7 +89,7 @@ const CursoOcupadosPageComponent: React.FC<CursoOcupadosPageComponentProps> = ({
                   onClick={() => setIsModalOpen(true)}
                   className="bg-white hover:bg-gray-50 text-gray-900 font-bold py-4 px-8 rounded-lg text-lg transform hover:scale-105 transition-all duration-300 shadow-lg"
                 >
-                  ¡SOLICITAR INFORMACIÓN AHORA!
+                  ¡INSCRIBIRME AHORA!
                 </button>
               </div>
             </div>
@@ -267,7 +267,7 @@ const CursoOcupadosPageComponent: React.FC<CursoOcupadosPageComponentProps> = ({
                 onClick={() => setIsModalOpen(true)}
                 className="bg-white text-green-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors transform hover:scale-105"
               >
-                SOLICITAR INFORMACIÓN GRATUITA
+                RESERVAR MI PLAZA AHORA
               </button>
               <div className="mt-4 text-sm opacity-75">
                 <p>📞 {curso.datos_especificos.contacto.telefono} | 📧 {curso.datos_especificos.contacto.email}</p>
