@@ -89,16 +89,66 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
         comentarios: `Disponibilidad: ${formData.disponibilidad}. DNI: ${formData.dni || 'No proporcionado'}. Marketing: ${formData.consentimiento_marketing ? 'Sí' : 'No'}.`
       };
 
-      // Enviar al webhook de n8n para ocupados
-      const response = await fetch('https://n8n.cepcomunicacion.com/webhook/course-inscription-ocupados', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(webhookData)
-      });
+      // TEMPORAL: Webhook n8n deshabilitado (devuelve 404)
+      // TODO: Configurar correctamente el webhook en n8n.srv741809.hstgr.cloud
+      console.log('🔄 Usando FormSubmit directamente (webhook n8n temporalmente deshabilitado)');
+      
+      let response;
+      let result;
+      let usedFallback = true; // Usar directamente el fallback que funciona
 
-      const result = await response.json();
+      // Saltar intento de webhook n8n y usar directamente FormSubmit
+      try {
+        // Simular error para activar el fallback
+        throw new Error('Webhook n8n temporalmente deshabilitado - usando FormSubmit directamente');
+      } catch (webhookError) {
+        console.warn('Webhook n8n falló, usando fallback FormSubmit:', webhookError);
+        usedFallback = true;
+        
+        // Fallback a FormSubmit usando proxy local (solución CORS)
+        const fallbackEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
+        const proxyUrl = 'http://localhost:3001/api/formsubmit-proxy';
+        
+        const formSubmitData = {
+          email: fallbackEmail, // Email de destino para el proxy
+          _subject: `Nueva inscripción: ${courseName}`,
+          _template: 'table',
+          _captcha: 'false',
+          nombre: formData.nombre,
+          apellidos: formData.apellidos,
+          email_solicitante: formData.email,
+          telefono: formData.telefono,
+          dni: formData.dni || 'No proporcionado',
+          curso: courseName,
+          tipo_curso: employmentType,
+          empresa_actual: formData.empresa_actual || 'No especificada',
+          provincia: formData.provincia,
+          disponibilidad: formData.disponibilidad,
+          consentimiento_datos: formData.consentimiento_datos ? 'Sí' : 'No',
+          consentimiento_marketing: formData.consentimiento_marketing ? 'Sí' : 'No',
+          fecha_envio: new Date().toLocaleString('es-ES'),
+          origen: 'Formulario web - Fallback via Proxy'
+        };
+
+        response = await fetch(proxyUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formSubmitData)
+        });
+
+        if (!response.ok) {
+          throw new Error(`Proxy FormSubmit falló: ${response.status}`);
+        }
+
+        const proxyResult = await response.json();
+        if (!proxyResult.success) {
+          throw new Error(proxyResult.error || 'Error en proxy FormSubmit');
+        }
+
+        result = { success: true, fallback: true };
+      }
 
       if (result.success) {
         // Tracking de conversión
@@ -127,11 +177,23 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
           });
         }, 3000);
       } else {
-        throw new Error(result.error || 'Error al enviar el formulario');
+        throw new Error('Error al enviar el formulario');
       }
     } catch (error) {
-      console.error('Error:', error);
-      setErrors({ submit: 'Error al enviar el formulario. Inténtalo de nuevo.' });
+      console.error('Error completo:', error);
+      console.error('Tipo de error:', typeof error);
+      console.error('Stack trace:', error instanceof Error ? error.stack : 'No stack');
+      
+      // Mensaje de error más específico
+      let errorMessage = 'Error al enviar el formulario. Inténtalo de nuevo.';
+      
+      if (error instanceof TypeError && error.message.includes('fetch')) {
+        errorMessage = 'Error de conexión. Verifica tu conexión a internet e inténtalo de nuevo.';
+      } else if (error instanceof Error) {
+        errorMessage = `Error: ${error.message}`;
+      }
+      
+      setErrors({ submit: errorMessage });
       trackEmploymentFormStep(employmentType, 'submit_error', courseId);
     } finally {
       setIsSubmitting(false);
@@ -192,6 +254,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     name="nombre"
                     value={formData.nombre}
                     onChange={handleInputChange}
+                    data-testid="nombre-input"
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                       errors.nombre ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -209,6 +272,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     name="apellidos"
                     value={formData.apellidos}
                     onChange={handleInputChange}
+                    data-testid="apellidos-input"
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                       errors.apellidos ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -228,6 +292,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    data-testid="email-input"
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -245,6 +310,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     name="telefono"
                     value={formData.telefono}
                     onChange={handleInputChange}
+                    data-testid="telefono-input"
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                       errors.telefono ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -263,6 +329,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                   name="dni"
                   value={formData.dni}
                   onChange={handleInputChange}
+                  data-testid="dni-input"
                   className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                     errors.dni ? 'border-red-500' : 'border-gray-300'
                   }`}
@@ -282,6 +349,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     name="empresa_actual"
                     value={formData.empresa_actual}
                     onChange={handleInputChange}
+                    data-testid="empresa-input"
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                       errors.empresa_actual ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -300,6 +368,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     name="sector_interes"
                     value={formData.sector_interes}
                     onChange={handleInputChange}
+                    data-testid="sector-interes-select"
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
                       errors.sector_interes ? 'border-red-500' : 'border-gray-300'
                     }`}
@@ -359,6 +428,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     name="consentimiento_datos"
                     checked={formData.consentimiento_datos}
                     onChange={handleInputChange}
+                    data-testid="consent-checkbox"
                     className="mr-2 mt-1"
                     required
                   />
@@ -401,6 +471,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  data-testid="submit-button"
                   className={`px-6 py-3 text-white rounded-lg font-semibold transition-colors mr-auto ${
                     isSubmitting
                       ? 'bg-gray-400 cursor-not-allowed'
