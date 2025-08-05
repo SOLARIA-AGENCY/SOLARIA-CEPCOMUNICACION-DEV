@@ -266,9 +266,7 @@ const HomePage: React.FC = () => {
               <h2 className="text-3xl font-bold text-cep-primary mb-4">FORMACIÓN GRATUITA</h2>
               <p className="text-gray-600 mb-6">Cursos subvencionados para trabajadores y desempleados.</p>
               <a 
-                href="https://cursostenerife.es/cursos/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/cursos-desempleados" 
                 className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
               >
                 VER CURSOS GRATUITOS
@@ -341,9 +339,7 @@ const HomePage: React.FC = () => {
               <h3 className="text-xl font-bold mb-2">⏰ ¡No te quedes sin plaza!</h3>
               <p className="mb-4">Los cursos empiezan pronto. Reserva ahora y asegura tu futuro profesional.</p>
               <a 
-                href="https://cursostenerife.es/contacto/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/contacto" 
                 className="inline-block bg-white text-cep-primary px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors font-bold"
               >
                 CONTACTAR AHORA
@@ -364,17 +360,13 @@ const HomePage: React.FC = () => {
             />
             <div className="flex justify-center space-x-8">
               <a 
-                href="https://cursostenerife.es/cursos/#desempleadas" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/cursos-desempleados" 
                 className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
               >
                 TRABAJADORES/AS DESEMPLEADOS/AS
               </a>
               <a 
-                href="https://cursostenerife.es/cursos/#ocupadas" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="/cursos-ocupados" 
                 className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
               >
                 TRABAJADORES/AS OCUPADOS/AS
@@ -408,9 +400,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="text-center mt-12">
             <a 
-              href="https://cursostenerife.es/cursos/" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="/cursos" 
               className="inline-block bg-cep-primary text-white px-8 py-3 rounded-lg hover:bg-cep-primary-dark transition-colors"
             >
               VER TODOS LOS CURSOS
@@ -455,4 +445,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage; 
+export default HomePage;
