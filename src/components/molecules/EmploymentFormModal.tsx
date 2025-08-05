@@ -37,6 +37,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   // const config = employmentType === 'ocupados' ? ocupadosDefaultConfig : desempleadosDefaultConfig;
 
@@ -45,6 +46,23 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
       trackEmploymentFormStep(employmentType, 'opened', courseId);
     }
   }, [isOpen, employmentType, courseId]);
+
+  // Limpiar timeout cuando el componente se desmonte o el modal se cierre
+  useEffect(() => {
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [timeoutId]);
+
+  // Limpiar timeout cuando el modal se cierre
+  useEffect(() => {
+    if (!isOpen && timeoutId) {
+      clearTimeout(timeoutId);
+      setTimeoutId(null);
+    }
+  }, [isOpen, timeoutId]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -156,7 +174,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
         setSubmitSuccess(true);
         
         // Limpiar formulario después de 3 segundos
-        setTimeout(() => {
+        const id = setTimeout(() => {
           setSubmitSuccess(false);
           onClose();
           setFormData({
@@ -172,7 +190,9 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
             consentimiento_marketing: false,
             consentimiento_datos: false
           });
+          setTimeoutId(null);
         }, 3000);
+        setTimeoutId(id);
       } else {
         throw new Error('Error al enviar el formulario');
       }
