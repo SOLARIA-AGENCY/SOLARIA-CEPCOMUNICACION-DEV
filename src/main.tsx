@@ -9,7 +9,7 @@ import './index.css';
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
@@ -17,5 +17,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </AuthProvider>
       </QueryClientProvider>
     </HelmetProvider>
-  </React.StrictMode>
-); 
+  // </React.StrictMode>
+);

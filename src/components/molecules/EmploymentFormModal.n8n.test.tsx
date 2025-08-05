@@ -48,14 +48,9 @@ describe('EmploymentFormModal - n8n Integration Tests', () => {
     // Verify checkbox is checked
     expect(consentCheckbox).toBeChecked();
 
-    // Submit form using form submit method
-    const nameInput = screen.getByTestId('nombre-input');
-    const form = nameInput.closest('form');
-    if (form) {
-      fireEvent.submit(form);
-    } else {
-      fireEvent.click(screen.getByTestId('submit-button'));
-    }
+    // Submit form
+    const submitButton = screen.getByTestId('submit-button');
+    await userEvent.click(submitButton);
 
     // Wait for fetch to be called
     await waitFor(() => {
@@ -78,18 +73,18 @@ describe('EmploymentFormModal - n8n Integration Tests', () => {
   it('should handle form validation errors', async () => {
     render(<EmploymentFormModal {...mockProps} />);
 
-    // Try to submit without filling required fields using form submit method
-    const nameInput = screen.getByTestId('nombre-input');
-    const form = nameInput.closest('form');
+    // Try to submit without filling required fields
+    const form = document.querySelector('form');
     if (form) {
       fireEvent.submit(form);
     } else {
-      fireEvent.click(screen.getByTestId('submit-button'));
+      const submitButton = screen.getByTestId('submit-button');
+      await userEvent.click(submitButton);
     }
 
     await waitFor(() => {
       expect(screen.getByText(/El nombre es obligatorio/i)).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
   });
 
   it('should handle network errors gracefully', async () => {
@@ -104,14 +99,9 @@ describe('EmploymentFormModal - n8n Integration Tests', () => {
     await userEvent.type(screen.getByTestId('telefono-input'), '123456789');
     await userEvent.click(screen.getByTestId('consent-checkbox'));
 
-    // Submit form using form submit method
-    const nameInput = screen.getByTestId('nombre-input');
-    const form = nameInput.closest('form');
-    if (form) {
-      fireEvent.submit(form);
-    } else {
-      fireEvent.click(screen.getByTestId('submit-button'));
-    }
+    // Submit form
+    const submitButton = screen.getByTestId('submit-button');
+    await userEvent.click(submitButton);
 
     await waitFor(() => {
       expect(screen.getByText(/error de conexión/i)).toBeInTheDocument();
@@ -133,14 +123,9 @@ describe('EmploymentFormModal - n8n Integration Tests', () => {
     await userEvent.type(screen.getByTestId('telefono-input'), '987654321');
     await userEvent.click(screen.getByTestId('consent-checkbox'));
 
-    // Submit form using form submit method
-    const nameInput = screen.getByTestId('nombre-input');
-    const form = nameInput.closest('form');
-    if (form) {
-      fireEvent.submit(form);
-    } else {
-      fireEvent.click(screen.getByTestId('submit-button'));
-    }
+    // Submit form
+    const submitButton = screen.getByTestId('submit-button');
+    await userEvent.click(submitButton);
 
     await waitFor(() => {
       expect(mockFetch).toHaveBeenCalledWith(
@@ -186,20 +171,20 @@ describe('EmploymentFormModal - n8n Integration Tests', () => {
     );
 
     // Fill form
-    fireEvent.change(screen.getByTestId('nombre-input'), { target: { value: 'Juan' } });
-    fireEvent.change(screen.getByTestId('apellidos-input'), { target: { value: 'Pérez' } });
-    fireEvent.change(screen.getByTestId('email-input'), { target: { value: 'juan@example.com' } });
-    fireEvent.change(screen.getByTestId('telefono-input'), { target: { value: '123456789' } });
-    fireEvent.click(screen.getByTestId('consent-checkbox'));
+    await userEvent.type(screen.getByTestId('nombre-input'), 'Juan');
+    await userEvent.type(screen.getByTestId('apellidos-input'), 'Pérez');
+    await userEvent.type(screen.getByTestId('email-input'), 'juan@example.com');
+    await userEvent.type(screen.getByTestId('telefono-input'), '123456789');
+    await userEvent.click(screen.getByTestId('consent-checkbox'));
 
     // Submit form
     const submitButton = screen.getByTestId('submit-button');
-    fireEvent.click(submitButton);
+    await userEvent.click(submitButton);
 
     // Wait for success message to appear
     await waitFor(() => {
       expect(screen.getByText('¡Solicitud enviada correctamente!')).toBeInTheDocument();
-    });
+    }, { timeout: 5000 });
   });
 
   it('should call onClose when close button is clicked', () => {

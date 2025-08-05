@@ -29,8 +29,13 @@ export const getFechaActual = async (): Promise<Date> => {
     return new Date('2025-07-01T13:43:00.000Z'); // 1 julio 2025 para tests consistentes
   }
 
+  // En desarrollo, usar siempre la fecha local para evitar fallos de red
+  if (process.env.NODE_ENV !== 'production') {
+    return new Date();
+  }
+
   try {
-    // Usar API pública de tiempo para mayor precisión en producción
+    // En producción, intentar usar API de tiempo para mayor precisión
     const response = await fetch('https://worldtimeapi.org/api/timezone/Atlantic/Canary');
     if (response.ok) {
       const data = await response.json();

@@ -106,7 +106,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
         
         // Fallback a FormSubmit usando proxy local (solución CORS)
         const fallbackEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
-        const proxyUrl = 'http://148.230.118.124/api/formsubmit-proxy';
+        const proxyUrl = import.meta.env.VITE_FORMSUBMIT_PROXY_URL || 'http://localhost:3001/api/formsubmit-proxy';
         
         const formSubmitData = {
           email: fallbackEmail, // Email de destino para el proxy
