@@ -1,0 +1,385 @@
+{
+  "version": "1.0.0",
+  "name": "solaria-cepcomunicacion",
+  "problems": [
+    "missing: @emailjs/browser@^4.4.1, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @eslint/js@^9.25.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @netlify/functions@^4.1.2, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @playwright/test@^1.53.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @tailwindcss/postcss@^4.1.10, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @tailwindcss/typography@^0.5.16, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @tanstack/react-query@^5.17.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @testing-library/dom@^10.4.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @testing-library/jest-dom@^6.1.3, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @testing-library/react@^16.3.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @testing-library/user-event@^14.6.1, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @types/crypto-js@^4.2.2, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @types/leaflet@^1.9.19, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @types/node@^24.0.1, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @types/nodemailer@^6.4.17, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @types/react-dom@^19.1.6, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @types/react-router-dom@^5.3.3, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @types/react@^19.1.8, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @vercel/node@^2.3.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @vitejs/plugin-react@^4.0.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: @vitest/coverage-v8@^3.2.3, required by solaria-cepcomunicacion@1.0.0",
+    "missing: autoprefixer@^10.4.21, required by solaria-cepcomunicacion@1.0.0",
+    "missing: concurrently@^9.2.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: cors@^2.8.5, required by solaria-cepcomunicacion@1.0.0",
+    "missing: crypto-js@^4.2.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: cypress@^14.4.1, required by solaria-cepcomunicacion@1.0.0",
+    "missing: dotenv@^17.0.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: eslint-plugin-react-hooks@^5.2.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: eslint-plugin-react-refresh@^0.4.19, required by solaria-cepcomunicacion@1.0.0",
+    "missing: eslint@^9.25.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: express@^5.1.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: globals@^16.0.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: husky@^9.1.7, required by solaria-cepcomunicacion@1.0.0",
+    "missing: jsdom@^26.1.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: leaflet@^1.9.4, required by solaria-cepcomunicacion@1.0.0",
+    "missing: lucide-react@^0.522.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: nodemailer@^7.0.5, required by solaria-cepcomunicacion@1.0.0",
+    "missing: playwright@^1.53.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: postcss@^8.4.34, required by solaria-cepcomunicacion@1.0.0",
+    "missing: puppeteer@^24.10.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: react-dom@^19.1.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: react-helmet-async@^2.0.5, required by solaria-cepcomunicacion@1.0.0",
+    "missing: react-leaflet@^5.0.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: react-router-dom@^7.6.2, required by solaria-cepcomunicacion@1.0.0",
+    "missing: react@^19.1.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: resend@^4.6.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: supermemory@^3.0.0-alpha.19, required by solaria-cepcomunicacion@1.0.0",
+    "missing: tailwindcss@^4.1.10, required by solaria-cepcomunicacion@1.0.0",
+    "missing: tsx@^4.20.1, required by solaria-cepcomunicacion@1.0.0",
+    "missing: typescript-eslint@^8.20.0, required by solaria-cepcomunicacion@1.0.0",
+    "missing: typescript@^5.3.3, required by solaria-cepcomunicacion@1.0.0",
+    "missing: vite@^6.3.5, required by solaria-cepcomunicacion@1.0.0",
+    "missing: vitest@^3.2.3, required by solaria-cepcomunicacion@1.0.0"
+  ],
+  "dependencies": {
+    "@emailjs/browser": {
+      "required": "^4.4.1",
+      "missing": true,
+      "problems": [
+        "missing: @emailjs/browser@^4.4.1, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@eslint/js": {
+      "missing": true,
+      "problems": [
+        "missing: @eslint/js@^9.25.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@netlify/functions": {
+      "missing": true,
+      "problems": [
+        "missing: @netlify/functions@^4.1.2, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@playwright/test": {
+      "missing": true,
+      "problems": [
+        "missing: @playwright/test@^1.53.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@tailwindcss/postcss": {
+      "missing": true,
+      "problems": [
+        "missing: @tailwindcss/postcss@^4.1.10, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@tailwindcss/typography": {
+      "missing": true,
+      "problems": [
+        "missing: @tailwindcss/typography@^0.5.16, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@tanstack/react-query": {
+      "missing": true,
+      "problems": [
+        "missing: @tanstack/react-query@^5.17.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@testing-library/dom": {
+      "missing": true,
+      "problems": [
+        "missing: @testing-library/dom@^10.4.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@testing-library/jest-dom": {
+      "missing": true,
+      "problems": [
+        "missing: @testing-library/jest-dom@^6.1.3, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@testing-library/react": {
+      "missing": true,
+      "problems": [
+        "missing: @testing-library/react@^16.3.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@testing-library/user-event": {
+      "missing": true,
+      "problems": [
+        "missing: @testing-library/user-event@^14.6.1, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@types/crypto-js": {
+      "missing": true,
+      "problems": [
+        "missing: @types/crypto-js@^4.2.2, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@types/leaflet": {
+      "missing": true,
+      "problems": [
+        "missing: @types/leaflet@^1.9.19, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@types/node": {
+      "missing": true,
+      "problems": [
+        "missing: @types/node@^24.0.1, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@types/nodemailer": {
+      "missing": true,
+      "problems": [
+        "missing: @types/nodemailer@^6.4.17, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@types/react-dom": {
+      "missing": true,
+      "problems": [
+        "missing: @types/react-dom@^19.1.6, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@types/react-router-dom": {
+      "missing": true,
+      "problems": [
+        "missing: @types/react-router-dom@^5.3.3, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@types/react": {
+      "missing": true,
+      "problems": [
+        "missing: @types/react@^19.1.8, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@vercel/node": {
+      "missing": true,
+      "problems": [
+        "missing: @vercel/node@^2.3.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@vitejs/plugin-react": {
+      "missing": true,
+      "problems": [
+        "missing: @vitejs/plugin-react@^4.0.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "@vitest/coverage-v8": {
+      "missing": true,
+      "problems": [
+        "missing: @vitest/coverage-v8@^3.2.3, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "autoprefixer": {
+      "missing": true,
+      "problems": [
+        "missing: autoprefixer@^10.4.21, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "concurrently": {
+      "missing": true,
+      "problems": [
+        "missing: concurrently@^9.2.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "cors": {
+      "missing": true,
+      "problems": [
+        "missing: cors@^2.8.5, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "crypto-js": {
+      "missing": true,
+      "problems": [
+        "missing: crypto-js@^4.2.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "cypress": {
+      "missing": true,
+      "problems": [
+        "missing: cypress@^14.4.1, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "dotenv": {
+      "missing": true,
+      "problems": [
+        "missing: dotenv@^17.0.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "eslint-plugin-react-hooks": {
+      "missing": true,
+      "problems": [
+        "missing: eslint-plugin-react-hooks@^5.2.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "eslint-plugin-react-refresh": {
+      "missing": true,
+      "problems": [
+        "missing: eslint-plugin-react-refresh@^0.4.19, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "eslint": {
+      "missing": true,
+      "problems": [
+        "missing: eslint@^9.25.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "express": {
+      "missing": true,
+      "problems": [
+        "missing: express@^5.1.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "globals": {
+      "missing": true,
+      "problems": [
+        "missing: globals@^16.0.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "husky": {
+      "missing": true,
+      "problems": [
+        "missing: husky@^9.1.7, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "jsdom": {
+      "missing": true,
+      "problems": [
+        "missing: jsdom@^26.1.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "leaflet": {
+      "missing": true,
+      "problems": [
+        "missing: leaflet@^1.9.4, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "lucide-react": {
+      "missing": true,
+      "problems": [
+        "missing: lucide-react@^0.522.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "nodemailer": {
+      "missing": true,
+      "problems": [
+        "missing: nodemailer@^7.0.5, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "playwright": {
+      "missing": true,
+      "problems": [
+        "missing: playwright@^1.53.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "postcss": {
+      "missing": true,
+      "problems": [
+        "missing: postcss@^8.4.34, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "puppeteer": {
+      "missing": true,
+      "problems": [
+        "missing: puppeteer@^24.10.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "react-dom": {
+      "missing": true,
+      "problems": [
+        "missing: react-dom@^19.1.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "react-helmet-async": {
+      "missing": true,
+      "problems": [
+        "missing: react-helmet-async@^2.0.5, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "react-leaflet": {
+      "missing": true,
+      "problems": [
+        "missing: react-leaflet@^5.0.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "react-router-dom": {
+      "missing": true,
+      "problems": [
+        "missing: react-router-dom@^7.6.2, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "react": {
+      "missing": true,
+      "problems": [
+        "missing: react@^19.1.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "resend": {
+      "missing": true,
+      "problems": [
+        "missing: resend@^4.6.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "supermemory": {
+      "missing": true,
+      "problems": [
+        "missing: supermemory@^3.0.0-alpha.19, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "tailwindcss": {
+      "missing": true,
+      "problems": [
+        "missing: tailwindcss@^4.1.10, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "tsx": {
+      "missing": true,
+      "problems": [
+        "missing: tsx@^4.20.1, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "typescript-eslint": {
+      "missing": true,
+      "problems": [
+        "missing: typescript-eslint@^8.20.0, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "typescript": {
+      "missing": true,
+      "problems": [
+        "missing: typescript@^5.3.3, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "vite": {
+      "missing": true,
+      "problems": [
+        "missing: vite@^6.3.5, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    },
+    "vitest": {
+      "missing": true,
+      "problems": [
+        "missing: vitest@^3.2.3, required by solaria-cepcomunicacion@1.0.0"
+      ]
+    }
+  },
+  "error": {
+    "code": "ELSPROBLEMS",
+    "summary": "missing: @emailjs/browser@^4.4.1, required by solaria-cepcomunicacion@1.0.0\nmissing: @eslint/js@^9.25.0, required by solaria-cepcomunicacion@1.0.0\nmissing: @netlify/functions@^4.1.2, required by solaria-cepcomunicacion@1.0.0\nmissing: @playwright/test@^1.53.0, required by solaria-cepcomunicacion@1.0.0\nmissing: @tailwindcss/postcss@^4.1.10, required by solaria-cepcomunicacion@1.0.0\nmissing: @tailwindcss/typography@^0.5.16, required by solaria-cepcomunicacion@1.0.0\nmissing: @tanstack/react-query@^5.17.0, required by solaria-cepcomunicacion@1.0.0\nmissing: @testing-library/dom@^10.4.0, required by solaria-cepcomunicacion@1.0.0\nmissing: @testing-library/jest-dom@^6.1.3, required by solaria-cepcomunicacion@1.0.0\nmissing: @testing-library/react@^16.3.0, required by solaria-cepcomunicacion@1.0.0\nmissing: @testing-library/user-event@^14.6.1, required by solaria-cepcomunicacion@1.0.0\nmissing: @types/crypto-js@^4.2.2, required by solaria-cepcomunicacion@1.0.0\nmissing: @types/leaflet@^1.9.19, required by solaria-cepcomunicacion@1.0.0\nmissing: @types/node@^24.0.1, required by solaria-cepcomunicacion@1.0.0\nmissing: @types/nodemailer@^6.4.17, required by solaria-cepcomunicacion@1.0.0\nmissing: @types/react-dom@^19.1.6, required by solaria-cepcomunicacion@1.0.0\nmissing: @types/react-router-dom@^5.3.3, required by solaria-cepcomunicacion@1.0.0\nmissing: @types/react@^19.1.8, required by solaria-cepcomunicacion@1.0.0\nmissing: @vercel/node@^2.3.0, required by solaria-cepcomunicacion@1.0.0\nmissing: @vitejs/plugin-react@^4.0.0, required by solaria-cepcomunicacion@1.0.0\nmissing: @vitest/coverage-v8@^3.2.3, required by solaria-cepcomunicacion@1.0.0\nmissing: autoprefixer@^10.4.21, required by solaria-cepcomunicacion@1.0.0\nmissing: concurrently@^9.2.0, required by solaria-cepcomunicacion@1.0.0\nmissing: cors@^2.8.5, required by solaria-cepcomunicacion@1.0.0\nmissing: crypto-js@^4.2.0, required by solaria-cepcomunicacion@1.0.0\nmissing: cypress@^14.4.1, required by solaria-cepcomunicacion@1.0.0\nmissing: dotenv@^17.0.0, required by solaria-cepcomunicacion@1.0.0\nmissing: eslint-plugin-react-hooks@^5.2.0, required by solaria-cepcomunicacion@1.0.0\nmissing: eslint-plugin-react-refresh@^0.4.19, required by solaria-cepcomunicacion@1.0.0\nmissing: eslint@^9.25.0, required by solaria-cepcomunicacion@1.0.0\nmissing: express@^5.1.0, required by solaria-cepcomunicacion@1.0.0\nmissing: globals@^16.0.0, required by solaria-cepcomunicacion@1.0.0\nmissing: husky@^9.1.7, required by solaria-cepcomunicacion@1.0.0\nmissing: jsdom@^26.1.0, required by solaria-cepcomunicacion@1.0.0\nmissing: leaflet@^1.9.4, required by solaria-cepcomunicacion@1.0.0\nmissing: lucide-react@^0.522.0, required by solaria-cepcomunicacion@1.0.0\nmissing: nodemailer@^7.0.5, required by solaria-cepcomunicacion@1.0.0\nmissing: playwright@^1.53.0, required by solaria-cepcomunicacion@1.0.0\nmissing: postcss@^8.4.34, required by solaria-cepcomunicacion@1.0.0\nmissing: puppeteer@^24.10.0, required by solaria-cepcomunicacion@1.0.0\nmissing: react-dom@^19.1.0, required by solaria-cepcomunicacion@1.0.0\nmissing: react-helmet-async@^2.0.5, required by solaria-cepcomunicacion@1.0.0\nmissing: react-leaflet@^5.0.0, required by solaria-cepcomunicacion@1.0.0\nmissing: react-router-dom@^7.6.2, required by solaria-cepcomunicacion@1.0.0\nmissing: react@^19.1.0, required by solaria-cepcomunicacion@1.0.0\nmissing: resend@^4.6.0, required by solaria-cepcomunicacion@1.0.0\nmissing: supermemory@^3.0.0-alpha.19, required by solaria-cepcomunicacion@1.0.0\nmissing: tailwindcss@^4.1.10, required by solaria-cepcomunicacion@1.0.0\nmissing: tsx@^4.20.1, required by solaria-cepcomunicacion@1.0.0\nmissing: typescript-eslint@^8.20.0, required by solaria-cepcomunicacion@1.0.0\nmissing: typescript@^5.3.3, required by solaria-cepcomunicacion@1.0.0\nmissing: vite@^6.3.5, required by solaria-cepcomunicacion@1.0.0\nmissing: vitest@^3.2.3, required by solaria-cepcomunicacion@1.0.0",
+    "detail": ""
+  }
+}

@@ -14,6 +14,11 @@ const CicloCard: React.FC<CicloCardProps> = ({ ciclo }) => {
     ? 'bg-blue-100 text-blue-800'
     : 'bg-green-100 text-green-800';
 
+  // Fondo de color para la sección de texto
+  const textBgClass = ciclo.subtitulo?.toLowerCase().includes('superior')
+    ? 'bg-sky-100/80' // Azul celeste para grado superior
+    : 'bg-green-100/80'; // Verde para grado medio
+
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full border-4 border-cep-primary transform hover:scale-[1.02] hover:shadow-2xl">
       <div className="relative">
@@ -32,7 +37,7 @@ const CicloCard: React.FC<CicloCardProps> = ({ ciclo }) => {
           <span>3 AÑOS</span>
         </div>
       </div>
-      <div className="p-6 flex flex-col flex-grow bg-gray-100/50">
+      <div className={`p-6 flex flex-col flex-grow ${textBgClass}`}>
         <h3 className="text-xl font-bold text-cep-primary mb-2 uppercase">{ciclo.nombre}</h3>
         <p className="text-gray-600 mb-4 text-sm flex-grow uppercase">{ciclo.copy.slogan}</p>
         <div className="flex flex-wrap gap-2 mb-4">
