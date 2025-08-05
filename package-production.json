@@ -1,0 +1,58 @@
+{
+  "name": "cepapi-backend",
+  "version": "1.0.0",
+  "description": "Backend NodeMailer para CEP Comunicación - Formularios de Empleo",
+  "main": "server-production.js",
+  "scripts": {
+    "start": "node server-production.js",
+    "dev": "nodemon server-production.js",
+    "pm2:start": "pm2 start ecosystem.config.js --env production",
+    "pm2:stop": "pm2 stop cep-api",
+    "pm2:restart": "pm2 restart cep-api",
+    "pm2:reload": "pm2 reload cep-api",
+    "pm2:delete": "pm2 delete cep-api",
+    "pm2:logs": "pm2 logs cep-api",
+    "pm2:status": "pm2 status",
+    "pm2:save": "pm2 save",
+    "pm2:resurrect": "pm2 resurrect",
+    "logs": "tail -f /var/log/pm2/cep-api-combined.log",
+    "health": "curl -f http://localhost:3001/health || exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "nodemailer",
+    "gmail",
+    "smtp",
+    "cep",
+    "formacion",
+    "employment",
+    "forms"
+  ],
+  "author": "SOLARIA.AGENCY",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "nodemailer": "^6.9.8",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SOLARIA-AGENCY/SOLARIA-CEPCOMUNICACION.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SOLARIA-AGENCY/SOLARIA-CEPCOMUNICACION/issues"
+  },
+  "homepage": "https://www.cepcomunicacion.com"
+}
