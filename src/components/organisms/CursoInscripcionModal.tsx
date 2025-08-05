@@ -19,7 +19,6 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
     email: '',
     telefono: '',
     sede: curso.sede || '',
-    empresa: '',
     experiencia: '',
     comentarios: ''
   });
@@ -42,28 +41,70 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
       telefono: formData.telefono.trim(),
       curso: curso.nombre,
       sede: formData.sede,
-      empresa: formData.empresa.trim(),
       experiencia: formData.experiencia,
       comentarios: formData.comentarios.trim()
     };
 
     try {
-      // Enviar al webhook de n8n para inscripciones
-      const response = await fetch(`${process.env.REACT_APP_N8N_WEBHOOK_URL || 'https://n8n.solaria.agency'}/webhook/course-inscription`, {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(submissionData),
-      });
+      // TEMPORAL: Webhook n8n deshabilitado, usando FormSubmit directamente
+      console.log('🔄 Usando FormSubmit directamente para reserva de plaza');
       
-      const result = await response.json();
+      let response;
+      let result;
+      
+      try {
+        // Simular error para activar el fallback
+        throw new Error('Webhook n8n temporalmente deshabilitado - usando FormSubmit directamente');
+      } catch (webhookError) {
+        console.warn('Webhook n8n falló, usando fallback FormSubmit:', webhookError);
+        
+        // Fallback a FormSubmit usando proxy local (solución CORS)
+        const fallbackEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
+        const proxyUrl = import.meta.env.VITE_FORMSUBMIT_PROXY_URL || 'http://localhost:3001/api/formsubmit-proxy';
+        
+        const formSubmitData = {
+          email: fallbackEmail, // Email de destino para el proxy
+          _subject: `Nueva reserva de plaza: ${curso.nombre}`,
+          _template: 'table',
+          _captcha: 'false',
+          nombre: formData.nombre,
+          apellidos: formData.apellidos,
+          email_solicitante: formData.email,
+          telefono: formData.telefono,
+          curso: curso.nombre,
+          tipo_solicitud: 'Reserva de plaza de ciclo',
+          sede_preferencia: formData.sede,
+          empresa_actual: 'No aplicable - Ciclo Formativo',
+          experiencia_previa: formData.experiencia || 'No especificada',
+          comentarios: formData.comentarios || 'Sin comentarios',
+          fecha_envio: new Date().toLocaleString('es-ES'),
+          origen: 'Modal Reserva Plaza - Fallback via Proxy'
+        };
+
+        response = await fetch(proxyUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formSubmitData)
+        });
+
+        if (!response.ok) {
+          throw new Error(`Proxy FormSubmit falló: ${response.status}`);
+        }
+
+        const proxyResult = await response.json();
+        if (!proxyResult.success) {
+          throw new Error(proxyResult.error || 'Error en proxy FormSubmit');
+        }
+
+        result = { success: true, fallback: true };
+      }
       
       if (result.success) {
         setIsSent(true);
       } else {
-        throw new Error(result.message || 'Error al procesar la inscripción');
+        throw new Error('Error al procesar la reserva de plaza');
       }
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
@@ -101,8 +142,13 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
             {isSent ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
                 <CheckCircle className="w-20 h-20 text-green-500 mb-6" />
-                <h2 className="text-3xl font-bold text-gray-900 mb-3">¡Inscripción Recibida!</h2>
-                <p className="text-gray-600 mb-8 max-w-sm">Gracias por tu interés. Un asesor de CEP Formación se pondrá en contacto contigo muy pronto para guiarte en los siguientes pasos.</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-3">¡Plaza Reservada!</h2>
+                <p className="text-gray-600 mb-8 max-w-sm">Gracias por reservar tu plaza en {curso.nombre}. Un asesor de CEP Formación se pondrá en contacto contigo muy pronto para confirmar tu reserva y guiarte en los siguientes pasos.</p>
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6 max-w-sm">
+                  <p className="text-sm text-green-700">
+                    <strong>Próximos pasos:</strong> Recibirás un email de confirmación y nuestro equipo se pondrá en contacto contigo en las próximas 24 horas para finalizar tu reserva.
+                  </p>
+                </div>
                 <button 
                   onClick={() => navigate('/gracias-inscripcion', { state: { cursoNombre: curso.nombre } })}
                   className="w-full bg-cep-primary hover:bg-cep-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-colors"
@@ -144,10 +190,7 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
                      <option value="Online">Online</option>
                    </select>
                  </div>
-                 <div>
-                   <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><User size={14} className="mr-2"/>Empresa</label>
-                   <input type="text" name="empresa" value={formData.empresa} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" placeholder="Nombre de tu empresa (opcional)" disabled={isLoading} />
-                 </div>
+
                  <div>
                    <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><User size={14} className="mr-2"/>Experiencia Previa</label>
                    <select name="experiencia" value={formData.experiencia} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" disabled={isLoading}>

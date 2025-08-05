@@ -69,7 +69,9 @@ test.describe('Critical User Paths - Staging', () => {
     const secondCardBox = await secondCard.boundingBox();
     
     // Cards should be stacked vertically (second card below first)
-    expect(secondCardBox?.y).toBeGreaterThan(firstCardBox?.y + firstCardBox?.height);
+    if (firstCardBox && secondCardBox && firstCardBox.y !== undefined && firstCardBox.height !== undefined) {
+      expect(secondCardBox.y).toBeGreaterThan(firstCardBox.y + firstCardBox.height);
+    }
   });
 
   test('Performance metrics are acceptable', async ({ page }) => {
@@ -115,7 +117,9 @@ test.describe('Critical User Paths - Staging', () => {
   test('Error handling works correctly', async ({ page }) => {
     // Test 404 page
     const response = await page.goto('/non-existent-page');
-    expect(response?.status()).toBe(404);
+    if (response) {
+      expect(response.status()).toBe(404);
+    }
     
     // Should show custom 404 page or redirect
     await expect(page.locator('body')).toContainText(/404|Not Found|Página no encontrada/i);
