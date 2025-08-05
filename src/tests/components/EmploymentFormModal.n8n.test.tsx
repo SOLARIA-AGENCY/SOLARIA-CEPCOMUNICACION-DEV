@@ -156,7 +156,6 @@ describe('EmploymentFormModal - N8N Integration Tests', () => {
       await userEvent.type(screen.getByTestId('apellidos-input'), 'García');
       await userEvent.type(screen.getByTestId('email-input'), 'maria@test.com');
       await userEvent.type(screen.getByTestId('telefono-input'), '722456789');
-      await userEvent.type(screen.getByTestId('dni-input'), '12345678Z');
       await userEvent.type(screen.getByTestId('empresa-input'), 'Test Company');
       
       const consentimientoDatos = screen.getByTestId('consent-checkbox');
@@ -178,7 +177,6 @@ describe('EmploymentFormModal - N8N Integration Tests', () => {
           apellidos: 'García',
           email_solicitante: 'maria@test.com',
           telefono: '722456789',
-          dni: '12345678Z',
           curso: 'Prevención de Riesgos Ambientales',
           tipo_curso: 'ocupados',
           empresa_actual: 'Test Company',

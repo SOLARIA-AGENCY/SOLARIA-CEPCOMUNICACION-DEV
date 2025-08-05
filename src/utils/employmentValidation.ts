@@ -29,10 +29,7 @@ export const validateEmploymentForm = (formData: EmploymentFormData): { [key: st
     errors.telefono = 'El teléfono no tiene un formato válido';
   }
 
-  // DNI es opcional por políticas de privacidad
-  if (formData.dni && formData.dni.trim() && !isValidDNI(formData.dni)) {
-    errors.dni = 'El DNI no tiene un formato válido';
-  }
+  // DNI eliminado por políticas de privacidad
 
   if (!formData.situacion_laboral) {
     errors.situacion_laboral = 'La situación laboral es obligatoria';

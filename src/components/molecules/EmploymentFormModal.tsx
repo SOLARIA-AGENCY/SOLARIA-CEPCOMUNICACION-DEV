@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { validateEmploymentForm } from '../../utils/employmentValidation';
 import { trackEmploymentLead, trackEmploymentFormStep } from '../../utils/employmentTracking';
-import { ocupadosDefaultConfig } from '../../config/cursos-ocupados';
-import { desempleadosDefaultConfig } from '../../config/cursos-desempleados';
+// import { ocupadosDefaultConfig } from '../../config/cursos-ocupados';
+// import { desempleadosDefaultConfig } from '../../config/cursos-desempleados';
 import { EmploymentFormData, EmploymentStatus } from '../../types/employment';
 
 interface EmploymentFormModalProps {
@@ -25,7 +25,6 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
     apellidos: '',
     email: '',
     telefono: '',
-    dni: '',
     situacion_laboral: employmentType,
     empresa_actual: '',
     sector_interes: '',
@@ -39,7 +38,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const config = employmentType === 'ocupados' ? ocupadosDefaultConfig : desempleadosDefaultConfig;
+  // const config = employmentType === 'ocupados' ? ocupadosDefaultConfig : desempleadosDefaultConfig;
 
   useEffect(() => {
     if (isOpen) {
@@ -78,7 +77,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
 
     try {
       // Preparar datos para el webhook de n8n
-      const webhookData = {
+      const _webhookData = {
         nombre: `${formData.nombre} ${formData.apellidos}`,
         email: formData.email,
         telefono: formData.telefono,
@@ -86,7 +85,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
         sede: formData.provincia,
         empresa: formData.empresa_actual || 'No especificada',
         experiencia: formData.sector_interes || 'No especificada',
-        comentarios: `Disponibilidad: ${formData.disponibilidad}. DNI: ${formData.dni || 'No proporcionado'}. Marketing: ${formData.consentimiento_marketing ? 'Sí' : 'No'}.`
+        comentarios: `Disponibilidad: ${formData.disponibilidad}. Marketing: ${formData.consentimiento_marketing ? 'Sí' : 'No'}.`
       };
 
       // TEMPORAL: Webhook n8n deshabilitado (devuelve 404)
@@ -95,7 +94,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
       
       let response;
       let result;
-      let usedFallback = true; // Usar directamente el fallback que funciona
+      const _usedFallback = true; // Usar directamente el fallback que funciona
 
       // Saltar intento de webhook n8n y usar directamente FormSubmit
       try {
@@ -103,7 +102,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
         throw new Error('Webhook n8n temporalmente deshabilitado - usando FormSubmit directamente');
       } catch (webhookError) {
         console.warn('Webhook n8n falló, usando fallback FormSubmit:', webhookError);
-        usedFallback = true;
+        // Fallback ya activado arriba
         
         // Fallback a FormSubmit usando proxy local (solución CORS)
         const fallbackEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
@@ -118,7 +117,6 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
           apellidos: formData.apellidos,
           email_solicitante: formData.email,
           telefono: formData.telefono,
-          dni: formData.dni || 'No proporcionado',
           curso: courseName,
           tipo_curso: employmentType,
           empresa_actual: formData.empresa_actual || 'No especificada',
@@ -166,7 +164,6 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
             apellidos: '',
             email: '',
             telefono: '',
-            dni: '',
             situacion_laboral: employmentType,
             empresa_actual: '',
             sector_interes: '',
@@ -255,7 +252,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     value={formData.nombre}
                     onChange={handleInputChange}
                     data-testid="nombre-input"
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
                       errors.nombre ? 'border-red-500' : 'border-gray-300'
                     }`}
                     required
@@ -273,7 +270,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     value={formData.apellidos}
                     onChange={handleInputChange}
                     data-testid="apellidos-input"
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
                       errors.apellidos ? 'border-red-500' : 'border-gray-300'
                     }`}
                     required
@@ -293,7 +290,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     value={formData.email}
                     onChange={handleInputChange}
                     data-testid="email-input"
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
                     }`}
                     required
@@ -311,7 +308,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     value={formData.telefono}
                     onChange={handleInputChange}
                     data-testid="telefono-input"
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
                       errors.telefono ? 'border-red-500' : 'border-gray-300'
                     }`}
                     required
@@ -320,23 +317,6 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                 </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  DNI/NIE (opcional)
-                </label>
-                <input
-                  type="text"
-                  name="dni"
-                  value={formData.dni}
-                  onChange={handleInputChange}
-                  data-testid="dni-input"
-                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
-                    errors.dni ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                  placeholder="Opcional - Solo si deseas proporcionarlo"
-                />
-                {errors.dni && <p className="text-red-500 text-sm mt-1">{errors.dni}</p>}
-              </div>
 
               {/* Campos específicos por tipo de empleo */}
               {employmentType === 'ocupados' && (
@@ -350,7 +330,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     value={formData.empresa_actual}
                     onChange={handleInputChange}
                     data-testid="empresa-input"
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
                       errors.empresa_actual ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Opcional - Nombre de tu empresa actual"
@@ -369,7 +349,7 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
                     value={formData.sector_interes}
                     onChange={handleInputChange}
                     data-testid="sector-interes-select"
-                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-${config.colors.primary} ${
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
                       errors.sector_interes ? 'border-red-500' : 'border-gray-300'
                     }`}
                     required

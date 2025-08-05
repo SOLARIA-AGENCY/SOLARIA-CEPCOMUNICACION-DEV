@@ -45,7 +45,6 @@ export interface EmploymentFormData {
   apellidos: string;
   email: string;
   telefono: string;
-  dni: string;
   situacion_laboral: EmploymentStatus;
   empresa_actual?: string; // Solo para ocupados
   sector_interes?: string; // Solo para desempleados
