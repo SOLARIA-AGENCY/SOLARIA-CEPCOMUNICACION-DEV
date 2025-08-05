@@ -1,0 +1,1062 @@
+{
+  "blog-professional/adiestramiento-canino-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/adiestramiento-canino-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/adiestramiento-canino-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/adiestramiento-canino-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/adiestramiento-canino-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/auxiliar-veterinario-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/auxiliar-veterinario-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/auxiliar-veterinario-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/auxiliar-veterinario-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/auxiliar-veterinario-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/estudiantes-extranjeros-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/estudiantes-extranjeros-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/estudiantes-extranjeros-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/estudiantes-extranjeros-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/estudiantes-extranjeros-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/farmacia-parafarmacia-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/farmacia-parafarmacia-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/farmacia-parafarmacia-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/farmacia-parafarmacia-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/farmacia-parafarmacia-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/instructor-yoga-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/instructor-yoga-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/instructor-yoga-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/instructor-yoga-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/instructor-yoga-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/microblading-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/microblading-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/microblading-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/microblading-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/microblading-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/peluqueria-canina-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/peluqueria-canina-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/peluqueria-canina-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/peluqueria-canina-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/peluqueria-canina-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/quiromasaje-terapia-manual-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/quiromasaje-terapia-manual-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/quiromasaje-terapia-manual-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/quiromasaje-terapia-manual-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/quiromasaje-terapia-manual-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "blog-professional/ultimas-plazas-cursos-hero": {
+    "sources": [
+      {
+        "srcset": "blog-professional/ultimas-plazas-cursos-hero-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "blog-professional/ultimas-plazas-cursos-hero-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "blog-professional/ultimas-plazas-cursos-hero-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "blog-professional/ultimas-plazas-cursos-hero.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "certificaciones/gobierno-canarias": {
+    "sources": [
+      {
+        "srcset": "certificaciones/gobierno-canarias-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "certificaciones/ministerio-educacion": {
+    "sources": [
+      {
+        "srcset": "certificaciones/ministerio-educacion-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "certificaciones/ministerio-educacion-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "certificaciones/ministerio-educacion-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "certificaciones/ministerio-educacion.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "certificaciones/sepe": {
+    "sources": [
+      {
+        "srcset": "certificaciones/sepe-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "certificaciones/sepe-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "ciclos/CICLO GRADO MEDIO FARMACIA PARAFARMACIA": {
+    "sources": [
+      {
+        "srcset": "ciclos/CICLO GRADO MEDIO FARMACIA PARAFARMACIA-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "ciclos/CICLO GRADO MEDIO FARMACIA PARAFARMACIA-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "ciclos/CICLO GRADO MEDIO FARMACIA PARAFARMACIA-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "ciclos/CICLO GRADO MEDIO FARMACIA PARAFARMACIA.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": "ciclos/CICLO GRADO MEDIO FARMACIA PARAFARMACIA.png"
+  },
+  "ciclos/CICLO GRADO SUPERIOR HIGIENE BUCODENTAL - CARD": {
+    "sources": [
+      {
+        "srcset": "ciclos/CICLO GRADO SUPERIOR HIGIENE BUCODENTAL - CARD-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "ciclos/CICLO GRADO SUPERIOR HIGIENE BUCODENTAL - CARD-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "ciclos/CICLO GRADO SUPERIOR HIGIENE BUCODENTAL - CARD-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "ciclos/CICLO GRADO SUPERIOR HIGIENE BUCODENTAL - CARD.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/Quiromasaje I": {
+    "sources": [
+      {
+        "srcset": "cursos/Quiromasaje I-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/Quiromasaje I-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/Quiromasaje I-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/Quiromasaje II": {
+    "sources": [
+      {
+        "srcset": "cursos/Quiromasaje II-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/Quiromasaje II-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/Quiromasaje II-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/adiestramiento-canino": {
+    "sources": [
+      {
+        "srcset": "cursos/adiestramiento-canino-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/adiestramiento-canino-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/adiestramiento-canino-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/auxiliar-de": {
+    "sources": [
+      {
+        "srcset": "cursos/auxiliar-de-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/auxiliar-de-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/auxiliar-enfermeria": {
+    "sources": [
+      {
+        "srcset": "cursos/auxiliar-enfermeria-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/auxiliar-enfermeria-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/auxiliar-enfermeria-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/auxiliar-odontologia": {
+    "sources": [
+      {
+        "srcset": "cursos/auxiliar-odontologia-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/auxiliar-odontologia-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/auxiliar-odontologia-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/auxiliar-veterinaria": {
+    "sources": [
+      {
+        "srcset": "cursos/auxiliar-veterinaria-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/auxiliar-veterinaria-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/auxiliar-veterinaria-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/cfgm-farmacia-parafarmacia": {
+    "sources": [
+      {
+        "srcset": "cursos/cfgm-farmacia-parafarmacia-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/cfgm-farmacia-parafarmacia-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/cfgm-farmacia-parafarmacia-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "cursos/cfgm-farmacia-parafarmacia.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/cfgs-higiene-bucodental": {
+    "sources": [
+      {
+        "srcset": "cursos/cfgs-higiene-bucodental-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/cfgs-higiene-bucodental-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/ciclos-formativos": {
+    "sources": [
+      {
+        "srcset": "cursos/ciclos-formativos-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/ciclos-formativos-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/dietetica-nutricion": {
+    "sources": [
+      {
+        "srcset": "cursos/dietetica-nutricion-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/dietetica-nutricion-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/dietetica-nutricion-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/diseno-de-medios": {
+    "sources": [
+      {
+        "srcset": "cursos/diseno-de-medios-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/diseno-de-medios-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/especialista-animales-exoticos": {
+    "sources": [
+      {
+        "srcset": "cursos/especialista-animales-exoticos-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/especialista-animales-exoticos-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/especialista-animales-exoticos-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "cursos/especialista-animales-exoticos.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/especializacion-sanitaria": {
+    "sources": [
+      {
+        "srcset": "cursos/especializacion-sanitaria-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/especializacion-sanitaria-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/farmacia-parafarmacia": {
+    "sources": [
+      {
+        "srcset": "cursos/farmacia-parafarmacia-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/farmacia-parafarmacia-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/farmacia-parafarmacia-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "cursos/farmacia-parafarmacia.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/formacion-gratuita": {
+    "sources": [
+      {
+        "srcset": "cursos/formacion-gratuita-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/formacion-gratuita-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/formacion-gratuita-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/mundo-animal": {
+    "sources": [
+      {
+        "srcset": "cursos/mundo-animal-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/mundo-animal-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/peluqueria-canina": {
+    "sources": [
+      {
+        "srcset": "cursos/peluqueria-canina-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/peluqueria-canina-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/peluqueria-canina-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/prevencion-riesgos-ambientales": {
+    "sources": [
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/prevencion-riesgos-ambientales-ocupados": {
+    "sources": [
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales-ocupados-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales-ocupados-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales-ocupados-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "cursos/prevencion-riesgos-ambientales-ocupados.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/quiromasaje-11-meses": {
+    "sources": [
+      {
+        "srcset": "cursos/quiromasaje-11-meses-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "cursos/quiromasaje-11-meses-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/quiromasaje-11-meses-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      },
+      {
+        "srcset": "cursos/quiromasaje-11-meses.webp",
+        "type": "image/webp",
+        "width": 1920
+      }
+    ],
+    "fallback": ""
+  },
+  "cursos/salud-bienestar-y-deporte": {
+    "sources": [
+      {
+        "srcset": "cursos/salud-bienestar-y-deporte-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "cursos/salud-bienestar-y-deporte-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "./formacion-gratuita": {
+    "sources": [
+      {
+        "srcset": "formacion-gratuita-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "formacion-gratuita-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "formacion-gratuita-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "logos/CIRCULO CEP FORMACION LOGO": {
+    "sources": [
+      {
+        "srcset": "logos/CIRCULO CEP FORMACION LOGO-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "logos/CIRCULO CEP FORMACION LOGO-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "logos/logo ministerio educacion": {
+    "sources": [
+      {
+        "srcset": "logos/logo ministerio educacion-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "logos/logo-certificaciones": {
+    "sources": [
+      {
+        "srcset": "logos/logo-certificaciones-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/alexis": {
+    "sources": [
+      {
+        "srcset": "profesores/alexis-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/cecilia": {
+    "sources": [
+      {
+        "srcset": "profesores/cecilia-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/esther": {
+    "sources": [
+      {
+        "srcset": "profesores/esther-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/goreti": {
+    "sources": [
+      {
+        "srcset": "profesores/goreti-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/livia": {
+    "sources": [
+      {
+        "srcset": "profesores/livia-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/luis": {
+    "sources": [
+      {
+        "srcset": "profesores/luis-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/nuria": {
+    "sources": [
+      {
+        "srcset": "profesores/nuria-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "profesores/sara": {
+    "sources": [
+      {
+        "srcset": "profesores/sara-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  },
+  "sedes/cep-norte": {
+    "sources": [
+      {
+        "srcset": "sedes/cep-norte-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "sedes/cep-norte-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "sedes/cep-norte-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "sedes/cep-santa-cruz": {
+    "sources": [
+      {
+        "srcset": "sedes/cep-santa-cruz-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "sedes/cep-santa-cruz-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "sedes/cep-santa-cruz-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "sedes/sede-cep-norte": {
+    "sources": [
+      {
+        "srcset": "sedes/sede-cep-norte-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "sedes/sede-cep-norte-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "sedes/sede-cep-norte-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "sedes/sede-cep-santa-cruz": {
+    "sources": [
+      {
+        "srcset": "sedes/sede-cep-santa-cruz-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "sedes/sede-cep-santa-cruz-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "sedes/sede-cep-santa-cruz-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "./slideshow-1": {
+    "sources": [
+      {
+        "srcset": "slideshow-1-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "slideshow-1-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "slideshow-1-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "./slideshow-2": {
+    "sources": [
+      {
+        "srcset": "slideshow-2-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "slideshow-2-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "slideshow-2-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "./slideshow-3": {
+    "sources": [
+      {
+        "srcset": "slideshow-3-1200w.webp",
+        "type": "image/webp",
+        "width": 1200
+      },
+      {
+        "srcset": "slideshow-3-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "slideshow-3-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "./solaria-logo": {
+    "sources": [
+      {
+        "srcset": "solaria-logo-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      },
+      {
+        "srcset": "solaria-logo-800w.webp",
+        "type": "image/webp",
+        "width": 800
+      }
+    ],
+    "fallback": ""
+  },
+  "./video-preview": {
+    "sources": [
+      {
+        "srcset": "video-preview-400w.webp",
+        "type": "image/webp",
+        "width": 400
+      }
+    ],
+    "fallback": ""
+  }
+}

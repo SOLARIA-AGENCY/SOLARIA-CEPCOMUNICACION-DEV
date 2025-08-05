@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/nazcamedia/Documents/GitHub/SOLARIA-CEPCOMUNICACION-DEV/.conductor/hangzhou/logs/.b39851ba97eeb3d78de571f148034a912cc01e00-audit.json",
+    "files": [
+        {
+            "date": 1754396608685,
+            "name": "/Users/nazcamedia/Documents/GitHub/SOLARIA-CEPCOMUNICACION-DEV/.conductor/hangzhou/logs/mcp-puppeteer-2025-08-05.log",
+            "hash": "fcc5a51021dd46dd68e1ac27556baef30db899f38aa8608f877f6d734254618b"
+        }
+    ],
+    "hashType": "sha256"
+}
