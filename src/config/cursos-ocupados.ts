@@ -125,6 +125,126 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
         ]
       }
     }
+  },
+  {
+    id: 'COACHING-EQUIPOS-OCUPADOS-25',
+    slug: 'coaching-equipos-trabajadores-ocupados',
+    nombre: 'Desarrollo Organizacional. Coaching de Equipos',
+    tipo: 'ocupados',
+    activo: true,
+    fecha_inicio: '2025-09-15',
+    fecha_fin: '2025-10-20',
+    plazas_disponibles: 12,
+    sede: 'Norte',
+    imagen: '/images/cursos/coaching-equipos-ocupados.png',
+    descripcion: 'Curso especializado en técnicas de coaching aplicadas al desarrollo organizacional y gestión de equipos de trabajo, orientado a mejorar el rendimiento y la cohesión grupal.',
+    objetivos: [
+      'Dominar las técnicas fundamentales del coaching de equipos',
+      'Desarrollar habilidades de liderazgo transformacional',
+      'Implementar estrategias de desarrollo organizacional',
+      'Mejorar la comunicación y cohesión en equipos de trabajo',
+      'Aplicar herramientas de evaluación del rendimiento grupal'
+    ],
+    temario: [
+      {
+        modulo: 'Módulo 1: Fundamentos del Coaching Organizacional',
+        contenidos: [
+          'Principios básicos del coaching',
+          'Diferencias entre coaching, mentoring y consultoría',
+          'El coach como facilitador del cambio',
+          'Ética y competencias del coach profesional'
+        ]
+      },
+      {
+        modulo: 'Módulo 2: Dinámicas de Equipos y Liderazgo',
+        contenidos: [
+          'Teorías de desarrollo de equipos',
+          'Estilos de liderazgo situacional',
+          'Gestión de conflictos en equipos',
+          'Comunicación efectiva y feedback constructivo'
+        ]
+      },
+      {
+        modulo: 'Módulo 3: Herramientas de Coaching de Equipos',
+        contenidos: [
+          'Técnicas de facilitación grupal',
+          'Dinámicas de team building',
+          'Evaluación del clima organizacional',
+          'Planificación estratégica participativa'
+        ]
+      },
+      {
+        modulo: 'Módulo 4: Implementación y Seguimiento',
+        contenidos: [
+          'Diseño de programas de desarrollo',
+          'Métricas y KPIs de rendimiento grupal',
+          'Planes de acción y seguimiento',
+          'Casos prácticos y simulaciones'
+        ]
+      }
+    ],
+    metodologia: 'Metodología experiencial con role-playing, dinámicas grupales, análisis de casos reales y práctica supervisada de técnicas de coaching.',
+    datos_especificos: {
+      tipo: 'ocupados',
+      contacto: {
+        email: 'cep.ocupados@gmail.com',
+        telefono: '672.947.701'
+      },
+      beneficios: [
+        '100% Gratuito (financiado SEPE)',
+        'Certificación oficial reconocida',
+        'Mejora tus competencias directivas',
+        'Horario compatible con trabajo',
+        'Aplicación inmediata en tu equipo',
+        'Material didáctico especializado',
+        'Networking profesional'
+      ],
+      requisitos: [
+        'Ser trabajador activo con responsabilidades de equipo',
+        'Residir en Canarias',
+        'Tener más de 18 años',
+        'Disponibilidad horaria de tardes',
+        'Experiencia mínima en gestión de personas'
+      ],
+      financiacion: 'SEPE - Servicio Público de Empleo Estatal',
+      duracion: '50 horas lectivas',
+      modalidad: 'Presencial',
+      certificacion: 'Certificado oficial de aprovechamiento reconocido por SEPE',
+      caracteristicas: {
+        modalidad: 'presencial',
+        horario: 'tarde',
+        compatible_trabajo: true,
+        certificacion_oficial: true,
+        financiado_sepe: true
+      }
+    },
+    seo: {
+      title: 'Curso Coaching de Equipos - Trabajadores Ocupados | CEP Formación',
+      description: 'Curso gratuito de Coaching de Equipos para trabajadores. Financiado por SEPE. Desarrolla habilidades de liderazgo y gestión de equipos. ¡Plazas limitadas!',
+      keywords: 'coaching equipos, desarrollo organizacional, curso trabajadores ocupados, SEPE, liderazgo, gestión equipos, las palmas gran canaria',
+      structuredData: {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Desarrollo Organizacional. Coaching de Equipos",
+        "description": "Curso especializado en técnicas de coaching aplicadas al desarrollo organizacional y gestión de equipos de trabajo, orientado a mejorar el rendimiento y la cohesión grupal.",
+        "provider": {
+          "@type": "Organization",
+          "name": "CEP Formación",
+          "url": "https://cepcomunicacion.com"
+        },
+        "url": "https://cepcomunicacion.com/curso-ocupado/coaching-equipos-trabajadores-ocupados",
+        "courseMode": "blended",
+        "educationalLevel": "professional",
+        "audience": "Trabajadores ocupados con responsabilidades de equipo",
+        "teaches": [
+          "Técnicas de coaching de equipos",
+          "Liderazgo transformacional",
+          "Desarrollo organizacional",
+          "Gestión de conflictos",
+          "Comunicación efectiva"
+        ]
+      }
+    }
   }
 ];
 

@@ -26,7 +26,7 @@ const CursosDesempleadosPage: React.FC = () => {
     }
   }, [selectedSede]);
 
-  const activeCursos = filteredCursos.filter(curso => curso.activo);
+  const _activeCursos = filteredCursos.filter(curso => curso.activo);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -141,80 +141,56 @@ const CursosDesempleadosPage: React.FC = () => {
             {selectedSede !== 'Todas' && ` en ${selectedSede}`}
           </h2>
           
-          {activeCursos.length === 0 ? (
-            <div className="text-center py-12">
-              <div className="text-gray-400 text-6xl mb-4">🚀</div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">
-                Próximamente disponibles
-              </h3>
-              <p className="text-gray-500 mb-4">
-                Estamos preparando una amplia oferta de cursos específicos para desempleados.
-              </p>
-              <p className="text-gray-500 mb-6">
-                Mientras tanto, puedes consultar todos nuestros cursos disponibles o contactar con nosotros para más información.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="/cursos" 
-                  className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Ver todos los cursos
-                </a>
-                <a 
-                  href={`mailto:${desempleadosDefaultConfig.contact.email}`}
-                  className="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-colors"
-                >
-                  Contactar
-                </a>
-              </div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {activeCursos.map((curso) => (
-                <div key={curso.id} className="relative">
-                  <CursoCard 
-                    curso={{
-                      id: curso.id,
-                      slug: `desempleados-${curso.id.toLowerCase()}`,
-                      slugBase: `desempleados-${curso.id.toLowerCase()}`,
-                      nombre: curso.nombre,
-                      codigo: curso.id,
-                      sede: curso.sede,
-                      estado: curso.activo ? 'activo' : 'proximamente',
-                      categoria: 'sanidad',
-                      imagen: '/images/cursos/formacion-gratuita.jpg',
-                      inicio: curso.fecha_inicio,
-                      copy: {
-                        slogan: 'Curso gratuito para desempleados',
-                        textosPrincipales: [],
-                        titulos: []
-                      },
-                      descripcionDetallada: {
-                        introduccion: 'Curso gratuito para desempleados',
-                        puntosClave: [
-                          { icono: 'Clock', texto: curso.datos_especificos.duracion },
-                          { icono: 'Globe', texto: curso.datos_especificos.modalidad },
-                          { icono: 'Award', texto: curso.datos_especificos.certificacion }
-                        ],
-                        queAprendes: 'Contenido específico del curso',
-                        salidasProfesionales: ['Inserción laboral'],
-                        modulos: [],
-                        profesores: []
-                      }
-                    }}
-                    showEmploymentType={true}
-                    employmentFilter="desempleados"
-                  />
-                  
-                  {/* Indicador de tipo de curso */}
-                  <div className="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-medium">
-                    Desempleados
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cursosDesempleadosConfig.map((curso) => (
+              <div key={curso.id} className="relative">
+                <CursoCard 
+                  curso={{
+                    id: curso.id,
+                    slug: curso.slug,
+                    slugBase: curso.slug,
+                    nombre: curso.nombre,
+                    codigo: curso.id,
+                    sede: curso.sede || 'Madrid',
+                    estado: 'activo',
+                    categoria: 'sanidad',
+                    imagen: curso.imagen || '/images/cursos/formacion-gratuita.jpg',
+                    inicio: curso.fecha_inicio || '',
+                    copy: {
+                      slogan: 'Curso gratuito para desempleados',
+                      textosPrincipales: [curso.descripcion || ''],
+                      titulos: [curso.nombre]
+                    },
+                    descripcionDetallada: {
+                      introduccion: curso.descripcion || '',
+                      puntosClave: [
+                        { icono: 'Clock', texto: curso.datos_especificos?.duracion || '' },
+                        { icono: 'Globe', texto: curso.datos_especificos?.modalidad || '' },
+                        { icono: 'Award', texto: curso.datos_especificos?.certificacion || '' }
+                      ],
+                      queAprendes: curso.objetivos?.join('. ') || '',
+                      salidasProfesionales: ['Inserción laboral en el sector'],
+                      modulos: curso.temario?.map((tema, index) => ({
+                        numero: index + 1,
+                        titulo: typeof tema === 'string' ? tema : tema.modulo,
+                        contenido: typeof tema === 'string' ? [''] : tema.contenidos || [''],
+                        descripcion: '',
+                        duracion: ''
+                      })) || [],
+                      profesores: []
+                    }
+                  }}
+                  showEmploymentType={true}
+                  employmentFilter="desempleados"
+                />
+                
+                {/* Indicador de tipo de curso */}
+                <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">
+                  Desempleados
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Información de contacto específica */}

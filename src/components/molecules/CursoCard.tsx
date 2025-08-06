@@ -22,10 +22,12 @@ interface CursoCardProps {
   curso: CursoMaestro;
   showEmploymentType?: boolean;
   employmentFilter?: EmploymentStatus;
+  fixedTimestamp?: string; // Para tests determinísticos
 }
 
-const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employmentFilter }) => {
-  const fechaActual = useTimeReal();
+const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employmentFilter, fixedTimestamp }) => {
+  const timeReal = useTimeReal();
+  const fechaActual = fixedTimestamp ? new Date(fixedTimestamp) : timeReal;
   
   // Determinar si es ciclo formativo
   const esCiclo = curso.categoria === 'ciclos';

@@ -4,9 +4,11 @@ import CepFooter from '../components/organisms/CepFooter';
 // Unused imports removed
 import LogosMinisteriales from '../components/molecules/LogosMinisteriales';
 import { cursosOcupadosConfig, ocupadosDefaultConfig, ocupadosMetadata } from '../config/cursos-ocupados';
+import { cursosOcupados as cursosOcupadosData } from '../data/cursos-ocupados';
+import CursoCard from '../components/molecules/CursoCard';
 import { trackEmploymentPageView } from '../utils/employmentTracking';
 import { EmploymentCourseConfig } from '../types/employment';
-import { formatearFechaLegible, parsearFechaCurso } from '../utils/timeUtils';
+// import { formatearFechaLegible, parsearFechaCurso } from '../utils/timeUtils';
 
 const CursosOcupadosPage: React.FC = () => {
   const [selectedSede, setSelectedSede] = useState<'Norte' | 'Santa Cruz' | 'Todas'>('Todas');
@@ -26,7 +28,7 @@ const CursosOcupadosPage: React.FC = () => {
     }
   }, [selectedSede]);
 
-  const activeCursos = filteredCursos.filter(curso => curso.activo);
+  const _activeCursos = filteredCursos.filter(curso => curso.activo);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -121,82 +123,56 @@ const CursosOcupadosPage: React.FC = () => {
             {selectedSede !== 'Todas' && ` en ${selectedSede}`}
           </h2>
           
-          {activeCursos.length === 0 ? (
-            <div className="text-center py-12">
-              <div className="text-gray-400 text-6xl mb-4">📋</div>
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">
-                No hay cursos disponibles
-              </h3>
-              <p className="text-gray-500">
-                {selectedSede !== 'Todas' 
-                  ? `No hay cursos para trabajadores disponibles en ${selectedSede} actualmente.`
-                  : 'No hay cursos para trabajadores disponibles actualmente.'
-                }
-              </p>
-              <p className="text-gray-500 mt-2">
-                Contacta con nosotros para más información sobre próximos cursos.
-              </p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {activeCursos.map((curso) => (
-                <div key={curso.id} className="relative">
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col">
-                    <div className="relative">
-                      <img
-                        src={curso.imagen || '/images/cursos/formacion-gratuita.jpg'}
-                        alt={`Imagen del curso ${curso.nombre}`}
-                        className="w-full h-40 sm:h-48 object-cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                      {/* Etiqueta de Estado/Fecha */}
-                      <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-600">
-                        {curso.activo ? 'ACTIVO' : 'PRÓXIMAMENTE'}
-                      </div>
-                      
-                      {/* Etiqueta de Tipo de Empleo */}
-                      <div className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-600">
-                        TRABAJADORES
-                      </div>
-                    </div>
-                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
-                      <h3 className="text-lg sm:text-xl font-bold text-green-600 mb-2">{curso.nombre}</h3>
-                      <p className="text-xs text-gray-500 font-semibold mb-2 uppercase">{curso.datos_especificos.duracion}</p>
-                      <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">
-                        {curso.descripcion || 'Curso gratuito para trabajadores'}
-                      </p>
-                      <div className="space-y-2 mb-4">
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="font-medium">📅 Inicio:</span>
-                          <span className="ml-2">
-                            {(() => {
-                              const fechaParseada = parsearFechaCurso(curso.fecha_inicio);
-                              return fechaParseada ? formatearFechaLegible(fechaParseada) : curso.fecha_inicio;
-                            })()}
-                          </span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="font-medium">📍 Sede:</span>
-                          <span className="ml-2">CEP {curso.sede}</span>
-                        </div>
-                        <div className="flex items-center text-sm text-gray-600">
-                          <span className="font-medium">💰 Precio:</span>
-                          <span className="ml-2 font-bold text-green-600">100% GRATUITO</span>
-                        </div>
-                      </div>
-                      <a
-                        href={`/${curso.slug}`}
-                        className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                      >
-                        VER CURSO COMPLETO
-                      </a>
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cursosOcupadosData.map((curso) => (
+              <div key={curso.id} className="relative">
+                <CursoCard 
+                  curso={{
+                    id: curso.id,
+                    slug: curso.slug,
+                    slugBase: curso.slug,
+                    nombre: curso.nombre,
+                    codigo: curso.id,
+                    sede: 'Norte',
+                    estado: 'activo',
+                    categoria: 'sanidad',
+                    imagen: curso.imagen || '/images/cursos/formacion-gratuita.jpg',
+                    inicio: curso.fecha_inicio || '',
+                    copy: {
+                      slogan: 'Curso gratuito para trabajadores',
+                      textosPrincipales: [curso.descripcion || ''],
+                      titulos: [curso.nombre]
+                    },
+                    descripcionDetallada: {
+                      introduccion: curso.descripcion || '',
+                      puntosClave: [
+                        { icono: 'Clock', texto: curso.datos_especificos?.duracion || '' },
+                        { icono: 'Globe', texto: curso.datos_especificos?.modalidad || '' },
+                        { icono: 'Award', texto: curso.datos_especificos?.certificacion || '' }
+                      ],
+                      queAprendes: curso.objetivos?.join('. ') || '',
+                      salidasProfesionales: ['Desarrollo profesional en el sector'],
+                      modulos: curso.temario?.map((tema, index) => ({
+                         numero: index + 1,
+                         titulo: typeof tema === 'string' ? tema : tema.modulo,
+                         contenido: typeof tema === 'string' ? [] : tema.contenidos,
+                         descripcion: '',
+                         duracion: ''
+                       })) || [],
+                      profesores: []
+                    }
+                  }}
+                  showEmploymentType={true}
+                  employmentFilter="ocupados"
+                />
+                
+                {/* Indicador de tipo de curso */}
+                <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-medium">
+                  Trabajadores
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Información de contacto específica */}
