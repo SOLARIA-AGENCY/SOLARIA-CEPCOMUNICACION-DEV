@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { Menu, X, Phone, Clock, Facebook, Instagram, Youtube } from 'lucide-react';
 import MiniCalendario from '../molecules/MiniCalendario';
 
-const CepHeader: React.FC = () => {
+interface CepHeaderProps {
+  fixedTimestamp?: string; // Para tests determinísticos
+}
+
+const CepHeader: React.FC<CepHeaderProps> = ({ fixedTimestamp }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -24,7 +28,7 @@ const CepHeader: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               {/* Mini Calendario en tiempo real */}
-              <MiniCalendario />
+              <MiniCalendario fixedTimestamp={fixedTimestamp} />
               
               {/* Redes Sociales */}
               <div className="flex items-center space-x-3">

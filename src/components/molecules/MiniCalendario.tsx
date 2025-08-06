@@ -2,11 +2,15 @@ import React from 'react';
 import { useTimeReal } from '../../utils/timeUtils';
 import { Calendar } from 'lucide-react';
 
+interface MiniCalendarioProps {
+  fixedTimestamp?: string; // Para tests determinísticos
+}
+
 /**
  * Componente de calendario pequeño para barra superior
  * Muestra fecha actual en tiempo real - tamaño similar a teléfonos en header
  */
-const MiniCalendario: React.FC = () => {
+const MiniCalendario: React.FC<MiniCalendarioProps> = ({ fixedTimestamp }) => {
   const fechaActual = useTimeReal();
 
   const formatearFechaCompleta = (fecha: Date): string => {
@@ -28,9 +32,8 @@ const MiniCalendario: React.FC = () => {
     });
   };
 
-  // En tests, mostrar fecha consistente
-  const esTest = typeof window === 'undefined' || process.env.NODE_ENV === 'test';
-  const fechaDisplay = esTest ? new Date('2025-07-01T13:43:00.000Z') : fechaActual;
+  // En tests, usar fixedTimestamp si está disponible
+  const fechaDisplay = fixedTimestamp ? new Date(fixedTimestamp) : fechaActual;
 
   return (
     <div className="flex items-center space-x-2 text-white">

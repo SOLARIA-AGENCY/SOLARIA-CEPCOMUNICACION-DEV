@@ -27,7 +27,7 @@ const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp 
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <CepHeader />
+      <CepHeader fixedTimestamp={fixedTimestamp} />
       <main className="container mx-auto px-4 py-12 sm:py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-cep-primary mb-4">Todos Nuestros Cursos</h1>
