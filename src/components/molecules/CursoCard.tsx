@@ -40,7 +40,6 @@ const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employ
       <div className="relative">
         <img
           src={curso.imagen.includes('quiromasaje-11-meses') ? '/images/cursos/quiromasaje-11-meses-optimized.webp' : 
-               curso.imagen.includes('especialista-animales-exoticos') ? '/images/cursos/especialista-animales-exoticos-optimized.webp' : 
                curso.imagen}
           alt={`Imagen del curso ${curso.nombre}`}
           className="w-full h-40 sm:h-48 object-cover"
@@ -75,7 +74,10 @@ const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employ
         {duracion && <p className="text-xs text-gray-500 font-semibold mb-2 uppercase">{duracion}</p>}
         <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.copy.slogan}</p>
         <Link
-          to={`/curso/${curso.slug}`}
+          to={showEmploymentType && employmentFilter 
+            ? `/curso-desempleado/${curso.id}` 
+            : `/curso/${curso.slug}`
+          }
           className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
         >
           VER CURSO COMPLETO
@@ -85,4 +87,4 @@ const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employ
   );
 };
 
-export default CursoCard; 
+export default CursoCard;

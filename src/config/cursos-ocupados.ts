@@ -125,6 +125,127 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
         ]
       }
     }
+  },
+  {
+    id: 'PRO-OCUP-COACHING-EQUIPOS-25',
+    slug: 'coaching-equipos-ocupados',
+    nombre: 'Desarrollo Organizacional. Coaching de Equipos',
+    tipo: 'ocupados',
+    activo: true,
+    fecha_inicio: '2025-09-04',
+    fecha_fin: '2025-09-16',
+    plazas_disponibles: 30,
+    sede: 'Norte',
+    imagen: '/images/cursos/coaching-equipos-ocupados.jpg',
+    descripcion: 'Adquiere conocimientos sobre las herramientas para acompañar a un equipo de personas en el proceso de desarrollo, cambio y aprendizaje desde un enfoque sistémico, con el fin de optimizar su desempeño.',
+    objetivos: [
+      'Dominar las competencias generales del coaching sistémico de equipos',
+      'Aplicar técnicas de comunicación efectiva en la gestión de equipos',
+      'Desarrollar habilidades de liderazgo y motivación grupal',
+      'Implementar estrategias para la resolución de conflictos internos',
+      'Crear planes de acción para el desarrollo organizacional'
+    ],
+    temario: [
+      {
+        modulo: 'Coaching de Equipos - Fundamentos',
+        contenidos: [
+          'Qué es y para qué sirve el coaching de equipos',
+          'Objetivos del coaching de equipos',
+          'El coach de equipos: competencias y habilidades',
+          'Enfoque y principios sistémicos'
+        ]
+      },
+      {
+        modulo: 'Competencias del Coaching Sistémico',
+        contenidos: [
+          'Competencias generales del coaching',
+          'Competencias específicas del coaching sistémico de equipos',
+          'Herramientas de intervención grupal',
+          'Técnicas de evaluación y seguimiento'
+        ]
+      },
+      {
+        modulo: 'Características y Gestión de Equipos',
+        contenidos: [
+          'Liderazgo de equipos efectivo',
+          'Estructura del equipo y roles',
+          'Etapas para afrontar el cambio organizacional',
+          'Dinámicas de valoración y desarrollo del equipo'
+        ]
+      },
+      {
+        modulo: 'Comunicación y Clima Emocional',
+        contenidos: [
+          'Comunicación efectiva en equipos',
+          'Escucha activa y rapport',
+          'Gestión del clima emocional',
+          'Resolución de conflictos y disfunciones'
+        ]
+      }
+    ],
+    metodologia: 'Modalidad mixta con sesiones presenciales de aplicación práctica y teleformación para contenidos teóricos. Metodología participativa con dinámicas de grupo, casos prácticos y role-playing.',
+    datos_especificos: {
+      tipo: 'ocupados',
+      contacto: {
+        email: 'cep.ocupados@gmail.com',
+        telefono: '672.947.701'
+      },
+      beneficios: [
+        '100% Gratuito (financiado SEPE)',
+        'Certificación oficial reconocida',
+        'Mejora tu CV y empleabilidad',
+        'Horario compatible con trabajo',
+        'Aplicación práctica inmediata',
+        'Material didáctico incluido',
+        'Seguimiento personalizado'
+      ],
+      requisitos: [
+        'Ser trabajador activo de cualquier sector',
+        'Residir en Canarias',
+        'Tener más de 18 años',
+        'Disponibilidad horaria de tardes',
+        'Nivel básico de estudios',
+        'Experiencia previa en gestión de equipos (recomendable)'
+      ],
+      financiacion: 'SEPE - Servicio Público de Empleo Estatal',
+      duracion: '25 horas lectivas',
+      modalidad: 'Mixta (presencial + teleformación)',
+      certificacion: 'Certificado oficial de aprovechamiento reconocido por SEPE',
+      caracteristicas: {
+        modalidad: 'hibrido',
+        horario: 'tarde',
+        compatible_trabajo: true,
+        certificacion_oficial: true,
+        financiado_sepe: true
+      }
+    },
+    seo: {
+      title: 'Coaching de Equipos - Trabajadores Ocupados | CEP Formación',
+      description: 'Curso gratuito de Desarrollo Organizacional y Coaching de Equipos para trabajadores. Financiado por SEPE. Modalidad mixta, horario compatible con trabajo. ¡Plazas limitadas!',
+      keywords: 'coaching equipos, desarrollo organizacional, liderazgo, trabajadores ocupados, SEPE, formación gratuita, norte tenerife',
+      structuredData: {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Desarrollo Organizacional. Coaching de Equipos",
+        "description": "Curso para adquirir conocimientos sobre herramientas de coaching de equipos desde un enfoque sistémico",
+        "provider": {
+          "@type": "Organization",
+          "name": "CEP Formación",
+          "url": "https://cepcomunicacion.com"
+        },
+        "url": "https://cepcomunicacion.com/curso-ocupado/coaching-equipos-ocupados",
+        "courseMode": "blended",
+        "educationalLevel": "professional",
+        "audience": "Trabajadores ocupados",
+        "teaches": [
+          "Competencias del coaching sistémico de equipos",
+          "Técnicas de comunicación efectiva",
+          "Habilidades de liderazgo y motivación",
+          "Estrategias de resolución de conflictos",
+          "Desarrollo organizacional"
+        ]
+      }
+    }
   }
 ];
 

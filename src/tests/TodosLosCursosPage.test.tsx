@@ -14,7 +14,7 @@ describe('TodosLosCursosPage', () => {
         <TodosLosCursosPage fixedTimestamp={FIXED_TEST_TIMESTAMP} />
       </BrowserRouter>
     )
-    const mainTitle = screen.getByRole('heading', { name: /Todos Nuestros Cursos/i, level: 1 })
+    const mainTitle = screen.getByRole('heading', { name: /Nuestros cursos privados/i, level: 1 })
     expect(mainTitle).toBeInTheDocument()
   })
 
@@ -49,4 +49,4 @@ describe('TodosLosCursosPage', () => {
     )
     expect(asFragment()).toMatchSnapshot()
   })
-}) 
+})

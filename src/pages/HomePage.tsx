@@ -5,6 +5,8 @@ import CepFooter from '../components/organisms/CepFooter';
 import { Link } from 'react-router-dom';
 import { cursosMaestro } from '../config/cursos-maestro';
 import type { CursoMaestro } from '../config/cursos-maestro';
+import { cursosDesempleadosConfig } from '../config/cursos-desempleados';
+import { cursosOcupadosConfig } from '../config/cursos-ocupados';
 import { ordenarCursosPorPrioridad } from '../utils/timeUtils';
 import CursoCard from '../components/molecules/CursoCard';
 import CicloCard from '../components/molecules/CicloCard';
@@ -149,12 +151,73 @@ const HomePage: React.FC = () => {
     setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
   };
 
+  // Convertir cursos de empleo al formato CursoMaestro para mostrar en la homepage
+  const cursosEmpleoAsMaestro = [
+    ...cursosDesempleadosConfig.filter(c => c.activo).map(curso => ({
+      id: curso.id,
+      slug: curso.slug,
+      slugBase: curso.slug,
+      nombre: curso.nombre,
+      codigo: curso.id,
+      sede: curso.sede,
+      estado: 'activo' as const,
+      inicio: curso.fecha_inicio,
+      destacado: true,
+      categoria: 'sanidad' as const,
+      imagen: curso.imagen || '/images/cursos/default-empleo.jpg',
+      copy: {
+        slogan: (curso.descripcion || 'Curso especializado para desempleados').substring(0, 120) + '...',
+        descripcion: curso.descripcion || 'Curso especializado para desempleados',
+        subtitulo: `Desempleados - ${curso.sede}`,
+        puntosClave: [
+          { icono: 'Clock', texto: curso.datos_especificos.duracion },
+          { icono: 'Users', texto: 'Desempleados' },
+          { icono: 'Award', texto: 'Gratuito SEPE/SCE' }
+        ],
+        queAprendes: curso.descripcion || 'Contenido especializado del curso',
+        salidasProfesionales: ['Inserción laboral especializada'],
+        modulos: [],
+        profesores: []
+      }
+    } as unknown as CursoMaestro)),
+    ...cursosOcupadosConfig.filter(c => c.activo).map(curso => ({
+      id: curso.id,
+      slug: curso.slug,
+      slugBase: curso.slug,
+      nombre: curso.nombre,
+      codigo: curso.id,
+      sede: curso.sede,
+      estado: 'activo' as const,
+      inicio: curso.fecha_inicio,
+      destacado: true,
+      categoria: 'sanidad' as const,
+      imagen: curso.imagen || '/images/cursos/default-empleo.jpg',
+      copy: {
+        slogan: (curso.descripcion || 'Curso especializado para ocupados').substring(0, 120) + '...',
+        descripcion: curso.descripcion || 'Curso especializado para ocupados',
+        subtitulo: `Ocupados - ${curso.sede}`,
+        puntosClave: [
+          { icono: 'Clock', texto: curso.datos_especificos.duracion },
+          { icono: 'Users', texto: 'Ocupados' },
+          { icono: 'Award', texto: 'Gratuito FUNDAE' }
+        ],
+        queAprendes: curso.descripcion || 'Contenido especializado del curso',
+        salidasProfesionales: ['Especialización profesional'],
+        modulos: [],
+        profesores: []
+      }
+    } as CursoMaestro))
+  ];
+
+  // Combinar todos los cursos y filtrar por sede
+  const todosCursos = [...cursosMaestro.filter(c => c.categoria !== 'ciclos'), ...cursosEmpleoAsMaestro];
+  
   // Filtrar cursos por sede y estado
   const cursosNorte = ordenarCursosPorPrioridad(
-    cursosMaestro.filter(c => c.sede === 'Norte' && c.categoria !== 'ciclos')
+    todosCursos.filter(c => c.sede === 'Norte')
   );
   const cursosSantaCruz = ordenarCursosPorPrioridad(
-    cursosMaestro.filter(c => c.sede === 'Santa Cruz' && c.categoria !== 'ciclos')
+    todosCursos.filter(c => c.sede === 'Santa Cruz')
   );
   
   // const _cursosDestacados = ordenarCursosPorPrioridad(
@@ -354,8 +417,8 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <img 
-              src="/images/formacion-gratuita.jpg" 
-              alt="Formación gratuita" 
+              src="/images/cursos/organizacion-almacenes-profesionales.jpg" 
+              alt="Formación gratuita - Organización de Almacenes" 
               className="mx-auto mb-8 rounded-lg shadow-lg max-w-md w-full"
             />
             <div className="flex justify-center space-x-8">

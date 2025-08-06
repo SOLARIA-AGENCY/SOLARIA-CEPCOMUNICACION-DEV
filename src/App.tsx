@@ -162,10 +162,12 @@ function App() {
         {/* CURSOS OCUPADOS - Rutas Duales */}
         <Route path="/prevencion-riesgos-ambientales-ocupados" element={<DirectEmploymentWrapper />} />
         <Route path="/cursos-empleo/prevencion-riesgos-ambientales-ocupados" element={<SemanticEmploymentWrapper />} />
+        <Route path="/coaching-equipos-ocupados" element={<DirectEmploymentWrapper />} />
+        <Route path="/cursos-empleo/coaching-equipos-ocupados" element={<SemanticEmploymentWrapper />} />
         
-        {/* CURSOS DESEMPLEADOS - Rutas Duales (Preparado para futuros cursos) */}
-        {/* <Route path="/curso-desempleado-slug" element={<DirectEmploymentWrapper />} /> */}
-        {/* <Route path="/cursos-empleo/curso-desempleado-slug" element={<SemanticEmploymentWrapper />} /> */}
+        {/* CURSOS DESEMPLEADOS - Rutas Duales */}
+        <Route path="/organizacion-almacenes-desempleados" element={<DirectEmploymentWrapper />} />
+        <Route path="/cursos-empleo/organizacion-almacenes-desempleados" element={<SemanticEmploymentWrapper />} />
         
         {/* 🔄 REDIRECCIONES LEGACY - Preservación SEO */}
         <Route path="/legacy-curso-ocupado/:id" element={<LegacyEmploymentRedirect />} />

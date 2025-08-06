@@ -894,7 +894,7 @@
     "nombre": "Especialista en Animales Exóticos",
     "codigo": "EXOTICOS",
     "slugBase": "especialista-animales-exoticos",
-    "imagen": "/images/cursos/mundo-animal.jpg",
+    "imagen": "/images/cursos/especialista-animales-exoticos.jpg",
     "categoria": "veterinaria",
     "copy": {
       "slogan": "Adéntrate en el fascinante mundo de las especies no convencionales.",
@@ -1044,4 +1044,4 @@
       "cursosComplementarios": ["ATV felinos", "ATV animales Exóticos", "Seminario de urgencias", "Peluquería canina", "Adiestramiento canino"]
     }
   }
-] 
+]

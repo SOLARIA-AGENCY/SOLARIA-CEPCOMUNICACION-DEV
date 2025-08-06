@@ -68,7 +68,6 @@ const CursoPageComponent: React.FC<CursoPageComponentProps> = ({ curso }) => {
           <div className="absolute inset-0">
             <img 
               src={curso.imagen.includes('quiromasaje-11-meses') ? '/images/cursos/quiromasaje-11-meses-optimized.webp' : 
-                   curso.imagen.includes('especialista-animales-exoticos') ? '/images/cursos/especialista-animales-exoticos-optimized.webp' : 
                    curso.imagen} 
               alt={curso.nombre}
               className="w-full h-full object-cover"
