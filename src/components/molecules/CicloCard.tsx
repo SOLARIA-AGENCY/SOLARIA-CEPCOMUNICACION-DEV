@@ -14,8 +14,10 @@ const CicloCard: React.FC<CicloCardProps> = ({ ciclo }) => {
     ? 'bg-blue-100 text-blue-800'
     : 'bg-green-100 text-green-800';
 
-  // Fondo blanco para la sección de texto
-  const textBgClass = 'bg-white'; // Fondo blanco unificado para todas las cards
+  // Fondo de color para la sección de texto
+  const textBgClass = ciclo.subtitulo?.toLowerCase().includes('superior')
+    ? 'bg-sky-100/80' // Azul celeste para grado superior
+    : 'bg-green-100/80'; // Verde para grado medio
 
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full border-4 border-cep-primary transform hover:scale-[1.02] hover:shadow-2xl">
