@@ -14,7 +14,7 @@ interface SubscriptionState {
 
 interface UseNewsletterSubscriptionOptions {
   webhookUrl?: string;
-  onSuccess?: (data: any) => void;
+  onSuccess?: (data: SubscriptionResponse) => void;
   onError?: (error: Error) => void;
 }
 

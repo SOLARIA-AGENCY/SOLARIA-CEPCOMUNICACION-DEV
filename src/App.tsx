@@ -1,89 +1,135 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import ScrollToTop from './components/utils/ScrollToTop';
-import HomePage from './pages/HomePage';
-import ContactPage from './pages/ContactPage';
-import ContactoPage from './pages/ContactoPage';
-import QuienesSomosPage from './pages/QuienesSomosPage';
-import AvisoLegalPage from './pages/AvisoLegalPage';
-import PoliticaPrivacidadPage from './pages/PoliticaPrivacidadPage';
-import ProteccionDatosPage from './pages/ProteccionDatosPage';
-import PoliticaCookiesPage from './pages/PoliticaCookiesPage';
-import FaqPage from './pages/FaqPage';
-import BlogPage from './pages/BlogPage';
-import BlogArticlePage from './pages/BlogArticlePage';
-
-// --- ESTRUCTURA DINÁMICA ---
-import TodosLosCursosPage from './pages/TodosLosCursosPage';
-import CiclosPage from './pages/CiclosPage';
-import CursoPageComponent from './components/templates/CursoPageComponent';
-import DirectCourseWrapper from './components/templates/DirectCourseWrapper';
-import SemanticCourseWrapper from './components/templates/SemanticCourseWrapper';
-import { cursosMaestro } from './config/cursos-maestro';
-import type { CursoMaestro } from './config/cursos-maestro';
-import SolariaStatusPage from './pages/SolariaStatusPage';
 import useTracking from './utils/useTracking';
-import ThankYouPage from './pages/ThankYouPage';
-import GraciasSuscripcionPage from './pages/GraciasSuscripcionPage';
-import GraciasInscripcionPage from './pages/GraciasInscripcionPage';
-import SedePage from './pages/SedePage';
-import LoginPage from './pages/admin/LoginPage';
-import GestionCursosPage from './pages/admin/GestionCursosPage';
-import ProtectedRoute from './components/utils/ProtectedRoute';
-import SedesPage from './pages/SedesPage';
-import CursosOcupadosPage from './pages/CursosOcupadosPage';
-import CursosDesempleadosPage from './pages/CursosDesempleadosPage';
-import CursoOcupadosPageComponent from './templates/CursoOcupadosPageComponent';
-import { cursosOcupadosConfig } from './config/cursos-ocupados';
-import { cursosDesempleadosConfig } from './config/cursos-desempleados';
-import DirectEmploymentWrapper from './components/templates/DirectEmploymentWrapper';
-import SemanticEmploymentWrapper from './components/templates/SemanticEmploymentWrapper';
-import LegacyEmploymentRedirect from './components/templates/LegacyEmploymentRedirect';
-// --- FIN ESTRUCTURA ---
+import type { CursoMaestro } from './config/cursos-maestro';
+
+// 🚀 LAZY LOADING - CRITICAL BUNDLE OPTIMIZATION
+// Core pages (most used)
+const HomePage = lazy(() => import('./pages/HomePage'));
+const TodosLosCursosPage = lazy(() => import('./pages/TodosLosCursosPage'));
+const ContactoPage = lazy(() => import('./pages/ContactoPage'));
+
+// Course system (heavy components)
+const CursoPageComponent = lazy(() => import('./components/templates/CursoPageComponent'));
+const DirectCourseWrapper = lazy(() => import('./components/templates/DirectCourseWrapper'));
+const SemanticCourseWrapper = lazy(() => import('./components/templates/SemanticCourseWrapper'));
+
+// Employment courses (heavy configs)
+const CursosOcupadosPage = lazy(() => import('./pages/CursosOcupadosPage'));
+const CursosDesempleadosPage = lazy(() => import('./pages/CursosDesempleadosPage'));
+const CursoOcupadosPageComponent = lazy(() => import('./templates/CursoOcupadosPageComponent'));
+const DirectEmploymentWrapper = lazy(() => import('./components/templates/DirectEmploymentWrapper'));
+const SemanticEmploymentWrapper = lazy(() => import('./components/templates/SemanticEmploymentWrapper'));
+const LegacyEmploymentRedirect = lazy(() => import('./components/templates/LegacyEmploymentRedirect'));
+
+// Secondary pages
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const CiclosPage = lazy(() => import('./pages/CiclosPage'));
+const QuienesSomosPage = lazy(() => import('./pages/QuienesSomosPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage'));
+const FaqPage = lazy(() => import('./pages/FaqPage'));
+const SedesPage = lazy(() => import('./pages/SedesPage'));
+const SedePage = lazy(() => import('./pages/SedePage'));
+
+// Legal pages (rarely accessed)
+const AvisoLegalPage = lazy(() => import('./pages/AvisoLegalPage'));
+const PoliticaPrivacidadPage = lazy(() => import('./pages/PoliticaPrivacidadPage'));
+const ProteccionDatosPage = lazy(() => import('./pages/ProteccionDatosPage'));
+const PoliticaCookiesPage = lazy(() => import('./pages/PoliticaCookiesPage'));
+
+// System pages
+const SolariaStatusPage = lazy(() => import('./pages/SolariaStatusPage'));
+const ThankYouPage = lazy(() => import('./pages/ThankYouPage'));
+const GraciasSuscripcionPage = lazy(() => import('./pages/GraciasSuscripcionPage'));
+const GraciasInscripcionPage = lazy(() => import('./pages/GraciasInscripcionPage'));
+
+// Admin pages (heavy and rarely used)
+const LoginPage = lazy(() => import('./pages/admin/LoginPage'));
+const GestionCursosPage = lazy(() => import('./pages/admin/GestionCursosPage'));
+const ProtectedRoute = lazy(() => import('./components/utils/ProtectedRoute'));
+
+// Lazy load heavy configs only when needed
+const loadCursosMaestro = () => import('./config/cursos-maestro');
+const loadCursosOcupados = () => import('./config/cursos-ocupados');
+const loadCursosDesempleados = () => import('./config/cursos-desempleados');
+
+// Loading component for better UX
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-cep-primary"></div>
+  </div>
+);
 
 import './index.css';
 
-// Componente "Wrapper" que extrae el slug de la URL y renderiza la página
+// Dynamic wrapper with lazy config loading
 const DynamicCoursePageWrapper = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [curso, setCurso] = React.useState<CursoMaestro | null>(null);
+  const [loading, setLoading] = React.useState(true);
+  
+  React.useEffect(() => {
+    if (!slug) return;
+    
+    loadCursosMaestro().then(({ cursosMaestro }) => {
+      const foundCurso = cursosMaestro.find((c: CursoMaestro) => c.slug === slug);
+      setCurso(foundCurso || null);
+      setLoading(false);
+    });
+  }, [slug]);
+  
   if (!slug) return <Navigate to="/cursos" replace />;
-  
-  const curso = cursosMaestro.find((c: CursoMaestro) => c.slug === slug);
-  
-  if (!curso) {
-    // Si no se encuentra el curso, redirigir a la página de todos los cursos.
-    return <Navigate to="/cursos" replace />;
-  }
+  if (loading) return <LoadingSpinner />;
+  if (!curso) return <Navigate to="/cursos" replace />;
   
   return <CursoPageComponent curso={curso} />;
 };
 
-// Componente wrapper para cursos de ocupados
+// Lazy wrapper for ocupados courses
 const CursoOcupadosDetailWrapper = () => {
   const { id } = useParams<{ id: string }>();
+  const [curso, setCurso] = React.useState<any>(null);
+  const [loading, setLoading] = React.useState(true);
+  
+  React.useEffect(() => {
+    if (!id) return;
+    
+    loadCursosOcupados().then(({ cursosOcupadosConfig }) => {
+      const foundCurso = cursosOcupadosConfig.find((c: { id: string }) => c.id === id);
+      setCurso(foundCurso || null);
+      setLoading(false);
+    });
+  }, [id]);
+  
   if (!id) return <Navigate to="/cursos-ocupados" replace />;
-  
-  const curso = cursosOcupadosConfig.find(c => c.id === id);
-  
-  if (!curso) {
-    return <Navigate to="/cursos-ocupados" replace />;
-  }
+  if (loading) return <LoadingSpinner />;
+  if (!curso) return <Navigate to="/cursos-ocupados" replace />;
   
   return <CursoOcupadosPageComponent curso={curso} />;
 };
 
-// Componente wrapper para cursos de desempleados
+// Lazy wrapper for desempleados courses
 const CursoDesempleadosDetailWrapper = () => {
   const { id } = useParams<{ id: string }>();
+  const [curso, setCurso] = React.useState<any>(null);
+  const [loading, setLoading] = React.useState(true);
+  
+  React.useEffect(() => {
+    if (!id) return;
+    
+    loadCursosDesempleados().then(({ cursosDesempleadosConfig }) => {
+      const foundCurso = cursosDesempleadosConfig.find((c: { id: string }) => c.id === id);
+      setCurso(foundCurso || null);
+      setLoading(false);
+    });
+  }, [id]);
+  
   if (!id) return <Navigate to="/cursos-desempleados" replace />;
+  if (loading) return <LoadingSpinner />;
+  if (!curso) return <Navigate to="/cursos-desempleados" replace />;
   
-  const curso = cursosDesempleadosConfig.find(c => c.id === id);
-  
-  if (!curso) {
-    return <Navigate to="/cursos-desempleados" replace />;
-  }
-  
-  // Por ahora usa el mismo template de ocupados hasta que se cree uno específico
   return <CursoOcupadosPageComponent curso={curso} />;
 };
 
@@ -93,7 +139,8 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Routes>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/inicio" element={<HomePage />} />
         
@@ -194,15 +241,18 @@ function App() {
         <Route 
           path="/admin/gestion-cursos" 
           element={
-            <ProtectedRoute>
-              <GestionCursosPage />
-            </ProtectedRoute>
+            <Suspense fallback={<LoadingSpinner />}>
+              <ProtectedRoute>
+                <GestionCursosPage />
+              </ProtectedRoute>
+            </Suspense>
           } 
         />
 
         {/* Wildcard para cualquier otra ruta no definida */}
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
