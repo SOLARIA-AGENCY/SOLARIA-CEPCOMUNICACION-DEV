@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { BrowserRouter } from 'react-router-dom'
 import CursoCard from '../components/molecules/CursoCard'
 import type { CursoMaestro } from '../config/cursos-maestro'
+import * as timeUtils from '../utils/timeUtils'
 
 const mockCurso: CursoMaestro = {
   id: 'test-1',
@@ -23,7 +24,18 @@ const mockCurso: CursoMaestro = {
   }
 }
 
+// Mock del hook useTimeReal para consistencia absoluta
+const mockUseTimeReal = vi.fn(() => new Date('2025-07-01T13:43:00.000Z'))
+
 describe('CursoCard', () => {
+  beforeEach(() => {
+    // Mock del hook para garantizar fecha fija en todos los tests
+    vi.spyOn(timeUtils, 'useTimeReal').mockImplementation(mockUseTimeReal)
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
   it('renders curso information correctly', () => {
     render(
       <BrowserRouter>
