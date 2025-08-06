@@ -52,3 +52,34 @@ export type Curso = {
   subtitulo?: string;
   modalidad?: string;
 };
+
+// Global window interface extensions for tracking and analytics
+declare global {
+  interface Window {
+    fbq?: (command: string, event: string, data?: Record<string, unknown>) => void;
+    gtag?: {
+      (command: 'event', action: string, parameters?: Record<string, unknown>): void;
+      (command: 'config' | 'js', target: string | Date, config?: Record<string, unknown>): void;
+      (command: string, targetId: string, config?: Record<string, unknown>): void;
+    };
+    dataLayer?: Array<Record<string, unknown>>;
+    cookieconsent?: {
+      reset: () => void;
+      [key: string]: unknown;
+    };
+    [key: string]: unknown;
+  }
+}
+
+// Employment course characteristics interface
+export interface CursoCharacteristics {
+  modalidad?: 'presencial' | 'online' | 'hibrido';
+  horario?: 'mañana' | 'tarde' | 'noche';
+  compatible_trabajo?: boolean;
+  certificacion_oficial?: boolean;
+  financiado_sepe?: boolean;
+  practicas_empresas?: boolean;
+  orientacion_laboral?: boolean;
+  certificado_profesionalidad?: boolean;
+  financiado_sepe_sce?: boolean;
+}

@@ -55,8 +55,8 @@ const SemanticEmploymentWrapper: React.FC = () => {
       }
 
       // Google Analytics - Evento principal para SEO de cursos de empleo
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'employment_course_view_organic', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'employment_course_view_organic', {
           event_category: 'organic_employment_traffic',
           event_label: slug,
           course_slug: slug,
@@ -147,8 +147,8 @@ const SemanticEmploymentWrapper: React.FC = () => {
       }
 
       // Tag Manager - Evento específico para rutas semánticas de empleo
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
           event: 'employment_course_page_view_semantic',
           course_slug: slug,
           employment_type: curso.tipo,
@@ -169,8 +169,8 @@ const SemanticEmploymentWrapper: React.FC = () => {
   
   if (!curso) {
     // Tracking de 404 para rutas semánticas de empleo
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'employment_course_not_found_semantic', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'employment_course_not_found_semantic', {
         event_category: 'organic_employment_traffic',
         event_label: slug,
         attempted_slug: slug,

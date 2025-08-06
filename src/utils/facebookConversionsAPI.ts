@@ -290,12 +290,7 @@ export async function trackCourseRegistrationEvent(registrationData: {
   );
 }
 
-// Declaración de tipos globales para TypeScript
-declare global {
-  interface Window {
-    fbq: (command: string, event: string, data?: Record<string, unknown>) => void;
-  }
-}
+// Global types imported from types/index.ts
 
 export default {
   trackConversionEvent,

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from 'rea
 import ScrollToTop from './components/utils/ScrollToTop';
 import useTracking from './utils/useTracking';
 import type { CursoMaestro } from './config/cursos-maestro';
+import type { EmploymentCourseConfig } from './types/employment';
 
 // 🚀 LAZY LOADING - CRITICAL BUNDLE OPTIMIZATION
 // Core pages (most used)
@@ -90,14 +91,14 @@ const DynamicCoursePageWrapper = () => {
 // Lazy wrapper for ocupados courses
 const CursoOcupadosDetailWrapper = () => {
   const { id } = useParams<{ id: string }>();
-  const [curso, setCurso] = React.useState<any>(null);
+  const [curso, setCurso] = React.useState<EmploymentCourseConfig | null>(null);
   const [loading, setLoading] = React.useState(true);
   
   React.useEffect(() => {
     if (!id) return;
     
     loadCursosOcupados().then(({ cursosOcupadosConfig }) => {
-      const foundCurso = cursosOcupadosConfig.find((c: { id: string }) => c.id === id);
+      const foundCurso = cursosOcupadosConfig.find((c) => c.id === id);
       setCurso(foundCurso || null);
       setLoading(false);
     });
@@ -113,14 +114,14 @@ const CursoOcupadosDetailWrapper = () => {
 // Lazy wrapper for desempleados courses
 const CursoDesempleadosDetailWrapper = () => {
   const { id } = useParams<{ id: string }>();
-  const [curso, setCurso] = React.useState<any>(null);
+  const [curso, setCurso] = React.useState<EmploymentCourseConfig | null>(null);
   const [loading, setLoading] = React.useState(true);
   
   React.useEffect(() => {
     if (!id) return;
     
     loadCursosDesempleados().then(({ cursosDesempleadosConfig }) => {
-      const foundCurso = cursosDesempleadosConfig.find((c: { id: string }) => c.id === id);
+      const foundCurso = cursosDesempleadosConfig.find((c) => c.id === id);
       setCurso(foundCurso || null);
       setLoading(false);
     });

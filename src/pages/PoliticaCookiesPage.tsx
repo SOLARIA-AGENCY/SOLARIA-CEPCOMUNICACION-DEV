@@ -98,9 +98,7 @@ const PoliticaCookiesPage: React.FC = () => {
                   </p>
                   <button 
                     onClick={() => {
-                      // @ts-expect-error - cookieconsent is injected by external script
                       if (window.cookieconsent) {
-                        // @ts-expect-error - cookieconsent is injected by external script
                         window.cookieconsent.reset();
                       }
                     }}

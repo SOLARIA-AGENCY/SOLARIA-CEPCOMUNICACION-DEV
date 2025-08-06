@@ -117,7 +117,7 @@ const CursoOcupadosPageComponent: React.FC<CursoOcupadosPageComponentProps> = ({
                       return fechaParseada ? formatearFechaLegible(fechaParseada) : curso.fecha_fin;
                     })()}</p>
                     <p><strong>Duración:</strong> {curso.datos_especificos.duracion}</p>
-                    <p><strong>Horario:</strong> {(curso.datos_especificos.caracteristicas as any).horario === 'tarde' ? 'Tardes' : 'Mañanas'}</p>
+                    <p><strong>Horario:</strong> {('horario' in curso.datos_especificos.caracteristicas && curso.datos_especificos.caracteristicas.horario === 'tarde') ? 'Tardes' : 'Mañanas'}</p>
                     <p><strong>Modalidad:</strong> {curso.datos_especificos.modalidad}</p>
                   </div>
                 </div>

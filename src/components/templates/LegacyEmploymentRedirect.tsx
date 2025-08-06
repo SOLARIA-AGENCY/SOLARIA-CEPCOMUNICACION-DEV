@@ -52,8 +52,8 @@ const LegacyEmploymentRedirect: React.FC = () => {
   useEffect(() => {
     if (id && cursoData) {
       // Google Analytics - Evento de redirección legacy
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'employment_legacy_redirect', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'employment_legacy_redirect', {
           event_category: 'seo_redirects',
           event_label: id,
           legacy_id: id,
@@ -78,8 +78,8 @@ const LegacyEmploymentRedirect: React.FC = () => {
       }
 
       // Tag Manager - Evento de redirección legacy
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
           event: 'employment_legacy_redirect',
           legacy_id: id,
           new_slug: cursoData.curso.slug,
@@ -99,8 +99,8 @@ const LegacyEmploymentRedirect: React.FC = () => {
 
   if (!cursoData) {
     // Tracking de 404 para IDs legacy no encontrados
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'employment_legacy_not_found', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'employment_legacy_not_found', {
         event_category: 'seo_redirects',
         event_label: id,
         legacy_id: id,

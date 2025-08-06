@@ -62,7 +62,7 @@ const convertirCursoEmpleo = (curso: EmploymentCourseConfig): CursoUnificado => 
     slugBase: `${curso.tipo}-${curso.id.toLowerCase()}`,
     codigo: curso.id,
     estado: curso.activo ? 'activo' : 'proximamente',
-    categoria: 'sanidad' as any,
+    categoria: 'sanidad' as const,
     imagen: curso.imagen || '/images/cursos/formacion-gratuita.jpg',
     inicio: curso.fecha_inicio,
     sede: curso.sede, // Preservar explícitamente la sede

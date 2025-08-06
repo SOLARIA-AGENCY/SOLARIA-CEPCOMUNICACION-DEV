@@ -4,13 +4,7 @@
  */
 
 import { EmploymentStatus, EmploymentTracking } from '../types/employment';
-
-declare global {
-  interface Window {
-    gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void;
-    fbq: (command: string, event: string, data?: Record<string, unknown>) => void;
-  }
-}
+// Global types imported from types/index.ts
 
 export const trackEmploymentLead = (
   employmentType: EmploymentStatus,

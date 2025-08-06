@@ -30,8 +30,8 @@ const SemanticCourseWrapper: React.FC = () => {
       }
 
       // Google Analytics - Evento principal para SEO
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'course_view_organic', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'course_view_organic', {
           event_category: 'organic_traffic',
           event_label: slug,
           course_slug: slug,
@@ -74,9 +74,7 @@ const SemanticCourseWrapper: React.FC = () => {
       }
 
       // Tag Manager - Evento específico para rutas semánticas
-      // @ts-expect-error - dataLayer is injected by external script
       if (typeof window !== 'undefined' && window.dataLayer) {
-        // @ts-expect-error - dataLayer is injected by external script
         window.dataLayer.push({
           event: 'course_page_view_semantic',
           course_slug: slug,
@@ -96,8 +94,8 @@ const SemanticCourseWrapper: React.FC = () => {
   
   if (!curso) {
     // Tracking de 404 para rutas semánticas
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'course_not_found_semantic', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'course_not_found_semantic', {
         event_category: 'organic_traffic',
         event_label: slug,
         attempted_slug: slug,

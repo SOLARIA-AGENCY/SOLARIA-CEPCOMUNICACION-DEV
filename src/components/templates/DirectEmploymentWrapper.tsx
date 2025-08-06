@@ -56,8 +56,8 @@ const DirectEmploymentWrapper: React.FC = () => {
       }
 
       // Google Analytics - Evento diferenciado para cursos de empleo
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'employment_course_view_direct', {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'employment_course_view_direct', {
           event_category: 'facebook_employment_campaign',
           event_label: slug,
           course_slug: slug,
@@ -83,8 +83,8 @@ const DirectEmploymentWrapper: React.FC = () => {
       }
 
       // Tag Manager - Evento específico para rutas directas de empleo
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
+      if (typeof window !== 'undefined' && window.dataLayer) {
+        window.dataLayer.push({
           event: 'employment_course_page_view_direct',
           course_slug: slug,
           employment_type: curso.tipo,
@@ -104,8 +104,8 @@ const DirectEmploymentWrapper: React.FC = () => {
   
   if (!curso) {
     // Tracking de 404 para rutas directas de empleo
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'employment_course_not_found_direct', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'employment_course_not_found_direct', {
         event_category: 'facebook_employment_campaign',
         event_label: slug,
         attempted_slug: slug,
