@@ -10,7 +10,6 @@
       "Infraestructura de ads y campañas",
       "Formularios Meta Ads",
       "Tracking diferenciado",
-      "Automatización n8n",
       "Listas Mailchimp",
       "URLs estratégicas duales"
     ],
@@ -231,35 +230,12 @@
           "hashtags_sugeridos": ["#{{HASHTAG_1}}", "#{{HASHTAG_2}}", "#{{HASHTAG_3}}"],
           "audiencia_objetivo": "{{DESCRIPCION_AUDIENCIA}}"
         },
-        "automatizacion_n8n": {
-          "flujo_principal": "{{SLUG_CURSO}}-lead-automation",
-          "acciones_automaticas": [
-            "Registro en Google Sheets",
-            "Alta en lista Mailchimp",
-            "Envío email bienvenida",
-            "Envío WhatsApp (15 min después)",
-            "Asignación asesor rotativa",
-            "Notificación asesor con guión"
-          ],
-          "integraciones": {
-            "mailchimp_list_id": "{{MAILCHIMP_LIST_ID}}",
-            "google_sheet_id": "{{GOOGLE_SHEET_ID}}",
-            "whatsapp_template": "{{WHATSAPP_TEMPLATE_ID}}",
-            "email_template": "{{EMAIL_TEMPLATE_ID}}"
-          },
-          "timing": {
-            "email_inmediato": "0 segundos",
-            "whatsapp_delay": "15 minutos",
-            "asignacion_asesor": "30 minutos",
-            "seguimiento_24h": "24 horas"
-          }
-        },
         "configuracion_tecnica": {
           "tipo_formulario": "Más volumen (fácil de completar)",
           "entrega_flexible": "Optimizada (recomendado para Meta)",
           "autocompletar_campos": true,
           "vincular_formulario": "Solo al curso y sede específicos",
-          "integracion_activa": "Mailchimp/n8n/Google Sheets",
+          "integracion_activa": "API Central/Mailchimp/Google Sheets",
           "optimizacion_conversion": {
             "landing_page_speed": "< 3 segundos",
             "mobile_optimization": true,
@@ -488,35 +464,12 @@
           "hashtags_sugeridos": ["#{{HASHTAG_1}}", "#{{HASHTAG_2}}", "#{{HASHTAG_3}}"],
           "audiencia_objetivo": "{{DESCRIPCION_AUDIENCIA}}"
         },
-        "automatizacion_n8n": {
-          "flujo_principal": "{{SLUG_CURSO}}-lead-automation",
-          "acciones_automaticas": [
-            "Registro en Google Sheets",
-            "Alta en lista Mailchimp",
-            "Envío email bienvenida",
-            "Envío WhatsApp (15 min después)",
-            "Asignación asesor rotativa",
-            "Notificación asesor con guión"
-          ],
-          "integraciones": {
-            "mailchimp_list_id": "{{MAILCHIMP_LIST_ID}}",
-            "google_sheet_id": "{{GOOGLE_SHEET_ID}}",
-            "whatsapp_template": "{{WHATSAPP_TEMPLATE_ID}}",
-            "email_template": "{{EMAIL_TEMPLATE_ID}}"
-          },
-          "timing": {
-            "email_inmediato": "0 segundos",
-            "whatsapp_delay": "15 minutos",
-            "asignacion_asesor": "30 minutos",
-            "seguimiento_24h": "24 horas"
-          }
-        },
         "configuracion_tecnica": {
           "tipo_formulario": "Más volumen (fácil de completar)",
           "entrega_flexible": "Optimizada (recomendado para Meta)",
           "autocompletar_campos": true,
           "vincular_formulario": "Solo al curso y sede específicos",
-          "integracion_activa": "Mailchimp/n8n/Google Sheets",
+          "integracion_activa": "API Central/Mailchimp/Google Sheets",
           "optimizacion_conversion": {
             "landing_page_speed": "< 3 segundos",
             "mobile_optimization": true,
@@ -770,35 +723,12 @@
           "hashtags_sugeridos": ["#{{HASHTAG_1}}", "#{{HASHTAG_2}}", "#{{HASHTAG_3}}"],
           "audiencia_objetivo": "{{DESCRIPCION_AUDIENCIA}}"
         },
-        "automatizacion_n8n": {
-          "flujo_principal": "{{SLUG_BASE}}-lead-automation",
-          "acciones_automaticas": [
-            "Registro en Google Sheets",
-            "Alta en lista Mailchimp",
-            "Envío email bienvenida",
-            "Envío WhatsApp (15 min después)",
-            "Asignación asesor rotativa",
-            "Notificación asesor con guión"
-          ],
-          "integraciones": {
-            "mailchimp_list_id": "{{MAILCHIMP_LIST_ID}}",
-            "google_sheet_id": "{{GOOGLE_SHEET_ID}}",
-            "whatsapp_template": "{{WHATSAPP_TEMPLATE_ID}}",
-            "email_template": "{{EMAIL_TEMPLATE_ID}}"
-          },
-          "timing": {
-            "email_inmediato": "0 segundos",
-            "whatsapp_delay": "15 minutos",
-            "asignacion_asesor": "30 minutos",
-            "seguimiento_24h": "24 horas"
-          }
-        },
         "configuracion_tecnica": {
           "tipo_formulario": "Más volumen (fácil de completar)",
           "entrega_flexible": "Optimizada (recomendado para Meta)",
           "autocompletar_campos": true,
           "vincular_formulario": "Solo al curso específico",
-          "integracion_activa": "Mailchimp/n8n/Google Sheets",
+          "integracion_activa": "API Central/Mailchimp/Google Sheets",
           "optimizacion_conversion": {
             "landing_page_speed": "< 3 segundos",
             "mobile_optimization": true,

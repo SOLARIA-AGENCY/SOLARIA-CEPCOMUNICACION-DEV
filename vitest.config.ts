@@ -8,6 +8,11 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     testTimeout: 10000,
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/tests/e2e/**' // Excluir tests de Playwright
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
