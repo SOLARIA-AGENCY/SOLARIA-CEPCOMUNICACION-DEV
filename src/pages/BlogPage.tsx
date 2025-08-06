@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 
@@ -162,28 +161,26 @@ const BlogPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Blog CEP Formación | Guías, Consejos y Tendencias Formativas en Tenerife</title>
-        <meta name="description" content="Descubre las mejores oportunidades formativas en Tenerife. Guías completas, análisis del mercado laboral y consejos para tu desarrollo profesional." />
-        <meta name="keywords" content="blog formación tenerife, cursos profesionales canarias, salidas laborales tenerife, formación profesional canarias, CEP formación blog" />
-        <link rel="canonical" href="https://cep-formacion.com/blog" />
-        
-        {/* Schema.org para Blog */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            "name": "Blog CEP Formación",
-            "description": "Blog oficial de CEP Formación con guías, análisis y tendencias del mercado formativo en Tenerife",
-            "url": "https://cep-formacion.com/blog",
-            "publisher": {
-              "@type": "Organization",
-              "name": "CEP Formación",
-              "url": "https://cep-formacion.com"
-            }
-          })}
-        </script>
-      </Helmet>
+      <title>Blog CEP Formación | Guías, Consejos y Tendencias Formativas en Tenerife</title>
+      <meta name="description" content="Descubre las mejores oportunidades formativas en Tenerife. Guías completas, análisis del mercado laboral y consejos para tu desarrollo profesional." />
+      <meta name="keywords" content="blog formación tenerife, cursos profesionales canarias, salidas laborales tenerife, formación profesional canarias, CEP formación blog" />
+      <link rel="canonical" href="https://cep-formacion.com/blog" />
+      
+      {/* Schema.org para Blog */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": "Blog CEP Formación",
+          "description": "Blog oficial de CEP Formación con guías, análisis y tendencias del mercado formativo en Tenerife",
+          "url": "https://cep-formacion.com/blog",
+          "publisher": {
+            "@type": "Organization",
+            "name": "CEP Formación",
+            "url": "https://cep-formacion.com"
+          }
+        })}
+      </script>
 
       <div className="min-h-screen bg-gray-50">
         <CepHeader />

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 // Unused imports removed
@@ -31,16 +30,14 @@ const CursosOcupadosPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>{ocupadosMetadata.title}</title>
-        <meta name="description" content={ocupadosMetadata.description} />
-        <meta name="keywords" content={ocupadosMetadata.keywords} />
-        <link rel="canonical" href={`${window.location.origin}${ocupadosMetadata.canonical}`} />
-        <meta property="og:title" content={ocupadosMetadata.title} />
-        <meta property="og:description" content={ocupadosMetadata.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${window.location.origin}${ocupadosMetadata.canonical}`} />
-      </Helmet>
+      <title>{ocupadosMetadata.title}</title>
+      <meta name="description" content={ocupadosMetadata.description} />
+      <meta name="keywords" content={ocupadosMetadata.keywords} />
+      <link rel="canonical" href={`${window.location.origin}${ocupadosMetadata.canonical}`} />
+      <meta property="og:title" content={ocupadosMetadata.title} />
+      <meta property="og:description" content={ocupadosMetadata.description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${window.location.origin}${ocupadosMetadata.canonical}`} />
 
       <CepHeader />
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 import CursoCard from '../components/molecules/CursoCard';
@@ -31,16 +30,14 @@ const CursosDesempleadosPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Helmet>
-        <title>{desempleadosMetadata.title}</title>
-        <meta name="description" content={desempleadosMetadata.description} />
-        <meta name="keywords" content={desempleadosMetadata.keywords} />
-        <link rel="canonical" href={`${window.location.origin}${desempleadosMetadata.canonical}`} />
-        <meta property="og:title" content={desempleadosMetadata.title} />
-        <meta property="og:description" content={desempleadosMetadata.description} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${window.location.origin}${desempleadosMetadata.canonical}`} />
-      </Helmet>
+      <title>{desempleadosMetadata.title}</title>
+      <meta name="description" content={desempleadosMetadata.description} />
+      <meta name="keywords" content={desempleadosMetadata.keywords} />
+      <link rel="canonical" href={`${window.location.origin}${desempleadosMetadata.canonical}`} />
+      <meta property="og:title" content={desempleadosMetadata.title} />
+      <meta property="og:description" content={desempleadosMetadata.description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${window.location.origin}${desempleadosMetadata.canonical}`} />
 
       <CepHeader />
 

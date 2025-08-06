@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import CepHeader from '../components/organisms/CepHeader';
 import CepFooter from '../components/organisms/CepFooter';
 
@@ -132,30 +131,28 @@ const BlogArticlePage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{metadata?.title ? `${metadata.title} | CEP Formación` : 'Artículo | CEP Formación'}</title>
-        <meta name="description" content={metadata?.description || 'Artículo formativo de CEP Formación'} />
-        <meta name="keywords" content={metadata?.keywords?.join(', ') || ''} />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content={metadata?.title || 'CEP Formación'} />
-        <meta property="og:description" content={metadata?.description || 'Artículo formativo'} />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://cepcomunicacion.com/blog/${slug}`} />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata?.title || 'CEP Formación'} />
-        <meta name="twitter:description" content={metadata?.description || 'Artículo formativo'} />
-        
-        {/* Article specific */}
-        {metadata?.publishDate && (
-          <meta property="article:published_time" content={metadata.publishDate} />
-        )}
-        {metadata?.category && (
-          <meta property="article:section" content={metadata.category} />
-        )}
-      </Helmet>
+      <title>{metadata?.title ? `${metadata.title} | CEP Formación` : 'Artículo | CEP Formación'}</title>
+      <meta name="description" content={metadata?.description || 'Artículo formativo de CEP Formación'} />
+      <meta name="keywords" content={metadata?.keywords?.join(', ') || ''} />
+      
+      {/* Open Graph */}
+      <meta property="og:title" content={metadata?.title || 'CEP Formación'} />
+      <meta property="og:description" content={metadata?.description || 'Artículo formativo'} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={`https://cepcomunicacion.com/blog/${slug}`} />
+      
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={metadata?.title || 'CEP Formación'} />
+      <meta name="twitter:description" content={metadata?.description || 'Artículo formativo'} />
+      
+      {/* Article specific */}
+      {metadata?.publishDate && (
+        <meta property="article:published_time" content={metadata.publishDate} />
+      )}
+      {metadata?.category && (
+        <meta property="article:section" content={metadata.category} />
+      )}
 
       <div className="min-h-screen bg-gray-50">
         <CepHeader />

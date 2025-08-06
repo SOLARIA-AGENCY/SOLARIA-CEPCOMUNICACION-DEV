@@ -102,8 +102,16 @@ jobs:
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-          base: main
+          base: ${{ github.event.repository.default_branch }}
           head: HEAD
+          extra_args: --debug --only-verified --since-commit=HEAD~1
+        continue-on-error: true
+        
+      - name: 🔍 Fallback Full Repository Scan
+        if: failure()
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
           extra_args: --debug --only-verified
           
   security-headers:

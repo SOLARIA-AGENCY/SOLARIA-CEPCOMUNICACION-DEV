@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { MapPin, Phone, Clock, Mail, Bus, Building } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CepHeader from '../components/organisms/CepHeader';
@@ -9,14 +8,12 @@ import MapaTenerife from '../components/molecules/MapaTenerife';
 const SedesPage: React.FC = () => {
   return (
     <>
-      <Helmet>
-        <title>Nuestras Sedes - CEP Formación Tenerife</title>
-        <meta 
-          name="description" 
-          content="Descubre nuestras dos sedes en Tenerife: CEP Norte (La Laguna) y CEP Santa Cruz. Instalaciones modernas y ubicaciones estratégicas para tu formación profesional." 
-        />
-        <meta name="keywords" content="sedes CEP, La Laguna, Santa Cruz, Tenerife, centros formación, instalaciones" />
-      </Helmet>
+      <title>Nuestras Sedes - CEP Formación Tenerife</title>
+      <meta 
+        name="description" 
+        content="Descubre nuestras dos sedes en Tenerife: CEP Norte (La Laguna) y CEP Santa Cruz. Instalaciones modernas y ubicaciones estratégicas para tu formación profesional." 
+      />
+      <meta name="keywords" content="sedes CEP, La Laguna, Santa Cruz, Tenerife, centros formación, instalaciones" />
 
       <div className="min-h-screen bg-white">
         <CepHeader />
