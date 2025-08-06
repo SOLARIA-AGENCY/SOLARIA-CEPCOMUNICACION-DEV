@@ -95,6 +95,85 @@ export interface EmploymentCourseConfig {
       teaches?: string[];
     };
   };
+  // CONFIGURACIONES AVANZADAS - Opcionales para compatibilidad
+  configuracion_ads?: {
+    tracking_tag: string;
+    nombre_formulario: string;
+    lista_mailchimp: string;
+    landing_page: string;
+    estado_campana: string;
+    prioridad: number;
+    urls_estrategicas: {
+      landing_principal: string;
+      formulario_contacto: string;
+      whatsapp_directo: string;
+    };
+    meta_form: {
+      form_id: string;
+      pixel_id: string;
+      conversion_api: boolean;
+    };
+    llamada_accion_unificada: {
+      titulo_principal: string;
+      subtitulo: string;
+      boton_primario: string;
+      boton_secundario: string;
+      mensaje_urgencia: string;
+    };
+    analytics: {
+      facebook_pixel: {
+        pixel_id: string;
+        eventos: string[];
+      };
+      google_analytics: {
+        measurement_id: string;
+        eventos_personalizados: string[];
+      };
+      google_tag_manager: {
+        container_id: string;
+        triggers: string[];
+      };
+    };
+    contenido_ads: {
+      titulos: string[];
+      textos: string[];
+      ctas: string[];
+      hashtags: string[];
+      audiencia_objetivo: string;
+    };
+  };
+  automatizacion_n8n?: {
+    workflow_id: string;
+    acciones: {
+      lead_capture: boolean;
+      email_bienvenida: boolean;
+      seguimiento_automatico: boolean;
+      notificacion_equipo: boolean;
+    };
+    integraciones: {
+      mailchimp: boolean;
+      hubspot: boolean;
+      whatsapp_business: boolean;
+      calendario_citas: boolean;
+    };
+    timing: {
+      email_inmediato: boolean;
+      seguimiento_24h: boolean;
+      recordatorio_7d: boolean;
+    };
+  };
+  configuracion_tecnica?: {
+    formularios: {
+      validacion_tiempo_real: boolean;
+      campos_obligatorios: string[];
+      integracion_captcha: boolean;
+    };
+    optimizacion_conversion: {
+      ab_testing_activo: boolean;
+      lazy_loading: boolean;
+      cache_optimizado: boolean;
+    };
+  };
 }
 
 export interface EmploymentTracking {
