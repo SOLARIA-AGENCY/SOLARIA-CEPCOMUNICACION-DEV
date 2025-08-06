@@ -52,7 +52,7 @@ describe('CursoCard', () => {
     
     const dateTag = screen.getByText(/SEPTIEMBRE 2025/i)
     expect(dateTag).toBeInTheDocument()
-    expect(dateTag).toHaveClass('bg-green-500')
+    expect(dateTag).toHaveClass('bg-orange-500')
   })
 
   it('matches snapshot', () => {

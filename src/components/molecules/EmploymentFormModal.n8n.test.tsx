@@ -59,7 +59,7 @@ describe('EmploymentFormModal - n8n Integration Tests', () => {
 
     // Verify the call was made to the correct URL
     expect(mockFetch).toHaveBeenCalledWith(
-      'http://148.230.118.124/api/formsubmit-proxy',
+      'http://localhost:3001/api/formsubmit-proxy',
       expect.objectContaining({
         method: 'POST',
         headers: {
@@ -129,7 +129,7 @@ describe('EmploymentFormModal - n8n Integration Tests', () => {
 
     await waitFor(() => {
       expect(mockFetch).toHaveBeenCalledWith(
-        'http://148.230.118.124/api/formsubmit-proxy',
+        'http://localhost:3001/api/formsubmit-proxy',
         expect.objectContaining({
           method: 'POST',
           headers: {

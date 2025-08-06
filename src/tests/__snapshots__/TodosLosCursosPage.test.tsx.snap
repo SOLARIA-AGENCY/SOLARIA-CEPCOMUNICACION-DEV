@@ -108,7 +108,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 />
               </svg>
               <span>
-                Martes, 1 de julio de 2025 - 15:43h
+                Miércoles, 6 de agosto de 2025 - 09:24h
               </span>
             </div>
             <div
@@ -436,6 +436,52 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2"
+                class="w-full h-40 sm:h-48 object-cover"
+                decoding="async"
+                loading="lazy"
+                src="/images/cursos/farmacia-parafarmacia.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio 21/07/2025 - Lunes 10:00-13:00H
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en el enlace entre el farmacéutico y el paciente.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/auxiliar-farmacia-parafarmacia-norte-grupo2-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Auxiliar de Veterinaria"
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
@@ -627,9 +673,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/Quiromasaje II.png"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
               >
-                ÚLTIMAS PLAZAS
+                MATRÍCULA CERRADA
               </div>
               <div
                 class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600 animate-pulse"
@@ -671,52 +717,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2"
-                class="w-full h-40 sm:h-48 object-cover"
-                decoding="async"
-                loading="lazy"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
-              >
-                21 JULIO 2025
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 21/07/2025 - Lunes 10:00-13:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en el enlace entre el farmacéutico y el paciente.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-farmacia-parafarmacia-norte-grupo2-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
                 alt="Imagen del curso Adiestramiento Canino Nivel 1"
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
@@ -724,9 +724,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                15 SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -770,9 +770,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/dietetica-nutricion.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                15 SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -816,9 +816,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-enfermeria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                29 SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1138,9 +1138,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                11 SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1246,6 +1246,52 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
+                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)"
+                class="w-full h-40 sm:h-48 object-cover"
+                decoding="async"
+                loading="lazy"
+                src="/images/cursos/auxiliar-veterinaria.jpg"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+              >
+                Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)
+              </h3>
+              <p
+                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+              >
+                Inicio: 01/07/2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
+              </p>
+              <a
+                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                data-discover="true"
+                href="/curso/ayudante-tecnico-veterinario-santa-cruz-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
                 alt="Imagen del curso Quiromasaje (11 meses) - Santa Cruz"
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
@@ -1338,52 +1384,6 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)"
-                class="w-full h-40 sm:h-48 object-cover"
-                decoding="async"
-                loading="lazy"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
-              >
-                ÚLTIMAS PLAZAS
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio: 01/07/2025
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en un profesional especializado en asistencia veterinaria avanzada.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/ayudante-tecnico-veterinario-santa-cruz-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
                 alt="Imagen del curso Quiromasaje Nivel II"
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
@@ -1391,9 +1391,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/Quiromasaje II.png"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
               >
-                ÚLTIMAS PLAZAS
+                MATRÍCULA CERRADA
               </div>
             </div>
             <div
@@ -1437,9 +1437,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/especializacion-sanitaria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                11 SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1483,9 +1483,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/auxiliar-enfermeria.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                29 SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1667,9 +1667,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/adiestramiento-canino.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                15 SEPTIEMBRE 2025
               </div>
             </div>
             <div
@@ -1759,9 +1759,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 src="/images/cursos/dietetica-nutricion.jpg"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                SEPTIEMBRE 2025
+                15 SEPTIEMBRE 2025
               </div>
             </div>
             <div
