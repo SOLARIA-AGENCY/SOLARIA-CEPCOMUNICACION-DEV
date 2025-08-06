@@ -35,7 +35,7 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
     setIsLoading(true);
 
     // Preparar datos para el webhook de n8n
-    const submissionData = {
+    const _submissionData = {
       nombre: `${formData.nombre} ${formData.apellidos}`.trim(),
       email: formData.email.toLowerCase().trim(),
       telefono: formData.telefono.trim(),
