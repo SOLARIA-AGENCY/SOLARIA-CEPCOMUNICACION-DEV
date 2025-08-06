@@ -75,6 +75,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: validate
     if: needs.validate.outputs.should_deploy == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: production
+      url: ${{ env.DEPLOY_URL }}
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
@@ -100,23 +107,47 @@ jobs:
           find dist/ -name "*.js" -exec wc -c {} + | tail -1 | awk '{print "JS Bundle size: " $1 " bytes"}'
           find dist/ -name "*.css" -exec wc -c {} + | tail -1 | awk '{print "CSS Bundle size: " $1 " bytes"}'
           
-      - name: 🚀 Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: 🚀 Deploy via SFTP (Primary)
+        id: sftp_deploy
+        continue-on-error: true
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.HOSTINGER_FTP_HOST }}
           username: ${{ secrets.HOSTINGER_FTP_USER }}
           password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: /public_html/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.DS_Store
-            **/.vscode/**
-            **/Thumbs.db
-            **/*.log
-          dangerous-clean-slate: false
+          local_path: './dist/*'
+          remote_path: '/var/www/html'
+          sftp_only: true
+          
+      - name: 📦 Setup GitHub Pages (Backup)
+        if: steps.sftp_deploy.outcome == 'failure'
+        uses: actions/configure-pages@v3
+        
+      - name: 🌐 Deploy to GitHub Pages (Backup)
+        if: steps.sftp_deploy.outcome == 'failure'
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
+          
+      - name: 🚀 Publish to GitHub Pages (Backup)
+        if: steps.sftp_deploy.outcome == 'failure'
+        id: pages_deploy
+        uses: actions/deploy-pages@v2
+        
+      - name: 📊 Deployment Status
+        run: |
+          if [ "${{ steps.sftp_deploy.outcome }}" = "success" ]; then
+            echo "✅ Primary SFTP deployment successful"
+            echo "DEPLOY_METHOD=SFTP" >> $GITHUB_ENV
+            echo "DEPLOY_URL=https://www.cepcomunicacion.com" >> $GITHUB_ENV
+          elif [ "${{ steps.pages_deploy.outcome }}" = "success" ]; then
+            echo "✅ Backup GitHub Pages deployment successful"
+            echo "DEPLOY_METHOD=PAGES" >> $GITHUB_ENV
+            echo "DEPLOY_URL=${{ steps.pages_deploy.outputs.page_url }}" >> $GITHUB_ENV
+          else
+            echo "❌ Both deployment methods failed"
+            exit 1
+          fi
           
       - name: 🔄 Verify FTP Upload
         run: |
