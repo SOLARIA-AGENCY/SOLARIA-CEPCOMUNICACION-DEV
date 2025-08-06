@@ -1,0 +1,848 @@
+{
+  "_metadata": {
+    "version": "2.0",
+    "created": "2025-01-27",
+    "updated": "2025-01-27",
+    "description": "Plantillas JSON para generación automática de cursos CEP con configuración completa de ads y campañas",
+    "usage": "Estas plantillas contienen placeholders genéricos para crear cursos automáticamente desde cualquier fuente de datos, incluyendo toda la infraestructura publicitaria",
+    "features": [
+      "Configuración completa de cursos",
+      "Infraestructura de ads y campañas",
+      "Formularios Meta Ads",
+      "Tracking diferenciado",
+      "Automatización n8n",
+      "Listas Mailchimp",
+      "URLs estratégicas duales"
+    ],
+    "types": [
+      "trabajadores_ocupados",
+      "desempleados", 
+      "cursos_privados"
+    ]
+  },
+
+  "plantilla_trabajadores_ocupados": {
+    "_instructions": {
+      "description": "Plantilla para cursos dirigidos a trabajadores activos financiados por SEPE",
+      "required_placeholders": [
+        "{{ID_CURSO}}", "{{SLUG_CURSO}}", "{{NOMBRE_CURSO}}", "{{DESCRIPCION_CURSO}}",
+        "{{FECHA_INICIO}}", "{{FECHA_FIN}}", "{{PLAZAS_DISPONIBLES}}", "{{SEDE}}",
+        "{{IMAGEN_CURSO}}", "{{OBJETIVOS}}", "{{TEMARIO_MODULOS}}", "{{DURACION_HORAS}}"
+      ],
+      "optional_placeholders": [
+        "{{METODOLOGIA}}", "{{REQUISITOS_ADICIONALES}}", "{{KEYWORDS_SEO}}"
+      ]
+    },
+    "template": {
+      "id": "{{ID_CURSO}}",
+      "slug": "{{SLUG_CURSO}}",
+      "nombre": "{{NOMBRE_CURSO}}",
+      "tipo": "ocupados",
+      "activo": true,
+      "fecha_inicio": "{{FECHA_INICIO}}",
+      "fecha_fin": "{{FECHA_FIN}}",
+      "plazas_disponibles": "{{PLAZAS_DISPONIBLES}}",
+      "sede": "{{SEDE}}",
+      "imagen": "/images/cursos/{{IMAGEN_CURSO}}",
+      "descripcion": "{{DESCRIPCION_CURSO}}",
+      "objetivos": [
+        "{{OBJETIVO_1}}",
+        "{{OBJETIVO_2}}",
+        "{{OBJETIVO_3}}",
+        "{{OBJETIVO_4}}",
+        "{{OBJETIVO_5}}"
+      ],
+      "temario": [
+        {
+          "modulo": "{{MODULO_1_TITULO}}",
+          "contenidos": [
+            "{{MODULO_1_CONTENIDO_1}}",
+            "{{MODULO_1_CONTENIDO_2}}",
+            "{{MODULO_1_CONTENIDO_3}}",
+            "{{MODULO_1_CONTENIDO_4}}"
+          ]
+        },
+        {
+          "modulo": "{{MODULO_2_TITULO}}",
+          "contenidos": [
+            "{{MODULO_2_CONTENIDO_1}}",
+            "{{MODULO_2_CONTENIDO_2}}",
+            "{{MODULO_2_CONTENIDO_3}}",
+            "{{MODULO_2_CONTENIDO_4}}"
+          ]
+        },
+        {
+          "modulo": "{{MODULO_3_TITULO}}",
+          "contenidos": [
+            "{{MODULO_3_CONTENIDO_1}}",
+            "{{MODULO_3_CONTENIDO_2}}",
+            "{{MODULO_3_CONTENIDO_3}}",
+            "{{MODULO_3_CONTENIDO_4}}"
+          ]
+        },
+        {
+          "modulo": "{{MODULO_4_TITULO}}",
+          "contenidos": [
+            "{{MODULO_4_CONTENIDO_1}}",
+            "{{MODULO_4_CONTENIDO_2}}",
+            "{{MODULO_4_CONTENIDO_3}}",
+            "{{MODULO_4_CONTENIDO_4}}"
+          ]
+        }
+      ],
+      "metodologia": "{{METODOLOGIA}}",
+      "datos_especificos": {
+        "tipo": "ocupados",
+        "contacto": {
+          "email": "cep.ocupados@gmail.com",
+          "telefono": "672.947.701"
+        },
+        "beneficios": [
+          "100% Gratuito (financiado SEPE)",
+          "Certificación oficial reconocida",
+          "Mejora tu CV y empleabilidad",
+          "Horario compatible con trabajo",
+          "Aplicación práctica inmediata",
+          "Material didáctico incluido",
+          "Seguimiento personalizado"
+        ],
+        "requisitos": [
+          "Ser trabajador activo de cualquier sector",
+          "Residir en Canarias",
+          "Tener más de 18 años",
+          "Disponibilidad horaria de tardes",
+          "Nivel básico de estudios",
+          "{{REQUISITOS_ADICIONALES}}"
+        ],
+        "financiacion": "SEPE - Servicio Público de Empleo Estatal",
+        "duracion": "{{DURACION_HORAS}} horas lectivas",
+        "modalidad": "{{MODALIDAD}}",
+        "certificacion": "Certificado oficial de aprovechamiento reconocido por SEPE",
+        "caracteristicas": {
+          "modalidad": "{{MODALIDAD_TECNICA}}",
+          "horario": "{{HORARIO}}",
+          "compatible_trabajo": true,
+          "certificacion_oficial": true,
+          "financiado_sepe": true
+        }
+      },
+      "seo": {
+        "title": "{{NOMBRE_CURSO}} - Trabajadores Ocupados | CEP Formación",
+        "description": "Curso gratuito de {{NOMBRE_CURSO}} para trabajadores. Financiado por SEPE. {{DESCRIPCION_CURSO}} ¡Plazas limitadas!",
+        "keywords": "{{KEYWORDS_SEO}}, curso trabajadores ocupados, SEPE, formación gratuita, {{SEDE_LOWERCASE}} tenerife",
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "{{NOMBRE_CURSO}}",
+          "description": "{{DESCRIPCION_CURSO}}",
+          "provider": {
+            "@type": "Organization",
+            "name": "CEP Formación",
+            "url": "https://cepcomunicacion.com"
+          },
+          "url": "https://cepcomunicacion.com/curso-ocupado/{{SLUG_CURSO}}",
+          "courseMode": "blended",
+          "educationalLevel": "professional",
+          "audience": "Trabajadores ocupados",
+          "teaches": [
+            "{{OBJETIVO_1}}",
+            "{{OBJETIVO_2}}",
+            "{{OBJETIVO_3}}",
+            "{{OBJETIVO_4}}",
+            "{{OBJETIVO_5}}"
+          ]
+        }
+      },
+      "configuracion_ads": {
+        "campana": {
+          "tag_seguimiento": "{{TEMPORADA}}-{{SLUG_CURSO}}-{{SEDE_SLUG}}",
+          "nombre_formulario": "CEP {{SEDE_COMPLETA}} – {{NOMBRE_CURSO}} – CAMPAÑA {{TEMPORADA_UPPER}} – SOLARIA AGENCY",
+          "lista_mailchimp": "Lista: {{NOMBRE_CURSO}} {{SEDE_COMPLETA}} {{TEMPORADA_UPPER}}",
+          "landing_preinscripcion": "landing-{{SLUG_CURSO}}-{{SEDE_SLUG}}",
+          "estado_campana": "{{ESTADO_CAMPANA}}",
+          "prioridad": "{{PRIORIDAD_CAMPANA}}"
+        },
+        "urls_estrategicas": {
+          "ruta_directa": "cepcomunicacion.com/{{SLUG_CURSO}}",
+          "ruta_semantica": "cepcomunicacion.com/cursos/{{SLUG_CURSO}}",
+          "proposito_directa": "Landing específica para leads de Facebook",
+          "proposito_semantica": "Estructura web semántica para tráfico orgánico"
+        },
+        "formulario_meta": {
+          "titulo_bienvenida": "¡Solicita información ahora!",
+          "descripcion_breve": "{{DESCRIPCION_FORMULARIO}}. Déjanos tus datos y te enviaremos toda la información sobre el curso de {{NOMBRE_CURSO}} en {{SEDE}}. {{ESPECIALIDAD_DESTACADA}}, comienza en {{MES_INICIO}}.",
+          "campos_requeridos": [
+            "Nombre completo (autocompletar si es posible)",
+            "Teléfono (autocompletar)",
+            "Email (autocompletar)"
+          ],
+          "campos_opcionales": ["{{CAMPO_OPCIONAL_1}}"],
+          "aviso_rgpd": "Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de {{NOMBRE_CURSO}} en {{SEDE}}. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad",
+          "pantalla_privacidad": "Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad",
+          "mensaje_confirmacion": {
+            "titulo": "¡Gracias por tu interés{{TITULO_ADICIONAL}}!",
+            "descripcion": "En breve recibirás un email y un WhatsApp con toda la información sobre el curso de {{NOMBRE_CURSO}} en {{SEDE}}{{INFORMACION_ADICIONAL}}. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza{{MENSAJE_ADICIONAL}}."
+          },
+          "cta_unificado": "Más información"
+        },
+        "tracking_analytics": {
+          "facebook_pixel": {
+            "evento_principal": "{{SLUG_CURSO}}-lead-generation",
+            "evento_conversion": "{{SLUG_CURSO}}-form-submit",
+            "parametros_custom": {
+              "curso": "{{NOMBRE_CURSO}}",
+              "sede": "{{SEDE}}",
+              "temporada": "{{TEMPORADA}}"
+            }
+          },
+          "google_analytics": {
+            "goal_name": "{{NOMBRE_CURSO}} - {{SEDE}} - Form Submit",
+            "event_category": "Course Lead",
+            "event_action": "Form Submit",
+            "event_label": "{{SLUG_CURSO}}"
+          },
+          "tag_manager": {
+            "trigger_name": "{{SLUG_CURSO}}-form-trigger",
+            "dataLayer_push": {
+              "event": "course_lead_generated",
+              "course_name": "{{NOMBRE_CURSO}}",
+              "course_location": "{{SEDE}}",
+              "campaign_tag": "{{TEMPORADA}}-{{SLUG_CURSO}}-{{SEDE_SLUG}}"
+            }
+          }
+        },
+        "contenido_ads": {
+          "variantes_titulo": [
+            "{{NOMBRE_CURSO}} - {{SEDE}}",
+            "Curso {{NOMBRE_CURSO}} {{SEDE}}",
+            "{{NOMBRE_CURSO}} en {{SEDE}} - {{BENEFICIO_PRINCIPAL}}"
+          ],
+          "textos_ad": [
+            "{{TEXTO_AD_1}}",
+            "{{TEXTO_AD_2}}",
+            "{{TEXTO_AD_3}}"
+          ],
+          "ctas_recomendados": [
+            "Más información",
+            "Solicitar información",
+            "Inscríbete ahora",
+            "Reserva tu plaza"
+          ],
+          "hashtags_sugeridos": ["#{{HASHTAG_1}}", "#{{HASHTAG_2}}", "#{{HASHTAG_3}}"],
+          "audiencia_objetivo": "{{DESCRIPCION_AUDIENCIA}}"
+        },
+        "automatizacion_n8n": {
+          "flujo_principal": "{{SLUG_CURSO}}-lead-automation",
+          "acciones_automaticas": [
+            "Registro en Google Sheets",
+            "Alta en lista Mailchimp",
+            "Envío email bienvenida",
+            "Envío WhatsApp (15 min después)",
+            "Asignación asesor rotativa",
+            "Notificación asesor con guión"
+          ],
+          "integraciones": {
+            "mailchimp_list_id": "{{MAILCHIMP_LIST_ID}}",
+            "google_sheet_id": "{{GOOGLE_SHEET_ID}}",
+            "whatsapp_template": "{{WHATSAPP_TEMPLATE_ID}}",
+            "email_template": "{{EMAIL_TEMPLATE_ID}}"
+          },
+          "timing": {
+            "email_inmediato": "0 segundos",
+            "whatsapp_delay": "15 minutos",
+            "asignacion_asesor": "30 minutos",
+            "seguimiento_24h": "24 horas"
+          }
+        },
+        "configuracion_tecnica": {
+          "tipo_formulario": "Más volumen (fácil de completar)",
+          "entrega_flexible": "Optimizada (recomendado para Meta)",
+          "autocompletar_campos": true,
+          "vincular_formulario": "Solo al curso y sede específicos",
+          "integracion_activa": "Mailchimp/n8n/Google Sheets",
+          "optimizacion_conversion": {
+            "landing_page_speed": "< 3 segundos",
+            "mobile_optimization": true,
+            "a_b_testing": true,
+            "retargeting_pixel": true
+          }
+        }
+      }
+    }
+  },
+
+  "plantilla_desempleados": {
+    "_instructions": {
+      "description": "Plantilla para cursos dirigidos a personas desempleadas con certificados de profesionalidad",
+      "required_placeholders": [
+        "{{ID_CURSO}}", "{{SLUG_CURSO}}", "{{NOMBRE_CURSO}}", "{{DESCRIPCION_CURSO}}",
+        "{{FECHA_INICIO}}", "{{FECHA_FIN}}", "{{PLAZAS_DISPONIBLES}}", "{{SEDE}}",
+        "{{IMAGEN_CURSO}}", "{{OBJETIVOS}}", "{{TEMARIO_MODULOS}}", "{{DURACION_HORAS}}",
+        "{{CERTIFICADO_PROFESIONALIDAD}}", "{{PRACTICAS_EMPRESAS_HORAS}}"
+      ]
+    },
+    "template": {
+      "id": "{{ID_CURSO}}",
+      "slug": "{{SLUG_CURSO}}",
+      "nombre": "{{NOMBRE_CURSO}}",
+      "tipo": "desempleados",
+      "activo": true,
+      "fecha_inicio": "{{FECHA_INICIO}}",
+      "fecha_fin": "{{FECHA_FIN}}",
+      "plazas_disponibles": "{{PLAZAS_DISPONIBLES}}",
+      "sede": "{{SEDE}}",
+      "imagen": "/images/cursos/{{IMAGEN_CURSO}}",
+      "descripcion": "{{DESCRIPCION_CURSO}}",
+      "objetivos": [
+        "{{OBJETIVO_1}}",
+        "{{OBJETIVO_2}}",
+        "{{OBJETIVO_3}}",
+        "{{OBJETIVO_4}}",
+        "{{OBJETIVO_5}}"
+      ],
+      "temario": [
+        {
+          "modulo": "{{MODULO_1_TITULO}}",
+          "contenidos": [
+            "{{MODULO_1_CONTENIDO_1}}",
+            "{{MODULO_1_CONTENIDO_2}}",
+            "{{MODULO_1_CONTENIDO_3}}",
+            "{{MODULO_1_CONTENIDO_4}}"
+          ]
+        },
+        {
+          "modulo": "{{MODULO_2_TITULO}}",
+          "contenidos": [
+            "{{MODULO_2_CONTENIDO_1}}",
+            "{{MODULO_2_CONTENIDO_2}}",
+            "{{MODULO_2_CONTENIDO_3}}",
+            "{{MODULO_2_CONTENIDO_4}}"
+          ]
+        },
+        {
+          "modulo": "{{MODULO_3_TITULO}}",
+          "contenidos": [
+            "{{MODULO_3_CONTENIDO_1}}",
+            "{{MODULO_3_CONTENIDO_2}}",
+            "{{MODULO_3_CONTENIDO_3}}",
+            "{{MODULO_3_CONTENIDO_4}}"
+          ]
+        },
+        {
+          "modulo": "Formación y Orientación Laboral (FOL)",
+          "contenidos": [
+            "Derechos y deberes laborales",
+            "Seguridad y salud en el trabajo",
+            "Orientación profesional",
+            "Búsqueda activa de empleo"
+          ]
+        },
+        {
+          "modulo": "Formación en Centros de Trabajo (FCT)",
+          "contenidos": [
+            "Prácticas profesionales en empresas del sector",
+            "{{PRACTICAS_EMPRESAS_HORAS}} horas de prácticas",
+            "Seguimiento y evaluación continua",
+            "Inserción laboral"
+          ]
+        }
+      ],
+      "metodologia": "{{METODOLOGIA}}",
+      "datos_especificos": {
+        "tipo": "desempleados",
+        "contacto": {
+          "email": "info@cursostenerife.es",
+          "telefono": "922.706.414"
+        },
+        "beneficios": [
+          "100% Gratuito (financiado SEPE/SCE)",
+          "Certificado de Profesionalidad oficial",
+          "Prácticas garantizadas en empresas",
+          "Orientación laboral personalizada",
+          "Bolsa de empleo activa",
+          "Material didáctico incluido",
+          "Seguimiento post-formación"
+        ],
+        "requisitos": [
+          "Estar inscrito como demandante de empleo",
+          "Residir en Canarias",
+          "Tener más de 18 años",
+          "{{NIVEL_ESTUDIOS_REQUERIDO}}",
+          "Disponibilidad horaria completa",
+          "{{REQUISITOS_ADICIONALES}}"
+        ],
+        "financiacion": "SEPE/SCE - Servicio Canario de Empleo",
+        "duracion": "{{DURACION_HORAS}} horas lectivas + {{PRACTICAS_EMPRESAS_HORAS}} horas prácticas",
+        "modalidad": "{{MODALIDAD}}",
+        "certificacion": "{{CERTIFICADO_PROFESIONALIDAD}}",
+        "caracteristicas": {
+          "modalidad": "{{MODALIDAD_TECNICA}}",
+          "practicas_empresas": true,
+          "orientacion_laboral": true,
+          "certificado_profesionalidad": true,
+          "financiado_sepe_sce": true
+        }
+      },
+      "seo": {
+        "title": "{{NOMBRE_CURSO}} - Curso Gratuito Desempleados | CEP Formación",
+        "description": "Curso gratuito {{NOMBRE_CURSO}} para desempleados. Certificado de Profesionalidad + Prácticas en empresas. {{DESCRIPCION_CURSO}} ¡Plazas limitadas!",
+        "keywords": "{{KEYWORDS_SEO}}, curso desempleados, certificado profesionalidad, prácticas empresas, {{SEDE_LOWERCASE}} tenerife",
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "{{NOMBRE_CURSO}}",
+          "description": "{{DESCRIPCION_CURSO}}",
+          "provider": {
+            "@type": "Organization",
+            "name": "CEP Formación",
+            "url": "https://cepcomunicacion.com"
+          },
+          "url": "https://cepcomunicacion.com/curso-desempleado/{{SLUG_CURSO}}",
+          "courseMode": "blended",
+          "educationalLevel": "professional",
+          "audience": "Personas desempleadas",
+          "teaches": [
+            "{{OBJETIVO_1}}",
+            "{{OBJETIVO_2}}",
+            "{{OBJETIVO_3}}",
+            "{{OBJETIVO_4}}",
+            "{{OBJETIVO_5}}"
+          ]
+        }
+      },
+      "configuracion_ads": {
+        "campana": {
+          "tag_seguimiento": "{{TEMPORADA}}-{{SLUG_CURSO}}-{{SEDE_SLUG}}",
+          "nombre_formulario": "CEP {{SEDE_COMPLETA}} – {{NOMBRE_CURSO}} – CAMPAÑA {{TEMPORADA_UPPER}} – SOLARIA AGENCY",
+          "lista_mailchimp": "Lista: {{NOMBRE_CURSO}} {{SEDE_COMPLETA}} {{TEMPORADA_UPPER}}",
+          "landing_preinscripcion": "landing-{{SLUG_CURSO}}-{{SEDE_SLUG}}",
+          "estado_campana": "{{ESTADO_CAMPANA}}",
+          "prioridad": "{{PRIORIDAD_CAMPANA}}"
+        },
+        "urls_estrategicas": {
+          "ruta_directa": "cepcomunicacion.com/{{SLUG_CURSO}}",
+          "ruta_semantica": "cepcomunicacion.com/cursos/{{SLUG_CURSO}}",
+          "proposito_directa": "Landing específica para leads de Facebook",
+          "proposito_semantica": "Estructura web semántica para tráfico orgánico"
+        },
+        "formulario_meta": {
+          "titulo_bienvenida": "¡Solicita información ahora!",
+          "descripcion_breve": "{{DESCRIPCION_FORMULARIO}}. Déjanos tus datos y te enviaremos toda la información sobre el curso de {{NOMBRE_CURSO}} en {{SEDE}}. {{ESPECIALIDAD_DESTACADA}}, comienza en {{MES_INICIO}}.",
+          "campos_requeridos": [
+            "Nombre completo (autocompletar si es posible)",
+            "Teléfono (autocompletar)",
+            "Email (autocompletar)"
+          ],
+          "campos_opcionales": ["{{CAMPO_OPCIONAL_1}}"],
+          "aviso_rgpd": "Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de {{NOMBRE_CURSO}} en {{SEDE}}. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad",
+          "pantalla_privacidad": "Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad",
+          "mensaje_confirmacion": {
+            "titulo": "¡Gracias por tu interés{{TITULO_ADICIONAL}}!",
+            "descripcion": "En breve recibirás un email y un WhatsApp con toda la información sobre el curso de {{NOMBRE_CURSO}} en {{SEDE}}{{INFORMACION_ADICIONAL}}. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza{{MENSAJE_ADICIONAL}}."
+          },
+          "cta_unificado": "Más información"
+        },
+        "tracking_analytics": {
+          "facebook_pixel": {
+            "evento_principal": "{{SLUG_CURSO}}-lead-generation",
+            "evento_conversion": "{{SLUG_CURSO}}-form-submit",
+            "parametros_custom": {
+              "curso": "{{NOMBRE_CURSO}}",
+              "sede": "{{SEDE}}",
+              "temporada": "{{TEMPORADA}}"
+            }
+          },
+          "google_analytics": {
+            "goal_name": "{{NOMBRE_CURSO}} - {{SEDE}} - Form Submit",
+            "event_category": "Course Lead",
+            "event_action": "Form Submit",
+            "event_label": "{{SLUG_CURSO}}"
+          },
+          "tag_manager": {
+            "trigger_name": "{{SLUG_CURSO}}-form-trigger",
+            "dataLayer_push": {
+              "event": "course_lead_generated",
+              "course_name": "{{NOMBRE_CURSO}}",
+              "course_location": "{{SEDE}}",
+              "campaign_tag": "{{TEMPORADA}}-{{SLUG_CURSO}}-{{SEDE_SLUG}}"
+            }
+          }
+        },
+        "contenido_ads": {
+          "variantes_titulo": [
+            "{{NOMBRE_CURSO}} - {{SEDE}}",
+            "Curso {{NOMBRE_CURSO}} {{SEDE}}",
+            "{{NOMBRE_CURSO}} en {{SEDE}} - {{BENEFICIO_PRINCIPAL}}"
+          ],
+          "textos_ad": [
+            "{{TEXTO_AD_1}}",
+            "{{TEXTO_AD_2}}",
+            "{{TEXTO_AD_3}}"
+          ],
+          "ctas_recomendados": [
+            "Más información",
+            "Solicitar información",
+            "Inscríbete ahora",
+            "Reserva tu plaza"
+          ],
+          "hashtags_sugeridos": ["#{{HASHTAG_1}}", "#{{HASHTAG_2}}", "#{{HASHTAG_3}}"],
+          "audiencia_objetivo": "{{DESCRIPCION_AUDIENCIA}}"
+        },
+        "automatizacion_n8n": {
+          "flujo_principal": "{{SLUG_CURSO}}-lead-automation",
+          "acciones_automaticas": [
+            "Registro en Google Sheets",
+            "Alta en lista Mailchimp",
+            "Envío email bienvenida",
+            "Envío WhatsApp (15 min después)",
+            "Asignación asesor rotativa",
+            "Notificación asesor con guión"
+          ],
+          "integraciones": {
+            "mailchimp_list_id": "{{MAILCHIMP_LIST_ID}}",
+            "google_sheet_id": "{{GOOGLE_SHEET_ID}}",
+            "whatsapp_template": "{{WHATSAPP_TEMPLATE_ID}}",
+            "email_template": "{{EMAIL_TEMPLATE_ID}}"
+          },
+          "timing": {
+            "email_inmediato": "0 segundos",
+            "whatsapp_delay": "15 minutos",
+            "asignacion_asesor": "30 minutos",
+            "seguimiento_24h": "24 horas"
+          }
+        },
+        "configuracion_tecnica": {
+          "tipo_formulario": "Más volumen (fácil de completar)",
+          "entrega_flexible": "Optimizada (recomendado para Meta)",
+          "autocompletar_campos": true,
+          "vincular_formulario": "Solo al curso y sede específicos",
+          "integracion_activa": "Mailchimp/n8n/Google Sheets",
+          "optimizacion_conversion": {
+            "landing_page_speed": "< 3 segundos",
+            "mobile_optimization": true,
+            "a_b_testing": true,
+            "retargeting_pixel": true
+          }
+        }
+      }
+    }
+  },
+
+  "plantilla_cursos_privados": {
+    "_instructions": {
+      "description": "Plantilla para cursos privados de pago con diferentes modalidades y precios",
+      "required_placeholders": [
+        "{{NOMBRE_CURSO}}", "{{CODIGO_CURSO}}", "{{SLUG_BASE}}", "{{IMAGEN_CURSO}}",
+        "{{CATEGORIA}}", "{{SLOGAN}}", "{{DESCRIPCION_DETALLADA}}", "{{PRECIO_TOTAL}}",
+        "{{MODALIDAD_PAGO}}", "{{DURACION}}", "{{PRACTICAS}}", "{{ESPECIALIZACION}}"
+      ]
+    },
+    "template": {
+      "nombre": "{{NOMBRE_CURSO}}",
+      "codigo": "{{CODIGO_CURSO}}",
+      "slugBase": "{{SLUG_BASE}}",
+      "imagen": "/images/cursos/{{IMAGEN_CURSO}}",
+      "categoria": "{{CATEGORIA}}",
+      "copy": {
+        "slogan": "{{SLOGAN}}",
+        "textosPrincipales": [
+          "{{TEXTO_PRINCIPAL_1}}",
+          "{{TEXTO_PRINCIPAL_2}}",
+          "{{TEXTO_PRINCIPAL_3}}"
+        ],
+        "titulos": [
+          "{{TITULO_1}}",
+          "{{TITULO_2}}",
+          "{{TITULO_3}}"
+        ]
+      },
+      "descripcionDetallada": {
+        "introduccion": "{{INTRODUCCION}}",
+        "queAprendes": "{{QUE_APRENDES}}",
+        "puntosClave": [
+          {
+            "icono": "{{ICONO_1}}",
+            "texto": "{{PUNTO_CLAVE_1}}"
+          },
+          {
+            "icono": "{{ICONO_2}}",
+            "texto": "{{PUNTO_CLAVE_2}}"
+          },
+          {
+            "icono": "{{ICONO_3}}",
+            "texto": "{{PUNTO_CLAVE_3}}"
+          },
+          {
+            "icono": "{{ICONO_4}}",
+            "texto": "{{PUNTO_CLAVE_4}}"
+          }
+        ],
+        "infoAdicional": {
+          "duracion": "{{DURACION}}",
+          "practicas": "{{PRACTICAS}}",
+          "especializacion": "{{ESPECIALIZACION}}"
+        },
+        "inversion": {
+          "total": "{{PRECIO_TOTAL}}",
+          "modalidad": "{{MODALIDAD_PAGO}}",
+          "incluye": "{{INCLUYE}}"
+        },
+        "salidasProfesionales": [
+          "{{SALIDA_PROFESIONAL_1}}",
+          "{{SALIDA_PROFESIONAL_2}}",
+          "{{SALIDA_PROFESIONAL_3}}",
+          "{{SALIDA_PROFESIONAL_4}}",
+          "{{SALIDA_PROFESIONAL_5}}"
+        ],
+        "modulos": [
+          {
+            "titulo": "{{MODULO_1_TITULO}}",
+            "contenido": [
+              "{{MODULO_1_CONTENIDO_1}}",
+              "{{MODULO_1_CONTENIDO_2}}",
+              "{{MODULO_1_CONTENIDO_3}}"
+            ]
+          },
+          {
+            "titulo": "{{MODULO_2_TITULO}}",
+            "contenido": [
+              "{{MODULO_2_CONTENIDO_1}}",
+              "{{MODULO_2_CONTENIDO_2}}",
+              "{{MODULO_2_CONTENIDO_3}}"
+            ]
+          },
+          {
+            "titulo": "{{MODULO_3_TITULO}}",
+            "contenido": [
+              "{{MODULO_3_CONTENIDO_1}}",
+              "{{MODULO_3_CONTENIDO_2}}",
+              "{{MODULO_3_CONTENIDO_3}}"
+            ]
+          },
+          {
+            "titulo": "{{MODULO_4_TITULO}}",
+            "contenido": [
+              "{{MODULO_4_CONTENIDO_1}}",
+              "{{MODULO_4_CONTENIDO_2}}",
+              "{{MODULO_4_CONTENIDO_3}}"
+            ]
+          },
+          {
+            "titulo": "{{MODULO_5_TITULO}}",
+            "contenido": [
+              "{{MODULO_5_CONTENIDO_1}}",
+              "{{MODULO_5_CONTENIDO_2}}",
+              "{{MODULO_5_CONTENIDO_3}}"
+            ]
+          }
+        ],
+        "profesores": [
+          {
+            "nombre": "{{PROFESOR_1_NOMBRE}}",
+            "foto": "/images/profesores/{{PROFESOR_1_FOTO}}",
+            "especialidad": "{{PROFESOR_1_ESPECIALIDAD}}",
+            "bio": "{{PROFESOR_1_BIO}}",
+            "tags": [
+              "{{PROFESOR_1_TAG_1}}",
+              "{{PROFESOR_1_TAG_2}}",
+              "{{PROFESOR_1_TAG_3}}"
+            ]
+          }
+        ],
+        "certificaciones": [
+          {
+            "nombre": "{{CERTIFICACION_1_NOMBRE}}",
+            "logo": "/images/certificaciones/{{CERTIFICACION_1_LOGO}}"
+          }
+        ],
+        "colaboradores": [
+          {
+            "nombre": "{{COLABORADOR_1_NOMBRE}}",
+            "logo": "/images/colaboradores/{{COLABORADOR_1_LOGO}}"
+          }
+        ],
+        "cursosComplementarios": [
+          "{{CURSO_COMPLEMENTARIO_1}}",
+          "{{CURSO_COMPLEMENTARIO_2}}",
+          "{{CURSO_COMPLEMENTARIO_3}}"
+        ],
+        "requisitos": [
+          "{{REQUISITO_1}}",
+          "{{REQUISITO_2}}",
+          "{{REQUISITO_3}}"
+        ]
+      },
+      "seo": {
+        "title": "{{NOMBRE_CURSO}} - Curso Privado | CEP Formación",
+        "description": "{{DESCRIPCION_CURSO}}. {{SLOGAN}}. Inscríbete ahora en nuestro curso de {{NOMBRE_CURSO}}.",
+        "keywords": "{{KEYWORDS_SEO}}, curso {{CATEGORIA}}, formación privada, {{NOMBRE_CURSO}}",
+        "structuredData": {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "{{NOMBRE_CURSO}}",
+          "description": "{{DESCRIPCION_DETALLADA}}",
+          "provider": {
+            "@type": "Organization",
+            "name": "CEP Formación",
+            "url": "https://cepcomunicacion.com"
+          },
+          "url": "https://cepcomunicacion.com/curso-privado/{{SLUG_BASE}}",
+          "courseMode": "blended",
+          "educationalLevel": "professional",
+          "audience": "Profesionales y estudiantes"
+        }
+      },
+      "configuracion_ads": {
+        "campana": {
+          "tag_seguimiento": "{{TEMPORADA}}-{{SLUG_BASE}}-privado",
+          "nombre_formulario": "CEP – {{NOMBRE_CURSO}} – CAMPAÑA {{TEMPORADA_UPPER}} – SOLARIA AGENCY",
+          "lista_mailchimp": "Lista: {{NOMBRE_CURSO}} {{TEMPORADA_UPPER}}",
+          "landing_preinscripcion": "landing-{{SLUG_BASE}}-privado",
+          "estado_campana": "{{ESTADO_CAMPANA}}",
+          "prioridad": "{{PRIORIDAD_CAMPANA}}"
+        },
+        "urls_estrategicas": {
+          "ruta_directa": "cepcomunicacion.com/{{SLUG_BASE}}",
+          "ruta_semantica": "cepcomunicacion.com/cursos-privados/{{SLUG_BASE}}",
+          "proposito_directa": "Landing específica para leads de Facebook",
+          "proposito_semantica": "Estructura web semántica para tráfico orgánico"
+        },
+        "formulario_meta": {
+          "titulo_bienvenida": "¡Solicita información ahora!",
+          "descripcion_breve": "{{DESCRIPCION_FORMULARIO}}. Déjanos tus datos y te enviaremos toda la información sobre el curso de {{NOMBRE_CURSO}}. {{ESPECIALIDAD_DESTACADA}}, comienza en {{MES_INICIO}}.",
+          "campos_requeridos": [
+            "Nombre completo (autocompletar si es posible)",
+            "Teléfono (autocompletar)",
+            "Email (autocompletar)"
+          ],
+          "campos_opcionales": ["{{CAMPO_OPCIONAL_1}}"],
+          "aviso_rgpd": "Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de {{NOMBRE_CURSO}}. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad",
+          "pantalla_privacidad": "Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad",
+          "mensaje_confirmacion": {
+            "titulo": "¡Gracias por tu interés{{TITULO_ADICIONAL}}!",
+            "descripcion": "En breve recibirás un email y un WhatsApp con toda la información sobre el curso de {{NOMBRE_CURSO}}{{INFORMACION_ADICIONAL}}. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza{{MENSAJE_ADICIONAL}}."
+          },
+          "cta_unificado": "Más información"
+        },
+        "tracking_analytics": {
+          "facebook_pixel": {
+            "evento_principal": "{{SLUG_BASE}}-lead-generation",
+            "evento_conversion": "{{SLUG_BASE}}-form-submit",
+            "parametros_custom": {
+              "curso": "{{NOMBRE_CURSO}}",
+              "categoria": "{{CATEGORIA}}",
+              "temporada": "{{TEMPORADA}}"
+            }
+          },
+          "google_analytics": {
+            "goal_name": "{{NOMBRE_CURSO}} - Form Submit",
+            "event_category": "Private Course Lead",
+            "event_action": "Form Submit",
+            "event_label": "{{SLUG_BASE}}"
+          },
+          "tag_manager": {
+            "trigger_name": "{{SLUG_BASE}}-form-trigger",
+            "dataLayer_push": {
+              "event": "private_course_lead_generated",
+              "course_name": "{{NOMBRE_CURSO}}",
+              "course_category": "{{CATEGORIA}}",
+              "campaign_tag": "{{TEMPORADA}}-{{SLUG_BASE}}-privado"
+            }
+          }
+        },
+        "contenido_ads": {
+          "variantes_titulo": [
+            "{{NOMBRE_CURSO}}",
+            "Curso {{NOMBRE_CURSO}}",
+            "{{NOMBRE_CURSO}} - {{BENEFICIO_PRINCIPAL}}"
+          ],
+          "textos_ad": [
+            "{{TEXTO_AD_1}}",
+            "{{TEXTO_AD_2}}",
+            "{{TEXTO_AD_3}}"
+          ],
+          "ctas_recomendados": [
+            "Más información",
+            "Solicitar información",
+            "Inscríbete ahora",
+            "Reserva tu plaza"
+          ],
+          "hashtags_sugeridos": ["#{{HASHTAG_1}}", "#{{HASHTAG_2}}", "#{{HASHTAG_3}}"],
+          "audiencia_objetivo": "{{DESCRIPCION_AUDIENCIA}}"
+        },
+        "automatizacion_n8n": {
+          "flujo_principal": "{{SLUG_BASE}}-lead-automation",
+          "acciones_automaticas": [
+            "Registro en Google Sheets",
+            "Alta en lista Mailchimp",
+            "Envío email bienvenida",
+            "Envío WhatsApp (15 min después)",
+            "Asignación asesor rotativa",
+            "Notificación asesor con guión"
+          ],
+          "integraciones": {
+            "mailchimp_list_id": "{{MAILCHIMP_LIST_ID}}",
+            "google_sheet_id": "{{GOOGLE_SHEET_ID}}",
+            "whatsapp_template": "{{WHATSAPP_TEMPLATE_ID}}",
+            "email_template": "{{EMAIL_TEMPLATE_ID}}"
+          },
+          "timing": {
+            "email_inmediato": "0 segundos",
+            "whatsapp_delay": "15 minutos",
+            "asignacion_asesor": "30 minutos",
+            "seguimiento_24h": "24 horas"
+          }
+        },
+        "configuracion_tecnica": {
+          "tipo_formulario": "Más volumen (fácil de completar)",
+          "entrega_flexible": "Optimizada (recomendado para Meta)",
+          "autocompletar_campos": true,
+          "vincular_formulario": "Solo al curso específico",
+          "integracion_activa": "Mailchimp/n8n/Google Sheets",
+          "optimizacion_conversion": {
+            "landing_page_speed": "< 3 segundos",
+            "mobile_optimization": true,
+            "a_b_testing": true,
+            "retargeting_pixel": true
+          }
+        }
+      }
+    }
+  },
+
+  "_usage_examples": {
+    "ejemplo_ocupados": {
+      "description": "Ejemplo de cómo rellenar la plantilla para trabajadores ocupados",
+      "placeholders_filled": {
+        "{{ID_CURSO}}": "PRO-OCUP-MARKETING-DIGITAL-25",
+        "{{SLUG_CURSO}}": "marketing-digital-ocupados",
+        "{{NOMBRE_CURSO}}": "Marketing Digital y Redes Sociales",
+        "{{DESCRIPCION_CURSO}}": "Curso especializado en estrategias de marketing digital, gestión de redes sociales y analítica web para profesionales activos.",
+        "{{FECHA_INICIO}}": "2025-09-15",
+        "{{FECHA_FIN}}": "2025-10-20",
+        "{{PLAZAS_DISPONIBLES}}": "20",
+        "{{SEDE}}": "Santa Cruz"
+      }
+    },
+    "ejemplo_desempleados": {
+      "description": "Ejemplo de cómo rellenar la plantilla para desempleados",
+      "placeholders_filled": {
+        "{{ID_CURSO}}": "CP-DESEMP-ADMIN-GESTION-25",
+        "{{SLUG_CURSO}}": "administracion-gestion-desempleados",
+        "{{NOMBRE_CURSO}}": "Actividades Administrativas en la Relación con el Cliente",
+        "{{CERTIFICADO_PROFESIONALIDAD}}": "Certificado de Profesionalidad Nivel 2 - ADGG0208",
+        "{{PRACTICAS_EMPRESAS_HORAS}}": "120"
+      }
+    },
+    "ejemplo_privados": {
+      "description": "Ejemplo de cómo rellenar la plantilla para cursos privados",
+      "placeholders_filled": {
+        "{{NOMBRE_CURSO}}": "Auxiliar de Enfermería",
+        "{{CODIGO_CURSO}}": "AUX-ENF-2025",
+        "{{CATEGORIA}}": "sanidad",
+        "{{PRECIO_TOTAL}}": "1.200€",
+        "{{MODALIDAD_PAGO}}": "Pago fraccionado disponible"
+      }
+    }
+  }
+}

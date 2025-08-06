@@ -1,0 +1,56 @@
+{
+  "campaignName": "CEP Norte – Auxiliar de Farmacia + Dermocosmética – CAMPAÑA OTOÑO 2025 – SOLARIA AGENCY",
+  "trackingTag": "otono-2025-auxiliar-farmacia-dermo-norte",
+  "formConfig": {
+    "titulo_bienvenida": "¡Solicita información ahora!",
+    "descripcion_breve": "Fórmate como Auxiliar de Farmacia especializado en Dermocosmética. Déjanos tus datos y te enviaremos toda la información sobre el curso de Auxiliar de Farmacia + Dermocosmética en Norte. con especialización en dermocosmética, comienza en septiembre.",
+    "campos_requeridos": [
+      "Nombre completo (autocompletar si es posible)",
+      "Teléfono (autocompletar)",
+      "Email (autocompletar)"
+    ],
+    "campos_opcionales": [
+      "Zona de Tenerife (opcional)"
+    ],
+    "aviso_rgpd": "Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Auxiliar de Farmacia + Dermocosmética en Norte. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad",
+    "pantalla_privacidad": "Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad",
+    "mensaje_confirmacion": {
+      "titulo": "¡Gracias por tu interés en nuestro curso de Auxiliar de Farmacia!",
+      "descripcion": "En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Auxiliar de Farmacia + Dermocosmética en Norte con especialización en dermocosmética. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza. ¡Las plazas son limitadas!."
+    },
+    "cta_unificado": "Más información"
+  },
+  "adContent": {
+    "variantes_titulo": [
+      "Auxiliar de Farmacia + Dermocosmética - Norte",
+      "Curso Auxiliar de Farmacia + Dermocosmética Norte",
+      "Auxiliar de Farmacia + Dermocosmética en Norte - Alta Empleabilidad"
+    ],
+    "textos_ad": [
+      "🏥 ¿Te apasiona el mundo de la farmacia? Conviértete en Auxiliar de Farmacia + Dermocosmética. Formación práctica con prácticas garantizadas. ¡Solicita información!",
+      "💊 Auxiliar de Farmacia + Dermocosmética en Tenerife Norte. Curso con alta empleabilidad y prácticas en farmacias reales. ¡Empieza tu nueva carrera profesional!",
+      "🌟 Especialízate en Farmacia y Dermocosmética. Curso oficial con certificación y bolsa de empleo activa. ¡Tu futuro profesional te espera!"
+    ],
+    "ctas_recomendados": [
+      "Más información",
+      "Solicitar información",
+      "Inscríbete ahora",
+      "Reserva tu plaza"
+    ],
+    "hashtags_sugeridos": [
+      "#AuxiliarFarmacia",
+      "#Dermocosmética",
+      "#TenerifeTrabajo"
+    ],
+    "audiencia_objetivo": "Personas de 18-45 años interesadas en el sector sanitario y farmacéutico, residentes en Tenerife Norte"
+  },
+  "pixelEvents": {
+    "evento_principal": "auxiliar-farmacia-dermo-lead-generation",
+    "evento_conversion": "auxiliar-farmacia-dermo-form-submit",
+    "parametros_custom": {
+      "curso": "Auxiliar de Farmacia + Dermocosmética",
+      "sede": "Norte",
+      "temporada": "otono-2025"
+    }
+  }
+}

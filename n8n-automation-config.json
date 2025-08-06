@@ -1,0 +1,23 @@
+{
+  "flowName": "auxiliar-farmacia-dermo-lead-automation",
+  "integrations": {
+    "mailchimp_list_id": "abc123def456",
+    "google_sheet_id": "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
+    "whatsapp_template": "farmacia_welcome_template",
+    "email_template": "farmacia_bienvenida_email"
+  },
+  "timing": {
+    "email_inmediato": "0 segundos",
+    "whatsapp_delay": "15 minutos",
+    "asignacion_asesor": "30 minutos",
+    "seguimiento_24h": "24 horas"
+  },
+  "actions": [
+    "Registro en Google Sheets",
+    "Alta en lista Mailchimp",
+    "Envío email bienvenida",
+    "Envío WhatsApp (15 min después)",
+    "Asignación asesor rotativa",
+    "Notificación asesor con guión"
+  ]
+}

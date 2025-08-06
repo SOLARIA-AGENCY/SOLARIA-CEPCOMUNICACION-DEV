@@ -418,23 +418,69 @@ npm run campaigns:status
 
 ---
 
+---
+
+## 🏗️ **ARQUITECTURA DE DEPLOYMENT COMPLETA**
+
+### **🚀 SISTEMA DUAL OPERATIVO**
+**Estado**: ✅ **COMPLETAMENTE FUNCIONAL**  
+**Fecha Implementación**: 2025-08-06
+
+#### **Frontend Layer**
+- **URL Principal**: `https://www.cepcomunicacion.com`
+- **Servidor**: LiteSpeed (Hostinger)
+- **Tecnología**: React 18 + TypeScript + Vite
+- **Deploy**: GitHub Actions → SFTP
+- **SSL**: Let's Encrypt (compartido)
+
+#### **API Backend Layer**  
+- **URL API**: `https://api.cepcomunicacion.com`
+- **VPS**: Ubuntu 24.04 (148.230.118.124)
+- **Web Server**: OpenLiteSpeed
+- **Runtime**: Node.js + PM2 (puerto 3001)
+- **SSL**: Let's Encrypt (independiente)
+- **Auto-renovación**: Crontab cada 12 horas
+
+### **📋 DOCUMENTACIÓN TÉCNICA COMPLETA**
+📚 **[DEPLOYMENT ARCHITECTURE COMPLETE](DEPLOYMENT-ARCHITECTURE-COMPLETE.md)** - Documentación técnica detallada
+
+### **🔧 VERIFICACIÓN DE ENDPOINTS**
+```bash
+# Frontend
+curl -I https://www.cepcomunicacion.com
+# Expected: 200 OK, Server: LiteSpeed
+
+# API Health Check  
+curl -s https://api.cepcomunicacion.com/health
+# Expected: {"status":"OK","timestamp":"...","service":"CEP API"}
+```
+
+### **🛡️ CI/CD PIPELINE CONFIGURADO**
+- **Trigger**: Push a rama `main`
+- **Validación**: Build, tests, linting, security
+- **Deploy**: SFTP (primario) + GitHub Pages (backup)
+- **Verificación**: DNS, SSL, health checks, performance
+- **Monitoreo**: Logs automáticos, alertas de fallos
+
+---
+
 ## 📄 **LICENCIA Y TÉRMINOS**
 
 **© 2025 SOLARIA.AGENCY - Todos los derechos reservados**
 
-*Proyecto desarrollado para CEP Formación con tecnología avanzada de tracking diferenciado y gestión automatizada de campañas.*
+*Proyecto desarrollado para CEP Formación con arquitectura dual frontend/backend, tracking diferenciado y deployment automatizado de nivel empresarial.*
 
 ---
 
 ### 🎯 **PROYECTO ESTRATÉGICO DE ÚLTIMA GENERACIÓN**
 
-> *Este sistema representa la evolución del marketing digital educativo, combinando tracking inteligente, automatización avanzada y gestión estratégica de assets digitales para maximizar el ROI de cada canal de adquisición.*
+> *Sistema completo de marketing digital educativo con arquitectura dual, tracking inteligente, automatización avanzada, deployment robusto y monitoreo 24/7 para maximizar el ROI de cada canal.*
 
-**Última actualización:** Enero 2025 - Sistema 100% operativo ✅
+**Última actualización:** Agosto 2025 - Sistema Frontend + Backend 100% operativo ✅
 
 ---
 
-## 📧 **NUEVAS VARIABLES DE ENTORNO**
+## 📧 **VARIABLES DE ENTORNO**
 
 - **`FB_N8N_WEBHOOK_URL`**: URL del webhook en n8n para la integración con la API de Conversiones.
 - **`VITE_SUPERMEMORY_API_KEY`**: Clave para el servicio Supermemory.
@@ -449,9 +495,30 @@ npm run campaigns:status
 - **Logos**: En `public/images/logos/`.
 - **Logo para Email**: Se ha creado una versión específica para plantillas de email en `public/assets/images/email/logo-cep-email.jpg` para optimizar la entrega y el control.
 
-## 🚀 Despliegue
+## 🚀 Deployment y Monitoreo
 
-Este proyecto está configurado para despliegue continuo a través de GitHub Actions. Cada `push` a la rama `main` dispara el workflow `.github/workflows/deploy-cepcomunicacion.yml`.
+Este proyecto utiliza **arquitectura dual** con deployment completamente automatizado:
+
+### **Frontend Deployment**
+```bash
+# Trigger automático en push a main
+git push origin main
+
+# GitHub Actions → Build React → SFTP deploy → Verificación
+```
+
+### **API Backend Management** 
+```bash
+# SSH Access al VPS
+ssh cep-vps
+
+# Verificar API
+pm2 status
+curl -s https://api.cepcomunicacion.com/health
+
+# Restart si necesario
+pm2 restart cep-api
+```
 
 ### Protocolo de Seguridad Pre-Despliegue
 
@@ -460,3 +527,10 @@ Este proyecto está configurado para despliegue continuo a través de GitHub Act
 ```bash
 npm run pre-deploy
 ```
+
+### **🔍 Monitoreo Continuo**
+- **Health Checks**: Automáticos cada deploy
+- **SSL Monitoring**: Renovación automática
+- **Performance**: Response time tracking
+- **Security**: Headers validation
+- **Logs**: Centralizados en VPS y GitHub Actions

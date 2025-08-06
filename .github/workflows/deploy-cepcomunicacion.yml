@@ -235,11 +235,25 @@ jobs:
           
       - name: 📊 Performance Check
         run: |
-          echo "📊 Basic performance analysis..."
+          echo "📊 Comprehensive performance analysis..." 
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 📊 Performance Metrics" >> $GITHUB_STEP_SUMMARY
           
-          # Measure page load time
-          load_time=$(curl -s -o /dev/null -w "%{time_total}" ${{ env.PRODUCTION_URL }})
-          echo "Page load time: ${load_time}s"
+          # Frontend performance
+          frontend_load_time=$(curl -s -o /dev/null -w "%{time_total}" ${{ env.PRODUCTION_URL }})
+          frontend_size=$(curl -s -w "%{size_download}" -o /dev/null ${{ env.PRODUCTION_URL }})
+          echo "Frontend load time: ${frontend_load_time}s"
+          echo "- **Frontend Load Time**: ${frontend_load_time}s" >> $GITHUB_STEP_SUMMARY
+          echo "- **Frontend Size**: $((frontend_size / 1024))KB" >> $GITHUB_STEP_SUMMARY
+          
+          # API performance  
+          api_load_time=$(curl -s -o /dev/null -w "%{time_total}" https://api.cepcomunicacion.com/health 2>/dev/null || echo "unavailable")
+          if [ "$api_load_time" != "unavailable" ]; then
+            echo "API response time: ${api_load_time}s"
+            echo "- **API Response Time**: ${api_load_time}s" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- **API Response Time**: Not available" >> $GITHUB_STEP_SUMMARY
+          fi
           
           # Check response headers
           echo "Response headers:"
@@ -248,8 +262,19 @@ jobs:
           # Check if gzip is enabled
           if curl -H "Accept-Encoding: gzip" -I ${{ env.PRODUCTION_URL }} 2>/dev/null | grep -q "gzip"; then
             echo "✅ Gzip compression enabled"
+            echo "- **Compression**: ✅ Gzip enabled" >> $GITHUB_STEP_SUMMARY
           else
             echo "⚠️  Gzip compression not detected"
+            echo "- **Compression**: ⚠️  Not detected" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          # Performance warnings
+          if (( $(echo "$frontend_load_time > 3.0" | bc -l) )); then
+            echo "::warning::Frontend load time is slow: ${frontend_load_time}s"
+          fi
+          
+          if [ "$api_load_time" != "unavailable" ] && (( $(echo "$api_load_time > 1.0" | bc -l) )); then
+            echo "::warning::API response time is slow: ${api_load_time}s"
           fi
           
       - name: 🎉 Deployment Success Notification
@@ -259,17 +284,28 @@ jobs:
           echo "### 📊 Deployment Details" >> $GITHUB_STEP_SUMMARY
           echo "- **Domain**: ${{ env.DOMAIN }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Live URL**: [${{ env.PRODUCTION_URL }}](${{ env.PRODUCTION_URL }})" >> $GITHUB_STEP_SUMMARY
+          echo "- **API URL**: [https://api.cepcomunicacion.com](https://api.cepcomunicacion.com/health)" >> $GITHUB_STEP_SUMMARY
           echo "- **Deployment Time**: $(date)" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
           echo "- **Branch**: \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Method**: $DEPLOY_METHOD" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### ✅ Verification Status" >> $GITHUB_STEP_SUMMARY
           echo "- DNS resolution: ✅" >> $GITHUB_STEP_SUMMARY
           echo "- SSL certificate: ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Site accessibility: ✅" >> $GITHUB_STEP_SUMMARY
           echo "- Content validation: ✅" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🏗️ Architecture" >> $GITHUB_STEP_SUMMARY
+          echo "- **Frontend**: Hostinger LiteSpeed" >> $GITHUB_STEP_SUMMARY
+          echo "- **Backend**: VPS OpenLiteSpeed + Node.js PM2" >> $GITHUB_STEP_SUMMARY
+          echo "- **SSL**: Let's Encrypt (auto-renewal)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Monitoring**: 📊 [View Monitoring](${{ github.server_url }}/${{ github.repository }}/actions/workflows/monitoring.yml)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Security**: 🛡️ [View Security](${{ github.server_url }}/${{ github.repository }}/actions/workflows/security-scan.yml)" >> $GITHUB_STEP_SUMMARY
           
-          echo "🚀 CEP Comunicación is now live at ${{ env.PRODUCTION_URL }}"
+          echo "🚀 CEP Comunicación dual architecture is now live!"
+          echo "Frontend: ${{ env.PRODUCTION_URL }}"
+          echo "API: https://api.cepcomunicacion.com/health"
 
   post_deploy:
     name: 📋 Post-Deployment Tasks
