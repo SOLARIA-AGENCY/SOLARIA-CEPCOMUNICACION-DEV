@@ -1,0 +1,449 @@
+[
+  {
+    "id": "{{ID_CURSO}}",
+    "slug": "organizacion-almacenes",
+    "nombre": "Organización de Almacenes",
+    "tipo": "desempleados",
+    "activo": true,
+    "fecha_inicio": "{{FECHA_INICIO}}",
+    "fecha_fin": "{{FECHA_FIN}}",
+    "plazas_disponibles": "{{PLAZAS_DISPONIBLES}}",
+    "sede": "Santa Cruz",
+    "imagen": "/images/cursos/{{IMAGEN_CURSO}}",
+    "descripcion": "{{DESCRIPCION_CURSO}}",
+    "objetivos": [
+      "{{OBJETIVO_1}}",
+      "{{OBJETIVO_2}}",
+      "{{OBJETIVO_3}}",
+      "{{OBJETIVO_4}}",
+      "{{OBJETIVO_5}}"
+    ],
+    "temario": [
+      {
+        "modulo": "{{MODULO_1_TITULO}}",
+        "contenidos": [
+          "{{MODULO_1_CONTENIDO_1}}",
+          "{{MODULO_1_CONTENIDO_2}}",
+          "{{MODULO_1_CONTENIDO_3}}",
+          "{{MODULO_1_CONTENIDO_4}}"
+        ]
+      },
+      {
+        "modulo": "{{MODULO_2_TITULO}}",
+        "contenidos": [
+          "{{MODULO_2_CONTENIDO_1}}",
+          "{{MODULO_2_CONTENIDO_2}}",
+          "{{MODULO_2_CONTENIDO_3}}",
+          "{{MODULO_2_CONTENIDO_4}}"
+        ]
+      },
+      {
+        "modulo": "{{MODULO_3_TITULO}}",
+        "contenidos": [
+          "{{MODULO_3_CONTENIDO_1}}",
+          "{{MODULO_3_CONTENIDO_2}}",
+          "{{MODULO_3_CONTENIDO_3}}",
+          "{{MODULO_3_CONTENIDO_4}}"
+        ]
+      },
+      {
+        "modulo": "Formación y Orientación Laboral (FOL)",
+        "contenidos": [
+          "Derechos y deberes laborales",
+          "Seguridad y salud en el trabajo",
+          "Orientación profesional",
+          "Búsqueda activa de empleo"
+        ]
+      },
+      {
+        "modulo": "Formación en Centros de Trabajo (FCT)",
+        "contenidos": [
+          "Prácticas profesionales en empresas del sector",
+          "{{PRACTICAS_EMPRESAS_HORAS}} horas de prácticas",
+          "Seguimiento y evaluación continua",
+          "Inserción laboral"
+        ]
+      }
+    ],
+    "metodologia": "{{METODOLOGIA}}",
+    "datos_especificos": {
+      "tipo": "desempleados",
+      "contacto": {
+        "email": "info@cursostenerife.es",
+        "telefono": "922.706.414"
+      },
+      "beneficios": [
+        "100% Gratuito (financiado SEPE/SCE)",
+        "Certificado de Profesionalidad oficial",
+        "Prácticas garantizadas en empresas",
+        "Orientación laboral personalizada",
+        "Bolsa de empleo activa",
+        "Material didáctico incluido",
+        "Seguimiento post-formación"
+      ],
+      "requisitos": [
+        "Estar inscrito como demandante de empleo",
+        "Residir en Canarias",
+        "Tener más de 18 años",
+        "{{NIVEL_ESTUDIOS_REQUERIDO}}",
+        "Disponibilidad horaria completa",
+        "{{REQUISITOS_ADICIONALES}}"
+      ],
+      "financiacion": "SEPE/SCE - Servicio Canario de Empleo",
+      "duracion": "{{DURACION_HORAS}} horas lectivas + {{PRACTICAS_EMPRESAS_HORAS}} horas prácticas",
+      "modalidad": "{{MODALIDAD}}",
+      "certificacion": "{{CERTIFICADO_PROFESIONALIDAD}}",
+      "caracteristicas": {
+        "modalidad": "{{MODALIDAD_TECNICA}}",
+        "practicas_empresas": true,
+        "orientacion_laboral": true,
+        "certificado_profesionalidad": true,
+        "financiado_sepe_sce": true
+      }
+    },
+    "seo": {
+      "title": "Organización de Almacenes - Curso Gratuito Desempleados | CEP Formación",
+      "description": "Curso gratuito Organización de Almacenes para desempleados. Certificado de Profesionalidad + Prácticas en empresas. {{DESCRIPCION_CURSO}} ¡Plazas limitadas!",
+      "keywords": "{{KEYWORDS_SEO}}, curso desempleados, certificado profesionalidad, prácticas empresas, {{SEDE_LOWERCASE}} tenerife",
+      "structuredData": {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Organización de Almacenes",
+        "description": "{{DESCRIPCION_CURSO}}",
+        "provider": {
+          "@type": "Organization",
+          "name": "CEP Formación",
+          "url": "https://cepcomunicacion.com"
+        },
+        "url": "https://cepcomunicacion.com/curso-desempleado/organizacion-almacenes",
+        "courseMode": "blended",
+        "educationalLevel": "professional",
+        "audience": "Personas desempleadas",
+        "teaches": [
+          "{{OBJETIVO_1}}",
+          "{{OBJETIVO_2}}",
+          "{{OBJETIVO_3}}",
+          "{{OBJETIVO_4}}",
+          "{{OBJETIVO_5}}"
+        ]
+      }
+    },
+    "configuracion_ads": {
+      "campana": {
+        "tag_seguimiento": "otono-2025-organizacion-almacenes-santa-cruz",
+        "nombre_formulario": "CEP Santa Cruz de Tenerife – Organización de Almacenes – CAMPAÑA OTOÑO 2025 – SOLARIA AGENCY",
+        "lista_mailchimp": "Lista: Organización de Almacenes Santa Cruz de Tenerife OTOÑO 2025",
+        "landing_preinscripcion": "landing-organizacion-almacenes-santa-cruz",
+        "estado_campana": "activa",
+        "prioridad": "PRIORIDAD JULIO 2025"
+      },
+      "urls_estrategicas": {
+        "ruta_directa": "cepcomunicacion.com/organizacion-almacenes",
+        "ruta_semantica": "cepcomunicacion.com/cursos/organizacion-almacenes",
+        "proposito_directa": "Landing específica para leads de Facebook",
+        "proposito_semantica": "Estructura web semántica para tráfico orgánico"
+      },
+      "formulario_meta": {
+        "titulo_bienvenida": "¡Solicita información ahora!",
+        "descripcion_breve": "Aprende a gestionar un almacén de forma eficiente y segura. Déjanos tus datos y te enviaremos toda la información sobre el curso de Organización de Almacenes en Santa Cruz. con especialización en logística 4.0, comienza en octubre.",
+        "campos_requeridos": [
+          "Nombre completo (autocompletar si es posible)",
+          "Teléfono (autocompletar)",
+          "Email (autocompletar)"
+        ],
+        "campos_opcionales": [
+          "Experiencia previa en logística (opcional)"
+        ],
+        "aviso_rgpd": "Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Organización de Almacenes en Santa Cruz. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad",
+        "pantalla_privacidad": "Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad",
+        "mensaje_confirmacion": {
+          "titulo": "¡Gracias por tu interés en nuestro curso de Organización de Almacenes!",
+          "descripcion": "En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Organización de Almacenes en Santa Cruz. Aprenderás sobre SGA y radiofrecuencia. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza. ¡No te quedes fuera!."
+        },
+        "cta_unificado": "Más información"
+      },
+      "tracking_analytics": {
+        "facebook_pixel": {
+          "evento_principal": "organizacion-almacenes-lead-generation",
+          "evento_conversion": "organizacion-almacenes-form-submit",
+          "parametros_custom": {
+            "curso": "Organización de Almacenes",
+            "sede": "Santa Cruz",
+            "temporada": "otono-2025"
+          }
+        },
+        "google_analytics": {
+          "goal_name": "Organización de Almacenes - Santa Cruz - Form Submit",
+          "event_category": "Course Lead",
+          "event_action": "Form Submit",
+          "event_label": "organizacion-almacenes"
+        },
+        "tag_manager": {
+          "trigger_name": "organizacion-almacenes-form-trigger",
+          "dataLayer_push": {
+            "event": "course_lead_generated",
+            "course_name": "Organización de Almacenes",
+            "course_location": "Santa Cruz",
+            "campaign_tag": "otono-2025-organizacion-almacenes-santa-cruz"
+          }
+        }
+      },
+      "contenido_ads": {
+        "variantes_titulo": [
+          "Organización de Almacenes - Santa Cruz",
+          "Curso Organización de Almacenes Santa Cruz",
+          "Organización de Almacenes en Santa Cruz - Alta Demanda Laboral"
+        ],
+        "textos_ad": [
+          "📦 ¿Quieres ser un experto en logística? Fórmate en Organización de Almacenes. Curso práctico con alta demanda laboral. ¡Inscríbete ahora!",
+          "🚚 Optimiza la cadena de suministro. Curso de Organización de Almacenes en Santa Cruz. Aprende con casos reales y prepárate para el futuro de la logística. ¡Plazas limitadas!",
+          "📈 Impulsa tu carrera en el sector logístico. Con nuestro curso de Organización de Almacenes dominarás la gestión de inventarios, preparación de pedidos y seguridad. ¡Solicita más información!"
+        ],
+        "ctas_recomendados": [
+          "Más información",
+          "Solicitar información",
+          "Inscríbete ahora",
+          "Reserva tu plaza"
+        ],
+        "hashtags_sugeridos": [
+          "#Logistica",
+          "#GestionAlmacen",
+          "#EmpleoTenerife"
+        ],
+        "audiencia_objetivo": "Personas de 18-55 años interesadas en logística, transporte y gestión de stock, residentes en el área metropolitana de Santa Cruz."
+      },
+      "configuracion_tecnica": {
+        "tipo_formulario": "Más volumen (fácil de completar)",
+        "entrega_flexible": "Optimizada (recomendado para Meta)",
+        "autocompletar_campos": true,
+        "vincular_formulario": "Solo al curso y sede específicos",
+        "integracion_activa": "API Central/Mailchimp/Google Sheets",
+        "optimizacion_conversion": {
+          "landing_page_speed": "< 3 segundos",
+          "mobile_optimization": true,
+          "a_b_testing": true,
+          "retargeting_pixel": true
+        }
+      }
+    }
+  },
+  {
+    "id": "{{ID_CURSO}}",
+    "slug": "desarrollo-organizacional-mandos",
+    "nombre": "Desarrollo Organizacional para Mandos Intermedios",
+    "tipo": "ocupados",
+    "activo": true,
+    "fecha_inicio": "{{FECHA_INICIO}}",
+    "fecha_fin": "{{FECHA_FIN}}",
+    "plazas_disponibles": "{{PLAZAS_DISPONIBLES}}",
+    "sede": "La Laguna",
+    "imagen": "/images/cursos/{{IMAGEN_CURSO}}",
+    "descripcion": "{{DESCRIPCION_CURSO}}",
+    "objetivos": [
+      "{{OBJETIVO_1}}",
+      "{{OBJETIVO_2}}",
+      "{{OBJETIVO_3}}",
+      "{{OBJETIVO_4}}",
+      "{{OBJETIVO_5}}"
+    ],
+    "temario": [
+      {
+        "modulo": "{{MODULO_1_TITULO}}",
+        "contenidos": [
+          "{{MODULO_1_CONTENIDO_1}}",
+          "{{MODULO_1_CONTENIDO_2}}",
+          "{{MODULO_1_CONTENIDO_3}}",
+          "{{MODULO_1_CONTENIDO_4}}"
+        ]
+      },
+      {
+        "modulo": "{{MODULO_2_TITULO}}",
+        "contenidos": [
+          "{{MODULO_2_CONTENIDO_1}}",
+          "{{MODULO_2_CONTENIDO_2}}",
+          "{{MODULO_2_CONTENIDO_3}}",
+          "{{MODULO_2_CONTENIDO_4}}"
+        ]
+      },
+      {
+        "modulo": "{{MODULO_3_TITULO}}",
+        "contenidos": [
+          "{{MODULO_3_CONTENIDO_1}}",
+          "{{MODULO_3_CONTENIDO_2}}",
+          "{{MODULO_3_CONTENIDO_3}}",
+          "{{MODULO_3_CONTENIDO_4}}"
+        ]
+      },
+      {
+        "modulo": "{{MODULO_4_TITULO}}",
+        "contenidos": [
+          "{{MODULO_4_CONTENIDO_1}}",
+          "{{MODULO_4_CONTENIDO_2}}",
+          "{{MODULO_4_CONTENIDO_3}}",
+          "{{MODULO_4_CONTENIDO_4}}"
+        ]
+      }
+    ],
+    "metodologia": "{{METODOLOGIA}}",
+    "datos_especificos": {
+      "tipo": "ocupados",
+      "contacto": {
+        "email": "cep.ocupados@gmail.com",
+        "telefono": "672.947.701"
+      },
+      "beneficios": [
+        "100% Gratuito (financiado SEPE)",
+        "Certificación oficial reconocida",
+        "Mejora tu CV y empleabilidad",
+        "Horario compatible con trabajo",
+        "Aplicación práctica inmediata",
+        "Material didáctico incluido",
+        "Seguimiento personalizado"
+      ],
+      "requisitos": [
+        "Ser trabajador activo de cualquier sector",
+        "Residir en Canarias",
+        "Tener más de 18 años",
+        "Disponibilidad horaria de tardes",
+        "Nivel básico de estudios",
+        "{{REQUISITOS_ADICIONALES}}"
+      ],
+      "financiacion": "SEPE - Servicio Público de Empleo Estatal",
+      "duracion": "{{DURACION_HORAS}} horas lectivas",
+      "modalidad": "{{MODALIDAD}}",
+      "certificacion": "Certificado oficial de aprovechamiento reconocido por SEPE",
+      "caracteristicas": {
+        "modalidad": "{{MODALIDAD_TECNICA}}",
+        "horario": "{{HORARIO}}",
+        "compatible_trabajo": true,
+        "certificacion_oficial": true,
+        "financiado_sepe": true
+      }
+    },
+    "seo": {
+      "title": "Desarrollo Organizacional para Mandos Intermedios - Trabajadores Ocupados | CEP Formación",
+      "description": "Curso gratuito de Desarrollo Organizacional para Mandos Intermedios para trabajadores. Financiado por SEPE. {{DESCRIPCION_CURSO}} ¡Plazas limitadas!",
+      "keywords": "{{KEYWORDS_SEO}}, curso trabajadores ocupados, SEPE, formación gratuita, {{SEDE_LOWERCASE}} tenerife",
+      "structuredData": {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Desarrollo Organizacional para Mandos Intermedios",
+        "description": "{{DESCRIPCION_CURSO}}",
+        "provider": {
+          "@type": "Organization",
+          "name": "CEP Formación",
+          "url": "https://cepcomunicacion.com"
+        },
+        "url": "https://cepcomunicacion.com/curso-ocupado/desarrollo-organizacional-mandos",
+        "courseMode": "blended",
+        "educationalLevel": "professional",
+        "audience": "Trabajadores ocupados",
+        "teaches": [
+          "{{OBJETIVO_1}}",
+          "{{OBJETIVO_2}}",
+          "{{OBJETIVO_3}}",
+          "{{OBJETIVO_4}}",
+          "{{OBJETIVO_5}}"
+        ]
+      }
+    },
+    "configuracion_ads": {
+      "campana": {
+        "tag_seguimiento": "otono-2025-desarrollo-organizacional-mandos-la-laguna",
+        "nombre_formulario": "CEP San Cristóbal de La Laguna – Desarrollo Organizacional para Mandos Intermedios – CAMPAÑA OTOÑO 2025 – SOLARIA AGENCY",
+        "lista_mailchimp": "Lista: Desarrollo Organizacional para Mandos Intermedios San Cristóbal de La Laguna OTOÑO 2025",
+        "landing_preinscripcion": "landing-desarrollo-organizacional-mandos-la-laguna",
+        "estado_campana": "activa",
+        "prioridad": "PRIORIDAD AGOSTO 2025"
+      },
+      "urls_estrategicas": {
+        "ruta_directa": "cepcomunicacion.com/desarrollo-organizacional-mandos",
+        "ruta_semantica": "cepcomunicacion.com/cursos/desarrollo-organizacional-mandos",
+        "proposito_directa": "Landing específica para leads de Facebook",
+        "proposito_semantica": "Estructura web semántica para tráfico orgánico"
+      },
+      "formulario_meta": {
+        "titulo_bienvenida": "¡Solicita información ahora!",
+        "descripcion_breve": "Potencia tus habilidades de liderazgo y gestión de equipos. Déjanos tus datos y te enviaremos toda la información sobre el curso de Desarrollo Organizacional para Mandos Intermedios en La Laguna. enfocado en la transformación digital de equipos, comienza en noviembre.",
+        "campos_requeridos": [
+          "Nombre completo (autocompletar si es posible)",
+          "Teléfono (autocompletar)",
+          "Email (autocompletar)"
+        ],
+        "campos_opcionales": [
+          "Nº de personas a tu cargo (opcional)"
+        ],
+        "aviso_rgpd": "Usaremos tus datos solo para enviarte información y gestionar tu inscripción al curso de Desarrollo Organizacional para Mandos Intermedios en La Laguna. Podremos contactarte por email, teléfono o WhatsApp para fines informativos relacionados con este curso. No compartiremos tus datos con terceros. Puedes consultar nuestra política de privacidad en www.cepcomunicacion.com/privacidad",
+        "pantalla_privacidad": "Tus datos serán tratados de forma confidencial por CEP Formación y solo se utilizarán para contactarte sobre este curso. Más información en www.cepcomunicacion.com/privacidad",
+        "mensaje_confirmacion": {
+          "titulo": "¡Gracias por tu interés en nuestro curso de Desarrollo Organizacional!",
+          "descripcion": "En breve recibirás un email y un WhatsApp con toda la información sobre el curso de Desarrollo Organizacional para Mandos Intermedios en La Laguna. Aprenderás metodologías ágiles para la gestión de proyectos. Un asesor se pondrá en contacto contigo para resolver tus dudas y explicarte cómo reservar tu plaza. ¡Invierte en tu futuro profesional!."
+        },
+        "cta_unificado": "Más información"
+      },
+      "tracking_analytics": {
+        "facebook_pixel": {
+          "evento_principal": "desarrollo-organizacional-mandos-lead-generation",
+          "evento_conversion": "desarrollo-organizacional-mandos-form-submit",
+          "parametros_custom": {
+            "curso": "Desarrollo Organizacional para Mandos Intermedios",
+            "sede": "La Laguna",
+            "temporada": "otono-2025"
+          }
+        },
+        "google_analytics": {
+          "goal_name": "Desarrollo Organizacional para Mandos Intermedios - La Laguna - Form Submit",
+          "event_category": "Course Lead",
+          "event_action": "Form Submit",
+          "event_label": "desarrollo-organizacional-mandos"
+        },
+        "tag_manager": {
+          "trigger_name": "desarrollo-organizacional-mandos-form-trigger",
+          "dataLayer_push": {
+            "event": "course_lead_generated",
+            "course_name": "Desarrollo Organizacional para Mandos Intermedios",
+            "course_location": "La Laguna",
+            "campaign_tag": "otono-2025-desarrollo-organizacional-mandos-la-laguna"
+          }
+        }
+      },
+      "contenido_ads": {
+        "variantes_titulo": [
+          "Desarrollo Organizacional para Mandos Intermedios - La Laguna",
+          "Curso Desarrollo Organizacional para Mandos Intermedios La Laguna",
+          "Desarrollo Organizacional para Mandos Intermedios en La Laguna - Mejora de Habilidades Directivas"
+        ],
+        "textos_ad": [
+          "🚀 ¿Eres mando intermedio y quieres llevar a tu equipo al siguiente nivel? Fórmate en Desarrollo Organizacional. Liderazgo, gestión del cambio y alta productividad. ¡Inscríbete!",
+          "👥 Lidera equipos de alto rendimiento. Curso de Desarrollo Organizacional en La Laguna. Aprende a motivar, delegar y resolver conflictos de forma eficaz. ¡Transforma tu liderazgo!",
+          "💼 Prepara a tu empresa para el futuro. Con nuestro curso de Desarrollo Organizacional para Mandos Intermedios, adquirirás las herramientas para gestionar el talento y la cultura empresarial. ¡Plazas limitadas!"
+        ],
+        "ctas_recomendados": [
+          "Más información",
+          "Solicitar información",
+          "Inscríbete ahora",
+          "Reserva tu plaza"
+        ],
+        "hashtags_sugeridos": [
+          "#Liderazgo",
+          "#GestionDeEquipos",
+          "#RecursosHumanos"
+        ],
+        "audiencia_objetivo": "Profesionales con personal a su cargo, coordinadores y jefes de equipo de 28-50 años que busquen mejorar sus competencias de gestión."
+      },
+      "configuracion_tecnica": {
+        "tipo_formulario": "Más volumen (fácil de completar)",
+        "entrega_flexible": "Optimizada (recomendado para Meta)",
+        "autocompletar_campos": true,
+        "vincular_formulario": "Solo al curso y sede específicos",
+        "integracion_activa": "API Central/Mailchimp/Google Sheets",
+        "optimizacion_conversion": {
+          "landing_page_speed": "< 3 segundos",
+          "mobile_optimization": true,
+          "a_b_testing": true,
+          "retargeting_pixel": true
+        }
+      }
+    }
+  }
+]

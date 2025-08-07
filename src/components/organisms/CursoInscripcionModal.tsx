@@ -64,21 +64,57 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
         
         const formSubmitData = {
           email: fallbackEmail, // Email de destino para el proxy
-          _subject: `Nueva reserva de plaza: ${curso.nombre}`,
-          _template: 'table',
+          _subject: `🎯 INSCRIPCIÓN PRIORITARIA: ${formData.nombre} ${formData.apellidos} - ${curso.nombre}`,
+          _template: 'box',
           _captcha: 'false',
-          nombre: formData.nombre,
-          apellidos: formData.apellidos,
-          email_solicitante: formData.email,
-          telefono: formData.telefono,
-          curso: curso.nombre,
-          tipo_solicitud: 'Reserva de plaza de ciclo',
-          sede_preferencia: formData.sede,
-          empresa_actual: 'No aplicable - Ciclo Formativo',
-          experiencia_previa: formData.experiencia || 'No especificada',
-          comentarios: formData.comentarios || 'Sin comentarios',
-          fecha_envio: new Date().toLocaleString('es-ES'),
-          origen: 'Modal Reserva Plaza - Fallback via Proxy'
+          _format: 'plain',
+          _from: 'CEP Inscripciones PRIORITARIO <agency.solaria@gmail.com>',
+          // Template de email exacto
+          mensaje: `🎯 INSCRIPCIÓN Y RESERVA DE PLAZA
+LEAD PRIORITARIO - ACCIÓN INMEDIATA
+⚡ MÁXIMA PRIORIDAD - EL CLIENTE QUIERE RESERVAR PLAZA
+
+Lead de inscripción directa. Contactar INMEDIATAMENTE para confirmar reserva.
+
+📋 TIPO DE LEAD: INSCRIPCIÓN DIRECTA (No es consulta informativa)
+
+👤 DATOS DEL SOLICITANTE
+Nombre Completo:    ${formData.nombre} ${formData.apellidos}
+📞 Teléfono:    ${formData.telefono}
+📧 Email:    ${formData.email}
+📍 Provincia:    ${formData.sede || 'No especificada'}
+⏰ Disponibilidad:    ${formData.experiencia || 'No especificada'}
+🏢 Empresa Actual:    No aplicable - Ciclo Formativo
+
+🎓 CURSO PARA RESERVAR PLAZA
+Curso:    ${curso.nombre}
+Modalidad:    ciclos formativos
+Financiación:    Según modalidad
+Fecha de Solicitud:    ${new Date().toISOString()}
+Estado:    🔴 PENDIENTE RESERVA DE PLAZA
+
+📋 CONSENTIMIENTOS GDPR
+Tratamiento de Datos:    ✅ ACEPTADO
+Marketing:    ✅ ACEPTADO
+
+🎯 PROTOCOLO INSCRIPCIÓN Y RESERVA DE PLAZA
+✅ CONTACTO INMEDIATO: Llamar a ${formData.telefono} en los próximos 30 minutos
+✅ CONFIRMAR INSCRIPCIÓN: Verificar que quiere proceder con la reserva de plaza
+✅ VERIFICAR REQUISITOS: Comprobar documentación necesaria para CICLOS
+✅ RESERVAR PLAZA: Confirmar disponibilidad y reservar plaza inmediatamente
+✅ DOCUMENTACIÓN: Enviar lista de documentos requeridos para formalizar
+✅ SEGUIMIENTO: Programar cita para entrega de documentos y firma
+✅ CONFIRMACIÓN: Email a ${formData.email} confirmando reserva de plaza
+
+⏰ TIEMPO MÁXIMO DE RESPUESTA: 30 MINUTOS
+
+Este cliente ya decidió inscribirse - Solo falta confirmar y reservar plaza
+
+${formData.comentarios ? `💬 COMENTARIOS ADICIONALES: ${formData.comentarios}` : ''}
+
+Sistema CEP - Lead de INSCRIPCIÓN DIRECTA • cepcomunicacion.com • Respuesta inmediata requerida
+
+NOTA: Este NO es un lead informativo - El cliente quiere inscribirse YA`
         };
 
         response = await fetch(proxyUrl, {

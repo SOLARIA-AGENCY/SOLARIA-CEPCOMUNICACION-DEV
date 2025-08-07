@@ -4,7 +4,6 @@ import CepFooter from '../components/organisms/CepFooter';
 // Unused imports removed
 import LogosMinisteriales from '../components/molecules/LogosMinisteriales';
 import { cursosOcupadosConfig, ocupadosDefaultConfig, ocupadosMetadata } from '../config/cursos-ocupados';
-import { cursosOcupados as cursosOcupadosData } from '../data/cursos-ocupados';
 import CursoCard from '../components/molecules/CursoCard';
 import { trackEmploymentPageView } from '../utils/employmentTracking';
 import { EmploymentCourseConfig } from '../types/employment';
@@ -12,7 +11,7 @@ import { EmploymentCourseConfig } from '../types/employment';
 
 const CursosOcupadosPage: React.FC = () => {
   const [selectedSede, setSelectedSede] = useState<'Norte' | 'Santa Cruz' | 'Todas'>('Todas');
-  const [filteredCursos, setFilteredCursos] = useState<EmploymentCourseConfig[]>(cursosOcupadosConfig);
+  const [filteredCursos, setFilteredCursos] = useState<EmploymentCourseConfig[]>(cursosOcupadosConfig.filter(c => c.activo));
 
   useEffect(() => {
     // Tracking de página
@@ -28,7 +27,7 @@ const CursosOcupadosPage: React.FC = () => {
     }
   }, [selectedSede]);
 
-  const _activeCursos = filteredCursos.filter(curso => curso.activo);
+  
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -124,7 +123,7 @@ const CursosOcupadosPage: React.FC = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {cursosOcupadosData.map((curso) => (
+            {filteredCursos.map((curso) => (
               <div key={curso.id} className="relative">
                 <CursoCard 
                   curso={{
@@ -133,9 +132,9 @@ const CursosOcupadosPage: React.FC = () => {
                     slugBase: curso.slug,
                     nombre: curso.nombre,
                     codigo: curso.id,
-                    sede: 'Norte',
-                    estado: 'activo',
-                    categoria: 'sanidad',
+                    sede: curso.sede,
+                    estado: curso.activo ? 'activo' : 'proximamente',
+                    categoria: 'sanidad', // Categoría genérica, ajustar si es necesario
                     imagen: curso.imagen || '/images/cursos/formacion-gratuita.jpg',
                     inicio: curso.fecha_inicio || '',
                     copy: {

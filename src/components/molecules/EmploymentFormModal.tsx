@@ -126,24 +126,60 @@ const EmploymentFormModal: React.FC<EmploymentFormModalProps> = ({
         const fallbackEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
         const proxyUrl = import.meta.env.VITE_FORMSUBMIT_PROXY_URL || 'http://localhost:3001/api/formsubmit-proxy';
         
+        const modalidadTexto = employmentType === 'ocupados' ? 'ocupados' : 'desempleados';
+        const financiacionTexto = employmentType === 'ocupados' ? '100% SEPE (Gratuito)' : 'Subvencionado SEPE';
+        
         const formSubmitData = {
           email: fallbackEmail, // Email de destino para el proxy
-          _subject: `Nueva inscripción: ${courseName}`,
-          _template: 'table',
+          _subject: `🎯 INSCRIPCIÓN PRIORITARIA: ${formData.nombre} ${formData.apellidos} - ${courseName}`,
+          _template: 'box',
           _captcha: 'false',
-          nombre: formData.nombre,
-          apellidos: formData.apellidos,
-          email_solicitante: formData.email,
-          telefono: formData.telefono,
-          curso: courseName,
-          tipo_curso: employmentType,
-          empresa_actual: formData.empresa_actual || 'No especificada',
-          provincia: formData.provincia,
-          disponibilidad: formData.disponibilidad,
-          consentimiento_datos: formData.consentimiento_datos ? 'Sí' : 'No',
-          consentimiento_marketing: formData.consentimiento_marketing ? 'Sí' : 'No',
-          fecha_envio: new Date().toLocaleString('es-ES'),
-          origen: 'Formulario web - Fallback via Proxy'
+          _format: 'plain',
+          _from: 'CEP Inscripciones PRIORITARIO <agency.solaria@gmail.com>',
+          // Template de email exacto
+          mensaje: `🎯 INSCRIPCIÓN Y RESERVA DE PLAZA
+LEAD PRIORITARIO - ACCIÓN INMEDIATA
+⚡ MÁXIMA PRIORIDAD - EL CLIENTE QUIERE RESERVAR PLAZA
+
+Lead de inscripción directa. Contactar INMEDIATAMENTE para confirmar reserva.
+
+📋 TIPO DE LEAD: INSCRIPCIÓN DIRECTA (No es consulta informativa)
+
+👤 DATOS DEL SOLICITANTE
+Nombre Completo:    ${formData.nombre} ${formData.apellidos}
+📞 Teléfono:    ${formData.telefono}
+📧 Email:    ${formData.email}
+📍 Provincia:    ${formData.provincia}
+⏰ Disponibilidad:    ${formData.disponibilidad}
+🏢 Empresa Actual:    ${formData.empresa_actual || 'No especificada'}
+
+🎓 CURSO PARA RESERVAR PLAZA
+Curso:    ${courseName}
+Modalidad:    ${modalidadTexto}
+Financiación:    ${financiacionTexto}
+Fecha de Solicitud:    ${new Date().toISOString()}
+Estado:    🔴 PENDIENTE RESERVA DE PLAZA
+
+📋 CONSENTIMIENTOS GDPR
+Tratamiento de Datos:    ${formData.consentimiento_datos ? '✅ ACEPTADO' : '❌ NO ACEPTADO'}
+Marketing:    ${formData.consentimiento_marketing ? '✅ ACEPTADO' : '❌ NO ACEPTADO'}
+
+🎯 PROTOCOLO INSCRIPCIÓN Y RESERVA DE PLAZA
+✅ CONTACTO INMEDIATO: Llamar a ${formData.telefono} en los próximos 30 minutos
+✅ CONFIRMAR INSCRIPCIÓN: Verificar que quiere proceder con la reserva de plaza
+✅ VERIFICAR REQUISITOS: Comprobar documentación necesaria para ${modalidadTexto.toUpperCase()}
+✅ RESERVAR PLAZA: Confirmar disponibilidad y reservar plaza inmediatamente
+✅ DOCUMENTACIÓN: Enviar lista de documentos requeridos para formalizar
+✅ SEGUIMIENTO: Programar cita para entrega de documentos y firma
+✅ CONFIRMACIÓN: Email a ${formData.email} confirmando reserva de plaza
+
+⏰ TIEMPO MÁXIMO DE RESPUESTA: 30 MINUTOS
+
+Este cliente ya decidió inscribirse - Solo falta confirmar y reservar plaza
+
+Sistema CEP - Lead de INSCRIPCIÓN DIRECTA • cepcomunicacion.com • Respuesta inmediata requerida
+
+NOTA: Este NO es un lead informativo - El cliente quiere inscribirse YA`
         };
 
         response = await fetch(proxyUrl, {
