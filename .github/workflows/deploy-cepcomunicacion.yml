@@ -77,8 +77,6 @@ jobs:
     if: needs.validate.outputs.should_deploy == 'true'
     permissions:
       contents: read
-      pages: write
-      id-token: write
     environment:
       name: production
       url: ${{ env.DEPLOY_URL }}
@@ -145,20 +143,14 @@ jobs:
           remote_path: '/var/www/html'
           sftp_only: true
           
-      - name: 📦 Setup GitHub Pages (Backup)
+      - name: 📦 Backup Deployment (Local Archive)
         if: steps.sftp_deploy.outcome == 'failure'
-        uses: actions/configure-pages@v5
-        
-      - name: 🌐 Deploy to GitHub Pages (Backup)
-        if: steps.sftp_deploy.outcome == 'failure'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
-          
-      - name: 🚀 Publish to GitHub Pages (Backup)
-        if: steps.sftp_deploy.outcome == 'failure'
-        id: pages_deploy
-        uses: actions/deploy-pages@v4
+        run: |
+          echo "⚠️ SFTP deployment failed, creating local backup archive"
+          tar -czf deployment-backup-${{ github.sha }}.tar.gz dist/
+          echo "✅ Backup archive created for manual deployment"
+          echo "DEPLOY_METHOD=MANUAL_BACKUP" >> $GITHUB_ENV
+          echo "DEPLOY_URL=Backup created - manual deployment required" >> $GITHUB_ENV
         
       - name: 📊 Deployment Status
         run: |
@@ -166,13 +158,11 @@ jobs:
             echo "✅ Primary SFTP deployment successful"
             echo "DEPLOY_METHOD=SFTP" >> $GITHUB_ENV
             echo "DEPLOY_URL=https://www.cepcomunicacion.com" >> $GITHUB_ENV
-          elif [ "${{ steps.pages_deploy.outcome }}" = "success" ]; then
-            echo "✅ Backup GitHub Pages deployment successful"
-            echo "DEPLOY_METHOD=PAGES" >> $GITHUB_ENV
-            echo "DEPLOY_URL=${{ steps.pages_deploy.outputs.page_url }}" >> $GITHUB_ENV
           else
-            echo "❌ Both deployment methods failed"
-            exit 1
+            echo "⚠️ SFTP deployment failed - backup archive created"
+            echo "📋 Manual deployment required using backup archive"
+            echo "DEPLOY_METHOD=MANUAL_BACKUP" >> $GITHUB_ENV
+            echo "DEPLOY_URL=Manual deployment required" >> $GITHUB_ENV
           fi
           
       - name: 🔄 Verify FTP Upload
