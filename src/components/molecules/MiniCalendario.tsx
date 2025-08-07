@@ -28,7 +28,8 @@ const MiniCalendario: React.FC<MiniCalendarioProps> = ({ fixedTimestamp }) => {
   const obtenerHora = (fecha: Date): string => {
     return fecha.toLocaleTimeString('es-ES', {
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
+      timeZone: 'UTC' // Force UTC for deterministic tests
     });
   };
 

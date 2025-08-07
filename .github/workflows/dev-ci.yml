@@ -27,13 +27,26 @@ jobs:
       run: npm ci
     
     - name: Run linting
+      env:
+        CI: true
+        TZ: UTC
       run: npm run lint
     
     - name: Run type checking
+      env:
+        CI: true
+        NODE_ENV: test
+        TZ: UTC
       run: npm run type-check
     
     - name: Run unit tests
-      run: npm test -- --coverage
+      env:
+        CI: true
+        NODE_ENV: test
+        TZ: UTC
+        FORCE_COLOR: 0
+        VITEST_REPORTER: basic
+      run: npm run test:coverage:ci
     
     - name: Upload coverage reports
       uses: codecov/codecov-action@v3
@@ -41,6 +54,10 @@ jobs:
         file: ./coverage/lcov.info
     
     - name: Build application
+      env:
+        CI: true
+        NODE_ENV: production
+        TZ: UTC
       run: npm run build
     
     - name: Run security audit
@@ -73,6 +90,9 @@ jobs:
     
     - name: Run Lighthouse CI
       uses: treosh/lighthouse-ci-action@v10
+      env:
+        CI: true
+        TZ: UTC
       with:
         configPath: './lighthouserc.json'
         uploadArtifacts: true

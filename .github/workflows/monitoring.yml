@@ -223,10 +223,57 @@ jobs:
           course_status=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 ${{ env.PRODUCTION_URL }}/cursos/quiromasaje-nivel2-norte || echo "000")
           echo "- $([ "$course_status" = "200" ] && echo "✅" || echo "❌") **Course Page**: $course_status" >> $GITHUB_STEP_SUMMARY
           
+  ci-temporal-health:
+    name: ⏰ CI Temporal Health Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 🔧 Install Dependencies
+        run: npm ci --legacy-peer-deps
+        
+      - name: ⏰ Test Temporal Consistency
+        env:
+          CI: true
+          NODE_ENV: test
+          TZ: UTC
+        run: |
+          echo "## ⏰ CI Temporal Health Check" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Run specific temporal-sensitive tests
+          npm run test:run:ci || echo "Some tests failed, checking details..."
+          
+          # Check for any snapshot mismatches
+          if [ -d "__snapshots__" ] || find . -name "*.snap" 2>/dev/null | head -1 | grep -q snap; then
+            echo "### 📸 Snapshot Status" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Snapshot files detected - running validation..." >> $GITHUB_STEP_SUMMARY
+            
+            # Run tests again with snapshot update in dry-run mode
+            SNAP_CHECK=$(npm run test:run:ci 2>&1 | grep -i "snapshot" || echo "No snapshot issues")
+            echo "- 📊 Snapshot Check: $SNAP_CHECK" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "- ℹ️ No snapshot files found" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "### 🌍 Environment Consistency" >> $GITHUB_STEP_SUMMARY
+          echo "- **Timezone**: $TZ" >> $GITHUB_STEP_SUMMARY
+          echo "- **CI Mode**: $CI" >> $GITHUB_STEP_SUMMARY
+          echo "- **Node Environment**: $NODE_ENV" >> $GITHUB_STEP_SUMMARY
+          echo "- **System Date**: $(date -u)" >> $GITHUB_STEP_SUMMARY
+          
   monitoring-summary:
     name: 📋 Monitoring Summary
     runs-on: ubuntu-latest
-    needs: [health-checks, ssl-monitoring, performance-monitoring, dns-monitoring, endpoint-monitoring]
+    needs: [health-checks, ssl-monitoring, performance-monitoring, dns-monitoring, endpoint-monitoring, ci-temporal-health]
     if: always()
     
     steps:

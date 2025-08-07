@@ -30,9 +30,18 @@ jobs:
           cache: 'npm'
           
       - name: 🔧 Install Dependencies
+        env:
+          CI: true
+          NODE_ENV: production
+          TZ: UTC
         run: npm ci --legacy-peer-deps
         
       - name: 🏗️ Build Application
+        env:
+          CI: true
+          NODE_ENV: production
+          TZ: UTC
+          BUILD_TIMESTAMP: ${{ github.run_number }}
         run: npm run build
         
       - name: 🔍 Validate Build Output
@@ -91,13 +100,24 @@ jobs:
           cache: 'npm'
           
       - name: 🔧 Install Dependencies
+        env:
+          CI: true
+          NODE_ENV: production
+          TZ: UTC
         run: npm ci --legacy-peer-deps
         
       - name: 🏗️ Build for Production
+        env:
+          CI: true
+          NODE_ENV: production
+          TZ: UTC
+          BUILD_TIMESTAMP: ${{ github.run_number }}
         run: |
           npm run build
-          echo "Build completed at $(date)" > dist/build-info.txt
+          echo "Build completed at $(date -u)" > dist/build-info.txt
           echo "Commit: ${{ github.sha }}" >> dist/build-info.txt
+          echo "Build Number: ${{ github.run_number }}" >> dist/build-info.txt
+          echo "Workflow: ${{ github.workflow }}" >> dist/build-info.txt
           
       - name: 📊 Pre-deploy Analytics
         continue-on-error: true

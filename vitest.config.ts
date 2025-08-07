@@ -8,11 +8,27 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     testTimeout: 10000,
+    // GUARDIAN-PROTOCOL: Temporal consistency for CI
+    env: {
+      TZ: 'UTC', // Force UTC timezone for deterministic snapshots
+      CI: process.env.CI || 'false',
+      NODE_ENV: 'test'
+    },
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
       '**/tests/e2e/**' // Excluir tests de Playwright
     ],
+    // Deterministic test execution
+    sequence: {
+      shuffle: false
+    },
+    pool: 'threads',
+    poolOptions: {
+      threads: {
+        singleThread: process.env.CI === 'true'
+      }
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
