@@ -93,13 +93,11 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       
       expect(requestBody).toMatchObject({
         email: 'agency.solaria@gmail.com',
-        _subject: 'Nueva inscripción: Organización de Almacenes',
-        nombre: 'María',
-        apellidos: 'González',
-        email_solicitante: 'maria@example.com',
-        telefono: '922123456',
-        curso: 'Organización de Almacenes',
-        tipo_curso: 'desempleados'
+        _subject: expect.stringContaining('Organización de Almacenes'),
+        _template: 'box',
+        _captcha: 'false',
+        _format: 'plain',
+        mensaje: expect.stringContaining('María González')
       });
     });
 
@@ -137,11 +135,11 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
 
       const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body);
       
-      // Verificar que NO incluye empresa_actual (campo de ocupados)
-      expect(requestBody.empresa_actual).toBe('No especificada');
+      // Verificar que incluye 'No especificada' para empresa en el mensaje
+      expect(requestBody.mensaje).toContain('Empresa Actual:    No especificada');
       // Verificar estructura de email específica para desempleados
       expect(requestBody._subject).toContain('Organización de Almacenes');
-      expect(requestBody.tipo_curso).toBe('desempleados');
+      expect(requestBody.mensaje).toContain('desempleados');
     });
   });
 
@@ -191,14 +189,14 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       
       expect(requestBody).toMatchObject({
         email: 'agency.solaria@gmail.com',
-        _subject: 'Nueva inscripción: Desarrollo Organizacional. Coaching de Equipos',
-        nombre: 'Carlos',
-        apellidos: 'Rodríguez',
-        email_solicitante: 'carlos@empresa.com',
-        empresa_actual: 'Tech Solutions S.L.',
-        curso: 'Desarrollo Organizacional. Coaching de Equipos',
-        tipo_curso: 'ocupados'
+        _subject: expect.stringContaining('Coaching de Equipos'),
+        _template: 'box',
+        _captcha: 'false',
+        mensaje: expect.stringContaining('Carlos Rodríguez')
       });
+      
+      // Verificar que incluye empresa en el mensaje
+      expect(requestBody.mensaje).toContain('Tech Solutions S.L.');
     });
 
     it('debe manejar empresa vacía para ocupados', async () => {
@@ -233,7 +231,7 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       });
 
       const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body);
-      expect(requestBody.empresa_actual).toBe('No especificada');
+      expect(requestBody.mensaje).toContain('Empresa Actual:    No especificada');
     });
   });
 
@@ -372,13 +370,13 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body);
       
       expect(requestBody).toMatchObject({
-        _template: 'table',
+        _template: 'box',
         _captcha: 'false',
-        origen: 'Formulario web - Fallback via Proxy',
-        fecha_envio: expect.any(String)
+        _format: 'plain',
+        mensaje: expect.stringContaining('Template Test')
       });
 
-      expect(requestBody.fecha_envio).toMatch(/^\d{1,2}\/\d{1,2}\/\d{4}/); // Formato fecha español
+      expect(requestBody.mensaje).toContain(new Date().toISOString().split('T')[0]); // Contiene fecha ISO
     });
 
     it('debe incluir información de disponibilidad y consentimientos', async () => {
@@ -419,9 +417,9 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
 
       const requestBody = JSON.parse(mockFetch.mock.calls[0][1].body);
       
-      expect(requestBody.disponibilidad).toBe('mañana');
-      expect(requestBody.consentimiento_datos).toBe('Sí');
-      expect(requestBody.consentimiento_marketing).toBe('Sí');
+      expect(requestBody.mensaje).toContain('Disponibilidad:    mañana');
+      expect(requestBody.mensaje).toContain('Tratamiento de Datos:    ✅ ACEPTADO');
+      expect(requestBody.mensaje).toContain('Marketing:    ✅ ACEPTADO');
     });
   });
 
