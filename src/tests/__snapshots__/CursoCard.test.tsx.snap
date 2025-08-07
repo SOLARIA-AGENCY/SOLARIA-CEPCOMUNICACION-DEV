@@ -13,7 +13,7 @@ exports[`CursoCard > matches snapshot 1`] = `
         class="w-full h-40 sm:h-48 object-cover"
         decoding="async"
         loading="lazy"
-        src="/images/cursos/test.jpg"
+        src="/images/cursos/test.jpg?v=Septiembre 2025"
       />
       <div
         class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
@@ -25,7 +25,7 @@ exports[`CursoCard > matches snapshot 1`] = `
       class="p-4 sm:p-6 flex-grow flex flex-col"
     >
       <h3
-        class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+        class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
       >
         Curso de Prueba
       </h3>
@@ -35,7 +35,7 @@ exports[`CursoCard > matches snapshot 1`] = `
         Este es un eslogan de prueba para el curso.
       </p>
       <a
-        class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+        class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
         data-discover="true"
         href="/curso/curso-de-prueba"
       >

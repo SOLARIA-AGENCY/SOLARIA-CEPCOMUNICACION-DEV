@@ -20,6 +20,7 @@ const SemanticCourseWrapper = lazy(() => import('./components/templates/Semantic
 const CursosOcupadosPage = lazy(() => import('./pages/CursosOcupadosPage'));
 const CursosDesempleadosPage = lazy(() => import('./pages/CursosDesempleadosPage'));
 const CursoOcupadosPageComponent = lazy(() => import('./templates/CursoOcupadosPageComponent'));
+const CursoDesempleadosPageComponent = lazy(() => import('./templates/CursoDesempleadosPageComponent'));
 const DirectEmploymentWrapper = lazy(() => import('./components/templates/DirectEmploymentWrapper'));
 const SemanticEmploymentWrapper = lazy(() => import('./components/templates/SemanticEmploymentWrapper'));
 const LegacyEmploymentRedirect = lazy(() => import('./components/templates/LegacyEmploymentRedirect'));
@@ -131,7 +132,7 @@ const CursoDesempleadosDetailWrapper = () => {
   if (loading) return <LoadingSpinner />;
   if (!curso) return <Navigate to="/cursos-desempleados" replace />;
   
-  return <CursoOcupadosPageComponent curso={curso} />;
+  return <CursoDesempleadosPageComponent curso={curso} />;
 };
 
 function App() {
@@ -162,10 +163,12 @@ function App() {
         {/* CURSOS OCUPADOS - Rutas Duales */}
         <Route path="/prevencion-riesgos-ambientales-ocupados" element={<DirectEmploymentWrapper />} />
         <Route path="/cursos-empleo/prevencion-riesgos-ambientales-ocupados" element={<SemanticEmploymentWrapper />} />
+        <Route path="/coaching-equipos-ocupados" element={<DirectEmploymentWrapper />} />
+        <Route path="/cursos-empleo/coaching-equipos-ocupados" element={<SemanticEmploymentWrapper />} />
         
-        {/* CURSOS DESEMPLEADOS - Rutas Duales (Preparado para futuros cursos) */}
-        {/* <Route path="/curso-desempleado-slug" element={<DirectEmploymentWrapper />} /> */}
-        {/* <Route path="/cursos-empleo/curso-desempleado-slug" element={<SemanticEmploymentWrapper />} /> */}
+        {/* CURSOS DESEMPLEADOS - Rutas Duales */}
+        <Route path="/organizacion-almacenes-desempleados" element={<DirectEmploymentWrapper />} />
+        <Route path="/cursos-empleo/organizacion-almacenes-desempleados" element={<SemanticEmploymentWrapper />} />
         
         {/* 🔄 REDIRECCIONES LEGACY - Preservación SEO */}
         <Route path="/legacy-curso-ocupado/:id" element={<LegacyEmploymentRedirect />} />

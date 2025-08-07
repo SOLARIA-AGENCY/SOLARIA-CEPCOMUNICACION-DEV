@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);">
+  <!-- Rama -->
+  <path d="M50 450 Q200 420 350 440 Q500 460 750 430" stroke="#8B4513" stroke-width="25" fill="none" stroke-linecap="round"/>
+  <path d="M50 450 Q200 420 350 440 Q500 460 750 430" stroke="#A0522D" stroke-width="15" fill="none" stroke-linecap="round"/>
+  
+  <!-- Textura de la rama -->
+  <g opacity="0.6">
+    <line x1="100" y1="445" x2="105" y2="435" stroke="#654321" stroke-width="2"/>
+    <line x1="180" y1="430" x2="185" y2="420" stroke="#654321" stroke-width="2"/>
+    <line x1="280" y1="445" x2="285" y2="435" stroke="#654321" stroke-width="2"/>
+    <line x1="380" y1="450" x2="385" y2="440" stroke="#654321" stroke-width="2"/>
+    <line x1="480" y1="455" x2="485" y2="445" stroke="#654321" stroke-width="2"/>
+    <line x1="580" y1="445" x2="585" y2="435" stroke="#654321" stroke-width="2"/>
+  </g>
+  
+  <!-- Cuerpo del camaleón -->
+  <ellipse cx="400" cy="350" rx="180" ry="80" fill="url(#bodyGradient)"/>
+  
+  <!-- Cabeza -->
+  <ellipse cx="250" cy="280" rx="90" ry="70" fill="url(#headGradient)"/>
+  
+  <!-- Cuerno/cresta -->
+  <path d="M200 240 Q190 220 200 200 Q210 210 220 220 Q230 230 240 240" fill="#FF6B6B" opacity="0.8"/>
+  <path d="M220 250 Q210 230 220 210 Q230 220 240 230 Q250 240 260 250" fill="#FF8E8E" opacity="0.6"/>
+  
+  <!-- Ojo -->
+  <circle cx="220" cy="270" r="25" fill="url(#eyeGradient)"/>
+  <circle cx="220" cy="270" r="15" fill="#2C3E50"/>
+  <circle cx="225" cy="265" r="5" fill="#ECF0F1"/>
+  
+  <!-- Patrón de escamas en el cuerpo -->
+  <g opacity="0.7">
+    <!-- Fila 1 -->
+    <circle cx="320" cy="320" r="8" fill="#FF6B6B"/>
+    <circle cx="340" cy="325" r="6" fill="#4ECDC4"/>
+    <circle cx="360" cy="320" r="7" fill="#45B7D1"/>
+    <circle cx="380" cy="325" r="8" fill="#96CEB4"/>
+    <circle cx="400" cy="320" r="6" fill="#FFEAA7"/>
+    <circle cx="420" cy="325" r="7" fill="#DDA0DD"/>
+    <circle cx="440" cy="320" r="8" fill="#98D8C8"/>
+    <circle cx="460" cy="325" r="6" fill="#F7DC6F"/>
+    <circle cx="480" cy="320" r="7" fill="#BB8FCE"/>
+    
+    <!-- Fila 2 -->
+    <circle cx="330" cy="340" r="7" fill="#4ECDC4"/>
+    <circle cx="350" cy="345" r="8" fill="#FF6B6B"/>
+    <circle cx="370" cy="340" r="6" fill="#96CEB4"/>
+    <circle cx="390" cy="345" r="7" fill="#45B7D1"/>
+    <circle cx="410" cy="340" r="8" fill="#DDA0DD"/>
+    <circle cx="430" cy="345" r="6" fill="#FFEAA7"/>
+    <circle cx="450" cy="340" r="7" fill="#98D8C8"/>
+    <circle cx="470" cy="345" r="8" fill="#F7DC6F"/>
+    
+    <!-- Fila 3 -->
+    <circle cx="340" cy="360" r="6" fill="#45B7D1"/>
+    <circle cx="360" cy="365" r="7" fill="#4ECDC4"/>
+    <circle cx="380" cy="360" r="8" fill="#FF6B6B"/>
+    <circle cx="400" cy="365" r="6" fill="#98D8C8"/>
+    <circle cx="420" cy="360" r="7" fill="#96CEB4"/>
+    <circle cx="440" cy="365" r="8" fill="#DDA0DD"/>
+    <circle cx="460" cy="360" r="6" fill="#FFEAA7"/>
+    
+    <!-- Fila 4 -->
+    <circle cx="350" cy="380" r="7" fill="#96CEB4"/>
+    <circle cx="370" cy="385" r="6" fill="#45B7D1"/>
+    <circle cx="390" cy="380" r="8" fill="#4ECDC4"/>
+    <circle cx="410" cy="385" r="7" fill="#FF6B6B"/>
+    <circle cx="430" cy="380" r="6" fill="#F7DC6F"/>
+    <circle cx="450" cy="385" r="8" fill="#BB8FCE"/>
+  </g>
+  
+  <!-- Cola curvada -->
+  <path d="M580 350 Q650 300 680 250 Q700 200 680 150 Q660 120 640 140 Q620 160 600 180 Q580 200 570 220" stroke="url(#tailGradient)" stroke-width="20" fill="none" stroke-linecap="round"/>
+  
+  <!-- Patrón en la cola -->
+  <g opacity="0.8">
+    <circle cx="600" cy="320" r="5" fill="#FF6B6B"/>
+    <circle cx="620" cy="290" r="4" fill="#4ECDC4"/>
+    <circle cx="640" cy="260" r="5" fill="#45B7D1"/>
+    <circle cx="655" cy="230" r="4" fill="#96CEB4"/>
+    <circle cx="665" cy="200" r="5" fill="#FFEAA7"/>
+    <circle cx="670" cy="170" r="4" fill="#DDA0DD"/>
+  </g>
+  
+  <!-- Patas -->
+  <!-- Pata delantera -->
+  <ellipse cx="280" cy="400" rx="15" ry="40" fill="url(#legGradient)" transform="rotate(-20 280 400)"/>
+  <circle cx="275" cy="430" r="12" fill="#FF6B6B"/>
+  
+  <!-- Pata trasera -->
+  <ellipse cx="480" cy="410" rx="15" ry="35" fill="url(#legGradient)" transform="rotate(15 480 410)"/>
+  <circle cx="485" cy="435" r="12" fill="#4ECDC4"/>
+  
+  <!-- Lengua (opcional, enrollada) -->
+  <path d="M180 290 Q160 300 150 320 Q140 340 160 350" stroke="#FF69B4" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="160" cy="350" r="3" fill="#FF1493"/>
+  
+  <!-- Gradientes -->
+  <defs>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#45B7D1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#96CEB4;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFEAA7;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="headGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4ECDC4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#96CEB4;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="eyeGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6347;stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="tailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
+      <stop offset="33%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="66%" style="stop-color:#96CEB4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DDA0DD;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="legGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#45B7D1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Efectos de luz -->
+  <ellipse cx="350" cy="300" rx="60" ry="30" fill="url(#lightEffect)" opacity="0.3"/>
+  
+  <defs>
+    <radialGradient id="lightEffect" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+</svg>

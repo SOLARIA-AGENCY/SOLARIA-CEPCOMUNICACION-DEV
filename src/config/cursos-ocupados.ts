@@ -127,63 +127,63 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
     }
   },
   {
-    id: 'COACHING-EQUIPOS-OCUPADOS-25',
-    slug: 'coaching-equipos-trabajadores-ocupados',
+    id: 'PRO-OCUP-COACHING-EQUIPOS-25',
+    slug: 'coaching-equipos-ocupados',
     nombre: 'Desarrollo Organizacional. Coaching de Equipos',
     tipo: 'ocupados',
     activo: true,
-    fecha_inicio: '2025-09-15',
-    fecha_fin: '2025-10-20',
-    plazas_disponibles: 12,
+    fecha_inicio: '2025-09-04',
+    fecha_fin: '2025-09-16',
+    plazas_disponibles: 30,
     sede: 'Norte',
-    imagen: '/images/cursos/coaching-equipos-ocupados.png',
-    descripcion: 'Curso especializado en técnicas de coaching aplicadas al desarrollo organizacional y gestión de equipos de trabajo, orientado a mejorar el rendimiento y la cohesión grupal.',
+    imagen: '/images/cursos/coaching-equipos-ocupados.jpg',
+    descripcion: 'Adquiere conocimientos sobre las herramientas para acompañar a un equipo de personas en el proceso de desarrollo, cambio y aprendizaje desde un enfoque sistémico, con el fin de optimizar su desempeño.',
     objetivos: [
-      'Dominar las técnicas fundamentales del coaching de equipos',
-      'Desarrollar habilidades de liderazgo transformacional',
-      'Implementar estrategias de desarrollo organizacional',
-      'Mejorar la comunicación y cohesión en equipos de trabajo',
-      'Aplicar herramientas de evaluación del rendimiento grupal'
+      'Dominar las competencias generales del coaching sistémico de equipos',
+      'Aplicar técnicas de comunicación efectiva en la gestión de equipos',
+      'Desarrollar habilidades de liderazgo y motivación grupal',
+      'Implementar estrategias para la resolución de conflictos internos',
+      'Crear planes de acción para el desarrollo organizacional'
     ],
     temario: [
       {
-        modulo: 'Módulo 1: Fundamentos del Coaching Organizacional',
+        modulo: 'Coaching de Equipos - Fundamentos',
         contenidos: [
-          'Principios básicos del coaching',
-          'Diferencias entre coaching, mentoring y consultoría',
-          'El coach como facilitador del cambio',
-          'Ética y competencias del coach profesional'
+          'Qué es y para qué sirve el coaching de equipos',
+          'Objetivos del coaching de equipos',
+          'El coach de equipos: competencias y habilidades',
+          'Enfoque y principios sistémicos'
         ]
       },
       {
-        modulo: 'Módulo 2: Dinámicas de Equipos y Liderazgo',
+        modulo: 'Competencias del Coaching Sistémico',
         contenidos: [
-          'Teorías de desarrollo de equipos',
-          'Estilos de liderazgo situacional',
-          'Gestión de conflictos en equipos',
-          'Comunicación efectiva y feedback constructivo'
+          'Competencias generales del coaching',
+          'Competencias específicas del coaching sistémico de equipos',
+          'Herramientas de intervención grupal',
+          'Técnicas de evaluación y seguimiento'
         ]
       },
       {
-        modulo: 'Módulo 3: Herramientas de Coaching de Equipos',
+        modulo: 'Características y Gestión de Equipos',
         contenidos: [
-          'Técnicas de facilitación grupal',
-          'Dinámicas de team building',
-          'Evaluación del clima organizacional',
-          'Planificación estratégica participativa'
+          'Liderazgo de equipos efectivo',
+          'Estructura del equipo y roles',
+          'Etapas para afrontar el cambio organizacional',
+          'Dinámicas de valoración y desarrollo del equipo'
         ]
       },
       {
-        modulo: 'Módulo 4: Implementación y Seguimiento',
+        modulo: 'Comunicación y Clima Emocional',
         contenidos: [
-          'Diseño de programas de desarrollo',
-          'Métricas y KPIs de rendimiento grupal',
-          'Planes de acción y seguimiento',
-          'Casos prácticos y simulaciones'
+          'Comunicación efectiva en equipos',
+          'Escucha activa y rapport',
+          'Gestión del clima emocional',
+          'Resolución de conflictos y disfunciones'
         ]
       }
     ],
-    metodologia: 'Metodología experiencial con role-playing, dinámicas grupales, análisis de casos reales y práctica supervisada de técnicas de coaching.',
+    metodologia: 'Modalidad mixta con sesiones presenciales de aplicación práctica y teleformación para contenidos teóricos. Metodología participativa con dinámicas de grupo, casos prácticos y role-playing.',
     datos_especificos: {
       tipo: 'ocupados',
       contacto: {
@@ -193,25 +193,26 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
       beneficios: [
         '100% Gratuito (financiado SEPE)',
         'Certificación oficial reconocida',
-        'Mejora tus competencias directivas',
+        'Mejora tu CV y empleabilidad',
         'Horario compatible con trabajo',
-        'Aplicación inmediata en tu equipo',
-        'Material didáctico especializado',
-        'Networking profesional'
+        'Aplicación práctica inmediata',
+        'Material didáctico incluido',
+        'Seguimiento personalizado'
       ],
       requisitos: [
-        'Ser trabajador activo con responsabilidades de equipo',
+        'Ser trabajador activo de cualquier sector',
         'Residir en Canarias',
         'Tener más de 18 años',
         'Disponibilidad horaria de tardes',
-        'Experiencia mínima en gestión de personas'
+        'Nivel básico de estudios',
+        'Experiencia previa en gestión de equipos (recomendable)'
       ],
       financiacion: 'SEPE - Servicio Público de Empleo Estatal',
-      duracion: '50 horas lectivas',
-      modalidad: 'Presencial',
+      duracion: '25 horas lectivas',
+      modalidad: 'Mixta (presencial + teleformación)',
       certificacion: 'Certificado oficial de aprovechamiento reconocido por SEPE',
       caracteristicas: {
-        modalidad: 'presencial',
+        modalidad: 'hibrido',
         horario: 'tarde',
         compatible_trabajo: true,
         certificacion_oficial: true,
@@ -219,29 +220,29 @@ export const cursosOcupadosConfig: EmploymentCourseConfig[] = [
       }
     },
     seo: {
-      title: 'Curso Coaching de Equipos - Trabajadores Ocupados | CEP Formación',
-      description: 'Curso gratuito de Coaching de Equipos para trabajadores. Financiado por SEPE. Desarrolla habilidades de liderazgo y gestión de equipos. ¡Plazas limitadas!',
-      keywords: 'coaching equipos, desarrollo organizacional, curso trabajadores ocupados, SEPE, liderazgo, gestión equipos, las palmas gran canaria',
+      title: 'Coaching de Equipos - Trabajadores Ocupados | CEP Formación',
+      description: 'Curso gratuito de Desarrollo Organizacional y Coaching de Equipos para trabajadores. Financiado por SEPE. Modalidad mixta, horario compatible con trabajo. ¡Plazas limitadas!',
+      keywords: 'coaching equipos, desarrollo organizacional, liderazgo, trabajadores ocupados, SEPE, formación gratuita, norte tenerife',
       structuredData: {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Desarrollo Organizacional. Coaching de Equipos",
-        "description": "Curso especializado en técnicas de coaching aplicadas al desarrollo organizacional y gestión de equipos de trabajo, orientado a mejorar el rendimiento y la cohesión grupal.",
+        "description": "Curso para adquirir conocimientos sobre herramientas de coaching de equipos desde un enfoque sistémico",
         "provider": {
           "@type": "Organization",
           "name": "CEP Formación",
           "url": "https://cepcomunicacion.com"
         },
-        "url": "https://cepcomunicacion.com/curso-ocupado/coaching-equipos-trabajadores-ocupados",
+        "url": "https://cepcomunicacion.com/curso-ocupado/coaching-equipos-ocupados",
         "courseMode": "blended",
         "educationalLevel": "professional",
-        "audience": "Trabajadores ocupados con responsabilidades de equipo",
+        "audience": "Trabajadores ocupados",
         "teaches": [
-          "Técnicas de coaching de equipos",
-          "Liderazgo transformacional",
-          "Desarrollo organizacional",
-          "Gestión de conflictos",
-          "Comunicación efectiva"
+          "Competencias del coaching sistémico de equipos",
+          "Técnicas de comunicación efectiva",
+          "Habilidades de liderazgo y motivación",
+          "Estrategias de resolución de conflictos",
+          "Desarrollo organizacional"
         ]
       }
     }

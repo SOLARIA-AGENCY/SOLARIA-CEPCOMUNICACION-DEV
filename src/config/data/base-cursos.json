@@ -14,7 +14,7 @@
         "introduccion": "El curso de Adiestramiento de base I ofrece los conocimientos imprescindibles acerca de las técnicas de adiestramiento de base aplicadas a perros, modificación de conductas no deseadas así como los cuidados básicos y primeros auxilios, además de un módulo de orientación laboral, dinámico y actualizado.",
         "queAprendes": "Si te gusta el mundo animal y crees que ayudar a las personas a entender a sus mascotas contribuye al bienestar de la sociedad, este curso es para ti. Adquirirás la confianza, habilidades y conocimientos para trabajar como adiestrador canino o aplicarlo con tus propios animales.",
         "puntosClave": [
-          { "icono": "Clock", "texto": "Inicio Septiembre - Horario pendiente confirmación" },
+          { "icono": "Clock", "texto": "INICIO: POR CONFIRMAR" },
           { "icono": "Users", "texto": "Teórico-práctico" },
           { "icono": "Award", "texto": "Preparación examen ANACP" },
           { "icono": "Book", "texto": "Enfoque en psicología canina" }
@@ -107,7 +107,7 @@
       "introduccion": "El curso de Tanatopraxia y Tanatoestética te proporciona los conocimientos teóricos y prácticos para la conservación, restauración y presentación estética de cadáveres, una profesión de alta especialización y demanda.",
       "queAprendes": "Aprenderás a realizar desde la conservación transitoria y embalsamamiento hasta restauraciones complejas, aplicando técnicas estéticas y manejando las habilidades relacionales necesarias para prestar un servicio profesional y respetuoso en el sector funerario.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 11/09/2025 - Jueves 18:00-21:00H" },
+        { "icono": "Clock", "texto": "INICIO 11 SEPTIEMBRE 2025" },
         { "icono": "Users", "texto": "150 horas de prácticas" },
         { "icono": "Award", "texto": "Formación completa y especializada" }
       ],
@@ -158,7 +158,7 @@
       "introduccion": "El curso de Auxiliar de Veterinaria te ofrece los conocimientos imprescindibles del funcionamiento de una clínica veterinaria, las funciones del auxiliar y todos los conocimientos relativos a perros y gatos, con pinceladas en animales exóticos.",
       "queAprendes": "Adquirirás la confianza, habilidades y conocimientos para trabajar como Auxiliar en clínicas, hospitales veterinarios, tiendas de animales, centros de acogida y ONGs, o para aplicarlo con tus propias mascotas. Incluye un módulo de orientación laboral actualizado.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 28/05/2025 - Miércoles 10:00-13:00H" },
+        { "icono": "Clock", "texto": "INICIO 28 MAYO 2025" },
         { "icono": "Users", "texto": "350 horas de prácticas" },
         { "icono": "Award", "texto": "Titulación Propia" }
       ],
@@ -208,7 +208,7 @@
         "introduccion": "El curso de Auxiliar de Clínicas Estéticas ofrece los conocimientos imprescindibles del funcionamiento de un centro médico estético, las técnicas de medicina estética moderna y las funciones especializadas del auxiliar.",
         "queAprendes": "Si te gusta el área sanitaria, el trato al público especializado, aconsejar en tratamientos estéticos y ayudar en la promoción de la salud y el bienestar, adquirirás todos los conocimientos necesarios para trabajar en el sector de la medicina estética.",
         "puntosClave": [
-          { "icono": "Clock", "texto": "Inicio 09/10/2025 - Jueves 10:30-13:30H" },
+          { "icono": "Clock", "texto": "INICIO 09 OCTUBRE 2025" },
           { "icono": "Users", "texto": "150 horas de prácticas" },
           { "icono": "Award", "texto": "Certificación medicina estética" },
           { "icono": "Book", "texto": "Aparatología láser avanzada" }
@@ -257,7 +257,7 @@
       "introduccion": "El curso de Auxiliar de Enfermería te proporciona los conocimientos teórico-prácticos para poder ejercer una de las profesiones con más demanda en nuestra sociedad, preparándote para trabajar en hospitales, clínicas y centros de salud.",
       "queAprendes": "Aprenderás a proporcionar cuidados auxiliares al paciente, preparar materiales e instrumental, realizar tareas de higiene y aseo, y asistir al equipo de enfermería en diversos procedimientos, todo ello con un enfoque humano y profesional.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 29/09/2025 - Lunes 16:30-19:30H" },
+        { "icono": "Clock", "texto": "INICIO 29 SEPTIEMBRE 2025" },
         { "icono": "Users", "texto": "400 horas de prácticas en empresas" },
         { "icono": "Award", "texto": "Formación integral para el sector salud" }
       ],
@@ -306,7 +306,7 @@
         "introduccion": "El curso de Auxiliar de Odontología ofrece los conocimientos imprescindibles del funcionamiento de una clínica odontológica, las funciones del auxiliar de odontología y técnicas especializadas en salud bucodental.",
         "queAprendes": "Si consideras que la salud bucodental es fundamental para una buena salud física y emocional y te ves desarrollando tu carrera profesional como parte de un equipo multidisciplinar odontológico, este curso te capacitará completamente.",
         "puntosClave": [
-          { "icono": "Clock", "texto": "Inicio 26/11/2025 - Miércoles 10:00-14:00" },
+          { "icono": "Clock", "texto": "INICIO 26 NOVIEMBRE 2025" },
           { "icono": "Users", "texto": "200 horas de prácticas" },
           { "icono": "Award", "texto": "Certificación especializada dental" },
           { "icono": "Book", "texto": "Manejo de radiología dental" }
@@ -360,7 +360,7 @@
         { "icono": "BookOpen", "texto": "Titulación Oficial del Ministerio" },
         { "icono": "Users", "texto": "Acceso a Grado Superior" },
         { "icono": "Award", "texto": "2.000 horas formativas" },
-        { "icono": "Clock", "texto": "Inicio 18/09/2025" }
+        { "icono": "Clock", "texto": "INICIO 18 SEPTIEMBRE 2025" }
       ],
       "inversion": {
         "total": "2.000€ 1º año / 2.000€ 2º año FCT",
@@ -416,7 +416,7 @@
         { "icono": "BookOpen", "texto": "Titulación Oficial del Ministerio" },
         { "icono": "Users", "texto": "Acceso Directo a la Universidad" },
         { "icono": "Award", "texto": "2.000 horas formativas" },
-        { "icono": "Clock", "texto": "Inicio 17/09/2025" }
+        { "icono": "Clock", "texto": "INICIO 17 SEPTIEMBRE 2025" }
       ],
       "inversion": {
         "total": "2.000€ 1º año / 2.000€ 2º año FCT",
@@ -459,7 +459,7 @@
       "introduccion": "El curso de Quiromasaje Nivel I te introduce en el mundo de las terapias manuales, proporcionándote una base sólida en anatomía, fisiología y las principales maniobras del masaje para aplicar técnicas relajantes, descontracturantes y circulatorias.",
       "queAprendes": "Aprenderás a identificar las principales estructuras anatómicas, realizar una valoración inicial del cliente, aplicar correctamente las diferentes maniobras de quiromasaje (roces, fricciones, presiones, etc.) y crear protocolos de masaje para diferentes zonas del cuerpo.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 19/06/2025 - Jueves 16:00-20:00H" },
+        { "icono": "Clock", "texto": "INICIO 19 JUNIO 2025" },
         { "icono": "Users", "texto": "Prácticas intensivas supervisadas" },
         { "icono": "Award", "texto": "Certificación Nivel Inicial" }
       ],
@@ -505,7 +505,7 @@
         "introduccion": "El curso de Dietética y Nutrición ofrece los conocimientos imprescindibles sobre nutrición aplicada, elaboración de dietas personalizadas, educación nutricional y tratamiento de trastornos alimentarios.",
         "queAprendes": "Si te interesa la alimentación saludable, quieres ayudar a las personas a mejorar su calidad de vida a través de la nutrición y deseas especializarte en este campo en crecimiento, adquirirás todos los conocimientos necesarios.",
         "puntosClave": [
-          { "icono": "Clock", "texto": "Inicio Septiembre 2025 - Jueves 17:00-20:00H" },
+          { "icono": "Clock", "texto": "INICIO: POR CONFIRMAR" },
           { "icono": "Users", "texto": "150 horas de prácticas" },
           { "icono": "Award", "texto": "Certificación en dietética" },
           { "icono": "Book", "texto": "Enfoque en nutrición terapéutica" }
@@ -555,7 +555,7 @@
       "introduccion": "El curso de Quiromasaje Nivel II (Terapéutico y Deportivo) ofrece técnicas avanzadas de masaje terapéutico, conocimientos especializados en masaje deportivo y herramientas profesionales para el tratamiento de lesiones.",
       "queAprendes": "Perfeccionarás tus habilidades en masaje terapéutico, aprenderás técnicas específicas de masaje deportivo y adquirirás conocimientos para trabajar con deportistas y en el tratamiento de lesiones musculares.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 04/07/2025 - Viernes 10:00-14:00H" },
+        { "icono": "Clock", "texto": "INICIO 04 JULIO 2025" },
         { "icono": "Users", "texto": "50 horas de prácticas externas" },
         { "icono": "Award", "texto": "Especialización nivel avanzado" },
         { "icono": "Book", "texto": "Enfoque terapéutico y deportivo" }
@@ -605,7 +605,7 @@
       "introduccion": "Este curso completo de 11 meses te forma como quiromasajista profesional, cubriendo desde las técnicas fundamentales hasta los protocolos avanzados para el tratamiento de diversas afecciones y la promoción del bienestar.",
       "queAprendes": "Aprenderás a realizar un masaje completo y profesional, aplicar técnicas específicas para lesiones comunes, entender la anatomía y fisiología en profundidad, y desarrollar protocolos de tratamiento personalizados para tus clientes.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 19/06/2025 - Jueves 16:00-20:00H" },
+        { "icono": "Clock", "texto": "INICIO 19 JUNIO 2025" },
         { "icono": "Users", "texto": "100 horas de prácticas" },
         { "icono": "Award", "texto": "Certificación Profesional" }
       ],
@@ -658,7 +658,7 @@
       "introduccion": "Este curso completo de 11 meses te forma como quiromasajista profesional, cubriendo desde las técnicas fundamentales hasta los protocolos avanzados para el tratamiento de diversas afecciones y la promoción del bienestar.",
       "queAprendes": "Aprenderás a realizar un masaje completo y profesional, aplicar técnicas específicas para lesiones comunes, entender la anatomía y fisiología en profundidad, y desarrollar protocolos de tratamiento personalizados para tus clientes.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 20/06/2025 - Viernes 10:00-14:00H" },
+        { "icono": "Clock", "texto": "INICIO 20 JUNIO 2025" },
         { "icono": "Users", "texto": "100 horas de prácticas" },
         { "icono": "Award", "texto": "Certificación Profesional" }
       ],
@@ -709,7 +709,7 @@
       "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
       "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 13/10/2025 - Lunes 16:00-19:00H" },
+        { "icono": "Clock", "texto": "INICIO 13 OCTUBRE 2025" },
         { "icono": "Users", "texto": "150 horas de prácticas" },
         { "icono": "Award", "texto": "Certificación farmacéutica" },
         { "icono": "Book", "texto": "Farmacología y parafarmacia" }
@@ -758,7 +758,7 @@
       "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
       "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 21/07/2025 - Lunes 10:00-13:00H" },
+        { "icono": "Clock", "texto": "INICIO 21 JULIO 2025" },
         { "icono": "Users", "texto": "150 horas de prácticas" },
         { "icono": "Award", "texto": "Certificación farmacéutica" },
         { "icono": "Book", "texto": "Sede CEP Norte - Aula 5" }
@@ -807,7 +807,7 @@
       "introduccion": "El curso de Auxiliar de Farmacia y Parafarmacia ofrece los conocimientos imprescindibles del funcionamiento de una oficina de farmacia, las funciones del auxiliar y técnicas especializadas en atención farmacéutica.",
       "queAprendes": "Si te gusta el área sanitaria, el trato al público, aconsejar, escuchar, ayudar y fomentar la promoción de la salud, adquirirás la confianza y conocimientos para trabajar como Auxiliar en farmacias, parafarmacias y almacenes de medicamentos.",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio 13/10/2025 - Lunes 16:00-19:00H" },
+        { "icono": "Clock", "texto": "INICIO 13 OCTUBRE 2025" },
         { "icono": "Users", "texto": "150 horas de prácticas" },
         { "icono": "Award", "texto": "Certificación farmacéutica" },
         { "icono": "Book", "texto": "Sede CEP Norte - Aula 5" }
@@ -856,7 +856,7 @@
         "introduccion": "El curso de Peluquería Canina y Felina te capacita para trabajar como profesional en un sector con alta demanda, aprendiendo desde la anatomía y el cuidado de la piel hasta las técnicas de corte específicas para cada raza.",
         "queAprendes": "Adquirirás las habilidades para realizar cortes de pelo según el estándar de la raza, aplicar tratamientos de higiene y cosmética, y gestionar tu propio negocio de peluquería canina y felina.",
         "puntosClave": [
-          { "icono": "Clock", "texto": "Inicio 15/09/2025 - Lunes 10:00-13:00H" },
+          { "icono": "Clock", "texto": "INICIO 15 SEPTIEMBRE 2025" },
           { "icono": "Users", "texto": "150 horas de prácticas" },
           { "icono": "Award", "texto": "Certificación en Estética Canina" },
           { "icono": "Book", "texto": "Visagismo y técnicas de corte" }
@@ -894,7 +894,7 @@
     "nombre": "Especialista en Animales Exóticos",
     "codigo": "EXOTICOS",
     "slugBase": "especialista-animales-exoticos",
-    "imagen": "/images/cursos/mundo-animal.jpg",
+    "imagen": "/images/cursos/especialista-animales-exoticos.jpg",
     "categoria": "veterinaria",
     "copy": {
       "slogan": "Adéntrate en el fascinante mundo de las especies no convencionales.",
@@ -953,7 +953,7 @@
       "introduccion": "El curso de ATV ofrece los conocimientos imprescindibles acerca de las técnicas y conocimientos que debe manejar un Ayudante Técnico de Veterinaria, que incluye la legislación actual, nivel medio de anatomía y fisiología animal, farmacología y toxicología, imagenología, introducción a la odontología veterinaria, atención en el quirófano y hospitalización, y urgencias veterinarias, además de un módulo de orientación laboral, dinámico y actualizado.",
       "queAprendes": "El objetivo es adquirir la confianza, habilidades y conocimientos para trabajar como ATV en clínicas, centros veterinarios, tiendas de animales, ong´s o núcleos zoológicos. Si te gusta el mundo animal, ya eres Auxiliar de Veterinaria y deseas ampliar conocimientos, ¡no lo dudes!",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio: 01/07/2025" },
+        { "icono": "Clock", "texto": "INICIO 01 JULIO 2025" },
         { "icono": "Users", "texto": "Martes 19:00-22:00" },
         { "icono": "Award", "texto": "150 horas de prácticas" },
         { "icono": "Book", "texto": "Sede CEP Santa Cruz - Aula 2" }
@@ -1006,7 +1006,7 @@
       "introduccion": "El curso de ATV ofrece los conocimientos imprescindibles acerca de las técnicas y conocimientos que debe manejar un Ayudante Técnico de Veterinaria, que incluye la legislación actual, nivel medio de anatomía y fisiología animal, farmacología y toxicología, imagenología, introducción a la odontología veterinaria, atención en el quirófano y hospitalización, y urgencias veterinarias, además de un módulo de orientación laboral, dinámico y actualizado.",
       "queAprendes": "El objetivo es adquirir la confianza, habilidades y conocimientos para trabajar como ATV en clínicas, centros veterinarios, tiendas de animales, ong´s o núcleos zoológicos. Si te gusta el mundo animal, ya eres Auxiliar de Veterinaria y deseas ampliar conocimientos, ¡no lo dudes!",
       "puntosClave": [
-        { "icono": "Clock", "texto": "Inicio: 25/06/2025" },
+        { "icono": "Clock", "texto": "INICIO 25 JUNIO 2025" },
         { "icono": "Users", "texto": "Horario: 17:00-20:00 (pendiente confirmar día)" },
         { "icono": "Award", "texto": "50 horas de prácticas" },
         { "icono": "Book", "texto": "Sede CEP Norte/La Laguna - Aula 5" }
@@ -1044,4 +1044,4 @@
       "cursosComplementarios": ["ATV felinos", "ATV animales Exóticos", "Seminario de urgencias", "Peluquería canina", "Adiestramiento canino"]
     }
   }
-] 
+]

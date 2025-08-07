@@ -91,9 +91,19 @@ const CursoUnificadoCard: React.FC<CursoUnificadoCardProps> = ({ curso }) => {
           {fechaTag.text}
         </div>
 
-        {/* Etiqueta de Tipo de Curso (Derecha) */}
-        <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${getColorTipo()}`}>
-          {getEtiquetaTipo()}
+        {/* Banners Superiores Derecha */}
+        <div className="absolute top-3 right-3 flex flex-col items-end space-y-2">
+          {/* Etiqueta de Tipo de Curso */}
+          <div className={`px-3 py-1 rounded-full text-xs font-bold text-white ${getColorTipo()}`}>
+            {getEtiquetaTipo()}
+          </div>
+
+          {/* Etiqueta de Gratuidad para cursos subvencionados */}
+          {esSubvencionado && (
+            <div className={`px-3 py-1 rounded-full text-xs font-bold text-white ${getColorTipo()}`}>
+              GRATIS
+            </div>
+          )}
         </div>
         
         {/* Etiqueta de Nivel para ciclos con tipado seguro */}

@@ -30,7 +30,7 @@ const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp 
       <CepHeader fixedTimestamp={fixedTimestamp} />
       <main className="container mx-auto px-4 py-12 sm:py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-cep-primary mb-4">Todos Nuestros Cursos</h1>
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-cep-primary mb-4">Nuestros cursos privados</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Explora nuestra oferta formativa. Cursos diseñados para impulsar tu carrera profesional en nuestras sedes de Tenerife.
           </p>
@@ -91,4 +91,4 @@ const TodosLosCursosPage: React.FC<TodosLosCursosPageProps> = ({ fixedTimestamp 
   );
 };
 
-export default TodosLosCursosPage; 
+export default TodosLosCursosPage;

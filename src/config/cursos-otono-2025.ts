@@ -260,7 +260,7 @@ export const cursoData = [
     sede: 'Santa Cruz',
     tag: 'otono-2025-auxiliar-clinicas-esteticas-santacruz',
     inicio: 'Octubre 2025',
-    imagen: '/images/cursos/auxiliar-de.jpg',
+    imagen: '/images/cursos/auxiliar-enfermeria.jpg',
     temario: [
       'Anatomía y fisiología de la piel',
       'Técnicas de diagnóstico estético',
@@ -748,7 +748,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-quiromasaje-nivel1-norte',
     inicio: 'Septiembre 2025',
-    imagen: '/images/cursos/quiromasaje-nivel-1.jpg',
+    imagen: '/images/cursos/Quiromasaje I.png',
     temario: [
       'Anatomía y fisiología del aparato locomotor',
       'Técnicas básicas de quiromasaje',
@@ -807,7 +807,7 @@ export const cursoData = [
     sede: 'Santa Cruz', 
     tag: 'otono-2025-quiromasaje-nivel2-santacruz',
     inicio: 'Julio 2025',
-    imagen: '/images/cursos/quiromasaje-nivel-2.jpg',
+    imagen: '/images/cursos/Quiromasaje II.png',
     temario: [
       'Anatomía y fisiología del aparato locomotor avanzada',
       'Patologías del sistema muscoesquelético',
@@ -866,7 +866,7 @@ export const cursoData = [
     sede: 'Norte',
     tag: 'otono-2025-quiromasaje-nivel2-norte',
     inicio: 'Julio 2025',
-    imagen: '/images/cursos/quiromasaje-nivel-2.jpg',
+    imagen: '/images/cursos/Quiromasaje II.png',
     temario: [
       'Masaje terapéutico: indicaciones, contraindicaciones y pautas',
       'Técnicas funcionales (Jones) y estructurales (inhibición, miotensiva)',
@@ -1030,4 +1030,4 @@ export const cursoData = [
       ]
     }
   }
-]; 
+];
