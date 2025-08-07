@@ -64,19 +64,19 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
         
         const formSubmitData = {
           email: fallbackEmail, // Email de destino para el proxy
-          _subject: `🎯 INSCRIPCIÓN PRIORITARIA: ${formData.nombre} ${formData.apellidos} - ${curso.nombre}`,
+          _subject: `📝 PRE-INSCRIPCIÓN PENDIENTE: ${formData.nombre} ${formData.apellidos} - ${curso.nombre}`,
           _template: 'box',
           _captcha: 'false',
           _format: 'plain',
-          _from: 'CEP Inscripciones PRIORITARIO <agency.solaria@gmail.com>',
-          // Template de email exacto
-          mensaje: `🎯 INSCRIPCIÓN Y RESERVA DE PLAZA
-LEAD PRIORITARIO - ACCIÓN INMEDIATA
-⚡ MÁXIMA PRIORIDAD - EL CLIENTE QUIERE RESERVAR PLAZA
+          _from: 'CEP Pre-inscripciones <agency.solaria@gmail.com>',
+          // Template de email para pre-inscripción
+          mensaje: `📝 PRE-INSCRIPCIÓN Y SOLICITUD DE INFORMACIÓN
+LEAD DE PRE-INSCRIPCIÓN - CONTACTAR PARA INFORMAR
+💼 CLIENTE INTERESADO - REQUIERE INFORMACIÓN Y FORMALIZACIÓN
 
-Lead de inscripción directa. Contactar INMEDIATAMENTE para confirmar reserva.
+Cliente solicita información completa y proceso de formalización.
 
-📋 TIPO DE LEAD: INSCRIPCIÓN DIRECTA (No es consulta informativa)
+📋 TIPO DE LEAD: PRE-INSCRIPCIÓN (Requiere información y formalización)
 
 👤 DATOS DEL SOLICITANTE
 Nombre Completo:    ${formData.nombre} ${formData.apellidos}
@@ -84,37 +84,37 @@ Nombre Completo:    ${formData.nombre} ${formData.apellidos}
 📧 Email:    ${formData.email}
 📍 Provincia:    ${formData.sede || 'No especificada'}
 ⏰ Disponibilidad:    ${formData.experiencia || 'No especificada'}
-🏢 Empresa Actual:    No aplicable - Ciclo Formativo
+🎓 Experiencia Previa:    ${formData.experiencia || 'No especificada'}
 
-🎓 CURSO PARA RESERVAR PLAZA
+🎓 CURSO DE INTERÉS
 Curso:    ${curso.nombre}
-Modalidad:    ciclos formativos
-Financiación:    Según modalidad
+Modalidad:    Privado/Ciclo Formativo
+Financiación:    Consultar condiciones y precios
 Fecha de Solicitud:    ${new Date().toISOString()}
-Estado:    🔴 PENDIENTE RESERVA DE PLAZA
+Estado:    🟡 PENDIENTE INFORMACIÓN Y FORMALIZACIÓN
 
 📋 CONSENTIMIENTOS GDPR
 Tratamiento de Datos:    ✅ ACEPTADO
 Marketing:    ✅ ACEPTADO
 
-🎯 PROTOCOLO INSCRIPCIÓN Y RESERVA DE PLAZA
-✅ CONTACTO INMEDIATO: Llamar a ${formData.telefono} en los próximos 30 minutos
-✅ CONFIRMAR INSCRIPCIÓN: Verificar que quiere proceder con la reserva de plaza
-✅ VERIFICAR REQUISITOS: Comprobar documentación necesaria para CICLOS
-✅ RESERVAR PLAZA: Confirmar disponibilidad y reservar plaza inmediatamente
-✅ DOCUMENTACIÓN: Enviar lista de documentos requeridos para formalizar
-✅ SEGUIMIENTO: Programar cita para entrega de documentos y firma
-✅ CONFIRMACIÓN: Email a ${formData.email} confirmando reserva de plaza
+📞 PROTOCOLO PRE-INSCRIPCIÓN
+✅ CONTACTO: Llamar a ${formData.telefono} en las próximas 2 horas
+✅ INFORMAR CONDICIONES: Explicar programa, duración, precios y modalidades de pago
+✅ VERIFICAR REQUISITOS: Comprobar documentación y requisitos de acceso
+✅ ENVIAR INFORMACIÓN: Email con programa completo, precios y condiciones
+✅ PROGRAMAR CITA: Agendar visita para formalización si está interesado
+✅ SEGUIMIENTO: Llamada de seguimiento en 3-5 días laborables
+✅ FORMALIZACIÓN: Proceso de matrícula una vez confirmado interés
 
-⏰ TIEMPO MÁXIMO DE RESPUESTA: 30 MINUTOS
+⏰ TIEMPO MÁXIMO DE RESPUESTA: 2 HORAS LABORABLES
 
-Este cliente ya decidió inscribirse - Solo falta confirmar y reservar plaza
+Este cliente necesita información completa antes de formalizar
 
 ${formData.comentarios ? `💬 COMENTARIOS ADICIONALES: ${formData.comentarios}` : ''}
 
-Sistema CEP - Lead de INSCRIPCIÓN DIRECTA • cepcomunicacion.com • Respuesta inmediata requerida
+Sistema CEP - Lead de PRE-INSCRIPCIÓN • cepcomunicacion.com • Información requerida
 
-NOTA: Este NO es un lead informativo - El cliente quiere inscribirse YA`
+NOTA: Cliente en fase de información - Requiere asesoramiento personalizado`
         };
 
         response = await fetch(proxyUrl, {
