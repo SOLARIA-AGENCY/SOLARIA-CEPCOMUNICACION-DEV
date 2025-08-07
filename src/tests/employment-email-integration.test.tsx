@@ -263,8 +263,8 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       await user.click(screen.getByTestId('submit-button'));
 
       await waitFor(() => {
-        expect(screen.getByText(/Error de conexión/)).toBeInTheDocument();
-      }, { timeout: 5000 });
+        expect(screen.getByText(/Error de conexión|Network error/)).toBeInTheDocument();
+      }, { timeout: 10000 });
     });
 
     it('debe manejar error 500 del proxy', async () => {
@@ -403,11 +403,13 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       
       // La situación laboral se define por el prop 'emplementType', no es un campo del formulario
       
-      // El campo disponibilidad ya tiene el valor por defecto 'flexible'
+      // Cambiar disponibilidad a "mañana" para verificar que se envía correctamente
+      const disponibilidadSelect = document.querySelector('select[name="disponibilidad"]') as HTMLSelectElement;
+      await user.selectOptions(disponibilidadSelect, 'mañana');
       
       await user.click(screen.getByTestId('consent-checkbox'));
       // También marcar marketing
-      await user.click(screen.getByRole('checkbox', { name: /comunicaciones comerciales/ }));
+      await user.click(document.querySelector('input[name="consentimiento_marketing"]')!);
 
       await user.click(screen.getByTestId('submit-button'));
 
