@@ -4,6 +4,7 @@ import { cursosOcupadosConfig } from '../../config/cursos-ocupados';
 import { cursosDesempleadosConfig } from '../../config/cursos-desempleados';
 // Import removed - not used directly in this component
 import CursoOcupadosPageComponent from '../../templates/CursoOcupadosPageComponent';
+import CursoDesempleadosPageComponent from '../../templates/CursoDesempleadosPageComponent';
 
 /**
  * DirectEmploymentWrapper - Componente para rutas directas de cursos de empleo desde Facebook Ads
@@ -25,18 +26,22 @@ const DirectEmploymentWrapper: React.FC = () => {
   const slug = currentPath.replace('/', ''); // Remover la barra inicial
 
   // Buscar el curso en ambas configuraciones
-  const curso = React.useMemo(() => {
-    if (!slug) return null;
-    
+  const { curso, isDesempleado } = React.useMemo(() => {
+    if (!slug) return { curso: null, isDesempleado: false };
+
     // Buscar en cursos ocupados
     const cursoOcupado = cursosOcupadosConfig.find(c => c.slug === slug);
-    if (cursoOcupado) return cursoOcupado;
-    
+    if (cursoOcupado) {
+      return { curso: cursoOcupado, isDesempleado: false };
+    }
+
     // Buscar en cursos desempleados
     const cursoDesempleado = cursosDesempleadosConfig.find(c => c.slug === slug);
-    if (cursoDesempleado) return cursoDesempleado;
-    
-    return null;
+    if (cursoDesempleado) {
+      return { curso: cursoDesempleado, isDesempleado: true };
+    }
+
+    return { curso: null, isDesempleado: false };
   }, [slug]);
 
   // Tracking específico para rutas directas de cursos de empleo
@@ -117,6 +122,10 @@ const DirectEmploymentWrapper: React.FC = () => {
   }
   
   // Renderizar usando el componente template apropiado
+  if (isDesempleado) {
+    return <CursoDesempleadosPageComponent curso={curso} />;
+  }
+  
   return <CursoOcupadosPageComponent curso={curso} />;
 };
 

@@ -25,6 +25,7 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
     // Reset environment variables
     vi.stubEnv('VITE_NOTIFICATION_EMAIL', 'agency.solaria@gmail.com');
     vi.stubEnv('VITE_FORMSUBMIT_PROXY_URL', 'http://localhost:3001/api/formsubmit-proxy');
+    vi.stubEnv('VITE_API_BASE_URL', 'https://www.cepcomunicacion.com');
   });
 
   afterEach(() => {
@@ -99,6 +100,11 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
         _format: 'plain',
         mensaje: expect.stringContaining('María González')
       });
+      
+      // Verificar contenido específico del mensaje
+      expect(requestBody.mensaje).toContain('NUEVA INSCRIPCIÓN CURSO SUBVENCIONADO');
+      expect(requestBody.mensaje).toContain('desempleados');
+      expect(requestBody.mensaje).toContain('administracion'); // El test selecciona 'administracion', no 'comercio'
     });
 
     it('debe incluir datos específicos de desempleados en email', async () => {
@@ -140,6 +146,7 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       // Verificar estructura de email específica para desempleados
       expect(requestBody._subject).toContain('Organización de Almacenes');
       expect(requestBody.mensaje).toContain('desempleados');
+      expect(requestBody.mensaje).toContain('comercio'); // Este test SÍ selecciona comercio
     });
   });
 
@@ -192,11 +199,13 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
         _subject: expect.stringContaining('Coaching de Equipos'),
         _template: 'box',
         _captcha: 'false',
+        _format: 'plain',
         mensaje: expect.stringContaining('Carlos Rodríguez')
       });
       
       // Verificar que incluye empresa en el mensaje
       expect(requestBody.mensaje).toContain('Tech Solutions S.L.');
+      expect(requestBody.mensaje).toContain('ocupados');
     });
 
     it('debe manejar empresa vacía para ocupados', async () => {
@@ -261,8 +270,11 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       await user.click(screen.getByTestId('submit-button'));
 
       await waitFor(() => {
-        expect(screen.getByText(/Error de conexión|Network error/)).toBeInTheDocument();
-      }, { timeout: 10000 });
+        // El componente debe mostrar el error en la sección de errores
+        const errorSection = document.querySelector('.bg-red-50');
+        expect(errorSection).toBeInTheDocument();
+        expect(errorSection).toHaveTextContent(/Error: Network error/);
+      }, { timeout: 5000 });
     });
 
     it('debe manejar error 500 del proxy', async () => {
@@ -377,6 +389,7 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       });
 
       expect(requestBody.mensaje).toContain(new Date().toISOString().split('T')[0]); // Contiene fecha ISO
+      expect(requestBody.mensaje).toContain('NUEVA INSCRIPCIÓN CURSO SUBVENCIONADO');
     });
 
     it('debe incluir información de disponibilidad y consentimientos', async () => {
@@ -402,12 +415,11 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
       // La situación laboral se define por el prop 'emplementType', no es un campo del formulario
       
       // Cambiar disponibilidad a "mañana" para verificar que se envía correctamente
-      const disponibilidadSelect = document.querySelector('select[name="disponibilidad"]') as HTMLSelectElement;
-      await user.selectOptions(disponibilidadSelect, 'mañana');
+      await user.selectOptions(screen.getByTestId('disponibilidad-select'), 'mañana');
       
       await user.click(screen.getByTestId('consent-checkbox'));
-      // También marcar marketing
-      await user.click(document.querySelector('input[name="consentimiento_marketing"]')!);
+      // También marcar marketing - buscar por name ya que no tiene data-testid
+      await user.click(document.querySelector('input[name="consentimiento_marketing"]') as HTMLInputElement);
 
       await user.click(screen.getByTestId('submit-button'));
 
@@ -467,9 +479,10 @@ describe('📧 SISTEMA EMAIL INTEGRATION - CURSOS SEPTIEMBRE', () => {
     });
 
     it('debe usar valores por defecto si env no está definido', async () => {
-      // Quitar variables de entorno
-      vi.stubEnv('VITE_NOTIFICATION_EMAIL', undefined);
-      vi.stubEnv('VITE_FORMSUBMIT_PROXY_URL', undefined);
+      // Quitar variables de entorno - usar string vacío en vez de undefined
+      vi.stubEnv('VITE_NOTIFICATION_EMAIL', '');
+      vi.stubEnv('VITE_FORMSUBMIT_PROXY_URL', '');
+      vi.stubEnv('VITE_API_BASE_URL', '');
 
       const mockFetch = vi.fn().mockResolvedValue({
         ok: true,

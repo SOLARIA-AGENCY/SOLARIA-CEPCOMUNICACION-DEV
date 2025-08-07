@@ -34,114 +34,39 @@ export default function CursoInscripcionModal({ curso, isOpen, onClose }: { curs
     e.preventDefault();
     setIsLoading(true);
 
-    // Preparar datos para el webhook de n8n
-    const _submissionData = {
-      nombre: `${formData.nombre} ${formData.apellidos}`.trim(),
-      email: formData.email.toLowerCase().trim(),
-      telefono: formData.telefono.trim(),
-      curso: curso.nombre,
-      sede: formData.sede,
-      experiencia: formData.experiencia,
-      comentarios: formData.comentarios.trim()
-    };
-
     try {
-      // TEMPORAL: Webhook n8n deshabilitado, usando FormSubmit directamente
-      console.log('🔄 Usando FormSubmit directamente para reserva de plaza');
+      // Usar API NodeMailer profesional para pre-inscripciones
+      console.log('📝 Enviando pre-inscripción via API NodeMailer profesional');
       
-      let response;
-      let result;
+      const apiUrl = import.meta.env.VITE_API_BASE_URL || 'https://www.cepcomunicacion.com';
       
-      try {
-        // Simular error para activar el fallback
-        throw new Error('Webhook n8n temporalmente deshabilitado - usando FormSubmit directamente');
-      } catch (webhookError) {
-        console.warn('Webhook n8n falló, usando fallback FormSubmit:', webhookError);
-        
-        // Fallback a FormSubmit usando proxy local (solución CORS)
-        const fallbackEmail = import.meta.env.VITE_NOTIFICATION_EMAIL || 'agency.solaria@gmail.com';
-        const proxyUrl = import.meta.env.VITE_FORMSUBMIT_PROXY_URL || 'http://localhost:3001/api/formsubmit-proxy';
-        
-        const formSubmitData = {
-          email: fallbackEmail, // Email de destino para el proxy
-          _subject: `📝 PRE-INSCRIPCIÓN PENDIENTE: ${formData.nombre} ${formData.apellidos} - ${curso.nombre}`,
-          _template: 'box',
-          _captcha: 'false',
-          _format: 'plain',
-          _from: 'CEP Pre-inscripciones <agency.solaria@gmail.com>',
-          // Template de email para pre-inscripción
-          mensaje: `📝 PRE-INSCRIPCIÓN Y SOLICITUD DE INFORMACIÓN
-LEAD DE PRE-INSCRIPCIÓN - CONTACTAR PARA INFORMAR
-💼 CLIENTE INTERESADO - REQUIERE INFORMACIÓN Y FORMALIZACIÓN
+      const response = await fetch(`${apiUrl}/api/curso-preinscripcion`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          apellidos: formData.apellidos,
+          email: formData.email,
+          telefono: formData.telefono,
+          curso: curso.nombre,
+          sede: formData.sede,
+          experiencia: formData.experiencia,
+          comentarios: formData.comentarios
+        })
+      });
 
-Cliente solicita información completa y proceso de formalización.
-
-📋 TIPO DE LEAD: PRE-INSCRIPCIÓN (Requiere información y formalización)
-
-👤 DATOS DEL SOLICITANTE
-Nombre Completo:    ${formData.nombre} ${formData.apellidos}
-📞 Teléfono:    ${formData.telefono}
-📧 Email:    ${formData.email}
-📍 Provincia:    ${formData.sede || 'No especificada'}
-⏰ Disponibilidad:    ${formData.experiencia || 'No especificada'}
-🎓 Experiencia Previa:    ${formData.experiencia || 'No especificada'}
-
-🎓 CURSO DE INTERÉS
-Curso:    ${curso.nombre}
-Modalidad:    Privado/Ciclo Formativo
-Financiación:    Consultar condiciones y precios
-Fecha de Solicitud:    ${new Date().toISOString()}
-Estado:    🟡 PENDIENTE INFORMACIÓN Y FORMALIZACIÓN
-
-📋 CONSENTIMIENTOS GDPR
-Tratamiento de Datos:    ✅ ACEPTADO
-Marketing:    ✅ ACEPTADO
-
-📞 PROTOCOLO PRE-INSCRIPCIÓN
-✅ CONTACTO: Llamar a ${formData.telefono} en las próximas 2 horas
-✅ INFORMAR CONDICIONES: Explicar programa, duración, precios y modalidades de pago
-✅ VERIFICAR REQUISITOS: Comprobar documentación y requisitos de acceso
-✅ ENVIAR INFORMACIÓN: Email con programa completo, precios y condiciones
-✅ PROGRAMAR CITA: Agendar visita para formalización si está interesado
-✅ SEGUIMIENTO: Llamada de seguimiento en 3-5 días laborables
-✅ FORMALIZACIÓN: Proceso de matrícula una vez confirmado interés
-
-⏰ TIEMPO MÁXIMO DE RESPUESTA: 2 HORAS LABORABLES
-
-Este cliente necesita información completa antes de formalizar
-
-${formData.comentarios ? `💬 COMENTARIOS ADICIONALES: ${formData.comentarios}` : ''}
-
-Sistema CEP - Lead de PRE-INSCRIPCIÓN • cepcomunicacion.com • Información requerida
-
-NOTA: Cliente en fase de información - Requiere asesoramiento personalizado`
-        };
-
-        response = await fetch(proxyUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formSubmitData)
-        });
-
-        if (!response.ok) {
-          throw new Error(`Proxy FormSubmit falló: ${response.status}`);
-        }
-
-        const proxyResult = await response.json();
-        if (!proxyResult.success) {
-          throw new Error(proxyResult.error || 'Error en proxy FormSubmit');
-        }
-
-        result = { success: true, fallback: true };
+      if (!response.ok) {
+        throw new Error(`API responded with status: ${response.status}`);
       }
+
+      const result = await response.json();
+      console.log('✅ Pre-inscripción enviada via API NodeMailer:', result);
       
-      if (result.success) {
-        setIsSent(true);
-      } else {
-        throw new Error('Error al procesar la reserva de plaza');
-      }
+      // Éxito - mostrar confirmación
+      setIsSent(true);
+
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
       alert('Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo.');
@@ -150,108 +75,197 @@ NOTA: Cliente en fase de información - Requiere asesoramiento personalizado`
     }
   };
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4 font-poppins">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[95vh] overflow-hidden relative flex flex-col">
-        
-        <div className="grid md:grid-cols-2 flex-grow min-h-0">
-          {/* Columna Izquierda - Imagen e Info */}
-          <div className="hidden md:flex flex-col bg-gray-100 p-8">
-            <div className="w-full h-48 rounded-lg overflow-hidden mb-6">
-              <img src={curso.imagen} alt={`Imagen de ${curso.nombre}`} className="w-full h-full object-cover" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">{curso.nombre}</h2>
-            <p className="text-gray-600 mb-6">Estás a un solo paso de asegurar tu futuro profesional. Rellena el formulario y nuestro equipo se pondrá en contacto contigo.</p>
-            <div className="mt-auto space-y-3 text-sm text-gray-500">
-              <p>✅ Plaza garantizada al completar la inscripción.</p>
-              <p>✅ Asesoramiento personalizado.</p>
-              <p>✅ Acceso a financiación y becas.</p>
-            </div>
-          </div>
+  const handleClose = () => {
+    if (isSent) {
+      navigate('/gracias-inscripcion');
+    } else {
+      onClose();
+    }
+  };
 
-          {/* Columna Derecha - Formulario */}
-          <div className="p-8 overflow-y-auto">
-            <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors z-20">
-              <X size={28} />
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+      <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        {isSent ? (
+          <div className="p-6 text-center">
+            <CheckCircle className="mx-auto mb-4 h-16 w-16 text-green-500" />
+            <h3 className="text-lg font-medium text-gray-900 mb-2">¡Solicitud Enviada!</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Tu solicitud de información ha sido enviada correctamente. 
+              Nos pondremos en contacto contigo en las próximas 2 horas laborables.
+            </p>
+            <button
+              onClick={handleClose}
+              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+            >
+              Continuar
             </button>
-            
-            {isSent ? (
-              <div className="flex flex-col items-center justify-center h-full text-center">
-                <CheckCircle className="w-20 h-20 text-green-500 mb-6" />
-                <h2 className="text-3xl font-bold text-gray-900 mb-3">¡Plaza Reservada!</h2>
-                <p className="text-gray-600 mb-8 max-w-sm">Gracias por reservar tu plaza en {curso.nombre}. Un asesor de CEP Formación se pondrá en contacto contigo muy pronto para confirmar tu reserva y guiarte en los siguientes pasos.</p>
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6 max-w-sm">
-                  <p className="text-sm text-green-700">
-                    <strong>Próximos pasos:</strong> Recibirás un email de confirmación y nuestro equipo se pondrá en contacto contigo en las próximas 24 horas para finalizar tu reserva.
-                  </p>
+          </div>
+        ) : (
+          <>
+            <div className="flex items-center justify-between p-6 border-b">
+              <div>
+                <h2 className="text-xl font-semibold text-gray-900">
+                  📝 Pre-inscripción
+                </h2>
+                <p className="text-sm text-gray-600 mt-1">
+                  {curso.nombre}
+                </p>
+              </div>
+              <button
+                onClick={handleClose}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSubmit} className="p-6">
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <User className="inline h-4 w-4 mr-1" />
+                      Nombre *
+                    </label>
+                    <input
+                      type="text"
+                      name="nombre"
+                      value={formData.nombre}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Tu nombre"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Apellidos *
+                    </label>
+                    <input
+                      type="text"
+                      name="apellidos"
+                      value={formData.apellidos}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Tus apellidos"
+                    />
+                  </div>
                 </div>
-                <button 
-                  onClick={() => navigate('/gracias-inscripcion', { state: { cursoNombre: curso.nombre } })}
-                  className="w-full bg-cep-primary hover:bg-cep-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-colors"
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Mail className="inline h-4 w-4 mr-1" />
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="tu@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <Phone className="inline h-4 w-4 mr-1" />
+                    Teléfono *
+                  </label>
+                  <input
+                    type="tel"
+                    name="telefono"
+                    value={formData.telefono}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="123 456 789"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <MapPin className="inline h-4 w-4 mr-1" />
+                    Sede de Preferencia
+                  </label>
+                  <select
+                    name="sede"
+                    value={formData.sede}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
+                    <option value="">Selecciona una sede</option>
+                    <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+                    <option value="Norte (Puerto de la Cruz)">Norte (Puerto de la Cruz)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Experiencia Previa
+                  </label>
+                  <input
+                    type="text"
+                    name="experiencia"
+                    value={formData.experiencia}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="¿Tienes experiencia en este área?"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <MessageSquare className="inline h-4 w-4 mr-1" />
+                    Comentarios Adicionales
+                  </label>
+                  <textarea
+                    name="comentarios"
+                    value={formData.comentarios}
+                    onChange={handleInputChange}
+                    rows={3}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="¿Alguna pregunta o comentario específico?"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className={`w-full py-3 px-4 rounded-md text-white font-medium transition-colors ${
+                    isLoading
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500'
+                  }`}
                 >
-                  Finalizar
+                  {isLoading ? (
+                    <div className="flex items-center justify-center space-x-2">
+                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      <span>Enviando...</span>
+                    </div>
+                  ) : (
+                    'Solicitar Información'
+                  )}
                 </button>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900">Reserva tu Plaza</h3>
-                  <p className="text-gray-500">Completa tus datos para continuar.</p>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><User size={14} className="mr-2"/>Nombre *</label>
-                    <input type="text" name="nombre" value={formData.nombre} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" disabled={isLoading} />
-                  </div>
-                  <div>
-                    <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><User size={14} className="mr-2"/>Apellidos *</label>
-                    <input type="text" name="apellidos" value={formData.apellidos} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" disabled={isLoading} />
-                  </div>
-                </div>
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><Mail size={14} className="mr-2"/>Email *</label>
-                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" disabled={isLoading} />
-                </div>
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><Phone size={14} className="mr-2"/>Teléfono *</label>
-                  <input type="tel" name="telefono" value={formData.telefono} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" disabled={isLoading} />
-                </div>
-                <div>
-                   <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><MapPin size={14} className="mr-2"/>Sede de Preferencia *</label>
-                   <select name="sede" value={formData.sede} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" disabled={isLoading}>
-                     <option value="">Selecciona una sede</option>
-                     <option value="CEP NORTE - La Orotava">CEP NORTE - La Orotava</option>
-                     <option value="CEP SUR - Arona">CEP SUR - Arona</option>
-                     <option value="CEP CENTRO - Santa Cruz">CEP CENTRO - Santa Cruz</option>
-                     <option value="Online">Online</option>
-                   </select>
-                 </div>
 
-                 <div>
-                   <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><User size={14} className="mr-2"/>Experiencia Previa</label>
-                   <select name="experiencia" value={formData.experiencia} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary" disabled={isLoading}>
-                     <option value="">Selecciona tu nivel</option>
-                     <option value="Sin experiencia">Sin experiencia</option>
-                     <option value="Básico">Básico</option>
-                     <option value="Intermedio">Intermedio</option>
-                     <option value="Avanzado">Avanzado</option>
-                   </select>
-                 </div>
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-700 mb-1"><MessageSquare size={14} className="mr-2"/>Comentarios</label>
-                  <textarea name="comentarios" value={formData.comentarios} onChange={handleInputChange} rows={2} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cep-primary resize-none" disabled={isLoading} />
-                </div>
-                <div className="flex items-start">
-                  <input type="checkbox" required className="w-4 h-4 text-cep-primary border-gray-300 rounded focus:ring-cep-primary mt-0.5" disabled={isLoading} />
-                  <label className="ml-3 text-sm text-gray-600">Acepto la <a href="/politica-privacidad" className="text-cep-primary hover:underline" target="_blank">política de privacidad</a>.*</label>
-                </div>
-                <button type="submit" disabled={isLoading} className="w-full bg-cep-primary hover:bg-cep-primary-dark text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-60">
-                  {isLoading ? 'Enviando...' : 'Reservar mi Plaza'}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
+              <div className="mt-3 text-center">
+                <p className="text-xs text-gray-500">
+                  Al enviar este formulario solicitas información sobre el curso.
+                  Te contactaremos en las próximas 2 horas laborables.
+                </p>
+              </div>
+            </form>
+          </>
+        )}
       </div>
     </div>
   );

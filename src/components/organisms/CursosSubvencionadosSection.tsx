@@ -16,6 +16,14 @@ const CursosSubvencionadosSection: React.FC = () => {
           </p>
         </div>
 
+        <div className="my-12">
+          <img 
+            src="/images/formacion-gratuita.jpg" 
+            alt="Formación Gratuita para trabajadores y desempleados" 
+            className="rounded-lg shadow-lg w-full object-cover h-auto max-h-60"
+          />
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Cursos para Ocupados */}
           <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">

@@ -276,8 +276,8 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
     );
 
     expect(screen.getByText('Organización de Almacenes')).toBeInTheDocument();
-    expect(screen.getByText('Curso para desempleados')).toBeInTheDocument();
-    expect(screen.getByTestId('nombre-input')).toBeInTheDocument();
+    expect(screen.getByText('Curso gratuito para desempleados')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Tu nombre')).toBeInTheDocument();
     expect(screen.getByTestId('sector-interes-select')).toBeInTheDocument();
   });
 
@@ -289,9 +289,9 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
     );
 
     expect(screen.getByText('Desarrollo Organizacional. Coaching de Equipos')).toBeInTheDocument();
-    expect(screen.getByText('Curso para trabajadores')).toBeInTheDocument();
-    expect(screen.getByTestId('nombre-input')).toBeInTheDocument();
-    expect(screen.getByTestId('empresa-input')).toBeInTheDocument();
+    expect(screen.getByText('Curso 100% subvencionado para trabajadores')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Tu nombre')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Nombre de tu empresa actual')).toBeInTheDocument();
   });
 
   it('debe mostrar campos específicos para desempleados en formulario de almacenes', () => {
@@ -302,7 +302,7 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
     );
 
     expect(screen.getByTestId('sector-interes-select')).toBeInTheDocument();
-    expect(screen.queryByTestId('empresa-input')).not.toBeInTheDocument();
+    expect(screen.queryByPlaceholderText('Nombre de tu empresa actual')).not.toBeInTheDocument();
   });
 
   it('debe mostrar campos específicos para ocupados en formulario de coaching', () => {
@@ -312,7 +312,7 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
       'ocupados'
     );
 
-    expect(screen.getByTestId('empresa-input')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Nombre de tu empresa actual')).toBeInTheDocument();
     expect(screen.queryByTestId('sector-interes-select')).not.toBeInTheDocument();
   });
 
@@ -324,7 +324,7 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
     );
 
     const user = userEvent.setup();
-    const submitButton = screen.getByTestId('submit-button');
+    const submitButton = screen.getByText('Enviar Inscripción');
 
     await user.click(submitButton);
 
@@ -349,19 +349,21 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
     const user = userEvent.setup();
 
     // Llenar formulario completo
-    await user.type(screen.getByTestId('nombre-input'), 'Juan');
-    await user.type(screen.getByTestId('apellidos-input'), 'Pérez');
-    await user.type(screen.getByTestId('email-input'), 'juan@example.com');
-    await user.type(screen.getByTestId('telefono-input'), '666777888');
-    await user.type(screen.getByTestId('empresa-input'), 'Mi Empresa S.L.');
-    await user.click(screen.getByTestId('consent-checkbox'));
+    await user.type(screen.getByPlaceholderText('Tu nombre'), 'Juan');
+    await user.type(screen.getByPlaceholderText('Tus apellidos'), 'Pérez');
+    await user.type(screen.getByPlaceholderText('tu@email.com'), 'juan@example.com');
+    await user.type(screen.getByPlaceholderText('123456789'), '666777888');
+    await user.type(screen.getByPlaceholderText('Nombre de tu empresa actual'), 'Mi Empresa S.L.');
+    // Marcar checkbox de consentimiento (primer checkbox = datos personales)
+    const consentCheckbox = screen.getAllByRole('checkbox')[0];
+    await user.click(consentCheckbox);
 
     // Enviar formulario
-    await user.click(screen.getByTestId('submit-button'));
+    await user.click(screen.getByText('Enviar Inscripción'));
 
     // Debe procesarse correctamente - verificar éxito en lugar de estado procesando
     await waitFor(() => {
-      expect(screen.getByText('¡Solicitud enviada correctamente!')).toBeInTheDocument();
+      expect(screen.getByText('¡Inscripción Enviada!')).toBeInTheDocument();
     }, { timeout: 5000 });
   });
 });

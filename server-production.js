@@ -257,6 +257,182 @@ app.post('/api/formsubmit-proxy', async (req, res) => {
 });
 
 // ================================================================
+// ENDPOINT CURSOS PRIVADOS - PRE-INSCRIPCIONES CEP
+// ================================================================
+
+app.post('/api/curso-preinscripcion', async (req, res) => {
+  console.log('📝 Pre-inscripción curso privado recibida:', req.body);
+  
+  try {
+    const {
+      nombre,
+      apellidos,
+      email,
+      telefono,
+      curso,
+      sede,
+      experiencia,
+      comentarios
+    } = req.body;
+
+    // Validación básica
+    if (!nombre || !email || !telefono || !curso) {
+      return res.status(400).json({
+        success: false,
+        error: 'Campos requeridos faltantes'
+      });
+    }
+
+    // Preparar email HTML profesional para pre-inscripciones
+    const emailHTML = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pre-inscripción Curso Privado CEP</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background-color: #f4f4f4;">
+        <div style="max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+            
+            <!-- Header -->
+            <div style="background: linear-gradient(135deg, #6f42c1, #5a31a3); padding: 30px; text-align: center; color: white;">
+                <h1 style="margin: 0; font-size: 24px;">📋 PRE-INSCRIPCIÓN Y SOLICITUD DE INFORMACIÓN</h1>
+                <p style="margin: 10px 0 0 0; font-size: 16px;">LEAD DE PRE-INSCRIPCIÓN - CONTACTAR PARA INFORMAR</p>
+            </div>
+
+            <!-- Contenido Principal -->
+            <div style="padding: 30px;">
+                <div style="background: #f3e5ff; border-left: 4px solid #6f42c1; padding: 15px; margin-bottom: 20px;">
+                    <p style="margin: 0; font-weight: bold; color: #6f42c1; font-size: 14px;">💼 CLIENTE INTERESADO - REQUIERE INFORMACIÓN Y FORMALIZACIÓN</p>
+                    <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">Cliente solicita información completa y proceso de formalización.</p>
+                </div>
+
+                <div style="background: #6f42c1; color: white; padding: 12px; margin-bottom: 20px; text-align: center;">
+                    <p style="margin: 0; font-size: 13px; font-weight: bold;">📋 TIPO DE LEAD: PRE-INSCRIPCIÓN (Requiere información y formalización)</p>
+                </div>
+
+                <h3 style="background: #f5f5f5; padding: 10px; margin: 0 0 15px 0; font-size: 14px; border-left: 3px solid #6f42c1;">👤 DATOS DEL CLIENTE</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13px; line-height: 1.6;">
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #dee2e6; width: 140px;">Nombre Completo:</td>
+                        <td style="padding: 12px; border: 1px solid #dee2e6;">${nombre} ${apellidos || ''}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #dee2e6;">📞 Teléfono:</td>
+                        <td style="padding: 12px; border: 1px solid #dee2e6; color: #dc3545; font-weight: bold;">
+                            <a href="tel:${telefono}" style="color: #dc3545;">${telefono}</a>
+                        </td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #dee2e6;">📧 Email:</td>
+                        <td style="padding: 12px; border: 1px solid #dee2e6;">
+                            <a href="mailto:${email}">${email}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #dee2e6;">📍 Sede:</td>
+                        <td style="padding: 12px; border: 1px solid #dee2e6;">${sede || 'No especificada'}</td>
+                    </tr>
+                    <tr style="background: #f8f9fa;">
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #dee2e6;">🎓 Experiencia:</td>
+                        <td style="padding: 12px; border: 1px solid #dee2e6;">${experiencia || 'No especificada'}</td>
+                    </tr>
+                </table>
+
+                <h3 style="background: #f5f5f5; padding: 10px; margin: 20px 0 15px 0; font-size: 14px; border-left: 3px solid #6f42c1;">🎓 CURSO DE INTERÉS</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13px; line-height: 1.6;">
+                    <tr style="background: #f3e5ff;">
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #c084fc; width: 140px;">Curso:</td>
+                        <td style="padding: 12px; border: 1px solid #c084fc; font-weight: bold;">${curso}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #c084fc;">Modalidad:</td>
+                        <td style="padding: 12px; border: 1px solid #c084fc;">Privado/Ciclo Formativo</td>
+                    </tr>
+                    <tr style="background: #f3e5ff;">
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #c084fc;">Financiación:</td>
+                        <td style="padding: 12px; border: 1px solid #c084fc;">Consultar condiciones y precios</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px; font-weight: bold; border: 1px solid #c084fc;">Estado:</td>
+                        <td style="padding: 12px; border: 1px solid #c084fc; color: #f59e0b; font-weight: bold;">🟡 PENDIENTE INFORMACIÓN Y FORMALIZACIÓN</td>
+                    </tr>
+                </table>
+
+                ${comentarios ? `
+                <h3 style="background: #f5f5f5; padding: 10px; margin: 20px 0 15px 0; font-size: 14px; border-left: 3px solid #6f42c1;">💬 COMENTARIOS ADICIONALES</h3>
+                <div style="background: #f8f9fa; padding: 15px; border-left: 3px solid #6c757d; margin-bottom: 20px;">
+                    <p style="margin: 0; font-style: italic;">${comentarios}</p>
+                </div>
+                ` : ''}
+
+                <div style="background: #6f42c1; color: white; padding: 20px; border-radius: 8px; margin-top: 20px;">
+                    <h2 style="color: white; margin-top: 0;">📞 PROTOCOLO PRE-INSCRIPCIÓN</h2>
+                    <ul style="margin: 0; padding-left: 20px; font-size: 12px; line-height: 1.8;">
+                        <li><strong>CONTACTO:</strong> Llamar a ${telefono} en las próximas 2 horas</li>
+                        <li><strong>INFORMAR CONDICIONES:</strong> Explicar programa, duración, precios y modalidades de pago</li>
+                        <li><strong>VERIFICAR REQUISITOS:</strong> Comprobar documentación y requisitos de acceso</li>
+                        <li><strong>ENVIAR INFORMACIÓN:</strong> Email con programa completo, precios y condiciones</li>
+                        <li><strong>PROGRAMAR CITA:</strong> Agendar visita para formalización si está interesado</li>
+                        <li><strong>SEGUIMIENTO:</strong> Llamada de seguimiento en 3-5 días laborables</li>
+                        <li><strong>FORMALIZACIÓN:</strong> Proceso de matrícula una vez confirmado interés</li>
+                    </ul>
+                </div>
+
+                <div style="background: #f59e0b; color: white; padding: 15px; border-radius: 5px; text-align: center; margin-top: 15px;">
+                    <p style="margin: 0; font-size: 14px; font-weight: bold;">⏰ TIEMPO MÁXIMO DE RESPUESTA: 2 HORAS LABORABLES</p>
+                    <p style="margin: 5px 0 0 0; font-size: 12px;">Este cliente necesita información completa antes de formalizar</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div style="background: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #dee2e6;">
+                <p style="margin: 0; color: #6c757d; font-size: 14px;">
+                    <strong>Sistema Automatizado CEP Formación - Pre-inscripciones</strong><br>
+                    Lead desde <span style="color: #6f42c1; font-weight: bold;">cepcomunicacion.com</span><br>
+                    Fecha: ${new Date().toLocaleString('es-ES')}
+                </p>
+                <p style="margin: 10px 0 0 0; font-size: 12px; color: #dc3545; font-weight: bold;">
+                    NOTA: Cliente en fase de información - Requiere asesoramiento personalizado
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>`;
+
+    // Configurar opciones del email
+    const mailOptions = {
+      from: `"CEP Pre-inscripciones" <${process.env.GMAIL_EMAIL}>`,
+      to: 'agency.solaria@gmail.com',
+      subject: `📋 PRE-INSCRIPCIÓN PENDIENTE: ${nombre} ${apellidos || ''} - ${curso}`,
+      html: emailHTML
+    };
+
+    // Enviar email
+    const info = await transporter.sendMail(mailOptions);
+    
+    console.log('✅ Email de pre-inscripción enviado via NodeMailer - ID:', info.messageId);
+
+    res.status(200).json({
+      success: true,
+      message: 'Pre-inscripción enviada exitosamente',
+      messageId: info.messageId,
+      provider: 'NodeMailer-Gmail'
+    });
+
+  } catch (error) {
+    console.error('❌ Error enviando pre-inscripción:', error);
+    
+    res.status(500).json({
+      success: false,
+      error: 'Error interno del servidor',
+      message: error.message
+    });
+  }
+});
+
+// ================================================================
 // MIDDLEWARE DE MANEJO DE ERRORES
 // ================================================================
 
@@ -287,7 +463,8 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`📍 Puerto: ${PORT}`);
   console.log(`🌐 Entorno: ${process.env.NODE_ENV || 'development'}`);
   console.log(`📧 Gmail: ${process.env.GMAIL_EMAIL}`);
-  console.log(`📨 Endpoint principal: /api/formsubmit-proxy`);
+  console.log(`📨 Endpoint empleo: /api/formsubmit-proxy`);
+  console.log(`📋 Endpoint pre-inscripciones: /api/curso-preinscripcion`);
   console.log(`🔍 Health check: /health`);
   console.log('================================================\n');
 });
