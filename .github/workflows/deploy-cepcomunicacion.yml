@@ -34,7 +34,9 @@ jobs:
           CI: true
           NODE_ENV: production
           TZ: UTC
-        run: npm ci --legacy-peer-deps
+        run: |
+          npm ci --legacy-peer-deps
+          npx husky install
         
       - name: 🏗️ Build Application
         env:
@@ -104,7 +106,9 @@ jobs:
           CI: true
           NODE_ENV: production
           TZ: UTC
-        run: npm ci --legacy-peer-deps
+        run: |
+          npm ci --legacy-peer-deps
+          npx husky install
         
       - name: 🏗️ Build for Production
         env:
