@@ -30,6 +30,12 @@ const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employ
   // Determinar si es ciclo formativo
   const esCiclo = curso.categoria === 'ciclos';
   
+  // Determinar si es curso para trabajadores ocupados
+  const esCursoOcupados = employmentFilter === 'ocupados';
+  
+  // Determinar si es curso para trabajadores desempleados
+  const esCursoDesempleados = employmentFilter === 'desempleados';
+  
   // Usar nuevo sistema inteligente de colores con lógica unificada
   const fechaTag = determinarColorEtiqueta(curso.inicio, esCiclo, fechaActual, curso);
   
@@ -40,12 +46,14 @@ const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employ
       <div className="relative">
         <img
           src={curso.imagen.includes('quiromasaje-11-meses') ? '/images/cursos/quiromasaje-11-meses-optimized.webp' : 
-               curso.imagen}
+               `${curso.imagen}?v=${curso.inicio}`}
           alt={`Imagen del curso ${curso.nombre}`}
           className="w-full h-40 sm:h-48 object-cover"
           loading="lazy"
           decoding="async"
         />
+        
+
         {/* Etiqueta de Estado/Fecha (Izquierda) */}
         <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white ${fechaTag.color}`}>
           {fechaTag.text}
@@ -58,27 +66,50 @@ const CursoCard: React.FC<CursoCardProps> = ({ curso, showEmploymentType, employ
           </div>
         )}
         
-        {/* Etiqueta de Tipo de Empleo (Derecha) */}
-        {showEmploymentType && employmentFilter && (
-          <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold text-white ${
-            employmentFilter === 'ocupados' ? 'bg-green-600' : 'bg-blue-600'
-          }`}>
-            {employmentFilter === 'ocupados' ? 'TRABAJADORES' : 'DESEMPLEADOS'}
-          </div>
-        )}
+        {/* Etiquetas superiores derecha */}
+
+        
+
         
         {curso.categoria === 'ciclos' && <NivelTag nivel={curso.subtitulo} />}
       </div>
       <div className="p-4 sm:p-6 flex-grow flex flex-col">
-        <h3 className="text-lg sm:text-xl font-bold text-cep-primary mb-2">{curso.nombre}</h3>
-        {duracion && <p className="text-xs text-gray-500 font-semibold mb-2 uppercase">{duracion}</p>}
+        <h3 className={`text-lg sm:text-xl font-bold mb-2 ${
+          esCursoOcupados ? 'text-green-600' : esCursoDesempleados ? 'text-blue-600' : 'text-cep-primary'
+        }`}>{curso.nombre}</h3>
+        
+        {/* Subtítulo específico para cursos ocupados */}
+        {esCursoOcupados && (
+          <p className="text-sm font-semibold text-green-700 mb-2 uppercase">
+            CURSO PARA TRABAJADORES OCUPADOS
+          </p>
+        )}
+        
+        {/* Subtítulo específico para cursos desempleados */}
+        {esCursoDesempleados && (
+          <p className="text-sm font-semibold text-blue-700 mb-2 uppercase">
+            CURSO DE TRABAJADORES DESEMPLEADOS
+          </p>
+        )}
+        
+        {duracion && <p className={`text-xs font-semibold mb-2 uppercase ${
+          esCursoDesempleados ? 'text-blue-500' : 'text-gray-500'
+        }`}>{duracion}</p>}
         <p className="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3">{curso.copy.slogan}</p>
         <Link
-          to={showEmploymentType && employmentFilter 
+          to={employmentFilter === 'desempleados'
             ? `/curso-desempleado/${curso.id}` 
+            : employmentFilter === 'ocupados'
+            ? `/curso-ocupado/${curso.id}`
             : `/curso/${curso.slug}`
           }
-          className="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+          className={`w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto ${
+            esCursoOcupados 
+              ? 'bg-green-600 text-white hover:bg-green-700' 
+              : esCursoDesempleados
+              ? 'bg-blue-600 text-white hover:bg-blue-700'
+              : 'bg-cep-primary text-white hover:bg-cep-primary-dark'
+          }`}
         >
           VER CURSO COMPLETO
         </Link>

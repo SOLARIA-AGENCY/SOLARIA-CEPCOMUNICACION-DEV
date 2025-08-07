@@ -47,6 +47,7 @@ const GestionCursosPage = lazy(() => import('./pages/admin/GestionCursosPage'));
 // 📚 Templates de cursos
 const CursoPageComponent = lazy(() => import('./components/templates/CursoPageComponent'));
 const CursoOcupadosPageComponent = lazy(() => import('./templates/CursoOcupadosPageComponent'));
+const CursoDesempleadosPageComponent = lazy(() => import('./templates/CursoDesempleadosPageComponent'));
 const DirectCourseWrapper = lazy(() => import('./components/templates/DirectCourseWrapper'));
 const SemanticCourseWrapper = lazy(() => import('./components/templates/SemanticCourseWrapper'));
 const DirectEmploymentWrapper = lazy(() => import('./components/templates/DirectEmploymentWrapper'));
@@ -115,7 +116,7 @@ const CursoDesempleadosDetailWrapper = () => {
   
   return (
     <Suspense fallback={<LoadingFallback />}>
-      <CursoOcupadosPageComponent curso={curso} />
+      <CursoDesempleadosPageComponent curso={curso} />
     </Suspense>
   );
 };

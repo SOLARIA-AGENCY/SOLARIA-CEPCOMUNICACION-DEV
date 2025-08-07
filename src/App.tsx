@@ -20,6 +20,7 @@ const SemanticCourseWrapper = lazy(() => import('./components/templates/Semantic
 const CursosOcupadosPage = lazy(() => import('./pages/CursosOcupadosPage'));
 const CursosDesempleadosPage = lazy(() => import('./pages/CursosDesempleadosPage'));
 const CursoOcupadosPageComponent = lazy(() => import('./templates/CursoOcupadosPageComponent'));
+const CursoDesempleadosPageComponent = lazy(() => import('./templates/CursoDesempleadosPageComponent'));
 const DirectEmploymentWrapper = lazy(() => import('./components/templates/DirectEmploymentWrapper'));
 const SemanticEmploymentWrapper = lazy(() => import('./components/templates/SemanticEmploymentWrapper'));
 const LegacyEmploymentRedirect = lazy(() => import('./components/templates/LegacyEmploymentRedirect'));
@@ -131,7 +132,7 @@ const CursoDesempleadosDetailWrapper = () => {
   if (loading) return <LoadingSpinner />;
   if (!curso) return <Navigate to="/cursos-desempleados" replace />;
   
-  return <CursoOcupadosPageComponent curso={curso} />;
+  return <CursoDesempleadosPageComponent curso={curso} />;
 };
 
 function App() {

@@ -363,7 +363,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
         <h1
           class="text-4xl sm:text-5xl font-extrabold text-cep-primary mb-4"
         >
-          Todos Nuestros Cursos
+          Nuestros cursos privados
         </h1>
         <p
           class="text-lg text-gray-600 max-w-2xl mx-auto"
@@ -436,11 +436,11 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2"
+                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
+                src="/images/cursos/farmacia-parafarmacia.jpg?v=7 de Julio de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -452,14 +452,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
-                Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2
+                Auxiliar de Farmacia y Parafarmacia
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 21/07/2025 - Lunes 10:00-13:00H
+                INICIO 13 OCTUBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -467,7 +467,53 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en el enlace entre el farmacéutico y el paciente.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
+                data-discover="true"
+                href="/curso/auxiliar-farmacia-parafarmacia-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2"
+                class="w-full h-40 sm:h-48 object-cover"
+                decoding="async"
+                loading="lazy"
+                src="/images/cursos/farmacia-parafarmacia.jpg?v=21 de Julio de 2025"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+              >
+                MATRÍCULA CERRADA
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
+              >
+                Auxiliar de Farmacia y Parafarmacia - Norte Grupo 2
+              </h3>
+              <p
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
+              >
+                INICIO 21 JULIO 2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Conviértete en el enlace entre el farmacéutico y el paciente.
+              </p>
+              <a
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-farmacia-parafarmacia-norte-grupo2-norte"
               >
@@ -486,7 +532,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
+                src="/images/cursos/auxiliar-veterinaria.jpg?v=28 de Mayo de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -498,14 +544,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Veterinaria
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 28/05/2025 - Miércoles 10:00-13:00H
+                INICIO 28 MAYO 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -513,7 +559,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Tu primer paso hacia una carrera dedicada al cuidado animal.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-clinico-veterinario-norte"
               >
@@ -532,7 +578,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
+                src="/images/cursos/auxiliar-veterinaria.jpg?v=25 de Junio de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -544,14 +590,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Ayudante Técnico Veterinario (ATV) Combo Tarde (La Laguna/Norte)
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio: 25/06/2025
+                INICIO 25 JUNIO 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -559,7 +605,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en un profesional especializado en asistencia veterinaria avanzada.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/ayudante-tecnico-veterinario-norte-norte"
               >
@@ -578,7 +624,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/Quiromasaje I.png"
+                src="/images/cursos/Quiromasaje I.png?v=19 de Junio de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -590,14 +636,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Quiromasaje (11 meses) - Norte
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 19/06/2025 - Jueves 16:00-20:00H
+                INICIO 19 JUNIO 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -605,55 +651,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en un profesional del masaje terapéutico en 11 meses.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/quiromasaje-11-meses-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Quiromasaje Nivel I"
-                class="w-full h-40 sm:h-48 object-cover"
-                decoding="async"
-                loading="lazy"
-                src="/images/cursos/Quiromasaje I.png"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
-              >
-                MATRÍCULA CERRADA
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje Nivel I
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 19/06/2025 - Jueves 16:00-20:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Iníciate en el arte del masaje terapéutico y el bienestar.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-nivel-1-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -670,7 +670,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/Quiromasaje II.png"
+                src="/images/cursos/Quiromasaje II.png?v=4 de Julio de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -687,14 +687,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Quiromasaje Nivel II
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 04/07/2025 - Viernes 10:00-14:00H
+                INICIO 04 JULIO 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -702,7 +702,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Avanza en tus técnicas y especialízate en masaje deportivo.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/quiromasaje-nivel2-norte"
               >
@@ -721,7 +721,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/adiestramiento-canino.jpg"
+                src="/images/cursos/adiestramiento-canino.jpg?v=Septiembre 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
@@ -733,14 +733,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Adiestramiento Canino Nivel 1
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio Septiembre - Horario pendiente confirmación
+                INICIO: POR CONFIRMAR
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -748,7 +748,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en un experto en el comportamiento y educación canina.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/adiestramiento-canino-norte"
               >
@@ -767,7 +767,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/dietetica-nutricion.jpg"
+                src="/images/cursos/dietetica-nutricion.jpg?v=Septiembre 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
@@ -779,14 +779,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Dietética y Nutrición
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio Septiembre 2025 - Jueves 17:00-20:00H
+                INICIO: POR CONFIRMAR
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -794,101 +794,9 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Promueve hábitos de vida saludable a través de la alimentación.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/dietetica-nutricion-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Auxiliar de Enfermería"
-                class="w-full h-40 sm:h-48 object-cover"
-                decoding="async"
-                loading="lazy"
-                src="/images/cursos/auxiliar-enfermeria.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
-              >
-                29 SEPTIEMBRE 2025
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Enfermería
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 29/09/2025 - Lunes 16:30-19:30H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Una vocación de servicio, una profesión con futuro garantizado.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-enfermeria-norte"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Auxiliar de Farmacia y Parafarmacia"
-                class="w-full h-40 sm:h-48 object-cover"
-                decoding="async"
-                loading="lazy"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
-              >
-                OCTUBRE 2025
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Farmacia y Parafarmacia
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 13/10/2025 - Lunes 16:00-19:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Conviértete en el enlace entre el farmacéutico y el paciente.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-farmacia-parafarmacia-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -905,10 +813,10 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
+                src="/images/cursos/farmacia-parafarmacia.jpg?v=13 de Octubre de 2025"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 OCTUBRE 2025
               </div>
@@ -917,14 +825,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Farmacia y Parafarmacia - Norte Tarde
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 13/10/2025 - Lunes 16:00-19:00H
+                INICIO 13 OCTUBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -932,9 +840,55 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en el enlace entre el farmacéutico y el paciente.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-farmacia-parafarmacia-norte-tarde-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Auxiliar de Enfermería"
+                class="w-full h-40 sm:h-48 object-cover"
+                decoding="async"
+                loading="lazy"
+                src="/images/cursos/auxiliar-enfermeria.jpg?v=Noviembre 2025"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+              >
+                NOVIEMBRE 2025
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
+              >
+                Auxiliar de Enfermería
+              </h3>
+              <p
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
+              >
+                INICIO 29 SEPTIEMBRE 2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Una vocación de servicio, una profesión con futuro garantizado.
+              </p>
+              <a
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
+                data-discover="true"
+                href="/curso/auxiliar-enfermeria-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -951,10 +905,10 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/auxiliar-odontologia.jpg"
+                src="/images/cursos/auxiliar-odontologia.jpg?v=27 de Noviembre de 2025"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 NOVIEMBRE 2025
               </div>
@@ -963,14 +917,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Odontología + Periodoncia
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 26/11/2025 - Miércoles 10:00-14:00
+                INICIO 26 NOVIEMBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -978,7 +932,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Asiste al odontólogo y mejora la salud bucodental de los pacientes.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-odontologia-norte"
               >
@@ -997,7 +951,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/adiestramiento-canino.jpg"
+                src="/images/cursos/adiestramiento-canino.jpg?v=Próximamente"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
@@ -1009,12 +963,12 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Adiestramiento Canino Nivel 2
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
                 Lunes 16-18:30h
               </p>
@@ -1024,7 +978,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Perfecciona tus habilidades y especialízate en adiestramiento avanzado.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/adiestramiento-canino-ii-norte"
               >
@@ -1043,26 +997,26 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/especializacion-sanitaria.jpg"
+                src="/images/cursos/especializacion-sanitaria.jpg?v=undefined"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
-                OCTUBRE 2025
+                PRÓXIMAMENTE
               </div>
             </div>
             <div
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Clínicas Estéticas
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 09/10/2025 - Jueves 10:30-13:30H
+                INICIO 09 OCTUBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1070,7 +1024,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Especialízate en medicina estética y centros de belleza.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-clinicas-esteticas-norte"
               >
@@ -1089,7 +1043,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/mundo-animal.jpg"
+                src="/images/cursos/especialista-animales-exoticos.jpg?v=undefined"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
@@ -1101,12 +1055,12 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Especialista en Animales Exóticos
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
                 7 meses / 28 sesiones
               </p>
@@ -1116,9 +1070,55 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Adéntrate en el fascinante mundo de las especies no convencionales.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/especialista-animales-exoticos-norte"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel I"
+                class="w-full h-40 sm:h-48 object-cover"
+                decoding="async"
+                loading="lazy"
+                src="/images/cursos/Quiromasaje I.png?v=undefined"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
+              >
+                Quiromasaje Nivel I
+              </h3>
+              <p
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
+              >
+                INICIO 19 JUNIO 2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Iníciate en el arte del masaje terapéutico y el bienestar.
+              </p>
+              <a
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel-1-norte"
               >
                 VER CURSO COMPLETO
               </a>
@@ -1135,26 +1135,26 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/especializacion-sanitaria.jpg"
+                src="/images/cursos/especializacion-sanitaria.jpg?v=undefined"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
-                11 SEPTIEMBRE 2025
+                PRÓXIMAMENTE
               </div>
             </div>
             <div
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Tanatoestética y Tanatopraxia (Agente Funerario)
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 11/09/2025 - Jueves 18:00-21:00H
+                INICIO 11 SEPTIEMBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1162,7 +1162,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Fórmate en una profesión esencial y de gran demanda social.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/agente-funerario-norte"
               >
@@ -1200,57 +1200,11 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Auxiliar de Veterinaria"
-                class="w-full h-40 sm:h-48 object-cover"
-                decoding="async"
-                loading="lazy"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
-              >
-                MATRÍCULA CERRADA
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Auxiliar de Veterinaria
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 28/05/2025 - Miércoles 10:00-13:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Tu primer paso hacia una carrera dedicada al cuidado animal.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/auxiliar-clinico-veterinario-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
                 alt="Imagen del curso Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)"
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/auxiliar-veterinaria.jpg"
+                src="/images/cursos/auxiliar-veterinaria.jpg?v=1 de Julio de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -1262,14 +1216,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Ayudante Técnico Veterinario (ATV) Combo (Santa Cruz)
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio: 01/07/2025
+                INICIO 01 JULIO 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1277,7 +1231,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en un profesional especializado en asistencia veterinaria avanzada.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/ayudante-tecnico-veterinario-santa-cruz-santacruz"
               >
@@ -1296,7 +1250,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/Quiromasaje I.png"
+                src="/images/cursos/Quiromasaje I.png?v=20 de Junio de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
@@ -1308,14 +1262,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Quiromasaje (11 meses) - Santa Cruz
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 20/06/2025 - Viernes 10:00-14:00H
+                INICIO 20 JUNIO 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1323,7 +1277,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en un profesional del masaje terapéutico en 11 meses.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/quiromasaje-11-meses-santacruz"
               >
@@ -1338,86 +1292,40 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="relative"
             >
               <img
-                alt="Imagen del curso Quiromasaje Nivel I"
+                alt="Imagen del curso Auxiliar de Veterinaria"
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/Quiromasaje I.png"
+                src="/images/cursos/auxiliar-veterinaria.jpg?v=9 de Septiembre de 2025"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
-                MATRÍCULA CERRADA
+                9 SEPTIEMBRE 2025
               </div>
             </div>
             <div
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
-                Quiromasaje Nivel I
+                Auxiliar de Veterinaria
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 19/06/2025 - Jueves 16:00-20:00H
+                INICIO 28 MAYO 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
               >
-                Iníciate en el arte del masaje terapéutico y el bienestar.
+                Tu primer paso hacia una carrera dedicada al cuidado animal.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
-                href="/curso/quiromasaje-nivel-1-santacruz"
-              >
-                VER CURSO COMPLETO
-              </a>
-            </div>
-          </div>
-          <div
-            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Imagen del curso Quiromasaje Nivel II"
-                class="w-full h-40 sm:h-48 object-cover"
-                decoding="async"
-                loading="lazy"
-                src="/images/cursos/Quiromasaje II.png"
-              />
-              <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-red-600"
-              >
-                MATRÍCULA CERRADA
-              </div>
-            </div>
-            <div
-              class="p-4 sm:p-6 flex-grow flex flex-col"
-            >
-              <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
-              >
-                Quiromasaje Nivel II
-              </h3>
-              <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
-              >
-                Inicio 04/07/2025 - Viernes 10:00-14:00H
-              </p>
-              <p
-                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
-              >
-                Avanza en tus técnicas y especialízate en masaje deportivo.
-              </p>
-              <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
-                data-discover="true"
-                href="/curso/quiromasaje-nivel2-santacruz"
+                href="/curso/auxiliar-clinico-veterinario-santacruz"
               >
                 VER CURSO COMPLETO
               </a>
@@ -1434,7 +1342,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/especializacion-sanitaria.jpg"
+                src="/images/cursos/especializacion-sanitaria.jpg?v=11 de Septiembre de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
@@ -1446,14 +1354,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Tanatoestética y Tanatopraxia (Agente Funerario)
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 11/09/2025 - Jueves 18:00-21:00H
+                INICIO 11 SEPTIEMBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1461,7 +1369,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Fórmate en una profesión esencial y de gran demanda social.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/agente-funerario-santacruz"
               >
@@ -1480,7 +1388,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/auxiliar-enfermeria.jpg"
+                src="/images/cursos/auxiliar-enfermeria.jpg?v=29 de Septiembre de 2025"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
@@ -1492,14 +1400,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Enfermería
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 29/09/2025 - Lunes 16:30-19:30H
+                INICIO 29 SEPTIEMBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1507,7 +1415,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Una vocación de servicio, una profesión con futuro garantizado.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-enfermeria-santacruz"
               >
@@ -1526,10 +1434,10 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/especializacion-sanitaria.jpg"
+                src="/images/cursos/especializacion-sanitaria.jpg?v=9 de Octubre de 2025"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 OCTUBRE 2025
               </div>
@@ -1538,14 +1446,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Clínicas Estéticas
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 09/10/2025 - Jueves 10:30-13:30H
+                INICIO 09 OCTUBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1553,7 +1461,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Especialízate en medicina estética y centros de belleza.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-clinicas-esteticas-santacruz"
               >
@@ -1572,10 +1480,10 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/farmacia-parafarmacia.jpg"
+                src="/images/cursos/farmacia-parafarmacia.jpg?v=13 de Octubre de 2025"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 OCTUBRE 2025
               </div>
@@ -1584,14 +1492,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Farmacia y Parafarmacia
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 13/10/2025 - Lunes 16:00-19:00H
+                INICIO 13 OCTUBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1599,7 +1507,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en el enlace entre el farmacéutico y el paciente.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-farmacia-parafarmacia-santacruz"
               >
@@ -1618,10 +1526,10 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/auxiliar-odontologia.jpg"
+                src="/images/cursos/auxiliar-odontologia.jpg?v=26 de Noviembre de 2025"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-green-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
               >
                 NOVIEMBRE 2025
               </div>
@@ -1630,14 +1538,14 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Auxiliar de Odontología + Periodoncia
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio 26/11/2025 - Miércoles 10:00-14:00
+                INICIO 26 NOVIEMBRE 2025
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1645,7 +1553,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Asiste al odontólogo y mejora la salud bucodental de los pacientes.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/auxiliar-odontologia-santacruz"
               >
@@ -1664,26 +1572,26 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/adiestramiento-canino.jpg"
+                src="/images/cursos/adiestramiento-canino.jpg?v=undefined"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
-                15 SEPTIEMBRE 2025
+                PRÓXIMAMENTE
               </div>
             </div>
             <div
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Adiestramiento Canino Nivel 1
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio Septiembre - Horario pendiente confirmación
+                INICIO: POR CONFIRMAR
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1691,7 +1599,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Conviértete en un experto en el comportamiento y educación canina.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/adiestramiento-canino-santacruz"
               >
@@ -1710,7 +1618,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/adiestramiento-canino.jpg"
+                src="/images/cursos/adiestramiento-canino.jpg?v=undefined"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
@@ -1722,12 +1630,12 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Adiestramiento Canino Nivel 2
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
                 Lunes 16-18:30h
               </p>
@@ -1737,7 +1645,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Perfecciona tus habilidades y especialízate en adiestramiento avanzado.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/adiestramiento-canino-ii-santacruz"
               >
@@ -1756,26 +1664,26 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/dietetica-nutricion.jpg"
+                src="/images/cursos/dietetica-nutricion.jpg?v=undefined"
               />
               <div
-                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-orange-500"
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
               >
-                15 SEPTIEMBRE 2025
+                PRÓXIMAMENTE
               </div>
             </div>
             <div
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Dietética y Nutrición
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
-                Inicio Septiembre 2025 - Jueves 17:00-20:00H
+                INICIO: POR CONFIRMAR
               </p>
               <p
                 class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
@@ -1783,7 +1691,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Promueve hábitos de vida saludable a través de la alimentación.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/dietetica-nutricion-santacruz"
               >
@@ -1802,7 +1710,7 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 class="w-full h-40 sm:h-48 object-cover"
                 decoding="async"
                 loading="lazy"
-                src="/images/cursos/mundo-animal.jpg"
+                src="/images/cursos/especialista-animales-exoticos.jpg?v=undefined"
               />
               <div
                 class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
@@ -1814,12 +1722,12 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
               class="p-4 sm:p-6 flex-grow flex flex-col"
             >
               <h3
-                class="text-lg sm:text-xl font-bold text-cep-primary mb-2"
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
               >
                 Especialista en Animales Exóticos
               </h3>
               <p
-                class="text-xs text-gray-500 font-semibold mb-2 uppercase"
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
               >
                 7 meses / 28 sesiones
               </p>
@@ -1829,9 +1737,101 @@ exports[`TodosLosCursosPage > matches snapshot 1`] = `
                 Adéntrate en el fascinante mundo de las especies no convencionales.
               </p>
               <a
-                class="w-full bg-cep-primary text-white py-2 px-4 rounded-lg hover:bg-cep-primary-dark transition-colors font-semibold text-center block text-sm sm:text-base mt-auto"
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
                 data-discover="true"
                 href="/curso/especialista-animales-exoticos-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel I"
+                class="w-full h-40 sm:h-48 object-cover"
+                decoding="async"
+                loading="lazy"
+                src="/images/cursos/Quiromasaje I.png?v=undefined"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
+              >
+                Quiromasaje Nivel I
+              </h3>
+              <p
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
+              >
+                INICIO 19 JUNIO 2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Iníciate en el arte del masaje terapéutico y el bienestar.
+              </p>
+              <a
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel-1-santacruz"
+              >
+                VER CURSO COMPLETO
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow h-full flex flex-col"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Imagen del curso Quiromasaje Nivel II"
+                class="w-full h-40 sm:h-48 object-cover"
+                decoding="async"
+                loading="lazy"
+                src="/images/cursos/Quiromasaje II.png?v=undefined"
+              />
+              <div
+                class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold text-white bg-gray-500"
+              >
+                PRÓXIMAMENTE
+              </div>
+            </div>
+            <div
+              class="p-4 sm:p-6 flex-grow flex flex-col"
+            >
+              <h3
+                class="text-lg sm:text-xl font-bold mb-2 text-cep-primary"
+              >
+                Quiromasaje Nivel II
+              </h3>
+              <p
+                class="text-xs font-semibold mb-2 uppercase text-gray-500"
+              >
+                INICIO 04 JULIO 2025
+              </p>
+              <p
+                class="text-sm sm:text-base text-gray-700 mb-4 flex-grow line-clamp-3"
+              >
+                Avanza en tus técnicas y especialízate en masaje deportivo.
+              </p>
+              <a
+                class="w-full py-2 px-4 rounded-lg transition-colors font-semibold text-center block text-sm sm:text-base mt-auto bg-cep-primary text-white hover:bg-cep-primary-dark"
+                data-discover="true"
+                href="/curso/quiromasaje-nivel2-santacruz"
               >
                 VER CURSO COMPLETO
               </a>

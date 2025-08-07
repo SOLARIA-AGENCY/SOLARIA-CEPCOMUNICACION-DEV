@@ -236,7 +236,7 @@ export const determinarColorEtiqueta = (
   
   if (!fechaCurso) {
     // Si no se puede parsear pero tiene texto, mostrar como mes/año
-    return { text: fechaFinal.toUpperCase(), color: 'bg-green-500' };
+    return { text: fechaFinal.toUpperCase(), color: 'bg-orange-500' };
   }
 
   // Calcular diferencia en días
@@ -254,7 +254,7 @@ export const determinarColorEtiqueta = (
     
     // Para fechas muy futuras (más de 60 días), mostrar solo mes y año
     if (diferenciaDias > 60) {
-      return { text: formatearMesAñoLegible(fechaCurso), color: 'bg-green-500' };
+      return { text: formatearMesAñoLegible(fechaCurso), color: 'bg-orange-500' };
     } else {
       // Para fechas próximas, mostrar fecha específica completa
       return { text: formatearFechaLegible(fechaCurso), color: 'bg-orange-500' };

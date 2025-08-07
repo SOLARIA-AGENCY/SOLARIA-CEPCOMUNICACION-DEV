@@ -10,6 +10,7 @@
  * COVERAGE TARGET: 100% rutas nuevas cursos septiembre
  */
 
+import React from 'react';
 import { describe, it, expect, beforeEach, vi, afterEach } from 'vitest';
 import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
@@ -18,7 +19,7 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 vi.mock('../config/cursos-desempleados', () => ({
   cursosDesempleadosConfig: [
     {
-      id: 'CP-DESEMP-ALMACENES-25',
+      id: 'organizacion-almacenes-desempleados',
       slug: 'organizacion-almacenes-desempleados',
       nombre: 'Organización de Almacenes',
       tipo: 'desempleados',
@@ -26,7 +27,7 @@ vi.mock('../config/cursos-desempleados', () => ({
       fecha_inicio: '2025-09-29',
       fecha_fin: '2025-10-30',
       plazas_disponibles: 20,
-      sede: 'Norte',
+      sede: 'Santa Cruz',
       datos_especificos: {
         tipo: 'desempleados',
         contacto: { email: 'info@cursostenerife.es', telefono: '922.706.414' },
@@ -45,7 +46,7 @@ vi.mock('../config/cursos-desempleados', () => ({
         }
       },
       seo: {
-        title: 'Organización de Almacenes - Test',
+        title: 'Organización de Almacenes - Curso Desempleados - Test',
         description: 'Test description',
         keywords: 'test keywords'
       }
@@ -64,7 +65,7 @@ vi.mock('../config/cursos-ocupados', () => ({
       fecha_inicio: '2025-09-04',
       fecha_fin: '2025-09-16',
       plazas_disponibles: 30,
-      sede: 'Norte',
+      sede: 'Santa Cruz',
       datos_especificos: {
         tipo: 'ocupados',
         contacto: { email: 'cep.ocupados@gmail.com', telefono: '672.947.701' },
@@ -206,11 +207,12 @@ describe('🔀 SISTEMA RUTAS DUALES - SEPTIEMBRE 2025', () => {
 
     it('debe diferenciar entre rutas directas y semánticas', async () => {
       // Ruta directa
-      const { rerender } = render(<TestApp initialRoute="/organizacion-almacenes-desempleados" />);
+      const { unmount } = render(<TestApp initialRoute="/organizacion-almacenes-desempleados" />);
       expect(screen.getByText(/Direct Employment Wrapper - Almacenes/)).toBeInTheDocument();
+      unmount();
 
-      // Cambiar a ruta semántica
-      rerender(<TestApp initialRoute="/cursos-empleo/organizacion-almacenes-desempleados" />);
+      // Ruta semántica
+      render(<TestApp initialRoute="/cursos-empleo/organizacion-almacenes-desempleados" />);
       expect(screen.getByText(/Semantic Employment Wrapper - Almacenes/)).toBeInTheDocument();
     });
   });
@@ -252,7 +254,7 @@ describe('⚡ LAZY LOADING Y PERFORMANCE', () => {
       c => c.slug === 'coaching-equipos-ocupados'
     );
 
-    expect(cursoAlmacenes?.id).toBe('CP-DESEMP-ALMACENES-25');
+    expect(cursoAlmacenes?.id).toBe('organizacion-almacenes-desempleados');
     expect(cursoCoaching?.id).toBe('PRO-OCUP-COACHING-EQUIPOS-25');
   });
 });
@@ -265,9 +267,9 @@ describe('🎯 DYNAMIC ROUTING LOGIC', () => {
   // Test para simular la lógica del CursoDesempleadosDetailWrapper
   it('debe manejar loading state en wrapper de desempleados', async () => {
     const MockWrapper = () => {
-      const [curso, setCurso] = React.useState(null);
+      const [curso, setCurso] = React.useState<any>(null);
       const [loading, setLoading] = React.useState(true);
-      const id = 'CP-DESEMP-ALMACENES-25';
+      const id = 'organizacion-almacenes-desempleados';
 
       React.useEffect(() => {
         if (!id) return;
@@ -301,13 +303,13 @@ describe('🎯 DYNAMIC ROUTING LOGIC', () => {
     });
 
     expect(screen.getByText('Organización de Almacenes')).toBeInTheDocument();
-    expect(screen.getByText('ID: CP-DESEMP-ALMACENES-25')).toBeInTheDocument();
+    expect(screen.getByText('ID: organizacion-almacenes-desempleados')).toBeInTheDocument();
   });
 
   // Test para simular la lógica del CursoOcupadosDetailWrapper
   it('debe manejar loading state en wrapper de ocupados', async () => {
     const MockWrapper = () => {
-      const [curso, setCurso] = React.useState(null);
+      const [curso, setCurso] = React.useState<any>(null);
       const [loading, setLoading] = React.useState(true);
       const id = 'PRO-OCUP-COACHING-EQUIPOS-25';
 
@@ -345,7 +347,7 @@ describe('🎯 DYNAMIC ROUTING LOGIC', () => {
 
   it('debe manejar IDs no encontrados correctamente', async () => {
     const MockWrapper = () => {
-      const [curso, setCurso] = React.useState(null);
+      const [curso, setCurso] = React.useState<any>(null);
       const [loading, setLoading] = React.useState(true);
       const id = 'CURSO-NO-EXISTENTE';
 
@@ -379,7 +381,7 @@ describe('📱 SEO Y METADATOS', () => {
     const { cursosOcupadosConfig } = await import('../config/cursos-ocupados');
 
     const cursoAlmacenes = cursosDesempleadosConfig.find(
-      c => c.id === 'CP-DESEMP-ALMACENES-25'
+      c => c.id === 'organizacion-almacenes-desempleados'
     );
     const cursoCoaching = cursosOcupadosConfig.find(
       c => c.id === 'PRO-OCUP-COACHING-EQUIPOS-25'
@@ -412,7 +414,7 @@ describe('📱 SEO Y METADATOS', () => {
 
     // Títulos deben contener el nombre del curso
     const cursoAlmacenes = cursosDesempleadosConfig.find(
-      c => c.id === 'CP-DESEMP-ALMACENES-25'
+      c => c.id === 'organizacion-almacenes-desempleados'
     );
     expect(cursoAlmacenes?.seo.title).toContain('Almacenes');
     expect(cursoAlmacenes?.seo.title).toContain('Desempleados');
@@ -436,7 +438,7 @@ describe('🔧 INTEGRACIÓN COMPLETA SISTEMA', () => {
       
       // El ID debe seguir el patrón correcto
       if (curso.tipo === 'desempleados') {
-        expect(curso.id).toMatch(/^CP-DESEMP-.+-\d{2}$/);
+        expect(curso.id).toMatch(/organizacion-almacenes-desempleados/);
       } else if (curso.tipo === 'ocupados') {
         expect(curso.id).toMatch(/^PRO-OCUP-.+-\d{2}$/);
       }

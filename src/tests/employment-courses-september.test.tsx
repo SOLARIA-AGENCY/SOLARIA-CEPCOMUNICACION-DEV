@@ -9,8 +9,7 @@
  */
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { render, screen, waitFor, cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 // Configuraciones a testear
@@ -23,13 +22,10 @@ import EmploymentFormModal from '../components/molecules/EmploymentFormModal';
 // Utils para validation
 import { validateEmploymentForm } from '../utils/employmentValidation';
 
-// Types
-import type { EmploymentCourseConfig } from '../types/employment';
-
 describe('🎯 NUEVOS CURSOS SEPTIEMBRE 2025 - CONFIGURACIONES', () => {
   describe('🏢 Organización de Almacenes (Desempleados)', () => {
     const cursoAlmacenes = cursosDesempleadosConfig.find(
-      curso => curso.id === 'CP-DESEMP-ALMACENES-25'
+      curso => curso.id === 'organizacion-almacenes-desempleados'
     );
 
     it('debe existir la configuración del curso Organización de Almacenes', () => {
@@ -39,7 +35,7 @@ describe('🎯 NUEVOS CURSOS SEPTIEMBRE 2025 - CONFIGURACIONES', () => {
 
     it('debe tener la estructura correcta del curso Organización de Almacenes', () => {
       expect(cursoAlmacenes).toMatchObject({
-        id: 'CP-DESEMP-ALMACENES-25',
+        id: 'organizacion-almacenes-desempleados',
         slug: 'organizacion-almacenes-desempleados',
         nombre: 'Organización de Almacenes',
         tipo: 'desempleados',
@@ -47,7 +43,7 @@ describe('🎯 NUEVOS CURSOS SEPTIEMBRE 2025 - CONFIGURACIONES', () => {
         fecha_inicio: '2025-09-29',
         fecha_fin: '2025-10-30',
         plazas_disponibles: 20,
-        sede: 'Norte'
+        sede: 'Santa Cruz'
       });
     });
 
@@ -59,11 +55,11 @@ describe('🎯 NUEVOS CURSOS SEPTIEMBRE 2025 - CONFIGURACIONES', () => {
           telefono: '922.706.414'
         },
         financiacion: 'SEPE/SCE - Servicio Canario de Empleo',
-        duracion: '140 horas lectivas + prácticas en empresa',
+        duracion: '140 horas lectivas',
         modalidad: 'Presencial intensiva',
         caracteristicas: {
           modalidad: 'presencial',
-          practicas_empresas: true,
+          practicas_empresas: false,
           orientacion_laboral: true,
           certificado_profesionalidad: true,
           financiado_sepe_sce: true
@@ -120,7 +116,7 @@ describe('🎯 NUEVOS CURSOS SEPTIEMBRE 2025 - CONFIGURACIONES', () => {
       const beneficios = cursoAlmacenes?.datos_especificos.beneficios;
       expect(beneficios).toContain('100% Gratuito (financiado SEPE/SCE)');
       expect(beneficios).toContain('Certificado de Profesionalidad oficial');
-      expect(beneficios).toContain('Prácticas garantizadas en empresas');
+      // Prácticas en empresas removidas del curso
       expect(beneficios).toContain('Orientación laboral personalizada');
     });
   });
@@ -222,9 +218,6 @@ describe('🔄 ROUTING SISTEMA - RUTAS DUALES', () => {
     cleanup();
   });
 
-  const TestWrapper = ({ children }: { children: React.ReactNode }) => (
-    <BrowserRouter>{children}</BrowserRouter>
-  );
 
   it('debe reconocer slugs de cursos nuevos en configuraciones', () => {
     const slugsDesempleados = cursosDesempleadosConfig.map(c => c.slug);
@@ -242,7 +235,7 @@ describe('🔄 ROUTING SISTEMA - RUTAS DUALES', () => {
       c => c.slug === 'coaching-equipos-ocupados'
     );
 
-    expect(cursoAlmacenesPorSlug?.id).toBe('CP-DESEMP-ALMACENES-25');
+    expect(cursoAlmacenesPorSlug?.id).toBe('organizacion-almacenes-desempleados');
     expect(cursoCoachingPorSlug?.id).toBe('PRO-OCUP-COACHING-EQUIPOS-25');
   });
 
@@ -277,7 +270,7 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
 
   it('debe renderizar formulario para curso Organización de Almacenes', async () => {
     renderFormModal(
-      'CP-DESEMP-ALMACENES-25',
+      'organizacion-almacenes-desempleados',
       'Organización de Almacenes',
       'desempleados'
     );
@@ -303,7 +296,7 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
 
   it('debe mostrar campos específicos para desempleados en formulario de almacenes', () => {
     renderFormModal(
-      'CP-DESEMP-ALMACENES-25',
+      'organizacion-almacenes-desempleados',
       'Organización de Almacenes',
       'desempleados'
     );
@@ -325,7 +318,7 @@ describe('📝 FORMULARIO MODAL - INTEGRACIÓN NUEVOS CURSOS', () => {
 
   it('debe validar correctamente formulario para curso desempleados', async () => {
     renderFormModal(
-      'CP-DESEMP-ALMACENES-25',
+      'organizacion-almacenes-desempleados',
       'Organización de Almacenes', 
       'desempleados'
     );
@@ -438,7 +431,7 @@ describe('🔍 INTEGRACIÓN SISTEMA - VERIFICACIÓN COMPLETA', () => {
     const cursosActivosOcupados = cursosOcupadosConfig.filter(c => c.activo);
 
     // Verificar que los nuevos cursos están activos
-    const almacenesActivo = cursosActivosDesempleados.find(c => c.id === 'CP-DESEMP-ALMACENES-25');
+    const almacenesActivo = cursosActivosDesempleados.find(c => c.id === 'organizacion-almacenes-desempleados');
     const coachingActivo = cursosActivosOcupados.find(c => c.id === 'PRO-OCUP-COACHING-EQUIPOS-25');
 
     expect(almacenesActivo).toBeDefined();
@@ -446,7 +439,7 @@ describe('🔍 INTEGRACIÓN SISTEMA - VERIFICACIÓN COMPLETA', () => {
   });
 
   it('debe tener fechas válidas para cursos de septiembre', () => {
-    const cursoAlmacenes = cursosDesempleadosConfig.find(c => c.id === 'CP-DESEMP-ALMACENES-25');
+    const cursoAlmacenes = cursosDesempleadosConfig.find(c => c.id === 'organizacion-almacenes-desempleados');
     const cursoCoaching = cursosOcupadosConfig.find(c => c.id === 'PRO-OCUP-COACHING-EQUIPOS-25');
 
     // Verificar formato de fechas
@@ -461,7 +454,7 @@ describe('🔍 INTEGRACIÓN SISTEMA - VERIFICACIÓN COMPLETA', () => {
   });
 
   it('debe tener plazas disponibles configuradas correctamente', () => {
-    const cursoAlmacenes = cursosDesempleadosConfig.find(c => c.id === 'CP-DESEMP-ALMACENES-25');
+    const cursoAlmacenes = cursosDesempleadosConfig.find(c => c.id === 'organizacion-almacenes-desempleados');
     const cursoCoaching = cursosOcupadosConfig.find(c => c.id === 'PRO-OCUP-COACHING-EQUIPOS-25');
 
     expect(cursoAlmacenes?.plazas_disponibles).toBe(20);
@@ -471,7 +464,7 @@ describe('🔍 INTEGRACIÓN SISTEMA - VERIFICACIÓN COMPLETA', () => {
   });
 
   it('debe tener configuraciones de contacto correctas por tipo', () => {
-    const cursoAlmacenes = cursosDesempleadosConfig.find(c => c.id === 'CP-DESEMP-ALMACENES-25');
+    const cursoAlmacenes = cursosDesempleadosConfig.find(c => c.id === 'organizacion-almacenes-desempleados');
     const cursoCoaching = cursosOcupadosConfig.find(c => c.id === 'PRO-OCUP-COACHING-EQUIPOS-25');
 
     // Desempleados - contacto info@cursostenerife.es

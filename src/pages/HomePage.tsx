@@ -165,10 +165,14 @@ const HomePage: React.FC = () => {
       destacado: true,
       categoria: 'sanidad' as const,
       imagen: curso.imagen || '/images/cursos/default-empleo.jpg',
+      employmentType: 'desempleados' as const,
       copy: {
         slogan: (curso.descripcion || 'Curso especializado para desempleados').substring(0, 120) + '...',
-        descripcion: curso.descripcion || 'Curso especializado para desempleados',
-        subtitulo: `Desempleados - ${curso.sede}`,
+        textosPrincipales: [],
+        titulos: []
+      },
+      descripcionDetallada: {
+        introduccion: curso.descripcion || 'Curso especializado para desempleados',
         puntosClave: [
           { icono: 'Clock', texto: curso.datos_especificos.duracion },
           { icono: 'Users', texto: 'Desempleados' },
@@ -192,10 +196,14 @@ const HomePage: React.FC = () => {
       destacado: true,
       categoria: 'sanidad' as const,
       imagen: curso.imagen || '/images/cursos/default-empleo.jpg',
+      employmentType: 'ocupados' as const,
       copy: {
         slogan: (curso.descripcion || 'Curso especializado para ocupados').substring(0, 120) + '...',
-        descripcion: curso.descripcion || 'Curso especializado para ocupados',
-        subtitulo: `Ocupados - ${curso.sede}`,
+        textosPrincipales: [],
+        titulos: []
+      },
+      descripcionDetallada: {
+        introduccion: curso.descripcion || 'Curso especializado para ocupados',
         puntosClave: [
           { icono: 'Clock', texto: curso.datos_especificos.duracion },
           { icono: 'Users', texto: 'Ocupados' },
@@ -378,7 +386,7 @@ const HomePage: React.FC = () => {
                 <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {cursosNorte.map((curso) => <CursoCard key={curso.codigo} curso={curso} />)}
+                {cursosNorte.map((curso) => <CursoCard key={curso.codigo} curso={curso} employmentFilter={(curso as any).employmentType} />)}
               </div>
             </div>
           )}
@@ -392,7 +400,7 @@ const HomePage: React.FC = () => {
                 <span className="flex-grow h-1 bg-cep-primary rounded-full"></span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                {cursosSantaCruz.map((curso) => <CursoCard key={curso.codigo} curso={curso} />)}
+                {cursosSantaCruz.map((curso) => <CursoCard key={curso.codigo} curso={curso} employmentFilter={(curso as any).employmentType} />)}
               </div>
             </div>
           )}

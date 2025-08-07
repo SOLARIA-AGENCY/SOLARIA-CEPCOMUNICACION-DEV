@@ -7,7 +7,7 @@ import { EmploymentCourseConfig } from '../types/employment';
 
 export const cursosDesempleadosConfig: EmploymentCourseConfig[] = [
   {
-    id: 'CP-DESEMP-ALMACENES-25',
+    id: 'organizacion-almacenes-desempleados',
     slug: 'organizacion-almacenes-desempleados',
     nombre: 'Organización de Almacenes',
     tipo: 'desempleados',
@@ -16,7 +16,7 @@ export const cursosDesempleadosConfig: EmploymentCourseConfig[] = [
     fecha_fin: '2025-10-30',
     plazas_disponibles: 20,
     sede: 'Santa Cruz',
-    imagen: '/images/cursos/organizacion-almacenes-profesionales.jpg',
+    imagen: '/images/cursos/organizacion-almacenes-septiembre-2025.png',
     descripcion: 'Curso especializado en diseño, organización y gestión integral de almacenes. Aprende las técnicas más avanzadas de logística, control de inventarios, gestión de equipos y aplicación de medidas de seguridad en el entorno del almacén.',
     objetivos: [
       'Diseñar y organizar almacenes eficientes según normativas y necesidades empresariales',
