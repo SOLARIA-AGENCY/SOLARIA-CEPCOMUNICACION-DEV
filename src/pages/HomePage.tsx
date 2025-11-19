@@ -17,17 +17,17 @@ import CursosSubvencionadosSection from '../components/organisms/CursosSubvencio
 const heroSlides = [
   {
     id: 1,
-    image: "/images/slideshow-3.jpg",
+    image: "/slideshow-3.jpg.webp",
     alt: "El momento es ahora"
   },
   {
     id: 2,
-    image: "/images/slideshow-1.jpg",
+    image: "/slideshow-1.jpg.webp",
     alt: "Creemos en el poder de la actitud"
   },
   {
     id: 3,
-    image: "/images/slideshow-2.jpg",
+    image: "/slideshow-2.jpg.webp",
     alt: "Creemos en ti"
   }
 ];
