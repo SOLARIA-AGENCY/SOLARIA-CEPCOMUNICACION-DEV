@@ -18,9 +18,7 @@ const PORT = process.env.PORT || 3001;
 // ================================================================
 
 // Helmet para headers de seguridad
-app.use(helmet({
-  contentSecurityPolicy: false, // Deshabilitado para desarrollo
-}));
+app.use(helmet());
 
 // Rate limiting - máximo 10 requests por IP cada 15 minutos
 const limiter = rateLimit({
